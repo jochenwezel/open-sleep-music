@@ -1,0 +1,44 @@
+name: Publish release artifacts
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  publish-android:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+      - name: Install Android workload
+        run: dotnet workload install android maui --skip-manifest-update
+      - name: Publish unsigned Android package
+        run: dotnet publish src/OpenSleepMusic.App/OpenSleepMusic.App.csproj --framework net10.0-android --configuration Release -p:AndroidPackageFormats=apk -p:AndroidKeyStore=false
+      - name: Upload Android artifact to release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ github.event.release.tag_name }}" src/OpenSleepMusic.App/bin/Release/net10.0-android/publish/*.apk --clobber
+
+  publish-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+      - name: Install MAUI workload
+        run: dotnet workload install maui-windows --skip-manifest-update
+      - name: Publish unpackaged Windows app
+        run: dotnet publish src/OpenSleepMusic.App/OpenSleepMusic.App.csproj --framework net10.0-windows10.0.19041.0 --configuration Release -p:WindowsPackageType=None -p:WindowsAppSDKSelfContained=true --output artifacts/windows
+      - name: Create archive
+        shell: pwsh
+        run: Compress-Archive -Path artifacts/windows/* -DestinationPath artifacts/open-sleep-music-windows-${{ github.event.release.tag_name }}.zip
+      - name: Upload Windows artifact to release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "${{ github.event.release.tag_name }}" artifacts/open-sleep-music-windows-${{ github.event.release.tag_name }}.zip --clobber

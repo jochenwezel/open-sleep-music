@@ -1,0 +1,27 @@
+name: Build and test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+      - name: Install MAUI workload
+        run: dotnet workload install maui-windows --skip-manifest-update
+      - name: Restore
+        run: dotnet restore src/OpenSleepMusic.App/OpenSleepMusic.App.csproj -p:TargetFramework=net10.0-windows10.0.19041.0
+      - name: Build desktop app
+        run: dotnet build src/OpenSleepMusic.App/OpenSleepMusic.App.csproj --framework net10.0-windows10.0.19041.0 --configuration Release --no-restore
+      - name: Test
+        run: dotnet test tests/OpenSleepMusic.Core.Tests/OpenSleepMusic.Core.Tests.csproj --configuration Release
