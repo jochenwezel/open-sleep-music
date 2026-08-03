@@ -8,4 +8,6 @@ public sealed record AudioTrack(
     Uri SourcePageUri,
     string License,
     Uri LicenseUri,
-    string FileName);
+    string FileName,
+    double DurationSeconds = 0,
+    string? Sha1 = null);

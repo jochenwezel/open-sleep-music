@@ -1,38 +1,32 @@
-# Reviewed starter media sources
+# Reviewed media catalog
 
-This list is the small seed catalog used by the prototype. Every entry links to both a direct download and the authoritative description page containing authorship and license information. A composition being in the public domain does **not** automatically make a modern recording public domain, so both layers must be reviewed before expanding the production catalog.
+The built-in catalog contains 149 entries in six sleep worlds, totaling about 18.7 hours. The exact per-file download URL, source page, creator, license, duration, file name, and SHA-1 (when supplied upstream) are stored in `src/OpenSleepMusic.Core/Catalog/media-catalog.json`.
 
-## Quiet Classics
+A composition being in the public domain does **not** automatically make a modern recording public domain. The catalog therefore uses recordings whose collection pages explicitly declare CC0 or public-domain status. It deliberately excludes tracks whose names indicate thunder or storms.
 
-| Track | Creator / performer | Direct download | Source and license | Declared license |
-| --- | --- | --- | --- | --- |
-| Chopin – Nocturne Op. 9 No. 2 | Musopen recording | [MP3](https://commons.wikimedia.org/wiki/Special:Redirect/file/Nocturne%20Op.%209%20no.%202%20in%20E%20flat%20major.mp3) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Nocturne_Op._9_no._2_in_E_flat_major.mp3) | CC0 1.0 |
-| Satie – Gymnopédie No. 1 | Kevin MacLeod | [MP3](https://commons.wikimedia.org/wiki/Special:Redirect/file/Gymnopedie%20No.%201%20%28ISRC%20USUAN1100787%29.mp3) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gymnopedie_No._1_(ISRC_USUAN1100787).mp3) | CC BY 3.0; attribution required |
-| Debussy – Clair de Lune | Laurens Goedhart | [Ogg](https://commons.wikimedia.org/wiki/Special:Redirect/file/Clair%20de%20lune%20%28Claude%20Debussy%29%20Suite%20bergamasque.ogg) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Clair_de_lune_(Claude_Debussy)_Suite_bergamasque.ogg) | CC BY 3.0; attribution required |
+## Collection sources
 
-## Gentle Rain
+| Sleep world | Entries | Approx. duration | Source collection | Declared license |
+| --- | ---: | ---: | --- | --- |
+| Quiet Classics | 93 | 5.05 h | [Musopen – Complete Works of Frédéric Chopin](https://archive.org/details/musopen-chopin-complete-works-flac) | CC0 1.0 |
+| Gentle Rain / Forest | 13 | 5.40 h | [Relaxing Rain Sounds](https://archive.org/details/relaxingrainsounds) | CC0 1.0 |
+| Rain / Forest / Waves | 4 | 1.66 h | [Nature Sounds (Birds, Rain, Water)](https://archive.org/details/naturesounds-soundtheraphy) | CC0 1.0 |
+| Gentle Rain | 28 | 2.64 h | [Rain Sounds, Gentle Rain, Thunderstorms](https://archive.org/details/rain-sounds-gentle-rain-thunderstorms) (only non-storm selections) | CC0 1.0 |
+| Water & Waves | 10 | 4.70 h | [Ocean and Sea Sounds](https://archive.org/details/ocean-sea-sounds) (only non-storm selections) | CC0 1.0 |
+| Fireplace | 1 | 4 min | [FireFavorite](https://archive.org/details/FireFavorite) / inchadney (Freesound) | CC0 1.0 |
+| Water & Waves | 1 | 4.8 min | [Waves by Dsw4](https://commons.wikimedia.org/wiki/File:Waves.ogg) | Public Domain |
+| Brown Noise | 1 | 10 sec | [Brownian noise by Kieff / LucasVB](https://commons.wikimedia.org/wiki/File:Brownnoise.ogg) | Public Domain / not copyrightable |
 
-| Track | Creator | Direct download | Source and license | Declared license |
-| --- | --- | --- | --- | --- |
-| Rain | ジダネ | [Ogg](https://commons.wikimedia.org/wiki/Special:Redirect/file/Rain.ogg) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rain.ogg) | Public Domain |
+The figures above reflect the generated catalog and are rounded. The update script fetches Internet Archive metadata, selects the approved files, and records upstream SHA-1 values. It does not download the audio during catalog generation.
 
-## Water & Waves
+## Rebuilding the catalog
 
-| Track | Creator | Direct download | Source and license | Declared license |
-| --- | --- | --- | --- | --- |
-| Waves | Dsw4 | [Ogg](https://commons.wikimedia.org/wiki/Special:Redirect/file/Waves.ogg) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Waves.ogg) | Public Domain |
+```powershell
+./tools/Update-MediaCatalog.ps1
+dotnet test tests/OpenSleepMusic.Core.Tests/OpenSleepMusic.Core.Tests.csproj --configuration Release
+```
 
-## Forest
-
-| Track | Creator | Direct download | Source and license | Declared license |
-| --- | --- | --- | --- | --- |
-| Forest ambience | nille | [Ogg](https://commons.wikimedia.org/wiki/Special:Redirect/file/20090610%200%20ambience.ogg) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:20090610_0_ambience.ogg) | Public Domain |
-
-## Brown Noise
-
-| Track | Creator | Direct download | Source and license | Declared license |
-| --- | --- | --- | --- | --- |
-| Brownian noise | Kieff / LucasVB | [Ogg](https://commons.wikimedia.org/wiki/Special:Redirect/file/Brownnoise.ogg) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brownnoise.ogg) | Public Domain / ineligible for copyright |
+Catalog tests require unique identifiers and filenames, HTTPS URLs, attribution and license metadata, positive durations, valid SHA-1 formatting, at least 140 entries and 15 hours of audio, and no storm/thunder titles.
 
 ## Catalog maintenance policy
 
