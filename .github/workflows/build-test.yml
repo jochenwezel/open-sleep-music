@@ -20,7 +20,9 @@ jobs:
       - name: Install MAUI workload
         run: dotnet workload install maui-windows --skip-manifest-update
       - name: Restore
-        run: dotnet restore src/OpenSleepMusic.App/OpenSleepMusic.App.csproj -p:TargetFramework=net10.0-windows10.0.19041.0
+        run: |
+          dotnet restore src/OpenSleepMusic.App/OpenSleepMusic.App.csproj -p:TargetFramework=net10.0-windows10.0.19041.0
+          dotnet restore src/OpenSleepMusic.Core/OpenSleepMusic.Core.csproj
       - name: Build desktop app
         run: dotnet build src/OpenSleepMusic.App/OpenSleepMusic.App.csproj --framework net10.0-windows10.0.19041.0 --configuration Release --no-restore
       - name: Test
