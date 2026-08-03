@@ -112,6 +112,10 @@ function New-CommonsTrack(
     }
 }
 
+$worlds['quiet-classics'].tracks.Add((New-CommonsTrack 'liszt-consolation-no-3' 'Franz Liszt – Consolation Nr. 3, Lento placido' 'Piano: Benedict Kramer; recording: Tobias Lohner' 'Franz Liszt - Consolation No. 3, Lento placido.ogg' 'https://commons.wikimedia.org/wiki/File:Franz_Liszt_-_Consolation_No._3,_Lento_placido.ogg' 'CC BY-SA 4.0' 'https://creativecommons.org/licenses/by-sa/4.0/' 'liszt-consolation-no-3.ogg' 226))
+$worlds['quiet-classics'].tracks.Add((New-CommonsTrack 'liszt-consolation-no-5' 'Franz Liszt – Consolation Nr. 5' 'Piano: Constantin Stephan' 'Liszt-ConsolationNo5.ogg' 'https://commons.wikimedia.org/wiki/File:Liszt-ConsolationNo5.ogg' 'CC BY-SA 4.0' 'https://creativecommons.org/licenses/by-sa/4.0/' 'liszt-consolation-no-5.ogg' 177))
+$worlds['quiet-classics'].tracks.Add((New-CommonsTrack 'liszt-romance-s-169' 'Franz Liszt – Romance S.169' 'Piano: Constantin Stephan' 'Franz Liszt, Romance S.169.ogg' 'https://commons.wikimedia.org/wiki/File:Franz_Liszt,_Romance_S.169.ogg' 'CC BY-SA 4.0' 'https://creativecommons.org/licenses/by-sa/4.0/' 'liszt-romance-s-169.ogg' 235))
+$worlds['quiet-classics'].tracks.Add((New-CommonsTrack 'liszt-au-bord-d-une-source' "Franz Liszt – Au bord d'une source" 'Piano: Randolph Hokanson' 'Liszt- au bord d une.ogg' 'https://commons.wikimedia.org/wiki/File:Liszt-_au_bord_d_une.ogg' 'CC BY-SA 1.0' 'https://creativecommons.org/licenses/by-sa/1.0/' 'liszt-au-bord-d-une-source.ogg' 298.34 '9585bb47222ac319eded8fbcd4193364c6854113'))
 $worlds.waves.tracks.Add((New-CommonsTrack 'lake-ontario-waves' 'Waves' 'Dsw4' 'Waves.ogg' 'https://commons.wikimedia.org/wiki/File:Waves.ogg' 'Public Domain' 'https://creativecommons.org/publicdomain/mark/1.0/' 'waves.ogg' 287))
 $worlds['brown-noise'].tracks.Add((New-CommonsTrack 'brown-noise' 'Brownian noise' 'Kieff / LucasVB' 'Brownnoise.ogg' 'https://commons.wikimedia.org/wiki/File:Brownnoise.ogg' 'Public Domain (not copyrightable)' 'https://creativecommons.org/publicdomain/mark/1.0/' 'brown-noise.ogg' 10 '30994e449ca187db99e87c16f853af487ad16944'))
 

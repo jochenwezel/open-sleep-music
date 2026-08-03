@@ -15,14 +15,14 @@ The project is at an early prototype stage. The first desktop interface offers c
 
 ## Included sleep worlds
 
-- Quiet Classics (93 tracks, about 5.1 hours)
+- Quiet Classics (97 tracks, about 5.3 hours)
 - Gentle Rain (34 tracks, about 5.4 hours)
 - Forest (9 tracks, about 3.4 hours)
 - Water & Waves (11 tracks, about 4.8 hours)
 - Fireplace
 - Brown Noise
 
-The built-in catalog currently contains 149 entries and about 18.7 hours of audio. Its reviewed collections and license pages are documented in [docs/music-sources.md](docs/music-sources.md). The complete machine-readable catalog is embedded in the app and can be regenerated with `tools/Update-MediaCatalog.ps1`.
+The built-in catalog currently contains 153 entries and about 19 hours of audio. Its reviewed collections and license pages are documented in [docs/music-sources.md](docs/music-sources.md). The complete machine-readable catalog is embedded in the app and can be regenerated with `tools/Update-MediaCatalog.ps1`.
 
 ## Open in Visual Studio
 

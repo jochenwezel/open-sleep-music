@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-08-03T11:56:50.1249946+00:00",
+  "generatedAtUtc": "2026-08-03T12:04:51.1615712+00:00",
   "sleepWorlds": [
     {
       "id": "quiet-classics",
@@ -1123,6 +1123,54 @@
           "fileName": "musopen-chopin-complete-works-flac-preludes-op-28-no-7-the-polish-dancer.mp3",
           "durationSeconds": 34.0,
           "sha1": "205695dab3c2ccb23470f0fe7dd648e41aa26bd8"
+        },
+        {
+          "id": "liszt-consolation-no-3",
+          "title": "Franz Liszt – Consolation Nr. 3, Lento placido",
+          "creator": "Piano: Benedict Kramer; recording: Tobias Lohner",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Franz%20Liszt%20-%20Consolation%20No.%203%2C%20Lento%20placido.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Franz_Liszt_-_Consolation_No._3,_Lento_placido.ogg",
+          "license": "CC BY-SA 4.0",
+          "licenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "fileName": "liszt-consolation-no-3.ogg",
+          "durationSeconds": 226.0,
+          "sha1": ""
+        },
+        {
+          "id": "liszt-consolation-no-5",
+          "title": "Franz Liszt – Consolation Nr. 5",
+          "creator": "Piano: Constantin Stephan",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Liszt-ConsolationNo5.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Liszt-ConsolationNo5.ogg",
+          "license": "CC BY-SA 4.0",
+          "licenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "fileName": "liszt-consolation-no-5.ogg",
+          "durationSeconds": 177.0,
+          "sha1": ""
+        },
+        {
+          "id": "liszt-romance-s-169",
+          "title": "Franz Liszt – Romance S.169",
+          "creator": "Piano: Constantin Stephan",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Franz%20Liszt%2C%20Romance%20S.169.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Franz_Liszt,_Romance_S.169.ogg",
+          "license": "CC BY-SA 4.0",
+          "licenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "fileName": "liszt-romance-s-169.ogg",
+          "durationSeconds": 235.0,
+          "sha1": ""
+        },
+        {
+          "id": "liszt-au-bord-d-une-source",
+          "title": "Franz Liszt – Au bord d'une source",
+          "creator": "Piano: Randolph Hokanson",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Liszt-%20au%20bord%20d%20une.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Liszt-_au_bord_d_une.ogg",
+          "license": "CC BY-SA 1.0",
+          "licenseUri": "https://creativecommons.org/licenses/by-sa/1.0/",
+          "fileName": "liszt-au-bord-d-une-source.ogg",
+          "durationSeconds": 298.34,
+          "sha1": "9585bb47222ac319eded8fbcd4193364c6854113"
         }
       ]
     },

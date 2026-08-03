@@ -1,6 +1,6 @@
 # Reviewed media catalog
 
-The built-in catalog contains 149 entries in six sleep worlds, totaling about 18.7 hours. The exact per-file download URL, source page, creator, license, duration, file name, and SHA-1 (when supplied upstream) are stored in `src/OpenSleepMusic.Core/Catalog/media-catalog.json`.
+The built-in catalog contains 153 entries in six sleep worlds, totaling about 19 hours. The exact per-file download URL, source page, creator, license, duration, file name, and SHA-1 (when supplied upstream) are stored in `src/OpenSleepMusic.Core/Catalog/media-catalog.json`.
 
 A composition being in the public domain does **not** automatically make a modern recording public domain. The catalog therefore uses recordings whose collection pages explicitly declare CC0 or public-domain status. It deliberately excludes tracks whose names indicate thunder or storms.
 
@@ -9,6 +9,7 @@ A composition being in the public domain does **not** automatically make a moder
 | Sleep world | Entries | Approx. duration | Source collection | Declared license |
 | --- | ---: | ---: | --- | --- |
 | Quiet Classics | 93 | 5.05 h | [Musopen – Complete Works of Frédéric Chopin](https://archive.org/details/musopen-chopin-complete-works-flac) | CC0 1.0 |
+| Quiet Classics | 4 | 15.6 min | [Liszt audio files on Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Audio_files_of_music_by_Franz_Liszt): Consolations 3 and 5, Romance S.169, Au bord d'une source | CC BY-SA 4.0 / 1.0 |
 | Gentle Rain / Forest | 13 | 5.40 h | [Relaxing Rain Sounds](https://archive.org/details/relaxingrainsounds) | CC0 1.0 |
 | Rain / Forest / Waves | 4 | 1.66 h | [Nature Sounds (Birds, Rain, Water)](https://archive.org/details/naturesounds-soundtheraphy) | CC0 1.0 |
 | Gentle Rain | 28 | 2.64 h | [Rain Sounds, Gentle Rain, Thunderstorms](https://archive.org/details/rain-sounds-gentle-rain-thunderstorms) (only non-storm selections) | CC0 1.0 |
