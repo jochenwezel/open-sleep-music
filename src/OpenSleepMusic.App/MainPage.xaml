@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OpenSleepMusic.App.MainPage"
+             BackgroundColor="#0B1020"
+             Title="Schlafwelten">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="32" RowSpacing="22">
+        <VerticalStackLayout Grid.Row="0" Spacing="6">
+            <Label Text="open sleep music"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   TextColor="#F7F3FF" />
+            <Label Text="Kostenlose, frei lizenzierte Klänge für eine ruhige Nacht"
+                   FontSize="16"
+                   TextColor="#B8B5C8" />
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1"
+                        x:Name="WorldsView"
+                        SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="16" VerticalItemSpacing="16" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="#171D31"
+                            Stroke="#29304B"
+                            StrokeThickness="1"
+                            Padding="20">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="18" />
+                        </Border.StrokeShape>
+                        <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="8">
+                            <Label Grid.Row="0" Text="{Binding Icon}" FontSize="32" />
+                            <Label Grid.Row="1" Text="{Binding Name}" FontSize="20" FontAttributes="Bold" TextColor="#F7F3FF" />
+                            <Label Grid.Row="2" Text="{Binding Description}" FontSize="13" TextColor="#B8B5C8" />
+                            <Button Grid.Row="3"
+                                    Margin="0,8,0,0"
+                                    Text="Sammlung herunterladen"
+                                    CommandParameter="{Binding .}"
+                                    Clicked="OnDownloadClicked"
+                                    BackgroundColor="#7367F0"
+                                    TextColor="White"
+                                    CornerRadius="12" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Grid.Row="2" ColumnDefinitions="*,Auto" ColumnSpacing="16">
+            <VerticalStackLayout Spacing="5">
+                <Label x:Name="StatusLabel" Text="Bereit" TextColor="#DAD6E8" />
+                <ProgressBar x:Name="DownloadProgress" Progress="0" ProgressColor="#8A7FFF" />
+            </VerticalStackLayout>
+            <Button Grid.Column="1"
+                    Text="Download-Ordner öffnen"
+                    Clicked="OnOpenFolderClicked"
+                    BackgroundColor="#252C45"
+                    TextColor="#F7F3FF"
+                    CornerRadius="12" />
+        </Grid>
+    </Grid>
+</ContentPage>
