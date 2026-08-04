@@ -4,10 +4,11 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:OpenSleepMusic.App"
-    Title="Open Sleep Music">
+    Title="Open Sleep Music"
+    Shell.NavBarIsVisible="False">
 
     <ShellContent
-        Title="Schlafwelten"
+        Title="Open Sleep Music"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
