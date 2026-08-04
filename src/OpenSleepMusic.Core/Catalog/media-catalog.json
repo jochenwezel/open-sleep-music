@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-08-03T12:04:51.1615712+00:00",
+  "generatedAtUtc": "2026-08-04T08:16:34.3190051+00:00",
   "sleepWorlds": [
     {
       "id": "quiet-classics",
@@ -1691,25 +1691,13 @@
           "fileName": "naturesounds-soundtheraphy-relaxing-nature-sounds-birdsong-sound.mp3",
           "durationSeconds": 582.06,
           "sha1": "5175f4db6dec98e8877fc1d859af1875418df53b"
-        },
-        {
-          "id": "naturesounds-soundtheraphy-relaxing-nature-sounds-trickling-stream-sounds-birds-mp3",
-          "title": "Relaxing Nature Sounds - Trickling Stream Sounds & Birds",
-          "creator": "Internet Archive contributor; CC0 collection",
-          "downloadUri": "https://archive.org/download/naturesounds-soundtheraphy/Relaxing%20Nature%20Sounds%20-%20Trickling%20Stream%20Sounds%20%26%20Birds.mp3",
-          "sourcePageUri": "https://archive.org/details/naturesounds-soundtheraphy",
-          "license": "CC0 1.0",
-          "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "fileName": "naturesounds-soundtheraphy-relaxing-nature-sounds-trickling-stream-sounds-birds.mp3",
-          "durationSeconds": 1597.13,
-          "sha1": "014af7adcd6ca0490e55d459e80fa49349c5eea2"
         }
       ]
     },
     {
       "id": "waves",
       "name": "Wasser & Wellen",
-      "description": "Meereswellen, Strand und gleichmäßige Wassergeräusche.",
+      "description": "Meereswellen, Strand, Bachplätschern und gleichmäßige Wassergeräusche.",
       "icon": "🌊",
       "tracks": [
         {
@@ -1723,6 +1711,18 @@
           "fileName": "naturesounds-soundtheraphy-birds-with-ocean-waves-on-the-beach.mp3",
           "durationSeconds": 1650.02,
           "sha1": "5a7c47eb88246bbdf97938eb8a09a263f10b85ee"
+        },
+        {
+          "id": "naturesounds-soundtheraphy-relaxing-nature-sounds-trickling-stream-sounds-birds-mp3",
+          "title": "Relaxing Nature Sounds - Trickling Stream Sounds & Birds",
+          "creator": "Internet Archive contributor; CC0 collection",
+          "downloadUri": "https://archive.org/download/naturesounds-soundtheraphy/Relaxing%20Nature%20Sounds%20-%20Trickling%20Stream%20Sounds%20%26%20Birds.mp3",
+          "sourcePageUri": "https://archive.org/details/naturesounds-soundtheraphy",
+          "license": "CC0 1.0",
+          "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "fileName": "naturesounds-soundtheraphy-relaxing-nature-sounds-trickling-stream-sounds-birds.mp3",
+          "durationSeconds": 1597.13,
+          "sha1": "014af7adcd6ca0490e55d459e80fa49349c5eea2"
         },
         {
           "id": "ocean-sea-sounds-gentle-ocean-mp3",

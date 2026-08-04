@@ -56,7 +56,7 @@ $worlds = [ordered]@{
     'quiet-classics' = [ordered]@{ name = 'Ruhige Klassik'; description = 'Nocturnes, Mazurken und sanfte Klavierminiaturen von Frédéric Chopin.'; icon = '🎹'; tracks = [Collections.Generic.List[object]]::new() }
     rain = [ordered]@{ name = 'Sanfter Regen'; description = 'Leichter bis kräftiger Regen, ohne ausgewählte Gewitterspitzen.'; icon = '🌧️'; tracks = [Collections.Generic.List[object]]::new() }
     forest = [ordered]@{ name = 'Wald'; description = 'Lange Wald- und Regenwaldaufnahmen mit Wind, Wasser und Vögeln.'; icon = '🌲'; tracks = [Collections.Generic.List[object]]::new() }
-    waves = [ordered]@{ name = 'Wasser & Wellen'; description = 'Meereswellen, Strand und gleichmäßige Wassergeräusche.'; icon = '🌊'; tracks = [Collections.Generic.List[object]]::new() }
+    waves = [ordered]@{ name = 'Wasser & Wellen'; description = 'Meereswellen, Strand, Bachplätschern und gleichmäßige Wassergeräusche.'; icon = '🌊'; tracks = [Collections.Generic.List[object]]::new() }
     fireplace = [ordered]@{ name = 'Kaminfeuer'; description = 'Ruhiges Knistern eines Kaminfeuers.'; icon = '🔥'; tracks = [Collections.Generic.List[object]]::new() }
     'brown-noise' = [ordered]@{ name = 'Braunes Rauschen'; description = 'Tiefes, gleichmäßiges Rauschen ohne plötzliche Spitzen.'; icon = '🟤'; tracks = [Collections.Generic.List[object]]::new() }
 }
@@ -79,7 +79,7 @@ Get-OriginalMp3 $rainCollection | Sort-Object name | ForEach-Object {
 $natureCollection = Get-ArchiveMetadata 'naturesounds-soundtheraphy'
 Get-OriginalMp3 $natureCollection | Sort-Object name | ForEach-Object {
     if ($_.name -match 'Thunder|thunder|storm|Storm') { return }
-    $target = if ($_.name -match 'Ocean|Sea') { 'waves' } elseif ($_.name -match 'Bird|Stream') { 'forest' } else { 'rain' }
+    $target = if ($_.name -match 'Ocean|Sea|Stream') { 'waves' } elseif ($_.name -match 'Bird') { 'forest' } else { 'rain' }
     $worlds[$target].tracks.Add((New-ArchiveTrack $natureCollection $_ 'Internet Archive contributor; CC0 collection'))
 }
 

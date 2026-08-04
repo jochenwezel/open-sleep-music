@@ -17,8 +17,8 @@ The project is at an early prototype stage. The first desktop interface offers c
 
 - Quiet Classics (97 tracks, about 5.3 hours)
 - Gentle Rain (34 tracks, about 5.4 hours)
-- Forest (9 tracks, about 3.4 hours)
-- Water & Waves (11 tracks, about 4.8 hours)
+- Forest (8 tracks, about 3 hours)
+- Water & Waves (12 tracks, about 5.2 hours)
 - Fireplace
 - Brown Noise
 
