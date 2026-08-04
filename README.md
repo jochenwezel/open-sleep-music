@@ -2,7 +2,7 @@
 
 Open Sleep Music is a privacy-friendly, advertising-free app for downloading and playing freely licensed sleep music and ambient sounds offline.
 
-The project is at an early prototype stage. The first desktop interface offers curated **sleep worlds** and downloads all currently available tracks in a collection. Individual unavailable or invalid downloads never stop the batch: desktop builds record technical details locally, while the interface continues with every usable track.
+The project is at an early prototype stage. The desktop interface offers curated **sleep worlds**, resilient collection downloads, a validated local library, playback controls, seeking, automatic track changes, and a sleep timer. Individual unavailable or invalid downloads never stop the batch: desktop builds record technical details locally, while the interface continues with every usable track.
 
 ## Principles
 
@@ -31,6 +31,7 @@ Requirements:
 - Visual Studio 2026 or a compatible Visual Studio release
 - .NET 10 SDK
 - .NET MAUI workload with the desired platform components
+- Android 8.0 (API 26) or newer for Android playback
 
 Open `OpenSleepMusic.sln`, select `OpenSleepMusic.App`, choose the Windows target, and run it. The downloaded files are stored below the current user's Music folder in `Open Sleep Music/<sleep-world>`.
 
