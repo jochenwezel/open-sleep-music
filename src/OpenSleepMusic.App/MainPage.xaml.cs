@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using OpenSleepMusic.Core.Catalog;
 using OpenSleepMusic.Core.Downloads;
 
@@ -52,6 +53,12 @@ public partial class MainPage : ContentPage
         {
             StatusLabel.Text = "Download angehalten.";
         }
+        catch (Exception)
+        {
+            // Never let an unexpected batch-level failure escape an async UI event handler.
+            // Individual media errors are already logged and skipped by SleepWorldDownloader.
+            StatusLabel.Text = "Der Download wurde unerwartet beendet. Andere Sammlungen können weiter verwendet werden.";
+        }
         finally
         {
             button.IsEnabled = true;
@@ -60,9 +67,31 @@ public partial class MainPage : ContentPage
 
     private async void OnOpenFolderClicked(object? sender, EventArgs e)
     {
-        Directory.CreateDirectory(_downloadRoot);
-        await Launcher.Default.OpenAsync(new OpenFileRequest(
-            "Open Sleep Music",
-            new ReadOnlyFile(_downloadRoot)));
+        try
+        {
+            Directory.CreateDirectory(_downloadRoot);
+
+            if (OperatingSystem.IsWindows())
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "explorer.exe",
+                    Arguments = $"\"{_downloadRoot}\"",
+                    UseShellExecute = true
+                });
+                return;
+            }
+
+            var opened = await Launcher.Default.OpenAsync(new Uri(_downloadRoot));
+            if (!opened)
+            {
+                StatusLabel.Text = $"Download-Ordner: {_downloadRoot}";
+            }
+        }
+        catch (Exception)
+        {
+            // Exceptions must not escape an async void event handler and terminate the app.
+            StatusLabel.Text = $"Download-Ordner: {_downloadRoot}";
+        }
     }
 }
