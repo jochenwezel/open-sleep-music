@@ -17,5 +17,29 @@ Thumbs.db
 
 ## Downloaded media and local logs
 /downloads/
+*.mp3
+*.ogg
+*.oga
+*.flac
+*.wav
+*.m4a
+*.mp4
 *.part
+*.log
 *.jsonl
+
+## Signing material and store credentials
+*.key
+*.pem
+*.pfx
+*.p12
+*.cer
+*.crt
+*.snk
+*.jks
+*.keystore
+*.publishsettings
+*.secrets.json
+.env
+.env.*
+!.env.example
