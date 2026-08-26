@@ -2,7 +2,7 @@
 
 Open Sleep Music is a privacy-friendly, advertising-free app for downloading and playing freely licensed sleep music and ambient sounds offline.
 
-The project is at an early prototype stage. The desktop interface offers curated **sleep worlds**, resilient collection downloads, a validated local library, playback controls, seeking, automatic track changes, and a sleep timer. Individual unavailable or invalid downloads never stop the batch: desktop builds record technical details locally, while the interface continues with every usable track.
+The project is at an early MVP stage. The desktop interface offers curated **sleep worlds**, resilient collection downloads, a validated local library, persistent player settings and playback position, collection repair and removal, playback controls, volume, seeking, sequential or random playback, repeat modes, a sleep timer, and source/license details. Individual unavailable or invalid downloads never stop the batch: desktop builds record technical details locally, while the interface continues with every usable track.
 
 ## Principles
 
@@ -23,6 +23,8 @@ The project is at an early prototype stage. The desktop interface offers curated
 - Brown Noise
 
 The built-in catalog currently contains 153 entries and about 19 hours of audio. Its reviewed collections and license pages are documented in [docs/music-sources.md](docs/music-sources.md). The complete machine-readable catalog is embedded in the app and can be regenerated with `tools/Update-MediaCatalog.ps1`.
+
+Background playback and system media controls are a prioritized follow-up, particularly for phones. The platform requirements and test scope are recorded in [docs/roadmap.md](docs/roadmap.md).
 
 ## Open in Visual Studio
 
