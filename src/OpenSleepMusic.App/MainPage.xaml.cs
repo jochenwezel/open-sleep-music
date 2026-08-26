@@ -13,21 +13,37 @@ namespace OpenSleepMusic.App;
 public partial class MainPage : ContentPage
 {
     private const int MaximumAutomaticFailureSkips = 3;
+    private static readonly int[] SleepTimerMinutes = [0, 15, 30, 45, 60, 90];
+    private static readonly string[] SleepTimerLabels = ["Aus", "15 Minuten", "30 Minuten", "45 Minuten", "60 Minuten", "90 Minuten"];
+    private static readonly string[] RepeatModeLabels = ["Schlafwelt", "Einzeltitel"];
     private readonly HttpClient _httpClient;
     private readonly LocalLibraryScanner _libraryScanner = new();
+    private readonly LocalLibraryManager _libraryManager = new();
+    private readonly AppStateStore _stateStore = new();
     private readonly SleepTimer _sleepTimer = new();
     private readonly IReadOnlyList<SleepWorldCard> _worldCards;
     private readonly string _downloadRoot = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.MyMusic),
         "Open Sleep Music");
+    private readonly PersistedAppState _initialState;
     private IReadOnlyList<LocalLibraryTrack> _library = [];
     private IReadOnlyList<LocalLibraryTrack> _visibleLibrary = [];
     private SleepWorldCard? _selectedWorldCard;
     private LocalLibraryTrack? _currentTrack;
+    private LocalLibraryTrack? _nextTrack;
+    private PlaybackRepeatMode _repeatMode;
+    private DateTimeOffset? _sleepTimerEndUtc;
+    private DateTimeOffset _lastPlaybackSaveUtc = DateTimeOffset.MinValue;
+    private string? _loadedTrackId;
+    private double _resumePositionSeconds;
+    private double _pendingSeekSeconds;
+    private bool _playWhenMediaOpens;
     private bool _shuffleEnabled;
     private bool _isSeeking;
     private bool _shouldContinuePlayback;
     private bool _isTrackTransitioning;
+    private bool _restoringControls;
+    private bool _didRestorePlayback;
     private int _consecutivePlaybackFailures;
 
     public MainPage()
@@ -38,11 +54,35 @@ public partial class MainPage : ContentPage
             "OpenSleepMusic/0.1 (+https://github.com/jochenwezel/open-sleep-music)");
         _worldCards = BuiltInCatalog.SleepWorlds.Select(world => new SleepWorldCard(world)).ToArray();
         WorldsView.ItemsSource = _worldCards;
-        SleepTimerPicker.ItemsSource = new[] { "Aus", "15 Minuten", "30 Minuten", "45 Minuten", "60 Minuten", "90 Minuten" };
+
+        _initialState = _stateStore.Load();
+        _shuffleEnabled = _initialState.ShuffleEnabled;
+        _repeatMode = _initialState.RepeatMode;
+        _restoringControls = true;
+        SleepTimerPicker.ItemsSource = SleepTimerLabels;
         SleepTimerPicker.SelectedIndex = 0;
+        RepeatModePicker.ItemsSource = RepeatModeLabels;
+        RepeatModePicker.SelectedIndex = _repeatMode == PlaybackRepeatMode.Track ? 1 : 0;
+        VolumeSlider.Value = _initialState.Volume;
+        Player.Volume = _initialState.Volume;
+        VolumeLabel.Text = $"{_initialState.Volume:P0}";
+        _restoringControls = false;
+        RestoreSleepTimer(_initialState);
 
         Dispatcher.StartTimer(TimeSpan.FromSeconds(1), UpdatePlaybackStatus);
         Loaded += async (_, _) => await RefreshLibraryAsync();
+    }
+
+    internal void HandleAppDeactivated() => PersistPlaybackSnapshot(force: true);
+
+    internal void HandleAppResumed()
+    {
+        if (_shouldContinuePlayback
+            && _loadedTrackId is not null
+            && Player.CurrentState != MediaElementState.Playing)
+        {
+            Player.Play();
+        }
     }
 
     private async void OnWorldActionClicked(object? sender, EventArgs e)
@@ -62,9 +102,48 @@ public partial class MainPage : ContentPage
             return;
         }
 
+        await DownloadWorldAsync(card, button, isRepair: false);
+    }
+
+    private async void OnWorldManageClicked(object? sender, EventArgs e)
+    {
+        if (sender is not Button { CommandParameter: SleepWorldCard card } button)
+        {
+            return;
+        }
+
+        SelectWorld(card);
+        try
+        {
+            var action = await DisplayActionSheetAsync(
+                card.World.Name,
+                "Abbrechen",
+                "Sammlung löschen",
+                "Sammlung prüfen und reparieren");
+
+            if (action == "Sammlung prüfen und reparieren")
+            {
+                await DownloadWorldAsync(card, button, isRepair: true);
+            }
+            else if (action == "Sammlung löschen")
+            {
+                await DeleteWorldAsync(card);
+            }
+        }
+        catch (Exception exception)
+        {
+            Debug.WriteLine(exception);
+            StatusLabel.Text = "Die Sammlungsverwaltung konnte nicht geöffnet werden.";
+        }
+    }
+
+    private async Task DownloadWorldAsync(SleepWorldCard card, Button button, bool isRepair)
+    {
         button.IsEnabled = false;
         DownloadProgress.Progress = 0;
-        StatusLabel.Text = $"{card.World.Name} wird vorbereitet …";
+        StatusLabel.Text = isRepair
+            ? $"{card.World.Name} wird geprüft und repariert …"
+            : $"{card.World.Name} wird vorbereitet …";
 
         var logPath = Path.Combine(FileSystem.AppDataDirectory, "logs", "downloads.jsonl");
         var downloader = new SleepWorldDownloader(_httpClient, new FileDownloadLogSink(logPath));
@@ -73,7 +152,9 @@ public partial class MainPage : ContentPage
             DownloadProgress.Progress = value.Total == 0 ? 0 : (double)value.Completed / value.Total;
             if (!string.IsNullOrWhiteSpace(value.CurrentTitle))
             {
-                StatusLabel.Text = $"Lade {value.CurrentTitle} …";
+                StatusLabel.Text = isRepair
+                    ? $"Prüfe {value.CurrentTitle} …"
+                    : $"Lade {value.CurrentTitle} …";
             }
         });
 
@@ -82,20 +163,53 @@ public partial class MainPage : ContentPage
             var result = await downloader.DownloadAsync(card.World, _downloadRoot, progress);
             StatusLabel.Text = result.AvailableCount == 0
                 ? "Derzeit sind keine Titel verfügbar. Bitte später erneut versuchen."
-                : $"{card.World.Name}: {result.AvailableCount} Titel sind offline verfügbar.";
-            await RefreshLibraryAsync();
+                : isRepair
+                    ? $"{card.World.Name}: Prüfung abgeschlossen, {result.AvailableCount} Titel verfügbar."
+                    : $"{card.World.Name}: {result.AvailableCount} Titel sind offline verfügbar.";
+            await RefreshLibraryAsync(preserveStatus: true);
         }
         catch (OperationCanceledException)
         {
             StatusLabel.Text = "Download angehalten.";
         }
-        catch (Exception)
+        catch (Exception exception)
         {
+            Debug.WriteLine(exception);
             StatusLabel.Text = "Der Download wurde unerwartet beendet. Andere Sammlungen können weiter verwendet werden.";
         }
         finally
         {
             button.IsEnabled = true;
+        }
+    }
+
+    private async Task DeleteWorldAsync(SleepWorldCard card)
+    {
+        var confirmed = await DisplayAlertAsync(
+            "Sammlung löschen",
+            $"Alle heruntergeladenen Dateien aus „{card.World.Name}“ werden gelöscht. Andere Schlafwelten bleiben erhalten.",
+            "Löschen",
+            "Abbrechen");
+        if (!confirmed)
+        {
+            return;
+        }
+
+        try
+        {
+            if (_currentTrack?.SleepWorld.Id == card.World.Id)
+            {
+                StopAndClearPlayback();
+            }
+
+            await _libraryManager.DeleteWorldAsync(_downloadRoot, card.World);
+            await RefreshLibraryAsync(preserveStatus: true);
+            StatusLabel.Text = $"{card.World.Name} wurde aus der lokalen Bibliothek gelöscht.";
+        }
+        catch (Exception exception)
+        {
+            Debug.WriteLine(exception);
+            StatusLabel.Text = $"{card.World.Name} konnte nicht vollständig gelöscht werden.";
         }
     }
 
@@ -107,38 +221,79 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void SelectWorld(SleepWorldCard card)
+    private void SelectWorld(SleepWorldCard card, bool persist = true)
     {
         _selectedWorldCard = card;
         if (WorldsView.SelectedItem != card)
         {
             WorldsView.SelectedItem = card;
         }
+        if (persist)
+        {
+            _stateStore.SaveSelectedWorld(card.World.Id);
+        }
         ApplyLibraryFilter();
     }
 
-    private async Task RefreshLibraryAsync()
+    private async Task RefreshLibraryAsync(bool preserveStatus = false)
     {
         try
         {
             _library = await _libraryScanner.ScanAsync(_downloadRoot, BuiltInCatalog.SleepWorlds);
             foreach (var card in _worldCards)
             {
-                card.SetDownloadedCount(_library.Count(track => track.SleepWorld.Id == card.World.Id));
+                var tracks = _library.Where(track => track.SleepWorld.Id == card.World.Id).ToArray();
+                card.SetLibraryStatus(tracks.Length, tracks.Sum(track => new FileInfo(track.FilePath).Length));
             }
 
             var cardToSelect = _selectedWorldCard
-                ?? _worldCards.FirstOrDefault(card => card.DownloadedCount > 0)
+                ?? _worldCards.FirstOrDefault(card => card.World.Id == _initialState.SelectedWorldId)
+                ?? _worldCards.FirstOrDefault(card => card.HasDownloads)
                 ?? _worldCards[0];
-            SelectWorld(cardToSelect);
-            StatusLabel.Text = _library.Count == 0
-                ? "Noch keine gültigen Audiodateien vorhanden."
-                : $"{_library.Count} Titel offline verfügbar.";
+            SelectWorld(cardToSelect, persist: _didRestorePlayback);
+            RestorePlaybackOnce();
+
+            if (!preserveStatus)
+            {
+                StatusLabel.Text = _library.Count == 0
+                    ? "Noch keine gültigen Audiodateien vorhanden."
+                    : $"{_library.Count} Titel offline verfügbar.";
+            }
         }
-        catch (Exception)
+        catch (Exception exception)
         {
+            Debug.WriteLine(exception);
             StatusLabel.Text = "Die lokale Musikbibliothek konnte nicht aktualisiert werden.";
         }
+    }
+
+    private void RestorePlaybackOnce()
+    {
+        if (_didRestorePlayback)
+        {
+            return;
+        }
+        _didRestorePlayback = true;
+
+        var saved = _stateStore.LoadPlayback();
+        var track = saved is null
+            ? null
+            : _library.FirstOrDefault(candidate => candidate.Track.Id == saved.TrackId);
+        if (track is null || saved is null)
+        {
+            return;
+        }
+
+        _currentTrack = track;
+        _resumePositionSeconds = Math.Min(saved.PositionSeconds, Math.Max(0, track.Track.DurationSeconds - 1));
+        PositionSlider.Maximum = Math.Max(1, track.Track.DurationSeconds);
+        PositionSlider.Value = _resumePositionSeconds;
+        TimeLabel.Text = $"{FormatTime(TimeSpan.FromSeconds(_resumePositionSeconds))} / {FormatTime(TimeSpan.FromSeconds(track.Track.DurationSeconds))}";
+        NowPlayingLabel.Text = track.Track.Title;
+        SelectWorld(_worldCards.First(card => card.World.Id == track.SleepWorld.Id));
+        UpdateNowPlayingDetails(isRestored: true);
+        UpdateNextTrack();
+        StatusLabel.Text = $"„{track.Track.Title}“ kann bei {FormatTime(TimeSpan.FromSeconds(_resumePositionSeconds))} fortgesetzt werden.";
     }
 
     private void ApplyLibraryFilter()
@@ -151,6 +306,7 @@ public partial class MainPage : ContentPage
         LibraryTitleLabel.Text = _selectedWorldCard is null
             ? "Meine Musik"
             : $"Meine Musik · {_selectedWorldCard.World.Name}";
+        UpdateNextTrack();
     }
 
     private void OnLibrarySelectionChanged(object? sender, SelectionChangedEventArgs e)
@@ -158,26 +314,103 @@ public partial class MainPage : ContentPage
         if (e.CurrentSelection.FirstOrDefault() is LocalLibraryTrack track)
         {
             PlayTrack(track, userInitiated: true);
+            LibraryView.SelectedItem = null;
         }
     }
 
-    private void PlayTrack(LocalLibraryTrack track, bool userInitiated = false)
+    private async void OnTrackDetailsClicked(object? sender, EventArgs e)
+    {
+        if (sender is Button { CommandParameter: LocalLibraryTrack track })
+        {
+            await Navigation.PushModalAsync(new TrackDetailsPage(track));
+        }
+    }
+
+    private void PlayTrack(LocalLibraryTrack track, bool userInitiated = false, double startPositionSeconds = 0)
     {
         if (userInitiated)
         {
             _consecutivePlaybackFailures = 0;
         }
 
+        var card = _worldCards.FirstOrDefault(candidate => candidate.World.Id == track.SleepWorld.Id);
+        if (card is not null && _selectedWorldCard != card)
+        {
+            SelectWorld(card);
+        }
+
         _currentTrack = track;
+        _resumePositionSeconds = 0;
         _shouldContinuePlayback = true;
         _isTrackTransitioning = true;
+        _pendingSeekSeconds = Math.Max(0, startPositionSeconds);
+        _playWhenMediaOpens = true;
         NowPlayingLabel.Text = track.Track.Title;
         UpdateNowPlayingDetails();
         Player.MetadataTitle = track.Track.Title;
         Player.MetadataArtist = track.Track.Creator;
-        Player.Source = MediaSource.FromFile(track.FilePath);
-        Player.Play();
+
+        if (_loadedTrackId == track.Track.Id)
+        {
+            _ = SeekAndPlayAsync(_pendingSeekSeconds);
+        }
+        else
+        {
+            _loadedTrackId = track.Track.Id;
+            Player.Source = MediaSource.FromFile(track.FilePath);
+            Player.Play();
+        }
+
         PlayPauseButton.Text = "⏸";
+        UpdateNextTrack();
+        _stateStore.SavePlayback(track.Track.Id, Math.Max(0, startPositionSeconds));
+        _lastPlaybackSaveUtc = DateTimeOffset.UtcNow;
+    }
+
+    private async Task SeekAndPlayAsync(double positionSeconds)
+    {
+        try
+        {
+            if (positionSeconds > 0)
+            {
+                await Player.SeekTo(TimeSpan.FromSeconds(positionSeconds));
+            }
+            else
+            {
+                await Player.SeekTo(TimeSpan.Zero);
+            }
+            Player.Play();
+        }
+        catch (Exception exception)
+        {
+            Debug.WriteLine(exception);
+            Player.Play();
+        }
+    }
+
+    private async void OnMediaOpened(object? sender, EventArgs e)
+    {
+        var seekTo = _pendingSeekSeconds;
+        _pendingSeekSeconds = 0;
+        try
+        {
+            if (seekTo > 0)
+            {
+                await Player.SeekTo(TimeSpan.FromSeconds(seekTo));
+            }
+            if (_playWhenMediaOpens)
+            {
+                Player.Play();
+            }
+        }
+        catch (Exception exception)
+        {
+            Debug.WriteLine(exception);
+        }
+        finally
+        {
+            _playWhenMediaOpens = false;
+        }
     }
 
     private void OnPlayPauseClicked(object? sender, EventArgs e)
@@ -191,11 +424,16 @@ public partial class MainPage : ContentPage
             return;
         }
 
-        if (Player.CurrentState == MediaElementState.Playing)
+        if (_loadedTrackId is null)
+        {
+            PlayTrack(_currentTrack, userInitiated: true, startPositionSeconds: _resumePositionSeconds);
+        }
+        else if (Player.CurrentState == MediaElementState.Playing)
         {
             _shouldContinuePlayback = false;
             Player.Pause();
             PlayPauseButton.Text = "▶";
+            PersistPlaybackSnapshot(force: true);
         }
         else
         {
@@ -207,7 +445,7 @@ public partial class MainPage : ContentPage
 
     private void OnPreviousClicked(object? sender, EventArgs e) => MoveTrack(-1, forceSequential: true);
 
-    private void OnNextClicked(object? sender, EventArgs e) => MoveTrack(1);
+    private void OnNextClicked(object? sender, EventArgs e) => MoveTrack(1, forceSequential: !_shuffleEnabled);
 
     private void MoveTrack(int offset, bool forceSequential = false)
     {
@@ -216,31 +454,37 @@ public partial class MainPage : ContentPage
             return;
         }
 
-        var currentIndex = _currentTrack is null ? -1 : _visibleLibrary.IndexOf(_currentTrack);
-        int nextIndex;
-        if (_shuffleEnabled && !forceSequential && _visibleLibrary.Count > 1)
+        LocalLibraryTrack nextTrack;
+        if (_shuffleEnabled && !forceSequential && offset > 0 && _nextTrack is not null && _nextTrack != _currentTrack)
         {
-            nextIndex = Random.Shared.Next(_visibleLibrary.Count - 1);
-            if (nextIndex >= currentIndex && currentIndex >= 0)
-            {
-                nextIndex++;
-            }
+            nextTrack = _nextTrack;
         }
         else
         {
+            var currentIndex = _currentTrack is null ? -1 : _visibleLibrary.IndexOf(_currentTrack);
             if (currentIndex < 0)
             {
                 currentIndex = offset < 0 ? 0 : -1;
             }
-            nextIndex = (currentIndex + offset + _visibleLibrary.Count) % _visibleLibrary.Count;
+            var nextIndex = (currentIndex + offset + _visibleLibrary.Count) % _visibleLibrary.Count;
+            nextTrack = _visibleLibrary[nextIndex];
         }
 
-        PlayTrack(_visibleLibrary[nextIndex]);
+        PlayTrack(nextTrack);
     }
 
     private void OnMediaEnded(object? sender, EventArgs e)
     {
-        if (_shouldContinuePlayback)
+        if (!_shouldContinuePlayback)
+        {
+            return;
+        }
+
+        if (_repeatMode == PlaybackRepeatMode.Track && _currentTrack is not null)
+        {
+            PlayTrack(_currentTrack);
+        }
+        else
         {
             MoveTrack(1);
         }
@@ -250,7 +494,8 @@ public partial class MainPage : ContentPage
     {
         _isTrackTransitioning = false;
         _consecutivePlaybackFailures++;
-        if (_consecutivePlaybackFailures >= Math.Min(MaximumAutomaticFailureSkips, _visibleLibrary.Count))
+        if (_visibleLibrary.Count == 0
+            || _consecutivePlaybackFailures >= Math.Min(MaximumAutomaticFailureSkips, _visibleLibrary.Count))
         {
             _shouldContinuePlayback = false;
             Player.Stop();
@@ -274,6 +519,10 @@ public partial class MainPage : ContentPage
         else if (e.NewState is MediaElementState.Paused or MediaElementState.Stopped)
         {
             PlayPauseButton.Text = "▶";
+            if (!_isTrackTransitioning)
+            {
+                PersistPlaybackSnapshot(force: true);
+            }
         }
     }
 
@@ -283,9 +532,15 @@ public partial class MainPage : ContentPage
     {
         try
         {
-            if (Player.Duration > TimeSpan.Zero)
+            if (_loadedTrackId is not null && Player.Duration > TimeSpan.Zero)
             {
                 await Player.SeekTo(TimeSpan.FromSeconds(PositionSlider.Value));
+                PersistPlaybackSnapshot(force: true);
+            }
+            else
+            {
+                _resumePositionSeconds = PositionSlider.Value;
+                PersistPlaybackSnapshot(force: true);
             }
         }
         finally
@@ -296,16 +551,74 @@ public partial class MainPage : ContentPage
 
     private void OnSleepTimerChanged(object? sender, EventArgs e)
     {
-        int[] minutes = [0, 15, 30, 45, 60, 90];
+        if (_restoringControls)
+        {
+            return;
+        }
+
         var index = SleepTimerPicker.SelectedIndex;
-        if (index <= 0)
+        var minutes = index >= 0 && index < SleepTimerMinutes.Length ? SleepTimerMinutes[index] : 0;
+        if (minutes == 0)
         {
             _sleepTimer.Cancel();
+            _sleepTimerEndUtc = null;
             SleepTimerLabel.Text = "Aus";
         }
         else
         {
-            _sleepTimer.Start(TimeSpan.FromMinutes(minutes[index]));
+            _sleepTimer.Start(TimeSpan.FromMinutes(minutes));
+            _sleepTimerEndUtc = DateTimeOffset.UtcNow.AddMinutes(minutes);
+            SleepTimerLabel.Text = $"noch {minutes} Min.";
+        }
+        _stateStore.SaveSleepTimer(minutes, _sleepTimerEndUtc);
+    }
+
+    private void RestoreSleepTimer(PersistedAppState state)
+    {
+        if (state.SleepTimerMinutes <= 0
+            || state.SleepTimerEndUtc is not { } timerEnd
+            || timerEnd <= DateTimeOffset.UtcNow)
+        {
+            _stateStore.SaveSleepTimer(0, null);
+            return;
+        }
+
+        var index = Array.IndexOf(SleepTimerMinutes, state.SleepTimerMinutes);
+        if (index < 1)
+        {
+            _stateStore.SaveSleepTimer(0, null);
+            return;
+        }
+
+        _restoringControls = true;
+        SleepTimerPicker.SelectedIndex = index;
+        _restoringControls = false;
+        _sleepTimerEndUtc = timerEnd;
+        _sleepTimer.Start(timerEnd - DateTimeOffset.UtcNow);
+        SleepTimerLabel.Text = $"noch {Math.Ceiling(_sleepTimer.Remaining.TotalMinutes):0} Min.";
+    }
+
+    private void OnRepeatModeChanged(object? sender, EventArgs e)
+    {
+        if (_restoringControls)
+        {
+            return;
+        }
+        _repeatMode = RepeatModePicker.SelectedIndex == 1
+            ? PlaybackRepeatMode.Track
+            : PlaybackRepeatMode.SleepWorld;
+        _stateStore.SaveRepeatMode(_repeatMode);
+        UpdateNowPlayingDetails();
+        UpdateNextTrack();
+    }
+
+    private void OnVolumeChanged(object? sender, ValueChangedEventArgs e)
+    {
+        Player.Volume = e.NewValue;
+        VolumeLabel.Text = $"{e.NewValue:P0}";
+        if (!_restoringControls)
+        {
+            _stateStore.SaveVolume(e.NewValue);
         }
     }
 
@@ -322,12 +635,15 @@ public partial class MainPage : ContentPage
                 null,
                 shuffleAction,
                 "Bibliothek aktualisieren",
-                "Download-Ordner öffnen");
+                "Download-Ordner öffnen",
+                "Über Open Sleep Music");
 
             if (action == shuffleAction)
             {
                 _shuffleEnabled = !_shuffleEnabled;
+                _stateStore.SaveShuffle(_shuffleEnabled);
                 UpdateNowPlayingDetails();
+                UpdateNextTrack();
                 StatusLabel.Text = _shuffleEnabled
                     ? "Zufallswiedergabe ist eingeschaltet."
                     : "Wiedergabe erfolgt in Listenreihenfolge.";
@@ -340,6 +656,10 @@ public partial class MainPage : ContentPage
             {
                 await OpenDownloadFolderAsync();
             }
+            else if (action == "Über Open Sleep Music")
+            {
+                await Navigation.PushModalAsync(new AboutPage());
+            }
         }
         catch (Exception exception)
         {
@@ -348,15 +668,52 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void UpdateNowPlayingDetails()
+    private void UpdateNowPlayingDetails(bool isRestored = false)
     {
         if (_currentTrack is null)
         {
             return;
         }
 
-        var mode = _shuffleEnabled ? "Zufällig" : "Reihenfolge";
-        NowPlayingDetailLabel.Text = $"{_currentTrack.Track.Creator} · {_currentTrack.SleepWorld.Name} · {mode}";
+        var order = _shuffleEnabled ? "Zufällig" : "Reihenfolge";
+        var repeat = _repeatMode == PlaybackRepeatMode.Track ? "Titel wiederholen" : "Schlafwelt wiederholen";
+        var resume = isRestored && _resumePositionSeconds > 0
+            ? $" · pausiert bei {FormatTime(TimeSpan.FromSeconds(_resumePositionSeconds))}"
+            : string.Empty;
+        NowPlayingDetailLabel.Text = $"{_currentTrack.Track.Creator} · {order} · {repeat}{resume}";
+    }
+
+    private void UpdateNextTrack()
+    {
+        _nextTrack = null;
+        if (_currentTrack is null || _visibleLibrary.Count == 0)
+        {
+            NextTrackLabel.Text = "Nächster Titel: –";
+            return;
+        }
+
+        if (_repeatMode == PlaybackRepeatMode.Track)
+        {
+            _nextTrack = _currentTrack;
+        }
+        else if (_shuffleEnabled && _visibleLibrary.Count > 1)
+        {
+            var currentIndex = _visibleLibrary.IndexOf(_currentTrack);
+            var nextIndex = Random.Shared.Next(_visibleLibrary.Count - 1);
+            if (currentIndex >= 0 && nextIndex >= currentIndex)
+            {
+                nextIndex++;
+            }
+            _nextTrack = _visibleLibrary[nextIndex];
+        }
+        else
+        {
+            var currentIndex = _visibleLibrary.IndexOf(_currentTrack);
+            var nextIndex = currentIndex < 0 ? 0 : (currentIndex + 1) % _visibleLibrary.Count;
+            _nextTrack = _visibleLibrary[nextIndex];
+        }
+
+        NextTrackLabel.Text = $"Nächster Titel: {_nextTrack.Track.Title}";
     }
 
     private async Task OpenDownloadFolderAsync()
@@ -389,7 +746,7 @@ public partial class MainPage : ContentPage
 
     private bool UpdatePlaybackStatus()
     {
-        if (!_isSeeking && Player.Duration > TimeSpan.Zero)
+        if (!_isSeeking && _loadedTrackId is not null && Player.Duration > TimeSpan.Zero)
         {
             PositionSlider.Maximum = Player.Duration.TotalSeconds;
             PositionSlider.Value = Player.Position.TotalSeconds;
@@ -401,8 +758,10 @@ public partial class MainPage : ContentPage
                 && reachedEnd
                 && Player.CurrentState != MediaElementState.Playing)
             {
-                MoveTrack(1);
+                OnMediaEnded(Player, EventArgs.Empty);
             }
+
+            PersistPlaybackSnapshot();
         }
 
         if (_sleepTimer.ConsumeIfElapsed())
@@ -410,13 +769,56 @@ public partial class MainPage : ContentPage
             _shouldContinuePlayback = false;
             Player.Pause();
             PlayPauseButton.Text = "▶";
+            _sleepTimerEndUtc = null;
+            _restoringControls = true;
             SleepTimerPicker.SelectedIndex = 0;
+            _restoringControls = false;
+            SleepTimerLabel.Text = "Aus";
+            _stateStore.SaveSleepTimer(0, null);
+            PersistPlaybackSnapshot(force: true);
         }
         else if (_sleepTimer.IsActive)
         {
             SleepTimerLabel.Text = $"noch {Math.Ceiling(_sleepTimer.Remaining.TotalMinutes):0} Min.";
         }
         return true;
+    }
+
+    private void PersistPlaybackSnapshot(bool force = false)
+    {
+        if (_currentTrack is null)
+        {
+            return;
+        }
+
+        var now = DateTimeOffset.UtcNow;
+        if (!force && now - _lastPlaybackSaveUtc < TimeSpan.FromSeconds(5))
+        {
+            return;
+        }
+
+        var position = _loadedTrackId is null ? _resumePositionSeconds : Player.Position.TotalSeconds;
+        _stateStore.SavePlayback(_currentTrack.Track.Id, position);
+        _lastPlaybackSaveUtc = now;
+    }
+
+    private void StopAndClearPlayback()
+    {
+        _shouldContinuePlayback = false;
+        Player.Stop();
+        Player.Source = null;
+        _loadedTrackId = null;
+        _currentTrack = null;
+        _nextTrack = null;
+        _resumePositionSeconds = 0;
+        NowPlayingLabel.Text = "Noch kein Titel ausgewählt";
+        NowPlayingDetailLabel.Text = "Schlafwelt auswählen oder einen Titel anklicken.";
+        NextTrackLabel.Text = "Nächster Titel: –";
+        PositionSlider.Maximum = 1;
+        PositionSlider.Value = 0;
+        TimeLabel.Text = "0:00 / 0:00";
+        PlayPauseButton.Text = "▶";
+        _stateStore.ClearPlayback();
     }
 
     private static string FormatTime(TimeSpan value) =>
@@ -426,6 +828,7 @@ public partial class MainPage : ContentPage
 internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
 {
     private int _downloadedCount;
+    private long _sizeBytes;
 
     public SleepWorld World { get; } = world;
 
@@ -434,16 +837,24 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
         get => _downloadedCount;
         private set
         {
-            if (_downloadedCount == value)
-            {
-                return;
-            }
+            if (_downloadedCount == value) return;
             _downloadedCount = value;
-            OnPropertyChanged();
-            OnPropertyChanged(nameof(IsComplete));
-            OnPropertyChanged(nameof(ActionText));
+            NotifyStatusChanged();
         }
     }
+
+    public long SizeBytes
+    {
+        get => _sizeBytes;
+        private set
+        {
+            if (_sizeBytes == value) return;
+            _sizeBytes = value;
+            NotifyStatusChanged();
+        }
+    }
+
+    public bool HasDownloads => DownloadedCount > 0;
 
     public bool IsComplete => DownloadedCount == World.Tracks.Count;
 
@@ -453,12 +864,44 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
             ? "Herunterladen"
             : $"Vervollständigen ({DownloadedCount}/{World.Tracks.Count})";
 
+    public string StatusText => DownloadedCount == 0
+        ? "Nicht heruntergeladen"
+        : IsComplete
+            ? $"Vollständig · {DownloadedCount} Titel · {FormatSize(SizeBytes)}"
+            : $"{DownloadedCount} von {World.Tracks.Count} Titeln · {FormatSize(SizeBytes)}";
+
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    public void SetDownloadedCount(int count) => DownloadedCount = count;
+    public void SetLibraryStatus(int count, long sizeBytes)
+    {
+        DownloadedCount = count;
+        SizeBytes = sizeBytes;
+    }
 
-    private void OnPropertyChanged([CallerMemberName] string? propertyName = null) =>
+    private void NotifyStatusChanged([CallerMemberName] string? propertyName = null)
+    {
+        OnPropertyChanged(propertyName);
+        OnPropertyChanged(nameof(HasDownloads));
+        OnPropertyChanged(nameof(IsComplete));
+        OnPropertyChanged(nameof(ActionText));
+        OnPropertyChanged(nameof(StatusText));
+    }
+
+    private void OnPropertyChanged(string? propertyName) =>
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+    private static string FormatSize(long bytes)
+    {
+        string[] units = ["B", "KB", "MB", "GB"];
+        var value = (double)bytes;
+        var unit = 0;
+        while (value >= 1024 && unit < units.Length - 1)
+        {
+            value /= 1024;
+            unit++;
+        }
+        return $"{value:0.#} {units[unit]}";
+    }
 }
 
 internal static class LibraryTrackListExtensions

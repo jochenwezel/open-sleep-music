@@ -11,6 +11,13 @@ public partial class App : Application
 
 	protected override Window CreateWindow(IActivationState? activationState)
 	{
-		return new Window(new AppShell());
+		var window = new Window(new AppShell());
+		window.Deactivated += (_, _) => CurrentMainPage()?.HandleAppDeactivated();
+		window.Stopped += (_, _) => CurrentMainPage()?.HandleAppDeactivated();
+		window.Resumed += (_, _) => CurrentMainPage()?.HandleAppResumed();
+		return window;
 	}
+
+	private static MainPage? CurrentMainPage() =>
+		Shell.Current?.CurrentPage as MainPage;
 }

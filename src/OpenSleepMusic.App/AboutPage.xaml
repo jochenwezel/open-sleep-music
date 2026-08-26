@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OpenSleepMusic.App.AboutPage"
+             BackgroundColor="#0B1020"
+             Title="Über Open Sleep Music">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="24" RowSpacing="18">
+        <Grid ColumnDefinitions="*,Auto">
+            <VerticalStackLayout Spacing="4">
+                <Label Text="open sleep music" FontSize="27" FontAttributes="Bold" TextColor="#F7F3FF" />
+                <Label x:Name="VersionLabel" TextColor="#B8B5C8" />
+            </VerticalStackLayout>
+            <Button Grid.Column="1" Text="✕" Clicked="OnCloseClicked" BackgroundColor="#252C45" TextColor="White" />
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="14">
+                <Label Text="Kostenlose Klänge für eine ruhige Nacht – ohne Werbung, Tracking, Benutzerkonto oder Cloud-Zwang." FontSize="18" TextColor="#F7F3FF" />
+                <Label x:Name="CatalogLabel" TextColor="#DAD6E8" />
+                <Label Text="Nach dem Herunterladen funktioniert die Musikbibliothek offline. Nicht mehr erreichbare oder ungültige Quelldateien werden übersprungen, ohne eine ganze Sammlung zu blockieren." TextColor="#B8B5C8" />
+                <Label Text="Die App steht unter der MIT-Lizenz. Jede Aufnahme behält ihre eigene, in den Titelinformationen ausgewiesene Lizenz. Die Angaben dokumentieren die Lizenz und Herkunft der jeweiligen Quelle; sie sind keine unabhängige Rechtsgarantie des Projekts." TextColor="#B8B5C8" />
+                <Label Text="Hintergrundwiedergabe und System-Mediensteuerung sind als priorisierte Anschlussarbeit für Mobilgeräte festgehalten." TextColor="#B8B5C8" />
+                <Button Text="Projekt auf GitHub öffnen" Clicked="OnRepositoryClicked" BackgroundColor="#7367F0" TextColor="White" HorizontalOptions="Start" />
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Label Grid.Row="2" x:Name="StatusLabel" TextColor="#DAD6E8" />
+    </Grid>
+</ContentPage>

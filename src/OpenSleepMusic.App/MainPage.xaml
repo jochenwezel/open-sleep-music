@@ -11,25 +11,15 @@
                 <Label Text="open sleep music" FontSize="30" FontAttributes="Bold" TextColor="#F7F3FF" />
                 <Label Text="Kostenlose Klänge für eine ruhige Nacht" TextColor="#B8B5C8" />
             </VerticalStackLayout>
-            <Button Grid.Column="1"
-                    Text="☰"
-                    FontSize="22"
-                    WidthRequest="48"
-                    HeightRequest="44"
-                    Clicked="OnMenuClicked"
-                    BackgroundColor="#252C45"
-                    TextColor="#F7F3FF"
-                    CornerRadius="12"
-                    AutomationId="MainMenuButton" />
+            <Button Grid.Column="1" Text="☰" FontSize="22" WidthRequest="48" HeightRequest="44"
+                    Clicked="OnMenuClicked" BackgroundColor="#252C45" TextColor="#F7F3FF"
+                    CornerRadius="12" AutomationId="MainMenuButton" />
         </Grid>
 
         <Grid Grid.Row="1" ColumnDefinitions="3*,2*" ColumnSpacing="18">
             <Grid RowDefinitions="Auto,*" RowSpacing="10">
                 <Label Text="Schlafwelten" FontSize="19" FontAttributes="Bold" TextColor="#F7F3FF" />
-                <CollectionView Grid.Row="1"
-                                x:Name="WorldsView"
-                                SelectionMode="Single"
-                                SelectionChanged="OnWorldSelectionChanged">
+                <CollectionView Grid.Row="1" x:Name="WorldsView" SelectionMode="Single" SelectionChanged="OnWorldSelectionChanged">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical" Span="2" HorizontalItemSpacing="12" VerticalItemSpacing="12" />
                     </CollectionView.ItemsLayout>
@@ -47,21 +37,20 @@
                                         </VisualState>
                                     </VisualStateGroup>
                                 </VisualStateManager.VisualStateGroups>
-                                <Border.StrokeShape>
-                                    <RoundRectangle CornerRadius="16" />
-                                </Border.StrokeShape>
-                                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*" ColumnSpacing="10" RowSpacing="5">
+                                <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
+                                <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*" ColumnSpacing="10" RowSpacing="5">
                                     <Label Text="{Binding World.Icon}" FontSize="27" Grid.RowSpan="2" />
                                     <Label Grid.Column="1" Text="{Binding World.Name}" FontSize="16" FontAttributes="Bold" TextColor="#F7F3FF" />
                                     <Label Grid.Row="1" Grid.Column="1" Text="{Binding World.Description}" FontSize="11" TextColor="#B8B5C8" MaxLines="2" />
-                                    <Button Grid.Row="2"
-                                            Grid.ColumnSpan="2"
-                                            Text="{Binding ActionText}"
-                                            CommandParameter="{Binding .}"
-                                            Clicked="OnWorldActionClicked"
-                                            BackgroundColor="#7367F0"
-                                            TextColor="White"
-                                            CornerRadius="10" />
+                                    <Label Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding StatusText}" FontSize="11" TextColor="#9E9AAF" />
+                                    <Grid Grid.Row="3" Grid.ColumnSpan="2" ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                                        <Button Text="{Binding ActionText}" CommandParameter="{Binding .}" Clicked="OnWorldActionClicked"
+                                                BackgroundColor="#7367F0" TextColor="White" CornerRadius="10" />
+                                        <Button Grid.Column="1" Text="⋯" WidthRequest="44" IsEnabled="{Binding HasDownloads}"
+                                                CommandParameter="{Binding .}" Clicked="OnWorldManageClicked"
+                                                BackgroundColor="#252C45" TextColor="White" CornerRadius="10"
+                                                AutomationId="ManageWorldButton" />
+                                    </Grid>
                                 </Grid>
                             </Border>
                         </DataTemplate>
@@ -72,21 +61,18 @@
             <Grid Grid.Column="1" RowDefinitions="Auto,*" RowSpacing="10">
                 <Label x:Name="LibraryTitleLabel" Text="Meine Musik" FontSize="19" FontAttributes="Bold" TextColor="#F7F3FF" />
                 <Grid Grid.Row="1">
-                    <Label x:Name="LibraryEmptyLabel"
-                           Text="Für diese Schlafwelt ist noch keine Musik heruntergeladen."
-                           TextColor="#9E9AAF"
-                           HorizontalTextAlignment="Center"
-                           VerticalTextAlignment="Center"
-                           Margin="24" />
-                    <CollectionView x:Name="LibraryView"
-                                    SelectionMode="Single"
-                                    SelectionChanged="OnLibrarySelectionChanged">
+                    <Label x:Name="LibraryEmptyLabel" Text="Für diese Schlafwelt ist noch keine Musik heruntergeladen."
+                           TextColor="#9E9AAF" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="24" />
+                    <CollectionView x:Name="LibraryView" SelectionMode="Single" SelectionChanged="OnLibrarySelectionChanged">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Grid Padding="8" RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+                                <Grid Padding="8" RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="5">
                                     <Label Text="{Binding Track.Title}" TextColor="#F7F3FF" LineBreakMode="TailTruncation" />
                                     <Label Grid.Row="1" Text="{Binding Track.Creator}" FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
-                                    <Label Grid.Column="1" Grid.RowSpan="2" Text="▶" TextColor="#8A7FFF" VerticalOptions="Center" Margin="8,0,0,0" />
+                                    <Button Grid.Column="1" Grid.RowSpan="2" Text="ⓘ" FontSize="16" WidthRequest="38" HeightRequest="36" Padding="0"
+                                            CommandParameter="{Binding .}" Clicked="OnTrackDetailsClicked"
+                                            BackgroundColor="Transparent" TextColor="#9E9AAF" AutomationId="TrackDetailsButton" />
+                                    <Label Grid.Column="2" Grid.RowSpan="2" Text="▶" TextColor="#8A7FFF" VerticalOptions="Center" Margin="5,0,0,0" />
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
@@ -96,22 +82,40 @@
         </Grid>
 
         <Border Grid.Row="2" BackgroundColor="#171D31" Stroke="#29304B" Padding="12">
-            <Border.StrokeShape>
-                <RoundRectangle CornerRadius="16" />
-            </Border.StrokeShape>
-            <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12" RowSpacing="6">
+            <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12" RowSpacing="6">
                 <Button Text="⏮" Clicked="OnPreviousClicked" BackgroundColor="#252C45" TextColor="White" />
                 <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
                     <Label x:Name="NowPlayingLabel" Text="Noch kein Titel ausgewählt" FontAttributes="Bold" TextColor="#F7F3FF" LineBreakMode="TailTruncation" />
                     <Label x:Name="NowPlayingDetailLabel" Text="Schlafwelt auswählen oder einen Titel anklicken." FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
                 </VerticalStackLayout>
                 <Button Grid.Column="2" Text="⏭" Clicked="OnNextClicked" BackgroundColor="#252C45" TextColor="White" />
+
                 <Button Grid.Row="1" x:Name="PlayPauseButton" Text="▶" Clicked="OnPlayPauseClicked" BackgroundColor="#7367F0" TextColor="White" />
-                <Slider Grid.Row="1" Grid.Column="1" x:Name="PositionSlider" Minimum="0" Maximum="1" DragStarted="OnPositionDragStarted" DragCompleted="OnPositionDragCompleted" />
+                <Slider Grid.Row="1" Grid.Column="1" x:Name="PositionSlider" Minimum="0" Maximum="1"
+                        DragStarted="OnPositionDragStarted" DragCompleted="OnPositionDragCompleted" />
                 <Label Grid.Row="1" Grid.Column="2" x:Name="TimeLabel" Text="0:00 / 0:00" TextColor="#DAD6E8" VerticalOptions="Center" />
-                <Label Grid.Row="2" Text="Schlaf-Timer" TextColor="#B8B5C8" VerticalOptions="Center" />
-                <Picker Grid.Row="2" Grid.Column="1" x:Name="SleepTimerPicker" Title="Aus" SelectedIndexChanged="OnSleepTimerChanged" TextColor="#F7F3FF" />
-                <Label Grid.Row="2" Grid.Column="2" x:Name="SleepTimerLabel" Text="Aus" TextColor="#9E9AAF" VerticalOptions="Center" />
+
+                <Grid Grid.Row="2" Grid.ColumnSpan="3" ColumnDefinitions="*,*" ColumnSpacing="18">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                        <Label Text="Schlaf-Timer" TextColor="#B8B5C8" VerticalOptions="Center" />
+                        <Picker Grid.Column="1" x:Name="SleepTimerPicker" Title="Aus" SelectedIndexChanged="OnSleepTimerChanged" TextColor="#F7F3FF" />
+                        <Label Grid.Column="2" x:Name="SleepTimerLabel" Text="Aus" TextColor="#9E9AAF" VerticalOptions="Center" />
+                    </Grid>
+                    <Grid Grid.Column="1" ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                        <Label Text="Wiederholen" TextColor="#B8B5C8" VerticalOptions="Center" />
+                        <Picker Grid.Column="1" x:Name="RepeatModePicker" SelectedIndexChanged="OnRepeatModeChanged" TextColor="#F7F3FF" />
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="3" Grid.ColumnSpan="3" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                    <Label Text="Lautstärke" TextColor="#B8B5C8" VerticalOptions="Center" />
+                    <Slider Grid.Column="1" x:Name="VolumeSlider" Minimum="0" Maximum="1" ValueChanged="OnVolumeChanged" />
+                    <Label Grid.Column="2" x:Name="VolumeLabel" Text="70 %" TextColor="#9E9AAF" VerticalOptions="Center" />
+                </Grid>
+
+                <Label Grid.Row="4" Grid.ColumnSpan="3" x:Name="NextTrackLabel" Text="Nächster Titel: –"
+                       FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
             </Grid>
         </Border>
 
@@ -120,11 +124,8 @@
             <ProgressBar Grid.Row="1" x:Name="DownloadProgress" Progress="0" ProgressColor="#8A7FFF" />
         </Grid>
 
-        <toolkit:MediaElement x:Name="Player"
-                              IsVisible="False"
-                              ShouldAutoPlay="False"
-                              MediaEnded="OnMediaEnded"
-                              MediaFailed="OnMediaFailed"
+        <toolkit:MediaElement x:Name="Player" IsVisible="False" ShouldAutoPlay="False"
+                              MediaOpened="OnMediaOpened" MediaEnded="OnMediaEnded" MediaFailed="OnMediaFailed"
                               StateChanged="OnPlayerStateChanged" />
     </Grid>
 </ContentPage>
