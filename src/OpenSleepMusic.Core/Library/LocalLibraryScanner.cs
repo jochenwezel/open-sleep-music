@@ -5,7 +5,11 @@ namespace OpenSleepMusic.Core.Library;
 
 public sealed class LocalLibraryScanner
 {
-    public async Task<IReadOnlyList<LocalLibraryTrack>> ScanAsync(string libraryRoot, IEnumerable<SleepWorld> sleepWorlds, CancellationToken cancellationToken = default)
+    public async Task<IReadOnlyList<LocalLibraryTrack>> ScanAsync(
+        string libraryRoot,
+        IEnumerable<SleepWorld> sleepWorlds,
+        CancellationToken cancellationToken = default,
+        bool verifyChecksums = false)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(libraryRoot);
         ArgumentNullException.ThrowIfNull(sleepWorlds);
@@ -17,10 +21,8 @@ public sealed class LocalLibraryScanner
                 cancellationToken.ThrowIfCancellationRequested();
                 var path = Path.Combine(libraryRoot, world.Id, track.FileName);
                 if (!File.Exists(path)) continue;
-                var header = new byte[16];
-                await using var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read, 4096, true);
-                var count = await stream.ReadAsync(header, cancellationToken);
-                if (AudioFileInspector.IsSupportedAudio(header.AsSpan(0, count)))
+                var expectedSha1 = verifyChecksums ? track.Sha1 : null;
+                if (await AudioFileValidator.GetValidationErrorAsync(path, expectedSha1, cancellationToken) is null)
                     result.Add(new LocalLibraryTrack(track, world, path));
             }
         }

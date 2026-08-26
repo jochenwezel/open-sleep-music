@@ -1,5 +1,4 @@
 using System.Net;
-using System.Security.Cryptography;
 using OpenSleepMusic.Core.Catalog;
 
 namespace OpenSleepMusic.Core.Downloads;
@@ -28,11 +27,31 @@ public sealed class SleepWorldDownloader(HttpClient httpClient, IDownloadLogSink
             progress?.Report(new DownloadProgress(index, sleepWorld.Tracks.Count, track.Title));
 
             var targetPath = Path.Combine(destination, track.FileName);
-            if (File.Exists(targetPath)
-                && await GetValidationErrorAsync(targetPath, track.Sha1, cancellationToken) is null)
+            if (File.Exists(targetPath))
             {
-                existing++;
-                continue;
+                var validationError = await AudioFileValidator.GetValidationErrorAsync(
+                    targetPath,
+                    track.Sha1,
+                    cancellationToken);
+                if (validationError is null)
+                {
+                    existing++;
+                    continue;
+                }
+
+                try
+                {
+                    File.Delete(targetPath);
+                }
+                catch (Exception exception)
+                {
+                    await LogAsync(
+                        track,
+                        $"Invalid local file could not be removed ({exception.GetType().Name}: {exception.Message})",
+                        cancellationToken);
+                    skipped++;
+                    continue;
+                }
             }
 
             if (await TryDownloadAsync(track, targetPath, cancellationToken))
@@ -75,7 +94,7 @@ public sealed class SleepWorldDownloader(HttpClient httpClient, IDownloadLogSink
                 await source.CopyToAsync(target, cancellationToken);
             }
 
-            var validationError = await GetValidationErrorAsync(temporaryPath, track.Sha1, cancellationToken);
+            var validationError = await AudioFileValidator.GetValidationErrorAsync(temporaryPath, track.Sha1, cancellationToken);
             if (validationError is not null)
             {
                 await LogAsync(
@@ -104,37 +123,6 @@ public sealed class SleepWorldDownloader(HttpClient httpClient, IDownloadLogSink
                 File.Delete(temporaryPath);
             }
         }
-    }
-
-    private static async Task<string?> GetValidationErrorAsync(
-        string path,
-        string? expectedSha1,
-        CancellationToken cancellationToken)
-    {
-        var file = new FileInfo(path);
-        if (!file.Exists || file.Length < 128)
-        {
-            return "Response is empty or too small to be a valid audio file";
-        }
-
-        var header = new byte[12];
-        await using var stream = File.OpenRead(path);
-        var bytesRead = await stream.ReadAsync(header, cancellationToken);
-        if (!AudioFileInspector.IsSupportedAudio(header.AsSpan(0, bytesRead)))
-        {
-            return "Response is not a supported audio file";
-        }
-
-        if (string.IsNullOrWhiteSpace(expectedSha1))
-        {
-            return null;
-        }
-
-        stream.Position = 0;
-        var actualSha1 = Convert.ToHexStringLower(await SHA1.HashDataAsync(stream, cancellationToken));
-        return string.Equals(actualSha1, expectedSha1, StringComparison.OrdinalIgnoreCase)
-            ? null
-            : $"Audio checksum mismatch (expected {expectedSha1}, received {actualSha1})";
     }
 
     private async Task LogAsync(AudioTrack track, string reason, CancellationToken cancellationToken)

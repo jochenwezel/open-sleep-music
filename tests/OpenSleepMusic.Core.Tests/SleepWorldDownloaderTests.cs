@@ -45,6 +45,39 @@ public sealed class SleepWorldDownloaderTests
         }
     }
 
+    [Fact]
+    public async Task RemovesInvalidExistingFileWhenReplacementIsUnavailable()
+    {
+        var track = Track("changed", "changed.mp3", "https://example.test/missing") with
+        {
+            Sha1 = new string('0', 40)
+        };
+        var world = new SleepWorld("test", "Test", "Test", "T", [track]);
+        using var client = new HttpClient(new StubHandler(_ =>
+            Response(HttpStatusCode.NotFound, [], "text/plain")));
+        var destination = Path.Combine(Path.GetTempPath(), $"open-sleep-music-tests-{Guid.NewGuid():N}");
+        var targetDirectory = Path.Combine(destination, world.Id);
+        var targetPath = Path.Combine(targetDirectory, track.FileName);
+
+        try
+        {
+            Directory.CreateDirectory(targetDirectory);
+            await File.WriteAllBytesAsync(targetPath, [.. "ID3"u8, .. new byte[256]]);
+
+            var result = await new SleepWorldDownloader(client).DownloadAsync(world, destination);
+
+            Assert.Equal(1, result.SkippedCount);
+            Assert.False(File.Exists(targetPath));
+        }
+        finally
+        {
+            if (Directory.Exists(destination))
+            {
+                Directory.Delete(destination, true);
+            }
+        }
+    }
+
     private static AudioTrack Track(string id, string fileName, string uri) => new(
         id, id, "Tester", new Uri(uri), new Uri("https://example.test/source"),
         "CC0", new Uri("https://creativecommons.org/publicdomain/zero/1.0/"), fileName);
