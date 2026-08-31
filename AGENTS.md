@@ -98,3 +98,8 @@ Do not weaken these behaviors when refactoring networking, validation, logging, 
 ## Documentation language
 
 Code identifiers and repository-level technical documentation may remain in English. User-facing application text should be clear German unless localization support or the task calls for another language. Keep names, titles, creator credits, and official license names faithful to their sources.
+
+## Branch cleanup
+
+- After a pull request has been merged and all required pipelines have completed successfully, delete its feature branch both locally and on the remote. If either branch has already been deleted, clean up the remaining branch.
+- Do not delete branches for open pull requests or branches whose required pipelines are still running or have failed.
