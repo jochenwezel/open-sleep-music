@@ -107,16 +107,20 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         {
             case AudioFocus.Loss:
                 _resumeAfterFocusGain = false;
+                CancelFade();
                 Pause();
                 break;
             case AudioFocus.LossTransient:
             case AudioFocus.LossTransientCanDuck:
                 _resumeAfterFocusGain = _player?.IsPlaying == true;
-                Pause();
+                if (_resumeAfterFocusGain)
+                {
+                    _ = FadeOutForFocusLossAsync();
+                }
                 break;
             case AudioFocus.Gain when _resumeAfterFocusGain:
                 _resumeAfterFocusGain = false;
-                Play();
+                _ = ResumeWithFadeInAsync();
                 break;
         }
     }
@@ -373,8 +377,82 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         }
         finally
         {
+            if (!token.IsCancellationRequested)
+            {
+                SetPlayerVolume();
+            }
+        }
+    }
+
+    private async Task FadeOutForFocusLossAsync()
+    {
+        var token = BeginFade();
+        var startingVolume = CurrentVolume();
+        try
+        {
+            const int steps = 5;
+            for (var step = 1; step <= steps; step++)
+            {
+                token.ThrowIfCancellationRequested();
+                var volume = (float)SleepTimerDisplay.FadeVolume(startingVolume, step / (double)steps);
+                _player?.SetVolume(volume, volume);
+                await Task.Delay(TimeSpan.FromMilliseconds(50), token);
+            }
+            Pause();
+        }
+        catch (System.OperationCanceledException)
+        {
+        }
+        finally
+        {
+            if (!token.IsCancellationRequested)
+            {
+                SetPlayerVolume();
+            }
+        }
+    }
+
+    private async Task ResumeWithFadeInAsync()
+    {
+        var token = BeginFade();
+        if (_player is null || !RequestAudioFocus()) return;
+        var targetVolume = CurrentVolume();
+        try
+        {
+            _player.SetVolume(0, 0);
+            _player.Start();
+            RegisterNoisyReceiver();
+            StartPositionUpdates();
+            UpdateStateAndNotification();
+
+            const int steps = 6;
+            for (var step = 1; step <= steps; step++)
+            {
+                token.ThrowIfCancellationRequested();
+                var volume = (float)(targetVolume * step / steps);
+                _player.SetVolume(volume, volume);
+                await Task.Delay(TimeSpan.FromMilliseconds(50), token);
+            }
+        }
+        catch (System.OperationCanceledException)
+        {
+        }
+        catch (Exception exception)
+        {
+            Android.Util.Log.Warn("OpenSleepMusic", exception.Message);
+        }
+        finally
+        {
             SetPlayerVolume();
         }
+    }
+
+    private CancellationToken BeginFade()
+    {
+        _fadeCancellation?.Cancel();
+        _fadeCancellation?.Dispose();
+        _fadeCancellation = new CancellationTokenSource();
+        return _fadeCancellation.Token;
     }
 
     private void CancelFade()
