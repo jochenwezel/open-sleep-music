@@ -54,6 +54,9 @@ public partial class MainPage : ContentPage
     private bool _didRestorePlayback;
     private int _consecutivePlaybackFailures;
     private string? _responsiveLayoutMode;
+#if !ANDROID
+    private CancellationTokenSource? _sleepFadeCancellation;
+#endif
 
     public MainPage()
     {
@@ -782,7 +785,7 @@ public partial class MainPage : ContentPage
         _restoringControls = false;
         _sleepTimerEndUtc = timerEnd;
         _sleepTimer.Start(timerEnd - DateTimeOffset.UtcNow);
-        SleepTimerLabel.Text = $"noch {Math.Ceiling(_sleepTimer.Remaining.TotalMinutes):0} Min.";
+        SleepTimerLabel.Text = SleepTimerDisplay.FormatRemaining(_sleepTimer.Remaining);
     }
 
     private void OnRepeatModeChanged(object? sender, EventArgs e)
@@ -978,9 +981,9 @@ public partial class MainPage : ContentPage
         {
             _shouldContinuePlayback = false;
 #if ANDROID
-            AndroidPlaybackBridge.Pause();
+            // The Android playback service owns its fade-out while the app is backgrounded.
 #else
-            Player.Pause();
+            _ = FadeOutAndPauseDesktopAsync();
 #endif
             PlayPauseButton.Text = "▶";
             _sleepTimerEndUtc = null;
@@ -993,7 +996,7 @@ public partial class MainPage : ContentPage
         }
         else if (_sleepTimer.IsActive)
         {
-            SleepTimerLabel.Text = $"noch {Math.Ceiling(_sleepTimer.Remaining.TotalMinutes):0} Min.";
+            SleepTimerLabel.Text = SleepTimerDisplay.FormatRemaining(_sleepTimer.Remaining);
         }
         return true;
     }
@@ -1044,6 +1047,35 @@ public partial class MainPage : ContentPage
         PlayPauseButton.Text = "▶";
         _stateStore.ClearPlayback();
     }
+
+#if !ANDROID
+    private async Task FadeOutAndPauseDesktopAsync()
+    {
+        _sleepFadeCancellation?.Cancel();
+        _sleepFadeCancellation?.Dispose();
+        _sleepFadeCancellation = new CancellationTokenSource();
+        var token = _sleepFadeCancellation.Token;
+        var configuredVolume = VolumeSlider.Value;
+        try
+        {
+            const int steps = 30;
+            for (var step = 1; step <= steps; step++)
+            {
+                token.ThrowIfCancellationRequested();
+                Player.Volume = SleepTimerDisplay.FadeVolume(configuredVolume, step / (double)steps);
+                await Task.Delay(TimeSpan.FromMilliseconds(100), token);
+            }
+            Player.Pause();
+        }
+        catch (OperationCanceledException)
+        {
+        }
+        finally
+        {
+            Player.Volume = VolumeSlider.Value;
+        }
+    }
+#endif
 
 #if ANDROID
     private void UpdateAndroidSettings() => AndroidPlaybackBridge.UpdateSettings(

@@ -30,6 +30,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private BecomingNoisyReceiver? _noisyReceiver;
     private DateTimeOffset _lastSessionSaveUtc = DateTimeOffset.MinValue;
     private int _consecutiveFailures;
+    private CancellationTokenSource? _fadeCancellation;
 
     public override void OnCreate()
     {
@@ -86,6 +87,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     public override void OnDestroy()
     {
+        CancelFade();
         _timer?.Dispose();
         _positionTimer?.Dispose();
         ReleasePlayer();
@@ -207,6 +209,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private void Play()
     {
+        CancelFade();
         if (_player is null || !RequestAudioFocus()) return;
         try
         {
@@ -255,6 +258,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private void StopPlayback()
     {
+        CancelFade();
         ReleasePlayer();
         AbandonAudioFocus();
         _queue.Clear();
@@ -330,22 +334,53 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private void ArmTimer()
     {
+        CancelFade();
         _timer?.Dispose();
         _timer = null;
         if (_timerEndUtc is not { } end) return;
         var delay = end - DateTimeOffset.UtcNow;
         if (delay <= TimeSpan.Zero)
         {
-            PauseForTimer();
+            _ = FadeOutForTimerAsync();
             return;
         }
-        _timer = new Timer(_ => PauseForTimer(), null, delay, Timeout.InfiniteTimeSpan);
+        _timer = new Timer(_ => _ = FadeOutForTimerAsync(), null, delay, Timeout.InfiniteTimeSpan);
     }
 
-    private void PauseForTimer()
+    private async Task FadeOutForTimerAsync()
     {
         _timerEndUtc = null;
-        Pause();
+        _fadeCancellation?.Cancel();
+        _fadeCancellation?.Dispose();
+        _fadeCancellation = new CancellationTokenSource();
+        var token = _fadeCancellation.Token;
+        try
+        {
+            const int steps = 30;
+            for (var step = 1; step <= steps; step++)
+            {
+                token.ThrowIfCancellationRequested();
+                var fadeVolume = (float)SleepTimerDisplay.FadeVolume(_volume, step / (double)steps);
+                _player?.SetVolume(fadeVolume, fadeVolume);
+                await Task.Delay(TimeSpan.FromMilliseconds(100), token);
+            }
+            Pause();
+        }
+        catch (System.OperationCanceledException)
+        {
+        }
+        finally
+        {
+            _player?.SetVolume((float)_volume, (float)_volume);
+        }
+    }
+
+    private void CancelFade()
+    {
+        _fadeCancellation?.Cancel();
+        _fadeCancellation?.Dispose();
+        _fadeCancellation = null;
+        _player?.SetVolume((float)_volume, (float)_volume);
     }
 
     private bool IsPlaying()
