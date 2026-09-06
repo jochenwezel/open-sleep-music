@@ -219,7 +219,7 @@ public partial class MainPage : ContentPage
         {
             if (_visibleLibrary.Count > 0)
             {
-                PlayTrack(_visibleLibrary[0], userInitiated: true);
+                PlayInitialTrack();
             }
             return;
         }
@@ -539,7 +539,7 @@ public partial class MainPage : ContentPage
 
         if (_visibleLibrary.Count > 0)
         {
-            PlayTrack(_visibleLibrary[0], userInitiated: true);
+            PlayInitialTrack();
             if (!wasPlaying)
             {
 #if ANDROID
@@ -661,7 +661,7 @@ public partial class MainPage : ContentPage
         {
             if (_visibleLibrary.Count > 0)
             {
-                PlayTrack(_visibleLibrary[0], userInitiated: true);
+                PlayInitialTrack();
             }
             return;
         }
@@ -704,7 +704,7 @@ public partial class MainPage : ContentPage
     private void OnPreviousClicked(object? sender, EventArgs e)
     {
 #if ANDROID
-        if (_currentTrack is null && _visibleLibrary.Count > 0) PlayTrack(_visibleLibrary[0], userInitiated: true);
+        if (_currentTrack is null && _visibleLibrary.Count > 0) PlayInitialTrack();
         else AndroidPlaybackBridge.Previous();
 #else
         MoveTrack(-1, forceSequential: true);
@@ -714,7 +714,7 @@ public partial class MainPage : ContentPage
     private void OnNextClicked(object? sender, EventArgs e)
     {
 #if ANDROID
-        if (_currentTrack is null && _visibleLibrary.Count > 0) PlayTrack(_visibleLibrary[0], userInitiated: true);
+        if (_currentTrack is null && _visibleLibrary.Count > 0) PlayInitialTrack();
         else AndroidPlaybackBridge.Next();
 #else
         MoveTrack(1, forceSequential: !_shuffleEnabled);
@@ -745,6 +745,18 @@ public partial class MainPage : ContentPage
         }
 
         PlayTrack(nextTrack);
+    }
+
+    private void PlayInitialTrack()
+    {
+        if (_visibleLibrary.Count == 0)
+        {
+            return;
+        }
+        var index = _shuffleEnabled && _visibleLibrary.Count > 1
+            ? PlaybackQueue.ChooseDifferent(_visibleLibrary.Count, 0, Random.Shared.Next(_visibleLibrary.Count - 1))
+            : 0;
+        PlayTrack(_visibleLibrary[index], userInitiated: true);
     }
 
     private void OnMediaEnded(object? sender, EventArgs e)
