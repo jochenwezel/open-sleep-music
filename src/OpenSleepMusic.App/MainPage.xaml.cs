@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using System.Text.Json;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
 using OpenSleepMusic.Core.Catalog;
@@ -931,6 +932,7 @@ public partial class MainPage : ContentPage
                 null,
                 shuffleAction,
                 "Bibliothek aktualisieren",
+                "Katalog-Feedback teilen",
                 "Download-Ordner öffnen",
                 "Über Open Sleep Music");
 
@@ -951,6 +953,10 @@ public partial class MainPage : ContentPage
             {
                 await RefreshLibraryAsync();
             }
+            else if (action == "Katalog-Feedback teilen")
+            {
+                await ShareCatalogFeedbackAsync();
+            }
             else if (action == "Download-Ordner öffnen")
             {
                 await OpenDownloadFolderAsync();
@@ -965,6 +971,76 @@ public partial class MainPage : ContentPage
             Debug.WriteLine(exception);
             StatusLabel.Text = "Das Menü konnte nicht geöffnet werden.";
         }
+    }
+
+    private async Task ShareCatalogFeedbackAsync()
+    {
+        var comment = await DisplayPromptAsync(
+            "Katalog-Feedback",
+            "Optional kannst du ergänzen, warum ein Titel besonders gut oder ungeeignet ist. Im nächsten Schritt siehst du vor dem Teilen eine Zusammenfassung.",
+            "Weiter",
+            "Abbrechen",
+            "Optionaler Kommentar",
+            maxLength: 500,
+            keyboard: Keyboard.Text);
+        if (comment is null)
+        {
+            return;
+        }
+
+        var ratings = BuiltInCatalog.SleepWorlds
+            .SelectMany(world => world.Tracks.Select(track => new { World = world, Track = track }))
+            .SelectMany(item =>
+            {
+                var state = _stateStore.IsBlocked(item.World.Id, item.Track.Id)
+                    ? "blocked"
+                    : _stateStore.IsFavorite(item.World.Id, item.Track.Id)
+                        ? "favorite"
+                        : null;
+                return state is null
+                    ? []
+                    : new[] { new CatalogFeedbackEntry(item.World.Id, item.World.Name, item.Track.Id, item.Track.Title, state) };
+            })
+            .ToArray();
+
+        if (ratings.Length == 0 && string.IsNullOrWhiteSpace(comment))
+        {
+            await DisplayAlertAsync(
+                "Kein Feedback vorhanden",
+                "Es wurden noch keine Favoriten oder Blockierungen gesetzt und kein Kommentar eingegeben.",
+                "OK");
+            return;
+        }
+
+        var favoriteCount = ratings.Count(item => item.State == "favorite");
+        var blockedCount = ratings.Count(item => item.State == "blocked");
+        var confirmed = await DisplayAlertAsync(
+            "Feedback jetzt teilen?",
+            $"Enthalten sind {favoriteCount} Favorit(en), {blockedCount} Blockierung(en), App-Version und Plattform{(string.IsNullOrWhiteSpace(comment) ? "." : " sowie dein Kommentar.")} Keine Gerätekennung, Abspielhistorie oder Dateipfade werden aufgenommen.",
+            "Teilen",
+            "Abbrechen");
+        if (!confirmed)
+        {
+            return;
+        }
+
+        var report = new CatalogFeedbackReport(
+            1,
+            DateTimeOffset.UtcNow,
+            AppInfo.Current.VersionString,
+            DeviceInfo.Current.Platform.ToString(),
+            BuiltInCatalog.SleepWorlds.Sum(world => world.Tracks.Count),
+            ratings,
+            string.IsNullOrWhiteSpace(comment) ? null : comment.Trim());
+        var json = JsonSerializer.Serialize(report, FeedbackJsonContext.Default.CatalogFeedbackReport);
+        var path = Path.Combine(FileSystem.CacheDirectory, $"open-sleep-music-feedback-{DateTime.UtcNow:yyyyMMdd-HHmmss}.json");
+        await File.WriteAllTextAsync(path, json);
+        await Share.Default.RequestAsync(new ShareFileRequest
+        {
+            Title = "Open Sleep Music – Katalog-Feedback",
+            File = new ShareFile(path, "application/json")
+        });
+        StatusLabel.Text = "Der Feedback-Bericht wurde zum Teilen bereitgestellt.";
     }
 
     private void UpdateNowPlayingDetails(bool isRestored = false)

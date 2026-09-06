@@ -2,7 +2,7 @@
 
 Open Sleep Music is a privacy-friendly, advertising-free app for downloading and playing freely licensed sleep music and ambient sounds offline.
 
-The project is at an early preview stage. The interface offers curated **sleep worlds**, resilient collection downloads, a validated local library, persistent player settings and playback position, collection repair and removal, playback controls, volume, seeking, sequential or random playback, repeat modes, a sleep timer, and source/license details. Android playback continues through a foreground media service when the screen is locked or the app is in the background. Individual unavailable or invalid downloads never stop the batch: desktop builds record technical details locally, while the interface continues with every usable track.
+The project is at an early preview stage. The interface offers curated **theme collections**, resilient collection downloads, a validated local library, persistent favorites and blocked tracks, player settings and playback position, collection repair and removal, playback controls, volume, seeking, sequential or random playback, repeat modes, a sleep timer, source/license details, and an explicit privacy-friendly catalog-feedback export. Android playback continues through a foreground media service when the screen is locked or the app is in the background. Individual unavailable or invalid downloads never stop the batch: desktop builds record technical details locally, while the interface continues with every usable track.
 
 ## Principles
 
@@ -13,14 +13,13 @@ The project is at an early preview stage. The interface offers curated **sleep w
 - resilient catalogs: HTTP errors, HTML responses, and invalid audio are skipped
 - Android and desktop first; iOS and Mac Catalyst remain solution targets
 
-## Included sleep worlds
+## Included theme collections
 
-- Quiet Classics (97 tracks, about 5.3 hours)
+- Quiet Classics (90 tracks, about 5 hours)
 - Gentle Rain (34 tracks, about 5.4 hours)
 - Forest (8 tracks, about 3 hours)
 - Water & Waves (12 tracks, about 5.2 hours)
 - Fireplace
-- Brown Noise
 
 The built-in catalog currently contains 145 entries and about 18.7 hours of audio. Its reviewed collections and license pages are documented in [docs/music-sources.md](docs/music-sources.md). The complete machine-readable catalog is embedded in the app and can be regenerated with `tools/Update-MediaCatalog.ps1`.
 
