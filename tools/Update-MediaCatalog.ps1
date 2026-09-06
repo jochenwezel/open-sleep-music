@@ -62,7 +62,7 @@ $worlds = [ordered]@{
 }
 
 $chopin = Get-ArchiveMetadata 'musopen-chopin-complete-works-flac'
-$calmChopin = 'Nocturne|Mazurka|Berceuse|Cantabile|Largo|Albumleaf|Andantino|Cello Sonata.*III\. Largo|Prelude.*(No\. 4 |No\. 6 |No\. 7 |No\. 13 |No\. 15 |No\. 17 |No\. 21 )'
+$calmChopin = 'Nocturne|Mazurka|Berceuse|Cantabile|Largo|Albumleaf|Andantino|Cello Sonata.*III\. Largo'
 $chopin.files |
     Where-Object { $_.name -match '\.mp3$' } |
     Where-Object { $_.name -match $calmChopin } |

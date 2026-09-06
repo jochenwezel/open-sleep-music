@@ -87,7 +87,10 @@
             <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
             <Grid x:Name="PlayerGrid" RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12" RowSpacing="6">
                 <Button x:Name="PreviousButton" Text="⏮" Clicked="OnPreviousClicked" BackgroundColor="#252C45" TextColor="White" />
-                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" AutomationId="NowPlayingDetails">
+                    <VerticalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNowPlayingTapped" />
+                    </VerticalStackLayout.GestureRecognizers>
                     <Label x:Name="NowPlayingLabel" Text="Noch kein Titel ausgewählt" FontAttributes="Bold" TextColor="#F7F3FF" LineBreakMode="TailTruncation" />
                     <Label x:Name="NowPlayingDetailLabel" Text="Schlafwelt auswählen oder einen Titel anklicken." FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
                 </VerticalStackLayout>

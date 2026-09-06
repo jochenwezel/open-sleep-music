@@ -490,10 +490,23 @@ public partial class MainPage : ContentPage
     {
         if (sender is Button { CommandParameter: LibraryTrackItem item })
         {
-            var page = new TrackDetailsPage(item.LocalTrack, _stateStore);
-            page.PreferenceChanged += (_, _) => ApplyTrackPreferences(item.LocalTrack);
-            await Navigation.PushModalAsync(page);
+            await OpenTrackDetailsAsync(item.LocalTrack);
         }
+    }
+
+    private async void OnNowPlayingTapped(object? sender, TappedEventArgs e)
+    {
+        if (_currentTrack is not null)
+        {
+            await OpenTrackDetailsAsync(_currentTrack);
+        }
+    }
+
+    private async Task OpenTrackDetailsAsync(LocalLibraryTrack track)
+    {
+        var page = new TrackDetailsPage(track, _stateStore);
+        page.PreferenceChanged += (_, _) => ApplyTrackPreferences(track);
+        await Navigation.PushModalAsync(page);
     }
 
     private LibraryTrackItem CreateTrackItem(LocalLibraryTrack track) => new(
