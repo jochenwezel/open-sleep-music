@@ -28,6 +28,8 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
     private const string TimerEndKey = "sleep-timer.end-utc";
     private const string PlaybackTrackKey = "playback.track-id";
     private const string PlaybackPositionKey = "playback.position-seconds";
+    private const string FavoritePrefix = "track.favorite.";
+    private const string BlockedPrefix = "track.blocked.";
     private readonly IPreferences _preferences = preferences ?? Preferences.Default;
 
     public PersistedAppState Load()
@@ -94,6 +96,33 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
         _preferences.Remove(PlaybackTrackKey);
         _preferences.Remove(PlaybackPositionKey);
     }
+
+    public bool IsFavorite(string worldId, string trackId) =>
+        _preferences.Get(PreferenceKey(FavoritePrefix, worldId, trackId), false);
+
+    public bool IsBlocked(string worldId, string trackId) =>
+        _preferences.Get(PreferenceKey(BlockedPrefix, worldId, trackId), false);
+
+    public void SetFavorite(string worldId, string trackId, bool value)
+    {
+        _preferences.Set(PreferenceKey(FavoritePrefix, worldId, trackId), value);
+        if (value)
+        {
+            _preferences.Set(PreferenceKey(BlockedPrefix, worldId, trackId), false);
+        }
+    }
+
+    public void SetBlocked(string worldId, string trackId, bool value)
+    {
+        _preferences.Set(PreferenceKey(BlockedPrefix, worldId, trackId), value);
+        if (value)
+        {
+            _preferences.Set(PreferenceKey(FavoritePrefix, worldId, trackId), false);
+        }
+    }
+
+    private static string PreferenceKey(string prefix, string worldId, string trackId) =>
+        $"{prefix}{worldId}.{trackId}";
 
     private static string? EmptyToNull(string? value) =>
         string.IsNullOrWhiteSpace(value) ? null : value;

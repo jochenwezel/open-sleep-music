@@ -65,13 +65,16 @@
                     <CollectionView x:Name="LibraryView" SelectionMode="Single" SelectionChanged="OnLibrarySelectionChanged">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Grid Padding="8" RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="5">
-                                    <Label Text="{Binding Track.Title}" TextColor="#F7F3FF" LineBreakMode="TailTruncation" />
-                                    <Label Grid.Row="1" Text="{Binding Track.Creator}" FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
-                                    <Button Grid.Column="1" Grid.RowSpan="2" Text="ⓘ" FontSize="16" WidthRequest="38" HeightRequest="36" Padding="0"
+                                <Grid Padding="8" RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto,Auto,Auto" ColumnSpacing="3" Opacity="{Binding Opacity}">
+                                    <Label Text="{Binding LocalTrack.Track.Title}" TextColor="#F7F3FF" LineBreakMode="TailTruncation" />
+                                    <Label Grid.Row="1" Text="{Binding LocalTrack.Track.Creator}" FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
+                                    <Button Grid.Column="1" Grid.RowSpan="2" Text="{Binding FavoriteGlyph}" FontSize="20" WidthRequest="38" HeightRequest="36" Padding="0"
+                                            CommandParameter="{Binding .}" Clicked="OnFavoriteClicked"
+                                            BackgroundColor="Transparent" TextColor="{Binding FavoriteColor}" AutomationId="FavoriteButton" />
+                                    <Button Grid.Column="2" Grid.RowSpan="2" Text="ⓘ" FontSize="16" WidthRequest="38" HeightRequest="36" Padding="0"
                                             CommandParameter="{Binding .}" Clicked="OnTrackDetailsClicked"
                                             BackgroundColor="Transparent" TextColor="#9E9AAF" AutomationId="TrackDetailsButton" />
-                                    <Label Grid.Column="2" Grid.RowSpan="2" Text="▶" TextColor="#8A7FFF" VerticalOptions="Center" Margin="5,0,0,0" />
+                                    <Label Grid.Column="3" Grid.RowSpan="2" Text="▶" TextColor="#8A7FFF" VerticalOptions="Center" Margin="3,0,0,0" />
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>

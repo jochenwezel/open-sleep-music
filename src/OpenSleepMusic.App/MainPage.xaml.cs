@@ -35,6 +35,7 @@ public partial class MainPage : ContentPage
         "Open Sleep Music");
     private readonly PersistedAppState _initialState;
     private IReadOnlyList<LocalLibraryTrack> _library = [];
+    private IReadOnlyList<LocalLibraryTrack> _displayedLibrary = [];
     private IReadOnlyList<LocalLibraryTrack> _visibleLibrary = [];
     private SleepWorldCard? _selectedWorldCard;
     private LocalLibraryTrack? _currentTrack;
@@ -427,11 +428,18 @@ public partial class MainPage : ContentPage
 
     private void ApplyLibraryFilter()
     {
-        _visibleLibrary = _selectedWorldCard is null
+        _displayedLibrary = _selectedWorldCard is null
             ? []
             : _library.Where(track => track.SleepWorld.Id == _selectedWorldCard.World.Id).ToArray();
-        LibraryView.ItemsSource = _visibleLibrary;
-        LibraryEmptyLabel.IsVisible = _visibleLibrary.Count == 0;
+        var worldId = _selectedWorldCard?.World.Id;
+        _visibleLibrary = worldId is null
+            ? []
+            : TrackPreferenceFilter.Apply(
+                _displayedLibrary,
+                trackId => _stateStore.IsFavorite(worldId, trackId),
+                trackId => _stateStore.IsBlocked(worldId, trackId));
+        LibraryView.ItemsSource = _displayedLibrary.Select(CreateTrackItem).ToArray();
+        LibraryEmptyLabel.IsVisible = _displayedLibrary.Count == 0;
         LibraryTitleLabel.Text = _selectedWorldCard is null
             ? "Meine Musik"
             : $"Meine Musik · {_selectedWorldCard.World.Name}";
@@ -449,18 +457,87 @@ public partial class MainPage : ContentPage
 
     private void OnLibrarySelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
-        if (e.CurrentSelection.FirstOrDefault() is LocalLibraryTrack track)
+        if (e.CurrentSelection.FirstOrDefault() is LibraryTrackItem item)
         {
-            PlayTrack(track, userInitiated: true);
             LibraryView.SelectedItem = null;
+            if (item.IsBlocked)
+            {
+                StatusLabel.Text = "Dieser Titel ist blockiert. Die Blockierung kann über ⓘ aufgehoben werden.";
+                return;
+            }
+            if (!_visibleLibrary.Contains(item.LocalTrack))
+            {
+                StatusLabel.Text = "Für diese Schlafwelt werden derzeit nur Favoriten abgespielt.";
+                return;
+            }
+            PlayTrack(item.LocalTrack, userInitiated: true);
         }
+    }
+
+    private void OnFavoriteClicked(object? sender, EventArgs e)
+    {
+        if (sender is not Button { CommandParameter: LibraryTrackItem item })
+        {
+            return;
+        }
+        var worldId = item.LocalTrack.SleepWorld.Id;
+        var trackId = item.LocalTrack.Track.Id;
+        _stateStore.SetFavorite(worldId, trackId, !item.IsFavorite);
+        ApplyTrackPreferences(item.LocalTrack);
     }
 
     private async void OnTrackDetailsClicked(object? sender, EventArgs e)
     {
-        if (sender is Button { CommandParameter: LocalLibraryTrack track })
+        if (sender is Button { CommandParameter: LibraryTrackItem item })
         {
-            await Navigation.PushModalAsync(new TrackDetailsPage(track));
+            var page = new TrackDetailsPage(item.LocalTrack, _stateStore);
+            page.PreferenceChanged += (_, _) => ApplyTrackPreferences(item.LocalTrack);
+            await Navigation.PushModalAsync(page);
+        }
+    }
+
+    private LibraryTrackItem CreateTrackItem(LocalLibraryTrack track) => new(
+        track,
+        _stateStore.IsFavorite(track.SleepWorld.Id, track.Track.Id),
+        _stateStore.IsBlocked(track.SleepWorld.Id, track.Track.Id));
+
+    private void ApplyTrackPreferences(LocalLibraryTrack changedTrack)
+    {
+        var wasPlaying = _shouldContinuePlayback;
+#if ANDROID
+        var position = AndroidPlaybackBridge.Snapshot.Position.TotalSeconds;
+#else
+        var position = Player.Position.TotalSeconds;
+#endif
+        ApplyLibraryFilter();
+
+        if (_currentTrack is null || _visibleLibrary.Contains(_currentTrack))
+        {
+#if ANDROID
+            if (_currentTrack is not null && _loadedTrackId is not null)
+            {
+                PlayTrack(_currentTrack, startPositionSeconds: position);
+                if (!wasPlaying) AndroidPlaybackBridge.Pause();
+            }
+#endif
+            return;
+        }
+
+        if (_visibleLibrary.Count > 0)
+        {
+            PlayTrack(_visibleLibrary[0], userInitiated: true);
+            if (!wasPlaying)
+            {
+#if ANDROID
+                AndroidPlaybackBridge.Pause();
+#else
+                Player.Pause();
+#endif
+            }
+        }
+        else
+        {
+            StopAndClearPlayback();
         }
     }
 
@@ -1199,6 +1276,13 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
         }
         return $"{value:0.#} {units[unit]}";
     }
+}
+
+internal sealed record LibraryTrackItem(LocalLibraryTrack LocalTrack, bool IsFavorite, bool IsBlocked)
+{
+    public string FavoriteGlyph => IsFavorite ? "★" : "☆";
+    public Color FavoriteColor => IsFavorite ? Color.FromArgb("#F4C95D") : Color.FromArgb("#9E9AAF");
+    public double Opacity => IsBlocked ? 0.45 : 1;
 }
 
 internal static class LibraryTrackListExtensions

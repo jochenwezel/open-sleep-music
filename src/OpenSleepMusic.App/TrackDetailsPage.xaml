@@ -34,6 +34,12 @@
                     <Button Text="Quellseite öffnen" Clicked="OnSourceClicked" BackgroundColor="#7367F0" TextColor="White" />
                     <Button Text="Lizenz öffnen" Clicked="OnLicenseClicked" BackgroundColor="#252C45" TextColor="White" />
                 </HorizontalStackLayout>
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <Button x:Name="FavoriteButton" Text="☆ Favorisieren" Clicked="OnFavoriteClicked"
+                            BackgroundColor="#252C45" TextColor="#F7F3FF" AutomationId="FavoriteTrackButton" />
+                    <Button Grid.Column="1" x:Name="BlockButton" Text="Titel blockieren" Clicked="OnBlockClicked"
+                            BackgroundColor="#502B43" TextColor="#F7F3FF" AutomationId="BlockTrackButton" />
+                </Grid>
             </VerticalStackLayout>
         </ScrollView>
 
