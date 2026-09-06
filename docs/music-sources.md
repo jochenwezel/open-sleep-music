@@ -1,6 +1,6 @@
 # Reviewed media catalog
 
-The built-in catalog contains 146 entries in six sleep worlds, totaling about 18.7 hours. The exact per-file download URL, source page, creator, license, duration, file name, and SHA-1 (when supplied upstream) are stored in `src/OpenSleepMusic.Core/Catalog/media-catalog.json`.
+The built-in catalog contains 145 entries in five sleep worlds, totaling about 18.7 hours. The exact per-file download URL, source page, creator, license, duration, file name, and SHA-1 (when supplied upstream) are stored in `src/OpenSleepMusic.Core/Catalog/media-catalog.json`.
 
 A composition being in the public domain does **not** automatically make a modern recording public domain. The catalog therefore uses recordings whose collection pages explicitly declare CC0 or public-domain status. It deliberately excludes tracks whose names indicate thunder or storms.
 
@@ -16,7 +16,6 @@ A composition being in the public domain does **not** automatically make a moder
 | Water & Waves | 10 | 4.70 h | [Ocean and Sea Sounds](https://archive.org/details/ocean-sea-sounds) (only non-storm selections) | CC0 1.0 |
 | Fireplace | 1 | 4 min | [FireFavorite](https://archive.org/details/FireFavorite) / inchadney (Freesound) | CC0 1.0 |
 | Water & Waves | 1 | 4.8 min | [Waves by Dsw4](https://commons.wikimedia.org/wiki/File:Waves.ogg) | Public Domain |
-| Brown Noise | 1 | 10 sec | [Brownian noise by Kieff / LucasVB](https://commons.wikimedia.org/wiki/File:Brownnoise.ogg) | Public Domain / not copyrightable |
 
 The figures above reflect the generated catalog and are rounded. The update script fetches Internet Archive metadata, selects the approved files, and records upstream SHA-1 values. It does not download the audio during catalog generation.
 

@@ -22,7 +22,7 @@ The project is at an early preview stage. The interface offers curated **sleep w
 - Fireplace
 - Brown Noise
 
-The built-in catalog currently contains 146 entries and about 18.7 hours of audio. Its reviewed collections and license pages are documented in [docs/music-sources.md](docs/music-sources.md). The complete machine-readable catalog is embedded in the app and can be regenerated with `tools/Update-MediaCatalog.ps1`.
+The built-in catalog currently contains 145 entries and about 18.7 hours of audio. Its reviewed collections and license pages are documented in [docs/music-sources.md](docs/music-sources.md). The complete machine-readable catalog is embedded in the app and can be regenerated with `tools/Update-MediaCatalog.ps1`.
 
 Background playback and Android/Windows system media controls are included in the preview. Remaining real-device acceptance checks are recorded in [docs/roadmap.md](docs/roadmap.md).
 

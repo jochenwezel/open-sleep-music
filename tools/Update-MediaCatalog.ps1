@@ -58,7 +58,6 @@ $worlds = [ordered]@{
     forest = [ordered]@{ name = 'Wald'; description = 'Lange Wald- und Regenwaldaufnahmen mit Wind, Wasser und Vögeln.'; icon = '🌲'; tracks = [Collections.Generic.List[object]]::new() }
     waves = [ordered]@{ name = 'Wasser & Wellen'; description = 'Meereswellen, Strand, Bachplätschern und gleichmäßige Wassergeräusche.'; icon = '🌊'; tracks = [Collections.Generic.List[object]]::new() }
     fireplace = [ordered]@{ name = 'Kaminfeuer'; description = 'Ruhiges Knistern eines Kaminfeuers.'; icon = '🔥'; tracks = [Collections.Generic.List[object]]::new() }
-    'brown-noise' = [ordered]@{ name = 'Braunes Rauschen'; description = 'Tiefes, gleichmäßiges Rauschen ohne plötzliche Spitzen.'; icon = '🟤'; tracks = [Collections.Generic.List[object]]::new() }
 }
 
 $chopin = Get-ArchiveMetadata 'musopen-chopin-complete-works-flac'
@@ -117,8 +116,6 @@ $worlds['quiet-classics'].tracks.Add((New-CommonsTrack 'liszt-consolation-no-5' 
 $worlds['quiet-classics'].tracks.Add((New-CommonsTrack 'liszt-romance-s-169' 'Franz Liszt – Romance S.169' 'Piano: Constantin Stephan' 'Franz Liszt, Romance S.169.ogg' 'https://commons.wikimedia.org/wiki/File:Franz_Liszt,_Romance_S.169.ogg' 'CC BY-SA 4.0' 'https://creativecommons.org/licenses/by-sa/4.0/' 'liszt-romance-s-169.ogg' 235))
 $worlds['quiet-classics'].tracks.Add((New-CommonsTrack 'liszt-au-bord-d-une-source' "Franz Liszt – Au bord d'une source" 'Piano: Randolph Hokanson' 'Liszt- au bord d une.ogg' 'https://commons.wikimedia.org/wiki/File:Liszt-_au_bord_d_une.ogg' 'CC BY-SA 1.0' 'https://creativecommons.org/licenses/by-sa/1.0/' 'liszt-au-bord-d-une-source.ogg' 298.34 '9585bb47222ac319eded8fbcd4193364c6854113'))
 $worlds.waves.tracks.Add((New-CommonsTrack 'lake-ontario-waves' 'Waves' 'Dsw4' 'Waves.ogg' 'https://commons.wikimedia.org/wiki/File:Waves.ogg' 'Public Domain' 'https://creativecommons.org/publicdomain/mark/1.0/' 'waves.ogg' 287))
-$worlds['brown-noise'].tracks.Add((New-CommonsTrack 'brown-noise' 'Brownian noise' 'Kieff / LucasVB' 'Brownnoise.ogg' 'https://commons.wikimedia.org/wiki/File:Brownnoise.ogg' 'Public Domain (not copyrightable)' 'https://creativecommons.org/publicdomain/mark/1.0/' 'brown-noise.ogg' 10 '30994e449ca187db99e87c16f853af487ad16944'))
-
 $manifestWorlds = foreach ($entry in $worlds.GetEnumerator()) {
     [ordered]@{
         id = $entry.Key

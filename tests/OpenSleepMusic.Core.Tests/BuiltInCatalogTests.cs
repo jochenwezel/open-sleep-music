@@ -10,11 +10,12 @@ public sealed class BuiltInCatalogTests
         var worlds = BuiltInCatalog.SleepWorlds;
         var tracks = worlds.SelectMany(world => world.Tracks).ToArray();
 
-        Assert.Equal(6, worlds.Count);
+        Assert.Equal(5, worlds.Count);
         Assert.True(tracks.Length >= 140, $"Expected at least 140 tracks, found {tracks.Length}.");
         Assert.True(BuiltInCatalog.TotalDuration >= TimeSpan.FromHours(15));
         Assert.All(worlds, world => Assert.NotEmpty(world.Tracks));
         Assert.DoesNotContain(tracks, track => track.Title.Contains("Preludes, Op. 28", StringComparison.OrdinalIgnoreCase));
+        Assert.DoesNotContain(worlds, world => world.Id == "brown-noise");
 
         Assert.Equal(tracks.Length, tracks.Select(track => track.Id).Distinct(StringComparer.Ordinal).Count());
         Assert.Equal(tracks.Length, tracks.Select(track => track.FileName).Distinct(StringComparer.OrdinalIgnoreCase).Count());
