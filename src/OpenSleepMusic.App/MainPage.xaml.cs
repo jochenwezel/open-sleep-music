@@ -105,9 +105,10 @@ public partial class MainPage : ContentPage
             return;
         }
 
-        var narrow = width < 720 && width <= height;
+        var phoneWidth = width < 720;
+        var narrow = phoneWidth && width <= height;
         var compactLandscape = width > height && height < 560;
-        var layoutMode = $"{narrow}:{compactLandscape}";
+        var layoutMode = $"{phoneWidth}:{narrow}:{compactLandscape}";
         if (_responsiveLayoutMode == layoutMode)
         {
             return;
@@ -116,8 +117,14 @@ public partial class MainPage : ContentPage
 
         RootGrid.Padding = narrow || compactLandscape ? new Thickness(12) : new Thickness(28);
         RootGrid.RowSpacing = narrow || compactLandscape ? 8 : 14;
-        HeaderTitle.FontSize = narrow || compactLandscape ? 24 : 30;
-        HeaderSubtitle.IsVisible = !compactLandscape;
+        HeaderTitle.FontSize = compactLandscape ? 16 : narrow ? 22 : 30;
+        HeaderSubtitle.IsVisible = !phoneWidth && !compactLandscape;
+        HeaderGrid.HeightRequest = compactLandscape ? 36 : -1;
+        MenuButton.WidthRequest = compactLandscape ? 38 : 48;
+        MenuButton.HeightRequest = compactLandscape ? 34 : 44;
+        MenuButton.FontSize = compactLandscape ? 18 : 22;
+        WorldsTitleLabel.IsVisible = !compactLandscape;
+        LibraryTitleLabel.IsVisible = !compactLandscape;
         PlayerBorder.Padding = compactLandscape ? new Thickness(8) : new Thickness(12);
 
         if (narrow)

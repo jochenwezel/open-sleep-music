@@ -5,19 +5,19 @@
              BackgroundColor="#0B1020"
              Title="Open Sleep Music">
     <Grid x:Name="RootGrid" RowDefinitions="Auto,*,Auto,Auto" Padding="28" RowSpacing="14">
-        <Grid ColumnDefinitions="*,Auto">
+        <Grid x:Name="HeaderGrid" ColumnDefinitions="*,Auto">
             <VerticalStackLayout Spacing="4">
                 <Label x:Name="HeaderTitle" Text="open sleep music" FontSize="30" FontAttributes="Bold" TextColor="#F7F3FF" />
                 <Label x:Name="HeaderSubtitle" Text="Kostenlose Klänge für eine ruhige Nacht" TextColor="#B8B5C8" />
             </VerticalStackLayout>
-            <Button Grid.Column="1" Text="☰" FontSize="22" WidthRequest="48" HeightRequest="44"
+            <Button x:Name="MenuButton" Grid.Column="1" Text="☰" FontSize="22" WidthRequest="48" HeightRequest="44"
                     Clicked="OnMenuClicked" BackgroundColor="#252C45" TextColor="#F7F3FF"
                     CornerRadius="12" AutomationId="MainMenuButton" />
         </Grid>
 
         <Grid x:Name="ContentGrid" Grid.Row="1" RowDefinitions="*" ColumnDefinitions="3*,2*" ColumnSpacing="18">
             <Grid x:Name="WorldsPanel" RowDefinitions="Auto,*" RowSpacing="10">
-                <Label Text="Schlafwelten" FontSize="19" FontAttributes="Bold" TextColor="#F7F3FF" />
+                <Label x:Name="WorldsTitleLabel" Text="Schlafwelten" FontSize="19" FontAttributes="Bold" TextColor="#F7F3FF" />
                 <CollectionView Grid.Row="1" x:Name="WorldsView" SelectionMode="Single" SelectionChanged="OnWorldSelectionChanged">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout x:Name="WorldsItemsLayout" Orientation="Vertical" Span="2" HorizontalItemSpacing="12" VerticalItemSpacing="12" />
