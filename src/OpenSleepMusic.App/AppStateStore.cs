@@ -34,7 +34,7 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
 
     public PersistedAppState Load()
     {
-        var volume = Math.Clamp(_preferences.Get(VolumeKey, 0.7), 0, 1);
+        var volume = Math.Clamp(_preferences.Get(VolumeKey, 0.3), 0, 1);
         var shuffle = _preferences.Get(ShuffleKey, false);
         var repeatText = _preferences.Get(RepeatModeKey, PlaybackRepeatMode.SleepWorld.ToString());
         var repeatMode = Enum.TryParse<PlaybackRepeatMode>(repeatText, out var parsedRepeatMode)
