@@ -10,4 +10,5 @@ public sealed record AudioTrack(
     Uri LicenseUri,
     string FileName,
     double DurationSeconds = 0,
-    string? Sha1 = null);
+    string? Sha1 = null,
+    double VolumeGain = 1);

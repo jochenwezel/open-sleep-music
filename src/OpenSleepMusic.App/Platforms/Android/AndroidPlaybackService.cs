@@ -127,10 +127,12 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         var titles = intent.GetStringArrayListExtra("titles") ?? [];
         var creators = intent.GetStringArrayListExtra("creators") ?? [];
         var paths = intent.GetStringArrayListExtra("paths") ?? [];
+        var gains = intent.GetDoubleArrayExtra("gains") ?? [];
         _queue.Clear();
         for (var i = 0; i < ids.Count && i < titles.Count && i < creators.Count && i < paths.Count; i++)
         {
-            _queue.Add(new QueueItem(ids[i]!, titles[i]!, creators[i]!, paths[i]!));
+            var gain = i < gains.Length ? gains[i] : 1;
+            _queue.Add(new QueueItem(ids[i]!, titles[i]!, creators[i]!, paths[i]!, gain));
         }
         if (_queue.Count == 0)
         {
@@ -147,7 +149,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         _shuffle = intent.GetBooleanExtra("shuffle", _shuffle);
         _repeatTrack = intent.GetBooleanExtra("repeat", _repeatTrack);
         _volume = Math.Clamp(intent.GetDoubleExtra("volume", _volume), 0, 1);
-        _player?.SetVolume((float)_volume, (float)_volume);
+        SetPlayerVolume();
         var timerEnd = intent.GetLongExtra("timerEnd", 0);
         _timerEndUtc = timerEnd > 0 ? DateTimeOffset.FromUnixTimeMilliseconds(timerEnd) : null;
         ArmTimer();
@@ -167,7 +169,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
                 .SetContentType(AudioContentType.Music)!
                 .Build());
             _player.SetWakeMode(this, WakeLockFlags.Partial);
-            _player.SetVolume((float)_volume, (float)_volume);
+            SetPlayerVolume();
             _player.SetDataSource(item.Path);
             _player.Prepared += (_, _) =>
             {
@@ -360,7 +362,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             for (var step = 1; step <= steps; step++)
             {
                 token.ThrowIfCancellationRequested();
-                var fadeVolume = (float)SleepTimerDisplay.FadeVolume(_volume, step / (double)steps);
+                var fadeVolume = (float)SleepTimerDisplay.FadeVolume(CurrentVolume(), step / (double)steps);
                 _player?.SetVolume(fadeVolume, fadeVolume);
                 await Task.Delay(TimeSpan.FromMilliseconds(100), token);
             }
@@ -371,7 +373,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         }
         finally
         {
-            _player?.SetVolume((float)_volume, (float)_volume);
+            SetPlayerVolume();
         }
     }
 
@@ -380,7 +382,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         _fadeCancellation?.Cancel();
         _fadeCancellation?.Dispose();
         _fadeCancellation = null;
-        _player?.SetVolume((float)_volume, (float)_volume);
+        SetPlayerVolume();
     }
 
     private bool IsPlaying()
@@ -430,7 +432,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         if (_queue.Count == 0) return;
         var preferences = GetSharedPreferences("playback-session", FileCreationMode.Private);
         var serializedQueue = string.Join("\n", _queue.Select(item => string.Join("|",
-            Encode(item.Id), Encode(item.Title), Encode(item.Creator), Encode(item.Path))));
+            Encode(item.Id), Encode(item.Title), Encode(item.Creator), Encode(item.Path), item.Gain.ToString(System.Globalization.CultureInfo.InvariantCulture))));
         preferences?.Edit()?
             .PutString("queue", serializedQueue)?
             .PutInt("index", _index)?
@@ -454,9 +456,12 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         foreach (var line in serializedQueue.Split('\n', StringSplitOptions.RemoveEmptyEntries))
         {
             var fields = line.Split('|');
-            if (fields.Length == 4)
+            if (fields.Length >= 4)
             {
-                _queue.Add(new QueueItem(Decode(fields[0]), Decode(fields[1]), Decode(fields[2]), Decode(fields[3])));
+                var gain = fields.Length >= 5 && double.TryParse(fields[4], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out var parsedGain)
+                    ? parsedGain
+                    : 1;
+                _queue.Add(new QueueItem(Decode(fields[0]), Decode(fields[1]), Decode(fields[2]), Decode(fields[3]), gain));
             }
         }
         if (_queue.Count == 0) return;
@@ -538,7 +543,17 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         });
     }
 
-    private sealed record QueueItem(string Id, string Title, string Creator, string Path);
+    private double CurrentVolume() => _queue.Count == 0
+        ? _volume
+        : PlaybackVolume.ApplyGain(_volume, _queue[_index].Gain);
+
+    private void SetPlayerVolume()
+    {
+        var volume = (float)CurrentVolume();
+        _player?.SetVolume(volume, volume);
+    }
+
+    private sealed record QueueItem(string Id, string Title, string Creator, string Path, double Gain);
 
     private sealed class BecomingNoisyReceiver(AndroidPlaybackService owner) : BroadcastReceiver
     {

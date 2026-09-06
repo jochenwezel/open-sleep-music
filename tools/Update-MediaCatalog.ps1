@@ -97,7 +97,11 @@ Get-OriginalMp3 $extraRain |
     ForEach-Object { $worlds.rain.tracks.Add((New-ArchiveTrack $extraRain $_ 'cl0udn0te and credited source recordists')) }
 
 $fire = Get-ArchiveMetadata 'FireFavorite'
-Get-OriginalMp3 $fire | ForEach-Object { $worlds.fireplace.tracks.Add((New-ArchiveTrack $fire $_ 'inchadney (Freesound)')) }
+Get-OriginalMp3 $fire | ForEach-Object {
+    $track = New-ArchiveTrack $fire $_ 'inchadney (Freesound)'
+    $track['volumeGain'] = 6.0
+    $worlds.fireplace.tracks.Add($track)
+}
 
 function New-CommonsTrack(
     [string]$Id, [string]$Title, [string]$Creator, [string]$CommonsFile,

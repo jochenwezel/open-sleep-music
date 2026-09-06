@@ -14,7 +14,7 @@ A composition being in the public domain does **not** automatically make a moder
 | Rain / Forest / Waves | 4 | 1.66 h | [Nature Sounds (Birds, Rain, Water)](https://archive.org/details/naturesounds-soundtheraphy) | CC0 1.0 |
 | Gentle Rain | 28 | 2.64 h | [Rain Sounds, Gentle Rain, Thunderstorms](https://archive.org/details/rain-sounds-gentle-rain-thunderstorms) (only non-storm selections) | CC0 1.0 |
 | Water & Waves | 10 | 4.70 h | [Ocean and Sea Sounds](https://archive.org/details/ocean-sea-sounds) (only non-storm selections) | CC0 1.0 |
-| Fireplace | 1 | 4 min | [FireFavorite](https://archive.org/details/FireFavorite) / inchadney (Freesound) | CC0 1.0 |
+| Fireplace | 1 | 4 min | [FireFavorite](https://archive.org/details/FireFavorite) / inchadney (Freesound); playback gain 6× compensates for the unusually quiet source without exceeding the player's full-volume ceiling | CC0 1.0 |
 | Water & Waves | 1 | 4.8 min | [Waves by Dsw4](https://commons.wikimedia.org/wiki/File:Waves.ogg) | Public Domain |
 
 The figures above reflect the generated catalog and are rounded. The update script fetches Internet Archive metadata, selects the approved files, and records upstream SHA-1 values. It does not download the audio during catalog generation.

@@ -19,7 +19,7 @@
                 <Grid ColumnDefinitions="130,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
                     <Label Text="Urheber/Interpret" TextColor="#9E9AAF" />
                     <Label Grid.Column="1" x:Name="CreatorLabel" TextColor="#F7F3FF" />
-                    <Label Grid.Row="1" Text="Schlafwelt" TextColor="#9E9AAF" />
+                    <Label Grid.Row="1" Text="Themensammlung" TextColor="#9E9AAF" />
                     <Label Grid.Row="1" Grid.Column="1" x:Name="WorldLabel" TextColor="#F7F3FF" />
                     <Label Grid.Row="2" Text="Dauer" TextColor="#9E9AAF" />
                     <Label Grid.Row="2" Grid.Column="1" x:Name="DurationLabel" TextColor="#F7F3FF" />

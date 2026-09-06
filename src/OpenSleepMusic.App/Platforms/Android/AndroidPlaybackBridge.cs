@@ -37,6 +37,7 @@ internal static class AndroidPlaybackBridge
         intent.PutStringArrayListExtra("titles", queue.Select(item => item.Track.Title).ToArray());
         intent.PutStringArrayListExtra("creators", queue.Select(item => item.Track.Creator).ToArray());
         intent.PutStringArrayListExtra("paths", queue.Select(item => item.FilePath).ToArray());
+        intent.PutExtra("gains", queue.Select(item => item.Track.VolumeGain).ToArray());
         intent.PutExtra("index", Math.Max(0, queue.IndexOf(selected)));
         intent.PutExtra("position", Math.Max(0, startSeconds));
         AddSettings(intent, shuffle, repeatTrack, volume, timerEndUtc);

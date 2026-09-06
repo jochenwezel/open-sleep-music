@@ -27,6 +27,7 @@ public sealed class BuiltInCatalogTests
             Assert.Equal(Uri.UriSchemeHttps, track.SourcePageUri.Scheme);
             Assert.Equal(Uri.UriSchemeHttps, track.LicenseUri.Scheme);
             Assert.True(track.DurationSeconds > 0, $"{track.Id} has no duration.");
+            Assert.True(track.VolumeGain > 0, $"{track.Id} has an invalid volume gain.");
             Assert.False(string.IsNullOrWhiteSpace(track.Creator));
             Assert.False(string.IsNullOrWhiteSpace(track.License));
             if (!string.IsNullOrWhiteSpace(track.Sha1))

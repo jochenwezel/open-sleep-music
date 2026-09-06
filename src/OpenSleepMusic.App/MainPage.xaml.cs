@@ -18,7 +18,7 @@ public partial class MainPage : ContentPage
     private const int MaximumAutomaticFailureSkips = 3;
     private static readonly int[] SleepTimerMinutes = [0, 15, 30, 45, 60, 90];
     private static readonly string[] SleepTimerLabels = ["Aus", "15 Minuten", "30 Minuten", "45 Minuten", "60 Minuten", "90 Minuten"];
-    private static readonly string[] RepeatModeLabels = ["Schlafwelt", "Einzeltitel"];
+    private static readonly string[] RepeatModeLabels = ["Themensammlung", "Einzeltitel"];
     private readonly HttpClient _httpClient;
     private readonly LocalLibraryScanner _libraryScanner = new();
     private readonly LocalLibraryManager _libraryManager = new();
@@ -308,7 +308,7 @@ public partial class MainPage : ContentPage
     {
         var confirmed = await DisplayAlertAsync(
             "Sammlung löschen",
-            $"Alle heruntergeladenen Dateien aus „{card.World.Name}“ werden gelöscht. Andere Schlafwelten bleiben erhalten.",
+            $"Alle heruntergeladenen Dateien aus „{card.World.Name}“ werden gelöscht. Andere Themensammlungen bleiben erhalten.",
             "Löschen",
             "Abbrechen");
         if (!confirmed)
@@ -467,7 +467,7 @@ public partial class MainPage : ContentPage
             }
             if (!_visibleLibrary.Contains(item.LocalTrack))
             {
-                StatusLabel.Text = "Für diese Schlafwelt werden derzeit nur Favoriten abgespielt.";
+                StatusLabel.Text = "Für diese Themensammlung werden derzeit nur Favoriten abgespielt.";
                 return;
             }
             PlayTrack(item.LocalTrack, userInitiated: true);
@@ -589,6 +589,7 @@ public partial class MainPage : ContentPage
             VolumeSlider.Value,
             _sleepTimerEndUtc);
 #else
+        Player.Volume = PlaybackVolume.ApplyGain(VolumeSlider.Value, track.Track.VolumeGain);
         if (_loadedTrackId == track.Track.Id)
         {
             _ = SeekAndPlayAsync(_pendingSeekSeconds);
@@ -905,7 +906,7 @@ public partial class MainPage : ContentPage
     private void OnVolumeChanged(object? sender, ValueChangedEventArgs e)
     {
 #if !ANDROID
-        Player.Volume = e.NewValue;
+        Player.Volume = PlaybackVolume.ApplyGain(e.NewValue, _currentTrack?.Track.VolumeGain ?? 1);
 #endif
         VolumeLabel.Text = $"{e.NewValue:P0}";
         if (!_restoringControls)
@@ -974,7 +975,7 @@ public partial class MainPage : ContentPage
         }
 
         var order = _shuffleEnabled ? "Zufällig" : "Reihenfolge";
-        var repeat = _repeatMode == PlaybackRepeatMode.Track ? "Titel wiederholen" : "Schlafwelt wiederholen";
+        var repeat = _repeatMode == PlaybackRepeatMode.Track ? "Titel wiederholen" : "Themensammlung wiederholen";
         var resume = isRestored && _resumePositionSeconds > 0
             ? $" · pausiert bei {FormatTime(TimeSpan.FromSeconds(_resumePositionSeconds))}"
             : string.Empty;
@@ -1136,7 +1137,7 @@ public partial class MainPage : ContentPage
         _nextTrack = null;
         _resumePositionSeconds = 0;
         NowPlayingLabel.Text = "Noch kein Titel ausgewählt";
-        NowPlayingDetailLabel.Text = "Schlafwelt auswählen oder einen Titel anklicken.";
+        NowPlayingDetailLabel.Text = "Themensammlung auswählen oder einen Titel anklicken.";
         NextTrackLabel.Text = "Nächster Titel: –";
         PositionSlider.Maximum = 1;
         PositionSlider.Value = 0;
@@ -1152,7 +1153,7 @@ public partial class MainPage : ContentPage
         _sleepFadeCancellation?.Dispose();
         _sleepFadeCancellation = new CancellationTokenSource();
         var token = _sleepFadeCancellation.Token;
-        var configuredVolume = VolumeSlider.Value;
+        var configuredVolume = PlaybackVolume.ApplyGain(VolumeSlider.Value, _currentTrack?.Track.VolumeGain ?? 1);
         try
         {
             const int steps = 30;
@@ -1169,7 +1170,7 @@ public partial class MainPage : ContentPage
         }
         finally
         {
-            Player.Volume = VolumeSlider.Value;
+            Player.Volume = PlaybackVolume.ApplyGain(VolumeSlider.Value, _currentTrack?.Track.VolumeGain ?? 1);
         }
     }
 #endif
