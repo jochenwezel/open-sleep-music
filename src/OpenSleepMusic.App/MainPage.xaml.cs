@@ -24,6 +24,11 @@ public partial class MainPage : ContentPage
     private readonly LocalLibraryManager _libraryManager = new();
     private readonly AppStateStore _stateStore = new();
     private readonly SleepTimer _sleepTimer = new();
+    private readonly MediaElement Player = new()
+    {
+        IsVisible = false,
+        ShouldAutoPlay = false
+    };
     private readonly IReadOnlyList<SleepWorldCard> _worldCards;
     private readonly string _downloadRoot = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.MyMusic),
@@ -53,6 +58,14 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        SetPlaybackControlsEnabled(false);
+#if !ANDROID
+        Player.MediaOpened += OnMediaOpened;
+        Player.MediaEnded += OnMediaEnded;
+        Player.MediaFailed += OnMediaFailed;
+        Player.StateChanged += OnPlayerStateChanged;
+        RootGrid.Add(Player);
+#endif
         _httpClient = new HttpClient { Timeout = TimeSpan.FromMinutes(15) };
         _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(
             "OpenSleepMusic/0.1 (+https://github.com/jochenwezel/open-sleep-music)");
@@ -337,6 +350,12 @@ public partial class MainPage : ContentPage
         try
         {
             _library = await _libraryScanner.ScanAsync(_downloadRoot, BuiltInCatalog.SleepWorlds);
+#if ANDROID
+            if (_library.Count == 0 && AndroidPlaybackBridge.Snapshot.TrackId is not null)
+            {
+                AndroidPlaybackBridge.Stop();
+            }
+#endif
             foreach (var card in _worldCards)
             {
                 var tracks = _library.Where(track => track.SleepWorld.Id == card.World.Id).ToArray();
@@ -406,7 +425,16 @@ public partial class MainPage : ContentPage
         LibraryTitleLabel.Text = _selectedWorldCard is null
             ? "Meine Musik"
             : $"Meine Musik · {_selectedWorldCard.World.Name}";
+        SetPlaybackControlsEnabled(_visibleLibrary.Count > 0);
         UpdateNextTrack();
+    }
+
+    private void SetPlaybackControlsEnabled(bool enabled)
+    {
+        PreviousButton.IsEnabled = enabled;
+        PlayPauseButton.IsEnabled = enabled;
+        NextButton.IsEnabled = enabled;
+        PositionSlider.IsEnabled = enabled;
     }
 
     private void OnLibrarySelectionChanged(object? sender, SelectionChangedEventArgs e)
