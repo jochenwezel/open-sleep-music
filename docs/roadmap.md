@@ -14,5 +14,6 @@ The implementation must cover:
 - equivalent Windows system media transport integration;
 - restoration of the active sleep world, track, queue mode, and position after lifecycle interruption;
 - real-device tests for Android standby, battery optimization, Bluetooth controls, wired headset controls, and process recreation.
+- real-device rotation tests during playback, downloads, and sleep-timer operation in portrait and landscape.
 
 Background playback must retain the project's privacy and offline guarantees. It must not introduce accounts, analytics, remote control services, or a permanent network requirement.

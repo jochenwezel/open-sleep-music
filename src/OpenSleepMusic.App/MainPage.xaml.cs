@@ -45,6 +45,7 @@ public partial class MainPage : ContentPage
     private bool _restoringControls;
     private bool _didRestorePlayback;
     private int _consecutivePlaybackFailures;
+    private string? _responsiveLayoutMode;
 
     public MainPage()
     {
@@ -70,7 +71,92 @@ public partial class MainPage : ContentPage
         RestoreSleepTimer(_initialState);
 
         Dispatcher.StartTimer(TimeSpan.FromSeconds(1), UpdatePlaybackStatus);
+        SizeChanged += (_, _) => ApplyResponsiveLayout(Width, Height);
         Loaded += async (_, _) => await RefreshLibraryAsync();
+    }
+
+    private void ApplyResponsiveLayout(double width, double height)
+    {
+        if (width <= 0 || height <= 0)
+        {
+            return;
+        }
+
+        var narrow = width < 720 && width <= height;
+        var compactLandscape = width > height && height < 560;
+        var layoutMode = $"{narrow}:{compactLandscape}";
+        if (_responsiveLayoutMode == layoutMode)
+        {
+            return;
+        }
+        _responsiveLayoutMode = layoutMode;
+
+        RootGrid.Padding = narrow || compactLandscape ? new Thickness(12) : new Thickness(28);
+        RootGrid.RowSpacing = narrow || compactLandscape ? 8 : 14;
+        HeaderTitle.FontSize = narrow || compactLandscape ? 24 : 30;
+        HeaderSubtitle.IsVisible = !compactLandscape;
+        PlayerBorder.Padding = compactLandscape ? new Thickness(8) : new Thickness(12);
+
+        if (narrow)
+        {
+            SetColumns(ContentGrid, GridLength.Star);
+            SetRows(ContentGrid, GridLength.Star, GridLength.Star);
+            ContentGrid.ColumnSpacing = 0;
+            ContentGrid.RowSpacing = 12;
+            Grid.SetRow(WorldsPanel, 0);
+            Grid.SetColumn(WorldsPanel, 0);
+            Grid.SetRow(LibraryPanel, 1);
+            Grid.SetColumn(LibraryPanel, 0);
+            WorldsItemsLayout.Span = 1;
+
+            SetColumns(PlayerOptionsGrid, GridLength.Star);
+            SetRows(PlayerOptionsGrid, GridLength.Auto, GridLength.Auto);
+            PlayerOptionsGrid.ColumnSpacing = 0;
+            PlayerOptionsGrid.RowSpacing = 4;
+            Grid.SetRow(RepeatOptionsPanel, 1);
+            Grid.SetColumn(RepeatOptionsPanel, 0);
+        }
+        else
+        {
+            SetColumns(ContentGrid, new GridLength(3, GridUnitType.Star), new GridLength(2, GridUnitType.Star));
+            SetRows(ContentGrid, GridLength.Star);
+            ContentGrid.ColumnSpacing = 18;
+            ContentGrid.RowSpacing = 0;
+            Grid.SetRow(WorldsPanel, 0);
+            Grid.SetColumn(WorldsPanel, 0);
+            Grid.SetRow(LibraryPanel, 0);
+            Grid.SetColumn(LibraryPanel, 1);
+            WorldsItemsLayout.Span = 2;
+
+            SetColumns(PlayerOptionsGrid, GridLength.Star, GridLength.Star);
+            SetRows(PlayerOptionsGrid, GridLength.Auto);
+            PlayerOptionsGrid.ColumnSpacing = 18;
+            PlayerOptionsGrid.RowSpacing = 0;
+            Grid.SetRow(RepeatOptionsPanel, 0);
+            Grid.SetColumn(RepeatOptionsPanel, 1);
+        }
+
+        PlayerOptionsGrid.IsVisible = !compactLandscape;
+        VolumePanel.IsVisible = !compactLandscape;
+        NextTrackLabel.IsVisible = !compactLandscape;
+    }
+
+    private static void SetColumns(Grid grid, params GridLength[] widths)
+    {
+        grid.ColumnDefinitions.Clear();
+        foreach (var width in widths)
+        {
+            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = width });
+        }
+    }
+
+    private static void SetRows(Grid grid, params GridLength[] heights)
+    {
+        grid.RowDefinitions.Clear();
+        foreach (var height in heights)
+        {
+            grid.RowDefinitions.Add(new RowDefinition { Height = height });
+        }
     }
 
     internal void HandleAppDeactivated() => PersistPlaybackSnapshot(force: true);

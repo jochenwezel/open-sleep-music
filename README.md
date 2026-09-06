@@ -35,6 +35,8 @@ Requirements:
 - .NET MAUI workload with the desired platform components
 - Android 8.0 (API 26) or newer for Android playback
 
+The main interface supports portrait and landscape orientation. On narrow portrait screens the sleep-world and library lists are stacked; short landscape screens use a compact player so that the lists remain usable.
+
 Open `OpenSleepMusic.sln`, select `OpenSleepMusic.App`, choose the Windows target, and run it. The downloaded files are stored below the current user's Music folder in `Open Sleep Music/<sleep-world>`.
 
 Command-line validation:
