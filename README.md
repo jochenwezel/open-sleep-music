@@ -2,7 +2,7 @@
 
 Open Sleep Music is a privacy-friendly, advertising-free app for downloading and playing freely licensed sleep music and ambient sounds offline.
 
-The project is at an early MVP stage. The desktop interface offers curated **sleep worlds**, resilient collection downloads, a validated local library, persistent player settings and playback position, collection repair and removal, playback controls, volume, seeking, sequential or random playback, repeat modes, a sleep timer, and source/license details. Individual unavailable or invalid downloads never stop the batch: desktop builds record technical details locally, while the interface continues with every usable track.
+The project is at an early preview stage. The interface offers curated **sleep worlds**, resilient collection downloads, a validated local library, persistent player settings and playback position, collection repair and removal, playback controls, volume, seeking, sequential or random playback, repeat modes, a sleep timer, and source/license details. Android playback continues through a foreground media service when the screen is locked or the app is in the background. Individual unavailable or invalid downloads never stop the batch: desktop builds record technical details locally, while the interface continues with every usable track.
 
 ## Principles
 
@@ -24,7 +24,13 @@ The project is at an early MVP stage. The desktop interface offers curated **sle
 
 The built-in catalog currently contains 153 entries and about 19 hours of audio. Its reviewed collections and license pages are documented in [docs/music-sources.md](docs/music-sources.md). The complete machine-readable catalog is embedded in the app and can be regenerated with `tools/Update-MediaCatalog.ps1`.
 
-Background playback and system media controls are a prioritized follow-up, particularly for phones. The platform requirements and test scope are recorded in [docs/roadmap.md](docs/roadmap.md).
+Background playback and Android/Windows system media controls are included in the preview. Remaining real-device acceptance checks are recorded in [docs/roadmap.md](docs/roadmap.md).
+
+## Install the Android test app
+
+Download the APK from the latest GitHub prerelease on the Android phone. Android may ask for permission to install apps from the browser or file manager used for the download. Allow it for this installation, open the APK, choose **Installieren**, and disable that source permission again afterwards. Existing downloaded music remains in the app's music folder when updating the APK.
+
+The preview APK uses a development/test signature. Later store or production builds need a protected, durable signing key supplied through repository secrets; signing keys must never be committed.
 
 ## Open in Visual Studio
 

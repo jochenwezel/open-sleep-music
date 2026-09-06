@@ -7,6 +7,9 @@ using OpenSleepMusic.Core.Catalog;
 using OpenSleepMusic.Core.Downloads;
 using OpenSleepMusic.Core.Library;
 using OpenSleepMusic.Core.Playback;
+#if ANDROID
+using OpenSleepMusic.App.Playback;
+#endif
 
 namespace OpenSleepMusic.App;
 
@@ -69,6 +72,10 @@ public partial class MainPage : ContentPage
         VolumeLabel.Text = $"{_initialState.Volume:P0}";
         _restoringControls = false;
         RestoreSleepTimer(_initialState);
+
+#if ANDROID
+        AndroidPlaybackBridge.StateChanged += OnAndroidPlaybackStateChanged;
+#endif
 
         Dispatcher.StartTimer(TimeSpan.FromSeconds(1), UpdatePlaybackStatus);
         SizeChanged += (_, _) => ApplyResponsiveLayout(Width, Height);
@@ -163,12 +170,16 @@ public partial class MainPage : ContentPage
 
     internal void HandleAppResumed()
     {
+#if ANDROID
+        ApplyAndroidSnapshot(AndroidPlaybackBridge.Snapshot);
+#else
         if (_shouldContinuePlayback
             && _loadedTrackId is not null
             && Player.CurrentState != MediaElementState.Playing)
         {
             Player.Play();
         }
+#endif
     }
 
     private async void OnWorldActionClicked(object? sender, EventArgs e)
@@ -338,6 +349,9 @@ public partial class MainPage : ContentPage
                 ?? _worldCards[0];
             SelectWorld(cardToSelect, persist: _didRestorePlayback);
             RestorePlaybackOnce();
+#if ANDROID
+            ApplyAndroidSnapshot(AndroidPlaybackBridge.Snapshot);
+#endif
 
             if (!preserveStatus)
             {
@@ -436,6 +450,17 @@ public partial class MainPage : ContentPage
         Player.MetadataTitle = track.Track.Title;
         Player.MetadataArtist = track.Track.Creator;
 
+#if ANDROID
+        _loadedTrackId = track.Track.Id;
+        AndroidPlaybackBridge.LoadAndPlay(
+            _visibleLibrary,
+            track,
+            startPositionSeconds,
+            _shuffleEnabled,
+            _repeatMode == PlaybackRepeatMode.Track,
+            VolumeSlider.Value,
+            _sleepTimerEndUtc);
+#else
         if (_loadedTrackId == track.Track.Id)
         {
             _ = SeekAndPlayAsync(_pendingSeekSeconds);
@@ -446,6 +471,7 @@ public partial class MainPage : ContentPage
             Player.Source = MediaSource.FromFile(track.FilePath);
             Player.Play();
         }
+#endif
 
         PlayPauseButton.Text = "⏸";
         UpdateNextTrack();
@@ -514,6 +540,21 @@ public partial class MainPage : ContentPage
         {
             PlayTrack(_currentTrack, userInitiated: true, startPositionSeconds: _resumePositionSeconds);
         }
+#if ANDROID
+        else if (AndroidPlaybackBridge.Snapshot.IsPlaying)
+        {
+            _shouldContinuePlayback = false;
+            AndroidPlaybackBridge.Pause();
+            PlayPauseButton.Text = "▶";
+            PersistPlaybackSnapshot(force: true);
+        }
+        else
+        {
+            _shouldContinuePlayback = true;
+            AndroidPlaybackBridge.Play();
+            PlayPauseButton.Text = "⏸";
+        }
+#else
         else if (Player.CurrentState == MediaElementState.Playing)
         {
             _shouldContinuePlayback = false;
@@ -527,11 +568,28 @@ public partial class MainPage : ContentPage
             Player.Play();
             PlayPauseButton.Text = "⏸";
         }
+#endif
     }
 
-    private void OnPreviousClicked(object? sender, EventArgs e) => MoveTrack(-1, forceSequential: true);
+    private void OnPreviousClicked(object? sender, EventArgs e)
+    {
+#if ANDROID
+        if (_currentTrack is null && _visibleLibrary.Count > 0) PlayTrack(_visibleLibrary[0], userInitiated: true);
+        else AndroidPlaybackBridge.Previous();
+#else
+        MoveTrack(-1, forceSequential: true);
+#endif
+    }
 
-    private void OnNextClicked(object? sender, EventArgs e) => MoveTrack(1, forceSequential: !_shuffleEnabled);
+    private void OnNextClicked(object? sender, EventArgs e)
+    {
+#if ANDROID
+        if (_currentTrack is null && _visibleLibrary.Count > 0) PlayTrack(_visibleLibrary[0], userInitiated: true);
+        else AndroidPlaybackBridge.Next();
+#else
+        MoveTrack(1, forceSequential: !_shuffleEnabled);
+#endif
+    }
 
     private void MoveTrack(int offset, bool forceSequential = false)
     {
@@ -552,7 +610,7 @@ public partial class MainPage : ContentPage
             {
                 currentIndex = offset < 0 ? 0 : -1;
             }
-            var nextIndex = (currentIndex + offset + _visibleLibrary.Count) % _visibleLibrary.Count;
+            var nextIndex = PlaybackQueue.MoveSequential(_visibleLibrary.Count, currentIndex, offset);
             nextTrack = _visibleLibrary[nextIndex];
         }
 
@@ -618,6 +676,17 @@ public partial class MainPage : ContentPage
     {
         try
         {
+#if ANDROID
+            if (_loadedTrackId is not null)
+            {
+                AndroidPlaybackBridge.Seek(PositionSlider.Value);
+                PersistPlaybackSnapshot(force: true);
+            }
+            else
+            {
+                _resumePositionSeconds = PositionSlider.Value;
+            }
+#else
             if (_loadedTrackId is not null && Player.Duration > TimeSpan.Zero)
             {
                 await Player.SeekTo(TimeSpan.FromSeconds(PositionSlider.Value));
@@ -628,6 +697,7 @@ public partial class MainPage : ContentPage
                 _resumePositionSeconds = PositionSlider.Value;
                 PersistPlaybackSnapshot(force: true);
             }
+#endif
         }
         finally
         {
@@ -657,6 +727,9 @@ public partial class MainPage : ContentPage
             SleepTimerLabel.Text = $"noch {minutes} Min.";
         }
         _stateStore.SaveSleepTimer(minutes, _sleepTimerEndUtc);
+#if ANDROID
+        UpdateAndroidSettings();
+#endif
     }
 
     private void RestoreSleepTimer(PersistedAppState state)
@@ -694,17 +767,25 @@ public partial class MainPage : ContentPage
             ? PlaybackRepeatMode.Track
             : PlaybackRepeatMode.SleepWorld;
         _stateStore.SaveRepeatMode(_repeatMode);
+#if ANDROID
+        UpdateAndroidSettings();
+#endif
         UpdateNowPlayingDetails();
         UpdateNextTrack();
     }
 
     private void OnVolumeChanged(object? sender, ValueChangedEventArgs e)
     {
+#if !ANDROID
         Player.Volume = e.NewValue;
+#endif
         VolumeLabel.Text = $"{e.NewValue:P0}";
         if (!_restoringControls)
         {
             _stateStore.SaveVolume(e.NewValue);
+#if ANDROID
+            UpdateAndroidSettings();
+#endif
         }
     }
 
@@ -728,6 +809,9 @@ public partial class MainPage : ContentPage
             {
                 _shuffleEnabled = !_shuffleEnabled;
                 _stateStore.SaveShuffle(_shuffleEnabled);
+#if ANDROID
+                UpdateAndroidSettings();
+#endif
                 UpdateNowPlayingDetails();
                 UpdateNextTrack();
                 StatusLabel.Text = _shuffleEnabled
@@ -785,11 +869,12 @@ public partial class MainPage : ContentPage
         else if (_shuffleEnabled && _visibleLibrary.Count > 1)
         {
             var currentIndex = _visibleLibrary.IndexOf(_currentTrack);
-            var nextIndex = Random.Shared.Next(_visibleLibrary.Count - 1);
-            if (currentIndex >= 0 && nextIndex >= currentIndex)
-            {
-                nextIndex++;
-            }
+            var nextIndex = currentIndex < 0
+                ? 0
+                : PlaybackQueue.ChooseDifferent(
+                    _visibleLibrary.Count,
+                    currentIndex,
+                    Random.Shared.Next(_visibleLibrary.Count - 1));
             _nextTrack = _visibleLibrary[nextIndex];
         }
         else
@@ -832,6 +917,16 @@ public partial class MainPage : ContentPage
 
     private bool UpdatePlaybackStatus()
     {
+#if ANDROID
+        var androidState = AndroidPlaybackBridge.Snapshot;
+        if (!_isSeeking && androidState.TrackId is not null && androidState.Duration > TimeSpan.Zero)
+        {
+            PositionSlider.Maximum = androidState.Duration.TotalSeconds;
+            PositionSlider.Value = androidState.Position.TotalSeconds;
+            TimeLabel.Text = $"{FormatTime(androidState.Position)} / {FormatTime(androidState.Duration)}";
+            PersistPlaybackSnapshot();
+        }
+#else
         if (!_isSeeking && _loadedTrackId is not null && Player.Duration > TimeSpan.Zero)
         {
             PositionSlider.Maximum = Player.Duration.TotalSeconds;
@@ -849,11 +944,16 @@ public partial class MainPage : ContentPage
 
             PersistPlaybackSnapshot();
         }
+#endif
 
         if (_sleepTimer.ConsumeIfElapsed())
         {
             _shouldContinuePlayback = false;
+#if ANDROID
+            AndroidPlaybackBridge.Pause();
+#else
             Player.Pause();
+#endif
             PlayPauseButton.Text = "▶";
             _sleepTimerEndUtc = null;
             _restoringControls = true;
@@ -883,7 +983,13 @@ public partial class MainPage : ContentPage
             return;
         }
 
-        var position = _loadedTrackId is null ? _resumePositionSeconds : Player.Position.TotalSeconds;
+        var position = _loadedTrackId is null
+            ? _resumePositionSeconds
+#if ANDROID
+            : AndroidPlaybackBridge.Snapshot.Position.TotalSeconds;
+#else
+            : Player.Position.TotalSeconds;
+#endif
         _stateStore.SavePlayback(_currentTrack.Track.Id, position);
         _lastPlaybackSaveUtc = now;
     }
@@ -891,8 +997,12 @@ public partial class MainPage : ContentPage
     private void StopAndClearPlayback()
     {
         _shouldContinuePlayback = false;
+#if ANDROID
+        AndroidPlaybackBridge.Stop();
+#else
         Player.Stop();
         Player.Source = null;
+#endif
         _loadedTrackId = null;
         _currentTrack = null;
         _nextTrack = null;
@@ -906,6 +1016,40 @@ public partial class MainPage : ContentPage
         PlayPauseButton.Text = "▶";
         _stateStore.ClearPlayback();
     }
+
+#if ANDROID
+    private void UpdateAndroidSettings() => AndroidPlaybackBridge.UpdateSettings(
+        _shuffleEnabled,
+        _repeatMode == PlaybackRepeatMode.Track,
+        VolumeSlider.Value,
+        _sleepTimerEndUtc);
+
+    private void OnAndroidPlaybackStateChanged(object? sender, PlaybackSnapshot snapshot) =>
+        ApplyAndroidSnapshot(snapshot);
+
+    private void ApplyAndroidSnapshot(PlaybackSnapshot snapshot)
+    {
+        if (snapshot.TrackId is null)
+        {
+            return;
+        }
+        var track = _library.FirstOrDefault(item => item.Track.Id == snapshot.TrackId);
+        if (track is not null && _currentTrack?.Track.Id != snapshot.TrackId)
+        {
+            _currentTrack = track;
+            _loadedTrackId = snapshot.TrackId;
+            NowPlayingLabel.Text = track.Track.Title;
+            UpdateNowPlayingDetails();
+            UpdateNextTrack();
+        }
+        _shouldContinuePlayback = snapshot.IsPlaying;
+        PlayPauseButton.Text = snapshot.IsPlaying ? "⏸" : "▶";
+        if (snapshot.Error is not null)
+        {
+            StatusLabel.Text = "Dieser Titel konnte nicht wiedergegeben werden; der nächste Titel wird geöffnet.";
+        }
+    }
+#endif
 
     private static string FormatTime(TimeSpan value) =>
         value.TotalHours >= 1 ? value.ToString(@"h\:mm\:ss") : value.ToString(@"m\:ss");

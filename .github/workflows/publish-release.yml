@@ -17,12 +17,21 @@ jobs:
           global-json-file: global.json
       - name: Install Android workload
         run: dotnet workload install android maui --skip-manifest-update
-      - name: Publish unsigned Android package
+      - name: Publish installable test APK
         run: dotnet publish src/OpenSleepMusic.App/OpenSleepMusic.App.csproj --framework net10.0-android --configuration Release -p:AndroidPackageFormats=apk -p:AndroidKeyStore=false
+      - name: Prepare Android release asset
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path artifacts/android -Force | Out-Null
+          $apk = Get-ChildItem src/OpenSleepMusic.App/bin/Release/net10.0-android/publish/*-Signed.apk | Select-Object -First 1
+          if (-not $apk) { throw "No installable signed APK was produced." }
+          Copy-Item $apk.FullName "artifacts/android/open-sleep-music-${{ github.event.release.tag_name }}-test.apk"
+          (Get-FileHash "artifacts/android/open-sleep-music-${{ github.event.release.tag_name }}-test.apk" -Algorithm SHA256).Hash.ToLowerInvariant() |
+            Set-Content "artifacts/android/open-sleep-music-${{ github.event.release.tag_name }}-test.apk.sha256"
       - name: Upload Android artifact to release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "${{ github.event.release.tag_name }}" src/OpenSleepMusic.App/bin/Release/net10.0-android/publish/*.apk --clobber
+        run: gh release upload "${{ github.event.release.tag_name }}" artifacts/android/* --clobber
 
   publish-windows:
     runs-on: windows-latest
