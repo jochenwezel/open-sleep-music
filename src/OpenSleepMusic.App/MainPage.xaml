@@ -57,7 +57,7 @@
                 </CollectionView>
             </Grid>
 
-            <Grid x:Name="LibraryPanel" Grid.Column="1" RowDefinitions="Auto,*" RowSpacing="10">
+            <Grid x:Name="LibraryPanel" IsVisible="False" Grid.Column="1" RowDefinitions="Auto,*" RowSpacing="10">
                 <Label x:Name="LibraryTitleLabel" Text="Meine Musik" FontSize="19" FontAttributes="Bold" TextColor="#F7F3FF" />
                 <Grid Grid.Row="1">
                     <Label x:Name="LibraryEmptyLabel" Text="Für diese Themensammlung ist noch keine Musik heruntergeladen."

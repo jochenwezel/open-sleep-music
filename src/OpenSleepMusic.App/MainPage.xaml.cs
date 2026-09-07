@@ -138,6 +138,8 @@ public partial class MainPage : ContentPage
         WorldsTitleLabel.IsVisible = !compactLandscape;
         LibraryTitleLabel.IsVisible = !compactLandscape;
         PlayerBorder.Padding = compactLandscape ? new Thickness(8) : new Thickness(12);
+        LibraryPanel.IsVisible = false;
+        Grid.SetColumnSpan(WorldsPanel, narrow ? 1 : 2);
 
         if (narrow)
         {
@@ -181,6 +183,8 @@ public partial class MainPage : ContentPage
         PlayerOptionsGrid.IsVisible = false;
         VolumePanel.IsVisible = false;
         NextTrackLabel.IsVisible = false;
+        SetRows(ContentGrid, GridLength.Star);
+        Grid.SetRow(WorldsPanel, 0);
     }
 
     private static void SetColumns(Grid grid, params GridLength[] widths)
@@ -251,9 +255,14 @@ public partial class MainPage : ContentPage
                 card.World.Name,
                 "Abbrechen",
                 "Sammlung löschen",
+                "Titel anzeigen",
                 "Sammlung prüfen und reparieren");
 
-            if (action == "Sammlung prüfen und reparieren")
+            if (action == "Titel anzeigen")
+            {
+                await OpenCollectionTracksAsync(card);
+            }
+            else if (action == "Sammlung prüfen und reparieren")
             {
                 await DownloadWorldAsync(card, button, isRepair: true);
             }
@@ -267,6 +276,20 @@ public partial class MainPage : ContentPage
             Debug.WriteLine(exception);
             StatusLabel.Text = "Die Sammlungsverwaltung konnte nicht geöffnet werden.";
         }
+    }
+
+    private async Task OpenCollectionTracksAsync(SleepWorldCard card)
+    {
+        var tracks = _library.Where(track => track.SleepWorld.Id == card.World.Id).ToArray();
+        if (tracks.Length == 0)
+        {
+            StatusLabel.Text = "Für diese Themensammlung ist noch keine Musik heruntergeladen.";
+            return;
+        }
+        var page = new CollectionTracksPage(card.World.Name, tracks, _stateStore);
+        page.PlayRequested += (_, track) => PlayTrack(track, userInitiated: true);
+        page.PreferenceChanged += (_, track) => ApplyTrackPreferences(track);
+        await Navigation.PushModalAsync(page);
     }
 
     private async Task DownloadWorldAsync(SleepWorldCard card, Button button, bool isRepair)
