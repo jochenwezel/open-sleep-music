@@ -85,6 +85,12 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     public override IBinder? OnBind(Intent? intent) => null;
 
+    public override void OnTaskRemoved(Intent? rootIntent)
+    {
+        StopPlayback();
+        base.OnTaskRemoved(rootIntent);
+    }
+
     public override void OnDestroy()
     {
         CancelFade();
@@ -273,8 +279,16 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         _timerEndUtc = null;
         ClearSavedSession();
         UnregisterNoisyReceiver();
+        if (_session is not null)
+        {
+            _session.SetPlaybackState(new PlaybackState.Builder()!
+                .SetState(PlaybackStateCode.Stopped, 0, 0)!
+                .Build());
+            _session.Active = false;
+        }
         AndroidPlaybackBridge.Publish(new(null, false, TimeSpan.Zero, TimeSpan.Zero));
         StopForeground(StopForegroundFlags.Remove);
+        ((NotificationManager?)GetSystemService(NotificationService))?.Cancel(NotificationId);
         StopSelf();
     }
 
