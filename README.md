@@ -25,6 +25,8 @@ The built-in catalog currently contains 145 entries and about 18.7 hours of audi
 
 Background playback and Android/Windows system media controls are included in the preview. Remaining real-device acceptance checks are recorded in [docs/roadmap.md](docs/roadmap.md).
 
+The manual, opt-in field-test feedback format and its privacy boundaries are documented in [docs/catalog-feedback.md](docs/catalog-feedback.md).
+
 ## Install the Android test app
 
 Download the APK from the latest GitHub prerelease on the Android phone. Android may ask for permission to install apps from the browser or file manager used for the download. Allow it for this installation, open the APK, choose **Installieren**, and disable that source permission again afterwards. Existing downloaded music remains in the app's music folder when updating the APK.
