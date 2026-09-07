@@ -42,6 +42,7 @@ public partial class MainPage : ContentPage
     private LocalLibraryTrack? _currentTrack;
     private LocalLibraryTrack? _nextTrack;
     private PlaybackRepeatMode _repeatMode;
+    private int _sleepTimerMinutes;
     private DateTimeOffset? _sleepTimerEndUtc;
     private DateTimeOffset _lastPlaybackSaveUtc = DateTimeOffset.MinValue;
     private string? _loadedTrackId;
@@ -80,9 +81,10 @@ public partial class MainPage : ContentPage
         _initialState = _stateStore.Load();
         _shuffleEnabled = _initialState.ShuffleEnabled;
         _repeatMode = _initialState.RepeatMode;
+        _sleepTimerMinutes = _initialState.SleepTimerMinutes;
         _restoringControls = true;
         SleepTimerPicker.ItemsSource = SleepTimerLabels;
-        SleepTimerPicker.SelectedIndex = 0;
+        SleepTimerPicker.SelectedIndex = Math.Max(0, Array.IndexOf(SleepTimerMinutes, _sleepTimerMinutes));
         RepeatModePicker.ItemsSource = RepeatModeLabels;
         RepeatModePicker.SelectedIndex = _repeatMode == PlaybackRepeatMode.Track ? 1 : 0;
         VolumeSlider.Value = _initialState.Volume;
@@ -168,9 +170,9 @@ public partial class MainPage : ContentPage
             Grid.SetColumn(RepeatOptionsPanel, 1);
         }
 
-        PlayerOptionsGrid.IsVisible = !compactLandscape;
-        VolumePanel.IsVisible = !compactLandscape;
-        NextTrackLabel.IsVisible = !compactLandscape;
+        PlayerOptionsGrid.IsVisible = false;
+        VolumePanel.IsVisible = false;
+        NextTrackLabel.IsVisible = false;
     }
 
     private static void SetColumns(Grid grid, params GridLength[] widths)
@@ -578,6 +580,7 @@ public partial class MainPage : ContentPage
         UpdateNowPlayingDetails();
         Player.MetadataTitle = track.Track.Title;
         Player.MetadataArtist = track.Track.Creator;
+        StartConfiguredSleepTimerIfNeeded();
 
 #if ANDROID
         _loadedTrackId = track.Track.Id;
@@ -856,6 +859,7 @@ public partial class MainPage : ContentPage
 
         var index = SleepTimerPicker.SelectedIndex;
         var minutes = index >= 0 && index < SleepTimerMinutes.Length ? SleepTimerMinutes[index] : 0;
+        _sleepTimerMinutes = minutes;
         if (minutes == 0)
         {
             _sleepTimer.Cancel();
@@ -864,9 +868,18 @@ public partial class MainPage : ContentPage
         }
         else
         {
-            _sleepTimer.Start(TimeSpan.FromMinutes(minutes));
-            _sleepTimerEndUtc = DateTimeOffset.UtcNow.AddMinutes(minutes);
-            SleepTimerLabel.Text = $"noch {minutes} Min.";
+            if (_loadedTrackId is not null && _shouldContinuePlayback)
+            {
+                _sleepTimer.Start(TimeSpan.FromMinutes(minutes));
+                _sleepTimerEndUtc = DateTimeOffset.UtcNow.AddMinutes(minutes);
+                SleepTimerLabel.Text = $"noch {minutes} Min.";
+            }
+            else
+            {
+                _sleepTimer.Cancel();
+                _sleepTimerEndUtc = null;
+                SleepTimerLabel.Text = $"{minutes} Min.";
+            }
         }
         _stateStore.SaveSleepTimer(minutes, _sleepTimerEndUtc);
 #if ANDROID
@@ -876,24 +889,32 @@ public partial class MainPage : ContentPage
 
     private void RestoreSleepTimer(PersistedAppState state)
     {
-        if (state.SleepTimerMinutes <= 0
-            || state.SleepTimerEndUtc is not { } timerEnd
-            || timerEnd <= DateTimeOffset.UtcNow)
+        _sleepTimerMinutes = state.SleepTimerMinutes;
+        var index = Array.IndexOf(SleepTimerMinutes, _sleepTimerMinutes);
+        if (index < 0)
         {
-            _stateStore.SaveSleepTimer(0, null);
-            return;
+            _sleepTimerMinutes = 60;
+            index = Array.IndexOf(SleepTimerMinutes, _sleepTimerMinutes);
         }
-
-        var index = Array.IndexOf(SleepTimerMinutes, state.SleepTimerMinutes);
-        if (index < 1)
-        {
-            _stateStore.SaveSleepTimer(0, null);
-            return;
-        }
-
         _restoringControls = true;
         SleepTimerPicker.SelectedIndex = index;
         _restoringControls = false;
+
+        if (_sleepTimerMinutes <= 0)
+        {
+            _sleepTimer.Cancel();
+            _sleepTimerEndUtc = null;
+            SleepTimerLabel.Text = "Aus";
+            return;
+        }
+        if (state.SleepTimerEndUtc is not { } timerEnd || timerEnd <= DateTimeOffset.UtcNow)
+        {
+            _sleepTimer.Cancel();
+            _sleepTimerEndUtc = null;
+            SleepTimerLabel.Text = $"{_sleepTimerMinutes} Min.";
+            _stateStore.SaveSleepTimer(_sleepTimerMinutes, null);
+            return;
+        }
         _sleepTimerEndUtc = timerEnd;
         _sleepTimer.Start(timerEnd - DateTimeOffset.UtcNow);
         SleepTimerLabel.Text = SleepTimerDisplay.FormatRemaining(_sleepTimer.Remaining);
@@ -944,6 +965,7 @@ public partial class MainPage : ContentPage
                 null,
                 shuffleAction,
                 "Bibliothek aktualisieren",
+                "Wiedergabe-Einstellungen",
                 "Katalog-Feedback teilen",
                 "Download-Ordner öffnen",
                 "Über Open Sleep Music");
@@ -965,6 +987,12 @@ public partial class MainPage : ContentPage
             {
                 await RefreshLibraryAsync();
             }
+            else if (action == "Wiedergabe-Einstellungen")
+            {
+                var page = new PlayerSettingsPage(new PlayerSettings(VolumeSlider.Value, _repeatMode, _sleepTimerMinutes));
+                page.SettingsChanged += OnPlayerSettingsChanged;
+                await Navigation.PushModalAsync(page);
+            }
             else if (action == "Katalog-Feedback teilen")
             {
                 await ShareCatalogFeedbackAsync();
@@ -983,6 +1011,25 @@ public partial class MainPage : ContentPage
             Debug.WriteLine(exception);
             StatusLabel.Text = "Das Menü konnte nicht geöffnet werden.";
         }
+    }
+
+    private void OnPlayerSettingsChanged(object? sender, PlayerSettings settings)
+    {
+        VolumeSlider.Value = settings.Volume;
+        RepeatModePicker.SelectedIndex = settings.RepeatMode == PlaybackRepeatMode.Track ? 1 : 0;
+        SleepTimerPicker.SelectedIndex = Array.IndexOf(SleepTimerMinutes, settings.SleepTimerMinutes);
+    }
+
+    private void StartConfiguredSleepTimerIfNeeded()
+    {
+        if (_sleepTimerMinutes <= 0 || _sleepTimerEndUtc is not null)
+        {
+            return;
+        }
+        _sleepTimer.Start(TimeSpan.FromMinutes(_sleepTimerMinutes));
+        _sleepTimerEndUtc = DateTimeOffset.UtcNow.AddMinutes(_sleepTimerMinutes);
+        SleepTimerLabel.Text = $"noch {_sleepTimerMinutes} Min.";
+        _stateStore.SaveSleepTimer(_sleepTimerMinutes, _sleepTimerEndUtc);
     }
 
     private async Task ShareCatalogFeedbackAsync()
@@ -1173,11 +1220,8 @@ public partial class MainPage : ContentPage
 #endif
             PlayPauseButton.Text = "▶";
             _sleepTimerEndUtc = null;
-            _restoringControls = true;
-            SleepTimerPicker.SelectedIndex = 0;
-            _restoringControls = false;
-            SleepTimerLabel.Text = "Aus";
-            _stateStore.SaveSleepTimer(0, null);
+            SleepTimerLabel.Text = _sleepTimerMinutes <= 0 ? "Aus" : $"{_sleepTimerMinutes} Min.";
+            _stateStore.SaveSleepTimer(_sleepTimerMinutes, null);
             PersistPlaybackSnapshot(force: true);
         }
         else if (_sleepTimer.IsActive)

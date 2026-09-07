@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OpenSleepMusic.App.PlayerSettingsPage"
+             BackgroundColor="#0B1020"
+             Title="Wiedergabe-Einstellungen">
+    <Grid RowDefinitions="Auto,*" Padding="24" RowSpacing="22">
+        <Grid ColumnDefinitions="*,Auto">
+            <Label Text="Wiedergabe-Einstellungen" FontSize="24" FontAttributes="Bold" TextColor="#F7F3FF" />
+            <Button Grid.Column="1" Text="✕" Clicked="OnCloseClicked" BackgroundColor="#252C45" TextColor="White" />
+        </Grid>
+        <VerticalStackLayout Grid.Row="1" Spacing="22">
+            <VerticalStackLayout Spacing="6">
+                <Label Text="Schlaf-Timer" FontAttributes="Bold" TextColor="#F7F3FF" />
+                <Picker x:Name="TimerPicker" SelectedIndexChanged="OnSettingChanged" TextColor="#F7F3FF" />
+                <Label Text="Die gewählte Dauer beginnt beim Start einer Wiedergabe. Eine Änderung während der Wiedergabe startet den Timer neu." FontSize="12" TextColor="#9E9AAF" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Label Text="Wiederholen" FontAttributes="Bold" TextColor="#F7F3FF" />
+                <Picker x:Name="RepeatPicker" SelectedIndexChanged="OnSettingChanged" TextColor="#F7F3FF" />
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="6">
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label Text="App-Lautstärke" FontAttributes="Bold" TextColor="#F7F3FF" />
+                    <Label Grid.Column="1" x:Name="VolumeValueLabel" TextColor="#B8B5C8" />
+                </Grid>
+                <Slider x:Name="VolumeSlider" Minimum="0" Maximum="1" ValueChanged="OnVolumeChanged" />
+                <Label Text="Die Hardwaretasten des Handys regeln zusätzlich die Android-Medienlautstärke." FontSize="12" TextColor="#9E9AAF" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

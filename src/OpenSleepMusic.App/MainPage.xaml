@@ -92,7 +92,7 @@
                         <TapGestureRecognizer Tapped="OnNowPlayingTapped" />
                     </VerticalStackLayout.GestureRecognizers>
                     <Label x:Name="NowPlayingLabel" Text="Noch kein Titel ausgewählt" FontAttributes="Bold" TextColor="#F7F3FF" LineBreakMode="TailTruncation" />
-                    <Label x:Name="NowPlayingDetailLabel" Text="Themensammlung auswählen oder einen Titel anklicken." FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
+                    <Label x:Name="NowPlayingDetailLabel" IsVisible="False" Text="Themensammlung auswählen oder einen Titel anklicken." FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
                 </VerticalStackLayout>
                 <Button x:Name="NextButton" Grid.Column="2" Text="⏭" Clicked="OnNextClicked" BackgroundColor="#252C45" TextColor="White" />
 
@@ -101,7 +101,7 @@
                         DragStarted="OnPositionDragStarted" DragCompleted="OnPositionDragCompleted" />
                 <Label Grid.Row="1" Grid.Column="2" x:Name="TimeLabel" Text="0:00 / 0:00" TextColor="#DAD6E8" VerticalOptions="Center" />
 
-                <Grid x:Name="PlayerOptionsGrid" Grid.Row="2" Grid.ColumnSpan="3" RowDefinitions="Auto" ColumnDefinitions="*,*" ColumnSpacing="18">
+                <Grid x:Name="PlayerOptionsGrid" IsVisible="False" Grid.Row="2" Grid.ColumnSpan="3" RowDefinitions="Auto" ColumnDefinitions="*,*" ColumnSpacing="18">
                     <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
                         <Label Text="Schlaf-Timer" TextColor="#B8B5C8" VerticalOptions="Center" />
                         <Picker Grid.Column="1" x:Name="SleepTimerPicker" Title="Aus" SelectedIndexChanged="OnSleepTimerChanged" TextColor="#F7F3FF" />
@@ -113,13 +113,13 @@
                     </Grid>
                 </Grid>
 
-                <Grid x:Name="VolumePanel" Grid.Row="3" Grid.ColumnSpan="3" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                <Grid x:Name="VolumePanel" IsVisible="False" Grid.Row="3" Grid.ColumnSpan="3" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
                     <Label Text="Lautstärke" TextColor="#B8B5C8" VerticalOptions="Center" />
                     <Slider Grid.Column="1" x:Name="VolumeSlider" Minimum="0" Maximum="1" ValueChanged="OnVolumeChanged" />
                     <Label Grid.Column="2" x:Name="VolumeLabel" Text="70 %" TextColor="#9E9AAF" VerticalOptions="Center" />
                 </Grid>
 
-                <Label Grid.Row="4" Grid.ColumnSpan="3" x:Name="NextTrackLabel" Text="Nächster Titel: –"
+                <Label Grid.Row="4" Grid.ColumnSpan="3" x:Name="NextTrackLabel" IsVisible="False" Text="Nächster Titel: –"
                        FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
             </Grid>
         </Border>
