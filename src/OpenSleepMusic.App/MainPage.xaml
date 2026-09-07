@@ -126,7 +126,7 @@
 
         <Grid Grid.Row="3" RowDefinitions="Auto,Auto" RowSpacing="3">
             <Label x:Name="StatusLabel" Text="Bereit" TextColor="#DAD6E8" />
-            <ProgressBar Grid.Row="1" x:Name="DownloadProgress" Progress="0" ProgressColor="#8A7FFF" />
+            <ProgressBar Grid.Row="1" x:Name="DownloadProgress" IsVisible="False" Progress="0" ProgressColor="#8A7FFF" />
         </Grid>
     </Grid>
 </ContentPage>

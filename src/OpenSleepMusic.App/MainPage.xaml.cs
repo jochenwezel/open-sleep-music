@@ -57,6 +57,8 @@ public partial class MainPage : ContentPage
     private bool _didRestorePlayback;
     private int _consecutivePlaybackFailures;
     private string? _responsiveLayoutMode;
+    private DateTimeOffset? _statusHideAtUtc;
+    private bool _downloadInProgress;
 #if !ANDROID
     private CancellationTokenSource? _sleepFadeCancellation;
 #endif
@@ -64,6 +66,12 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        StatusLabel.PropertyChanged += (_, e) =>
+        {
+            if (e.PropertyName != nameof(Label.Text)) return;
+            StatusLabel.IsVisible = true;
+            _statusHideAtUtc = _downloadInProgress ? null : DateTimeOffset.UtcNow.AddSeconds(7);
+        };
         SetPlaybackControlsEnabled(false);
 #if !ANDROID
         Player.MediaOpened += OnMediaOpened;
@@ -263,6 +271,10 @@ public partial class MainPage : ContentPage
 
     private async Task DownloadWorldAsync(SleepWorldCard card, Button button, bool isRepair)
     {
+        _downloadInProgress = true;
+        _statusHideAtUtc = null;
+        StatusLabel.IsVisible = true;
+        DownloadProgress.IsVisible = true;
         button.IsEnabled = false;
         DownloadProgress.Progress = 0;
         StatusLabel.Text = isRepair
@@ -303,6 +315,8 @@ public partial class MainPage : ContentPage
         }
         finally
         {
+            _downloadInProgress = false;
+            _statusHideAtUtc = DateTimeOffset.UtcNow.AddSeconds(7);
             button.IsEnabled = true;
         }
     }
@@ -1181,6 +1195,12 @@ public partial class MainPage : ContentPage
 
     private bool UpdatePlaybackStatus()
     {
+        if (!_downloadInProgress && _statusHideAtUtc is { } hideAt && DateTimeOffset.UtcNow >= hideAt)
+        {
+            StatusLabel.IsVisible = false;
+            DownloadProgress.IsVisible = false;
+            _statusHideAtUtc = null;
+        }
 #if ANDROID
         var androidState = AndroidPlaybackBridge.Snapshot;
         if (!_isSeeking && androidState.TrackId is not null && androidState.Duration > TimeSpan.Zero)
