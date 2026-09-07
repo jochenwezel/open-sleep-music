@@ -25,6 +25,8 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private bool _shuffle;
     private bool _repeatTrack;
     private bool _resumeAfterFocusGain;
+    private bool _duckedForFocusLoss;
+    private double _duckVolumeFactor = 1;
     private double _volume = .7;
     private DateTimeOffset? _timerEndUtc;
     private BecomingNoisyReceiver? _noisyReceiver;
@@ -113,16 +115,31 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         {
             case AudioFocus.Loss:
                 _resumeAfterFocusGain = false;
+                _duckedForFocusLoss = false;
                 CancelFade();
                 Pause();
+                _duckVolumeFactor = 1;
+                SetPlayerVolume();
                 break;
             case AudioFocus.LossTransient:
-            case AudioFocus.LossTransientCanDuck:
+                _duckedForFocusLoss = false;
                 _resumeAfterFocusGain = _player?.IsPlaying == true;
                 if (_resumeAfterFocusGain)
                 {
                     _ = FadeOutForFocusLossAsync();
                 }
+                break;
+            case AudioFocus.LossTransientCanDuck:
+                _resumeAfterFocusGain = false;
+                _duckedForFocusLoss = IsPlaying();
+                if (_duckedForFocusLoss)
+                {
+                    _ = FadeDuckingToAsync(.2);
+                }
+                break;
+            case AudioFocus.Gain when _duckedForFocusLoss:
+                _duckedForFocusLoss = false;
+                _ = FadeDuckingToAsync(1);
                 break;
             case AudioFocus.Gain when _resumeAfterFocusGain:
                 _resumeAfterFocusGain = false;
@@ -302,7 +319,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         _focusRequest ??= new AudioFocusRequestClass.Builder(AudioFocus.Gain)!
             .SetAudioAttributes(attributes)!
             .SetOnAudioFocusChangeListener(this)!
-            .SetWillPauseWhenDucked(true)!
+            .SetWillPauseWhenDucked(false)!
             .Build();
         return _audioManager.RequestAudioFocus(_focusRequest!) == AudioFocusRequest.Granted;
     }
@@ -380,7 +397,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             for (var step = 1; step <= steps; step++)
             {
                 token.ThrowIfCancellationRequested();
-                var fadeVolume = (float)SleepTimerDisplay.FadeVolume(CurrentVolume(), step / (double)steps);
+                var fadeVolume = (float)SleepTimerDisplay.FadeVolume(EffectiveCurrentVolume(), step / (double)steps);
                 _player?.SetVolume(fadeVolume, fadeVolume);
                 await Task.Delay(TimeSpan.FromMilliseconds(100), token);
             }
@@ -401,7 +418,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private async Task FadeOutForFocusLossAsync()
     {
         var token = BeginFade();
-        var startingVolume = CurrentVolume();
+        var startingVolume = EffectiveCurrentVolume();
         try
         {
             const int steps = 5;
@@ -413,6 +430,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
                 await Task.Delay(TimeSpan.FromMilliseconds(50), token);
             }
             Pause();
+            _duckVolumeFactor = 1;
         }
         catch (System.OperationCanceledException)
         {
@@ -423,6 +441,27 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             {
                 SetPlayerVolume();
             }
+        }
+    }
+
+    private async Task FadeDuckingToAsync(double targetFactor)
+    {
+        var token = BeginFade();
+        var startingFactor = _duckVolumeFactor;
+        try
+        {
+            var steps = targetFactor < startingFactor ? 5 : 6;
+            for (var step = 1; step <= steps; step++)
+            {
+                token.ThrowIfCancellationRequested();
+                var progress = step / (double)steps;
+                _duckVolumeFactor = startingFactor + ((targetFactor - startingFactor) * progress);
+                SetPlayerVolume();
+                await Task.Delay(TimeSpan.FromMilliseconds(50), token);
+            }
+        }
+        catch (System.OperationCanceledException)
+        {
         }
     }
 
@@ -639,9 +678,11 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         ? _volume
         : PlaybackVolume.ApplyGain(_volume, _queue[_index].Gain);
 
+    private double EffectiveCurrentVolume() => CurrentVolume() * _duckVolumeFactor;
+
     private void SetPlayerVolume()
     {
-        var volume = (float)CurrentVolume();
+        var volume = (float)EffectiveCurrentVolume();
         _player?.SetVolume(volume, volume);
     }
 
