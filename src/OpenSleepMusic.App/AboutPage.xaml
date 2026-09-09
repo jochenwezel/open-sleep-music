@@ -15,12 +15,12 @@
 
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Spacing="14">
-                <Label Text="Kostenlose Klänge für eine ruhige Nacht – ohne Werbung, Tracking, Benutzerkonto oder Cloud-Zwang." FontSize="18" TextColor="#F7F3FF" />
+                <Label x:Name="IntroLabel" Text="Kostenlose Klänge für eine ruhige Nacht – ohne Werbung, Tracking, Benutzerkonto oder Cloud-Zwang." FontSize="18" TextColor="#F7F3FF" />
                 <Label x:Name="CatalogLabel" TextColor="#DAD6E8" />
-                <Label Text="Nach dem Herunterladen funktioniert die Musikbibliothek offline. Nicht mehr erreichbare oder ungültige Quelldateien werden übersprungen, ohne eine ganze Sammlung zu blockieren." TextColor="#B8B5C8" />
-                <Label Text="Die App steht unter der MIT-Lizenz. Jede Aufnahme behält ihre eigene, in den Titelinformationen ausgewiesene Lizenz. Die Angaben dokumentieren die Lizenz und Herkunft der jeweiligen Quelle; sie sind keine unabhängige Rechtsgarantie des Projekts." TextColor="#B8B5C8" />
-                <Label Text="Hintergrundwiedergabe und System-Mediensteuerung sind als priorisierte Anschlussarbeit für Mobilgeräte festgehalten." TextColor="#B8B5C8" />
-                <Button Text="Projekt auf GitHub öffnen" Clicked="OnRepositoryClicked" BackgroundColor="#7367F0" TextColor="White" HorizontalOptions="Start" />
+                <Label x:Name="OfflineLabel" Text="Nach dem Herunterladen funktioniert die Musikbibliothek offline. Nicht mehr erreichbare oder ungültige Quelldateien werden übersprungen, ohne eine ganze Sammlung zu blockieren." TextColor="#B8B5C8" />
+                <Label x:Name="LicenseInfoLabel" Text="Die App steht unter der MIT-Lizenz. Jede Aufnahme behält ihre eigene, in den Titelinformationen ausgewiesene Lizenz. Die Angaben dokumentieren die Lizenz und Herkunft der jeweiligen Quelle; sie sind keine unabhängige Rechtsgarantie des Projekts." TextColor="#B8B5C8" />
+                <Label x:Name="BackgroundInfoLabel" Text="Hintergrundwiedergabe und System-Mediensteuerung sind als priorisierte Anschlussarbeit für Mobilgeräte festgehalten." TextColor="#B8B5C8" />
+                <Button x:Name="RepositoryButton" Text="Projekt auf GitHub öffnen" Clicked="OnRepositoryClicked" BackgroundColor="#7367F0" TextColor="White" HorizontalOptions="Start" />
             </VerticalStackLayout>
         </ScrollView>
 

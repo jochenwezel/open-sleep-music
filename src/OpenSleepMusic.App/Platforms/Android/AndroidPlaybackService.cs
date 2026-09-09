@@ -6,6 +6,7 @@ using Android.Media.Session;
 using Android.OS;
 using OpenSleepMusic.App.Playback;
 using OpenSleepMusic.Core.Playback;
+using OpenSleepMusic.App.Localization;
 
 namespace OpenSleepMusic.App;
 
@@ -633,7 +634,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         var builder = new Notification.Builder(this, ChannelId)!
             .SetSmallIcon(Android.Resource.Drawable.IcMediaPlay)
             .SetContentTitle(item?.Title ?? "Open Sleep Music")
-            .SetContentText(item?.Creator ?? "Schlafmusik")
+            .SetContentText(item?.Creator ?? AppText.Pick("Schlafmusik", "Sleep music"))
             .SetContentIntent(contentIntent)
             .SetOnlyAlertOnce(true)
             .SetOngoing(playing)
@@ -645,7 +646,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         builder.AddAction(new Notification.Action.Builder(
             Android.Graphics.Drawables.Icon.CreateWithResource(this,
                 playing ? Android.Resource.Drawable.IcMediaPause : Android.Resource.Drawable.IcMediaPlay),
-            playing ? "Pause" : "Wiedergabe", ActionIntent(AndroidPlaybackBridge.ActionToggle, 2))!.Build());
+            playing ? "Pause" : AppText.Pick("Wiedergabe", "Play"), ActionIntent(AndroidPlaybackBridge.ActionToggle, 2))!.Build());
         builder.AddAction(new Notification.Action.Builder(
             Android.Graphics.Drawables.Icon.CreateWithResource(this, Android.Resource.Drawable.IcMediaNext),
             "Weiter", ActionIntent(AndroidPlaybackBridge.ActionNext, 3))!.Build());
@@ -668,9 +669,9 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private void CreateNotificationChannel()
     {
         var manager = (NotificationManager?)GetSystemService(NotificationService);
-        manager?.CreateNotificationChannel(new NotificationChannel(ChannelId, "Wiedergabe", NotificationImportance.Low)
+        manager?.CreateNotificationChannel(new NotificationChannel(ChannelId, AppText.Pick("Wiedergabe", "Playback"), NotificationImportance.Low)
         {
-            Description = "Steuerung der laufenden Schlafmusik"
+            Description = AppText.Pick("Steuerung der laufenden Schlafmusik", "Controls for current sleep music")
         });
     }
 

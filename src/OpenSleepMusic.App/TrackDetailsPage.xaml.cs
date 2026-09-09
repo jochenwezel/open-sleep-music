@@ -1,4 +1,5 @@
 using OpenSleepMusic.Core.Library;
+using OpenSleepMusic.App.Localization;
 
 namespace OpenSleepMusic.App;
 
@@ -12,12 +13,22 @@ public partial class TrackDetailsPage : ContentPage
     internal TrackDetailsPage(LocalLibraryTrack localTrack, AppStateStore stateStore)
     {
         InitializeComponent();
+        PageTitleLabel.Text = AppText.Get("TrackInfo");
+        PageSubtitleLabel.Text = AppText.IsGerman ? "Quelle, Lizenz und lokale Datei" : "Source, license and local file";
+        CreatorTitleLabel.Text = AppText.Get("Creator");
+        WorldTitleLabel.Text = AppText.Get("Collection");
+        DurationTitleLabel.Text = AppText.Get("Duration");
+        LicenseTitleLabel.Text = AppText.IsGerman ? "Lizenz" : "License";
+        FileTitleLabel.Text = AppText.Get("LocalFile");
+        SourceButton.Text = AppText.Get("Source");
+        LicenseButton.Text = AppText.Get("License");
+        LicenseHelpLabel.Text = AppText.IsGerman ? "Die Lizenzangabe stammt von der dokumentierten Quellseite der konkreten Aufnahme." : "The license information comes from the documented source page for this specific recording.";
         _localTrack = localTrack;
         _stateStore = stateStore;
         var track = localTrack.Track;
         TitleLabel.Text = track.Title;
         CreatorLabel.Text = track.Creator;
-        WorldLabel.Text = localTrack.SleepWorld.Name;
+        WorldLabel.Text = AppText.WorldName(localTrack.SleepWorld.Id, localTrack.SleepWorld.Name);
         DurationLabel.Text = FormatDuration(TimeSpan.FromSeconds(track.DurationSeconds));
         LicenseLabel.Text = track.License;
         FileLabel.Text = localTrack.FilePath;
@@ -41,8 +52,8 @@ public partial class TrackDetailsPage : ContentPage
         UpdatePreferenceButtons();
         PreferenceChanged?.Invoke(this, EventArgs.Empty);
         StatusLabel.Text = _stateStore.IsBlocked(worldId, trackId)
-            ? "Dieser Titel wird bei der Wiedergabe übersprungen."
-            : "Dieser Titel kann wieder abgespielt werden.";
+            ? AppText.Pick("Dieser Titel wird bei der Wiedergabe übersprungen.", "This track will be skipped during playback.")
+            : AppText.Pick("Dieser Titel kann wieder abgespielt werden.", "This track can be played again.");
     }
 
     private void OnFavoriteClicked(object? sender, EventArgs e)
@@ -53,18 +64,17 @@ public partial class TrackDetailsPage : ContentPage
         UpdatePreferenceButtons();
         PreferenceChanged?.Invoke(this, EventArgs.Empty);
         StatusLabel.Text = _stateStore.IsFavorite(worldId, trackId)
-            ? "Als Favorit markiert. Diese Sammlung spielt bevorzugt ihre Favoriten."
-            : "Favorit entfernt.";
+            ? AppText.Pick("Als Favorit markiert. Diese Sammlung spielt bevorzugt ihre Favoriten.", "Marked as favorite. This collection now prefers its favorites.")
+            : AppText.Pick("Favorit entfernt.", "Favorite removed.");
     }
 
     private void UpdatePreferenceButtons()
     {
         var worldId = _localTrack.SleepWorld.Id;
         var trackId = _localTrack.Track.Id;
-        FavoriteButton.Text = _stateStore.IsFavorite(worldId, trackId) ? "★ Favorit" : "☆ Favorisieren";
-        BlockButton.Text = _stateStore.IsBlocked(worldId, trackId)
-            ? "Blockierung aufheben"
-            : "Titel blockieren";
+        FavoriteButton.Text = _stateStore.IsFavorite(worldId, trackId)
+            ? $"★ {AppText.Get("Favorite")}" : (AppText.IsGerman ? "☆ Favorisieren" : "☆ Add favorite");
+        BlockButton.Text = _stateStore.IsBlocked(worldId, trackId) ? AppText.Get("Unblock") : AppText.Get("Block");
     }
 
     private async Task OpenUriAsync(Uri uri)

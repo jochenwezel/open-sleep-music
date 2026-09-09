@@ -8,9 +8,8 @@ using OpenSleepMusic.Core.Catalog;
 using OpenSleepMusic.Core.Downloads;
 using OpenSleepMusic.Core.Library;
 using OpenSleepMusic.Core.Playback;
-#if ANDROID
+using OpenSleepMusic.App.Localization;
 using OpenSleepMusic.App.Playback;
-#endif
 
 namespace OpenSleepMusic.App;
 
@@ -66,6 +65,9 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        HeaderSubtitle.Text = AppText.Get("Subtitle");
+        WorldsTitleLabel.Text = AppText.Get("Collections");
+        NowPlayingLabel.Text = AppText.Get("NoTrack");
         StatusLabel.PropertyChanged += (_, e) =>
         {
             if (e.PropertyName != nameof(Label.Text)) return;
@@ -96,6 +98,8 @@ public partial class MainPage : ContentPage
         RepeatModePicker.ItemsSource = RepeatModeLabels;
         RepeatModePicker.SelectedIndex = _repeatMode == PlaybackRepeatMode.Track ? 1 : 0;
         VolumeSlider.Value = _initialState.Volume;
+        AppVolumeBridge.Set(_initialState.Volume);
+        AppVolumeBridge.Changed += OnAppVolumeBridgeChanged;
         Player.Volume = _initialState.Volume;
         VolumeLabel.Text = $"{_initialState.Volume:P0}";
         _restoringControls = false;
@@ -108,6 +112,16 @@ public partial class MainPage : ContentPage
         Dispatcher.StartTimer(TimeSpan.FromSeconds(1), UpdatePlaybackStatus);
         SizeChanged += (_, _) => ApplyResponsiveLayout(Width, Height);
         Loaded += async (_, _) => await RefreshLibraryAsync();
+        Unloaded += (_, _) =>
+        {
+            AppVolumeBridge.Changed -= OnAppVolumeBridgeChanged;
+#if ANDROID
+            AndroidPlaybackBridge.StateChanged -= OnAndroidPlaybackStateChanged;
+#endif
+        };
+        var volumeOverlay = new VolumeOverlayView();
+        Grid.SetRowSpan(volumeOverlay, 4);
+        RootGrid.Add(volumeOverlay);
     }
 
     private void ApplyResponsiveLayout(double width, double height)
@@ -234,6 +248,7 @@ public partial class MainPage : ContentPage
             if (_visibleLibrary.Count > 0)
             {
                 PlayInitialTrack();
+                await Navigation.PushModalAsync(new ImmersivePlayerPage(this));
             }
             return;
         }
@@ -252,21 +267,21 @@ public partial class MainPage : ContentPage
         try
         {
             var action = await DisplayActionSheetAsync(
-                card.World.Name,
-                "Abbrechen",
-                "Sammlung löschen",
-                "Titel anzeigen",
-                "Sammlung prüfen und reparieren");
+                card.DisplayName,
+                AppText.Get("Close"),
+                AppText.Pick("Sammlung löschen", "Delete collection"),
+                AppText.Pick("Titel anzeigen", "Show tracks"),
+                AppText.Pick("Sammlung prüfen und reparieren", "Check and repair collection"));
 
-            if (action == "Titel anzeigen")
+            if (action == AppText.Pick("Titel anzeigen", "Show tracks"))
             {
                 await OpenCollectionTracksAsync(card);
             }
-            else if (action == "Sammlung prüfen und reparieren")
+            else if (action == AppText.Pick("Sammlung prüfen und reparieren", "Check and repair collection"))
             {
                 await DownloadWorldAsync(card, button, isRepair: true);
             }
-            else if (action == "Sammlung löschen")
+            else if (action == AppText.Pick("Sammlung löschen", "Delete collection"))
             {
                 await DeleteWorldAsync(card);
             }
@@ -274,7 +289,7 @@ public partial class MainPage : ContentPage
         catch (Exception exception)
         {
             Debug.WriteLine(exception);
-            StatusLabel.Text = "Die Sammlungsverwaltung konnte nicht geöffnet werden.";
+            StatusLabel.Text = AppText.Pick("Die Sammlungsverwaltung konnte nicht geöffnet werden.", "Collection management could not be opened.");
         }
     }
 
@@ -283,11 +298,15 @@ public partial class MainPage : ContentPage
         var tracks = _library.Where(track => track.SleepWorld.Id == card.World.Id).ToArray();
         if (tracks.Length == 0)
         {
-            StatusLabel.Text = "Für diese Themensammlung ist noch keine Musik heruntergeladen.";
+            StatusLabel.Text = AppText.Pick("Für diese Themensammlung ist noch keine Musik heruntergeladen.", "No music has been downloaded for this collection yet.");
             return;
         }
-        var page = new CollectionTracksPage(card.World.Name, tracks, _stateStore);
-        page.PlayRequested += (_, track) => PlayTrack(track, userInitiated: true);
+        var page = new CollectionTracksPage(card.DisplayName, tracks, _stateStore);
+        page.PlayRequested += async (_, track) =>
+        {
+            PlayTrack(track, userInitiated: true);
+            await Navigation.PushModalAsync(new ImmersivePlayerPage(this));
+        };
         page.PreferenceChanged += (_, track) => ApplyTrackPreferences(track);
         await Navigation.PushModalAsync(page);
     }
@@ -301,8 +320,8 @@ public partial class MainPage : ContentPage
         button.IsEnabled = false;
         DownloadProgress.Progress = 0;
         StatusLabel.Text = isRepair
-            ? $"{card.World.Name} wird geprüft und repariert …"
-            : $"{card.World.Name} wird vorbereitet …";
+            ? AppText.Pick($"{card.DisplayName} wird geprüft und repariert …", $"Checking and repairing {card.DisplayName} …")
+            : AppText.Pick($"{card.DisplayName} wird vorbereitet …", $"Preparing {card.DisplayName} …");
 
         var logPath = Path.Combine(FileSystem.AppDataDirectory, "logs", "downloads.jsonl");
         var downloader = new SleepWorldDownloader(_httpClient, new FileDownloadLogSink(logPath));
@@ -312,8 +331,8 @@ public partial class MainPage : ContentPage
             if (!string.IsNullOrWhiteSpace(value.CurrentTitle))
             {
                 StatusLabel.Text = isRepair
-                    ? $"Prüfe {value.CurrentTitle} …"
-                    : $"Lade {value.CurrentTitle} …";
+                    ? AppText.Pick($"Prüfe {value.CurrentTitle} …", $"Checking {value.CurrentTitle} …")
+                    : AppText.Pick($"Lade {value.CurrentTitle} …", $"Downloading {value.CurrentTitle} …");
             }
         });
 
@@ -321,20 +340,20 @@ public partial class MainPage : ContentPage
         {
             var result = await downloader.DownloadAsync(card.World, _downloadRoot, progress);
             StatusLabel.Text = result.AvailableCount == 0
-                ? "Derzeit sind keine Titel verfügbar. Bitte später erneut versuchen."
+                ? AppText.Pick("Derzeit sind keine Titel verfügbar. Bitte später erneut versuchen.", "No tracks are currently available. Please try again later.")
                 : isRepair
-                    ? $"{card.World.Name}: Prüfung abgeschlossen, {result.AvailableCount} Titel verfügbar."
-                    : $"{card.World.Name}: {result.AvailableCount} Titel sind offline verfügbar.";
+                    ? AppText.Pick($"{card.DisplayName}: Prüfung abgeschlossen, {result.AvailableCount} Titel verfügbar.", $"{card.DisplayName}: check complete, {result.AvailableCount} tracks available.")
+                    : AppText.Pick($"{card.DisplayName}: {result.AvailableCount} Titel sind offline verfügbar.", $"{card.DisplayName}: {result.AvailableCount} tracks available offline.");
             await RefreshLibraryAsync(preserveStatus: true);
         }
         catch (OperationCanceledException)
         {
-            StatusLabel.Text = "Download angehalten.";
+            StatusLabel.Text = AppText.Pick("Download angehalten.", "Download stopped.");
         }
         catch (Exception exception)
         {
             Debug.WriteLine(exception);
-            StatusLabel.Text = "Der Download wurde unerwartet beendet. Andere Sammlungen können weiter verwendet werden.";
+            StatusLabel.Text = AppText.Pick("Der Download wurde unerwartet beendet. Andere Sammlungen können weiter verwendet werden.", "The download ended unexpectedly. Other collections remain available.");
         }
         finally
         {
@@ -347,10 +366,10 @@ public partial class MainPage : ContentPage
     private async Task DeleteWorldAsync(SleepWorldCard card)
     {
         var confirmed = await DisplayAlertAsync(
-            "Sammlung löschen",
-            $"Alle heruntergeladenen Dateien aus „{card.World.Name}“ werden gelöscht. Andere Themensammlungen bleiben erhalten.",
-            "Löschen",
-            "Abbrechen");
+            AppText.Pick("Sammlung löschen", "Delete collection"),
+            AppText.Pick($"Alle heruntergeladenen Dateien aus „{card.DisplayName}“ werden gelöscht. Andere Themensammlungen bleiben erhalten.", $"All downloaded files in “{card.DisplayName}” will be deleted. Other collections remain available."),
+            AppText.Pick("Löschen", "Delete"),
+            AppText.Get("Close"));
         if (!confirmed)
         {
             return;
@@ -365,12 +384,12 @@ public partial class MainPage : ContentPage
 
             await _libraryManager.DeleteWorldAsync(_downloadRoot, card.World);
             await RefreshLibraryAsync(preserveStatus: true);
-            StatusLabel.Text = $"{card.World.Name} wurde aus der lokalen Bibliothek gelöscht.";
+            StatusLabel.Text = AppText.Pick($"{card.DisplayName} wurde aus der lokalen Bibliothek gelöscht.", $"{card.DisplayName} was deleted from the local library.");
         }
         catch (Exception exception)
         {
             Debug.WriteLine(exception);
-            StatusLabel.Text = $"{card.World.Name} konnte nicht vollständig gelöscht werden.";
+            StatusLabel.Text = AppText.Pick($"{card.DisplayName} konnte nicht vollständig gelöscht werden.", $"{card.DisplayName} could not be deleted completely.");
         }
     }
 
@@ -426,14 +445,14 @@ public partial class MainPage : ContentPage
             if (!preserveStatus)
             {
                 StatusLabel.Text = _library.Count == 0
-                    ? "Noch keine gültigen Audiodateien vorhanden."
-                    : $"{_library.Count} Titel offline verfügbar.";
+                    ? AppText.Pick("Noch keine gültigen Audiodateien vorhanden.", "No valid audio files available yet.")
+                    : AppText.Pick($"{_library.Count} Titel offline verfügbar.", $"{_library.Count} tracks available offline.");
             }
         }
         catch (Exception exception)
         {
             Debug.WriteLine(exception);
-            StatusLabel.Text = "Die lokale Musikbibliothek konnte nicht aktualisiert werden.";
+            StatusLabel.Text = AppText.Pick("Die lokale Musikbibliothek konnte nicht aktualisiert werden.", "The local music library could not be refreshed.");
         }
     }
 
@@ -481,8 +500,8 @@ public partial class MainPage : ContentPage
         LibraryView.ItemsSource = _displayedLibrary.Select(CreateTrackItem).ToArray();
         LibraryEmptyLabel.IsVisible = _displayedLibrary.Count == 0;
         LibraryTitleLabel.Text = _selectedWorldCard is null
-            ? "Meine Musik"
-            : $"Meine Musik · {_selectedWorldCard.World.Name}";
+            ? AppText.Pick("Meine Musik", "My music")
+            : $"{AppText.Pick("Meine Musik", "My music")} · {_selectedWorldCard.DisplayName}";
         SetPlaybackControlsEnabled(_visibleLibrary.Count > 0);
         UpdateNextTrack();
     }
@@ -502,12 +521,12 @@ public partial class MainPage : ContentPage
             LibraryView.SelectedItem = null;
             if (item.IsBlocked)
             {
-                StatusLabel.Text = "Dieser Titel ist blockiert. Die Blockierung kann über ⓘ aufgehoben werden.";
+                StatusLabel.Text = AppText.Pick("Dieser Titel ist blockiert. Die Blockierung kann über ⓘ aufgehoben werden.", "This track is blocked. You can unblock it via ⓘ.");
                 return;
             }
             if (!_visibleLibrary.Contains(item.LocalTrack))
             {
-                StatusLabel.Text = "Für diese Themensammlung werden derzeit nur Favoriten abgespielt.";
+                StatusLabel.Text = AppText.Pick("Für diese Themensammlung werden derzeit nur Favoriten abgespielt.", "Only favorites are currently played for this collection.");
                 return;
             }
             PlayTrack(item.LocalTrack, userInitiated: true);
@@ -826,11 +845,11 @@ public partial class MainPage : ContentPage
             _shouldContinuePlayback = false;
             Player.Stop();
             PlayPauseButton.Text = "▶";
-            StatusLabel.Text = "Mehrere Titel konnten nicht wiedergegeben werden. Bitte einen anderen Titel auswählen.";
+            StatusLabel.Text = AppText.Pick("Mehrere Titel konnten nicht wiedergegeben werden. Bitte einen anderen Titel auswählen.", "Several tracks could not be played. Please select another track.");
             return;
         }
 
-        StatusLabel.Text = "Dieser Titel konnte nicht wiedergegeben werden; der nächste Titel wird geöffnet.";
+        StatusLabel.Text = AppText.Pick("Dieser Titel konnte nicht wiedergegeben werden; der nächste Titel wird geöffnet.", "This track could not be played; opening the next track.");
         MoveTrack(1);
     }
 
@@ -982,6 +1001,7 @@ public partial class MainPage : ContentPage
         VolumeLabel.Text = $"{e.NewValue:P0}";
         if (!_restoringControls)
         {
+            if (Math.Abs(AppVolumeBridge.Volume - e.NewValue) > .001) AppVolumeBridge.Set(e.NewValue);
             _stateStore.SaveVolume(e.NewValue);
 #if ANDROID
             UpdateAndroidSettings();
@@ -989,23 +1009,30 @@ public partial class MainPage : ContentPage
         }
     }
 
+    private void OnAppVolumeBridgeChanged(object? sender, double volume) => Dispatcher.Dispatch(() =>
+    {
+        if (Math.Abs(VolumeSlider.Value - volume) <= .001) return;
+        VolumeSlider.Value = volume;
+    });
+
     private async void OnMenuClicked(object? sender, EventArgs e)
     {
         try
         {
             var shuffleAction = _shuffleEnabled
-                ? "✓ Zufallswiedergabe ausschalten"
-                : "Zufallswiedergabe einschalten";
+                ? (AppText.IsGerman ? "✓ Zufallswiedergabe ausschalten" : "✓ Disable shuffle")
+                : (AppText.IsGerman ? "Zufallswiedergabe einschalten" : "Enable shuffle");
+            var refreshAction = AppText.IsGerman ? "Bibliothek aktualisieren" : "Refresh library";
+            var settingsAction = AppText.IsGerman ? "Wiedergabe-Einstellungen" : "Playback settings";
+            var feedbackAction = AppText.IsGerman ? "Katalog-Feedback teilen" : "Share catalog feedback";
+            var folderAction = AppText.IsGerman ? "Download-Ordner öffnen" : "Open download folder";
+            var aboutAction = AppText.IsGerman ? "Über Open Sleep Music" : "About Open Sleep Music";
             var action = await DisplayActionSheetAsync(
-                "Menü",
-                "Abbrechen",
+                AppText.IsGerman ? "Menü" : "Menu",
+                AppText.Get("Close"),
                 null,
                 shuffleAction,
-                "Bibliothek aktualisieren",
-                "Wiedergabe-Einstellungen",
-                "Katalog-Feedback teilen",
-                "Download-Ordner öffnen",
-                "Über Open Sleep Music");
+                refreshAction, settingsAction, feedbackAction, folderAction, aboutAction);
 
             if (action == shuffleAction)
             {
@@ -1017,28 +1044,26 @@ public partial class MainPage : ContentPage
                 UpdateNowPlayingDetails();
                 UpdateNextTrack();
                 StatusLabel.Text = _shuffleEnabled
-                    ? "Zufallswiedergabe ist eingeschaltet."
-                    : "Wiedergabe erfolgt in Listenreihenfolge.";
+                    ? AppText.Pick("Zufallswiedergabe ist eingeschaltet.", "Shuffle is enabled.")
+                    : AppText.Pick("Wiedergabe erfolgt in Listenreihenfolge.", "Tracks play in list order.");
             }
-            else if (action == "Bibliothek aktualisieren")
+            else if (action == refreshAction)
             {
                 await RefreshLibraryAsync();
             }
-            else if (action == "Wiedergabe-Einstellungen")
+            else if (action == settingsAction)
             {
-                var page = new PlayerSettingsPage(new PlayerSettings(VolumeSlider.Value, _repeatMode, _sleepTimerMinutes));
-                page.SettingsChanged += OnPlayerSettingsChanged;
-                await Navigation.PushModalAsync(page);
+                await OpenPlayerSettingsAsync();
             }
-            else if (action == "Katalog-Feedback teilen")
+            else if (action == feedbackAction)
             {
                 await ShareCatalogFeedbackAsync();
             }
-            else if (action == "Download-Ordner öffnen")
+            else if (action == folderAction)
             {
                 await OpenDownloadFolderAsync();
             }
-            else if (action == "Über Open Sleep Music")
+            else if (action == aboutAction)
             {
                 await Navigation.PushModalAsync(new AboutPage());
             }
@@ -1046,15 +1071,112 @@ public partial class MainPage : ContentPage
         catch (Exception exception)
         {
             Debug.WriteLine(exception);
-            StatusLabel.Text = "Das Menü konnte nicht geöffnet werden.";
+            StatusLabel.Text = AppText.Pick("Das Menü konnte nicht geöffnet werden.", "The menu could not be opened.");
         }
     }
 
     private void OnPlayerSettingsChanged(object? sender, PlayerSettings settings)
     {
+        var languageChanged = settings.Language != _stateStore.LoadLanguage();
+        _stateStore.SaveLanguage(settings.Language);
+        _stateStore.SaveReducedMotion(settings.ReducedMotion);
         VolumeSlider.Value = settings.Volume;
         RepeatModePicker.SelectedIndex = settings.RepeatMode == PlaybackRepeatMode.Track ? 1 : 0;
         SleepTimerPicker.SelectedIndex = Array.IndexOf(SleepTimerMinutes, settings.SleepTimerMinutes);
+        if (languageChanged)
+        {
+            AppText.Apply(settings.Language);
+            if (Application.Current?.Windows.FirstOrDefault() is { } window) window.Page = new AppShell();
+        }
+    }
+
+    internal bool ReducedMotion => _stateStore.LoadReducedMotion();
+
+    internal ImmersivePlayerState GetImmersiveState()
+    {
+#if ANDROID
+        var snapshot = AndroidPlaybackBridge.Snapshot;
+        var isPlaying = snapshot.IsPlaying;
+        var position = snapshot.Position;
+        var duration = snapshot.Duration;
+#else
+        var isPlaying = Player.CurrentState == MediaElementState.Playing;
+        var position = Player.Position;
+        var duration = Player.Duration;
+#endif
+        var worldId = _currentTrack?.SleepWorld.Id;
+        var trackId = _currentTrack?.Track.Id;
+        return new ImmersivePlayerState(
+            trackId,
+            worldId,
+            _currentTrack?.Track.Title,
+            isPlaying,
+            worldId is not null && trackId is not null && _stateStore.IsFavorite(worldId, trackId),
+            worldId is not null && trackId is not null && _stateStore.IsBlocked(worldId, trackId),
+            _repeatMode == PlaybackRepeatMode.Track,
+            _sleepTimer.IsActive ? SleepTimerDisplay.FormatRemaining(_sleepTimer.Remaining) : AppText.Get("Off"),
+            position,
+            duration);
+    }
+
+    internal void ImmersiveTogglePlayback() => OnPlayPauseClicked(null, EventArgs.Empty);
+    internal void ImmersiveMove(int offset)
+    {
+        if (offset < 0) OnPreviousClicked(null, EventArgs.Empty); else OnNextClicked(null, EventArgs.Empty);
+    }
+
+    internal void ImmersiveSeek(double seconds)
+    {
+#if ANDROID
+        AndroidPlaybackBridge.Seek(seconds);
+#else
+        _ = Player.SeekTo(TimeSpan.FromSeconds(Math.Max(0, seconds)));
+#endif
+    }
+
+    internal void ImmersiveToggleFavorite()
+    {
+        if (_currentTrack is null) return;
+        var worldId = _currentTrack.SleepWorld.Id;
+        var trackId = _currentTrack.Track.Id;
+        _stateStore.SetFavorite(worldId, trackId, !_stateStore.IsFavorite(worldId, trackId));
+        ApplyTrackPreferences(_currentTrack);
+    }
+
+    internal void ImmersiveToggleBlocked()
+    {
+        if (_currentTrack is null) return;
+        var track = _currentTrack;
+        var worldId = track.SleepWorld.Id;
+        var trackId = track.Track.Id;
+        _stateStore.SetBlocked(worldId, trackId, !_stateStore.IsBlocked(worldId, trackId));
+        ApplyTrackPreferences(track);
+    }
+
+    internal Task OpenCurrentTrackDetailsAsync() => _currentTrack is null ? Task.CompletedTask : OpenTrackDetailsAsync(_currentTrack);
+
+    internal async Task OpenPlayerSettingsAsync()
+    {
+        var page = new PlayerSettingsPage(new PlayerSettings(VolumeSlider.Value, _repeatMode, _sleepTimerMinutes, _stateStore.LoadLanguage(), _stateStore.LoadReducedMotion()));
+        page.SettingsChanged += OnPlayerSettingsChanged;
+        await Navigation.PushModalAsync(page);
+    }
+
+    internal async Task ChooseRepeatModeAsync()
+    {
+        var collection = AppText.Get("Collection");
+        var track = AppText.Get("Track");
+        var selected = await DisplayActionSheetAsync(AppText.Get("Repeat"), AppText.Get("Close"), null, collection, track);
+        if (selected == collection) RepeatModePicker.SelectedIndex = 0;
+        if (selected == track) RepeatModePicker.SelectedIndex = 1;
+    }
+
+    internal async Task ChooseSleepTimerAsync()
+    {
+        var labels = new[] { AppText.Get("Off"), "15 min", "30 min", "45 min", "60 min", "90 min" };
+        var selected = await DisplayActionSheetAsync(AppText.Get("SleepTimer"), AppText.Get("Close"), null, labels);
+        var index = Array.IndexOf(labels, selected);
+        if (index >= 0) SleepTimerPicker.SelectedIndex = index;
     }
 
     private void StartConfiguredSleepTimerIfNeeded()
@@ -1311,8 +1433,8 @@ public partial class MainPage : ContentPage
         _currentTrack = null;
         _nextTrack = null;
         _resumePositionSeconds = 0;
-        NowPlayingLabel.Text = "Noch kein Titel ausgewählt";
-        NowPlayingDetailLabel.Text = "Themensammlung auswählen oder einen Titel anklicken.";
+        NowPlayingLabel.Text = AppText.Get("NoTrack");
+        NowPlayingDetailLabel.Text = AppText.Pick("Themensammlung auswählen oder einen Titel anklicken.", "Select a collection or tap a track.");
         NextTrackLabel.Text = "Nächster Titel: –";
         PositionSlider.Maximum = 1;
         PositionSlider.Value = 0;
@@ -1379,7 +1501,7 @@ public partial class MainPage : ContentPage
         PlayPauseButton.Text = snapshot.IsPlaying ? "⏸" : "▶";
         if (snapshot.Error is not null)
         {
-            StatusLabel.Text = "Dieser Titel konnte nicht wiedergegeben werden; der nächste Titel wird geöffnet.";
+            StatusLabel.Text = AppText.Pick("Dieser Titel konnte nicht wiedergegeben werden; der nächste Titel wird geöffnet.", "This track could not be played; opening the next track.");
         }
     }
 #endif
@@ -1394,6 +1516,8 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
     private long _sizeBytes;
 
     public SleepWorld World { get; } = world;
+    public string DisplayName => AppText.WorldName(World.Id, World.Name);
+    public string DisplayDescription => AppText.WorldDescription(World.Id, World.Description);
 
     public int DownloadedCount
     {
@@ -1422,16 +1546,16 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
     public bool IsComplete => DownloadedCount == World.Tracks.Count;
 
     public string ActionText => IsComplete
-        ? "▶ Abspielen"
+        ? $"▶ {AppText.Get("Play")}"
         : DownloadedCount == 0
-            ? "Herunterladen"
-            : $"Vervollständigen ({DownloadedCount}/{World.Tracks.Count})";
+            ? AppText.Get("Download")
+            : AppText.IsGerman ? $"Vervollständigen ({DownloadedCount}/{World.Tracks.Count})" : $"Complete ({DownloadedCount}/{World.Tracks.Count})";
 
     public string StatusText => DownloadedCount == 0
-        ? "Nicht heruntergeladen"
+        ? (AppText.IsGerman ? "Nicht heruntergeladen" : "Not downloaded")
         : IsComplete
-            ? $"Vollständig · {DownloadedCount} Titel · {FormatSize(SizeBytes)}"
-            : $"{DownloadedCount} von {World.Tracks.Count} Titeln · {FormatSize(SizeBytes)}";
+            ? (AppText.IsGerman ? $"Vollständig · {DownloadedCount} Titel · {FormatSize(SizeBytes)}" : $"Complete · {DownloadedCount} tracks · {FormatSize(SizeBytes)}")
+            : (AppText.IsGerman ? $"{DownloadedCount} von {World.Tracks.Count} Titeln · {FormatSize(SizeBytes)}" : $"{DownloadedCount} of {World.Tracks.Count} tracks · {FormatSize(SizeBytes)}");
 
     public event PropertyChangedEventHandler? PropertyChanged;
 

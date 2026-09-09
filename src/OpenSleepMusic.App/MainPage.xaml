@@ -39,8 +39,8 @@
                                 <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
                                 <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*" ColumnSpacing="10" RowSpacing="5">
                                     <Label Text="{Binding World.Icon}" FontSize="27" Grid.RowSpan="2" />
-                                    <Label Grid.Column="1" Text="{Binding World.Name}" FontSize="16" FontAttributes="Bold" TextColor="#F7F3FF" />
-                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding World.Description}" FontSize="11" TextColor="#B8B5C8" MaxLines="2" />
+                                    <Label Grid.Column="1" Text="{Binding DisplayName}" FontSize="16" FontAttributes="Bold" TextColor="#F7F3FF" />
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding DisplayDescription}" FontSize="11" TextColor="#B8B5C8" MaxLines="2" />
                                     <Label Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding StatusText}" FontSize="11" TextColor="#9E9AAF" />
                                     <Grid Grid.Row="3" Grid.ColumnSpan="2" ColumnDefinitions="*,Auto" ColumnSpacing="8">
                                         <Button Text="{Binding ActionText}" CommandParameter="{Binding .}" Clicked="OnWorldActionClicked"
@@ -83,7 +83,7 @@
             </Grid>
         </Grid>
 
-        <Border x:Name="PlayerBorder" Grid.Row="2" BackgroundColor="#171D31" Stroke="#29304B" Padding="12">
+        <Border x:Name="PlayerBorder" IsVisible="False" Grid.Row="2" BackgroundColor="#171D31" Stroke="#29304B" Padding="12">
             <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
             <Grid x:Name="PlayerGrid" RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12" RowSpacing="6">
                 <Button x:Name="PreviousButton" Text="⏮" Clicked="OnPreviousClicked" BackgroundColor="#252C45" TextColor="White" />

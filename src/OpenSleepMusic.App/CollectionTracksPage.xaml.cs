@@ -1,5 +1,6 @@
 using OpenSleepMusic.Core.Library;
 using OpenSleepMusic.Core.Playback;
+using OpenSleepMusic.App.Localization;
 
 namespace OpenSleepMusic.App;
 
@@ -28,13 +29,13 @@ public partial class CollectionTracksPage : ContentPage
         TracksView.SelectedItem = null;
         if (item.IsBlocked)
         {
-            await DisplayAlertAsync("Titel blockiert", "Die Blockierung kann über die Titelinformationen aufgehoben werden.", "OK");
+            await DisplayAlertAsync(AppText.IsGerman ? "Titel blockiert" : "Track blocked", AppText.IsGerman ? "Die Blockierung kann über die Titelinformationen aufgehoben werden." : "You can unblock it in track information.", "OK");
             return;
         }
         var playable = PlayableTracks();
         if (!playable.Contains(item.LocalTrack))
         {
-            await DisplayAlertAsync("Favoriten aktiv", "Für diese Themensammlung werden derzeit nur Favoriten abgespielt.", "OK");
+            await DisplayAlertAsync(AppText.IsGerman ? "Favoriten aktiv" : "Favorites active", AppText.IsGerman ? "Für diese Themensammlung werden derzeit nur Favoriten abgespielt." : "Only favorites are currently played for this collection.", "OK");
             return;
         }
         PlayRequested?.Invoke(this, item.LocalTrack);
@@ -79,6 +80,8 @@ public partial class CollectionTracksPage : ContentPage
             _stateStore.IsBlocked(track.SleepWorld.Id, track.Track.Id))).ToArray();
         var playable = PlayableTracks();
         var favorites = _tracks.Count(track => _stateStore.IsFavorite(track.SleepWorld.Id, track.Track.Id));
-        SummaryLabel.Text = $"{_tracks.Count} offline · {playable.Count} in Wiedergabe{(favorites > 0 ? " · nur Favoriten" : string.Empty)}";
+        SummaryLabel.Text = AppText.IsGerman
+            ? $"{_tracks.Count} offline · {playable.Count} in Wiedergabe{(favorites > 0 ? " · nur Favoriten" : string.Empty)}"
+            : $"{_tracks.Count} offline · {playable.Count} playable{(favorites > 0 ? " · favorites only" : string.Empty)}";
     }
 }

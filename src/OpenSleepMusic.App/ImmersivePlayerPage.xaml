@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OpenSleepMusic.App.ImmersivePlayerPage"
+             BackgroundColor="#07142D" Shell.NavBarIsVisible="False">
+    <Grid x:Name="Scene">
+        <Grid.GestureRecognizers><TapGestureRecognizer Tapped="OnSceneTapped" /></Grid.GestureRecognizers>
+        <Image x:Name="MotifImage" Source="sleepy_bear_moon.png" Aspect="AspectFit" Opacity="0.88"
+               HorizontalOptions="Center" VerticalOptions="Center" MaximumWidthRequest="620" MaximumHeightRequest="620" Margin="36" InputTransparent="True" />
+        <BoxView Color="#38020A1D" InputTransparent="True" />
+
+        <Grid x:Name="Controls" RowDefinitions="Auto,*,Auto" Padding="18" RowSpacing="12">
+            <Grid ColumnDefinitions="Auto,Auto,*,Auto,Auto" ColumnSpacing="8">
+                <Button Text="‹" Clicked="OnBackClicked" BackgroundColor="#99252C45" TextColor="White" AutomationId="ImmersiveBackButton" />
+                <Button Grid.Column="1" x:Name="FavoriteButton" Text="☆" FontSize="22" Clicked="OnFavoriteClicked" BackgroundColor="#99252C45" TextColor="#F4C95D" />
+                <Label Grid.Column="2" x:Name="TitleLabel" Text="–" FontSize="18" FontAttributes="Bold" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" LineBreakMode="TailTruncation">
+                    <Label.GestureRecognizers><TapGestureRecognizer Tapped="OnTitleTapped" /></Label.GestureRecognizers>
+                </Label>
+                <Button Grid.Column="3" x:Name="BlockButton" Text="⊘" Clicked="OnBlockClicked" BackgroundColor="#99502B43" TextColor="White" />
+                <Button Grid.Column="4" Text="🔊" Clicked="OnVolumeClicked" BackgroundColor="#99252C45" TextColor="White" />
+            </Grid>
+
+            <Border x:Name="VolumePanel" Grid.Row="1" IsVisible="False" HorizontalOptions="End" VerticalOptions="Start"
+                    BackgroundColor="#D9171D31" Stroke="#596485" Padding="12" Margin="0,0,0,8">
+                <Border.StrokeShape><RoundRectangle CornerRadius="14" /></Border.StrokeShape>
+                <Grid ColumnDefinitions="Auto,180,Auto" ColumnSpacing="8">
+                    <Label x:Name="VolumeTitleLabel" Text="Lautstärke" TextColor="White" VerticalOptions="Center" />
+                    <Slider Grid.Column="1" x:Name="VolumeSlider" Minimum="0" Maximum="1" ValueChanged="OnVolumeChanged" />
+                    <Label Grid.Column="2" x:Name="VolumeValueLabel" Text="30 %" TextColor="White" VerticalOptions="Center" />
+                </Grid>
+            </Border>
+
+            <Grid Grid.Row="2" RowDefinitions="Auto,Auto" RowSpacing="8" BackgroundColor="#B8171D31" Padding="12">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                    <Label x:Name="PositionLabel" Text="0:00" TextColor="White" VerticalOptions="Center" />
+                    <Slider Grid.Column="1" x:Name="PositionSlider" Minimum="0" Maximum="1" DragStarted="OnSeekStarted" DragCompleted="OnSeekCompleted" />
+                    <Label Grid.Column="2" x:Name="DurationLabel" Text="0:00" TextColor="White" VerticalOptions="Center" />
+                </Grid>
+                <Grid Grid.Row="1" ColumnDefinitions="*,*,1.35*,*,*" ColumnSpacing="8">
+                    <Button Text="⏮" Clicked="OnPreviousClicked" BackgroundColor="Transparent" TextColor="White" />
+                    <Button Grid.Column="1" x:Name="RepeatButton" Text="↻" Clicked="OnRepeatClicked" BackgroundColor="Transparent" TextColor="#C9C5D8" />
+                    <Button Grid.Column="2" x:Name="PlayButton" Text="▶" FontSize="28" Clicked="OnPlayClicked" BackgroundColor="#7367F0" TextColor="White" CornerRadius="28" HeightRequest="58" />
+                    <Button Grid.Column="3" x:Name="TimerButton" Text="◷" Clicked="OnTimerClicked" BackgroundColor="Transparent" TextColor="#C9C5D8" />
+                    <Button Grid.Column="4" Text="⏭" Clicked="OnNextClicked" BackgroundColor="Transparent" TextColor="White" />
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <Button x:Name="FloatingPlayButton" IsVisible="False" Text="▶" FontSize="30" WidthRequest="68" HeightRequest="68"
+                HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,26" Clicked="OnPlayClicked"
+                BackgroundColor="#CC7367F0" TextColor="White" CornerRadius="34" ZIndex="10" />
+    </Grid>
+</ContentPage>

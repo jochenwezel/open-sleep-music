@@ -1,4 +1,5 @@
 using Microsoft.Maui.Storage;
+using OpenSleepMusic.App.Localization;
 
 namespace OpenSleepMusic.App;
 
@@ -30,6 +31,8 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
     private const string PlaybackPositionKey = "playback.position-seconds";
     private const string FavoritePrefix = "track.favorite.";
     private const string BlockedPrefix = "track.blocked.";
+    private const string LanguageKey = "appearance.language";
+    private const string ReducedMotionKey = "appearance.reduced-motion";
     private readonly IPreferences _preferences = preferences ?? Preferences.Default;
 
     public PersistedAppState Load()
@@ -71,6 +74,13 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
 
     public void SaveVolume(double volume) =>
         _preferences.Set(VolumeKey, Math.Clamp(volume, 0, 1));
+
+    public AppLanguage LoadLanguage() => Enum.TryParse<AppLanguage>(
+        _preferences.Get(LanguageKey, AppLanguage.System.ToString()), out var language) ? language : AppLanguage.System;
+
+    public void SaveLanguage(AppLanguage language) => _preferences.Set(LanguageKey, language.ToString());
+    public bool LoadReducedMotion() => _preferences.Get(ReducedMotionKey, false);
+    public void SaveReducedMotion(bool value) => _preferences.Set(ReducedMotionKey, value);
 
     public void SaveShuffle(bool enabled) => _preferences.Set(ShuffleKey, enabled);
 
