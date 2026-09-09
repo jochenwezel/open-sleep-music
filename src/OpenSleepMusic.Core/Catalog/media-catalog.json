@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-09-06T23:02:38.4832499+00:00",
+  "generatedAtUtc": "2026-09-09T13:51:25.7899369+00:00",
   "sleepWorlds": [
     {
       "id": "quiet-classics",
@@ -1780,6 +1780,86 @@
           "durationSeconds": 263.52,
           "sha1": "ec072456240037369703318842358ced6bf9dcdf",
           "volumeGain": 6.0
+        }
+      ]
+    },
+    {
+      "id": "lullabies",
+      "name": "Schlaflieder für Kleine",
+      "description": "Sanfte Klavier-, Spieluhr- und Instrumentalstücke ohne Gesang.",
+      "icon": "🌙",
+      "tracks": [
+        {
+          "id": "faure-berceuse-op-56-no-1",
+          "title": "Gabriel Fauré – Berceuse op. 56 Nr. 1",
+          "creator": "Piano: Brian M. Jones",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Berceuse%20by%20Gabriel%20Faur%C3%A9%20op56%20no1.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg",
+          "license": "Public Domain",
+          "licenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
+          "fileName": "faure-berceuse-op-56-no-1.ogg",
+          "durationSeconds": 214.622,
+          "sha1": "16f742aed631bbd30a78e3298fb77672655bf306"
+        },
+        {
+          "id": "burgmuller-berceuse-op-109-no-7",
+          "title": "Friedrich Burgmüller – Berceuse op. 109 Nr. 7",
+          "creator": "Piano: BastienM",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Berceuse%20Burgmuller.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Berceuse_Burgmuller.ogg",
+          "license": "CC BY-SA 3.0",
+          "licenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "fileName": "burgmuller-berceuse-op-109-no-7.ogg",
+          "durationSeconds": 84.578,
+          "sha1": "2701c3802dae189dd59b4980aa363a1d467a9007"
+        },
+        {
+          "id": "music-box-schlafe-mein-prinzchen",
+          "title": "Spieluhr – Schlafe, mein Prinzchen",
+          "creator": "Recordist: stephan (PDSounds)",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lullaby%20wound%20up%20clock.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock.ogg",
+          "license": "Public Domain",
+          "licenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
+          "fileName": "music-box-schlafe-mein-prinzchen.ogg",
+          "durationSeconds": 85.238,
+          "sha1": "5909aedbcd7f203fdd86a6a4e5cf8f062d0b35f6"
+        },
+        {
+          "id": "music-box-guten-abend-gute-nacht",
+          "title": "Spieluhr – Guten Abend, gute Nacht",
+          "creator": "Recordist: stephan (PDSounds)",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lullaby%20wound%20up%20clock%20guten%20abend%20gute%20nacht.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg",
+          "license": "Public Domain",
+          "licenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
+          "fileName": "music-box-guten-abend-gute-nacht.ogg",
+          "durationSeconds": 46.446,
+          "sha1": "502f7642ca2c4d1d73f250cc87e45eed9bf2550b"
+        },
+        {
+          "id": "antti-luode-another-lullaby",
+          "title": "Antti Luode – Another Lullaby",
+          "creator": "Antti Luode",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Another%20Lullaby%20%28Antti%20Luode%29.mp3",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Another_Lullaby_(Antti_Luode).mp3",
+          "license": "CC BY 3.0",
+          "licenseUri": "https://creativecommons.org/licenses/by/3.0/",
+          "fileName": "antti-luode-another-lullaby.mp3",
+          "durationSeconds": 139.337,
+          "sha1": "a32d3ce29635b421981ba72347e4082ca497c09a"
+        },
+        {
+          "id": "axletree-ailsas-lullaby",
+          "title": "Axletree – Ailsa's Lullaby",
+          "creator": "Axletree",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Axle%20-%2002%20-%20Ailsas%20Lullaby.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Axle_-_02_-_Ailsas_Lullaby.ogg",
+          "license": "CC BY 4.0",
+          "licenseUri": "https://creativecommons.org/licenses/by/4.0/",
+          "fileName": "axletree-ailsas-lullaby.ogg",
+          "durationSeconds": 199.176,
+          "sha1": "8a1d5fff53492104916a083789cb2854f6625d37"
         }
       ]
     }
