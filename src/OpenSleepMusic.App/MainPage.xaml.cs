@@ -242,6 +242,11 @@ public partial class MainPage : ContentPage
             return;
         }
 
+        if (card.IsDownloading)
+        {
+            return;
+        }
+
         SelectWorld(card);
         if (card.IsComplete)
         {
@@ -259,6 +264,11 @@ public partial class MainPage : ContentPage
     private async void OnWorldManageClicked(object? sender, EventArgs e)
     {
         if (sender is not Button { CommandParameter: SleepWorldCard card } button)
+        {
+            return;
+        }
+
+        if (card.IsDownloading)
         {
             return;
         }
@@ -314,6 +324,7 @@ public partial class MainPage : ContentPage
     private async Task DownloadWorldAsync(SleepWorldCard card, Button button, bool isRepair)
     {
         _downloadInProgress = true;
+        card.SetDownloadInProgress(true);
         _statusHideAtUtc = null;
         StatusLabel.IsVisible = true;
         DownloadProgress.IsVisible = true;
@@ -358,6 +369,7 @@ public partial class MainPage : ContentPage
         finally
         {
             _downloadInProgress = false;
+            card.SetDownloadInProgress(false);
             _statusHideAtUtc = DateTimeOffset.UtcNow.AddSeconds(7);
             button.IsEnabled = true;
         }
@@ -1514,6 +1526,7 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
 {
     private int _downloadedCount;
     private long _sizeBytes;
+    private bool _isDownloading;
 
     public SleepWorld World { get; } = world;
     public string DisplayName => AppText.WorldName(World.Id, World.Name);
@@ -1545,7 +1558,13 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
 
     public bool IsComplete => DownloadedCount == World.Tracks.Count;
 
-    public string ActionText => IsComplete
+    public bool IsDownloading => _isDownloading;
+
+    public bool CanStartAction => !IsDownloading;
+
+    public string ActionText => IsDownloading
+        ? AppText.Pick("Wird heruntergeladen …", "Downloading …")
+        : IsComplete
         ? $"▶ {AppText.Get("Play")}"
         : DownloadedCount == 0
             ? AppText.Get("Download")
@@ -1563,6 +1582,19 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
     {
         DownloadedCount = count;
         SizeBytes = sizeBytes;
+    }
+
+    public void SetDownloadInProgress(bool isDownloading)
+    {
+        if (_isDownloading == isDownloading)
+        {
+            return;
+        }
+
+        _isDownloading = isDownloading;
+        OnPropertyChanged(nameof(IsDownloading));
+        OnPropertyChanged(nameof(CanStartAction));
+        OnPropertyChanged(nameof(ActionText));
     }
 
     private void NotifyStatusChanged([CallerMemberName] string? propertyName = null)
