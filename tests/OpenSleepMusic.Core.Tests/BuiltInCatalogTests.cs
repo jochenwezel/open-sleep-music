@@ -30,6 +30,8 @@ public sealed class BuiltInCatalogTests
             Assert.True(track.VolumeGain > 0, $"{track.Id} has an invalid volume gain.");
             Assert.False(string.IsNullOrWhiteSpace(track.Creator));
             Assert.False(string.IsNullOrWhiteSpace(track.License));
+            Assert.DoesNotContain("BY-NC", track.License, StringComparison.OrdinalIgnoreCase);
+            Assert.DoesNotContain("BY-ND", track.License, StringComparison.OrdinalIgnoreCase);
             if (!string.IsNullOrWhiteSpace(track.Sha1))
             {
                 Assert.Matches("^[0-9a-f]{40}$", track.Sha1);
@@ -43,11 +45,10 @@ public sealed class BuiltInCatalogTests
         var world = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "lullabies");
 
         Assert.Equal("Schlaflieder für Kleine", world.Name);
-        Assert.Equal(6, world.Tracks.Count);
+        Assert.Equal(5, world.Tracks.Count);
         Assert.Equal(
             [
                 "antti-luode-another-lullaby",
-                "axletree-ailsas-lullaby",
                 "burgmuller-berceuse-op-109-no-7",
                 "faure-berceuse-op-56-no-1",
                 "music-box-guten-abend-gute-nacht",
