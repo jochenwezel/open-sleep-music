@@ -22,4 +22,8 @@
     <ProjectReference Include="..\..\src\OpenSleepMusic.Core\OpenSleepMusic.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Include="..\..\src\OpenSleepMusic.App\Visuals\PlaybackVisualCatalog.cs" Link="AppVisuals\PlaybackVisualCatalog.cs" />
+  </ItemGroup>
+
 </Project>

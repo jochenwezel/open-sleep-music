@@ -9,6 +9,7 @@ public partial class ImmersivePlayerPage : ContentPage
     private readonly MainPage _owner;
     private bool _seeking;
     private bool _animateBack;
+    private bool _fadeMotifBack;
     private PlaybackVisualTheme _theme = PlaybackVisualCatalog.For(null, null);
 
     internal ImmersivePlayerPage(MainPage owner)
@@ -21,8 +22,8 @@ public partial class ImmersivePlayerPage : ContentPage
         var overlay = new VolumeOverlayView();
         Scene.Add(overlay);
         Dispatcher.StartTimer(TimeSpan.FromMilliseconds(500), RefreshState);
-        Loaded += (_, _) => StartAmbientAnimation();
-        Unloaded += (_, _) => Scene.AbortAnimation("ambient");
+        Loaded += (_, _) => StartAmbientAnimations();
+        Unloaded += (_, _) => StopAmbientAnimations();
         RefreshState();
     }
 
@@ -36,6 +37,12 @@ public partial class ImmersivePlayerPage : ContentPage
             _theme = theme;
             MotifImage.Source = theme.MotifAsset;
             BackgroundColor = Color.FromArgb(theme.StartColor);
+            MotifImage.Opacity = 0.88;
+            if (IsLoaded)
+            {
+                StopAmbientAnimations();
+                StartAmbientAnimations();
+            }
         }
         TitleLabel.Text = state.Title ?? AppText.Get("NoTrack");
         FavoriteButton.Text = state.IsFavorite ? "★" : "☆";
@@ -53,16 +60,45 @@ public partial class ImmersivePlayerPage : ContentPage
         return true;
     }
 
-    private void StartAmbientAnimation()
+    private void StartAmbientAnimations()
+    {
+        if (!IsLoaded || _owner.ReducedMotion) return;
+        StartColorAnimation();
+        StartMotifFade();
+    }
+
+    private void StartColorAnimation()
     {
         if (!IsLoaded || _owner.ReducedMotion) return;
         var from = Color.FromArgb(_animateBack ? _theme.EndColor : _theme.StartColor);
         var to = Color.FromArgb(_animateBack ? _theme.StartColor : _theme.EndColor);
-        Scene.Animate("ambient", value => BackgroundColor = Interpolate(from, to, value), 16, 15000, Easing.SinInOut, (_, _) =>
+        Scene.Animate("ambient-color", value => BackgroundColor = Interpolate(from, to, value), 50,
+            (uint)_theme.ColorPhaseDuration.TotalMilliseconds, Easing.SinInOut, (_, cancelled) =>
         {
+            if (cancelled) return;
             _animateBack = !_animateBack;
-            StartAmbientAnimation();
+            StartColorAnimation();
         });
+    }
+
+    private void StartMotifFade()
+    {
+        if (!IsLoaded || _owner.ReducedMotion || _theme.MotifFadeDuration is not { } duration) return;
+        var from = _fadeMotifBack ? _theme.MotifMinimumOpacity : 0.88;
+        var to = _fadeMotifBack ? 0.88 : _theme.MotifMinimumOpacity;
+        MotifImage.Animate("ambient-motif", value => MotifImage.Opacity = from + ((to - from) * value), 50,
+            (uint)duration.TotalMilliseconds, Easing.SinInOut, (_, cancelled) =>
+        {
+            if (cancelled) return;
+            _fadeMotifBack = !_fadeMotifBack;
+            StartMotifFade();
+        });
+    }
+
+    private void StopAmbientAnimations()
+    {
+        Scene.AbortAnimation("ambient-color");
+        MotifImage.AbortAnimation("ambient-motif");
     }
 
     private void OnSceneTapped(object? sender, TappedEventArgs e)

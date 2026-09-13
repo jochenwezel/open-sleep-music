@@ -1,26 +1,29 @@
 namespace OpenSleepMusic.App.Visuals;
 
-internal sealed record PlaybackVisualTheme(string StartColor, string EndColor, string MotifAsset);
+internal sealed record PlaybackVisualTheme(
+    string StartColor,
+    string EndColor,
+    string MotifAsset,
+    TimeSpan ColorPhaseDuration,
+    TimeSpan? MotifFadeDuration = null,
+    double MotifMinimumOpacity = 0.88);
 
 internal static class PlaybackVisualCatalog
 {
     private static readonly IReadOnlyDictionary<string, PlaybackVisualTheme> Themes = new Dictionary<string, PlaybackVisualTheme>
     {
-        ["quiet-classics"] = new("#10132F", "#251844", "sleepy_bear_moon.png"),
-        ["rain"] = new("#071C31", "#123652", "sleepy_bear_moon.png"),
-        ["forest"] = new("#071F25", "#15352C", "sleepy_bear_moon.png"),
-        ["waves"] = new("#061B38", "#123F55", "sleepy_bear_moon.png"),
-        ["fireplace"] = new("#211015", "#3A1918", "sleepy_bear_moon.png")
+        ["quiet-classics"] = new("#101B45", "#080E28", "motif_quiet_classics.png", TimeSpan.FromSeconds(15)),
+        ["rain"] = new("#071C31", "#102D43", "motif_rain.png", TimeSpan.FromSeconds(15)),
+        ["forest"] = new("#071F25", "#102C27", "motif_forest.png", TimeSpan.FromSeconds(15)),
+        ["waves"] = new("#061B38", "#102F45", "motif_waves.png", TimeSpan.FromSeconds(15)),
+        ["fireplace"] = new("#211015", "#321716", "motif_fireplace_a.png", TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(3), 0.80)
     };
 
     public static PlaybackVisualTheme For(string? worldId, string? trackId)
     {
         var theme = worldId is not null && Themes.TryGetValue(worldId, out var selected)
             ? selected
-            : new("#07142D", "#10103A", "sleepy_bear_moon.png");
-        var motif = trackId is not null && trackId.Sum(character => character) % 2 == 0
-            ? "sleepy_lamb_star.png"
-            : "sleepy_bear_moon.png";
-        return theme with { MotifAsset = motif };
+            : new("#07142D", "#10103A", "sleepy_bear_moon.png", TimeSpan.FromSeconds(15));
+        return theme;
     }
 }
