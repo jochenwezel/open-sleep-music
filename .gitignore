@@ -29,6 +29,7 @@ Thumbs.db
 *.jsonl
 
 ## Signing material and store credentials
+/.local-secrets/
 *.key
 *.pem
 *.pfx

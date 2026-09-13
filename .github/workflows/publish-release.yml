@@ -17,8 +17,43 @@ jobs:
           global-json-file: global.json
       - name: Install Android workload
         run: dotnet workload install android maui --skip-manifest-update
+      - name: Restore Android signing key
+        shell: pwsh
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          $required = @(
+            "ANDROID_KEYSTORE_BASE64",
+            "ANDROID_KEYSTORE_PASSWORD",
+            "ANDROID_KEY_ALIAS",
+            "ANDROID_KEY_PASSWORD"
+          )
+          foreach ($name in $required) {
+            if ([string]::IsNullOrWhiteSpace([Environment]::GetEnvironmentVariable($name))) {
+              throw "Required Android signing secret '$name' is not configured."
+            }
+          }
+          [IO.File]::WriteAllBytes(
+            "$env:RUNNER_TEMP/open-sleep-music-release.p12",
+            [Convert]::FromBase64String($env:ANDROID_KEYSTORE_BASE64))
       - name: Publish installable test APK
-        run: dotnet publish src/OpenSleepMusic.App/OpenSleepMusic.App.csproj --framework net10.0-android --configuration Release -p:AndroidPackageFormats=apk -p:AndroidKeyStore=false
+        env:
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: >-
+          dotnet publish src/OpenSleepMusic.App/OpenSleepMusic.App.csproj
+          --framework net10.0-android
+          --configuration Release
+          -p:AndroidPackageFormats=apk
+          -p:AndroidKeyStore=true
+          -p:AndroidSigningKeyStore="$env:RUNNER_TEMP/open-sleep-music-release.p12"
+          -p:AndroidSigningKeyAlias="$env:ANDROID_KEY_ALIAS"
+          -p:AndroidSigningKeyPass="$env:ANDROID_KEY_PASSWORD"
+          -p:AndroidSigningStorePass="$env:ANDROID_KEYSTORE_PASSWORD"
       - name: Prepare Android release asset
         shell: pwsh
         run: |
