@@ -10,7 +10,7 @@ public sealed class BuiltInCatalogTests
         var worlds = BuiltInCatalog.SleepWorlds;
         var tracks = worlds.SelectMany(world => world.Tracks).ToArray();
 
-        Assert.Equal(5, worlds.Count);
+        Assert.Equal(6, worlds.Count);
         Assert.True(tracks.Length >= 140, $"Expected at least 140 tracks, found {tracks.Length}.");
         Assert.True(BuiltInCatalog.TotalDuration >= TimeSpan.FromHours(15));
         Assert.All(worlds, world => Assert.NotEmpty(world.Tracks));
@@ -30,10 +30,35 @@ public sealed class BuiltInCatalogTests
             Assert.True(track.VolumeGain > 0, $"{track.Id} has an invalid volume gain.");
             Assert.False(string.IsNullOrWhiteSpace(track.Creator));
             Assert.False(string.IsNullOrWhiteSpace(track.License));
+            Assert.DoesNotContain("BY-NC", track.License, StringComparison.OrdinalIgnoreCase);
+            Assert.DoesNotContain("BY-ND", track.License, StringComparison.OrdinalIgnoreCase);
             if (!string.IsNullOrWhiteSpace(track.Sha1))
             {
                 Assert.Matches("^[0-9a-f]{40}$", track.Sha1);
             }
+        });
+    }
+
+    [Fact]
+    public void CatalogContainsReviewedToddlerLullabyCollection()
+    {
+        var world = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "lullabies");
+
+        Assert.Equal("Schlaflieder für Kleine", world.Name);
+        Assert.Equal(5, world.Tracks.Count);
+        Assert.Equal(
+            [
+                "antti-luode-another-lullaby",
+                "burgmuller-berceuse-op-109-no-7",
+                "faure-berceuse-op-56-no-1",
+                "music-box-guten-abend-gute-nacht",
+                "music-box-schlafe-mein-prinzchen"
+            ],
+            world.Tracks.Select(track => track.Id).Order(StringComparer.Ordinal));
+        Assert.All(world.Tracks, track =>
+        {
+            Assert.DoesNotContain("vocal", track.Title, StringComparison.OrdinalIgnoreCase);
+            Assert.DoesNotContain("song", track.Title, StringComparison.OrdinalIgnoreCase);
         });
     }
 
