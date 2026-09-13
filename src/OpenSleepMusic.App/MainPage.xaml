@@ -25,6 +25,9 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border BackgroundColor="#171D31" Stroke="#29304B" StrokeThickness="1" Padding="14">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnWorldCardTapped" />
+                                </Border.GestureRecognizers>
                                 <VisualStateManager.VisualStateGroups>
                                     <VisualStateGroup Name="CommonStates">
                                         <VisualState Name="Normal" />

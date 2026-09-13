@@ -45,6 +45,9 @@ public partial class ImmersivePlayerPage : ContentPage
             }
         }
         TitleLabel.Text = state.Title ?? AppText.Get("NoTrack");
+        FavoriteButton.IsEnabled = state.TrackId is not null;
+        BlockButton.IsEnabled = state.TrackId is not null;
+        PositionSlider.IsEnabled = state.TrackId is not null;
         FavoriteButton.Text = state.IsFavorite ? "★" : "☆";
         BlockButton.TextColor = state.IsBlocked ? Color.FromArgb("#FFB0C8") : Colors.White;
         PlayButton.Text = FloatingPlayButton.Text = state.IsPlaying ? "⏸" : "▶";

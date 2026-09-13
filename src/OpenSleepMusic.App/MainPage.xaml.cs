@@ -58,6 +58,7 @@ public partial class MainPage : ContentPage
     private string? _responsiveLayoutMode;
     private DateTimeOffset? _statusHideAtUtc;
     private bool _downloadInProgress;
+    private bool _isOpeningWorld;
 #if !ANDROID
     private CancellationTokenSource? _sleepFadeCancellation;
 #endif
@@ -339,6 +340,10 @@ public partial class MainPage : ContentPage
         var progress = new Progress<DownloadProgress>(value =>
         {
             DownloadProgress.Progress = value.Total == 0 ? 0 : (double)value.Completed / value.Total;
+            if (value.Completed > 0)
+            {
+                _ = RefreshLibraryAsync(preserveStatus: true);
+            }
             if (!string.IsNullOrWhiteSpace(value.CurrentTitle))
             {
                 StatusLabel.Text = isRepair
@@ -410,6 +415,28 @@ public partial class MainPage : ContentPage
         if (e.CurrentSelection.FirstOrDefault() is SleepWorldCard card)
         {
             SelectWorld(card);
+        }
+    }
+
+    private async void OnWorldCardTapped(object? sender, TappedEventArgs e)
+    {
+        if (_isOpeningWorld || sender is not TapGestureRecognizer { CommandParameter: SleepWorldCard card })
+        {
+            return;
+        }
+
+        _isOpeningWorld = true;
+        try
+        {
+            SelectWorld(card);
+            // Validated files are moved into place atomically, so an in-progress
+            // collection can safely expose everything downloaded so far.
+            await RefreshLibraryAsync(preserveStatus: true);
+            await Navigation.PushModalAsync(new ImmersivePlayerPage(this));
+        }
+        finally
+        {
+            _isOpeningWorld = false;
         }
     }
 
@@ -728,7 +755,7 @@ public partial class MainPage : ContentPage
 
     private void OnPlayPauseClicked(object? sender, EventArgs e)
     {
-        if (_currentTrack is null)
+        if (_currentTrack is null || !_visibleLibrary.Contains(_currentTrack))
         {
             if (_visibleLibrary.Count > 0)
             {
@@ -775,7 +802,7 @@ public partial class MainPage : ContentPage
     private void OnPreviousClicked(object? sender, EventArgs e)
     {
 #if ANDROID
-        if (_currentTrack is null && _visibleLibrary.Count > 0) PlayInitialTrack();
+        if ((_currentTrack is null || !_visibleLibrary.Contains(_currentTrack)) && _visibleLibrary.Count > 0) PlayInitialTrack();
         else AndroidPlaybackBridge.Previous();
 #else
         MoveTrack(-1, forceSequential: true);
@@ -785,7 +812,7 @@ public partial class MainPage : ContentPage
     private void OnNextClicked(object? sender, EventArgs e)
     {
 #if ANDROID
-        if (_currentTrack is null && _visibleLibrary.Count > 0) PlayInitialTrack();
+        if ((_currentTrack is null || !_visibleLibrary.Contains(_currentTrack)) && _visibleLibrary.Count > 0) PlayInitialTrack();
         else AndroidPlaybackBridge.Next();
 #else
         MoveTrack(1, forceSequential: !_shuffleEnabled);
@@ -1116,19 +1143,21 @@ public partial class MainPage : ContentPage
         var position = Player.Position;
         var duration = Player.Duration;
 #endif
-        var worldId = _currentTrack?.SleepWorld.Id;
-        var trackId = _currentTrack?.Track.Id;
+        var selectedWorldId = _selectedWorldCard?.World.Id;
+        var selectedTrack = _currentTrack?.SleepWorld.Id == selectedWorldId ? _currentTrack : null;
+        var worldId = selectedWorldId ?? selectedTrack?.SleepWorld.Id;
+        var trackId = selectedTrack?.Track.Id;
         return new ImmersivePlayerState(
             trackId,
             worldId,
-            _currentTrack?.Track.Title,
-            isPlaying,
+            selectedTrack?.Track.Title ?? _selectedWorldCard?.DisplayName,
+            selectedTrack is not null && isPlaying,
             worldId is not null && trackId is not null && _stateStore.IsFavorite(worldId, trackId),
             worldId is not null && trackId is not null && _stateStore.IsBlocked(worldId, trackId),
             _repeatMode == PlaybackRepeatMode.Track,
             _sleepTimer.IsActive ? SleepTimerDisplay.FormatRemaining(_sleepTimer.Remaining) : AppText.Get("Off"),
-            position,
-            duration);
+            selectedTrack is null ? TimeSpan.Zero : position,
+            selectedTrack is null ? TimeSpan.Zero : duration);
     }
 
     internal void ImmersiveTogglePlayback() => OnPlayPauseClicked(null, EventArgs.Empty);
@@ -1148,7 +1177,7 @@ public partial class MainPage : ContentPage
 
     internal void ImmersiveToggleFavorite()
     {
-        if (_currentTrack is null) return;
+        if (_currentTrack is null || !_visibleLibrary.Contains(_currentTrack)) return;
         var worldId = _currentTrack.SleepWorld.Id;
         var trackId = _currentTrack.Track.Id;
         _stateStore.SetFavorite(worldId, trackId, !_stateStore.IsFavorite(worldId, trackId));
@@ -1157,7 +1186,7 @@ public partial class MainPage : ContentPage
 
     internal void ImmersiveToggleBlocked()
     {
-        if (_currentTrack is null) return;
+        if (_currentTrack is null || !_visibleLibrary.Contains(_currentTrack)) return;
         var track = _currentTrack;
         var worldId = track.SleepWorld.Id;
         var trackId = track.Track.Id;
@@ -1165,7 +1194,10 @@ public partial class MainPage : ContentPage
         ApplyTrackPreferences(track);
     }
 
-    internal Task OpenCurrentTrackDetailsAsync() => _currentTrack is null ? Task.CompletedTask : OpenTrackDetailsAsync(_currentTrack);
+    internal Task OpenCurrentTrackDetailsAsync() =>
+        _currentTrack is null || !_visibleLibrary.Contains(_currentTrack)
+            ? Task.CompletedTask
+            : OpenTrackDetailsAsync(_currentTrack);
 
     internal async Task OpenPlayerSettingsAsync()
     {
