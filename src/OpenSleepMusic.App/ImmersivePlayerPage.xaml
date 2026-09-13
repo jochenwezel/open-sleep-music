@@ -6,7 +6,8 @@
     <Grid x:Name="Scene">
         <Grid.GestureRecognizers><TapGestureRecognizer Tapped="OnSceneTapped" /></Grid.GestureRecognizers>
         <Image x:Name="MotifImage" Source="sleepy_bear_moon.png" Aspect="AspectFit" Opacity="0.88"
-               HorizontalOptions="Center" VerticalOptions="Center" MaximumWidthRequest="620" MaximumHeightRequest="620" Margin="36" InputTransparent="True" />
+               HorizontalOptions="Fill" VerticalOptions="Fill" MaximumWidthRequest="720" MaximumHeightRequest="720" Margin="32"
+               InputTransparent="True" AutomationProperties.IsInAccessibleTree="False" />
         <BoxView Color="#38020A1D" InputTransparent="True" />
 
         <Grid x:Name="Controls" RowDefinitions="Auto,*,Auto" Padding="18" RowSpacing="12">
