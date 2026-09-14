@@ -248,6 +248,12 @@ public partial class MainPage : ContentPage
             return;
         }
 
+        if (card.IsPlaying)
+        {
+            OnPlayPauseClicked(sender, e);
+            return;
+        }
+
         SelectWorld(card);
         if (card.IsComplete)
         {
@@ -908,6 +914,16 @@ public partial class MainPage : ContentPage
                 PersistPlaybackSnapshot(force: true);
             }
         }
+        UpdateWorldPlaybackState(e.NewState == MediaElementState.Playing);
+    }
+
+    private void UpdateWorldPlaybackState(bool isPlaying)
+    {
+        var playingWorldId = isPlaying ? _currentTrack?.SleepWorld.Id : null;
+        foreach (var card in _worldCards)
+        {
+            card.SetPlaying(card.World.Id == playingWorldId);
+        }
     }
 
     private void OnPositionDragStarted(object? sender, EventArgs e) => _isSeeking = true;
@@ -1484,6 +1500,7 @@ public partial class MainPage : ContentPage
         PositionSlider.Value = 0;
         TimeLabel.Text = "0:00 / 0:00";
         PlayPauseButton.Text = "▶";
+        UpdateWorldPlaybackState(false);
         _stateStore.ClearPlayback();
     }
 
@@ -1530,6 +1547,7 @@ public partial class MainPage : ContentPage
     {
         if (snapshot.TrackId is null)
         {
+            UpdateWorldPlaybackState(false);
             return;
         }
         var track = _library.FirstOrDefault(item => item.Track.Id == snapshot.TrackId);
@@ -1543,6 +1561,7 @@ public partial class MainPage : ContentPage
         }
         _shouldContinuePlayback = snapshot.IsPlaying;
         PlayPauseButton.Text = snapshot.IsPlaying ? "⏸" : "▶";
+        UpdateWorldPlaybackState(snapshot.IsPlaying);
         if (snapshot.Error is not null)
         {
             StatusLabel.Text = AppText.Pick("Dieser Titel konnte nicht wiedergegeben werden; der nächste Titel wird geöffnet.", "This track could not be played; opening the next track.");
@@ -1559,6 +1578,7 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
     private int _downloadedCount;
     private long _sizeBytes;
     private bool _isDownloading;
+    private bool _isPlaying;
 
     public SleepWorld World { get; } = world;
     public string DisplayName => AppText.WorldName(World.Id, World.Name);
@@ -1592,10 +1612,14 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
 
     public bool IsDownloading => _isDownloading;
 
+    public bool IsPlaying => _isPlaying;
+
     public bool CanStartAction => !IsDownloading;
 
     public string ActionText => IsDownloading
         ? AppText.Pick("Wird heruntergeladen …", "Downloading …")
+        : IsPlaying
+        ? $"⏸ {AppText.Pick("Pausieren", "Pause")}"
         : IsComplete
         ? $"▶ {AppText.Get("Play")}"
         : DownloadedCount == 0
@@ -1626,6 +1650,18 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
         _isDownloading = isDownloading;
         OnPropertyChanged(nameof(IsDownloading));
         OnPropertyChanged(nameof(CanStartAction));
+        OnPropertyChanged(nameof(ActionText));
+    }
+
+    public void SetPlaying(bool isPlaying)
+    {
+        if (_isPlaying == isPlaying)
+        {
+            return;
+        }
+
+        _isPlaying = isPlaying;
+        OnPropertyChanged(nameof(IsPlaying));
         OnPropertyChanged(nameof(ActionText));
     }
 
