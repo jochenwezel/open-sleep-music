@@ -17,7 +17,10 @@ public static class AudioFileValidator
             return "Response is empty or too small to be a valid audio file";
         }
 
-        var header = new byte[12];
+        // Read far enough to identify Ogg Skeleton's initial `fishead` packet.
+        // Android's platform MediaPlayer rejects that otherwise valid container
+        // layout on some devices even when a Vorbis stream follows it.
+        var header = new byte[128];
         await using var stream = File.OpenRead(path);
         var bytesRead = await stream.ReadAsync(header, cancellationToken);
         if (!AudioFileInspector.IsSupportedAudio(header.AsSpan(0, bytesRead)))

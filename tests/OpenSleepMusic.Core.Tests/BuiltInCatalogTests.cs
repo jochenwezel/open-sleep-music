@@ -60,6 +60,13 @@ public sealed class BuiltInCatalogTests
             Assert.DoesNotContain("vocal", track.Title, StringComparison.OrdinalIgnoreCase);
             Assert.DoesNotContain("song", track.Title, StringComparison.OrdinalIgnoreCase);
         });
+        Assert.All(
+            world.Tracks.Where(track => track.Id.StartsWith("music-box-", StringComparison.Ordinal)),
+            track =>
+            {
+                Assert.EndsWith(".mp3", track.FileName, StringComparison.OrdinalIgnoreCase);
+                Assert.Contains("/transcoded/", track.DownloadUri.AbsoluteUri, StringComparison.Ordinal);
+            });
     }
 
     [Fact]

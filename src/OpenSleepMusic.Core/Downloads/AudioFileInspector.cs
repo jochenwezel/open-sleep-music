@@ -10,12 +10,15 @@ public static class AudioFileInspector
         }
 
         return header.StartsWith("ID3"u8)
-            || header.StartsWith("OggS"u8)
+            || IsCompatibleOgg(header)
             || header.StartsWith("fLaC"u8)
             || IsMpegFrame(header)
             || IsWave(header)
             || IsMp4Audio(header);
     }
+
+    private static bool IsCompatibleOgg(ReadOnlySpan<byte> header) =>
+        header.StartsWith("OggS"u8) && header.IndexOf("fishead"u8) < 0;
 
     private static bool IsMpegFrame(ReadOnlySpan<byte> header) =>
         header.Length >= 2 && header[0] == 0xff && (header[1] & 0xe0) == 0xe0;

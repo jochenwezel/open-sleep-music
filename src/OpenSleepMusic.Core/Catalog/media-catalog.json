@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-09-13T21:37:01.7301735+00:00",
+  "generatedAtUtc": "2026-09-14T19:03:20.1115422+00:00",
   "sleepWorlds": [
     {
       "id": "quiet-classics",
@@ -1050,7 +1050,7 @@
           "licenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
           "fileName": "liszt-consolation-no-3.ogg",
           "durationSeconds": 226.0,
-          "sha1": ""
+          "sha1": null
         },
         {
           "id": "liszt-consolation-no-5",
@@ -1062,7 +1062,7 @@
           "licenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
           "fileName": "liszt-consolation-no-5.ogg",
           "durationSeconds": 177.0,
-          "sha1": ""
+          "sha1": null
         },
         {
           "id": "liszt-romance-s-169",
@@ -1074,7 +1074,7 @@
           "licenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
           "fileName": "liszt-romance-s-169.ogg",
           "durationSeconds": 235.0,
-          "sha1": ""
+          "sha1": null
         },
         {
           "id": "liszt-au-bord-d-une-source",
@@ -1758,7 +1758,7 @@
           "licenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
           "fileName": "waves.ogg",
           "durationSeconds": 287.0,
-          "sha1": ""
+          "sha1": null
         }
       ]
     },
@@ -1817,25 +1817,25 @@
           "id": "music-box-schlafe-mein-prinzchen",
           "title": "Spieluhr – Schlafe, mein Prinzchen",
           "creator": "Recordist: stephan (PDSounds)",
-          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lullaby%20wound%20up%20clock.ogg",
+          "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e4/Lullaby_wound_up_clock.ogg/Lullaby_wound_up_clock.ogg.mp3",
           "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock.ogg",
           "license": "Public Domain",
           "licenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
-          "fileName": "music-box-schlafe-mein-prinzchen.ogg",
+          "fileName": "music-box-schlafe-mein-prinzchen.mp3",
           "durationSeconds": 85.238,
-          "sha1": "5909aedbcd7f203fdd86a6a4e5cf8f062d0b35f6"
+          "sha1": null
         },
         {
           "id": "music-box-guten-abend-gute-nacht",
           "title": "Spieluhr – Guten Abend, gute Nacht",
           "creator": "Recordist: stephan (PDSounds)",
-          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Lullaby%20wound%20up%20clock%20guten%20abend%20gute%20nacht.ogg",
+          "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/cf/Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg/Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg.mp3",
           "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg",
           "license": "Public Domain",
           "licenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
-          "fileName": "music-box-guten-abend-gute-nacht.ogg",
+          "fileName": "music-box-guten-abend-gute-nacht.mp3",
           "durationSeconds": 46.446,
-          "sha1": "502f7642ca2c4d1d73f250cc87e45eed9bf2550b"
+          "sha1": null
         },
         {
           "id": "antti-luode-another-lullaby",

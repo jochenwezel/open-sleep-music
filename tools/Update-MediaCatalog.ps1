@@ -107,12 +107,14 @@ Get-OriginalMp3 $fire | ForEach-Object {
 function New-CommonsTrack(
     [string]$Id, [string]$Title, [string]$Creator, [string]$CommonsFile,
     [string]$SourcePage, [string]$License, [string]$LicenseUrl,
-    [string]$FileName, [double]$DurationSeconds, [string]$Sha1 = $null) {
+    [string]$FileName, [double]$DurationSeconds, [string]$Sha1 = $null,
+    [string]$DownloadUri = $null) {
     [ordered]@{
         id = $Id; title = $Title; creator = $Creator
-        downloadUri = "https://commons.wikimedia.org/wiki/Special:Redirect/file/$([Uri]::EscapeDataString($CommonsFile))"
+        downloadUri = if ($DownloadUri) { $DownloadUri } else { "https://commons.wikimedia.org/wiki/Special:Redirect/file/$([Uri]::EscapeDataString($CommonsFile))" }
         sourcePageUri = $SourcePage; license = $License; licenseUri = $LicenseUrl
-        fileName = $FileName; durationSeconds = $DurationSeconds; sha1 = $Sha1
+        fileName = $FileName; durationSeconds = $DurationSeconds
+        sha1 = if ($Sha1) { $Sha1 } else { $null }
     }
 }
 
@@ -123,8 +125,8 @@ $worlds['quiet-classics'].tracks.Add((New-CommonsTrack 'liszt-au-bord-d-une-sour
 $worlds.waves.tracks.Add((New-CommonsTrack 'lake-ontario-waves' 'Waves' 'Dsw4' 'Waves.ogg' 'https://commons.wikimedia.org/wiki/File:Waves.ogg' 'Public Domain' 'https://creativecommons.org/publicdomain/mark/1.0/' 'waves.ogg' 287))
 $worlds.lullabies.tracks.Add((New-CommonsTrack 'faure-berceuse-op-56-no-1' 'Gabriel Fauré – Berceuse op. 56 Nr. 1' 'Piano: Brian M. Jones' 'Berceuse by Gabriel Fauré op56 no1.ogg' 'https://commons.wikimedia.org/wiki/File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg' 'CC BY 3.0' 'https://creativecommons.org/licenses/by/3.0/' 'faure-berceuse-op-56-no-1.ogg' 214.622 '16f742aed631bbd30a78e3298fb77672655bf306'))
 $worlds.lullabies.tracks.Add((New-CommonsTrack 'burgmuller-berceuse-op-109-no-7' 'Friedrich Burgmüller – Berceuse op. 109 Nr. 7' 'Piano: BastienM' 'Berceuse Burgmuller.ogg' 'https://commons.wikimedia.org/wiki/File:Berceuse_Burgmuller.ogg' 'CC BY-SA 3.0' 'https://creativecommons.org/licenses/by-sa/3.0/' 'burgmuller-berceuse-op-109-no-7.ogg' 84.578 '2701c3802dae189dd59b4980aa363a1d467a9007'))
-$worlds.lullabies.tracks.Add((New-CommonsTrack 'music-box-schlafe-mein-prinzchen' 'Spieluhr – Schlafe, mein Prinzchen' 'Recordist: stephan (PDSounds)' 'Lullaby wound up clock.ogg' 'https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock.ogg' 'Public Domain' 'https://creativecommons.org/publicdomain/mark/1.0/' 'music-box-schlafe-mein-prinzchen.ogg' 85.238 '5909aedbcd7f203fdd86a6a4e5cf8f062d0b35f6'))
-$worlds.lullabies.tracks.Add((New-CommonsTrack 'music-box-guten-abend-gute-nacht' 'Spieluhr – Guten Abend, gute Nacht' 'Recordist: stephan (PDSounds)' 'Lullaby wound up clock guten abend gute nacht.ogg' 'https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg' 'Public Domain' 'https://creativecommons.org/publicdomain/mark/1.0/' 'music-box-guten-abend-gute-nacht.ogg' 46.446 '502f7642ca2c4d1d73f250cc87e45eed9bf2550b'))
+$worlds.lullabies.tracks.Add((New-CommonsTrack 'music-box-schlafe-mein-prinzchen' 'Spieluhr – Schlafe, mein Prinzchen' 'Recordist: stephan (PDSounds)' 'Lullaby wound up clock.ogg' 'https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock.ogg' 'Public Domain' 'https://creativecommons.org/publicdomain/mark/1.0/' 'music-box-schlafe-mein-prinzchen.mp3' 85.238 $null 'https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e4/Lullaby_wound_up_clock.ogg/Lullaby_wound_up_clock.ogg.mp3'))
+$worlds.lullabies.tracks.Add((New-CommonsTrack 'music-box-guten-abend-gute-nacht' 'Spieluhr – Guten Abend, gute Nacht' 'Recordist: stephan (PDSounds)' 'Lullaby wound up clock guten abend gute nacht.ogg' 'https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg' 'Public Domain' 'https://creativecommons.org/publicdomain/mark/1.0/' 'music-box-guten-abend-gute-nacht.mp3' 46.446 $null 'https://upload.wikimedia.org/wikipedia/commons/transcoded/c/cf/Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg/Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg.mp3'))
 $worlds.lullabies.tracks.Add((New-CommonsTrack 'antti-luode-another-lullaby' 'Antti Luode – Another Lullaby' 'Antti Luode' 'Another Lullaby (Antti Luode).mp3' 'https://commons.wikimedia.org/wiki/File:Another_Lullaby_(Antti_Luode).mp3' 'CC BY 3.0' 'https://creativecommons.org/licenses/by/3.0/' 'antti-luode-another-lullaby.mp3' 139.337 'a32d3ce29635b421981ba72347e4082ca497c09a'))
 $manifestWorlds = foreach ($entry in $worlds.GetEnumerator()) {
     [ordered]@{

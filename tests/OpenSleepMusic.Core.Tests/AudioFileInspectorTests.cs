@@ -17,4 +17,14 @@ public sealed class AudioFileInspectorTests
 
         Assert.Equal(expected, AudioFileInspector.IsSupportedAudio(header));
     }
+
+    [Fact]
+    public void RejectsOggSkeletonThatAndroidCannotReliablyPlay()
+    {
+        var header = new byte[64];
+        "OggS"u8.CopyTo(header);
+        "fishead"u8.CopyTo(header.AsSpan(28));
+
+        Assert.False(AudioFileInspector.IsSupportedAudio(header));
+    }
 }
