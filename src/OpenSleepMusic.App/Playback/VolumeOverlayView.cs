@@ -8,6 +8,7 @@ internal sealed class VolumeOverlayView : ContentView
     private readonly Slider _appSlider;
     private readonly Slider _systemSlider;
     private CancellationTokenSource? _hideCancellation;
+    private bool _subscribed;
 
     public VolumeOverlayView()
     {
@@ -45,17 +46,31 @@ internal sealed class VolumeOverlayView : ContentView
             }
         };
 
-        Loaded += (_, _) =>
-        {
-            SystemVolumeSnapshot.Changed += OnSystemVolumeChanged;
-            AppVolumeBridge.Changed += OnAppVolumeChanged;
-        };
-        Unloaded += (_, _) =>
-        {
-            SystemVolumeSnapshot.Changed -= OnSystemVolumeChanged;
-            AppVolumeBridge.Changed -= OnAppVolumeChanged;
-            _hideCancellation?.Cancel();
-        };
+        Loaded += (_, _) => Subscribe();
+        Unloaded += (_, _) => Unsubscribe();
+    }
+
+    protected override void OnParentSet()
+    {
+        base.OnParentSet();
+        if (Parent is null) Unsubscribe(); else Subscribe();
+    }
+
+    private void Subscribe()
+    {
+        if (_subscribed) return;
+        SystemVolumeSnapshot.Changed += OnSystemVolumeChanged;
+        AppVolumeBridge.Changed += OnAppVolumeChanged;
+        _subscribed = true;
+    }
+
+    private void Unsubscribe()
+    {
+        if (!_subscribed) return;
+        SystemVolumeSnapshot.Changed -= OnSystemVolumeChanged;
+        AppVolumeBridge.Changed -= OnAppVolumeChanged;
+        _hideCancellation?.Cancel();
+        _subscribed = false;
     }
 
     private void OnAppVolumeChanged(object? sender, double volume) => Dispatcher.Dispatch(() => _appSlider.Value = volume);

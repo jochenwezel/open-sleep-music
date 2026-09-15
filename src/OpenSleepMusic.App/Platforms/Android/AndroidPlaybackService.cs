@@ -156,11 +156,13 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         var creators = intent.GetStringArrayListExtra("creators") ?? [];
         var paths = intent.GetStringArrayListExtra("paths") ?? [];
         var gains = intent.GetDoubleArrayExtra("gains") ?? [];
+        var speeds = intent.GetDoubleArrayExtra("speeds") ?? [];
         _queue.Clear();
         for (var i = 0; i < ids.Count && i < titles.Count && i < creators.Count && i < paths.Count; i++)
         {
             var gain = i < gains.Length ? gains[i] : 1;
-            _queue.Add(new QueueItem(ids[i]!, titles[i]!, creators[i]!, paths[i]!, gain));
+            var speed = i < speeds.Length ? speeds[i] : 1;
+            _queue.Add(new QueueItem(ids[i]!, titles[i]!, creators[i]!, paths[i]!, gain, speed));
         }
         if (_queue.Count == 0)
         {
@@ -202,9 +204,10 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             _player.Prepared += (_, _) =>
             {
                 _consecutiveFailures = 0;
+                _player.PlaybackParams = new PlaybackParams()!.SetSpeed((float)CurrentSpeed())!.SetPitch(1)!;
                 if (positionSeconds > 0)
                 {
-                    _player.SeekTo((int)Math.Min(int.MaxValue, positionSeconds * 1000));
+                    _player.SeekTo((int)Math.Min(int.MaxValue, positionSeconds * item.Speed * 1000));
                 }
                 Play();
             };
@@ -261,14 +264,14 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         UpdateStateAndNotification();
         if (_queue.Count > 0)
         {
-            SaveSession(false, _player?.CurrentPosition ?? 0);
+            SaveSession(false, ToPlaybackMilliseconds(_player?.CurrentPosition ?? 0));
         }
     }
 
     private void Seek(double seconds)
     {
         if (_player is null) return;
-        _player.SeekTo((int)Math.Clamp(seconds * 1000, 0, int.MaxValue));
+        _player.SeekTo((int)Math.Clamp(seconds * CurrentSpeed() * 1000, 0, int.MaxValue));
         UpdateStateAndNotification();
     }
 
@@ -535,8 +538,8 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private void PublishState(bool save = true)
     {
         var item = _queue.Count > 0 ? _queue[_index] : null;
-        var duration = _player?.Duration ?? 0;
-        var position = _player?.CurrentPosition ?? 0;
+        var duration = ToPlaybackMilliseconds(_player?.Duration ?? 0);
+        var position = ToPlaybackMilliseconds(_player?.CurrentPosition ?? 0);
         var playing = IsPlaying();
         if (item is not null)
         {
@@ -564,7 +567,9 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         if (_queue.Count == 0) return;
         var preferences = GetSharedPreferences("playback-session", FileCreationMode.Private);
         var serializedQueue = string.Join("\n", _queue.Select(item => string.Join("|",
-            Encode(item.Id), Encode(item.Title), Encode(item.Creator), Encode(item.Path), item.Gain.ToString(System.Globalization.CultureInfo.InvariantCulture))));
+            Encode(item.Id), Encode(item.Title), Encode(item.Creator), Encode(item.Path),
+            item.Gain.ToString(System.Globalization.CultureInfo.InvariantCulture),
+            item.Speed.ToString(System.Globalization.CultureInfo.InvariantCulture))));
         preferences?.Edit()?
             .PutString("queue", serializedQueue)?
             .PutInt("index", _index)?
@@ -593,7 +598,10 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
                 var gain = fields.Length >= 5 && double.TryParse(fields[4], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out var parsedGain)
                     ? parsedGain
                     : 1;
-                _queue.Add(new QueueItem(Decode(fields[0]), Decode(fields[1]), Decode(fields[2]), Decode(fields[3]), gain));
+                var speed = fields.Length >= 6 && double.TryParse(fields[5], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out var parsedSpeed)
+                    ? parsedSpeed
+                    : 1;
+                _queue.Add(new QueueItem(Decode(fields[0]), Decode(fields[1]), Decode(fields[2]), Decode(fields[3]), gain, speed));
             }
         }
         if (_queue.Count == 0) return;
@@ -679,6 +687,11 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         ? _volume
         : PlaybackVolume.ApplyGain(_volume, _queue[_index].Gain);
 
+    private double CurrentSpeed() => _queue.Count == 0 ? 1 : Math.Clamp(_queue[_index].Speed, .5, 2);
+
+    private int ToPlaybackMilliseconds(int mediaMilliseconds) =>
+        (int)Math.Clamp(mediaMilliseconds / CurrentSpeed(), 0, int.MaxValue);
+
     private double EffectiveCurrentVolume() => CurrentVolume() * _duckVolumeFactor;
 
     private void SetPlayerVolume()
@@ -687,7 +700,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         _player?.SetVolume(volume, volume);
     }
 
-    private sealed record QueueItem(string Id, string Title, string Creator, string Path, double Gain);
+    private sealed record QueueItem(string Id, string Title, string Creator, string Path, double Gain, double Speed);
 
     private sealed class BecomingNoisyReceiver(AndroidPlaybackService owner) : BroadcastReceiver
     {

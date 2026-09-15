@@ -519,10 +519,10 @@ public partial class MainPage : ContentPage
         }
 
         _currentTrack = track;
-        _resumePositionSeconds = Math.Min(saved.PositionSeconds, Math.Max(0, track.Track.DurationSeconds - 1));
-        PositionSlider.Maximum = Math.Max(1, track.Track.DurationSeconds);
+        _resumePositionSeconds = Math.Min(saved.PositionSeconds, Math.Max(0, track.Track.PlaybackDurationSeconds - 1));
+        PositionSlider.Maximum = Math.Max(1, track.Track.PlaybackDurationSeconds);
         PositionSlider.Value = _resumePositionSeconds;
-        TimeLabel.Text = $"{FormatTime(TimeSpan.FromSeconds(_resumePositionSeconds))} / {FormatTime(TimeSpan.FromSeconds(track.Track.DurationSeconds))}";
+        TimeLabel.Text = $"{FormatTime(TimeSpan.FromSeconds(_resumePositionSeconds))} / {FormatTime(TimeSpan.FromSeconds(track.Track.PlaybackDurationSeconds))}";
         NowPlayingLabel.Text = track.Track.Title;
         SelectWorld(_worldCards.First(card => card.World.Id == track.SleepWorld.Id));
         UpdateNowPlayingDetails(isRestored: true);
@@ -624,7 +624,7 @@ public partial class MainPage : ContentPage
 #if ANDROID
         var position = AndroidPlaybackBridge.Snapshot.Position.TotalSeconds;
 #else
-        var position = Player.Position.TotalSeconds;
+        var position = Player.Position.TotalSeconds / (_currentTrack?.Track.PlaybackSpeed ?? 1);
 #endif
         ApplyLibraryFilter();
 
@@ -695,6 +695,7 @@ public partial class MainPage : ContentPage
             _sleepTimerEndUtc);
 #else
         Player.Volume = PlaybackVolume.ApplyGain(VolumeSlider.Value, track.Track.VolumeGain);
+        Player.Speed = track.Track.PlaybackSpeed;
         if (_loadedTrackId == track.Track.Id)
         {
             _ = SeekAndPlayAsync(_pendingSeekSeconds);
@@ -719,7 +720,7 @@ public partial class MainPage : ContentPage
         {
             if (positionSeconds > 0)
             {
-                await Player.SeekTo(TimeSpan.FromSeconds(positionSeconds));
+                await Player.SeekTo(TimeSpan.FromSeconds(positionSeconds * (_currentTrack?.Track.PlaybackSpeed ?? 1)));
             }
             else
             {
@@ -742,7 +743,7 @@ public partial class MainPage : ContentPage
         {
             if (seekTo > 0)
             {
-                await Player.SeekTo(TimeSpan.FromSeconds(seekTo));
+                await Player.SeekTo(TimeSpan.FromSeconds(seekTo * (_currentTrack?.Track.PlaybackSpeed ?? 1)));
             }
             if (_playWhenMediaOpens)
             {
@@ -945,7 +946,7 @@ public partial class MainPage : ContentPage
 #else
             if (_loadedTrackId is not null && Player.Duration > TimeSpan.Zero)
             {
-                await Player.SeekTo(TimeSpan.FromSeconds(PositionSlider.Value));
+                await Player.SeekTo(TimeSpan.FromSeconds(PositionSlider.Value * (_currentTrack?.Track.PlaybackSpeed ?? 1)));
                 PersistPlaybackSnapshot(force: true);
             }
             else
@@ -1187,7 +1188,7 @@ public partial class MainPage : ContentPage
 #if ANDROID
         AndroidPlaybackBridge.Seek(seconds);
 #else
-        _ = Player.SeekTo(TimeSpan.FromSeconds(Math.Max(0, seconds)));
+        _ = Player.SeekTo(TimeSpan.FromSeconds(Math.Max(0, seconds) * (_currentTrack?.Track.PlaybackSpeed ?? 1)));
 #endif
     }
 
@@ -1418,9 +1419,10 @@ public partial class MainPage : ContentPage
 #else
         if (!_isSeeking && _loadedTrackId is not null && Player.Duration > TimeSpan.Zero)
         {
-            PositionSlider.Maximum = Player.Duration.TotalSeconds;
-            PositionSlider.Value = Player.Position.TotalSeconds;
-            TimeLabel.Text = $"{FormatTime(Player.Position)} / {FormatTime(Player.Duration)}";
+            var speed = _currentTrack?.Track.PlaybackSpeed ?? 1;
+            PositionSlider.Maximum = Player.Duration.TotalSeconds / speed;
+            PositionSlider.Value = Player.Position.TotalSeconds / speed;
+            TimeLabel.Text = $"{FormatTime(Player.Position / speed)} / {FormatTime(Player.Duration / speed)}";
 
             var reachedEnd = Player.Position >= Player.Duration - TimeSpan.FromMilliseconds(500);
             if (_shouldContinuePlayback
@@ -1462,6 +1464,7 @@ public partial class MainPage : ContentPage
         {
             return;
         }
+        var currentTrack = _currentTrack;
 
         var now = DateTimeOffset.UtcNow;
         if (!force && now - _lastPlaybackSaveUtc < TimeSpan.FromSeconds(5))
@@ -1474,9 +1477,9 @@ public partial class MainPage : ContentPage
 #if ANDROID
             : AndroidPlaybackBridge.Snapshot.Position.TotalSeconds;
 #else
-            : Player.Position.TotalSeconds;
+            : Player.Position.TotalSeconds / currentTrack.Track.PlaybackSpeed;
 #endif
-        _stateStore.SavePlayback(_currentTrack.Track.Id, position);
+        _stateStore.SavePlayback(currentTrack.Track.Id, position);
         _lastPlaybackSaveUtc = now;
     }
 

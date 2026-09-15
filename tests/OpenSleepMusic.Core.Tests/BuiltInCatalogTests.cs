@@ -28,6 +28,7 @@ public sealed class BuiltInCatalogTests
             Assert.Equal(Uri.UriSchemeHttps, track.LicenseUri.Scheme);
             Assert.True(track.DurationSeconds > 0, $"{track.Id} has no duration.");
             Assert.True(track.VolumeGain > 0, $"{track.Id} has an invalid volume gain.");
+            Assert.InRange(track.PlaybackSpeed, .5, 2);
             Assert.False(string.IsNullOrWhiteSpace(track.Creator));
             Assert.False(string.IsNullOrWhiteSpace(track.License));
             Assert.DoesNotContain("BY-NC", track.License, StringComparison.OrdinalIgnoreCase);
@@ -57,6 +58,7 @@ public sealed class BuiltInCatalogTests
             world.Tracks.Select(track => track.Id).Order(StringComparer.Ordinal));
         Assert.All(world.Tracks, track =>
         {
+            Assert.Equal(1 / 1.2, track.PlaybackSpeed, 5);
             Assert.DoesNotContain("vocal", track.Title, StringComparison.OrdinalIgnoreCase);
             Assert.DoesNotContain("song", track.Title, StringComparison.OrdinalIgnoreCase);
         });

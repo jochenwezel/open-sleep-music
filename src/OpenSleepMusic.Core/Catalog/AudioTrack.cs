@@ -11,4 +11,8 @@ public sealed record AudioTrack(
     string FileName,
     double DurationSeconds = 0,
     string? Sha1 = null,
-    double VolumeGain = 1);
+    double VolumeGain = 1,
+    double PlaybackSpeed = 1)
+{
+    public double PlaybackDurationSeconds => DurationSeconds / Math.Max(PlaybackSpeed, 0.01);
+}

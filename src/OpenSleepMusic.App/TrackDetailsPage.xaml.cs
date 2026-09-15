@@ -29,7 +29,7 @@ public partial class TrackDetailsPage : ContentPage
         TitleLabel.Text = track.Title;
         CreatorLabel.Text = track.Creator;
         WorldLabel.Text = AppText.WorldName(localTrack.SleepWorld.Id, localTrack.SleepWorld.Name);
-        DurationLabel.Text = FormatDuration(TimeSpan.FromSeconds(track.DurationSeconds));
+        DurationLabel.Text = FormatDuration(TimeSpan.FromSeconds(track.PlaybackDurationSeconds));
         LicenseLabel.Text = track.License;
         FileLabel.Text = localTrack.FilePath;
         UpdatePreferenceButtons();

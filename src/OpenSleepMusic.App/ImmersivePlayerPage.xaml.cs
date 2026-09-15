@@ -10,6 +10,7 @@ public partial class ImmersivePlayerPage : ContentPage
     private bool _seeking;
     private bool _animateBack;
     private bool _fadeMotifBack;
+    private readonly VolumeOverlayView _volumeOverlay;
     private PlaybackVisualTheme _theme = PlaybackVisualCatalog.For(null, null);
 
     internal ImmersivePlayerPage(MainPage owner)
@@ -19,8 +20,8 @@ public partial class ImmersivePlayerPage : ContentPage
         VolumeTitleLabel.Text = AppText.Get("Volume");
         VolumeSlider.Value = AppVolumeBridge.Volume;
         VolumeValueLabel.Text = $"{AppVolumeBridge.Volume:P0}";
-        var overlay = new VolumeOverlayView();
-        Scene.Add(overlay);
+        _volumeOverlay = new VolumeOverlayView();
+        Scene.Add(_volumeOverlay);
         Dispatcher.StartTimer(TimeSpan.FromMilliseconds(500), RefreshState);
         Loaded += (_, _) => StartAmbientAnimations();
         Unloaded += (_, _) => StopAmbientAnimations();
