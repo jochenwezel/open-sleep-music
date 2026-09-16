@@ -38,6 +38,23 @@ public sealed class BuiltInCatalogTests
                 Assert.Matches("^[0-9a-f]{40}$", track.Sha1);
             }
         });
+
+        var instrumentalWorlds = worlds.Where(world => world.Id is "quiet-classics" or "lullabies");
+        Assert.All(instrumentalWorlds.SelectMany(world => world.Tracks), track =>
+        {
+            Assert.NotNull(track.Instrumentation);
+            Assert.NotEmpty(track.Instrumentation!);
+            Assert.False(string.IsNullOrWhiteSpace(track.EnsembleType));
+        });
+    }
+
+    [Fact]
+    public void QuietClassicsContainsReviewedInstrumentDiversityPilot()
+    {
+        var world = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "quiet-classics");
+        Assert.Contains(world.Tracks, track => track.Instrumentation?.Contains("harp") == true);
+        Assert.True(world.Tracks.Count(track => track.Instrumentation?.Contains("cello") == true) >= 3);
+        Assert.True(world.Tracks.Count(track => track.Instrumentation?.Contains("strings") == true) >= 2);
     }
 
     [Fact]

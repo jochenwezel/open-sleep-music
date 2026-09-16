@@ -30,6 +30,8 @@ Every catalog entry must pass all of the following checks. A large catalog is le
 - For classical music, favor nocturnes, consolations, slow movements, gentle miniatures, and similarly quiet performances. Do not select a work solely because its title sounds calm.
 - Avoid needless duplicates, excerpts that begin or end abruptly, and very low-quality or heavily distorted recordings.
 - Assign each entry to the sleep world that best describes what the listener will hear.
+- Record instrument families and ensemble type for musical entries. Treat instrumentation as a curation dimension: seek a balanced range of piano, harp, cello, strings, gentle plucked strings, and small ensembles without admitting weaker recordings merely to satisfy a quota.
+- Evaluate transitions between contrasting timbres and loudness as well as each recording in isolation. Avoid sequences where a quiet solo is followed by an aggressive ensemble entrance.
 
 ### 3. Verify technical metadata and delivery
 

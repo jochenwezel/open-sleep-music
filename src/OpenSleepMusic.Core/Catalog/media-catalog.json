@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-09-15T19:14:39.6007597+00:00",
+  "generatedAtUtc": "2026-09-16T23:45:28.4208477+00:00",
   "sleepWorlds": [
     {
       "id": "quiet-classics",
       "name": "Ruhige Klassik",
-      "description": "Nocturnes, Mazurken und sanfte Klavierminiaturen von Frédéric Chopin.",
-      "icon": "🎹",
+      "description": "Sanfte Klavier-, Harfen-, Cello- und Streicheraufnahmen mit ruhiger Dynamik.",
+      "icon": "🎼",
       "tracks": [
         {
           "id": "musopen-chopin-complete-works-flac-albumleaf-in-e-major-mp3",
@@ -18,7 +18,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-albumleaf-in-e-major.mp3",
           "durationSeconds": 95.0,
-          "sha1": "54fed689f516f74195d3222bd076ea2a79d0a16e"
+          "sha1": "54fed689f516f74195d3222bd076ea2a79d0a16e",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-andantino-spring-b-117-mp3",
@@ -30,7 +34,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-andantino-spring-b-117.mp3",
           "durationSeconds": 87.0,
-          "sha1": "14dfa0bf362070fd43f0b635017e674a8454d191"
+          "sha1": "14dfa0bf362070fd43f0b635017e674a8454d191",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-berceuse-in-d-flat-major-op-57-mp3",
@@ -42,7 +50,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-berceuse-in-d-flat-major-op-57.mp3",
           "durationSeconds": 256.0,
-          "sha1": "2019bd1ba124ceb8aaaccefbc3352599a67554b8"
+          "sha1": "2019bd1ba124ceb8aaaccefbc3352599a67554b8",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-cantabile-in-bb-b-84-mp3",
@@ -54,7 +66,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-cantabile-in-bb-b-84.mp3",
           "durationSeconds": 62.0,
-          "sha1": "fd5fb42c3ac2c9fb025eaca69d3e6a23a3fa3097"
+          "sha1": "fd5fb42c3ac2c9fb025eaca69d3e6a23a3fa3097",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-cello-sonata-in-g-minor-op-65-iii-largo-mp3",
@@ -66,7 +82,12 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-cello-sonata-in-g-minor-op-65-iii-largo.mp3",
           "durationSeconds": 219.0,
-          "sha1": "332e90556fa03c0673d24ef293ad3ad9d3ff3b7d"
+          "sha1": "332e90556fa03c0673d24ef293ad3ad9d3ff3b7d",
+          "instrumentation": [
+            "cello",
+            "piano"
+          ],
+          "ensembleType": "duo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-largo-in-e-flat-major-b-109-mp3",
@@ -78,7 +99,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-largo-in-e-flat-major-b-109.mp3",
           "durationSeconds": 134.0,
-          "sha1": "da00f7186fb7ddc1bc13faaa96cff5ba0292a31a"
+          "sha1": "da00f7186fb7ddc1bc13faaa96cff5ba0292a31a",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-b-85-mp3",
@@ -90,7 +115,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-b-85.mp3",
           "durationSeconds": 134.0,
-          "sha1": "9eb4dd71f0da890cde04b1a29e1af3d1c2ab4f55"
+          "sha1": "9eb4dd71f0da890cde04b1a29e1af3d1c2ab4f55",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-17-no-3-mp3",
@@ -102,7 +131,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-17-no-3.mp3",
           "durationSeconds": 301.0,
-          "sha1": "15842aa6a7b6d6a9b36d144dbe38b7e09ff7a369"
+          "sha1": "15842aa6a7b6d6a9b36d144dbe38b7e09ff7a369",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-24-no-3-mp3",
@@ -114,7 +147,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-24-no-3.mp3",
           "durationSeconds": 158.0,
-          "sha1": "14fa28d5b4641cb84bd0b7095948d04ae81ad750"
+          "sha1": "14fa28d5b4641cb84bd0b7095948d04ae81ad750",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-41-no-4-mp3",
@@ -126,7 +163,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-41-no-4.mp3",
           "durationSeconds": 132.0,
-          "sha1": "c92d3a91c2ab2631bdc4311b9eac1fa11026a942"
+          "sha1": "c92d3a91c2ab2631bdc4311b9eac1fa11026a942",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-50-no-2-mp3",
@@ -138,7 +179,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-50-no-2.mp3",
           "durationSeconds": 198.0,
-          "sha1": "35b58612df37496e5e5fcfb1494ed16664c30daa"
+          "sha1": "35b58612df37496e5e5fcfb1494ed16664c30daa",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-59-no-2-mp3",
@@ -150,7 +195,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-59-no-2.mp3",
           "durationSeconds": 167.0,
-          "sha1": "cc0aa46f0c62fb1ed7dc8954ed34ae51a66bdf96"
+          "sha1": "cc0aa46f0c62fb1ed7dc8954ed34ae51a66bdf96",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-7-no-4-mp3",
@@ -162,7 +211,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-7-no-4.mp3",
           "durationSeconds": 83.0,
-          "sha1": "2e4b8655762809555c682ee820e79ec3d05cb53f"
+          "sha1": "2e4b8655762809555c682ee820e79ec3d05cb53f",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-b-134-mp3",
@@ -174,7 +227,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-b-134.mp3",
           "durationSeconds": 255.0,
-          "sha1": "111dc35825cfc40283ac877b7ffe34a209890627"
+          "sha1": "111dc35825cfc40283ac877b7ffe34a209890627",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-b-140-mp3",
@@ -186,7 +243,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-b-140.mp3",
           "durationSeconds": 204.0,
-          "sha1": "30e46b1de72c6270e42e5ffa14236c37f37793bd"
+          "sha1": "30e46b1de72c6270e42e5ffa14236c37f37793bd",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-op-17-no-4-mp3",
@@ -198,7 +259,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-op-17-no-4.mp3",
           "durationSeconds": 272.0,
-          "sha1": "f8a58f846a90cd5cba815551129c83c718073ff7"
+          "sha1": "f8a58f846a90cd5cba815551129c83c718073ff7",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-op-59-no-1-mp3",
@@ -210,7 +275,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-op-59-no-1.mp3",
           "durationSeconds": 263.0,
-          "sha1": "1c966232a13c50c7d90699b8bc6b78c79cb70178"
+          "sha1": "1c966232a13c50c7d90699b8bc6b78c79cb70178",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-op-68-no-2-mp3",
@@ -222,7 +291,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-op-68-no-2.mp3",
           "durationSeconds": 142.0,
-          "sha1": "db1e4b177aaaaec4fce1d47e0e3e0247a2561b3b"
+          "sha1": "db1e4b177aaaaec4fce1d47e0e3e0247a2561b3b",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-op-7-no-2-mp3",
@@ -234,7 +307,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-op-7-no-2.mp3",
           "durationSeconds": 216.0,
-          "sha1": "e24b82131c693921dcda71af565193f8b1ff29a9"
+          "sha1": "e24b82131c693921dcda71af565193f8b1ff29a9",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-major-b-16-no-2-mp3",
@@ -246,7 +323,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-major-b-16-no-2.mp3",
           "durationSeconds": 127.0,
-          "sha1": "e64ddf052894f3b0bb47402e78b3d4adf89c26c1"
+          "sha1": "e64ddf052894f3b0bb47402e78b3d4adf89c26c1",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-major-b-73-mp3",
@@ -258,7 +339,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-major-b-73.mp3",
           "durationSeconds": 72.0,
-          "sha1": "5e3c3ea6bcda2c1284b516f3a55ed986831c9580"
+          "sha1": "5e3c3ea6bcda2c1284b516f3a55ed986831c9580",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-major-op-17-no-1-mp3",
@@ -270,7 +355,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-major-op-17-no-1.mp3",
           "durationSeconds": 141.0,
-          "sha1": "b4635116aa8e67d0458cd0345aa1bb267ed29096"
+          "sha1": "b4635116aa8e67d0458cd0345aa1bb267ed29096",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-minor-op-24-no-4-mp3",
@@ -282,7 +371,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-minor-op-24-no-4.mp3",
           "durationSeconds": 288.0,
-          "sha1": "459fb900b13ec1b74e363c84543ef03efb2603fa"
+          "sha1": "459fb900b13ec1b74e363c84543ef03efb2603fa",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-major-op-41-no-3-mp3",
@@ -294,7 +387,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-b-major-op-41-no-3.mp3",
           "durationSeconds": 76.0,
-          "sha1": "fbbcf7630b1f37a5621f72a1dc3bbc39802e459e"
+          "sha1": "fbbcf7630b1f37a5621f72a1dc3bbc39802e459e",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-major-op-56-no-1-mp3",
@@ -306,7 +403,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-b-major-op-56-no-1.mp3",
           "durationSeconds": 318.0,
-          "sha1": "55d052e140e4090df84fc9e0e08550c13fdbd5e4"
+          "sha1": "55d052e140e4090df84fc9e0e08550c13fdbd5e4",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-major-op-63-no-1-mp3",
@@ -318,7 +419,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-b-major-op-63-no-1.mp3",
           "durationSeconds": 152.0,
-          "sha1": "c30ea4c061404aa91a40de6bfeaa911be2d84b3d"
+          "sha1": "c30ea4c061404aa91a40de6bfeaa911be2d84b3d",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-minor-op-30-no-2-mp3",
@@ -330,7 +435,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-b-minor-op-30-no-2.mp3",
           "durationSeconds": 86.0,
-          "sha1": "281a97bb12ed165b0d4606992de9d8ebdbc54704"
+          "sha1": "281a97bb12ed165b0d4606992de9d8ebdbc54704",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-minor-op-33-no-4-mp3",
@@ -342,7 +451,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-b-minor-op-33-no-4.mp3",
           "durationSeconds": 296.0,
-          "sha1": "2ce8a0f5b31c4c1f3d44decab2726ed9992b800c"
+          "sha1": "2ce8a0f5b31c4c1f3d44decab2726ed9992b800c",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-major-op-7-no-1-mp3",
@@ -354,7 +467,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-major-op-7-no-1.mp3",
           "durationSeconds": 162.0,
-          "sha1": "d179f355eeb4f1472fc8e72912e89f1036d89741"
+          "sha1": "d179f355eeb4f1472fc8e72912e89f1036d89741",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-b-82-mp3",
@@ -366,7 +483,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-major-b-82.mp3",
           "durationSeconds": 202.0,
-          "sha1": "06fdb960358a2d4676d61b7ef9ad6e1a09703f6c"
+          "sha1": "06fdb960358a2d4676d61b7ef9ad6e1a09703f6c",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-24-no-2-mp3",
@@ -378,7 +499,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-24-no-2.mp3",
           "durationSeconds": 153.0,
-          "sha1": "9c7826ff1d4e1866ef635eb2cab294b7c70db4a4"
+          "sha1": "9c7826ff1d4e1866ef635eb2cab294b7c70db4a4",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-33-no-3-mp3",
@@ -390,7 +515,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-33-no-3.mp3",
           "durationSeconds": 66.0,
-          "sha1": "763d1c1ff560694e226d90ba2842db34c6d260c0"
+          "sha1": "763d1c1ff560694e226d90ba2842db34c6d260c0",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-56-no-2-mp3",
@@ -402,7 +531,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-56-no-2.mp3",
           "durationSeconds": 112.0,
-          "sha1": "4a4ce33f33136b8bedf64d75fa054e2860f32c52"
+          "sha1": "4a4ce33f33136b8bedf64d75fa054e2860f32c52",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-67-no-3-mp3",
@@ -414,7 +547,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-67-no-3.mp3",
           "durationSeconds": 82.0,
-          "sha1": "9c7a4ddf84daaf20d38e0237b58a8f4a4337819f"
+          "sha1": "9c7a4ddf84daaf20d38e0237b58a8f4a4337819f",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-68-no-1-mp3",
@@ -426,7 +563,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-68-no-1.mp3",
           "durationSeconds": 106.0,
-          "sha1": "3d0fcf53068d0359837fccab8376c82d603fc2b2"
+          "sha1": "3d0fcf53068d0359837fccab8376c82d603fc2b2",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-7-no-5-mp3",
@@ -438,7 +579,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-7-no-5.mp3",
           "durationSeconds": 37.0,
-          "sha1": "6ba2e958be12312768dbbfad13564d0d911f2d3d"
+          "sha1": "6ba2e958be12312768dbbfad13564d0d911f2d3d",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-minor-op-30-no-1-mp3",
@@ -450,7 +595,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-minor-op-30-no-1.mp3",
           "durationSeconds": 115.0,
-          "sha1": "0324a4d3914a4704460b7c62fbe8d00de15faef8"
+          "sha1": "0324a4d3914a4704460b7c62fbe8d00de15faef8",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-minor-op-56-no-3-mp3",
@@ -462,7 +611,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-minor-op-56-no-3.mp3",
           "durationSeconds": 375.0,
-          "sha1": "2b29722418d79073c61374ed2b61d239cc0e9c60"
+          "sha1": "2b29722418d79073c61374ed2b61d239cc0e9c60",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-30-no-4-mp3",
@@ -474,7 +627,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-30-no-4.mp3",
           "durationSeconds": 244.0,
-          "sha1": "3f2b85c93b49fa63acd06dcd0eee88617552b1a5"
+          "sha1": "3f2b85c93b49fa63acd06dcd0eee88617552b1a5",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-41-no-1-mp3",
@@ -486,7 +643,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-41-no-1.mp3",
           "durationSeconds": 234.0,
-          "sha1": "ce67189ce9d0c073d9868cd3c2cf3ff6d7767ec1"
+          "sha1": "ce67189ce9d0c073d9868cd3c2cf3ff6d7767ec1",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-50-no-3-mp3",
@@ -498,7 +659,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-50-no-3.mp3",
           "durationSeconds": 360.0,
-          "sha1": "c117e86b74d3f8ee11da5926f02a3e7cd58a9f65"
+          "sha1": "c117e86b74d3f8ee11da5926f02a3e7cd58a9f65",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-6-no-2-mp3",
@@ -510,7 +675,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-6-no-2.mp3",
           "durationSeconds": 137.0,
-          "sha1": "6edc5b776f7687509260ee70c0aef5278cee1ff5"
+          "sha1": "6edc5b776f7687509260ee70c0aef5278cee1ff5",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-63-no-3-mp3",
@@ -522,7 +691,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-63-no-3.mp3",
           "durationSeconds": 166.0,
-          "sha1": "10aef5d442beaf0a92b5a425567d462152930099"
+          "sha1": "10aef5d442beaf0a92b5a425567d462152930099",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-d-flat-major-op-30-no-3-mp3",
@@ -534,7 +707,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-d-flat-major-op-30-no-3.mp3",
           "durationSeconds": 186.0,
-          "sha1": "d9167f8a9c617f30202fc72d5b7b42b8b298740d"
+          "sha1": "d9167f8a9c617f30202fc72d5b7b42b8b298740d",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-d-major-b-31-mp3",
@@ -546,7 +723,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-d-major-b-31.mp3",
           "durationSeconds": 92.0,
-          "sha1": "98f304f9e16ca770b789691a9694ec692e38da8a"
+          "sha1": "98f304f9e16ca770b789691a9694ec692e38da8a",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-d-major-b-4-mp3",
@@ -558,7 +739,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-d-major-b-4.mp3",
           "durationSeconds": 53.0,
-          "sha1": "5edf893a0fb8aa6d37877b0dcfd2e3e880e35e52"
+          "sha1": "5edf893a0fb8aa6d37877b0dcfd2e3e880e35e52",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-d-major-b-71-mp3",
@@ -570,7 +755,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-d-major-b-71.mp3",
           "durationSeconds": 102.0,
-          "sha1": "2eb5465dcafc16b002b5e7451656119c3a0e064c"
+          "sha1": "2eb5465dcafc16b002b5e7451656119c3a0e064c",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-d-major-op-33-no-2-mp3",
@@ -582,7 +771,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-d-major-op-33-no-2.mp3",
           "durationSeconds": 145.0,
-          "sha1": "52c9a25d3bed65da99309d5e54f72fc14c130e81"
+          "sha1": "52c9a25d3bed65da99309d5e54f72fc14c130e81",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-e-flat-minor-op-6-no-4-mp3",
@@ -594,7 +787,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-e-flat-minor-op-6-no-4.mp3",
           "durationSeconds": 68.0,
-          "sha1": "52ac1396da371d044300b042e936899abe7d454d"
+          "sha1": "52ac1396da371d044300b042e936899abe7d454d",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-e-major-op-6-no-3-mp3",
@@ -606,7 +803,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-e-major-op-6-no-3.mp3",
           "durationSeconds": 96.0,
-          "sha1": "b803c3a6ac59014504f373478a23d6bdfce3bec4"
+          "sha1": "b803c3a6ac59014504f373478a23d6bdfce3bec4",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-e-minor-op-17-no-2-mp3",
@@ -618,7 +819,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-e-minor-op-17-no-2.mp3",
           "durationSeconds": 106.0,
-          "sha1": "8dc9f91a459ce8ba4ebe08424ca4b07b627358fa"
+          "sha1": "8dc9f91a459ce8ba4ebe08424ca4b07b627358fa",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-e-minor-op-41-no-2-mp3",
@@ -630,7 +835,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-e-minor-op-41-no-2.mp3",
           "durationSeconds": 142.0,
-          "sha1": "08688b2acb3edd0318546828343e9e59ebae0055"
+          "sha1": "08688b2acb3edd0318546828343e9e59ebae0055",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-f-major-op-68-no-3-mp3",
@@ -642,7 +851,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-f-major-op-68-no-3.mp3",
           "durationSeconds": 86.0,
-          "sha1": "12a04fd9edeed2227765693ba6d100167539159a"
+          "sha1": "12a04fd9edeed2227765693ba6d100167539159a",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-f-minor-op-68-no-4-mp3",
@@ -654,7 +867,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-f-minor-op-68-no-4.mp3",
           "durationSeconds": 143.0,
-          "sha1": "b2a0aa00e9490fb02eeff36a92808d5b53f1ba1e"
+          "sha1": "b2a0aa00e9490fb02eeff36a92808d5b53f1ba1e",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-f-minor-op-7-no-3-mp3",
@@ -666,7 +883,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-f-minor-op-7-no-3.mp3",
           "durationSeconds": 164.0,
-          "sha1": "948b59ac5d2f7411c17c282494f4d05be496cdcd"
+          "sha1": "948b59ac5d2f7411c17c282494f4d05be496cdcd",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-f-sharp-minor-op-59-no-3-mp3",
@@ -678,7 +899,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-f-sharp-minor-op-59-no-3.mp3",
           "durationSeconds": 220.0,
-          "sha1": "83ac6cfca73132d7d50a7fe59cb85fc7eaa5b352"
+          "sha1": "83ac6cfca73132d7d50a7fe59cb85fc7eaa5b352",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-f-sharp-minor-op-6-no-1-mp3",
@@ -690,7 +915,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-f-sharp-minor-op-6-no-1.mp3",
           "durationSeconds": 178.0,
-          "sha1": "21baac2c9a4d5b0f724ce32e7da87cf5fe5b14f6"
+          "sha1": "21baac2c9a4d5b0f724ce32e7da87cf5fe5b14f6",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-g-major-b-16-no-1-mp3",
@@ -702,7 +931,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-g-major-b-16-no-1.mp3",
           "durationSeconds": 79.0,
-          "sha1": "1e8af24c844832e93fdc1530f3b3a862facbbb04"
+          "sha1": "1e8af24c844832e93fdc1530f3b3a862facbbb04",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-g-major-op-50-no-1-mp3",
@@ -714,7 +947,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-g-major-op-50-no-1.mp3",
           "durationSeconds": 171.0,
-          "sha1": "03271c3e721fd894e334f25125f27285f0fd1ccf"
+          "sha1": "03271c3e721fd894e334f25125f27285f0fd1ccf",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-g-major-op-67-no-1-mp3",
@@ -726,7 +963,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-g-major-op-67-no-1.mp3",
           "durationSeconds": 82.0,
-          "sha1": "03b9723a6e2b75b781c52f5907d013104a34ce5b"
+          "sha1": "03b9723a6e2b75b781c52f5907d013104a34ce5b",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-g-minor-op-24-no-1-mp3",
@@ -738,7 +979,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-g-minor-op-24-no-1.mp3",
           "durationSeconds": 183.0,
-          "sha1": "86f364db4ecbd13ead6bccca372564a6bee181f9"
+          "sha1": "86f364db4ecbd13ead6bccca372564a6bee181f9",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-g-minor-op-67-no-2-mp3",
@@ -750,7 +995,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-g-minor-op-67-no-2.mp3",
           "durationSeconds": 111.0,
-          "sha1": "f70ffd756a22ede5ca7bc77c6f802c20135da2cd"
+          "sha1": "f70ffd756a22ede5ca7bc77c6f802c20135da2cd",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-g-sharp-minor-op-33-no-1-mp3",
@@ -762,7 +1011,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-in-g-sharp-minor-op-33-no-1.mp3",
           "durationSeconds": 87.0,
-          "sha1": "f886007764d571f5f8c46ba5c848f4a23c3f4d19"
+          "sha1": "f886007764d571f5f8c46ba5c848f4a23c3f4d19",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-op-67-no-4-in-a-minor-mp3",
@@ -774,7 +1027,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurka-op-67-no-4-in-a-minor.mp3",
           "durationSeconds": 176.0,
-          "sha1": "7f6e4f06de3f522da34b5d96393922861498dfca"
+          "sha1": "7f6e4f06de3f522da34b5d96393922861498dfca",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurkaa-in-f-minor-op-63-no-2-mp3",
@@ -786,7 +1043,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-mazurkaa-in-f-minor-op-63-no-2.mp3",
           "durationSeconds": 98.0,
-          "sha1": "c87a3a4d6f1d59f12ca06d466f7008f8061dbe5c"
+          "sha1": "c87a3a4d6f1d59f12ca06d466f7008f8061dbe5c",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-b-flat-minor-op-9-no-1-mp3",
@@ -798,7 +1059,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-b-flat-minor-op-9-no-1.mp3",
           "durationSeconds": 337.0,
-          "sha1": "163c649ce98748eb6fc09a39bdc3efcde7da6c20"
+          "sha1": "163c649ce98748eb6fc09a39bdc3efcde7da6c20",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-b-major-op-62-no-1-mp3",
@@ -810,7 +1075,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-b-major-op-62-no-1.mp3",
           "durationSeconds": 380.0,
-          "sha1": "fcb6d32a058c216f8868fce0b4e598f994ae8cf2"
+          "sha1": "fcb6d32a058c216f8868fce0b4e598f994ae8cf2",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-b-major-op-9-no-3-mp3",
@@ -822,7 +1091,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-b-major-op-9-no-3.mp3",
           "durationSeconds": 418.0,
-          "sha1": "42c4670848bc3fd3c8d39a62e193c348f6265569"
+          "sha1": "42c4670848bc3fd3c8d39a62e193c348f6265569",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-c-minor-b-108-mp3",
@@ -834,7 +1107,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-c-minor-b-108.mp3",
           "durationSeconds": 193.0,
-          "sha1": "c13cf7c1a83dfe302fe27033d2f71ed898e71df4"
+          "sha1": "c13cf7c1a83dfe302fe27033d2f71ed898e71df4",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-c-minor-op-48-no-1-mp3",
@@ -846,7 +1123,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-c-minor-op-48-no-1.mp3",
           "durationSeconds": 379.0,
-          "sha1": "f93865633131f044a8892100078301b496873e01"
+          "sha1": "f93865633131f044a8892100078301b496873e01",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-c-sharp-minor-lento-con-gran-espressione-b-49-op-posth-mp3",
@@ -858,7 +1139,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-c-sharp-minor-lento-con-gran-espressione-b-49-op-posth.mp3",
           "durationSeconds": 225.0,
-          "sha1": "ebbffe84af7ff5df060c3209cc7baede43086f03"
+          "sha1": "ebbffe84af7ff5df060c3209cc7baede43086f03",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-c-sharp-minor-op-27-no-1-mp3",
@@ -870,7 +1155,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-c-sharp-minor-op-27-no-1.mp3",
           "durationSeconds": 352.0,
-          "sha1": "b03f4007b45da1b2250a1cb153d2daae369b78a0"
+          "sha1": "b03f4007b45da1b2250a1cb153d2daae369b78a0",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-d-flat-major-op-27-no-2-mp3",
@@ -882,7 +1171,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-d-flat-major-op-27-no-2.mp3",
           "durationSeconds": 378.0,
-          "sha1": "0e8dc8fb2d78f4a8c6983cdd64b52051e0a9cfc2"
+          "sha1": "0e8dc8fb2d78f4a8c6983cdd64b52051e0a9cfc2",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-e-flat-major-op-55-no-2-mp3",
@@ -894,7 +1187,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-e-flat-major-op-55-no-2.mp3",
           "durationSeconds": 310.0,
-          "sha1": "d025f6cba17d29010655f1840c366afccffeef63"
+          "sha1": "d025f6cba17d29010655f1840c366afccffeef63",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-e-flat-major-op-9-no-2-mp3",
@@ -906,7 +1203,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-e-flat-major-op-9-no-2.mp3",
           "durationSeconds": 272.0,
-          "sha1": "2ab2980664160653fa387eae438f047a54750558"
+          "sha1": "2ab2980664160653fa387eae438f047a54750558",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-e-major-op-62-no-2-mp3",
@@ -918,7 +1219,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-e-major-op-62-no-2.mp3",
           "durationSeconds": 340.0,
-          "sha1": "a0ca4a35e58d8aa4caf5360fcc0e759df8eda19c"
+          "sha1": "a0ca4a35e58d8aa4caf5360fcc0e759df8eda19c",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-e-minor-op-posth-72-mp3",
@@ -930,7 +1235,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-e-minor-op-posth-72.mp3",
           "durationSeconds": 273.0,
-          "sha1": "d081c86c98dad109c5398c515e5c2d14934d998e"
+          "sha1": "d081c86c98dad109c5398c515e5c2d14934d998e",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-f-major-op-15-no-1-mp3",
@@ -942,7 +1251,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-f-major-op-15-no-1.mp3",
           "durationSeconds": 306.0,
-          "sha1": "ddc706642fdc61cfc4c2a109e0976eb3ef77647c"
+          "sha1": "ddc706642fdc61cfc4c2a109e0976eb3ef77647c",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-f-minor-op-55-no-1-mp3",
@@ -954,7 +1267,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-f-minor-op-55-no-1.mp3",
           "durationSeconds": 317.0,
-          "sha1": "7769e71cd25660ba232648e3cd16d16dab84b0d4"
+          "sha1": "7769e71cd25660ba232648e3cd16d16dab84b0d4",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-f-sharp-major-op-15-no-2-mp3",
@@ -966,7 +1283,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-f-sharp-major-op-15-no-2.mp3",
           "durationSeconds": 244.0,
-          "sha1": "1aafed7cb7a01371200d692bd8aec9f0bf9f6b48"
+          "sha1": "1aafed7cb7a01371200d692bd8aec9f0bf9f6b48",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-f-sharp-minor-op-48-no-2-mp3",
@@ -978,7 +1299,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-f-sharp-minor-op-48-no-2.mp3",
           "durationSeconds": 496.0,
-          "sha1": "ae44248c192e65f7aaec69a1f8f607f27239c70d"
+          "sha1": "ae44248c192e65f7aaec69a1f8f607f27239c70d",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-g-minor-op-15-no-3-mp3",
@@ -990,7 +1315,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-in-g-minor-op-15-no-3.mp3",
           "durationSeconds": 233.0,
-          "sha1": "a124866bbf89a8266e2ee62def6e320b3fc012f9"
+          "sha1": "a124866bbf89a8266e2ee62def6e320b3fc012f9",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-op-37-no-1-in-g-minor-mp3",
@@ -1002,7 +1331,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-op-37-no-1-in-g-minor.mp3",
           "durationSeconds": 424.0,
-          "sha1": "b85c9896cdf5fb8972238c3ce52fe54268739816"
+          "sha1": "b85c9896cdf5fb8972238c3ce52fe54268739816",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-op-37-no-2-in-g-major-mp3",
@@ -1014,7 +1347,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturne-op-37-no-2-in-g-major.mp3",
           "durationSeconds": 372.0,
-          "sha1": "e2457de8819d883a62a063a84e2075382cc73202"
+          "sha1": "e2457de8819d883a62a063a84e2075382cc73202",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturnes-op-32-no-1-nocturne-in-b-major-mp3",
@@ -1026,7 +1363,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturnes-op-32-no-1-nocturne-in-b-major.mp3",
           "durationSeconds": 301.0,
-          "sha1": "81deac25d82c9a4d8be8850671e1e66d734c18d5"
+          "sha1": "81deac25d82c9a4d8be8850671e1e66d734c18d5",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturnes-op-32-no-2-nocturne-in-a-major-mp3",
@@ -1038,7 +1379,11 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "musopen-chopin-complete-works-flac-nocturnes-op-32-no-2-nocturne-in-a-major.mp3",
           "durationSeconds": 343.0,
-          "sha1": "344fbc7ecdb0336d47434eaa8e1acdce31401fa2"
+          "sha1": "344fbc7ecdb0336d47434eaa8e1acdce31401fa2",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "liszt-consolation-no-3",
@@ -1050,7 +1395,11 @@
           "licenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
           "fileName": "liszt-consolation-no-3.ogg",
           "durationSeconds": 226.0,
-          "sha1": null
+          "sha1": null,
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "liszt-consolation-no-5",
@@ -1062,7 +1411,11 @@
           "licenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
           "fileName": "liszt-consolation-no-5.ogg",
           "durationSeconds": 177.0,
-          "sha1": null
+          "sha1": null,
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "liszt-romance-s-169",
@@ -1074,7 +1427,11 @@
           "licenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
           "fileName": "liszt-romance-s-169.ogg",
           "durationSeconds": 235.0,
-          "sha1": null
+          "sha1": null,
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
         },
         {
           "id": "liszt-au-bord-d-une-source",
@@ -1086,7 +1443,63 @@
           "licenseUri": "https://creativecommons.org/licenses/by-sa/1.0/",
           "fileName": "liszt-au-bord-d-une-source.ogg",
           "durationSeconds": 298.34,
-          "sha1": "9585bb47222ac319eded8fbcd4193364c6854113"
+          "sha1": "9585bb47222ac319eded8fbcd4193364c6854113",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo"
+        },
+        {
+          "id": "frank-schroeter-medieval-dream",
+          "title": "Frank Schröter – Medieval Dream",
+          "creator": "Frank Schröter",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Medieval%20Dream%20by%20Frank%20Schr%C3%B6ter.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Medieval_Dream_by_Frank_Schr%C3%B6ter.ogg",
+          "license": "CC BY 4.0",
+          "licenseUri": "https://creativecommons.org/licenses/by/4.0/",
+          "fileName": "frank-schroeter-medieval-dream.ogg",
+          "durationSeconds": 140.527,
+          "sha1": "336b920b9c4df4cee00d829d50f338a8d6c6fee1",
+          "instrumentation": [
+            "harp",
+            "recorder"
+          ],
+          "ensembleType": "duo"
+        },
+        {
+          "id": "vivaldi-cello-concerto-rv-413-largo",
+          "title": "Antonio Vivaldi – Cellokonzert RV 413: II. Largo",
+          "creator": "Advent Chamber Orchestra; cello: Stephen Balderston",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vivaldi%20-%20Cello%20Concerto%20Gmaj%20-%202.%20Largo.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Vivaldi_-_Cello_Concerto_Gmaj_-_2._Largo.ogg",
+          "license": "CC BY-SA 2.0",
+          "licenseUri": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "fileName": "vivaldi-cello-concerto-rv-413-largo.ogg",
+          "durationSeconds": 237.52,
+          "sha1": "76292d9df6b461f31d8c9dc48fd7435d1ffdc46f",
+          "instrumentation": [
+            "cello",
+            "strings",
+            "continuo"
+          ],
+          "ensembleType": "chamber-orchestra"
+        },
+        {
+          "id": "haydn-cello-concerto-no-1-adagio",
+          "title": "Joseph Haydn – Cellokonzert Nr. 1: II. Adagio",
+          "creator": "Metropolitan Chamber Orchestra",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Metropolitan%20Chamber%20Orchestra%20-%20Haydn%27s%20Cello%20Concerto%20No.%201%20in%20C%20major%2C%20Hob.VIIb-1%20-%20II.%20Adagio.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:The_Metropolitan_Chamber_Orchestra_-_Haydn%27s_Cello_Concerto_No._1_in_C_major,_Hob.VIIb-1_-_II._Adagio.ogg",
+          "license": "Public Domain Dedication",
+          "licenseUri": "https://web.archive.org/web/20230926203737/https://creativecommons.org/licenses/publicdomain/",
+          "fileName": "haydn-cello-concerto-no-1-adagio.ogg",
+          "durationSeconds": 500.12,
+          "sha1": "19da8d41b3d8b902a27478e8681942750261ef18",
+          "instrumentation": [
+            "cello",
+            "strings"
+          ],
+          "ensembleType": "chamber-orchestra"
         }
       ]
     },
@@ -1800,6 +2213,10 @@
           "fileName": "faure-berceuse-op-56-no-1.ogg",
           "durationSeconds": 214.622,
           "sha1": "16f742aed631bbd30a78e3298fb77672655bf306",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo",
           "playbackSpeed": 0.833333
         },
         {
@@ -1813,6 +2230,10 @@
           "fileName": "burgmuller-berceuse-op-109-no-7.ogg",
           "durationSeconds": 84.578,
           "sha1": "2701c3802dae189dd59b4980aa363a1d467a9007",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo",
           "playbackSpeed": 0.833333
         },
         {
@@ -1826,6 +2247,10 @@
           "fileName": "music-box-schlafe-mein-prinzchen.mp3",
           "durationSeconds": 85.238,
           "sha1": null,
+          "instrumentation": [
+            "music-box"
+          ],
+          "ensembleType": "solo",
           "playbackSpeed": 0.833333
         },
         {
@@ -1839,6 +2264,10 @@
           "fileName": "music-box-guten-abend-gute-nacht.mp3",
           "durationSeconds": 46.446,
           "sha1": null,
+          "instrumentation": [
+            "music-box"
+          ],
+          "ensembleType": "solo",
           "playbackSpeed": 0.833333
         },
         {
@@ -1852,6 +2281,10 @@
           "fileName": "antti-luode-another-lullaby.mp3",
           "durationSeconds": 139.337,
           "sha1": "a32d3ce29635b421981ba72347e4082ca497c09a",
+          "instrumentation": [
+            "instrumental"
+          ],
+          "ensembleType": "solo",
           "playbackSpeed": 0.833333
         }
       ]

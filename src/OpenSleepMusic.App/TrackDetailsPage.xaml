@@ -16,17 +16,19 @@
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Spacing="15">
                 <Label x:Name="TitleLabel" FontSize="22" FontAttributes="Bold" TextColor="#F7F3FF" />
-                <Grid ColumnDefinitions="130,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
+                <Grid ColumnDefinitions="130,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
                     <Label x:Name="CreatorTitleLabel" Text="Urheber/Interpret" TextColor="#9E9AAF" />
                     <Label Grid.Column="1" x:Name="CreatorLabel" TextColor="#F7F3FF" />
                     <Label x:Name="WorldTitleLabel" Grid.Row="1" Text="Themensammlung" TextColor="#9E9AAF" />
                     <Label Grid.Row="1" Grid.Column="1" x:Name="WorldLabel" TextColor="#F7F3FF" />
                     <Label x:Name="DurationTitleLabel" Grid.Row="2" Text="Dauer" TextColor="#9E9AAF" />
                     <Label Grid.Row="2" Grid.Column="1" x:Name="DurationLabel" TextColor="#F7F3FF" />
-                    <Label x:Name="LicenseTitleLabel" Grid.Row="3" Text="Lizenz" TextColor="#9E9AAF" />
-                    <Label Grid.Row="3" Grid.Column="1" x:Name="LicenseLabel" TextColor="#F7F3FF" />
-                    <Label x:Name="FileTitleLabel" Grid.Row="4" Text="Lokale Datei" TextColor="#9E9AAF" />
-                    <Label Grid.Row="4" Grid.Column="1" x:Name="FileLabel" TextColor="#F7F3FF" LineBreakMode="CharacterWrap" />
+                    <Label x:Name="InstrumentationTitleLabel" Grid.Row="3" Text="Instrumentierung" TextColor="#9E9AAF" />
+                    <Label Grid.Row="3" Grid.Column="1" x:Name="InstrumentationLabel" TextColor="#F7F3FF" />
+                    <Label x:Name="LicenseTitleLabel" Grid.Row="4" Text="Lizenz" TextColor="#9E9AAF" />
+                    <Label Grid.Row="4" Grid.Column="1" x:Name="LicenseLabel" TextColor="#F7F3FF" />
+                    <Label x:Name="FileTitleLabel" Grid.Row="5" Text="Lokale Datei" TextColor="#9E9AAF" />
+                    <Label Grid.Row="5" Grid.Column="1" x:Name="FileLabel" TextColor="#F7F3FF" LineBreakMode="CharacterWrap" />
                 </Grid>
 
                 <Label x:Name="LicenseHelpLabel" Text="Die Lizenzangabe stammt von der dokumentierten Quellseite der konkreten Aufnahme." TextColor="#B8B5C8" />

@@ -53,7 +53,7 @@ function Convert-ToSeconds([string]$Length) {
 }
 
 $worlds = [ordered]@{
-    'quiet-classics' = [ordered]@{ name = 'Ruhige Klassik'; description = 'Nocturnes, Mazurken und sanfte Klavierminiaturen von Frédéric Chopin.'; icon = '🎹'; tracks = [Collections.Generic.List[object]]::new() }
+    'quiet-classics' = [ordered]@{ name = 'Ruhige Klassik'; description = 'Sanfte Klavier-, Harfen-, Cello- und Streicheraufnahmen mit ruhiger Dynamik.'; icon = '🎼'; tracks = [Collections.Generic.List[object]]::new() }
     rain = [ordered]@{ name = 'Sanfter Regen'; description = 'Leichter bis kräftiger Regen, ohne ausgewählte Gewitterspitzen.'; icon = '🌧️'; tracks = [Collections.Generic.List[object]]::new() }
     forest = [ordered]@{ name = 'Wald'; description = 'Lange Wald- und Regenwaldaufnahmen mit Wind, Wasser und Vögeln.'; icon = '🌲'; tracks = [Collections.Generic.List[object]]::new() }
     waves = [ordered]@{ name = 'Wasser & Wellen'; description = 'Meereswellen, Strand, Bachplätschern und gleichmäßige Wassergeräusche.'; icon = '🌊'; tracks = [Collections.Generic.List[object]]::new() }
@@ -67,7 +67,17 @@ $chopin.files |
     Where-Object { $_.name -match '\.mp3$' } |
     Where-Object { $_.name -match $calmChopin } |
     Sort-Object name |
-    ForEach-Object { $worlds['quiet-classics'].tracks.Add((New-ArchiveTrack $chopin $_ 'Various artists; produced by Musopen')) }
+    ForEach-Object {
+        $track = New-ArchiveTrack $chopin $_ 'Various artists; produced by Musopen'
+        if ($_.name -match 'Cello Sonata') {
+            $track.instrumentation = @('cello', 'piano')
+            $track.ensembleType = 'duo'
+        } else {
+            $track.instrumentation = @('piano')
+            $track.ensembleType = 'solo'
+        }
+        $worlds['quiet-classics'].tracks.Add($track)
+    }
 
 $rainCollection = Get-ArchiveMetadata 'relaxingrainsounds'
 Get-OriginalMp3 $rainCollection | Sort-Object name | ForEach-Object {
@@ -122,12 +132,36 @@ $worlds['quiet-classics'].tracks.Add((New-CommonsTrack 'liszt-consolation-no-3' 
 $worlds['quiet-classics'].tracks.Add((New-CommonsTrack 'liszt-consolation-no-5' 'Franz Liszt – Consolation Nr. 5' 'Piano: Constantin Stephan' 'Liszt-ConsolationNo5.ogg' 'https://commons.wikimedia.org/wiki/File:Liszt-ConsolationNo5.ogg' 'CC BY-SA 4.0' 'https://creativecommons.org/licenses/by-sa/4.0/' 'liszt-consolation-no-5.ogg' 177))
 $worlds['quiet-classics'].tracks.Add((New-CommonsTrack 'liszt-romance-s-169' 'Franz Liszt – Romance S.169' 'Piano: Constantin Stephan' 'Franz Liszt, Romance S.169.ogg' 'https://commons.wikimedia.org/wiki/File:Franz_Liszt,_Romance_S.169.ogg' 'CC BY-SA 4.0' 'https://creativecommons.org/licenses/by-sa/4.0/' 'liszt-romance-s-169.ogg' 235))
 $worlds['quiet-classics'].tracks.Add((New-CommonsTrack 'liszt-au-bord-d-une-source' "Franz Liszt – Au bord d'une source" 'Piano: Randolph Hokanson' 'Liszt- au bord d une.ogg' 'https://commons.wikimedia.org/wiki/File:Liszt-_au_bord_d_une.ogg' 'CC BY-SA 1.0' 'https://creativecommons.org/licenses/by-sa/1.0/' 'liszt-au-bord-d-une-source.ogg' 298.34 '9585bb47222ac319eded8fbcd4193364c6854113'))
+$worlds['quiet-classics'].tracks | Where-Object { $_.id -like 'liszt-*' } | ForEach-Object {
+    $_.instrumentation = @('piano')
+    $_.ensembleType = 'solo'
+}
+
+$harpPilot = New-CommonsTrack 'frank-schroeter-medieval-dream' 'Frank Schröter – Medieval Dream' 'Frank Schröter' 'Medieval Dream by Frank Schröter.ogg' 'https://commons.wikimedia.org/wiki/File:Medieval_Dream_by_Frank_Schr%C3%B6ter.ogg' 'CC BY 4.0' 'https://creativecommons.org/licenses/by/4.0/' 'frank-schroeter-medieval-dream.ogg' 140.527 '336b920b9c4df4cee00d829d50f338a8d6c6fee1'
+$harpPilot.instrumentation = @('harp', 'recorder')
+$harpPilot.ensembleType = 'duo'
+$worlds['quiet-classics'].tracks.Add($harpPilot)
+
+$vivaldiCello = New-CommonsTrack 'vivaldi-cello-concerto-rv-413-largo' 'Antonio Vivaldi – Cellokonzert RV 413: II. Largo' 'Advent Chamber Orchestra; cello: Stephen Balderston' 'Vivaldi - Cello Concerto Gmaj - 2. Largo.ogg' 'https://commons.wikimedia.org/wiki/File:Vivaldi_-_Cello_Concerto_Gmaj_-_2._Largo.ogg' 'CC BY-SA 2.0' 'https://creativecommons.org/licenses/by-sa/2.0/' 'vivaldi-cello-concerto-rv-413-largo.ogg' 237.52 '76292d9df6b461f31d8c9dc48fd7435d1ffdc46f'
+$vivaldiCello.instrumentation = @('cello', 'strings', 'continuo')
+$vivaldiCello.ensembleType = 'chamber-orchestra'
+$worlds['quiet-classics'].tracks.Add($vivaldiCello)
+
+$haydnCello = New-CommonsTrack 'haydn-cello-concerto-no-1-adagio' 'Joseph Haydn – Cellokonzert Nr. 1: II. Adagio' 'Metropolitan Chamber Orchestra' "The Metropolitan Chamber Orchestra - Haydn's Cello Concerto No. 1 in C major, Hob.VIIb-1 - II. Adagio.ogg" 'https://commons.wikimedia.org/wiki/File:The_Metropolitan_Chamber_Orchestra_-_Haydn%27s_Cello_Concerto_No._1_in_C_major,_Hob.VIIb-1_-_II._Adagio.ogg' 'Public Domain Dedication' 'https://web.archive.org/web/20230926203737/https://creativecommons.org/licenses/publicdomain/' 'haydn-cello-concerto-no-1-adagio.ogg' 500.12 '19da8d41b3d8b902a27478e8681942750261ef18'
+$haydnCello.instrumentation = @('cello', 'strings')
+$haydnCello.ensembleType = 'chamber-orchestra'
+$worlds['quiet-classics'].tracks.Add($haydnCello)
 $worlds.waves.tracks.Add((New-CommonsTrack 'lake-ontario-waves' 'Waves' 'Dsw4' 'Waves.ogg' 'https://commons.wikimedia.org/wiki/File:Waves.ogg' 'Public Domain' 'https://creativecommons.org/publicdomain/mark/1.0/' 'waves.ogg' 287))
 $worlds.lullabies.tracks.Add((New-CommonsTrack 'faure-berceuse-op-56-no-1' 'Gabriel Fauré – Berceuse op. 56 Nr. 1' 'Piano: Brian M. Jones' 'Berceuse by Gabriel Fauré op56 no1.ogg' 'https://commons.wikimedia.org/wiki/File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg' 'CC BY 3.0' 'https://creativecommons.org/licenses/by/3.0/' 'faure-berceuse-op-56-no-1.ogg' 214.622 '16f742aed631bbd30a78e3298fb77672655bf306'))
 $worlds.lullabies.tracks.Add((New-CommonsTrack 'burgmuller-berceuse-op-109-no-7' 'Friedrich Burgmüller – Berceuse op. 109 Nr. 7' 'Piano: BastienM' 'Berceuse Burgmuller.ogg' 'https://commons.wikimedia.org/wiki/File:Berceuse_Burgmuller.ogg' 'CC BY-SA 3.0' 'https://creativecommons.org/licenses/by-sa/3.0/' 'burgmuller-berceuse-op-109-no-7.ogg' 84.578 '2701c3802dae189dd59b4980aa363a1d467a9007'))
 $worlds.lullabies.tracks.Add((New-CommonsTrack 'music-box-schlafe-mein-prinzchen' 'Spieluhr – Schlafe, mein Prinzchen' 'Recordist: stephan (PDSounds)' 'Lullaby wound up clock.ogg' 'https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock.ogg' 'Public Domain' 'https://creativecommons.org/publicdomain/mark/1.0/' 'music-box-schlafe-mein-prinzchen.mp3' 85.238 $null 'https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e4/Lullaby_wound_up_clock.ogg/Lullaby_wound_up_clock.ogg.mp3'))
 $worlds.lullabies.tracks.Add((New-CommonsTrack 'music-box-guten-abend-gute-nacht' 'Spieluhr – Guten Abend, gute Nacht' 'Recordist: stephan (PDSounds)' 'Lullaby wound up clock guten abend gute nacht.ogg' 'https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg' 'Public Domain' 'https://creativecommons.org/publicdomain/mark/1.0/' 'music-box-guten-abend-gute-nacht.mp3' 46.446 $null 'https://upload.wikimedia.org/wikipedia/commons/transcoded/c/cf/Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg/Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg.mp3'))
 $worlds.lullabies.tracks.Add((New-CommonsTrack 'antti-luode-another-lullaby' 'Antti Luode – Another Lullaby' 'Antti Luode' 'Another Lullaby (Antti Luode).mp3' 'https://commons.wikimedia.org/wiki/File:Another_Lullaby_(Antti_Luode).mp3' 'CC BY 3.0' 'https://creativecommons.org/licenses/by/3.0/' 'antti-luode-another-lullaby.mp3' 139.337 'a32d3ce29635b421981ba72347e4082ca497c09a'))
+$worlds.lullabies.tracks | ForEach-Object {
+    if ($_.id -like 'music-box-*') { $_.instrumentation = @('music-box'); $_.ensembleType = 'solo' }
+    elseif ($_.id -in @('faure-berceuse-op-56-no-1', 'burgmuller-berceuse-op-109-no-7')) { $_.instrumentation = @('piano'); $_.ensembleType = 'solo' }
+    else { $_.instrumentation = @('instrumental'); $_.ensembleType = 'solo' }
+}
 foreach ($track in $worlds.lullabies.tracks) { $track.playbackSpeed = [Math]::Round(1 / 1.2, 6) }
 $manifestWorlds = foreach ($entry in $worlds.GetEnumerator()) {
     [ordered]@{

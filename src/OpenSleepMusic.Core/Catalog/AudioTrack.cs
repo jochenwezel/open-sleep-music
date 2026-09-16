@@ -12,7 +12,9 @@ public sealed record AudioTrack(
     double DurationSeconds = 0,
     string? Sha1 = null,
     double VolumeGain = 1,
-    double PlaybackSpeed = 1)
+    double PlaybackSpeed = 1,
+    IReadOnlyList<string>? Instrumentation = null,
+    string? EnsembleType = null)
 {
     public double PlaybackDurationSeconds => DurationSeconds / Math.Max(PlaybackSpeed, 0.01);
 }

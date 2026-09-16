@@ -15,7 +15,7 @@ The project is at an early preview stage. The interface offers curated **theme c
 
 ## Included theme collections
 
-- Quiet Classics (90 tracks, about 5 hours)
+- Quiet Classics (93 tracks, about 5.3 hours; piano, harp, cello and strings)
 - Gentle Rain (34 tracks, about 5.4 hours)
 - Forest (8 tracks, about 3 hours)
 - Water & Waves (12 tracks, about 5.2 hours)

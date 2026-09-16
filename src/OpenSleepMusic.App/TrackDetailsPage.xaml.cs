@@ -18,6 +18,7 @@ public partial class TrackDetailsPage : ContentPage
         CreatorTitleLabel.Text = AppText.Get("Creator");
         WorldTitleLabel.Text = AppText.Get("Collection");
         DurationTitleLabel.Text = AppText.Get("Duration");
+        InstrumentationTitleLabel.Text = AppText.Pick("Instrumentierung", "Instrumentation");
         LicenseTitleLabel.Text = AppText.IsGerman ? "Lizenz" : "License";
         FileTitleLabel.Text = AppText.Get("LocalFile");
         SourceButton.Text = AppText.Get("Source");
@@ -30,6 +31,9 @@ public partial class TrackDetailsPage : ContentPage
         CreatorLabel.Text = track.Creator;
         WorldLabel.Text = AppText.WorldName(localTrack.SleepWorld.Id, localTrack.SleepWorld.Name);
         DurationLabel.Text = FormatDuration(TimeSpan.FromSeconds(track.PlaybackDurationSeconds));
+        InstrumentationLabel.Text = track.Instrumentation is { Count: > 0 }
+            ? string.Join(", ", track.Instrumentation.Select(TranslateInstrument))
+            : AppText.Pick("Nicht angegeben", "Not specified");
         LicenseLabel.Text = track.License;
         FileLabel.Text = localTrack.FilePath;
         UpdatePreferenceButtons();
@@ -94,4 +98,17 @@ public partial class TrackDetailsPage : ContentPage
 
     private static string FormatDuration(TimeSpan value) =>
         value.TotalHours >= 1 ? value.ToString(@"h\:mm\:ss") : value.ToString(@"m\:ss");
+
+    private static string TranslateInstrument(string value) => value switch
+    {
+        "piano" => AppText.Pick("Klavier", "Piano"),
+        "harp" => AppText.Pick("Harfe", "Harp"),
+        "recorder" => AppText.Pick("Blockflöte", "Recorder"),
+        "cello" => AppText.Pick("Cello", "Cello"),
+        "strings" => AppText.Pick("Streicher", "Strings"),
+        "continuo" => "Continuo",
+        "music-box" => AppText.Pick("Spieluhr", "Music box"),
+        "instrumental" => AppText.Pick("Instrumental", "Instrumental"),
+        _ => value
+    };
 }
