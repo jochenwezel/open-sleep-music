@@ -26,6 +26,7 @@ internal sealed class VolumeOverlayView : ContentView
             if (Math.Abs(AppVolumeBridge.Volume - args.NewValue) > .001) AppVolumeBridge.Set(args.NewValue);
         };
         _systemSlider = NewSlider();
+        _systemSlider.Value = SystemVolumeSnapshot.Value;
         _systemSlider.IsEnabled = false;
 
         Content = new Border
@@ -78,12 +79,19 @@ internal sealed class VolumeOverlayView : ContentView
     private void OnSystemVolumeChanged(object? sender, double volume) => Dispatcher.Dispatch(() =>
     {
         _systemSlider.Value = volume;
+        Show();
+    });
+
+    public void Show()
+    {
+        _appSlider.Value = AppVolumeBridge.Volume;
+        _systemSlider.Value = SystemVolumeSnapshot.Value;
         IsVisible = true;
         _hideCancellation?.Cancel();
         _hideCancellation?.Dispose();
         _hideCancellation = new CancellationTokenSource();
         _ = HideLaterAsync(_hideCancellation.Token);
-    });
+    }
 
     private async Task HideLaterAsync(CancellationToken token)
     {

@@ -21,16 +21,6 @@
                 <Button Grid.Column="4" Text="🔊" Clicked="OnVolumeClicked" BackgroundColor="#99252C45" TextColor="White" />
             </Grid>
 
-            <Border x:Name="VolumePanel" Grid.Row="1" IsVisible="False" HorizontalOptions="End" VerticalOptions="Start"
-                    BackgroundColor="#D9171D31" Stroke="#596485" Padding="12" Margin="0,0,0,8">
-                <Border.StrokeShape><RoundRectangle CornerRadius="14" /></Border.StrokeShape>
-                <Grid ColumnDefinitions="Auto,180,Auto" ColumnSpacing="8">
-                    <Label x:Name="VolumeTitleLabel" Text="Lautstärke" TextColor="White" VerticalOptions="Center" />
-                    <Slider Grid.Column="1" x:Name="VolumeSlider" Minimum="0" Maximum="1" ValueChanged="OnVolumeChanged" />
-                    <Label Grid.Column="2" x:Name="VolumeValueLabel" Text="30 %" TextColor="White" VerticalOptions="Center" />
-                </Grid>
-            </Border>
-
             <Grid Grid.Row="2" RowDefinitions="Auto,Auto" RowSpacing="8" BackgroundColor="#B8171D31" Padding="12">
                 <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
                     <Label x:Name="PositionLabel" Text="0:00" TextColor="White" VerticalOptions="Center" />

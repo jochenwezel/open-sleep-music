@@ -17,9 +17,6 @@ public partial class ImmersivePlayerPage : ContentPage
     {
         InitializeComponent();
         _owner = owner;
-        VolumeTitleLabel.Text = AppText.Get("Volume");
-        VolumeSlider.Value = AppVolumeBridge.Volume;
-        VolumeValueLabel.Text = $"{AppVolumeBridge.Volume:P0}";
         _volumeOverlay = new VolumeOverlayView();
         Scene.Add(_volumeOverlay);
         Dispatcher.StartTimer(TimeSpan.FromMilliseconds(500), RefreshState);
@@ -117,18 +114,12 @@ public partial class ImmersivePlayerPage : ContentPage
     private void OnNextClicked(object? sender, EventArgs e) => _owner.ImmersiveMove(1);
     private void OnFavoriteClicked(object? sender, EventArgs e) { _owner.ImmersiveToggleFavorite(); RefreshState(); }
     private void OnBlockClicked(object? sender, EventArgs e) { _owner.ImmersiveToggleBlocked(); RefreshState(); }
-    private void OnVolumeClicked(object? sender, EventArgs e) => VolumePanel.IsVisible = !VolumePanel.IsVisible;
+    private void OnVolumeClicked(object? sender, EventArgs e) => _volumeOverlay.Show();
     private async void OnTitleTapped(object? sender, TappedEventArgs e) => await _owner.OpenCurrentTrackDetailsAsync();
     private async void OnRepeatClicked(object? sender, EventArgs e) { await _owner.ChooseRepeatModeAsync(); RefreshState(); }
     private async void OnTimerClicked(object? sender, EventArgs e) { await _owner.ChooseSleepTimerAsync(); RefreshState(); }
     private void OnSeekStarted(object? sender, EventArgs e) => _seeking = true;
     private void OnSeekCompleted(object? sender, EventArgs e) { _seeking = false; _owner.ImmersiveSeek(PositionSlider.Value); }
-    private void OnVolumeChanged(object? sender, ValueChangedEventArgs e)
-    {
-        VolumeValueLabel.Text = $"{e.NewValue:P0}";
-        if (Math.Abs(AppVolumeBridge.Volume - e.NewValue) > .001) AppVolumeBridge.Set(e.NewValue);
-    }
-
     private static Color Interpolate(Color a, Color b, double value) => Color.FromRgba(
         a.Red + (b.Red - a.Red) * value, a.Green + (b.Green - a.Green) * value,
         a.Blue + (b.Blue - a.Blue) * value, 1);
