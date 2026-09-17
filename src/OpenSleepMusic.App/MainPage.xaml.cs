@@ -1229,8 +1229,8 @@ public partial class MainPage : ContentPage
 
     internal async Task ChooseRepeatModeAsync()
     {
-        var collection = AppText.Get("Collection");
-        var track = AppText.Get("Track");
+        var collection = $"{(_repeatMode == PlaybackRepeatMode.SleepWorld ? "✓ " : string.Empty)}{AppText.Get("Collection")}";
+        var track = $"{(_repeatMode == PlaybackRepeatMode.Track ? "✓ " : string.Empty)}{AppText.Get("Track")}";
         var selected = await DisplayActionSheetAsync(AppText.Get("Repeat"), AppText.Get("Close"), null, collection, track);
         if (selected == collection) RepeatModePicker.SelectedIndex = 0;
         if (selected == track) RepeatModePicker.SelectedIndex = 1;

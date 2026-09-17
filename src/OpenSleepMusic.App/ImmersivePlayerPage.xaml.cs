@@ -49,7 +49,15 @@ public partial class ImmersivePlayerPage : ContentPage
         FavoriteButton.Text = state.IsFavorite ? "★" : "☆";
         BlockButton.TextColor = state.IsBlocked ? Color.FromArgb("#FFB0C8") : Colors.White;
         PlayButton.Text = FloatingPlayButton.Text = state.IsPlaying ? "⏸" : "▶";
+        RepeatButton.Text = state.RepeatTrack
+            ? $"↻ {AppText.Get("Track")}"
+            : $"↻ {AppText.Get("Collection")}";
         RepeatButton.TextColor = state.RepeatTrack ? Color.FromArgb("#AFA7FF") : Color.FromArgb("#C9C5D8");
+        SemanticProperties.SetDescription(
+            RepeatButton,
+            state.RepeatTrack
+                ? AppText.Pick("Wiederholung: einzelner Titel", "Repeat: single track")
+                : AppText.Pick("Wiederholung: Themensammlung", "Repeat: collection"));
         TimerButton.Text = state.TimerText;
         if (!_seeking)
         {
