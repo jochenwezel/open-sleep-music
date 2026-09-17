@@ -29,11 +29,14 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private bool _duckedForFocusLoss;
     private double _duckVolumeFactor = 1;
     private double _volume = .7;
-    private DateTimeOffset? _timerEndUtc;
+    private readonly PlaybackSleepDeadline _sleepDeadline = new();
+    private bool _playerPrepared;
+    private bool _playWhenPrepared;
     private BecomingNoisyReceiver? _noisyReceiver;
     private DateTimeOffset _lastSessionSaveUtc = DateTimeOffset.MinValue;
     private int _consecutiveFailures;
     private CancellationTokenSource? _fadeCancellation;
+    private CancellationTokenSource? _sleepFadeCancellation;
 
     public override void OnCreate()
     {
@@ -59,19 +62,19 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
                 Load(intent);
                 break;
             case AndroidPlaybackBridge.ActionToggle:
-                if (_player?.IsPlaying == true) Pause(); else Play();
+                if (IsPlaying()) Pause(); else Play(userInitiated: true);
                 break;
             case AndroidPlaybackBridge.ActionPlay:
-                Play();
+                Play(userInitiated: true);
                 break;
             case AndroidPlaybackBridge.ActionPause:
                 Pause();
                 break;
             case AndroidPlaybackBridge.ActionNext:
-                Move(1, forceSequential: !_shuffle);
+                Move(1, forceSequential: !_shuffle, userInitiated: true);
                 break;
             case AndroidPlaybackBridge.ActionPrevious:
-                Move(-1, forceSequential: true);
+                Move(-1, forceSequential: true, userInitiated: true);
                 break;
             case AndroidPlaybackBridge.ActionSeek:
                 Seek(intent.GetDoubleExtra("position", 0));
@@ -97,6 +100,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     public override void OnDestroy()
     {
         CancelFade();
+        CancelSleepFade();
         _timer?.Dispose();
         _positionTimer?.Dispose();
         ReleasePlayer();
@@ -112,6 +116,12 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     public void OnAudioFocusChange(AudioFocus focusChange)
     {
+        if (_sleepDeadline.HasElapsed)
+        {
+            _resumeAfterFocusGain = false;
+            if (focusChange is AudioFocus.Loss or AudioFocus.LossTransient) Pause();
+            return;
+        }
         switch (focusChange)
         {
             case AudioFocus.Loss:
@@ -124,7 +134,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
                 break;
             case AudioFocus.LossTransient:
                 _duckedForFocusLoss = false;
-                _resumeAfterFocusGain = _player?.IsPlaying == true;
+                _resumeAfterFocusGain = IsPlaying();
                 if (_resumeAfterFocusGain)
                 {
                     _ = FadeOutForFocusLossAsync();
@@ -170,6 +180,8 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             return;
         }
         _index = Math.Clamp(intent.GetIntExtra("index", 0), 0, _queue.Count - 1);
+        CancelSleepFade();
+        _sleepDeadline.Restart(null);
         ApplySettings(intent);
         OpenCurrent(intent.GetDoubleExtra("position", 0));
     }
@@ -181,19 +193,21 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         _volume = Math.Clamp(intent.GetDoubleExtra("volume", _volume), 0, 1);
         SetPlayerVolume();
         var timerEnd = intent.GetLongExtra("timerEnd", 0);
-        _timerEndUtc = timerEnd > 0 ? DateTimeOffset.FromUnixTimeMilliseconds(timerEnd) : null;
+        _sleepDeadline.Update(timerEnd > 0 ? DateTimeOffset.FromUnixTimeMilliseconds(timerEnd) : null);
         ArmTimer();
         UpdateStateAndNotification();
     }
 
-    private void OpenCurrent(double positionSeconds = 0)
+    private void OpenCurrent(double positionSeconds = 0, bool autoPlay = true)
     {
         if (_queue.Count == 0) return;
         ReleasePlayer();
+        _playWhenPrepared = autoPlay && !_sleepDeadline.HasElapsed;
         var item = _queue[_index];
         try
         {
-            _player = new MediaPlayer();
+            var player = new MediaPlayer();
+            _player = player;
             _player.SetAudioAttributes(new AudioAttributes.Builder()!
                 .SetUsage(AudioUsageKind.Media)!
                 .SetContentType(AudioContentType.Music)!
@@ -203,18 +217,26 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             _player.SetDataSource(item.Path);
             _player.Prepared += (_, _) =>
             {
+                if (!ReferenceEquals(_player, player)) return;
+                _playerPrepared = true;
                 _consecutiveFailures = 0;
-                _player.PlaybackParams = new PlaybackParams()!.SetSpeed((float)CurrentSpeed())!.SetPitch(1)!;
                 if (positionSeconds > 0)
                 {
                     _player.SeekTo((int)Math.Min(int.MaxValue, positionSeconds * item.Speed * 1000));
                 }
-                Play();
+                if (_playWhenPrepared && !_sleepDeadline.HasElapsed) Play();
+                else UpdateStateAndNotification();
             };
-            _player.Completion += (_, _) => { if (_repeatTrack) OpenCurrent(); else Move(1); };
+            _player.Completion += (_, _) =>
+            {
+                if (!ReferenceEquals(_player, player)) return;
+                if (_sleepDeadline.HasElapsed) { Pause(); return; }
+                if (_repeatTrack) OpenCurrent(); else Move(1);
+            };
             _player.Error += (_, e) =>
             {
                 e.Handled = true;
+                if (!ReferenceEquals(_player, player)) return;
                 SkipFailedTrack(item.Id, "Android MediaPlayer rejected the local audio file.");
             };
             StartForeground(NotificationId, BuildNotification(false));
@@ -230,6 +252,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private void SkipFailedTrack(string trackId, string reason)
     {
+        if (_sleepDeadline.HasElapsed) { Pause(); return; }
         _consecutiveFailures++;
         Android.Util.Log.Warn("OpenSleepMusic", $"Playback failed for {trackId}: {reason}");
         if (_consecutiveFailures >= _queue.Count)
@@ -240,12 +263,17 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         Move(1);
     }
 
-    private void Play()
+    private void Play(bool userInitiated = false)
     {
+        if (userInitiated) PrepareUserPlayback();
+        if (_sleepDeadline.HasElapsed) return;
+        _playWhenPrepared = true;
+        if (!_playerPrepared) return;
         CancelFade();
         if (_player is null || !RequestAudioFocus()) return;
         try
         {
+            _player.PlaybackParams = new PlaybackParams()!.SetSpeed((float)CurrentSpeed())!.SetPitch(1)!;
             _player.Start();
             RegisterNoisyReceiver();
             StartPositionUpdates();
@@ -256,7 +284,8 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private void Pause()
     {
-        try { if (_player?.IsPlaying == true) _player.Pause(); }
+        _playWhenPrepared = false;
+        try { if (IsPlaying()) _player!.Pause(); }
         catch (Exception exception) { Android.Util.Log.Warn("OpenSleepMusic", exception.Message); }
         UnregisterNoisyReceiver();
         _positionTimer?.Dispose();
@@ -264,19 +293,21 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         UpdateStateAndNotification();
         if (_queue.Count > 0)
         {
-            SaveSession(false, ToPlaybackMilliseconds(_player?.CurrentPosition ?? 0));
+            SaveSession(false, CurrentPositionMilliseconds());
         }
     }
 
     private void Seek(double seconds)
     {
-        if (_player is null) return;
+        if (_player is null || !_playerPrepared) return;
         _player.SeekTo((int)Math.Clamp(seconds * CurrentSpeed() * 1000, 0, int.MaxValue));
         UpdateStateAndNotification();
     }
 
-    private void Move(int offset, bool forceSequential = false)
+    private void Move(int offset, bool forceSequential = false, bool userInitiated = false)
     {
+        if (userInitiated) PrepareUserPlayback();
+        if (_sleepDeadline.HasElapsed) { Pause(); return; }
         if (_queue.Count == 0) return;
         if (_shuffle && !forceSequential && _queue.Count > 1)
         {
@@ -292,12 +323,13 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private void StopPlayback()
     {
         CancelFade();
+        CancelSleepFade();
         ReleasePlayer();
         AbandonAudioFocus();
         _queue.Clear();
         _timer?.Dispose();
         _timer = null;
-        _timerEndUtc = null;
+        _sleepDeadline.Restart(null);
         ClearSavedSession();
         UnregisterNoisyReceiver();
         if (_session is not null)
@@ -338,6 +370,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private void ReleasePlayer()
     {
+        _playerPrepared = false;
         if (_player is null) return;
         try { _player.Stop(); } catch (Exception exception) { Android.Util.Log.Debug("OpenSleepMusic", exception.Message); }
         _player.Reset();
@@ -375,26 +408,29 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private void ArmTimer()
     {
-        CancelFade();
         _timer?.Dispose();
         _timer = null;
-        if (_timerEndUtc is not { } end) return;
-        var delay = end - DateTimeOffset.UtcNow;
-        if (delay <= TimeSpan.Zero)
+        if (_sleepDeadline.HasElapsed)
         {
-            _ = FadeOutForTimerAsync();
+            if (_sleepFadeCancellation is null) _ = FadeOutForTimerAsync();
             return;
         }
-        _timer = new Timer(_ => _ = FadeOutForTimerAsync(), null, delay, Timeout.InfiniteTimeSpan);
+        if (_sleepDeadline.EndsAt is not { } end) return;
+        var delay = end - DateTimeOffset.UtcNow;
+        _timer = new Timer(_ => MainThread.BeginInvokeOnMainThread(() =>
+        {
+            if (_sleepDeadline.HasElapsed && _sleepFadeCancellation is null) _ = FadeOutForTimerAsync();
+        }), null, delay > TimeSpan.Zero ? delay : TimeSpan.Zero, Timeout.InfiniteTimeSpan);
     }
 
     private async Task FadeOutForTimerAsync()
     {
-        _timerEndUtc = null;
-        _fadeCancellation?.Cancel();
-        _fadeCancellation?.Dispose();
-        _fadeCancellation = new CancellationTokenSource();
-        var token = _fadeCancellation.Token;
+        _resumeAfterFocusGain = false;
+        _playWhenPrepared = false;
+        CancelFade();
+        _sleepFadeCancellation = new CancellationTokenSource();
+        var token = _sleepFadeCancellation.Token;
+        SaveSession(false, CurrentPositionMilliseconds());
         try
         {
             const int steps = 30;
@@ -471,8 +507,9 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private async Task ResumeWithFadeInAsync()
     {
+        if (_sleepDeadline.HasElapsed) return;
         var token = BeginFade();
-        if (_player is null || !RequestAudioFocus()) return;
+        if (_player is null || !_playerPrepared || !RequestAudioFocus()) return;
         var targetVolume = CurrentVolume();
         try
         {
@@ -522,7 +559,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private bool IsPlaying()
     {
-        try { return _player?.IsPlaying == true; }
+        try { return _playerPrepared && _player?.IsPlaying == true; }
         catch (Exception) { return false; }
     }
 
@@ -538,8 +575,8 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private void PublishState(bool save = true)
     {
         var item = _queue.Count > 0 ? _queue[_index] : null;
-        var duration = ToPlaybackMilliseconds(_player?.Duration ?? 0);
-        var position = ToPlaybackMilliseconds(_player?.CurrentPosition ?? 0);
+        var duration = _playerPrepared ? ToPlaybackMilliseconds(_player?.Duration ?? 0) : 0;
+        var position = CurrentPositionMilliseconds();
         var playing = IsPlaying();
         if (item is not null)
         {
@@ -559,7 +596,10 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private void StartPositionUpdates()
     {
         _positionTimer?.Dispose();
-        _positionTimer = new Timer(_ => PublishState(), null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
+        _positionTimer = new Timer(_ => MainThread.BeginInvokeOnMainThread(() =>
+        {
+            if (_positionTimer is not null) PublishState();
+        }), null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
     }
 
     private void SaveSession(bool playing, int positionMilliseconds)
@@ -574,10 +614,10 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             .PutString("queue", serializedQueue)?
             .PutInt("index", _index)?
             .PutInt("position", positionMilliseconds)?
-            .PutBoolean("playing", playing)?
+            .PutBoolean("playing", playing && !_sleepDeadline.HasElapsed)?
             .PutBoolean("shuffle", _shuffle)?
             .PutBoolean("repeat", _repeatTrack)?
-            .PutLong("timerEnd", _timerEndUtc?.ToUnixTimeMilliseconds() ?? 0)?
+            .PutLong("timerEnd", _sleepDeadline.EndsAt?.ToUnixTimeMilliseconds() ?? 0)?
             .PutLong("volume", BitConverter.DoubleToInt64Bits(_volume))?
             .Apply();
         _lastSessionSaveUtc = DateTimeOffset.UtcNow;
@@ -610,9 +650,9 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         _repeatTrack = preferences.GetBoolean("repeat", false);
         _volume = Math.Clamp(BitConverter.Int64BitsToDouble(preferences.GetLong("volume", BitConverter.DoubleToInt64Bits(.7))), 0, 1);
         var timerEnd = preferences.GetLong("timerEnd", 0);
-        _timerEndUtc = timerEnd > DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+        _sleepDeadline.Restart(timerEnd > DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
             ? DateTimeOffset.FromUnixTimeMilliseconds(timerEnd)
-            : null;
+            : null);
         ArmTimer();
         OpenCurrent(preferences.GetInt("position", 0) / 1000d);
     }
@@ -692,6 +732,24 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private int ToPlaybackMilliseconds(int mediaMilliseconds) =>
         (int)Math.Clamp(mediaMilliseconds / CurrentSpeed(), 0, int.MaxValue);
 
+    private int CurrentPositionMilliseconds() => _playerPrepared
+        ? ToPlaybackMilliseconds(_player?.CurrentPosition ?? 0)
+        : 0;
+
+    private void PrepareUserPlayback()
+    {
+        if (_sleepDeadline.HasElapsed) _sleepDeadline.Restart(null);
+        CancelSleepFade();
+    }
+
+    private void CancelSleepFade()
+    {
+        _sleepFadeCancellation?.Cancel();
+        _sleepFadeCancellation?.Dispose();
+        _sleepFadeCancellation = null;
+        SetPlayerVolume();
+    }
+
     private double EffectiveCurrentVolume() => CurrentVolume() * _duckVolumeFactor;
 
     private void SetPlayerVolume()
@@ -716,10 +774,10 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private sealed class SessionCallback(AndroidPlaybackService owner) : MediaSession.Callback
     {
-        public override void OnPlay() => owner.Play();
+        public override void OnPlay() => owner.Play(userInitiated: true);
         public override void OnPause() => owner.Pause();
-        public override void OnSkipToNext() => owner.Move(1, forceSequential: !owner._shuffle);
-        public override void OnSkipToPrevious() => owner.Move(-1, forceSequential: true);
+        public override void OnSkipToNext() => owner.Move(1, forceSequential: !owner._shuffle, userInitiated: true);
+        public override void OnSkipToPrevious() => owner.Move(-1, forceSequential: true, userInitiated: true);
         public override void OnSeekTo(long pos) => owner.Seek(pos / 1000d);
         public override void OnStop() => owner.StopPlayback();
     }
