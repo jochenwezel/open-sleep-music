@@ -22,6 +22,7 @@ public partial class MainPage : ContentPage
     private readonly HttpClient _httpClient;
     private readonly ArtworkCache _artworkCache;
     private readonly ArtworkManifestClient _artworkManifest;
+    private readonly CollectionArtworkDownloader _artworkDownloader;
     private readonly LocalLibraryScanner _libraryScanner = new();
     private readonly LocalLibraryManager _libraryManager = new();
     private readonly AppStateStore _stateStore = new();
@@ -97,6 +98,7 @@ public partial class MainPage : ContentPage
             _httpClient,
             new Uri("https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-catalog/artwork-catalog.json"),
             downloadLog);
+        _artworkDownloader = new CollectionArtworkDownloader(_artworkManifest, _artworkCache);
         _worldCards = BuiltInCatalog.SleepWorlds.Select(world => new SleepWorldCard(world)).ToArray();
         WorldsView.ItemsSource = _worldCards;
 
@@ -375,7 +377,7 @@ public partial class MainPage : ContentPage
         var progress = new Progress<DownloadProgress>(value =>
         {
             if (cancellation.IsCancellationRequested || !card.IsDownloading) return;
-            DownloadProgress.Progress = value.Total == 0 ? 0 : (double)value.Completed / value.Total;
+            DownloadProgress.Progress = value.Total == 0 ? 0 : .8 * value.Completed / value.Total;
             if (value.Completed > 0)
             {
                 _ = RefreshLibraryAsync(preserveStatus: true);
@@ -391,12 +393,33 @@ public partial class MainPage : ContentPage
         try
         {
             var result = await downloader.DownloadAsync(card.World, _downloadRoot, progress, cancellation.Token);
+            await RefreshLibraryAsync(preserveStatus: true);
+            var localTracks = _library
+                .Where(track => track.SleepWorld.Id == card.World.Id)
+                .Select(track => track.Track)
+                .ToArray();
+            var artworkProgress = new Progress<ArtworkDownloadProgress>(value =>
+            {
+                if (cancellation.IsCancellationRequested || !card.IsDownloading) return;
+                DownloadProgress.Progress = value.Total == 0 ? 1 : .8 + (.2 * value.Completed / value.Total);
+                if (!string.IsNullOrWhiteSpace(value.CurrentTitle))
+                {
+                    StatusLabel.Text = AppText.Pick(
+                        $"Lade Bild für {value.CurrentTitle} …",
+                        $"Downloading artwork for {value.CurrentTitle} …");
+                }
+            });
+            var artwork = await _artworkDownloader.DownloadAsync(
+                localTracks,
+                Path.Combine(FileSystem.AppDataDirectory, "artwork"),
+                artworkProgress,
+                cancellation.Token);
+            DownloadProgress.Progress = 1;
             StatusLabel.Text = result.AvailableCount == 0
                 ? AppText.Pick("Derzeit sind keine Titel verfügbar. Bitte später erneut versuchen.", "No tracks are currently available. Please try again later.")
                 : isRepair
-                    ? AppText.Pick($"{card.DisplayName}: Prüfung abgeschlossen, {result.AvailableCount} Titel verfügbar.", $"{card.DisplayName}: check complete, {result.AvailableCount} tracks available.")
-                    : AppText.Pick($"{card.DisplayName}: {result.AvailableCount} Titel sind offline verfügbar.", $"{card.DisplayName}: {result.AvailableCount} tracks available offline.");
-            await RefreshLibraryAsync(preserveStatus: true);
+                    ? AppText.Pick($"{card.DisplayName}: Prüfung abgeschlossen, {result.AvailableCount} Titel und {artwork.AvailableCount} Titelbilder verfügbar.", $"{card.DisplayName}: check complete, {result.AvailableCount} tracks and {artwork.AvailableCount} track images available.")
+                    : AppText.Pick($"{card.DisplayName}: {result.AvailableCount} Titel und {artwork.AvailableCount} Titelbilder sind offline verfügbar.", $"{card.DisplayName}: {result.AvailableCount} tracks and {artwork.AvailableCount} track images are available offline.");
         }
         catch (OperationCanceledException)
         {
