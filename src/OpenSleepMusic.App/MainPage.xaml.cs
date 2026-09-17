@@ -476,6 +476,21 @@ public partial class MainPage : ContentPage
             return;
         }
 
+        await OpenWorldAsync(card);
+    }
+
+    private async void OnWorldCardClicked(object? sender, EventArgs e)
+    {
+        if (_isOpeningWorld || sender is not Button { CommandParameter: SleepWorldCard card })
+        {
+            return;
+        }
+
+        await OpenWorldAsync(card);
+    }
+
+    private async Task OpenWorldAsync(SleepWorldCard card)
+    {
         _isOpeningWorld = true;
         try
         {

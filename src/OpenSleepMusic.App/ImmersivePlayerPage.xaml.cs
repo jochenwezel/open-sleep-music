@@ -126,8 +126,8 @@ public partial class ImmersivePlayerPage : ContentPage
             state.IsBlocked
                 ? AppText.Pick("Aktueller Titel ist blockiert", "Current track is blocked")
                 : AppText.Pick("Aktuellen Titel blockieren", "Block current track"));
-        PlayButton.Text = FloatingPlayButton.Text = state.IsPlaying ? "⏸" : "▶";
-        RepeatButton.Text = state.RepeatTrack ? "🔂" : "🔁";
+        PlayButton.Text = FloatingPlayButton.Text = state.IsPlaying ? "⏸︎" : "▶︎";
+        RepeatButton.Text = state.RepeatTrack ? "↻¹" : "↻";
         RepeatButton.TextColor = state.RepeatTrack ? Color.FromArgb("#AFA7FF") : Color.FromArgb("#C9C5D8");
         SemanticProperties.SetDescription(
             RepeatButton,
@@ -161,20 +161,20 @@ public partial class ImmersivePlayerPage : ContentPage
         BackgroundColor = Color.FromArgb(theme.StartColor);
         if (animateMotif && motifChanged)
         {
-            _ = TransitionMotifAsync(theme.MotifAsset, ++_motifTransitionVersion);
+            _ = TransitionMotifAsync(ImageSource.FromFile(theme.MotifAsset), ++_motifTransitionVersion);
         }
         else
         {
-            MotifImage.Source = theme.MotifAsset;
+            MotifImage.Source = ImageSource.FromFile(theme.MotifAsset);
             MotifImage.Opacity = 0.88;
         }
     }
 
-    private async Task TransitionMotifAsync(string asset, int version)
+    private async Task TransitionMotifAsync(ImageSource source, int version)
     {
         await MotifImage.FadeToAsync(0, 250, Easing.SinInOut);
         if (version != _motifTransitionVersion || !IsLoaded) return;
-        MotifImage.Source = asset;
+        MotifImage.Source = source;
         await MotifImage.FadeToAsync(0.88, 650, Easing.SinInOut);
     }
 
@@ -190,7 +190,7 @@ public partial class ImmersivePlayerPage : ContentPage
         _artworkCancellation = new CancellationTokenSource();
         if (track is null)
         {
-            _ = TransitionMotifAsync(fallbackAsset, ++_motifTransitionVersion);
+            _ = TransitionMotifAsync(ImageSource.FromFile(fallbackAsset), ++_motifTransitionVersion);
             _ = TransitionSongMotifAsync(null, ++_songMotifTransitionVersion);
             return;
         }
@@ -203,24 +203,37 @@ public partial class ImmersivePlayerPage : ContentPage
         {
             var artwork = await _owner.GetArtworkAsync(track, cancellationToken);
             if (cancellationToken.IsCancellationRequested || key != _artworkRequestKey) return;
+            var backgroundSource = artwork.BackgroundPath is null
+                ? ImageSource.FromFile(fallbackAsset)
+                : await LoadCachedImageSourceAsync(artwork.BackgroundPath, cancellationToken);
+            var songMotifSource = artwork.SongMotifPath is null
+                ? null
+                : await LoadCachedImageSourceAsync(artwork.SongMotifPath, cancellationToken);
+            if (cancellationToken.IsCancellationRequested || key != _artworkRequestKey) return;
             await Task.WhenAll(
-                TransitionMotifAsync(artwork.BackgroundPath ?? fallbackAsset, ++_motifTransitionVersion),
-                TransitionSongMotifAsync(artwork.SongMotifPath, ++_songMotifTransitionVersion));
+                TransitionMotifAsync(backgroundSource, ++_motifTransitionVersion),
+                TransitionSongMotifAsync(songMotifSource, ++_songMotifTransitionVersion));
         }
         catch (OperationCanceledException) { }
     }
 
-    private async Task TransitionSongMotifAsync(string? asset, int version)
+    private async Task TransitionSongMotifAsync(ImageSource? source, int version)
     {
         await SongMotifImage.FadeToAsync(0, 250, Easing.SinInOut);
         if (version != _songMotifTransitionVersion || !IsLoaded) return;
-        SongMotifImage.Source = asset;
-        SongMotifImage.IsVisible = asset is not null;
-        if (asset is not null)
+        SongMotifImage.Source = source;
+        SongMotifImage.IsVisible = source is not null;
+        if (source is not null)
         {
             await SongMotifImage.FadeToAsync(0.78, 650, Easing.SinInOut);
             if (version == _songMotifTransitionVersion) StartSongMotifDrift();
         }
+    }
+
+    private static async Task<ImageSource> LoadCachedImageSourceAsync(string path, CancellationToken cancellationToken)
+    {
+        var bytes = await File.ReadAllBytesAsync(path, cancellationToken);
+        return ImageSource.FromStream(() => new MemoryStream(bytes, writable: false));
     }
 
     private void StartAmbientAnimations()

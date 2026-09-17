@@ -37,17 +37,17 @@
                     <Label Grid.Column="2" x:Name="DurationLabel" Text="0:00" TextColor="White" VerticalOptions="Center" />
                 </Grid>
                 <Grid Grid.Row="1" ColumnDefinitions="*,*,1.35*,*,*" ColumnSpacing="8">
-                    <Button Text="⏮" Clicked="OnPreviousClicked" BackgroundColor="Transparent" TextColor="White" />
+                    <Button Text="|◀" Clicked="OnPreviousClicked" BackgroundColor="Transparent" TextColor="White" />
                     <Button Grid.Column="1" x:Name="RepeatButton" Text="↻" Clicked="OnRepeatClicked" BackgroundColor="Transparent" TextColor="#C9C5D8" />
-                    <Button Grid.Column="2" x:Name="PlayButton" Text="▶" FontSize="28" Clicked="OnPlayClicked" BackgroundColor="#7367F0" TextColor="White" CornerRadius="28" HeightRequest="58" />
+                    <Button Grid.Column="2" x:Name="PlayButton" Text="▶︎" FontSize="32" Clicked="OnPlayClicked" BackgroundColor="Transparent" TextColor="#AFA7FF" HeightRequest="58" />
                     <Button Grid.Column="3" x:Name="TimerButton" Text="Zzz" Clicked="OnTimerClicked" BackgroundColor="Transparent" TextColor="#C9C5D8" />
-                    <Button Grid.Column="4" Text="⏭" Clicked="OnNextClicked" BackgroundColor="Transparent" TextColor="White" />
+                    <Button Grid.Column="4" Text="▶|" Clicked="OnNextClicked" BackgroundColor="Transparent" TextColor="White" />
                 </Grid>
             </Grid>
         </Grid>
 
-        <Button x:Name="FloatingPlayButton" IsVisible="False" Text="▶" FontSize="30" WidthRequest="68" HeightRequest="68"
+        <Button x:Name="FloatingPlayButton" IsVisible="False" Text="▶︎" FontSize="34" WidthRequest="68" HeightRequest="68"
                 HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,26" Clicked="OnPlayClicked"
-                BackgroundColor="#CC7367F0" TextColor="White" CornerRadius="34" ZIndex="10" />
+                BackgroundColor="Transparent" TextColor="#AFA7FF" ZIndex="10" />
     </Grid>
 </ContentPage>
