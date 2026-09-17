@@ -21,6 +21,7 @@ public partial class MainPage : ContentPage
     private static readonly string[] RepeatModeLabels = ["Themensammlung", "Einzeltitel"];
     private readonly HttpClient _httpClient;
     private readonly ArtworkCache _artworkCache;
+    private readonly ArtworkManifestClient _artworkManifest;
     private readonly LocalLibraryScanner _libraryScanner = new();
     private readonly LocalLibraryManager _libraryManager = new();
     private readonly AppStateStore _stateStore = new();
@@ -92,6 +93,10 @@ public partial class MainPage : ContentPage
             "OpenSleepMusic/0.1 (+https://github.com/jochenwezel/open-sleep-music)");
         var downloadLog = new FileDownloadLogSink(Path.Combine(FileSystem.AppDataDirectory, "logs", "downloads.jsonl"));
         _artworkCache = new ArtworkCache(_httpClient, downloadLog);
+        _artworkManifest = new ArtworkManifestClient(
+            _httpClient,
+            new Uri("https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-catalog/artwork-catalog.json"),
+            downloadLog);
         _worldCards = BuiltInCatalog.SleepWorlds.Select(world => new SleepWorldCard(world)).ToArray();
         WorldsView.ItemsSource = _worldCards;
 
@@ -1172,8 +1177,12 @@ public partial class MainPage : ContentPage
 
     internal bool ReducedMotion => _stateStore.LoadReducedMotion();
 
-    internal Task<string?> GetArtworkAsync(AudioTrack track, CancellationToken cancellationToken = default) =>
-        _artworkCache.GetAsync(track, Path.Combine(FileSystem.AppDataDirectory, "artwork"), cancellationToken);
+    internal async Task<string?> GetArtworkAsync(AudioTrack track, CancellationToken cancellationToken = default)
+    {
+        var root = Path.Combine(FileSystem.AppDataDirectory, "artwork");
+        var current = await _artworkManifest.ResolveAsync(track, root);
+        return await _artworkCache.GetAsync(current, root, cancellationToken);
+    }
 
     internal ImmersivePlayerState GetImmersiveState(string worldId)
     {
