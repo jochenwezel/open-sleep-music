@@ -1200,11 +1200,22 @@ public partial class MainPage : ContentPage
 
     internal bool ReducedMotion => _stateStore.LoadReducedMotion();
 
-    internal async Task<string?> GetArtworkAsync(AudioTrack track, CancellationToken cancellationToken = default)
+    internal async Task<PlaybackArtworkPaths> GetArtworkAsync(AudioTrack track, CancellationToken cancellationToken = default)
     {
         var root = Path.Combine(FileSystem.AppDataDirectory, "artwork");
         var current = await _artworkManifest.ResolveAsync(track, root);
-        return await _artworkCache.GetAsync(current, root, cancellationToken);
+        var backgroundTask = _artworkCache.GetAsync(current, root, cancellationToken);
+        var songMotifTask = current.SongMotifUri is null
+            ? Task.FromResult<string?>(null)
+            : _artworkCache.GetAsync(current with
+            {
+                Id = $"{current.Id}:song-motif",
+                ArtworkUri = current.SongMotifUri,
+                ArtworkFileName = current.SongMotifFileName,
+                ArtworkSha256 = current.SongMotifSha256
+            }, root, cancellationToken);
+        await Task.WhenAll(backgroundTask, songMotifTask);
+        return new(backgroundTask.Result, songMotifTask.Result);
     }
 
     internal ImmersivePlayerState GetImmersiveState(string worldId)

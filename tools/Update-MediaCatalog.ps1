@@ -187,14 +187,16 @@ $lullabyArtwork = @{
 }
 foreach ($worldEntry in $worlds.GetEnumerator()) {
     foreach ($track in $worldEntry.Value.tracks) {
-        $trackArtwork = if ($worldEntry.Key -eq 'lullabies' -and $lullabyArtwork.ContainsKey($track.id)) {
-            $lullabyArtwork[$track.id]
-        } else {
-            $artwork[$worldEntry.Key]
-        }
+        $trackArtwork = $artwork[$worldEntry.Key]
         $track['artworkUri'] = "$artworkReleaseBase/$($trackArtwork.file)"
         $track['artworkFileName'] = $trackArtwork.file
         $track['artworkSha256'] = $trackArtwork.sha256
+        if ($worldEntry.Key -eq 'lullabies' -and $lullabyArtwork.ContainsKey($track.id)) {
+            $songMotif = $lullabyArtwork[$track.id]
+            $track['songMotifUri'] = "$artworkReleaseBase/$($songMotif.file)"
+            $track['songMotifFileName'] = $songMotif.file
+            $track['songMotifSha256'] = $songMotif.sha256
+        }
     }
 }
 

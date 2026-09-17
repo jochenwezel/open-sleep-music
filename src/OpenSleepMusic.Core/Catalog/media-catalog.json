@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-09-17T01:43:02.0995942+00:00",
+  "generatedAtUtc": "2026-09-17T08:41:14.4566354+00:00",
   "sleepWorlds": [
     {
       "id": "quiet-classics",
@@ -2685,9 +2685,12 @@
           ],
           "ensembleType": "solo",
           "playbackSpeed": 0.833333,
-          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_lullaby_sleepy_child.png",
-          "artworkFileName": "motif_lullaby_sleepy_child.png",
-          "artworkSha256": "19b304a437287e6ce4cfab313225237bd2623438777cf905f311a0c27cf5aa55"
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/sleepy_bear_moon.png",
+          "artworkFileName": "sleepy_bear_moon.png",
+          "artworkSha256": "12039a2dbc713d6281fb4bc6c171cc7821843aec587a2c16d5c948e513f0a455",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_lullaby_sleepy_child.png",
+          "songMotifFileName": "motif_lullaby_sleepy_child.png",
+          "songMotifSha256": "19b304a437287e6ce4cfab313225237bd2623438777cf905f311a0c27cf5aa55"
         },
         {
           "id": "burgmuller-berceuse-op-109-no-7",
@@ -2705,9 +2708,12 @@
           ],
           "ensembleType": "solo",
           "playbackSpeed": 0.833333,
-          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_lullaby_vine.png",
-          "artworkFileName": "motif_lullaby_vine.png",
-          "artworkSha256": "5daba8633f8e450ad70969a85fc969d70c9686686bcba4228f3b6d81a99cdc31"
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/sleepy_bear_moon.png",
+          "artworkFileName": "sleepy_bear_moon.png",
+          "artworkSha256": "12039a2dbc713d6281fb4bc6c171cc7821843aec587a2c16d5c948e513f0a455",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_lullaby_vine.png",
+          "songMotifFileName": "motif_lullaby_vine.png",
+          "songMotifSha256": "5daba8633f8e450ad70969a85fc969d70c9686686bcba4228f3b6d81a99cdc31"
         },
         {
           "id": "music-box-schlafe-mein-prinzchen",
@@ -2727,7 +2733,10 @@
           "playbackSpeed": 0.833333,
           "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/sleepy_bear_moon.png",
           "artworkFileName": "sleepy_bear_moon.png",
-          "artworkSha256": "12039a2dbc713d6281fb4bc6c171cc7821843aec587a2c16d5c948e513f0a455"
+          "artworkSha256": "12039a2dbc713d6281fb4bc6c171cc7821843aec587a2c16d5c948e513f0a455",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/sleepy_bear_moon.png",
+          "songMotifFileName": "sleepy_bear_moon.png",
+          "songMotifSha256": "12039a2dbc713d6281fb4bc6c171cc7821843aec587a2c16d5c948e513f0a455"
         },
         {
           "id": "music-box-guten-abend-gute-nacht",
@@ -2745,9 +2754,12 @@
           ],
           "ensembleType": "solo",
           "playbackSpeed": 0.833333,
-          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/sleepy_lamb_star.png",
-          "artworkFileName": "sleepy_lamb_star.png",
-          "artworkSha256": "dda54da1b91f317ab83061af55ccf00e1b161c1fc367fe8e626181e563b41b06"
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/sleepy_bear_moon.png",
+          "artworkFileName": "sleepy_bear_moon.png",
+          "artworkSha256": "12039a2dbc713d6281fb4bc6c171cc7821843aec587a2c16d5c948e513f0a455",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/sleepy_lamb_star.png",
+          "songMotifFileName": "sleepy_lamb_star.png",
+          "songMotifSha256": "dda54da1b91f317ab83061af55ccf00e1b161c1fc367fe8e626181e563b41b06"
         },
         {
           "id": "antti-luode-another-lullaby",
@@ -2765,9 +2777,12 @@
           ],
           "ensembleType": "solo",
           "playbackSpeed": 0.833333,
-          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_lullaby_boat.png",
-          "artworkFileName": "motif_lullaby_boat.png",
-          "artworkSha256": "5f12ded5d87122b8714eb88d29c35ee3082a5b9554545a131d019c4a4a26216f"
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/sleepy_bear_moon.png",
+          "artworkFileName": "sleepy_bear_moon.png",
+          "artworkSha256": "12039a2dbc713d6281fb4bc6c171cc7821843aec587a2c16d5c948e513f0a455",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_lullaby_boat.png",
+          "songMotifFileName": "motif_lullaby_boat.png",
+          "songMotifSha256": "5f12ded5d87122b8714eb88d29c35ee3082a5b9554545a131d019c4a4a26216f"
         }
       ]
     }

@@ -17,7 +17,10 @@ public sealed record AudioTrack(
     string? EnsembleType = null,
     Uri? ArtworkUri = null,
     string? ArtworkFileName = null,
-    string? ArtworkSha256 = null)
+    string? ArtworkSha256 = null,
+    Uri? SongMotifUri = null,
+    string? SongMotifFileName = null,
+    string? SongMotifSha256 = null)
 {
     public double PlaybackDurationSeconds => DurationSeconds / Math.Max(PlaybackSpeed, 0.01);
 }

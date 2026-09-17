@@ -8,7 +8,13 @@ internal static class SystemVolumeSnapshot
 
     public static void Publish(double value)
     {
-        Value = Math.Clamp(value, 0, 1);
+        var normalized = Math.Clamp(value, 0, 1);
+        if (Math.Abs(Value - normalized) <= .001)
+        {
+            return;
+        }
+
+        Value = normalized;
         Changed?.Invoke(null, Value);
     }
 

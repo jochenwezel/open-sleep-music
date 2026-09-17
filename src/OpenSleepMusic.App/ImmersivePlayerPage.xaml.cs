@@ -14,7 +14,9 @@ public partial class ImmersivePlayerPage : ContentPage
     internal string WorldId => _worldId;
     private bool _animateBack;
     private bool _fadeMotifBack;
+    private bool _driftSongMotifBack;
     private int _motifTransitionVersion;
+    private int _songMotifTransitionVersion;
     private string? _artworkRequestKey;
     private CancellationTokenSource? _artworkCancellation;
     private readonly VolumeOverlayView _volumeOverlay;
@@ -34,6 +36,37 @@ public partial class ImmersivePlayerPage : ContentPage
         _refreshTimer.IsRepeating = true;
         Loaded += (_, _) => StartRefreshing();
         Unloaded += (_, _) => StopRefreshing();
+        SizeChanged += (_, _) => ApplySongMotifLayout();
+    }
+
+    private void ApplySongMotifLayout()
+    {
+        if (Width <= 0 || Height <= 0) return;
+        var landscape = Width > Height;
+        TopBar.RowDefinitions.Clear();
+        if (landscape)
+        {
+            TopBar.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
+            Grid.SetRow(TitleLabel, 0);
+            Grid.SetColumn(TitleLabel, 2);
+            Grid.SetColumnSpan(TitleLabel, 1);
+            TopBar.RowSpacing = 0;
+        }
+        else
+        {
+            TopBar.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
+            TopBar.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
+            Grid.SetRow(TitleLabel, 1);
+            Grid.SetColumn(TitleLabel, 0);
+            Grid.SetColumnSpan(TitleLabel, 6);
+            TopBar.RowSpacing = 8;
+        }
+        var motifSize = landscape ? Math.Min(190d, Height * 0.48d) : Math.Min(280d, Width * 0.68d);
+        SongMotifImage.WidthRequest = motifSize;
+        SongMotifImage.HeightRequest = motifSize;
+        SongMotifImage.Margin = landscape
+            ? new Thickness(18, 12, 68, 96)
+            : new Thickness(24, 24, 36, 122);
     }
 
     protected override void OnAppearing()
@@ -147,7 +180,9 @@ public partial class ImmersivePlayerPage : ContentPage
 
     private void RequestArtwork(AudioTrack? track, string fallbackAsset)
     {
-        var key = track is null ? $"fallback:{fallbackAsset}" : $"{track.Id}:{track.ArtworkSha256}";
+        var key = track is null
+            ? $"fallback:{fallbackAsset}"
+            : $"{track.Id}:{track.ArtworkSha256}:{track.SongMotifSha256}";
         if (_artworkRequestKey == key) return;
         _artworkRequestKey = key;
         _artworkCancellation?.Cancel();
@@ -156,6 +191,7 @@ public partial class ImmersivePlayerPage : ContentPage
         if (track is null)
         {
             _ = TransitionMotifAsync(fallbackAsset, ++_motifTransitionVersion);
+            _ = TransitionSongMotifAsync(null, ++_songMotifTransitionVersion);
             return;
         }
         _ = LoadArtworkAsync(track, fallbackAsset, key, _artworkCancellation.Token);
@@ -165,11 +201,26 @@ public partial class ImmersivePlayerPage : ContentPage
     {
         try
         {
-            var path = await _owner.GetArtworkAsync(track, cancellationToken);
+            var artwork = await _owner.GetArtworkAsync(track, cancellationToken);
             if (cancellationToken.IsCancellationRequested || key != _artworkRequestKey) return;
-            await TransitionMotifAsync(path ?? fallbackAsset, ++_motifTransitionVersion);
+            await Task.WhenAll(
+                TransitionMotifAsync(artwork.BackgroundPath ?? fallbackAsset, ++_motifTransitionVersion),
+                TransitionSongMotifAsync(artwork.SongMotifPath, ++_songMotifTransitionVersion));
         }
         catch (OperationCanceledException) { }
+    }
+
+    private async Task TransitionSongMotifAsync(string? asset, int version)
+    {
+        await SongMotifImage.FadeToAsync(0, 250, Easing.SinInOut);
+        if (version != _songMotifTransitionVersion || !IsLoaded) return;
+        SongMotifImage.Source = asset;
+        SongMotifImage.IsVisible = asset is not null;
+        if (asset is not null)
+        {
+            await SongMotifImage.FadeToAsync(0.78, 650, Easing.SinInOut);
+            if (version == _songMotifTransitionVersion) StartSongMotifDrift();
+        }
     }
 
     private void StartAmbientAnimations()
@@ -177,6 +228,7 @@ public partial class ImmersivePlayerPage : ContentPage
         if (!IsLoaded || _owner.ReducedMotion) return;
         StartColorAnimation();
         StartMotifFade();
+        StartSongMotifDrift();
     }
 
     private void StartColorAnimation()
@@ -212,6 +264,28 @@ public partial class ImmersivePlayerPage : ContentPage
     {
         Scene.AbortAnimation("ambient-color");
         MotifImage.AbortAnimation("ambient-motif");
+        SongMotifImage.AbortAnimation("ambient-song-motif");
+        SongMotifImage.TranslationY = 0;
+    }
+
+    private void StartSongMotifDrift()
+    {
+        SongMotifImage.AbortAnimation("ambient-song-motif");
+        if (!IsLoaded || _owner.ReducedMotion || !SongMotifImage.IsVisible) return;
+        var from = _driftSongMotifBack ? -3d : 3d;
+        var to = _driftSongMotifBack ? 3d : -3d;
+        SongMotifImage.Animate(
+            "ambient-song-motif",
+            value => SongMotifImage.TranslationY = from + ((to - from) * value),
+            50,
+            12_000,
+            Easing.SinInOut,
+            (_, cancelled) =>
+            {
+                if (cancelled) return;
+                _driftSongMotifBack = !_driftSongMotifBack;
+                StartSongMotifDrift();
+            });
     }
 
     private void OnSceneTapped(object? sender, TappedEventArgs e)
@@ -241,3 +315,5 @@ public partial class ImmersivePlayerPage : ContentPage
 }
 
 internal sealed record ImmersivePlayerState(string? TrackId, string? WorldId, string? Title, bool IsPlaying, bool IsFavorite, bool IsBlocked, bool RepeatTrack, bool IsSleepTimerActive, string TimerText, TimeSpan Position, TimeSpan Duration, AudioTrack? Track);
+
+internal sealed record PlaybackArtworkPaths(string? BackgroundPath, string? SongMotifPath);

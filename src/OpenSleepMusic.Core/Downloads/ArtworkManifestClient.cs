@@ -13,12 +13,21 @@ public sealed partial class ArtworkManifestClient(HttpClient httpClient, Uri man
     {
         _loadTask ??= LoadAsync(cacheRoot);
         var overrides = await _loadTask;
-        return overrides.TryGetValue(fallback.Id, out var entry) ? fallback with
+        if (!overrides.TryGetValue(fallback.Id, out var entry)) return fallback;
+
+        // A legacy one-layer entry must not collapse a newer embedded background + song-motif
+        // assignment back into one image. Newly exported manifests carry both layers together.
+        if (fallback.SongMotifUri is not null && entry.SongMotifUri is null) return fallback;
+
+        return fallback with
         {
             ArtworkUri = entry.ArtworkUri,
             ArtworkFileName = entry.ArtworkFileName,
-            ArtworkSha256 = entry.ArtworkSha256
-        } : fallback;
+            ArtworkSha256 = entry.ArtworkSha256,
+            SongMotifUri = entry.SongMotifUri ?? fallback.SongMotifUri,
+            SongMotifFileName = entry.SongMotifFileName ?? fallback.SongMotifFileName,
+            SongMotifSha256 = entry.SongMotifSha256 ?? fallback.SongMotifSha256
+        };
     }
 
     private async Task<IReadOnlyDictionary<string, AudioTrack>> LoadAsync(string cacheRoot)
@@ -62,15 +71,27 @@ public sealed partial class ArtworkManifestClient(HttpClient httpClient, Uri man
         {
             if (string.IsNullOrWhiteSpace(entry.TrackId) || entry.ArtworkUri.Scheme != Uri.UriSchemeHttps
                 || !PortablePngName().IsMatch(entry.ArtworkFileName)
-                || !Sha256().IsMatch(entry.ArtworkSha256))
+                || !Sha256().IsMatch(entry.ArtworkSha256)
+                || !IsValidOptionalMotif(entry))
                 throw new InvalidDataException($"Invalid artwork entry '{entry.TrackId}'.");
             if (!result.TryAdd(entry.TrackId, new AudioTrack(
                 entry.TrackId, entry.TrackId, "artwork-catalog", entry.ArtworkUri, entry.ArtworkUri,
                 "project artwork", entry.ArtworkUri, entry.ArtworkFileName,
-                ArtworkUri: entry.ArtworkUri, ArtworkFileName: entry.ArtworkFileName, ArtworkSha256: entry.ArtworkSha256)))
+                ArtworkUri: entry.ArtworkUri, ArtworkFileName: entry.ArtworkFileName, ArtworkSha256: entry.ArtworkSha256,
+                SongMotifUri: entry.SongMotifUri, SongMotifFileName: entry.SongMotifFileName,
+                SongMotifSha256: entry.SongMotifSha256)))
                 throw new InvalidDataException($"Duplicate artwork entry '{entry.TrackId}'.");
         }
         return result;
+    }
+
+    private static bool IsValidOptionalMotif(ArtworkManifestEntry entry)
+    {
+        var values = new object?[] { entry.SongMotifUri, entry.SongMotifFileName, entry.SongMotifSha256 };
+        if (values.All(value => value is null)) return true;
+        return entry.SongMotifUri?.Scheme == Uri.UriSchemeHttps
+            && entry.SongMotifFileName is not null && PortablePngName().IsMatch(entry.SongMotifFileName)
+            && entry.SongMotifSha256 is not null && Sha256().IsMatch(entry.SongMotifSha256);
     }
 
     [GeneratedRegex("^[a-z0-9_-]+\\.png$", RegexOptions.CultureInvariant)]

@@ -86,6 +86,11 @@ public sealed class BuiltInCatalogTests
             Assert.Equal(1 / 1.2, track.PlaybackSpeed, 5);
             Assert.DoesNotContain("vocal", track.Title, StringComparison.OrdinalIgnoreCase);
             Assert.DoesNotContain("song", track.Title, StringComparison.OrdinalIgnoreCase);
+            Assert.NotNull(track.SongMotifUri);
+            Assert.Equal(Uri.UriSchemeHttps, track.SongMotifUri!.Scheme);
+            Assert.Contains("/releases/download/artwork-v1/", track.SongMotifUri.AbsoluteUri, StringComparison.Ordinal);
+            Assert.Matches("^[a-z0-9_-]+\\.png$", track.SongMotifFileName!);
+            Assert.Matches("^[0-9a-f]{64}$", track.SongMotifSha256!);
         });
         Assert.All(
             world.Tracks.Where(track => track.Id.StartsWith("music-box-", StringComparison.Ordinal)),
@@ -94,6 +99,21 @@ public sealed class BuiltInCatalogTests
                 Assert.EndsWith(".mp3", track.FileName, StringComparison.OrdinalIgnoreCase);
                 Assert.Contains("/transcoded/", track.DownloadUri.AbsoluteUri, StringComparison.Ordinal);
             });
+    }
+
+    [Fact]
+    public void CollectionsWithoutPublishedSongMotifsKeepTheSecondLayerEmpty()
+    {
+        var tracks = BuiltInCatalog.SleepWorlds
+            .Where(world => world.Id != "lullabies")
+            .SelectMany(world => world.Tracks);
+
+        Assert.All(tracks, track =>
+        {
+            Assert.Null(track.SongMotifUri);
+            Assert.Null(track.SongMotifFileName);
+            Assert.Null(track.SongMotifSha256);
+        });
     }
 
     [Fact]
