@@ -35,6 +35,41 @@ public sealed class PlaybackSleepDeadlineTests
         Assert.False(deadline.HasElapsed);
     }
 
+    [Fact]
+    public void RestartedServiceDoesNotResumeWhenDeadlineElapsedWhileProcessWasGone()
+    {
+        var clock = new TestClock();
+        var savedDeadline = clock.GetUtcNow().AddMinutes(15);
+        clock.Advance(TimeSpan.FromMinutes(20));
+
+        var restored = new PlaybackSleepDeadline(clock);
+        restored.Restore(savedDeadline, elapsed: false);
+        Assert.True(restored.HasElapsed);
+        Assert.Equal(savedDeadline, restored.EndsAt);
+    }
+
+    [Fact]
+    public void RestartedServiceRetainsConsumedDeadlineEvenWhenUiClearedItsTimestamp()
+    {
+        var restored = new PlaybackSleepDeadline(new TestClock());
+        restored.Restore(null, elapsed: true);
+        Assert.True(restored.HasElapsed);
+        restored.Restart(null);
+        Assert.False(restored.HasElapsed);
+    }
+
+    [Fact]
+    public void RestartedServiceCanResumeBeforeDeadline()
+    {
+        var clock = new TestClock();
+        var savedDeadline = clock.GetUtcNow().AddMinutes(15);
+        var restored = new PlaybackSleepDeadline(clock);
+        restored.Restore(savedDeadline, elapsed: false);
+        Assert.False(restored.HasElapsed);
+        clock.Advance(TimeSpan.FromMinutes(15));
+        Assert.True(restored.HasElapsed);
+    }
+
     private sealed class TestClock : TimeProvider
     {
         private DateTimeOffset _now = new(2026, 9, 17, 20, 0, 0, TimeSpan.Zero);

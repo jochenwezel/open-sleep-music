@@ -618,6 +618,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             .PutBoolean("shuffle", _shuffle)?
             .PutBoolean("repeat", _repeatTrack)?
             .PutLong("timerEnd", _sleepDeadline.EndsAt?.ToUnixTimeMilliseconds() ?? 0)?
+            .PutBoolean("timerElapsed", _sleepDeadline.HasElapsed)?
             .PutLong("volume", BitConverter.DoubleToInt64Bits(_volume))?
             .Apply();
         _lastSessionSaveUtc = DateTimeOffset.UtcNow;
@@ -650,11 +651,13 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         _repeatTrack = preferences.GetBoolean("repeat", false);
         _volume = Math.Clamp(BitConverter.Int64BitsToDouble(preferences.GetLong("volume", BitConverter.DoubleToInt64Bits(.7))), 0, 1);
         var timerEnd = preferences.GetLong("timerEnd", 0);
-        _sleepDeadline.Restart(timerEnd > DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
-            ? DateTimeOffset.FromUnixTimeMilliseconds(timerEnd)
-            : null);
-        ArmTimer();
-        OpenCurrent(preferences.GetInt("position", 0) / 1000d);
+        _sleepDeadline.Restore(
+            timerEnd > 0 ? DateTimeOffset.FromUnixTimeMilliseconds(timerEnd) : null,
+            preferences.GetBoolean("timerElapsed", false));
+        // Retain an elapsed deadline across a process restart. Preparing the saved
+        // track is safe, but only a later explicit user action may start it again.
+        if (!_sleepDeadline.HasElapsed) ArmTimer();
+        OpenCurrent(preferences.GetInt("position", 0) / 1000d, autoPlay: !_sleepDeadline.HasElapsed);
     }
 
     private void ClearSavedSession() =>

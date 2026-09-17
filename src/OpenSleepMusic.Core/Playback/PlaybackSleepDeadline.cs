@@ -22,4 +22,9 @@ public sealed class PlaybackSleepDeadline(TimeProvider? timeProvider = null)
         EndsAt = endsAt;
     }
 
+    public void Restore(DateTimeOffset? endsAt, bool elapsed)
+    {
+        EndsAt = endsAt;
+        _elapsed = elapsed;
+    }
 }
