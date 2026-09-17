@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-09-16T23:45:28.4208477+00:00",
+  "generatedAtUtc": "2026-09-17T01:01:42.1015580+00:00",
   "sleepWorlds": [
     {
       "id": "quiet-classics",
@@ -1465,24 +1465,6 @@
             "recorder"
           ],
           "ensembleType": "duo"
-        },
-        {
-          "id": "vivaldi-cello-concerto-rv-413-largo",
-          "title": "Antonio Vivaldi – Cellokonzert RV 413: II. Largo",
-          "creator": "Advent Chamber Orchestra; cello: Stephen Balderston",
-          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vivaldi%20-%20Cello%20Concerto%20Gmaj%20-%202.%20Largo.ogg",
-          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Vivaldi_-_Cello_Concerto_Gmaj_-_2._Largo.ogg",
-          "license": "CC BY-SA 2.0",
-          "licenseUri": "https://creativecommons.org/licenses/by-sa/2.0/",
-          "fileName": "vivaldi-cello-concerto-rv-413-largo.ogg",
-          "durationSeconds": 237.52,
-          "sha1": "76292d9df6b461f31d8c9dc48fd7435d1ffdc46f",
-          "instrumentation": [
-            "cello",
-            "strings",
-            "continuo"
-          ],
-          "ensembleType": "chamber-orchestra"
         },
         {
           "id": "haydn-cello-concerto-no-1-adagio",

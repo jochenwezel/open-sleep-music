@@ -142,11 +142,6 @@ $harpPilot.instrumentation = @('harp', 'recorder')
 $harpPilot.ensembleType = 'duo'
 $worlds['quiet-classics'].tracks.Add($harpPilot)
 
-$vivaldiCello = New-CommonsTrack 'vivaldi-cello-concerto-rv-413-largo' 'Antonio Vivaldi – Cellokonzert RV 413: II. Largo' 'Advent Chamber Orchestra; cello: Stephen Balderston' 'Vivaldi - Cello Concerto Gmaj - 2. Largo.ogg' 'https://commons.wikimedia.org/wiki/File:Vivaldi_-_Cello_Concerto_Gmaj_-_2._Largo.ogg' 'CC BY-SA 2.0' 'https://creativecommons.org/licenses/by-sa/2.0/' 'vivaldi-cello-concerto-rv-413-largo.ogg' 237.52 '76292d9df6b461f31d8c9dc48fd7435d1ffdc46f'
-$vivaldiCello.instrumentation = @('cello', 'strings', 'continuo')
-$vivaldiCello.ensembleType = 'chamber-orchestra'
-$worlds['quiet-classics'].tracks.Add($vivaldiCello)
-
 $haydnCello = New-CommonsTrack 'haydn-cello-concerto-no-1-adagio' 'Joseph Haydn – Cellokonzert Nr. 1: II. Adagio' 'Metropolitan Chamber Orchestra' "The Metropolitan Chamber Orchestra - Haydn's Cello Concerto No. 1 in C major, Hob.VIIb-1 - II. Adagio.ogg" 'https://commons.wikimedia.org/wiki/File:The_Metropolitan_Chamber_Orchestra_-_Haydn%27s_Cello_Concerto_No._1_in_C_major,_Hob.VIIb-1_-_II._Adagio.ogg' 'Public Domain Dedication' 'https://web.archive.org/web/20230926203737/https://creativecommons.org/licenses/publicdomain/' 'haydn-cello-concerto-no-1-adagio.ogg' 500.12 '19da8d41b3d8b902a27478e8681942750261ef18'
 $haydnCello.instrumentation = @('cello', 'strings')
 $haydnCello.ensembleType = 'chamber-orchestra'

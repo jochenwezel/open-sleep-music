@@ -11,7 +11,6 @@ A composition being in the public domain does **not** automatically make a moder
 | Quiet Classics | 86 | 4.75 h | [Musopen – Complete Works of Frédéric Chopin](https://archive.org/details/musopen-chopin-complete-works-flac) | CC0 1.0 |
 | Quiet Classics | 4 | 15.6 min | [Liszt audio files on Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Audio_files_of_music_by_Franz_Liszt): Consolations 3 and 5, Romance S.169, Au bord d'une source | CC BY-SA 4.0 / 1.0 |
 | Quiet Classics | 1 | 2.3 min | [Medieval Dream by Frank Schröter](https://commons.wikimedia.org/wiki/File:Medieval_Dream_by_Frank_Schr%C3%B6ter.ogg): harp and recorder | CC BY 4.0 |
-| Quiet Classics | 1 | 4.0 min | [Vivaldi Cello Concerto RV 413 – II. Largo](https://commons.wikimedia.org/wiki/File:Vivaldi_-_Cello_Concerto_Gmaj_-_2._Largo.ogg): Stephen Balderston and Advent Chamber Orchestra | CC BY-SA 2.0 |
 | Quiet Classics | 1 | 8.3 min | [Haydn Cello Concerto No. 1 – II. Adagio](https://commons.wikimedia.org/wiki/File:The_Metropolitan_Chamber_Orchestra_-_Haydn%27s_Cello_Concerto_No._1_in_C_major,_Hob.VIIb-1_-_II._Adagio.ogg): Metropolitan Chamber Orchestra | Public Domain Dedication |
 | Gentle Rain / Forest | 13 | 5.40 h | [Relaxing Rain Sounds](https://archive.org/details/relaxingrainsounds) | CC0 1.0 |
 | Rain / Forest / Waves | 4 | 1.66 h | [Nature Sounds (Birds, Rain, Water)](https://archive.org/details/naturesounds-soundtheraphy) | CC0 1.0 |

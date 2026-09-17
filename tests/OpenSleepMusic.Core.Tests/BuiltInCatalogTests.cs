@@ -49,12 +49,15 @@ public sealed class BuiltInCatalogTests
     }
 
     [Fact]
-    public void QuietClassicsContainsReviewedInstrumentDiversityPilot()
+    public void QuietClassicsRetainsReviewedGentleInstrumentDiversity()
     {
         var world = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "quiet-classics");
         Assert.Contains(world.Tracks, track => track.Instrumentation?.Contains("harp") == true);
-        Assert.True(world.Tracks.Count(track => track.Instrumentation?.Contains("cello") == true) >= 3);
-        Assert.True(world.Tracks.Count(track => track.Instrumentation?.Contains("strings") == true) >= 2);
+        Assert.True(world.Tracks.Count(track => track.Instrumentation?.Contains("cello") == true) >= 2);
+        Assert.Contains(world.Tracks, track =>
+            track.Id == "haydn-cello-concerto-no-1-adagio" &&
+            track.Instrumentation?.Contains("strings") == true);
+        Assert.DoesNotContain(world.Tracks, track => track.Id == "vivaldi-cello-concerto-rv-413-largo");
     }
 
     [Fact]
