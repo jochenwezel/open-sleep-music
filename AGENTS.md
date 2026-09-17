@@ -99,7 +99,10 @@ Do not weaken these behaviors when refactoring networking, validation, logging, 
 
 ## Documentation language
 
-Code identifiers and repository-level technical documentation may remain in English. User-facing application text should be clear German unless localization support or the task calls for another language. Keep names, titles, creator credits, and official license names faithful to their sources.
+- Use English for all GitHub-facing communication and metadata. This includes issue and pull-request titles and descriptions, review comments, discussion and issue comments, commit messages, release titles, and release notes.
+- Keep repository-level technical documentation and code identifiers in English.
+- User-facing application text should be clear German unless localization support or the task calls for another language.
+- Keep names, work titles, creator credits, and official license names faithful to their sources even when they are not English.
 
 ## Branch cleanup
 
