@@ -438,14 +438,6 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void OnWorldSelectionChanged(object? sender, SelectionChangedEventArgs e)
-    {
-        if (e.CurrentSelection.FirstOrDefault() is SleepWorldCard card)
-        {
-            SelectWorld(card);
-        }
-    }
-
     private async void OnWorldCardTapped(object? sender, TappedEventArgs e)
     {
         if (_isOpeningWorld || sender is not TapGestureRecognizer { CommandParameter: SleepWorldCard card })
@@ -471,9 +463,9 @@ public partial class MainPage : ContentPage
     private void SelectWorld(SleepWorldCard card, bool persist = true)
     {
         _selectedWorldCard = card;
-        if (WorldsView.SelectedItem != card)
+        foreach (var worldCard in _worldCards)
         {
-            WorldsView.SelectedItem = card;
+            worldCard.SetSelected(worldCard == card);
         }
         if (persist)
         {
@@ -1667,6 +1659,7 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
     private long _sizeBytes;
     private bool _isDownloading;
     private bool _isPlaying;
+    private bool _isSelected;
 
     public SleepWorld World { get; } = world;
     public string DisplayName => AppText.WorldName(World.Id, World.Name);
@@ -1701,6 +1694,8 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
     public bool IsDownloading => _isDownloading;
 
     public bool IsPlaying => _isPlaying;
+
+    public bool IsSelected => _isSelected;
 
     public string ActionText => IsDownloading
         ? AppText.Pick("Download abbrechen", "Cancel download")
@@ -1748,6 +1743,13 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
         _isPlaying = isPlaying;
         OnPropertyChanged(nameof(IsPlaying));
         OnPropertyChanged(nameof(ActionText));
+    }
+
+    public void SetSelected(bool isSelected)
+    {
+        if (_isSelected == isSelected) return;
+        _isSelected = isSelected;
+        OnPropertyChanged(nameof(IsSelected));
     }
 
     private void NotifyStatusChanged([CallerMemberName] string? propertyName = null)

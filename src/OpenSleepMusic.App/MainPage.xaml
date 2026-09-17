@@ -18,7 +18,7 @@
         <Grid x:Name="ContentGrid" Grid.Row="1" RowDefinitions="*" ColumnDefinitions="3*,2*" ColumnSpacing="18">
             <Grid x:Name="WorldsPanel" RowDefinitions="Auto,*" RowSpacing="10">
                 <Label x:Name="WorldsTitleLabel" Text="Themensammlungen" FontSize="19" FontAttributes="Bold" TextColor="#F7F3FF" />
-                <CollectionView Grid.Row="1" x:Name="WorldsView" SelectionMode="Single" SelectionChanged="OnWorldSelectionChanged">
+                <CollectionView Grid.Row="1" x:Name="WorldsView" SelectionMode="None">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout x:Name="WorldsItemsLayout" Orientation="Vertical" Span="2" HorizontalItemSpacing="12" VerticalItemSpacing="12" />
                     </CollectionView.ItemsLayout>
@@ -28,17 +28,12 @@
                                 <Border.GestureRecognizers>
                                     <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnWorldCardTapped" />
                                 </Border.GestureRecognizers>
-                                <VisualStateManager.VisualStateGroups>
-                                    <VisualStateGroup Name="CommonStates">
-                                        <VisualState Name="Normal" />
-                                        <VisualState Name="Selected">
-                                            <VisualState.Setters>
-                                                <Setter Property="Stroke" Value="#8A7FFF" />
-                                                <Setter Property="StrokeThickness" Value="2" />
-                                            </VisualState.Setters>
-                                        </VisualState>
-                                    </VisualStateGroup>
-                                </VisualStateManager.VisualStateGroups>
+                                <Border.Triggers>
+                                    <DataTrigger TargetType="Border" Binding="{Binding IsSelected}" Value="True">
+                                        <Setter Property="Stroke" Value="#8A7FFF" />
+                                        <Setter Property="StrokeThickness" Value="2" />
+                                    </DataTrigger>
+                                </Border.Triggers>
                                 <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
                                 <Grid RowDefinitions="Auto,Auto" RowSpacing="5">
                                     <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*" ColumnSpacing="10" RowSpacing="5">
