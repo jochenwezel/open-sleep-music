@@ -35,7 +35,8 @@
 
 		<!-- Versions -->
 		<ApplicationVersion>24</ApplicationVersion>
-		<ApplicationDisplayVersion>0.1.0-preview.$(ApplicationVersion)</ApplicationDisplayVersion>
+		<ApplicationDisplayVersion>0.1.$(ApplicationVersion)</ApplicationDisplayVersion>
+		<ApplicationDisplayVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">0.1.0-preview.$(ApplicationVersion)</ApplicationDisplayVersion>
 
 		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
 		<WindowsPackageType>None</WindowsPackageType>
