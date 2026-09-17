@@ -57,7 +57,8 @@ public partial class MainPage : ContentPage
     private int _consecutivePlaybackFailures;
     private string? _responsiveLayoutMode;
     private DateTimeOffset? _statusHideAtUtc;
-    private bool _downloadInProgress;
+    private readonly Dictionary<string, CancellationTokenSource> _downloadCancellations = [];
+    private bool _downloadInProgress => _downloadCancellations.Count > 0;
     private bool _isOpeningWorld;
 #if !ANDROID
     private CancellationTokenSource? _sleepFadeCancellation;
@@ -245,6 +246,7 @@ public partial class MainPage : ContentPage
 
         if (card.IsDownloading)
         {
+            if (_downloadCancellations.TryGetValue(card.World.Id, out var cancellation)) cancellation.Cancel();
             return;
         }
 
@@ -265,7 +267,7 @@ public partial class MainPage : ContentPage
             return;
         }
 
-        await DownloadWorldAsync(card, button, isRepair: false);
+        await DownloadWorldAsync(card, isRepair: false);
     }
 
     private async void OnWorldManageClicked(object? sender, EventArgs e)
@@ -296,7 +298,7 @@ public partial class MainPage : ContentPage
             }
             else if (action == AppText.Pick("Sammlung prüfen und reparieren", "Check and repair collection"))
             {
-                await DownloadWorldAsync(card, button, isRepair: true);
+                await DownloadWorldAsync(card, isRepair: true);
             }
             else if (action == AppText.Pick("Sammlung löschen", "Delete collection"))
             {
@@ -328,14 +330,15 @@ public partial class MainPage : ContentPage
         await Navigation.PushModalAsync(page);
     }
 
-    private async Task DownloadWorldAsync(SleepWorldCard card, Button button, bool isRepair)
+    private async Task DownloadWorldAsync(SleepWorldCard card, bool isRepair)
     {
-        _downloadInProgress = true;
+        if (_downloadCancellations.ContainsKey(card.World.Id)) return;
+        using var cancellation = new CancellationTokenSource();
+        _downloadCancellations.Add(card.World.Id, cancellation);
         card.SetDownloadInProgress(true);
         _statusHideAtUtc = null;
         StatusLabel.IsVisible = true;
         DownloadProgress.IsVisible = true;
-        button.IsEnabled = false;
         DownloadProgress.Progress = 0;
         StatusLabel.Text = isRepair
             ? AppText.Pick($"{card.DisplayName} wird geprüft und repariert …", $"Checking and repairing {card.DisplayName} …")
@@ -345,6 +348,7 @@ public partial class MainPage : ContentPage
         var downloader = new SleepWorldDownloader(_httpClient, new FileDownloadLogSink(logPath));
         var progress = new Progress<DownloadProgress>(value =>
         {
+            if (cancellation.IsCancellationRequested || !card.IsDownloading) return;
             DownloadProgress.Progress = value.Total == 0 ? 0 : (double)value.Completed / value.Total;
             if (value.Completed > 0)
             {
@@ -360,7 +364,7 @@ public partial class MainPage : ContentPage
 
         try
         {
-            var result = await downloader.DownloadAsync(card.World, _downloadRoot, progress);
+            var result = await downloader.DownloadAsync(card.World, _downloadRoot, progress, cancellation.Token);
             StatusLabel.Text = result.AvailableCount == 0
                 ? AppText.Pick("Derzeit sind keine Titel verfügbar. Bitte später erneut versuchen.", "No tracks are currently available. Please try again later.")
                 : isRepair
@@ -370,6 +374,7 @@ public partial class MainPage : ContentPage
         }
         catch (OperationCanceledException)
         {
+            await RefreshLibraryAsync(preserveStatus: true);
             StatusLabel.Text = AppText.Pick("Download angehalten.", "Download stopped.");
         }
         catch (Exception exception)
@@ -379,10 +384,9 @@ public partial class MainPage : ContentPage
         }
         finally
         {
-            _downloadInProgress = false;
+            _downloadCancellations.Remove(card.World.Id);
             card.SetDownloadInProgress(false);
-            _statusHideAtUtc = DateTimeOffset.UtcNow.AddSeconds(7);
-            button.IsEnabled = true;
+            _statusHideAtUtc = _downloadInProgress ? null : DateTimeOffset.UtcNow.AddSeconds(7);
         }
     }
 
@@ -1617,10 +1621,8 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
 
     public bool IsPlaying => _isPlaying;
 
-    public bool CanStartAction => !IsDownloading;
-
     public string ActionText => IsDownloading
-        ? AppText.Pick("Wird heruntergeladen …", "Downloading …")
+        ? AppText.Pick("Download abbrechen", "Cancel download")
         : IsPlaying
         ? $"⏸ {AppText.Pick("Pausieren", "Pause")}"
         : IsComplete
@@ -1652,7 +1654,6 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
 
         _isDownloading = isDownloading;
         OnPropertyChanged(nameof(IsDownloading));
-        OnPropertyChanged(nameof(CanStartAction));
         OnPropertyChanged(nameof(ActionText));
     }
 

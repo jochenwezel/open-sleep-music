@@ -48,7 +48,7 @@
                                         <Label Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding StatusText}" FontSize="11" TextColor="#9E9AAF" InputTransparent="True" />
                                     </Grid>
                                     <Grid Grid.Row="1" ColumnDefinitions="*,Auto" ColumnSpacing="8">
-                                        <Button Text="{Binding ActionText}" IsEnabled="{Binding CanStartAction}"
+                                        <Button Text="{Binding ActionText}"
                                                 CommandParameter="{Binding .}" Clicked="OnWorldActionClicked"
                                                 BackgroundColor="#7367F0" TextColor="White" CornerRadius="10" />
                                         <Button Grid.Column="1" Text="⋯" WidthRequest="44" IsEnabled="{Binding HasDownloads}"

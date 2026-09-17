@@ -3,9 +3,12 @@ using OpenSleepMusic.Core.Catalog;
 
 namespace OpenSleepMusic.Core.Downloads;
 
-public sealed class SleepWorldDownloader(HttpClient httpClient, IDownloadLogSink? logSink = null)
+public sealed class SleepWorldDownloader(HttpClient httpClient, IDownloadLogSink? logSink = null, TimeSpan? trackTimeout = null)
 {
     private readonly IDownloadLogSink _logSink = logSink ?? new NullDownloadLogSink();
+    private readonly TimeSpan _trackTimeout = trackTimeout is { } timeout && timeout <= TimeSpan.Zero
+        ? throw new ArgumentOutOfRangeException(nameof(trackTimeout))
+        : trackTimeout ?? TimeSpan.FromMinutes(15);
 
     public async Task<DownloadBatchResult> DownloadAsync(
         SleepWorld sleepWorld,
@@ -74,13 +77,16 @@ public sealed class SleepWorldDownloader(HttpClient httpClient, IDownloadLogSink
         CancellationToken cancellationToken)
     {
         var temporaryPath = targetPath + ".part";
+        using var timeoutSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+        timeoutSource.CancelAfter(_trackTimeout);
+        var trackToken = timeoutSource.Token;
 
         try
         {
             using var response = await httpClient.GetAsync(
                 track.DownloadUri,
                 HttpCompletionOption.ResponseHeadersRead,
-                cancellationToken);
+                trackToken);
 
             if (response.StatusCode != HttpStatusCode.OK)
             {
@@ -88,13 +94,13 @@ public sealed class SleepWorldDownloader(HttpClient httpClient, IDownloadLogSink
                 return false;
             }
 
-            await using (var source = await response.Content.ReadAsStreamAsync(cancellationToken))
+            await using (var source = await response.Content.ReadAsStreamAsync(trackToken))
             await using (var target = File.Create(temporaryPath))
             {
-                await source.CopyToAsync(target, cancellationToken);
+                await source.CopyToAsync(target, trackToken);
             }
 
-            var validationError = await AudioFileValidator.GetValidationErrorAsync(temporaryPath, track.Sha1, cancellationToken);
+            var validationError = await AudioFileValidator.GetValidationErrorAsync(temporaryPath, track.Sha1, trackToken);
             if (validationError is not null)
             {
                 await LogAsync(
@@ -104,12 +110,18 @@ public sealed class SleepWorldDownloader(HttpClient httpClient, IDownloadLogSink
                 return false;
             }
 
+            trackToken.ThrowIfCancellationRequested();
             File.Move(temporaryPath, targetPath, true);
             return true;
         }
         catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
         {
             throw;
+        }
+        catch (OperationCanceledException) when (timeoutSource.IsCancellationRequested)
+        {
+            await LogAsync(track, $"Track download timed out after {_trackTimeout}", cancellationToken);
+            return false;
         }
         catch (Exception exception)
         {
@@ -118,9 +130,13 @@ public sealed class SleepWorldDownloader(HttpClient httpClient, IDownloadLogSink
         }
         finally
         {
-            if (File.Exists(temporaryPath))
+            try
             {
                 File.Delete(temporaryPath);
+            }
+            catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
+            {
+                await LogAsync(track, $"Partial file could not be removed: {exception.Message}", CancellationToken.None);
             }
         }
     }
