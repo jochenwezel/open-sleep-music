@@ -30,7 +30,9 @@ internal static class AndroidPlaybackBridge
         bool shuffle,
         bool repeatTrack,
         double volume,
-        DateTimeOffset? timerEndUtc)
+        DateTimeOffset? timerEndUtc,
+        bool autoPlay = true,
+        bool userInitiated = false)
     {
         var intent = CreateIntent(ActionLoad);
         intent.PutStringArrayListExtra("ids", queue.Select(item => item.Track.Id).ToArray());
@@ -41,6 +43,8 @@ internal static class AndroidPlaybackBridge
         intent.PutExtra("speeds", queue.Select(item => item.Track.PlaybackSpeed).ToArray());
         intent.PutExtra("index", Math.Max(0, queue.IndexOf(selected)));
         intent.PutExtra("position", Math.Max(0, startSeconds));
+        intent.PutExtra("autoPlay", autoPlay);
+        intent.PutExtra("userInitiated", userInitiated);
         AddSettings(intent, shuffle, repeatTrack, volume, timerEndUtc);
         ContextCompat.StartForegroundService(Platform.AppContext, intent);
     }

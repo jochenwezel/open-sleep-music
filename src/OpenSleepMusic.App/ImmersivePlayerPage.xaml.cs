@@ -7,16 +7,18 @@ namespace OpenSleepMusic.App;
 public partial class ImmersivePlayerPage : ContentPage
 {
     private readonly MainPage _owner;
+    private readonly string _worldId;
     private bool _seeking;
     private bool _animateBack;
     private bool _fadeMotifBack;
     private readonly VolumeOverlayView _volumeOverlay;
     private PlaybackVisualTheme _theme = PlaybackVisualCatalog.For(null, null);
 
-    internal ImmersivePlayerPage(MainPage owner)
+    internal ImmersivePlayerPage(MainPage owner, string worldId)
     {
         InitializeComponent();
         _owner = owner;
+        _worldId = worldId;
         _volumeOverlay = new VolumeOverlayView();
         Scene.Add(_volumeOverlay);
         Dispatcher.StartTimer(TimeSpan.FromMilliseconds(500), RefreshState);
@@ -28,7 +30,7 @@ public partial class ImmersivePlayerPage : ContentPage
     private bool RefreshState()
     {
         if (!IsLoaded) return true;
-        var state = _owner.GetImmersiveState();
+        var state = _owner.GetImmersiveState(_worldId);
         var theme = PlaybackVisualCatalog.For(state.WorldId, state.TrackId);
         if (theme != _theme)
         {
@@ -117,17 +119,17 @@ public partial class ImmersivePlayerPage : ContentPage
     }
 
     private async void OnBackClicked(object? sender, EventArgs e) => await Navigation.PopModalAsync();
-    private void OnPlayClicked(object? sender, EventArgs e) { _owner.ImmersiveTogglePlayback(); RefreshState(); }
-    private void OnPreviousClicked(object? sender, EventArgs e) => _owner.ImmersiveMove(-1);
-    private void OnNextClicked(object? sender, EventArgs e) => _owner.ImmersiveMove(1);
-    private void OnFavoriteClicked(object? sender, EventArgs e) { _owner.ImmersiveToggleFavorite(); RefreshState(); }
-    private void OnBlockClicked(object? sender, EventArgs e) { _owner.ImmersiveToggleBlocked(); RefreshState(); }
+    private void OnPlayClicked(object? sender, EventArgs e) { _owner.ImmersiveTogglePlayback(_worldId); RefreshState(); }
+    private void OnPreviousClicked(object? sender, EventArgs e) => _owner.ImmersiveMove(_worldId, -1);
+    private void OnNextClicked(object? sender, EventArgs e) => _owner.ImmersiveMove(_worldId, 1);
+    private void OnFavoriteClicked(object? sender, EventArgs e) { _owner.ImmersiveToggleFavorite(_worldId); RefreshState(); }
+    private void OnBlockClicked(object? sender, EventArgs e) { _owner.ImmersiveToggleBlocked(_worldId); RefreshState(); }
     private void OnVolumeClicked(object? sender, EventArgs e) => _volumeOverlay.Show();
-    private async void OnTitleTapped(object? sender, TappedEventArgs e) => await _owner.OpenCurrentTrackDetailsAsync();
+    private async void OnTitleTapped(object? sender, TappedEventArgs e) => await _owner.OpenCurrentTrackDetailsAsync(_worldId);
     private async void OnRepeatClicked(object? sender, EventArgs e) { await _owner.ChooseRepeatModeAsync(); RefreshState(); }
     private async void OnTimerClicked(object? sender, EventArgs e) { await _owner.ChooseSleepTimerAsync(); RefreshState(); }
     private void OnSeekStarted(object? sender, EventArgs e) => _seeking = true;
-    private void OnSeekCompleted(object? sender, EventArgs e) { _seeking = false; _owner.ImmersiveSeek(PositionSlider.Value); }
+    private void OnSeekCompleted(object? sender, EventArgs e) { _seeking = false; _owner.ImmersiveSeek(_worldId, PositionSlider.Value); }
     private static Color Interpolate(Color a, Color b, double value) => Color.FromRgba(
         a.Red + (b.Red - a.Red) * value, a.Green + (b.Green - a.Green) * value,
         a.Blue + (b.Blue - a.Blue) * value, 1);

@@ -36,7 +36,9 @@ public partial class MainPage : ContentPage
     private readonly PersistedAppState _initialState;
     private IReadOnlyList<LocalLibraryTrack> _library = [];
     private IReadOnlyList<LocalLibraryTrack> _displayedLibrary = [];
-    private IReadOnlyList<LocalLibraryTrack> _visibleLibrary = [];
+    private readonly PlaybackQueueState _playbackQueue = new();
+    private IReadOnlyList<LocalLibraryTrack> _visibleLibrary => _playbackQueue.SelectedTracks;
+    private IReadOnlyList<LocalLibraryTrack> _activeLibrary => _playbackQueue.ActiveTracks;
     private SleepWorldCard? _selectedWorldCard;
     private LocalLibraryTrack? _currentTrack;
     private LocalLibraryTrack? _nextTrack;
@@ -262,7 +264,7 @@ public partial class MainPage : ContentPage
             if (_visibleLibrary.Count > 0)
             {
                 PlayInitialTrack();
-                await Navigation.PushModalAsync(new ImmersivePlayerPage(this));
+                await Navigation.PushModalAsync(new ImmersivePlayerPage(this, card.World.Id));
             }
             return;
         }
@@ -324,7 +326,7 @@ public partial class MainPage : ContentPage
         page.PlayRequested += async (_, track) =>
         {
             PlayTrack(track, userInitiated: true);
-            await Navigation.PushModalAsync(new ImmersivePlayerPage(this));
+            await Navigation.PushModalAsync(new ImmersivePlayerPage(this, track.SleepWorld.Id));
         };
         page.PreferenceChanged += (_, track) => ApplyTrackPreferences(track);
         await Navigation.PushModalAsync(page);
@@ -442,7 +444,7 @@ public partial class MainPage : ContentPage
             // Validated files are moved into place atomically, so an in-progress
             // collection can safely expose everything downloaded so far.
             await RefreshLibraryAsync(preserveStatus: true);
-            await Navigation.PushModalAsync(new ImmersivePlayerPage(this));
+            await Navigation.PushModalAsync(new ImmersivePlayerPage(this, card.World.Id));
         }
         finally
         {
@@ -522,7 +524,10 @@ public partial class MainPage : ContentPage
             return;
         }
 
+        var playable = GetPlayableTracks(track.SleepWorld.Id);
+        if (!playable.Contains(track)) return;
         _currentTrack = track;
+        _playbackQueue.Activate(track.SleepWorld.Id, playable);
         _resumePositionSeconds = Math.Min(saved.PositionSeconds, Math.Max(0, track.Track.PlaybackDurationSeconds - 1));
         PositionSlider.Maximum = Math.Max(1, track.Track.PlaybackDurationSeconds);
         PositionSlider.Value = _resumePositionSeconds;
@@ -540,20 +545,19 @@ public partial class MainPage : ContentPage
             ? []
             : _library.Where(track => track.SleepWorld.Id == _selectedWorldCard.World.Id).ToArray();
         var worldId = _selectedWorldCard?.World.Id;
-        _visibleLibrary = worldId is null
-            ? []
-            : TrackPreferenceFilter.Apply(
-                _displayedLibrary,
-                trackId => _stateStore.IsFavorite(worldId, trackId),
-                trackId => _stateStore.IsBlocked(worldId, trackId));
+        _playbackQueue.Select(worldId, worldId is null ? [] : GetPlayableTracks(worldId));
         LibraryView.ItemsSource = _displayedLibrary.Select(CreateTrackItem).ToArray();
         LibraryEmptyLabel.IsVisible = _displayedLibrary.Count == 0;
         LibraryTitleLabel.Text = _selectedWorldCard is null
             ? AppText.Pick("Meine Musik", "My music")
             : $"{AppText.Pick("Meine Musik", "My music")} · {_selectedWorldCard.DisplayName}";
-        SetPlaybackControlsEnabled(_visibleLibrary.Count > 0);
-        UpdateNextTrack();
+        SetPlaybackControlsEnabled(_currentTrack is not null || _visibleLibrary.Count > 0);
     }
+
+    private IReadOnlyList<LocalLibraryTrack> GetPlayableTracks(string worldId) => TrackPreferenceFilter.Apply(
+        _library.Where(track => track.SleepWorld.Id == worldId).ToArray(),
+        trackId => _stateStore.IsFavorite(worldId, trackId),
+        trackId => _stateStore.IsBlocked(worldId, trackId));
 
     private void SetPlaybackControlsEnabled(bool enabled)
     {
@@ -632,29 +636,24 @@ public partial class MainPage : ContentPage
 #endif
         ApplyLibraryFilter();
 
-        if (_currentTrack is null || _visibleLibrary.Contains(_currentTrack))
+        if (_playbackQueue.ActiveWorldId != changedTrack.SleepWorld.Id) return;
+        _playbackQueue.Activate(changedTrack.SleepWorld.Id, GetPlayableTracks(changedTrack.SleepWorld.Id));
+        UpdateNextTrack();
+
+        if (_currentTrack is null || _activeLibrary.Contains(_currentTrack))
         {
 #if ANDROID
             if (_currentTrack is not null && _loadedTrackId is not null)
             {
-                PlayTrack(_currentTrack, startPositionSeconds: position);
-                if (!wasPlaying) AndroidPlaybackBridge.Pause();
+                PlayTrack(_currentTrack, startPositionSeconds: position, autoPlay: wasPlaying);
             }
 #endif
             return;
         }
 
-        if (_visibleLibrary.Count > 0)
+        if (_activeLibrary.Count > 0)
         {
-            PlayInitialTrack();
-            if (!wasPlaying)
-            {
-#if ANDROID
-                AndroidPlaybackBridge.Pause();
-#else
-                Player.Pause();
-#endif
-            }
+            PlayInitialTrack(fromActiveQueue: true, autoPlay: wasPlaying);
         }
         else
         {
@@ -662,7 +661,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void PlayTrack(LocalLibraryTrack track, bool userInitiated = false, double startPositionSeconds = 0)
+    private void PlayTrack(LocalLibraryTrack track, bool userInitiated = false, double startPositionSeconds = 0, bool autoPlay = true)
     {
         if (userInitiated)
         {
@@ -670,55 +669,63 @@ public partial class MainPage : ContentPage
         }
 
         var card = _worldCards.FirstOrDefault(candidate => candidate.World.Id == track.SleepWorld.Id);
-        if (card is not null && _selectedWorldCard != card)
+        if (userInitiated && card is not null && _selectedWorldCard != card)
         {
             SelectWorld(card);
         }
 
+        if (userInitiated || _playbackQueue.ActiveWorldId != track.SleepWorld.Id)
+        {
+            _playbackQueue.Activate(track.SleepWorld.Id, GetPlayableTracks(track.SleepWorld.Id));
+        }
+
         _currentTrack = track;
         _resumePositionSeconds = 0;
-        _shouldContinuePlayback = true;
+        _shouldContinuePlayback = autoPlay;
         _isTrackTransitioning = true;
         _pendingSeekSeconds = Math.Max(0, startPositionSeconds);
-        _playWhenMediaOpens = true;
+        _playWhenMediaOpens = autoPlay;
         NowPlayingLabel.Text = track.Track.Title;
         UpdateNowPlayingDetails();
         Player.MetadataTitle = track.Track.Title;
         Player.MetadataArtist = track.Track.Creator;
-        StartConfiguredSleepTimerIfNeeded();
+        if (autoPlay && userInitiated) StartConfiguredSleepTimerIfNeeded();
 
 #if ANDROID
         _loadedTrackId = track.Track.Id;
         AndroidPlaybackBridge.LoadAndPlay(
-            _visibleLibrary,
+            _activeLibrary,
             track,
             startPositionSeconds,
             _shuffleEnabled,
             _repeatMode == PlaybackRepeatMode.Track,
             VolumeSlider.Value,
-            _sleepTimerEndUtc);
+            _sleepTimerEndUtc,
+            autoPlay,
+            userInitiated);
 #else
         Player.Volume = PlaybackVolume.ApplyGain(VolumeSlider.Value, track.Track.VolumeGain);
         Player.Speed = track.Track.PlaybackSpeed;
         if (_loadedTrackId == track.Track.Id)
         {
-            _ = SeekAndPlayAsync(_pendingSeekSeconds);
+            _ = SeekAndPlayAsync(_pendingSeekSeconds, autoPlay);
         }
         else
         {
             _loadedTrackId = track.Track.Id;
             Player.Source = MediaSource.FromFile(track.FilePath);
-            Player.Play();
+            if (autoPlay) Player.Play();
         }
 #endif
 
-        PlayPauseButton.Text = "⏸";
+        PlayPauseButton.Text = autoPlay ? "⏸" : "▶";
+        SetPlaybackControlsEnabled(true);
         UpdateNextTrack();
         _stateStore.SavePlayback(track.Track.Id, Math.Max(0, startPositionSeconds));
         _lastPlaybackSaveUtc = DateTimeOffset.UtcNow;
     }
 
-    private async Task SeekAndPlayAsync(double positionSeconds)
+    private async Task SeekAndPlayAsync(double positionSeconds, bool autoPlay = true)
     {
         try
         {
@@ -730,12 +737,12 @@ public partial class MainPage : ContentPage
             {
                 await Player.SeekTo(TimeSpan.Zero);
             }
-            Player.Play();
+            if (autoPlay) Player.Play();
         }
         catch (Exception exception)
         {
             Debug.WriteLine(exception);
-            Player.Play();
+            if (autoPlay) Player.Play();
         }
     }
 
@@ -766,7 +773,7 @@ public partial class MainPage : ContentPage
 
     private void OnPlayPauseClicked(object? sender, EventArgs e)
     {
-        if (_currentTrack is null || !_visibleLibrary.Contains(_currentTrack))
+        if (_currentTrack is null)
         {
             if (_visibleLibrary.Count > 0)
             {
@@ -813,7 +820,7 @@ public partial class MainPage : ContentPage
     private void OnPreviousClicked(object? sender, EventArgs e)
     {
 #if ANDROID
-        if ((_currentTrack is null || !_visibleLibrary.Contains(_currentTrack)) && _visibleLibrary.Count > 0) PlayInitialTrack();
+        if (_currentTrack is null && _visibleLibrary.Count > 0) PlayInitialTrack();
         else AndroidPlaybackBridge.Previous();
 #else
         MoveTrack(-1, forceSequential: true);
@@ -823,7 +830,7 @@ public partial class MainPage : ContentPage
     private void OnNextClicked(object? sender, EventArgs e)
     {
 #if ANDROID
-        if ((_currentTrack is null || !_visibleLibrary.Contains(_currentTrack)) && _visibleLibrary.Count > 0) PlayInitialTrack();
+        if (_currentTrack is null && _visibleLibrary.Count > 0) PlayInitialTrack();
         else AndroidPlaybackBridge.Next();
 #else
         MoveTrack(1, forceSequential: !_shuffleEnabled);
@@ -832,7 +839,8 @@ public partial class MainPage : ContentPage
 
     private void MoveTrack(int offset, bool forceSequential = false)
     {
-        if (_visibleLibrary.Count == 0)
+        if (_currentTrack is null) { PlayInitialTrack(); return; }
+        if (_activeLibrary.Count == 0)
         {
             return;
         }
@@ -844,28 +852,29 @@ public partial class MainPage : ContentPage
         }
         else
         {
-            var currentIndex = _currentTrack is null ? -1 : _visibleLibrary.IndexOf(_currentTrack);
+            var currentIndex = _activeLibrary.IndexOf(_currentTrack);
             if (currentIndex < 0)
             {
                 currentIndex = offset < 0 ? 0 : -1;
             }
-            var nextIndex = PlaybackQueue.MoveSequential(_visibleLibrary.Count, currentIndex, offset);
-            nextTrack = _visibleLibrary[nextIndex];
+            var nextIndex = PlaybackQueue.MoveSequential(_activeLibrary.Count, currentIndex, offset);
+            nextTrack = _activeLibrary[nextIndex];
         }
 
         PlayTrack(nextTrack);
     }
 
-    private void PlayInitialTrack()
+    private void PlayInitialTrack(bool fromActiveQueue = false, bool autoPlay = true)
     {
-        if (_visibleLibrary.Count == 0)
+        var tracks = fromActiveQueue ? _activeLibrary : _visibleLibrary;
+        if (tracks.Count == 0)
         {
             return;
         }
-        var index = _shuffleEnabled && _visibleLibrary.Count > 1
-            ? PlaybackQueue.ChooseDifferent(_visibleLibrary.Count, 0, Random.Shared.Next(_visibleLibrary.Count - 1))
+        var index = _shuffleEnabled && tracks.Count > 1
+            ? Random.Shared.Next(tracks.Count)
             : 0;
-        PlayTrack(_visibleLibrary[index], userInitiated: true);
+        PlayTrack(tracks[index], userInitiated: !fromActiveQueue, autoPlay: autoPlay);
     }
 
     private void OnMediaEnded(object? sender, EventArgs e)
@@ -889,8 +898,8 @@ public partial class MainPage : ContentPage
     {
         _isTrackTransitioning = false;
         _consecutivePlaybackFailures++;
-        if (_visibleLibrary.Count == 0
-            || _consecutivePlaybackFailures >= Math.Min(MaximumAutomaticFailureSkips, _visibleLibrary.Count))
+        if (_activeLibrary.Count == 0
+            || _consecutivePlaybackFailures >= Math.Min(MaximumAutomaticFailureSkips, _activeLibrary.Count))
         {
             _shouldContinuePlayback = false;
             Player.Stop();
@@ -1152,7 +1161,7 @@ public partial class MainPage : ContentPage
 
     internal bool ReducedMotion => _stateStore.LoadReducedMotion();
 
-    internal ImmersivePlayerState GetImmersiveState()
+    internal ImmersivePlayerState GetImmersiveState(string worldId)
     {
 #if ANDROID
         var snapshot = AndroidPlaybackBridge.Snapshot;
@@ -1164,14 +1173,13 @@ public partial class MainPage : ContentPage
         var position = Player.Position;
         var duration = Player.Duration;
 #endif
-        var selectedWorldId = _selectedWorldCard?.World.Id;
-        var selectedTrack = _currentTrack?.SleepWorld.Id == selectedWorldId ? _currentTrack : null;
-        var worldId = selectedWorldId ?? selectedTrack?.SleepWorld.Id;
+        var selectedTrack = _currentTrack?.SleepWorld.Id == worldId ? _currentTrack : null;
+        var card = _worldCards.First(candidate => candidate.World.Id == worldId);
         var trackId = selectedTrack?.Track.Id;
         return new ImmersivePlayerState(
             trackId,
             worldId,
-            selectedTrack?.Track.Title ?? _selectedWorldCard?.DisplayName,
+            selectedTrack?.Track.Title ?? card.DisplayName,
             selectedTrack is not null && isPlaying,
             worldId is not null && trackId is not null && _stateStore.IsFavorite(worldId, trackId),
             worldId is not null && trackId is not null && _stateStore.IsBlocked(worldId, trackId),
@@ -1181,14 +1189,25 @@ public partial class MainPage : ContentPage
             selectedTrack is null ? TimeSpan.Zero : duration);
     }
 
-    internal void ImmersiveTogglePlayback() => OnPlayPauseClicked(null, EventArgs.Empty);
-    internal void ImmersiveMove(int offset)
+    internal void ImmersiveTogglePlayback(string worldId)
     {
+        if (_currentTrack?.SleepWorld.Id != worldId)
+        {
+            SelectWorld(_worldCards.First(card => card.World.Id == worldId));
+            PlayInitialTrack();
+        }
+        else OnPlayPauseClicked(null, EventArgs.Empty);
+    }
+
+    internal void ImmersiveMove(string worldId, int offset)
+    {
+        if (_currentTrack?.SleepWorld.Id != worldId) { ImmersiveTogglePlayback(worldId); return; }
         if (offset < 0) OnPreviousClicked(null, EventArgs.Empty); else OnNextClicked(null, EventArgs.Empty);
     }
 
-    internal void ImmersiveSeek(double seconds)
+    internal void ImmersiveSeek(string worldId, double seconds)
     {
+        if (_currentTrack?.SleepWorld.Id != worldId) return;
 #if ANDROID
         AndroidPlaybackBridge.Seek(seconds);
 #else
@@ -1196,18 +1215,18 @@ public partial class MainPage : ContentPage
 #endif
     }
 
-    internal void ImmersiveToggleFavorite()
+    internal void ImmersiveToggleFavorite(string requestedWorldId)
     {
-        if (_currentTrack is null || !_visibleLibrary.Contains(_currentTrack)) return;
+        if (_currentTrack?.SleepWorld.Id != requestedWorldId || !_activeLibrary.Contains(_currentTrack)) return;
         var worldId = _currentTrack.SleepWorld.Id;
         var trackId = _currentTrack.Track.Id;
         _stateStore.SetFavorite(worldId, trackId, !_stateStore.IsFavorite(worldId, trackId));
         ApplyTrackPreferences(_currentTrack);
     }
 
-    internal void ImmersiveToggleBlocked()
+    internal void ImmersiveToggleBlocked(string requestedWorldId)
     {
-        if (_currentTrack is null || !_visibleLibrary.Contains(_currentTrack)) return;
+        if (_currentTrack?.SleepWorld.Id != requestedWorldId || !_activeLibrary.Contains(_currentTrack)) return;
         var track = _currentTrack;
         var worldId = track.SleepWorld.Id;
         var trackId = track.Track.Id;
@@ -1215,8 +1234,8 @@ public partial class MainPage : ContentPage
         ApplyTrackPreferences(track);
     }
 
-    internal Task OpenCurrentTrackDetailsAsync() =>
-        _currentTrack is null || !_visibleLibrary.Contains(_currentTrack)
+    internal Task OpenCurrentTrackDetailsAsync(string requestedWorldId) =>
+        _currentTrack?.SleepWorld.Id != requestedWorldId || !_activeLibrary.Contains(_currentTrack)
             ? Task.CompletedTask
             : OpenTrackDetailsAsync(_currentTrack);
 
@@ -1344,7 +1363,7 @@ public partial class MainPage : ContentPage
     private void UpdateNextTrack()
     {
         _nextTrack = null;
-        if (_currentTrack is null || _visibleLibrary.Count == 0)
+        if (_currentTrack is null || _activeLibrary.Count == 0)
         {
             NextTrackLabel.Text = "Nächster Titel: –";
             return;
@@ -1354,22 +1373,22 @@ public partial class MainPage : ContentPage
         {
             _nextTrack = _currentTrack;
         }
-        else if (_shuffleEnabled && _visibleLibrary.Count > 1)
+        else if (_shuffleEnabled && _activeLibrary.Count > 1)
         {
-            var currentIndex = _visibleLibrary.IndexOf(_currentTrack);
+            var currentIndex = _activeLibrary.IndexOf(_currentTrack);
             var nextIndex = currentIndex < 0
                 ? 0
                 : PlaybackQueue.ChooseDifferent(
-                    _visibleLibrary.Count,
+                    _activeLibrary.Count,
                     currentIndex,
-                    Random.Shared.Next(_visibleLibrary.Count - 1));
-            _nextTrack = _visibleLibrary[nextIndex];
+                    Random.Shared.Next(_activeLibrary.Count - 1));
+            _nextTrack = _activeLibrary[nextIndex];
         }
         else
         {
-            var currentIndex = _visibleLibrary.IndexOf(_currentTrack);
-            var nextIndex = currentIndex < 0 ? 0 : (currentIndex + 1) % _visibleLibrary.Count;
-            _nextTrack = _visibleLibrary[nextIndex];
+            var currentIndex = _activeLibrary.IndexOf(_currentTrack);
+            var nextIndex = currentIndex < 0 ? 0 : (currentIndex + 1) % _activeLibrary.Count;
+            _nextTrack = _activeLibrary[nextIndex];
         }
 
         NextTrackLabel.Text = $"Nächster Titel: {_nextTrack.Track.Title}";
@@ -1498,6 +1517,7 @@ public partial class MainPage : ContentPage
 #endif
         _loadedTrackId = null;
         _currentTrack = null;
+        _playbackQueue.ClearPlayback();
         _nextTrack = null;
         _resumePositionSeconds = 0;
         NowPlayingLabel.Text = AppText.Get("NoTrack");
@@ -1509,6 +1529,7 @@ public partial class MainPage : ContentPage
         PlayPauseButton.Text = "▶";
         UpdateWorldPlaybackState(false);
         _stateStore.ClearPlayback();
+        SetPlaybackControlsEnabled(_visibleLibrary.Count > 0);
     }
 
 #if !ANDROID
@@ -1560,6 +1581,8 @@ public partial class MainPage : ContentPage
         var track = _library.FirstOrDefault(item => item.Track.Id == snapshot.TrackId);
         if (track is not null && _currentTrack?.Track.Id != snapshot.TrackId)
         {
+            if (_playbackQueue.ActiveWorldId != track.SleepWorld.Id)
+                _playbackQueue.Activate(track.SleepWorld.Id, GetPlayableTracks(track.SleepWorld.Id));
             _currentTrack = track;
             _loadedTrackId = snapshot.TrackId;
             NowPlayingLabel.Text = track.Track.Title;

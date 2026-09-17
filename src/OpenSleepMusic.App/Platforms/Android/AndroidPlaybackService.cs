@@ -181,9 +181,9 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         }
         _index = Math.Clamp(intent.GetIntExtra("index", 0), 0, _queue.Count - 1);
         CancelSleepFade();
-        _sleepDeadline.Restart(null);
+        if (intent.GetBooleanExtra("userInitiated", false)) _sleepDeadline.Restart(null);
         ApplySettings(intent);
-        OpenCurrent(intent.GetDoubleExtra("position", 0));
+        OpenCurrent(intent.GetDoubleExtra("position", 0), autoPlay: intent.GetBooleanExtra("autoPlay", true));
     }
 
     private void ApplySettings(Intent intent)
