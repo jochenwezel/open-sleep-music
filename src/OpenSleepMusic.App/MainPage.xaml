@@ -25,6 +25,9 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Border BackgroundColor="#171D31" Stroke="#29304B" StrokeThickness="1" Padding="14">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnWorldCardTapped" />
+                                </Border.GestureRecognizers>
                                 <VisualStateManager.VisualStateGroups>
                                     <VisualStateGroup Name="CommonStates">
                                         <VisualState Name="Normal" />
@@ -39,9 +42,6 @@
                                 <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
                                 <Grid RowDefinitions="Auto,Auto" RowSpacing="5">
                                     <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*" ColumnSpacing="10" RowSpacing="5">
-                                        <Grid.GestureRecognizers>
-                                            <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnWorldCardTapped" />
-                                        </Grid.GestureRecognizers>
                                         <Label Text="{Binding World.Icon}" FontSize="27" Grid.RowSpan="2" InputTransparent="True" />
                                         <Label Grid.Column="1" Text="{Binding DisplayName}" FontSize="16" FontAttributes="Bold" TextColor="#F7F3FF" InputTransparent="True" />
                                         <Label Grid.Row="1" Grid.Column="1" Text="{Binding DisplayDescription}" FontSize="11" TextColor="#B8B5C8" MaxLines="2" InputTransparent="True" />
