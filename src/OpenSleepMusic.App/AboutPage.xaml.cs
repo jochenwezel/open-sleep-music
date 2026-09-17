@@ -10,7 +10,7 @@ public partial class AboutPage : ContentPage
     public AboutPage()
     {
         InitializeComponent();
-        VersionLabel.Text = $"Version 0.1.0-preview.{AppInfo.Current.BuildString}";
+        VersionLabel.Text = $"Version {AppInfo.Current.VersionString}";
         var trackCount = BuiltInCatalog.SleepWorlds.Sum(world => world.Tracks.Count);
         CatalogLabel.Text = AppText.IsGerman ? $"Der integrierte Katalog umfasst {trackCount} Titel mit rund {BuiltInCatalog.TotalDuration.TotalHours:0.#} Stunden Musik und Naturklängen." : $"The built-in catalog contains {trackCount} tracks with about {BuiltInCatalog.TotalDuration.TotalHours:0.#} hours of music and natural sounds.";
         IntroLabel.Text = AppText.IsGerman ? "Kostenlose Klänge für eine ruhige Nacht – ohne Werbung, Tracking, Benutzerkonto oder Cloud-Zwang." : "Free sounds for a peaceful night — without ads, tracking, accounts or mandatory cloud services.";
