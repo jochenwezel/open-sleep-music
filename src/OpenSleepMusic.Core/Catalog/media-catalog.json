@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-09-17T01:01:42.1015580+00:00",
+  "generatedAtUtc": "2026-09-17T01:06:14.1046323+00:00",
   "sleepWorlds": [
     {
       "id": "quiet-classics",
@@ -1482,6 +1482,44 @@
             "strings"
           ],
           "ensembleType": "chamber-orchestra"
+        },
+        {
+          "id": "bach-cello-suite-1-sarabande-john-michel",
+          "title": "Johann Sebastian Bach – Cellosuite Nr. 1: Sarabande",
+          "creator": "Cello: John Michel",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/JOHN%20MICHEL%20CELLO-J%20S%20BACH%20CELLO%20SUITE%201%20in%20G%20Sarabande.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:JOHN_MICHEL_CELLO-J_S_BACH_CELLO_SUITE_1_in_G_Sarabande.ogg",
+          "license": "CC BY-SA 3.0",
+          "licenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "fileName": "bach-cello-suite-1-sarabande-john-michel.ogg",
+          "durationSeconds": 123.82040816326531,
+          "sha1": "99a0efd629203283480cde7ef11b53c94e7726d2",
+          "instrumentation": [
+            "cello"
+          ],
+          "ensembleType": "solo"
+        },
+        {
+          "id": "schubert-octet-d803-adagio",
+          "title": "Franz Schubert – Oktett D 803: II. Adagio",
+          "creator": "Monica Huggett, Rob Diggins, Vicki Gunn, Sarah Freiberg, Curtis Daily, William McColl, R. J. Kelley, Charles Kaufman",
+          "downloadUri": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Franz%20Schubert%20-%20Octet%20-%202.%20Adagio.ogg",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Franz_Schubert_-_Octet_-_2._Adagio.ogg",
+          "license": "CC BY-SA 2.0",
+          "licenseUri": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "fileName": "schubert-octet-d803-adagio.ogg",
+          "durationSeconds": 661.599977324263,
+          "sha1": "3091872e878d5bd930c811972bf1e8d1ef90c822",
+          "instrumentation": [
+            "violin",
+            "viola",
+            "cello",
+            "double-bass",
+            "clarinet",
+            "horn",
+            "bassoon"
+          ],
+          "ensembleType": "octet"
         }
       ]
     },

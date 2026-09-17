@@ -12,6 +12,8 @@ A composition being in the public domain does **not** automatically make a moder
 | Quiet Classics | 4 | 15.6 min | [Liszt audio files on Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Audio_files_of_music_by_Franz_Liszt): Consolations 3 and 5, Romance S.169, Au bord d'une source | CC BY-SA 4.0 / 1.0 |
 | Quiet Classics | 1 | 2.3 min | [Medieval Dream by Frank Schröter](https://commons.wikimedia.org/wiki/File:Medieval_Dream_by_Frank_Schr%C3%B6ter.ogg): harp and recorder | CC BY 4.0 |
 | Quiet Classics | 1 | 8.3 min | [Haydn Cello Concerto No. 1 – II. Adagio](https://commons.wikimedia.org/wiki/File:The_Metropolitan_Chamber_Orchestra_-_Haydn%27s_Cello_Concerto_No._1_in_C_major,_Hob.VIIb-1_-_II._Adagio.ogg): Metropolitan Chamber Orchestra | Public Domain Dedication |
+| Quiet Classics | 1 | 2.1 min | [Bach Cello Suite No. 1 – Sarabande](https://commons.wikimedia.org/wiki/File:JOHN_MICHEL_CELLO-J_S_BACH_CELLO_SUITE_1_in_G_Sarabande.ogg): John Michel, cello | CC BY-SA 3.0 |
+| Quiet Classics | 1 | 11.0 min | [Schubert Octet D 803 – II. Adagio](https://commons.wikimedia.org/wiki/File:Franz_Schubert_-_Octet_-_2._Adagio.ogg): Monica Huggett ensemble; Wikipedia Featured Sound | CC BY-SA 2.0 |
 | Gentle Rain / Forest | 13 | 5.40 h | [Relaxing Rain Sounds](https://archive.org/details/relaxingrainsounds) | CC0 1.0 |
 | Rain / Forest / Waves | 4 | 1.66 h | [Nature Sounds (Birds, Rain, Water)](https://archive.org/details/naturesounds-soundtheraphy) | CC0 1.0 |
 | Gentle Rain | 28 | 2.64 h | [Rain Sounds, Gentle Rain, Thunderstorms](https://archive.org/details/rain-sounds-gentle-rain-thunderstorms) (only non-storm selections) | CC0 1.0 |

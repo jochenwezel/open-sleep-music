@@ -146,6 +146,16 @@ $haydnCello = New-CommonsTrack 'haydn-cello-concerto-no-1-adagio' 'Joseph Haydn 
 $haydnCello.instrumentation = @('cello', 'strings')
 $haydnCello.ensembleType = 'chamber-orchestra'
 $worlds['quiet-classics'].tracks.Add($haydnCello)
+
+$bachCelloSarabande = New-CommonsTrack 'bach-cello-suite-1-sarabande-john-michel' 'Johann Sebastian Bach – Cellosuite Nr. 1: Sarabande' 'Cello: John Michel' 'JOHN MICHEL CELLO-J S BACH CELLO SUITE 1 in G Sarabande.ogg' 'https://commons.wikimedia.org/wiki/File:JOHN_MICHEL_CELLO-J_S_BACH_CELLO_SUITE_1_in_G_Sarabande.ogg' 'CC BY-SA 3.0' 'https://creativecommons.org/licenses/by-sa/3.0/' 'bach-cello-suite-1-sarabande-john-michel.ogg' 123.82040816326531 '99a0efd629203283480cde7ef11b53c94e7726d2'
+$bachCelloSarabande.instrumentation = @('cello')
+$bachCelloSarabande.ensembleType = 'solo'
+$worlds['quiet-classics'].tracks.Add($bachCelloSarabande)
+
+$schubertOctetAdagio = New-CommonsTrack 'schubert-octet-d803-adagio' 'Franz Schubert – Oktett D 803: II. Adagio' 'Monica Huggett, Rob Diggins, Vicki Gunn, Sarah Freiberg, Curtis Daily, William McColl, R. J. Kelley, Charles Kaufman' 'Franz Schubert - Octet - 2. Adagio.ogg' 'https://commons.wikimedia.org/wiki/File:Franz_Schubert_-_Octet_-_2._Adagio.ogg' 'CC BY-SA 2.0' 'https://creativecommons.org/licenses/by-sa/2.0/' 'schubert-octet-d803-adagio.ogg' 661.599977324263 '3091872e878d5bd930c811972bf1e8d1ef90c822'
+$schubertOctetAdagio.instrumentation = @('violin', 'viola', 'cello', 'double-bass', 'clarinet', 'horn', 'bassoon')
+$schubertOctetAdagio.ensembleType = 'octet'
+$worlds['quiet-classics'].tracks.Add($schubertOctetAdagio)
 $worlds.waves.tracks.Add((New-CommonsTrack 'lake-ontario-waves' 'Waves' 'Dsw4' 'Waves.ogg' 'https://commons.wikimedia.org/wiki/File:Waves.ogg' 'Public Domain' 'https://creativecommons.org/publicdomain/mark/1.0/' 'waves.ogg' 287))
 $worlds.lullabies.tracks.Add((New-CommonsTrack 'faure-berceuse-op-56-no-1' 'Gabriel Fauré – Berceuse op. 56 Nr. 1' 'Piano: Brian M. Jones' 'Berceuse by Gabriel Fauré op56 no1.ogg' 'https://commons.wikimedia.org/wiki/File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg' 'CC BY 3.0' 'https://creativecommons.org/licenses/by/3.0/' 'faure-berceuse-op-56-no-1.ogg' 214.622 '16f742aed631bbd30a78e3298fb77672655bf306'))
 $worlds.lullabies.tracks.Add((New-CommonsTrack 'burgmuller-berceuse-op-109-no-7' 'Friedrich Burgmüller – Berceuse op. 109 Nr. 7' 'Piano: BastienM' 'Berceuse Burgmuller.ogg' 'https://commons.wikimedia.org/wiki/File:Berceuse_Burgmuller.ogg' 'CC BY-SA 3.0' 'https://creativecommons.org/licenses/by-sa/3.0/' 'burgmuller-berceuse-op-109-no-7.ogg' 84.578 '2701c3802dae189dd59b4980aa363a1d467a9007'))
