@@ -314,7 +314,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private async Task OpenCollectionTracksAsync(SleepWorldCard card)
+    private async Task OpenCollectionTracksAsync(SleepWorldCard card, bool openPlayerAfterSelection = true)
     {
         var tracks = _library.Where(track => track.SleepWorld.Id == card.World.Id).ToArray();
         if (tracks.Length == 0)
@@ -325,10 +325,19 @@ public partial class MainPage : ContentPage
         var page = new CollectionTracksPage(card.DisplayName, tracks, _stateStore, async track =>
         {
             PlayTrack(track, userInitiated: true);
-            await Navigation.PushModalAsync(new ImmersivePlayerPage(this, track.SleepWorld.Id));
+            if (openPlayerAfterSelection)
+            {
+                await Navigation.PushModalAsync(new ImmersivePlayerPage(this, track.SleepWorld.Id));
+            }
         });
         page.PreferenceChanged += (_, track) => ApplyTrackPreferences(track);
         await Navigation.PushModalAsync(page);
+    }
+
+    internal Task OpenImmersiveCollectionTracksAsync(string worldId)
+    {
+        var card = _worldCards.First(card => card.World.Id == worldId);
+        return OpenCollectionTracksAsync(card, openPlayerAfterSelection: false);
     }
 
     private async Task DownloadWorldAsync(SleepWorldCard card, bool isRepair)
@@ -1257,7 +1266,10 @@ public partial class MainPage : ContentPage
 
     internal async Task ChooseSleepTimerAsync()
     {
-        var labels = new[] { AppText.Get("Off"), "15 min", "30 min", "45 min", "60 min", "90 min" };
+        var baseLabels = new[] { AppText.Get("Off"), "15 min", "30 min", "45 min", "60 min", "90 min" };
+        var labels = baseLabels
+            .Select((label, index) => $"{(SleepTimerMinutes[index] == _sleepTimerMinutes ? "✓ " : string.Empty)}{label}")
+            .ToArray();
         var selected = await DisplayActionSheetAsync(AppText.Get("SleepTimer"), AppText.Get("Close"), null, labels);
         var index = Array.IndexOf(labels, selected);
         if (index >= 0) SleepTimerPicker.SelectedIndex = index;

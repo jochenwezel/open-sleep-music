@@ -81,7 +81,13 @@ public partial class ImmersivePlayerPage : ContentPage
         BlockButton.IsEnabled = state.TrackId is not null;
         PositionSlider.IsEnabled = state.TrackId is not null;
         FavoriteButton.Text = state.IsFavorite ? "★" : "☆";
+        BlockButton.Text = state.IsBlocked ? "🚫" : "⊘";
         BlockButton.TextColor = state.IsBlocked ? Color.FromArgb("#FFB0C8") : Colors.White;
+        SemanticProperties.SetDescription(
+            BlockButton,
+            state.IsBlocked
+                ? AppText.Pick("Aktueller Titel ist blockiert", "Current track is blocked")
+                : AppText.Pick("Aktuellen Titel blockieren", "Block current track"));
         PlayButton.Text = FloatingPlayButton.Text = state.IsPlaying ? "⏸" : "▶";
         RepeatButton.Text = state.RepeatTrack
             ? $"↻ {AppText.Get("Track")}"
@@ -92,7 +98,13 @@ public partial class ImmersivePlayerPage : ContentPage
             state.RepeatTrack
                 ? AppText.Pick("Wiederholung: einzelner Titel", "Repeat: single track")
                 : AppText.Pick("Wiederholung: Themensammlung", "Repeat: collection"));
-        TimerButton.Text = state.TimerText;
+        TimerButton.Text = $"Zzz {state.TimerText}";
+        SemanticProperties.SetDescription(
+            TimerButton,
+            AppText.Pick($"Schlaftimer: {state.TimerText}", $"Sleep timer: {state.TimerText}"));
+        SemanticProperties.SetDescription(
+            TrackListButton,
+            AppText.Pick("Titelliste öffnen", "Open track list"));
         if (!_seeking)
         {
             PositionSlider.Maximum = Math.Max(1, state.Duration.TotalSeconds);
@@ -156,6 +168,8 @@ public partial class ImmersivePlayerPage : ContentPage
     private void OnFavoriteClicked(object? sender, EventArgs e) { _owner.ImmersiveToggleFavorite(_worldId); RefreshState(); }
     private void OnBlockClicked(object? sender, EventArgs e) { _owner.ImmersiveToggleBlocked(_worldId); RefreshState(); }
     private void OnVolumeClicked(object? sender, EventArgs e) => _volumeOverlay.Show();
+    private async void OnTrackListClicked(object? sender, EventArgs e) =>
+        await _owner.OpenImmersiveCollectionTracksAsync(_worldId);
     private async void OnTitleTapped(object? sender, TappedEventArgs e) => await _owner.OpenCurrentTrackDetailsAsync(_worldId);
     private async void OnRepeatClicked(object? sender, EventArgs e) { await _owner.ChooseRepeatModeAsync(); RefreshState(); }
     private async void OnTimerClicked(object? sender, EventArgs e) { await _owner.ChooseSleepTimerAsync(); RefreshState(); }

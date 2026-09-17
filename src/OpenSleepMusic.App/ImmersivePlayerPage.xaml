@@ -11,14 +11,19 @@
         <BoxView Color="#38020A1D" InputTransparent="True" />
 
         <Grid x:Name="Controls" RowDefinitions="Auto,*,Auto" Padding="18" RowSpacing="12">
-            <Grid ColumnDefinitions="Auto,Auto,*,Auto,Auto" ColumnSpacing="8">
+            <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto,*,Auto,Auto,Auto"
+                  ColumnSpacing="8" RowSpacing="8">
                 <Button Text="‹" Clicked="OnBackClicked" BackgroundColor="#99252C45" TextColor="White" AutomationId="ImmersiveBackButton" />
                 <Button Grid.Column="1" x:Name="FavoriteButton" Text="☆" FontSize="22" Clicked="OnFavoriteClicked" BackgroundColor="#99252C45" TextColor="#F4C95D" />
-                <Label Grid.Column="2" x:Name="TitleLabel" Text="–" FontSize="18" FontAttributes="Bold" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" LineBreakMode="TailTruncation">
-                    <Label.GestureRecognizers><TapGestureRecognizer Tapped="OnTitleTapped" /></Label.GestureRecognizers>
-                </Label>
                 <Button Grid.Column="3" x:Name="BlockButton" Text="⊘" Clicked="OnBlockClicked" BackgroundColor="#99502B43" TextColor="White" />
                 <Button Grid.Column="4" Text="🔊" Clicked="OnVolumeClicked" BackgroundColor="#99252C45" TextColor="White" />
+                <Button Grid.Column="5" x:Name="TrackListButton" Text="☷" Clicked="OnTrackListClicked"
+                        BackgroundColor="#99252C45" TextColor="White" />
+                <Label Grid.Row="1" Grid.ColumnSpan="6" x:Name="TitleLabel" Text="–" FontSize="18"
+                       FontAttributes="Bold" TextColor="White" HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" LineBreakMode="TailTruncation" MaximumHeightRequest="52">
+                    <Label.GestureRecognizers><TapGestureRecognizer Tapped="OnTitleTapped" /></Label.GestureRecognizers>
+                </Label>
             </Grid>
 
             <Grid Grid.Row="2" RowDefinitions="Auto,Auto" RowSpacing="8" BackgroundColor="#B8171D31" Padding="12">
@@ -31,7 +36,7 @@
                     <Button Text="⏮" Clicked="OnPreviousClicked" BackgroundColor="Transparent" TextColor="White" />
                     <Button Grid.Column="1" x:Name="RepeatButton" Text="↻" Clicked="OnRepeatClicked" BackgroundColor="Transparent" TextColor="#C9C5D8" />
                     <Button Grid.Column="2" x:Name="PlayButton" Text="▶" FontSize="28" Clicked="OnPlayClicked" BackgroundColor="#7367F0" TextColor="White" CornerRadius="28" HeightRequest="58" />
-                    <Button Grid.Column="3" x:Name="TimerButton" Text="◷" Clicked="OnTimerClicked" BackgroundColor="Transparent" TextColor="#C9C5D8" />
+                    <Button Grid.Column="3" x:Name="TimerButton" Text="Zzz Aus" Clicked="OnTimerClicked" BackgroundColor="Transparent" TextColor="#C9C5D8" />
                     <Button Grid.Column="4" Text="⏭" Clicked="OnNextClicked" BackgroundColor="Transparent" TextColor="White" />
                 </Grid>
             </Grid>
