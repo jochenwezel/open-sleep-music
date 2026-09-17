@@ -84,6 +84,7 @@ internal sealed class VolumeOverlayView : ContentView
 
     public void Show()
     {
+        SystemVolumeSnapshot.Refresh();
         _appSlider.Value = AppVolumeBridge.Volume;
         _systemSlider.Value = SystemVolumeSnapshot.Value;
         IsVisible = true;

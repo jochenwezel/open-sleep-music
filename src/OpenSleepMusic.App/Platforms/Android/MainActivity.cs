@@ -26,9 +26,7 @@ public class MainActivity : MauiAppCompatActivity
                 Android.Media.Stream.Music,
                 e.KeyCode == Keycode.VolumeUp ? Adjust.Raise : Adjust.Lower,
                 0);
-            var maximum = manager?.GetStreamMaxVolume(Android.Media.Stream.Music) ?? 1;
-            var current = manager?.GetStreamVolume(Android.Media.Stream.Music) ?? 0;
-            SystemVolumeSnapshot.Publish(maximum <= 0 ? 0 : current / (double)maximum);
+            SystemVolumeSnapshot.Refresh();
         }
         return true;
     }
@@ -37,11 +35,13 @@ public class MainActivity : MauiAppCompatActivity
     {
         base.OnCreate(savedInstanceState);
         VolumeControlStream = Android.Media.Stream.Music;
+        SystemVolumeSnapshot.Refresh();
     }
 
     protected override void OnResume()
     {
         base.OnResume();
         VolumeControlStream = Android.Media.Stream.Music;
+        SystemVolumeSnapshot.Refresh();
     }
 }
