@@ -12,6 +12,7 @@ public partial class ImmersivePlayerPage : ContentPage
     private bool _animateBack;
     private bool _fadeMotifBack;
     private readonly VolumeOverlayView _volumeOverlay;
+    private readonly IDispatcherTimer _refreshTimer;
     private PlaybackVisualTheme _theme = PlaybackVisualCatalog.For(null, null);
 
     internal ImmersivePlayerPage(MainPage owner, string worldId)
@@ -21,15 +22,46 @@ public partial class ImmersivePlayerPage : ContentPage
         _worldId = worldId;
         _volumeOverlay = new VolumeOverlayView();
         Scene.Add(_volumeOverlay);
-        Dispatcher.StartTimer(TimeSpan.FromMilliseconds(500), RefreshState);
-        Loaded += (_, _) => StartAmbientAnimations();
-        Unloaded += (_, _) => StopAmbientAnimations();
-        RefreshState();
+        _refreshTimer = Dispatcher.CreateTimer();
+        _refreshTimer.Interval = TimeSpan.FromMilliseconds(500);
+        _refreshTimer.IsRepeating = true;
+        Loaded += (_, _) => StartRefreshing();
+        Unloaded += (_, _) => StopRefreshing();
     }
 
-    private bool RefreshState()
+    protected override void OnAppearing()
     {
-        if (!IsLoaded) return true;
+        base.OnAppearing();
+        StartRefreshing();
+    }
+
+    protected override void OnDisappearing()
+    {
+        StopRefreshing();
+        base.OnDisappearing();
+    }
+
+    private void StartRefreshing()
+    {
+        if (!IsLoaded || _refreshTimer.IsRunning) return;
+        _refreshTimer.Tick += OnRefreshTick;
+        _refreshTimer.Start();
+        RefreshState();
+        StartAmbientAnimations();
+    }
+
+    private void StopRefreshing()
+    {
+        _refreshTimer.Stop();
+        _refreshTimer.Tick -= OnRefreshTick;
+        StopAmbientAnimations();
+    }
+
+    private void OnRefreshTick(object? sender, EventArgs e) => RefreshState();
+
+    private void RefreshState()
+    {
+        if (!IsLoaded) return;
         var state = _owner.GetImmersiveState(_worldId);
         var theme = PlaybackVisualCatalog.For(state.WorldId, state.TrackId);
         if (theme != _theme)
@@ -68,7 +100,6 @@ public partial class ImmersivePlayerPage : ContentPage
         }
         PositionLabel.Text = FormatTime(state.Position);
         DurationLabel.Text = FormatTime(state.Duration);
-        return true;
     }
 
     private void StartAmbientAnimations()
