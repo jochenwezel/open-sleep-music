@@ -10,11 +10,22 @@ public sealed class PlaybackVisualCatalogTests
     [InlineData("forest", "motif_forest.png")]
     [InlineData("waves", "motif_waves.png")]
     [InlineData("fireplace", "motif_fireplace_a.png")]
+    [InlineData("lullabies", "sleepy_bear_moon.png")]
     public void EveryBuiltInWorldHasItsOwnMotif(string worldId, string expectedAsset)
     {
         var theme = PlaybackVisualCatalog.For(worldId, "any-track");
 
         Assert.Equal(expectedAsset, theme.MotifAsset);
+    }
+
+    [Fact]
+    public void UnknownWorldUsesAVisibleFallbackDifferentFromLullabies()
+    {
+        var lullabies = PlaybackVisualCatalog.For("lullabies", null);
+        var fallback = PlaybackVisualCatalog.For("unknown", null);
+
+        Assert.NotEqual(lullabies.MotifAsset, fallback.MotifAsset);
+        Assert.Equal("sleepy_lamb_star.png", fallback.MotifAsset);
     }
 
     [Fact]

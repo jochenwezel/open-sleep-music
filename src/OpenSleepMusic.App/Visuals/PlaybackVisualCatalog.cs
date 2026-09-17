@@ -16,14 +16,15 @@ internal static class PlaybackVisualCatalog
         ["rain"] = new("#071C31", "#102D43", "motif_rain.png", TimeSpan.FromSeconds(15)),
         ["forest"] = new("#071F25", "#102C27", "motif_forest.png", TimeSpan.FromSeconds(15)),
         ["waves"] = new("#061B38", "#102F45", "motif_waves.png", TimeSpan.FromSeconds(15)),
-        ["fireplace"] = new("#211015", "#321716", "motif_fireplace_a.png", TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(3), 0.80)
+        ["fireplace"] = new("#211015", "#321716", "motif_fireplace_a.png", TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(3), 0.80),
+        ["lullabies"] = new("#07142D", "#10103A", "sleepy_bear_moon.png", TimeSpan.FromSeconds(15))
     };
 
     public static PlaybackVisualTheme For(string? worldId, string? trackId)
     {
         var theme = worldId is not null && Themes.TryGetValue(worldId, out var selected)
             ? selected
-            : new("#07142D", "#10103A", "sleepy_bear_moon.png", TimeSpan.FromSeconds(15));
+            : new("#10172C", "#1B2140", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15));
         return theme;
     }
 }

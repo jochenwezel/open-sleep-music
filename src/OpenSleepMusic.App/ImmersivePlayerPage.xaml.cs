@@ -15,13 +15,14 @@ public partial class ImmersivePlayerPage : ContentPage
     private bool _fadeMotifBack;
     private readonly VolumeOverlayView _volumeOverlay;
     private readonly IDispatcherTimer _refreshTimer;
-    private PlaybackVisualTheme _theme = PlaybackVisualCatalog.For(null, null);
+    private PlaybackVisualTheme? _theme;
 
     internal ImmersivePlayerPage(MainPage owner, string worldId)
     {
         InitializeComponent();
         _owner = owner;
         _worldId = worldId;
+        ApplyTheme(PlaybackVisualCatalog.For(worldId, null));
         _volumeOverlay = new VolumeOverlayView();
         Scene.Add(_volumeOverlay);
         _refreshTimer = Dispatcher.CreateTimer();
@@ -68,10 +69,7 @@ public partial class ImmersivePlayerPage : ContentPage
         var theme = PlaybackVisualCatalog.For(state.WorldId, state.TrackId);
         if (theme != _theme)
         {
-            _theme = theme;
-            MotifImage.Source = theme.MotifAsset;
-            BackgroundColor = Color.FromArgb(theme.StartColor);
-            MotifImage.Opacity = 0.88;
+            ApplyTheme(theme);
             if (IsLoaded)
             {
                 StopAmbientAnimations();
@@ -117,6 +115,15 @@ public partial class ImmersivePlayerPage : ContentPage
         DurationLabel.Text = FormatTime(state.Duration);
     }
 
+    private void ApplyTheme(PlaybackVisualTheme theme)
+    {
+        _theme = theme;
+        MotifImage.Source = theme.MotifAsset;
+        Scene.BackgroundColor = Color.FromArgb(theme.StartColor);
+        BackgroundColor = Color.FromArgb(theme.StartColor);
+        MotifImage.Opacity = 0.88;
+    }
+
     private void StartAmbientAnimations()
     {
         if (!IsLoaded || _owner.ReducedMotion) return;
@@ -127,9 +134,10 @@ public partial class ImmersivePlayerPage : ContentPage
     private void StartColorAnimation()
     {
         if (!IsLoaded || _owner.ReducedMotion) return;
+        if (_theme is null) return;
         var from = Color.FromArgb(_animateBack ? _theme.EndColor : _theme.StartColor);
         var to = Color.FromArgb(_animateBack ? _theme.StartColor : _theme.EndColor);
-        Scene.Animate("ambient-color", value => BackgroundColor = Interpolate(from, to, value), 50,
+        Scene.Animate("ambient-color", value => Scene.BackgroundColor = Interpolate(from, to, value), 50,
             (uint)_theme.ColorPhaseDuration.TotalMilliseconds, Easing.SinInOut, (_, cancelled) =>
         {
             if (cancelled) return;
@@ -140,7 +148,7 @@ public partial class ImmersivePlayerPage : ContentPage
 
     private void StartMotifFade()
     {
-        if (!IsLoaded || _owner.ReducedMotion || _theme.MotifFadeDuration is not { } duration) return;
+        if (!IsLoaded || _owner.ReducedMotion || _theme?.MotifFadeDuration is not { } duration) return;
         var from = _fadeMotifBack ? _theme.MotifMinimumOpacity : 0.88;
         var to = _fadeMotifBack ? 0.88 : _theme.MotifMinimumOpacity;
         MotifImage.Animate("ambient-motif", value => MotifImage.Opacity = from + ((to - from) * value), 50,
