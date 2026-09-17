@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-09-17T01:06:14.1046323+00:00",
+  "generatedAtUtc": "2026-09-17T01:43:02.0995942+00:00",
   "sleepWorlds": [
     {
       "id": "quiet-classics",
@@ -22,7 +22,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-andantino-spring-b-117-mp3",
@@ -38,7 +41,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-berceuse-in-d-flat-major-op-57-mp3",
@@ -54,7 +60,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-cantabile-in-bb-b-84-mp3",
@@ -70,7 +79,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-cello-sonata-in-g-minor-op-65-iii-largo-mp3",
@@ -87,7 +99,10 @@
             "cello",
             "piano"
           ],
-          "ensembleType": "duo"
+          "ensembleType": "duo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-largo-in-e-flat-major-b-109-mp3",
@@ -103,7 +118,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-b-85-mp3",
@@ -119,7 +137,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-17-no-3-mp3",
@@ -135,7 +156,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-24-no-3-mp3",
@@ -151,7 +175,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-41-no-4-mp3",
@@ -167,7 +194,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-50-no-2-mp3",
@@ -183,7 +213,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-59-no-2-mp3",
@@ -199,7 +232,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-flat-major-op-7-no-4-mp3",
@@ -215,7 +251,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-b-134-mp3",
@@ -231,7 +270,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-b-140-mp3",
@@ -247,7 +289,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-op-17-no-4-mp3",
@@ -263,7 +308,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-op-59-no-1-mp3",
@@ -279,7 +327,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-op-68-no-2-mp3",
@@ -295,7 +346,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-op-7-no-2-mp3",
@@ -311,7 +365,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-major-b-16-no-2-mp3",
@@ -327,7 +384,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-major-b-73-mp3",
@@ -343,7 +403,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-major-op-17-no-1-mp3",
@@ -359,7 +422,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-minor-op-24-no-4-mp3",
@@ -375,7 +441,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-major-op-41-no-3-mp3",
@@ -391,7 +460,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-major-op-56-no-1-mp3",
@@ -407,7 +479,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-major-op-63-no-1-mp3",
@@ -423,7 +498,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-minor-op-30-no-2-mp3",
@@ -439,7 +517,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-minor-op-33-no-4-mp3",
@@ -455,7 +536,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-b-flat-major-op-7-no-1-mp3",
@@ -471,7 +555,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-b-82-mp3",
@@ -487,7 +574,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-24-no-2-mp3",
@@ -503,7 +593,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-33-no-3-mp3",
@@ -519,7 +612,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-56-no-2-mp3",
@@ -535,7 +631,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-67-no-3-mp3",
@@ -551,7 +650,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-68-no-1-mp3",
@@ -567,7 +669,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-major-op-7-no-5-mp3",
@@ -583,7 +688,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-minor-op-30-no-1-mp3",
@@ -599,7 +707,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-minor-op-56-no-3-mp3",
@@ -615,7 +726,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-30-no-4-mp3",
@@ -631,7 +745,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-41-no-1-mp3",
@@ -647,7 +764,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-50-no-3-mp3",
@@ -663,7 +783,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-6-no-2-mp3",
@@ -679,7 +802,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-c-sharp-minor-op-63-no-3-mp3",
@@ -695,7 +821,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-d-flat-major-op-30-no-3-mp3",
@@ -711,7 +840,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-d-major-b-31-mp3",
@@ -727,7 +859,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-d-major-b-4-mp3",
@@ -743,7 +878,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-d-major-b-71-mp3",
@@ -759,7 +897,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-d-major-op-33-no-2-mp3",
@@ -775,7 +916,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-e-flat-minor-op-6-no-4-mp3",
@@ -791,7 +935,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-e-major-op-6-no-3-mp3",
@@ -807,7 +954,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-e-minor-op-17-no-2-mp3",
@@ -823,7 +973,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-e-minor-op-41-no-2-mp3",
@@ -839,7 +992,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-f-major-op-68-no-3-mp3",
@@ -855,7 +1011,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-f-minor-op-68-no-4-mp3",
@@ -871,7 +1030,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-f-minor-op-7-no-3-mp3",
@@ -887,7 +1049,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-f-sharp-minor-op-59-no-3-mp3",
@@ -903,7 +1068,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-f-sharp-minor-op-6-no-1-mp3",
@@ -919,7 +1087,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-g-major-b-16-no-1-mp3",
@@ -935,7 +1106,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-g-major-op-50-no-1-mp3",
@@ -951,7 +1125,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-g-major-op-67-no-1-mp3",
@@ -967,7 +1144,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-g-minor-op-24-no-1-mp3",
@@ -983,7 +1163,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-g-minor-op-67-no-2-mp3",
@@ -999,7 +1182,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-in-g-sharp-minor-op-33-no-1-mp3",
@@ -1015,7 +1201,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurka-op-67-no-4-in-a-minor-mp3",
@@ -1031,7 +1220,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-mazurkaa-in-f-minor-op-63-no-2-mp3",
@@ -1047,7 +1239,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-b-flat-minor-op-9-no-1-mp3",
@@ -1063,7 +1258,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-b-major-op-62-no-1-mp3",
@@ -1079,7 +1277,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-b-major-op-9-no-3-mp3",
@@ -1095,7 +1296,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-c-minor-b-108-mp3",
@@ -1111,7 +1315,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-c-minor-op-48-no-1-mp3",
@@ -1127,7 +1334,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-c-sharp-minor-lento-con-gran-espressione-b-49-op-posth-mp3",
@@ -1143,7 +1353,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-c-sharp-minor-op-27-no-1-mp3",
@@ -1159,7 +1372,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-d-flat-major-op-27-no-2-mp3",
@@ -1175,7 +1391,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-e-flat-major-op-55-no-2-mp3",
@@ -1191,7 +1410,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-e-flat-major-op-9-no-2-mp3",
@@ -1207,7 +1429,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-e-major-op-62-no-2-mp3",
@@ -1223,7 +1448,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-e-minor-op-posth-72-mp3",
@@ -1239,7 +1467,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-f-major-op-15-no-1-mp3",
@@ -1255,7 +1486,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-f-minor-op-55-no-1-mp3",
@@ -1271,7 +1505,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-f-sharp-major-op-15-no-2-mp3",
@@ -1287,7 +1524,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-f-sharp-minor-op-48-no-2-mp3",
@@ -1303,7 +1543,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-in-g-minor-op-15-no-3-mp3",
@@ -1319,7 +1562,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-op-37-no-1-in-g-minor-mp3",
@@ -1335,7 +1581,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturne-op-37-no-2-in-g-major-mp3",
@@ -1351,7 +1600,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturnes-op-32-no-1-nocturne-in-b-major-mp3",
@@ -1367,7 +1619,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "musopen-chopin-complete-works-flac-nocturnes-op-32-no-2-nocturne-in-a-major-mp3",
@@ -1383,7 +1638,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "liszt-consolation-no-3",
@@ -1399,7 +1657,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "liszt-consolation-no-5",
@@ -1415,7 +1676,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "liszt-romance-s-169",
@@ -1431,7 +1695,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "liszt-au-bord-d-une-source",
@@ -1447,7 +1714,10 @@
           "instrumentation": [
             "piano"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "frank-schroeter-medieval-dream",
@@ -1464,7 +1734,10 @@
             "harp",
             "recorder"
           ],
-          "ensembleType": "duo"
+          "ensembleType": "duo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "haydn-cello-concerto-no-1-adagio",
@@ -1481,7 +1754,10 @@
             "cello",
             "strings"
           ],
-          "ensembleType": "chamber-orchestra"
+          "ensembleType": "chamber-orchestra",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "bach-cello-suite-1-sarabande-john-michel",
@@ -1497,7 +1773,10 @@
           "instrumentation": [
             "cello"
           ],
-          "ensembleType": "solo"
+          "ensembleType": "solo",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         },
         {
           "id": "schubert-octet-d803-adagio",
@@ -1519,7 +1798,10 @@
             "horn",
             "bassoon"
           ],
-          "ensembleType": "octet"
+          "ensembleType": "octet",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_quiet_classics.png",
+          "artworkFileName": "motif_quiet_classics.png",
+          "artworkSha256": "a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25"
         }
       ]
     },
@@ -1539,7 +1821,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "relaxingrainsounds-light-gentle-rain-part-1.mp3",
           "durationSeconds": 1909.37,
-          "sha1": "288b9acc350a33b1bc6fe99d07f62d69b7e2fae6"
+          "sha1": "288b9acc350a33b1bc6fe99d07f62d69b7e2fae6",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "relaxingrainsounds-light-gentle-rain-part-2-mp3",
@@ -1551,7 +1836,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "relaxingrainsounds-light-gentle-rain-part-2.mp3",
           "durationSeconds": 1729.28,
-          "sha1": "5451389ad75d733cd7186ff1375b290fe020d09f"
+          "sha1": "5451389ad75d733cd7186ff1375b290fe020d09f",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "relaxingrainsounds-rain-sounds-mp3",
@@ -1563,7 +1851,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "relaxingrainsounds-rain-sounds.mp3",
           "durationSeconds": 594.68,
-          "sha1": "a57ff463876e87b660eccdc6ae4d8cf4504e4d41"
+          "sha1": "a57ff463876e87b660eccdc6ae4d8cf4504e4d41",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "relaxingrainsounds-rain-trickling-sounds-part-1-mp3",
@@ -1575,7 +1866,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "relaxingrainsounds-rain-trickling-sounds-part-1.mp3",
           "durationSeconds": 1809.45,
-          "sha1": "4edb31016ca211f493fec13346e9b0f217e57ce6"
+          "sha1": "4edb31016ca211f493fec13346e9b0f217e57ce6",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "relaxingrainsounds-rain-trickling-sounds-part-2-mp3",
@@ -1587,7 +1881,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "relaxingrainsounds-rain-trickling-sounds-part-2.mp3",
           "durationSeconds": 1802.87,
-          "sha1": "bdbcf33e9fb57f5806f1d741d73913b394908d5c"
+          "sha1": "bdbcf33e9fb57f5806f1d741d73913b394908d5c",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "naturesounds-soundtheraphy-light-gentle-rain-mp3",
@@ -1599,7 +1896,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "naturesounds-soundtheraphy-light-gentle-rain.mp3",
           "durationSeconds": 2160.43,
-          "sha1": "4ee3c9239e273708f45cfbe06524a3bf172fb9bc"
+          "sha1": "4ee3c9239e273708f45cfbe06524a3bf172fb9bc",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-1-minute-rain-medium-6767-mp3",
@@ -1611,7 +1911,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-1-minute-rain-medium-6767.mp3",
           "durationSeconds": 51.43,
-          "sha1": "3332c6043cefe452c1514b77d4c3ff9a8e4c3a6d"
+          "sha1": "3332c6043cefe452c1514b77d4c3ff9a8e4c3a6d",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-20210628-rain-sound-heavy-1-mp3",
@@ -1623,7 +1926,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-20210628-rain-sound-heavy-1.mp3",
           "durationSeconds": 1283.47,
-          "sha1": "4242e088b9bf6cef8393c1614b545046034935c6"
+          "sha1": "4242e088b9bf6cef8393c1614b545046034935c6",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-ambience-crickets-chirping-light-rain-tending-to-heavier-rain-10576-mp3",
@@ -1635,7 +1941,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-ambience-crickets-chirping-light-rain-tending-to-heavier-rain-10576.mp3",
           "durationSeconds": 73.54,
-          "sha1": "ce0d5fd86e0b879715b4f18f1de65af1487aaade"
+          "sha1": "ce0d5fd86e0b879715b4f18f1de65af1487aaade",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-gentle-rainfall-16960-mp3",
@@ -1647,7 +1956,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-gentle-rainfall-16960.mp3",
           "durationSeconds": 171.77,
-          "sha1": "ddd430072df02aededc27fce5a34c636460f4c23"
+          "sha1": "ddd430072df02aededc27fce5a34c636460f4c23",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-heavy-rain-52622-mp3",
@@ -1659,7 +1971,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-heavy-rain-52622.mp3",
           "durationSeconds": 393.19,
-          "sha1": "61da1a965f8b143a7ab3953f908153286636794c"
+          "sha1": "61da1a965f8b143a7ab3953f908153286636794c",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-heavy-rain-nature-sounds-8186-mp3",
@@ -1671,7 +1986,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-heavy-rain-nature-sounds-8186.mp3",
           "durationSeconds": 29.91,
-          "sha1": "0e4d58f0bc9a2526cb854f45ba5532651c989002"
+          "sha1": "0e4d58f0bc9a2526cb854f45ba5532651c989002",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-heavy-raining-rain-on-tree-natural-clear-sound-abbas-ali-quiet-life-relaxing-music-11938-mp3",
@@ -1683,7 +2001,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-heavy-raining-rain-on-tree-natural-clear-sound-abbas-ali-quiet-life-relaxing-music-11938.mp3",
           "durationSeconds": 862.69,
-          "sha1": "9878c1890e8fd4b62cec1c17cd82e831e7760c5f"
+          "sha1": "9878c1890e8fd4b62cec1c17cd82e831e7760c5f",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-light-rain-109591-mp3",
@@ -1695,7 +2016,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-light-rain-109591.mp3",
           "durationSeconds": 104.36,
-          "sha1": "59275add62d4b852334593c02494521f70624a61"
+          "sha1": "59275add62d4b852334593c02494521f70624a61",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-light-rain-34054-mp3",
@@ -1707,7 +2031,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-light-rain-34054.mp3",
           "durationSeconds": 26.38,
-          "sha1": "03f7b81ad1040b008b07da6acfe52fedb7073555"
+          "sha1": "03f7b81ad1040b008b07da6acfe52fedb7073555",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-light-rain-smooth-11608-mp3",
@@ -1719,7 +2046,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-light-rain-smooth-11608.mp3",
           "durationSeconds": 84.19,
-          "sha1": "99126facec0ade6f6fb7dfdb0986a1c11bd9fee1"
+          "sha1": "99126facec0ade6f6fb7dfdb0986a1c11bd9fee1",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-lluvia-rain-sounds-110240-mp3",
@@ -1731,7 +2061,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-lluvia-rain-sounds-110240.mp3",
           "durationSeconds": 894.69,
-          "sha1": "98511e5eb5111b93015e6fb4aef53ca6635fee02"
+          "sha1": "98511e5eb5111b93015e6fb4aef53ca6635fee02",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-medium-heavy-rain-8558-mp3",
@@ -1743,7 +2076,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-medium-heavy-rain-8558.mp3",
           "durationSeconds": 173.04,
-          "sha1": "18b5947a6600fa11ceeede8a1c50db0b1e706f64"
+          "sha1": "18b5947a6600fa11ceeede8a1c50db0b1e706f64",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-rain-110508-mp3",
@@ -1755,7 +2091,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-rain-110508.mp3",
           "durationSeconds": 846.94,
-          "sha1": "4a388e86817d4d2dc72db900174658a1d70b05b7"
+          "sha1": "4a388e86817d4d2dc72db900174658a1d70b05b7",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-rain-background-50798-mp3",
@@ -1767,7 +2106,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-rain-background-50798.mp3",
           "durationSeconds": 241.94,
-          "sha1": "25988224559da7367d47f2af2c5a970b1ba0c8c8"
+          "sha1": "25988224559da7367d47f2af2c5a970b1ba0c8c8",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-rain-in-forest-birds-nature-111405-mp3",
@@ -1779,7 +2121,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-rain-in-forest-birds-nature-111405.mp3",
           "durationSeconds": 360.28,
-          "sha1": "3a96066ad10f52d66dc484e2033148ea1235642d"
+          "sha1": "3a96066ad10f52d66dc484e2033148ea1235642d",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-rain-in-the-city-8017-mp3",
@@ -1791,7 +2136,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-rain-in-the-city-8017.mp3",
           "durationSeconds": 45.82,
-          "sha1": "447799941d21ee11a6508cd37f9d7ba84657180d"
+          "sha1": "447799941d21ee11a6508cd37f9d7ba84657180d",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-rain-inside-a-car-113602-mp3",
@@ -1803,7 +2151,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-rain-inside-a-car-113602.mp3",
           "durationSeconds": 899.84,
-          "sha1": "dfcc0b44c298c45bc8712b2f11ebc5746170ce99"
+          "sha1": "dfcc0b44c298c45bc8712b2f11ebc5746170ce99",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-rain-noise-for-sleep-21436-mp3",
@@ -1815,7 +2166,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-rain-noise-for-sleep-21436.mp3",
           "durationSeconds": 155.43,
-          "sha1": "3f0410ff6c32896eb7092dc99e556e74d3dc2b3f"
+          "sha1": "3f0410ff6c32896eb7092dc99e556e74d3dc2b3f",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-rain-on-a-car-roof-nature-sounds-8448-mp3",
@@ -1827,7 +2181,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-rain-on-a-car-roof-nature-sounds-8448.mp3",
           "durationSeconds": 48.46,
-          "sha1": "dcde05b66848d6d1275edbe7ffd04b58616dc497"
+          "sha1": "dcde05b66848d6d1275edbe7ffd04b58616dc497",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-rain-on-roof-or-window-nature-sounds-8312-mp3",
@@ -1839,7 +2196,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-rain-on-roof-or-window-nature-sounds-8312.mp3",
           "durationSeconds": 41.82,
-          "sha1": "97269005eda58ddf1a7ee2c7ff131c87bfc3a6ea"
+          "sha1": "97269005eda58ddf1a7ee2c7ff131c87bfc3a6ea",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-rain-recording-49238-mp3",
@@ -1851,7 +2211,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-rain-recording-49238.mp3",
           "durationSeconds": 170.86,
-          "sha1": "8b3b0103e805f82969d2f5382be72f73a6ce0967"
+          "sha1": "8b3b0103e805f82969d2f5382be72f73a6ce0967",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-rain-sfx-12819-mp3",
@@ -1863,7 +2226,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-rain-sfx-12819.mp3",
           "durationSeconds": 75.31,
-          "sha1": "ab3f0e5cd52bf34d0356573e4815e56f8bd7e2b9"
+          "sha1": "ab3f0e5cd52bf34d0356573e4815e56f8bd7e2b9",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-rain-sounds-sonidos-de-lluvia-110123-mp3",
@@ -1875,7 +2241,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-rain-sounds-sonidos-de-lluvia-110123.mp3",
           "durationSeconds": 888.4,
-          "sha1": "8370596bd4688d87a13538cb19b616d6c48150cb"
+          "sha1": "8370596bd4688d87a13538cb19b616d6c48150cb",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-relaxing-mountains-rivers-streams-running-water-18178-mp3",
@@ -1887,7 +2256,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-relaxing-mountains-rivers-streams-running-water-18178.mp3",
           "durationSeconds": 299.81,
-          "sha1": "ffab1b6e938c727469e0313dba2953dea5674002"
+          "sha1": "ffab1b6e938c727469e0313dba2953dea5674002",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-relaxing-rain-8228-mp3",
@@ -1899,7 +2271,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-relaxing-rain-8228.mp3",
           "durationSeconds": 197.2,
-          "sha1": "3c89766aee02540c5e3cf01f55cdab4254ed86fc"
+          "sha1": "3c89766aee02540c5e3cf01f55cdab4254ed86fc",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-relaxing-rain-and-birds-6-minutes-52191-mp3",
@@ -1911,7 +2286,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-relaxing-rain-and-birds-6-minutes-52191.mp3",
           "durationSeconds": 343.78,
-          "sha1": "ee293a553b63512575651c1ca73b2a62e03e5d42"
+          "sha1": "ee293a553b63512575651c1ca73b2a62e03e5d42",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-soft-rain-ambient-111154-mp3",
@@ -1923,7 +2301,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-soft-rain-ambient-111154.mp3",
           "durationSeconds": 540.24,
-          "sha1": "ee369acfe29f6806315974a63060f985d07dbefc"
+          "sha1": "ee369acfe29f6806315974a63060f985d07dbefc",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         },
         {
           "id": "rain-sounds-gentle-rain-thunderstorms-wind-and-rain-in-iceland-48khz-ms-6137-mp3",
@@ -1935,7 +2316,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "rain-sounds-gentle-rain-thunderstorms-wind-and-rain-in-iceland-48khz-ms-6137.mp3",
           "durationSeconds": 196.06,
-          "sha1": "f864fe5b7c5876cb50195324c7c8dea4fa67eb82"
+          "sha1": "f864fe5b7c5876cb50195324c7c8dea4fa67eb82",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_rain.png",
+          "artworkFileName": "motif_rain.png",
+          "artworkSha256": "cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d"
         }
       ]
     },
@@ -1955,7 +2339,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "relaxingrainsounds-a-tropical-rain-forest-1.mp3",
           "durationSeconds": 1884.73,
-          "sha1": "230abedd856d830c2ffec0fbcf72d4ee3d477e98"
+          "sha1": "230abedd856d830c2ffec0fbcf72d4ee3d477e98",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_forest.png",
+          "artworkFileName": "motif_forest.png",
+          "artworkSha256": "a241f118482789ae5b1eb62eea7b5cfd9fd60698368a5b4a8d1cd9f5c83e29e2"
         },
         {
           "id": "relaxingrainsounds-a-tropical-rain-forest-2-mp3",
@@ -1967,7 +2354,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "relaxingrainsounds-a-tropical-rain-forest-2.mp3",
           "durationSeconds": 1623.41,
-          "sha1": "8e97398ad5c24cac2da921b3e0f7b5d74e502f23"
+          "sha1": "8e97398ad5c24cac2da921b3e0f7b5d74e502f23",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_forest.png",
+          "artworkFileName": "motif_forest.png",
+          "artworkSha256": "a241f118482789ae5b1eb62eea7b5cfd9fd60698368a5b4a8d1cd9f5c83e29e2"
         },
         {
           "id": "relaxingrainsounds-birds-in-the-rain-part-1-mp3",
@@ -1979,7 +2369,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "relaxingrainsounds-birds-in-the-rain-part-1.mp3",
           "durationSeconds": 1285.36,
-          "sha1": "79cdfaef902e1f4817b3bf2541ff4221bd3216bf"
+          "sha1": "79cdfaef902e1f4817b3bf2541ff4221bd3216bf",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_forest.png",
+          "artworkFileName": "motif_forest.png",
+          "artworkSha256": "a241f118482789ae5b1eb62eea7b5cfd9fd60698368a5b4a8d1cd9f5c83e29e2"
         },
         {
           "id": "relaxingrainsounds-birds-in-the-rain-part-2-mp3",
@@ -1991,7 +2384,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "relaxingrainsounds-birds-in-the-rain-part-2.mp3",
           "durationSeconds": 1348.34,
-          "sha1": "658fa1884ba3b0b39dc010a29f740bc4e6df8b34"
+          "sha1": "658fa1884ba3b0b39dc010a29f740bc4e6df8b34",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_forest.png",
+          "artworkFileName": "motif_forest.png",
+          "artworkSha256": "a241f118482789ae5b1eb62eea7b5cfd9fd60698368a5b4a8d1cd9f5c83e29e2"
         },
         {
           "id": "relaxingrainsounds-rainforest-part-1-mp3",
@@ -2003,7 +2399,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "relaxingrainsounds-rainforest-part-1.mp3",
           "durationSeconds": 1360.67,
-          "sha1": "11c97bc42b376bd027cca61eddcf8f157ae77a0c"
+          "sha1": "11c97bc42b376bd027cca61eddcf8f157ae77a0c",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_forest.png",
+          "artworkFileName": "motif_forest.png",
+          "artworkSha256": "a241f118482789ae5b1eb62eea7b5cfd9fd60698368a5b4a8d1cd9f5c83e29e2"
         },
         {
           "id": "relaxingrainsounds-rainforest-part-2-mp3",
@@ -2015,7 +2414,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "relaxingrainsounds-rainforest-part-2.mp3",
           "durationSeconds": 1368.5,
-          "sha1": "a451ef3fdad9adb746a31e266e44fc024fb4b6a6"
+          "sha1": "a451ef3fdad9adb746a31e266e44fc024fb4b6a6",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_forest.png",
+          "artworkFileName": "motif_forest.png",
+          "artworkSha256": "a241f118482789ae5b1eb62eea7b5cfd9fd60698368a5b4a8d1cd9f5c83e29e2"
         },
         {
           "id": "relaxingrainsounds-tropical-rain-mp3",
@@ -2027,7 +2429,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "relaxingrainsounds-tropical-rain.mp3",
           "durationSeconds": 1229.19,
-          "sha1": "b7084d5a5213c9ca51fc69adc81d7e4174327a09"
+          "sha1": "b7084d5a5213c9ca51fc69adc81d7e4174327a09",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_forest.png",
+          "artworkFileName": "motif_forest.png",
+          "artworkSha256": "a241f118482789ae5b1eb62eea7b5cfd9fd60698368a5b4a8d1cd9f5c83e29e2"
         },
         {
           "id": "naturesounds-soundtheraphy-relaxing-nature-sounds-birdsong-sound-mp3",
@@ -2039,7 +2444,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "naturesounds-soundtheraphy-relaxing-nature-sounds-birdsong-sound.mp3",
           "durationSeconds": 582.06,
-          "sha1": "5175f4db6dec98e8877fc1d859af1875418df53b"
+          "sha1": "5175f4db6dec98e8877fc1d859af1875418df53b",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_forest.png",
+          "artworkFileName": "motif_forest.png",
+          "artworkSha256": "a241f118482789ae5b1eb62eea7b5cfd9fd60698368a5b4a8d1cd9f5c83e29e2"
         }
       ]
     },
@@ -2059,7 +2467,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "naturesounds-soundtheraphy-birds-with-ocean-waves-on-the-beach.mp3",
           "durationSeconds": 1650.02,
-          "sha1": "5a7c47eb88246bbdf97938eb8a09a263f10b85ee"
+          "sha1": "5a7c47eb88246bbdf97938eb8a09a263f10b85ee",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_waves.png",
+          "artworkFileName": "motif_waves.png",
+          "artworkSha256": "98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd"
         },
         {
           "id": "naturesounds-soundtheraphy-relaxing-nature-sounds-trickling-stream-sounds-birds-mp3",
@@ -2071,7 +2482,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "naturesounds-soundtheraphy-relaxing-nature-sounds-trickling-stream-sounds-birds.mp3",
           "durationSeconds": 1597.13,
-          "sha1": "014af7adcd6ca0490e55d459e80fa49349c5eea2"
+          "sha1": "014af7adcd6ca0490e55d459e80fa49349c5eea2",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_waves.png",
+          "artworkFileName": "motif_waves.png",
+          "artworkSha256": "98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd"
         },
         {
           "id": "ocean-sea-sounds-gentle-ocean-mp3",
@@ -2083,7 +2497,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "ocean-sea-sounds-gentle-ocean.mp3",
           "durationSeconds": 1188.08,
-          "sha1": "b6525f8fccda0f096453310c70cb56cd1a6aed41"
+          "sha1": "b6525f8fccda0f096453310c70cb56cd1a6aed41",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_waves.png",
+          "artworkFileName": "motif_waves.png",
+          "artworkSha256": "98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd"
         },
         {
           "id": "ocean-sea-sounds-ocean-sound-nature-sounds-mp3",
@@ -2095,7 +2512,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "ocean-sea-sounds-ocean-sound-nature-sounds.mp3",
           "durationSeconds": 180.09,
-          "sha1": "bfc09efb934cb24a40516c2fb8993bda7252b856"
+          "sha1": "bfc09efb934cb24a40516c2fb8993bda7252b856",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_waves.png",
+          "artworkFileName": "motif_waves.png",
+          "artworkSha256": "98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd"
         },
         {
           "id": "ocean-sea-sounds-ocean-sound-mediterranean-sea-plakias-beach-crete-greece-by-dale-part-1-mp3",
@@ -2107,7 +2527,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "ocean-sea-sounds-ocean-sound-mediterranean-sea-plakias-beach-crete-greece-by-dale-part-1.mp3",
           "durationSeconds": 1864.67,
-          "sha1": "5193b765317983a794a909fb4467b221efb85738"
+          "sha1": "5193b765317983a794a909fb4467b221efb85738",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_waves.png",
+          "artworkFileName": "motif_waves.png",
+          "artworkSha256": "98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd"
         },
         {
           "id": "ocean-sea-sounds-ocean-sound-mediterranean-sea-plakias-beach-crete-greece-by-dale-part-2-mp3",
@@ -2119,7 +2542,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "ocean-sea-sounds-ocean-sound-mediterranean-sea-plakias-beach-crete-greece-by-dale-part-2.mp3",
           "durationSeconds": 2102.96,
-          "sha1": "05a6070e20cbdc8da3d3381bc2b801c03842cd8c"
+          "sha1": "05a6070e20cbdc8da3d3381bc2b801c03842cd8c",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_waves.png",
+          "artworkFileName": "motif_waves.png",
+          "artworkSha256": "98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd"
         },
         {
           "id": "ocean-sea-sounds-sleep-aboard-sailboat-mp3",
@@ -2131,7 +2557,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "ocean-sea-sounds-sleep-aboard-sailboat.mp3",
           "durationSeconds": 2712.76,
-          "sha1": "4427b28bec34f692e913c521ea94642f865d1d5b"
+          "sha1": "4427b28bec34f692e913c521ea94642f865d1d5b",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_waves.png",
+          "artworkFileName": "motif_waves.png",
+          "artworkSha256": "98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd"
         },
         {
           "id": "ocean-sea-sounds-those-relaxing-sounds-of-waves-ocean-sounds-1080p-hd-video-with-tropical-beaches-part-1-mp3",
@@ -2143,7 +2572,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "ocean-sea-sounds-those-relaxing-sounds-of-waves-ocean-sounds-1080p-hd-video-with-tropical-beaches-part-1.mp3",
           "durationSeconds": 1739.78,
-          "sha1": "46f8ac139988842650ba02ac8329acf3fcd67a05"
+          "sha1": "46f8ac139988842650ba02ac8329acf3fcd67a05",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_waves.png",
+          "artworkFileName": "motif_waves.png",
+          "artworkSha256": "98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd"
         },
         {
           "id": "ocean-sea-sounds-those-relaxing-sounds-of-waves-ocean-sounds-1080p-hd-video-with-tropical-beaches-part-2-mp3",
@@ -2155,7 +2587,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "ocean-sea-sounds-those-relaxing-sounds-of-waves-ocean-sounds-1080p-hd-video-with-tropical-beaches-part-2.mp3",
           "durationSeconds": 1878.96,
-          "sha1": "b7ccdf254335162c6cac31dea76a234efe40fecc"
+          "sha1": "b7ccdf254335162c6cac31dea76a234efe40fecc",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_waves.png",
+          "artworkFileName": "motif_waves.png",
+          "artworkSha256": "98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd"
         },
         {
           "id": "ocean-sea-sounds-waves-gently-rocking-boat-1-mp3",
@@ -2167,7 +2602,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "ocean-sea-sounds-waves-gently-rocking-boat-1.mp3",
           "durationSeconds": 1803.05,
-          "sha1": "ea739c9b824b4478500a71eec6707e6700ad1fd0"
+          "sha1": "ea739c9b824b4478500a71eec6707e6700ad1fd0",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_waves.png",
+          "artworkFileName": "motif_waves.png",
+          "artworkSha256": "98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd"
         },
         {
           "id": "ocean-sea-sounds-waves-gently-rocking-boat-2-mp3",
@@ -2179,7 +2617,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
           "fileName": "ocean-sea-sounds-waves-gently-rocking-boat-2.mp3",
           "durationSeconds": 1814.39,
-          "sha1": "1243fe8bfa7f465526fb1d11c94d53e93816dfc5"
+          "sha1": "1243fe8bfa7f465526fb1d11c94d53e93816dfc5",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_waves.png",
+          "artworkFileName": "motif_waves.png",
+          "artworkSha256": "98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd"
         },
         {
           "id": "lake-ontario-waves",
@@ -2191,7 +2632,10 @@
           "licenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
           "fileName": "waves.ogg",
           "durationSeconds": 287.0,
-          "sha1": null
+          "sha1": null,
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_waves.png",
+          "artworkFileName": "motif_waves.png",
+          "artworkSha256": "98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd"
         }
       ]
     },
@@ -2212,7 +2656,10 @@
           "fileName": "firefavorite-fire-favorite.mp3",
           "durationSeconds": 263.52,
           "sha1": "ec072456240037369703318842358ced6bf9dcdf",
-          "volumeGain": 6.0
+          "volumeGain": 6.0,
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_fireplace_a.png",
+          "artworkFileName": "motif_fireplace_a.png",
+          "artworkSha256": "95dbb13567e253005b83e4284e67f10d8dcc672981da0a335fbf4d27791b2eb5"
         }
       ]
     },
@@ -2237,7 +2684,10 @@
             "piano"
           ],
           "ensembleType": "solo",
-          "playbackSpeed": 0.833333
+          "playbackSpeed": 0.833333,
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_lullaby_sleepy_child.png",
+          "artworkFileName": "motif_lullaby_sleepy_child.png",
+          "artworkSha256": "19b304a437287e6ce4cfab313225237bd2623438777cf905f311a0c27cf5aa55"
         },
         {
           "id": "burgmuller-berceuse-op-109-no-7",
@@ -2254,7 +2704,10 @@
             "piano"
           ],
           "ensembleType": "solo",
-          "playbackSpeed": 0.833333
+          "playbackSpeed": 0.833333,
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_lullaby_vine.png",
+          "artworkFileName": "motif_lullaby_vine.png",
+          "artworkSha256": "5daba8633f8e450ad70969a85fc969d70c9686686bcba4228f3b6d81a99cdc31"
         },
         {
           "id": "music-box-schlafe-mein-prinzchen",
@@ -2271,7 +2724,10 @@
             "music-box"
           ],
           "ensembleType": "solo",
-          "playbackSpeed": 0.833333
+          "playbackSpeed": 0.833333,
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/sleepy_bear_moon.png",
+          "artworkFileName": "sleepy_bear_moon.png",
+          "artworkSha256": "12039a2dbc713d6281fb4bc6c171cc7821843aec587a2c16d5c948e513f0a455"
         },
         {
           "id": "music-box-guten-abend-gute-nacht",
@@ -2288,7 +2744,10 @@
             "music-box"
           ],
           "ensembleType": "solo",
-          "playbackSpeed": 0.833333
+          "playbackSpeed": 0.833333,
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/sleepy_lamb_star.png",
+          "artworkFileName": "sleepy_lamb_star.png",
+          "artworkSha256": "dda54da1b91f317ab83061af55ccf00e1b161c1fc367fe8e626181e563b41b06"
         },
         {
           "id": "antti-luode-another-lullaby",
@@ -2305,7 +2764,10 @@
             "instrumental"
           ],
           "ensembleType": "solo",
-          "playbackSpeed": 0.833333
+          "playbackSpeed": 0.833333,
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_lullaby_boat.png",
+          "artworkFileName": "motif_lullaby_boat.png",
+          "artworkSha256": "5f12ded5d87122b8714eb88d29c35ee3082a5b9554545a131d019c4a4a26216f"
         }
       ]
     }

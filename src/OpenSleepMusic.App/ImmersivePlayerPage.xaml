@@ -5,7 +5,7 @@
              BackgroundColor="#07142D" Shell.NavBarIsVisible="False">
     <Grid x:Name="Scene">
         <Grid.GestureRecognizers><TapGestureRecognizer Tapped="OnSceneTapped" /></Grid.GestureRecognizers>
-        <Image x:Name="MotifImage" Source="sleepy_bear_moon.png" Aspect="AspectFit" Opacity="0.88"
+        <Image x:Name="MotifImage" Source="sleepy_lamb_star.png" Aspect="AspectFit" Opacity="0.88"
                HorizontalOptions="Fill" VerticalOptions="Fill" MaximumWidthRequest="720" MaximumHeightRequest="720" Margin="32"
                InputTransparent="True" AutomationProperties.IsInAccessibleTree="False" />
         <BoxView Color="#38020A1D" InputTransparent="True" />

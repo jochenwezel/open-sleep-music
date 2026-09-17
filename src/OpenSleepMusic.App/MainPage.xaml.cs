@@ -20,6 +20,7 @@ public partial class MainPage : ContentPage
     private static readonly string[] SleepTimerLabels = ["Aus", "15 Minuten", "30 Minuten", "45 Minuten", "60 Minuten", "90 Minuten"];
     private static readonly string[] RepeatModeLabels = ["Themensammlung", "Einzeltitel"];
     private readonly HttpClient _httpClient;
+    private readonly ArtworkCache _artworkCache;
     private readonly LocalLibraryScanner _libraryScanner = new();
     private readonly LocalLibraryManager _libraryManager = new();
     private readonly AppStateStore _stateStore = new();
@@ -89,6 +90,8 @@ public partial class MainPage : ContentPage
         _httpClient = new HttpClient { Timeout = TimeSpan.FromMinutes(15) };
         _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(
             "OpenSleepMusic/0.1 (+https://github.com/jochenwezel/open-sleep-music)");
+        var downloadLog = new FileDownloadLogSink(Path.Combine(FileSystem.AppDataDirectory, "logs", "downloads.jsonl"));
+        _artworkCache = new ArtworkCache(_httpClient, downloadLog);
         _worldCards = BuiltInCatalog.SleepWorlds.Select(world => new SleepWorldCard(world)).ToArray();
         WorldsView.ItemsSource = _worldCards;
 
@@ -1169,6 +1172,9 @@ public partial class MainPage : ContentPage
 
     internal bool ReducedMotion => _stateStore.LoadReducedMotion();
 
+    internal Task<string?> GetArtworkAsync(AudioTrack track, CancellationToken cancellationToken = default) =>
+        _artworkCache.GetAsync(track, Path.Combine(FileSystem.AppDataDirectory, "artwork"), cancellationToken);
+
     internal ImmersivePlayerState GetImmersiveState(string worldId)
     {
 #if ANDROID
@@ -1196,7 +1202,8 @@ public partial class MainPage : ContentPage
             _sleepTimer.IsActive,
             _sleepTimer.IsActive ? SleepTimerDisplay.FormatRemaining(_sleepTimer.Remaining) : AppText.Get("Off"),
             selectedTrack is null ? TimeSpan.Zero : position,
-            selectedTrack is null ? TimeSpan.Zero : duration);
+            selectedTrack is null ? TimeSpan.Zero : duration,
+            selectedTrack?.Track);
     }
 
     internal void ImmersiveTogglePlayback(string worldId)

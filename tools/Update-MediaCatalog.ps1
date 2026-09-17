@@ -168,6 +168,36 @@ $worlds.lullabies.tracks | ForEach-Object {
     else { $_.instrumentation = @('instrumental'); $_.ensembleType = 'solo' }
 }
 foreach ($track in $worlds.lullabies.tracks) { $track.playbackSpeed = [Math]::Round(1 / 1.2, 6) }
+
+$artworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1'
+$artwork = @{
+    'quiet-classics' = @{ file = 'motif_quiet_classics.png'; sha256 = 'a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25' }
+    rain = @{ file = 'motif_rain.png'; sha256 = 'cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d' }
+    forest = @{ file = 'motif_forest.png'; sha256 = 'a241f118482789ae5b1eb62eea7b5cfd9fd60698368a5b4a8d1cd9f5c83e29e2' }
+    waves = @{ file = 'motif_waves.png'; sha256 = '98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd' }
+    fireplace = @{ file = 'motif_fireplace_a.png'; sha256 = '95dbb13567e253005b83e4284e67f10d8dcc672981da0a335fbf4d27791b2eb5' }
+    lullabies = @{ file = 'sleepy_bear_moon.png'; sha256 = '12039a2dbc713d6281fb4bc6c171cc7821843aec587a2c16d5c948e513f0a455' }
+}
+$lullabyArtwork = @{
+    'faure-berceuse-op-56-no-1' = @{ file = 'motif_lullaby_sleepy_child.png'; sha256 = '19b304a437287e6ce4cfab313225237bd2623438777cf905f311a0c27cf5aa55' }
+    'burgmuller-berceuse-op-109-no-7' = @{ file = 'motif_lullaby_vine.png'; sha256 = '5daba8633f8e450ad70969a85fc969d70c9686686bcba4228f3b6d81a99cdc31' }
+    'music-box-schlafe-mein-prinzchen' = @{ file = 'sleepy_bear_moon.png'; sha256 = '12039a2dbc713d6281fb4bc6c171cc7821843aec587a2c16d5c948e513f0a455' }
+    'music-box-guten-abend-gute-nacht' = @{ file = 'sleepy_lamb_star.png'; sha256 = 'dda54da1b91f317ab83061af55ccf00e1b161c1fc367fe8e626181e563b41b06' }
+    'antti-luode-another-lullaby' = @{ file = 'motif_lullaby_boat.png'; sha256 = '5f12ded5d87122b8714eb88d29c35ee3082a5b9554545a131d019c4a4a26216f' }
+}
+foreach ($worldEntry in $worlds.GetEnumerator()) {
+    foreach ($track in $worldEntry.Value.tracks) {
+        $trackArtwork = if ($worldEntry.Key -eq 'lullabies' -and $lullabyArtwork.ContainsKey($track.id)) {
+            $lullabyArtwork[$track.id]
+        } else {
+            $artwork[$worldEntry.Key]
+        }
+        $track['artworkUri'] = "$artworkReleaseBase/$($trackArtwork.file)"
+        $track['artworkFileName'] = $trackArtwork.file
+        $track['artworkSha256'] = $trackArtwork.sha256
+    }
+}
+
 $manifestWorlds = foreach ($entry in $worlds.GetEnumerator()) {
     [ordered]@{
         id = $entry.Key

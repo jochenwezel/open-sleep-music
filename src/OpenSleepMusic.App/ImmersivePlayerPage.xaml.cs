@@ -1,6 +1,7 @@
 using OpenSleepMusic.App.Localization;
 using OpenSleepMusic.App.Playback;
 using OpenSleepMusic.App.Visuals;
+using OpenSleepMusic.Core.Catalog;
 
 namespace OpenSleepMusic.App;
 
@@ -14,6 +15,8 @@ public partial class ImmersivePlayerPage : ContentPage
     private bool _animateBack;
     private bool _fadeMotifBack;
     private int _motifTransitionVersion;
+    private string? _artworkRequestKey;
+    private CancellationTokenSource? _artworkCancellation;
     private readonly VolumeOverlayView _volumeOverlay;
     private readonly IDispatcherTimer _refreshTimer;
     private PlaybackVisualTheme? _theme;
@@ -77,6 +80,7 @@ public partial class ImmersivePlayerPage : ContentPage
                 StartAmbientAnimations();
             }
         }
+        RequestArtwork(state.Track, theme.MotifAsset);
         TitleLabel.Text = state.Title ?? AppText.Get("NoTrack");
         FavoriteButton.IsEnabled = state.TrackId is not null;
         BlockButton.IsEnabled = state.TrackId is not null;
@@ -139,6 +143,33 @@ public partial class ImmersivePlayerPage : ContentPage
         if (version != _motifTransitionVersion || !IsLoaded) return;
         MotifImage.Source = asset;
         await MotifImage.FadeToAsync(0.88, 650, Easing.SinInOut);
+    }
+
+    private void RequestArtwork(AudioTrack? track, string fallbackAsset)
+    {
+        var key = track is null ? $"fallback:{fallbackAsset}" : $"{track.Id}:{track.ArtworkSha256}";
+        if (_artworkRequestKey == key) return;
+        _artworkRequestKey = key;
+        _artworkCancellation?.Cancel();
+        _artworkCancellation?.Dispose();
+        _artworkCancellation = new CancellationTokenSource();
+        if (track is null)
+        {
+            _ = TransitionMotifAsync(fallbackAsset, ++_motifTransitionVersion);
+            return;
+        }
+        _ = LoadArtworkAsync(track, fallbackAsset, key, _artworkCancellation.Token);
+    }
+
+    private async Task LoadArtworkAsync(AudioTrack track, string fallbackAsset, string key, CancellationToken cancellationToken)
+    {
+        try
+        {
+            var path = await _owner.GetArtworkAsync(track, cancellationToken);
+            if (cancellationToken.IsCancellationRequested || key != _artworkRequestKey) return;
+            await TransitionMotifAsync(path ?? fallbackAsset, ++_motifTransitionVersion);
+        }
+        catch (OperationCanceledException) { }
     }
 
     private void StartAmbientAnimations()
@@ -209,4 +240,4 @@ public partial class ImmersivePlayerPage : ContentPage
     private static string FormatTime(TimeSpan value) => value.TotalHours >= 1 ? value.ToString(@"h\:mm\:ss") : value.ToString(@"m\:ss");
 }
 
-internal sealed record ImmersivePlayerState(string? TrackId, string? WorldId, string? Title, bool IsPlaying, bool IsFavorite, bool IsBlocked, bool RepeatTrack, bool IsSleepTimerActive, string TimerText, TimeSpan Position, TimeSpan Duration);
+internal sealed record ImmersivePlayerState(string? TrackId, string? WorldId, string? Title, bool IsPlaying, bool IsFavorite, bool IsBlocked, bool RepeatTrack, bool IsSleepTimerActive, string TimerText, TimeSpan Position, TimeSpan Duration, AudioTrack? Track);

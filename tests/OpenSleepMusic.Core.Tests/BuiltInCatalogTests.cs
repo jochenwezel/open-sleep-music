@@ -33,6 +33,11 @@ public sealed class BuiltInCatalogTests
             Assert.False(string.IsNullOrWhiteSpace(track.License));
             Assert.DoesNotContain("BY-NC", track.License, StringComparison.OrdinalIgnoreCase);
             Assert.DoesNotContain("BY-ND", track.License, StringComparison.OrdinalIgnoreCase);
+            Assert.NotNull(track.ArtworkUri);
+            Assert.Equal(Uri.UriSchemeHttps, track.ArtworkUri!.Scheme);
+            Assert.Contains("/releases/download/artwork-v1/", track.ArtworkUri.AbsoluteUri, StringComparison.Ordinal);
+            Assert.Matches("^[a-z0-9_-]+\\.png$", track.ArtworkFileName!);
+            Assert.Matches("^[0-9a-f]{64}$", track.ArtworkSha256!);
             if (!string.IsNullOrWhiteSpace(track.Sha1))
             {
                 Assert.Matches("^[0-9a-f]{40}$", track.Sha1);
