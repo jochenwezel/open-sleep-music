@@ -111,16 +111,24 @@ public partial class MainPage : ContentPage
 
 #if ANDROID
         AndroidPlaybackBridge.StateChanged += OnAndroidPlaybackStateChanged;
+        AndroidPlaybackBridge.OpenCurrentRequested += OnAndroidOpenCurrentRequested;
 #endif
 
         Dispatcher.StartTimer(TimeSpan.FromSeconds(1), UpdatePlaybackStatus);
         SizeChanged += (_, _) => ApplyResponsiveLayout(Width, Height);
-        Loaded += async (_, _) => await RefreshLibraryAsync();
+        Loaded += async (_, _) =>
+        {
+            await RefreshLibraryAsync();
+#if ANDROID
+            await OpenRequestedAndroidPlaybackAsync();
+#endif
+        };
         Unloaded += (_, _) =>
         {
             AppVolumeBridge.Changed -= OnAppVolumeBridgeChanged;
 #if ANDROID
             AndroidPlaybackBridge.StateChanged -= OnAndroidPlaybackStateChanged;
+            AndroidPlaybackBridge.OpenCurrentRequested -= OnAndroidOpenCurrentRequested;
 #endif
         };
         var volumeOverlay = new VolumeOverlayView();
@@ -1577,6 +1585,41 @@ public partial class MainPage : ContentPage
 #endif
 
 #if ANDROID
+    private async void OnAndroidOpenCurrentRequested(object? sender, EventArgs e) =>
+        await OpenRequestedAndroidPlaybackAsync();
+
+    private async Task OpenRequestedAndroidPlaybackAsync()
+    {
+        var trackId = AndroidPlaybackBridge.PeekOpenCurrentTrackId();
+        if (trackId is null) return;
+
+        var track = _library.FirstOrDefault(item => item.Track.Id == trackId);
+        if (track is null || !AndroidPlaybackBridge.ConsumeOpenCurrentRequest(trackId)) return;
+
+        ApplyAndroidSnapshot(AndroidPlaybackBridge.Snapshot);
+        var matchingPageIndex = Navigation.ModalStack
+            .Select((page, index) => (page, index))
+            .Where(item => item.page is ImmersivePlayerPage player && player.WorldId == track.SleepWorld.Id)
+            .Select(item => item.index)
+            .DefaultIfEmpty(-1)
+            .Last();
+
+        if (matchingPageIndex >= 0)
+        {
+            while (Navigation.ModalStack.Count - 1 > matchingPageIndex)
+            {
+                await Navigation.PopModalAsync(false);
+            }
+            return;
+        }
+
+        while (Navigation.ModalStack.Count > 0)
+        {
+            await Navigation.PopModalAsync(false);
+        }
+        await Navigation.PushModalAsync(new ImmersivePlayerPage(this, track.SleepWorld.Id), false);
+    }
+
     private void UpdateAndroidSettings() => AndroidPlaybackBridge.UpdateSettings(
         _shuffleEnabled,
         _repeatMode == PlaybackRepeatMode.Track,

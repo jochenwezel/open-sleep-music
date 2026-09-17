@@ -9,6 +9,8 @@ public partial class ImmersivePlayerPage : ContentPage
     private readonly MainPage _owner;
     private readonly string _worldId;
     private bool _seeking;
+
+    internal string WorldId => _worldId;
     private bool _animateBack;
     private bool _fadeMotifBack;
     private readonly VolumeOverlayView _volumeOverlay;

@@ -679,8 +679,11 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private Notification BuildNotification(bool playing)
     {
         var item = _queue.Count > 0 ? _queue[_index] : null;
-        var openIntent = PackageManager?.GetLaunchIntentForPackage(PackageName!);
-        var contentIntent = openIntent is null ? null : PendingIntent.GetActivity(this, 0, openIntent,
+        var openIntent = new Intent(this, typeof(MainActivity))
+            .SetAction(AndroidPlaybackBridge.ActionOpenCurrent)
+            .PutExtra("trackId", item?.Id)
+            .AddFlags(ActivityFlags.SingleTop | ActivityFlags.ClearTop);
+        var contentIntent = PendingIntent.GetActivity(this, 0, openIntent,
             PendingIntentFlags.Immutable | PendingIntentFlags.UpdateCurrent);
         var builder = new Notification.Builder(this, ChannelId)!
             .SetSmallIcon(Android.Resource.Drawable.IcMediaPlay)

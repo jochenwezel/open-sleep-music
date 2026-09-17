@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.Media;
 using Android.OS;
@@ -36,6 +37,14 @@ public class MainActivity : MauiAppCompatActivity
         base.OnCreate(savedInstanceState);
         VolumeControlStream = Android.Media.Stream.Music;
         SystemVolumeSnapshot.Refresh();
+        HandlePlaybackIntent(Intent);
+    }
+
+    protected override void OnNewIntent(Intent? intent)
+    {
+        base.OnNewIntent(intent);
+        Intent = intent;
+        HandlePlaybackIntent(intent);
     }
 
     protected override void OnResume()
@@ -43,5 +52,11 @@ public class MainActivity : MauiAppCompatActivity
         base.OnResume();
         VolumeControlStream = Android.Media.Stream.Music;
         SystemVolumeSnapshot.Refresh();
+    }
+
+    private static void HandlePlaybackIntent(Intent? intent)
+    {
+        if (intent?.Action != AndroidPlaybackBridge.ActionOpenCurrent) return;
+        AndroidPlaybackBridge.RequestOpenCurrent(intent.GetStringExtra("trackId"));
     }
 }

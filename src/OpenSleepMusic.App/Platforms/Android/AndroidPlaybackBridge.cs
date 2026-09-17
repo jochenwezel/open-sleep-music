@@ -17,8 +17,13 @@ internal static class AndroidPlaybackBridge
     internal const string ActionSeek = "org.opensleepmusic.action.SEEK";
     internal const string ActionSettings = "org.opensleepmusic.action.SETTINGS";
     internal const string ActionStop = "org.opensleepmusic.action.STOP";
+    internal const string ActionOpenCurrent = "org.opensleepmusic.action.OPEN_CURRENT";
+
+    private static readonly object OpenRequestLock = new();
+    private static string? _pendingOpenTrackId;
 
     public static event EventHandler<PlaybackSnapshot>? StateChanged;
+    public static event EventHandler? OpenCurrentRequested;
 
     public static PlaybackSnapshot Snapshot { get; private set; } =
         new(null, false, TimeSpan.Zero, TimeSpan.Zero);
@@ -75,6 +80,30 @@ internal static class AndroidPlaybackBridge
     {
         Snapshot = snapshot;
         MainThread.BeginInvokeOnMainThread(() => StateChanged?.Invoke(null, snapshot));
+    }
+
+    internal static void RequestOpenCurrent(string? trackId)
+    {
+        lock (OpenRequestLock)
+        {
+            _pendingOpenTrackId = Snapshot.TrackId ?? trackId;
+        }
+        MainThread.BeginInvokeOnMainThread(() => OpenCurrentRequested?.Invoke(null, EventArgs.Empty));
+    }
+
+    internal static string? PeekOpenCurrentTrackId()
+    {
+        lock (OpenRequestLock) return _pendingOpenTrackId;
+    }
+
+    internal static bool ConsumeOpenCurrentRequest(string trackId)
+    {
+        lock (OpenRequestLock)
+        {
+            if (_pendingOpenTrackId != trackId) return false;
+            _pendingOpenTrackId = null;
+            return true;
+        }
     }
 
     private static void Send(string action) => Start(CreateIntent(action));
