@@ -27,7 +27,7 @@ public class MainActivity : MauiAppCompatActivity
                 Android.Media.Stream.Music,
                 e.KeyCode == Keycode.VolumeUp ? Adjust.Raise : Adjust.Lower,
                 0);
-            SystemVolumeSnapshot.Refresh();
+            SystemVolumeSnapshot.Refresh(requestOverlay: true);
         }
         return true;
     }

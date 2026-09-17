@@ -61,6 +61,7 @@ internal sealed class VolumeOverlayView : ContentView
     {
         if (_subscribed) return;
         SystemVolumeSnapshot.Changed += OnSystemVolumeChanged;
+        SystemVolumeSnapshot.OverlayRequested += OnOverlayRequested;
         AppVolumeBridge.Changed += OnAppVolumeChanged;
         _subscribed = true;
     }
@@ -69,6 +70,7 @@ internal sealed class VolumeOverlayView : ContentView
     {
         if (!_subscribed) return;
         SystemVolumeSnapshot.Changed -= OnSystemVolumeChanged;
+        SystemVolumeSnapshot.OverlayRequested -= OnOverlayRequested;
         AppVolumeBridge.Changed -= OnAppVolumeChanged;
         _hideCancellation?.Cancel();
         _subscribed = false;
@@ -79,14 +81,20 @@ internal sealed class VolumeOverlayView : ContentView
     private void OnSystemVolumeChanged(object? sender, double volume) => Dispatcher.Dispatch(() =>
     {
         _systemSlider.Value = volume;
-        Show();
     });
+
+    private void OnOverlayRequested(object? sender, EventArgs e) => Dispatcher.Dispatch(ShowTemporarily);
 
     public void Show()
     {
         SystemVolumeSnapshot.Refresh();
         _appSlider.Value = AppVolumeBridge.Volume;
         _systemSlider.Value = SystemVolumeSnapshot.Value;
+        ShowTemporarily();
+    }
+
+    private void ShowTemporarily()
+    {
         IsVisible = true;
         _hideCancellation?.Cancel();
         _hideCancellation?.Dispose();
