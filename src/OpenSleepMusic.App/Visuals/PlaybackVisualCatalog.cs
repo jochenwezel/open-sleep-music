@@ -10,6 +10,15 @@ internal sealed record PlaybackVisualTheme(
 
 internal static class PlaybackVisualCatalog
 {
+    private static readonly IReadOnlyDictionary<string, string> LullabyMotifs = new Dictionary<string, string>
+    {
+        ["faure-berceuse-op-56-no-1"] = "motif_lullaby_sleepy_child.png",
+        ["burgmuller-berceuse-op-109-no-7"] = "motif_lullaby_vine.png",
+        ["music-box-schlafe-mein-prinzchen"] = "sleepy_bear_moon.png",
+        ["music-box-guten-abend-gute-nacht"] = "sleepy_lamb_star.png",
+        ["antti-luode-another-lullaby"] = "motif_lullaby_boat.png"
+    };
+
     private static readonly IReadOnlyDictionary<string, PlaybackVisualTheme> Themes = new Dictionary<string, PlaybackVisualTheme>
     {
         ["quiet-classics"] = new("#101B45", "#080E28", "motif_quiet_classics.png", TimeSpan.FromSeconds(15)),
@@ -25,6 +34,27 @@ internal static class PlaybackVisualCatalog
         var theme = worldId is not null && Themes.TryGetValue(worldId, out var selected)
             ? selected
             : new("#10172C", "#1B2140", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15));
+
+        if (worldId == "lullabies" && trackId is not null)
+        {
+            var motif = LullabyMotifs.TryGetValue(trackId, out var selectedMotif)
+                ? selectedMotif
+                : LullabyMotifs.Values.ElementAt(StableIndex(trackId, LullabyMotifs.Count));
+            return theme with { MotifAsset = motif };
+        }
+
         return theme;
+    }
+
+    private static int StableIndex(string value, int count)
+    {
+        uint hash = 2166136261;
+        foreach (var character in value)
+        {
+            hash ^= character;
+            hash *= 16777619;
+        }
+
+        return (int)(hash % count);
     }
 }

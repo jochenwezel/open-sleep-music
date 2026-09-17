@@ -13,6 +13,7 @@ public partial class ImmersivePlayerPage : ContentPage
     internal string WorldId => _worldId;
     private bool _animateBack;
     private bool _fadeMotifBack;
+    private int _motifTransitionVersion;
     private readonly VolumeOverlayView _volumeOverlay;
     private readonly IDispatcherTimer _refreshTimer;
     private PlaybackVisualTheme? _theme;
@@ -69,7 +70,7 @@ public partial class ImmersivePlayerPage : ContentPage
         var theme = PlaybackVisualCatalog.For(state.WorldId, state.TrackId);
         if (theme != _theme)
         {
-            ApplyTheme(theme);
+            ApplyTheme(theme, animateMotif: _theme is not null && IsLoaded);
             if (IsLoaded)
             {
                 StopAmbientAnimations();
@@ -115,13 +116,29 @@ public partial class ImmersivePlayerPage : ContentPage
         DurationLabel.Text = FormatTime(state.Duration);
     }
 
-    private void ApplyTheme(PlaybackVisualTheme theme)
+    private void ApplyTheme(PlaybackVisualTheme theme, bool animateMotif = false)
     {
+        var motifChanged = _theme?.MotifAsset != theme.MotifAsset;
         _theme = theme;
-        MotifImage.Source = theme.MotifAsset;
         Scene.BackgroundColor = Color.FromArgb(theme.StartColor);
         BackgroundColor = Color.FromArgb(theme.StartColor);
-        MotifImage.Opacity = 0.88;
+        if (animateMotif && motifChanged)
+        {
+            _ = TransitionMotifAsync(theme.MotifAsset, ++_motifTransitionVersion);
+        }
+        else
+        {
+            MotifImage.Source = theme.MotifAsset;
+            MotifImage.Opacity = 0.88;
+        }
+    }
+
+    private async Task TransitionMotifAsync(string asset, int version)
+    {
+        await MotifImage.FadeToAsync(0, 250, Easing.SinInOut);
+        if (version != _motifTransitionVersion || !IsLoaded) return;
+        MotifImage.Source = asset;
+        await MotifImage.FadeToAsync(0.88, 650, Easing.SinInOut);
     }
 
     private void StartAmbientAnimations()
