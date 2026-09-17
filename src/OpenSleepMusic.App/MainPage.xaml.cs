@@ -631,7 +631,7 @@ public partial class MainPage : ContentPage
 #if ANDROID
         var position = AndroidPlaybackBridge.Snapshot.Position.TotalSeconds;
 #else
-        var position = Player.Position.TotalSeconds / (_currentTrack?.Track.PlaybackSpeed ?? 1);
+        var position = PlaybackTimeline.ToPlaybackTime(Player.Position, _currentTrack?.Track.PlaybackSpeed ?? 1).TotalSeconds;
 #endif
         ApplyLibraryFilter();
 
@@ -730,7 +730,7 @@ public partial class MainPage : ContentPage
         {
             if (positionSeconds > 0)
             {
-                await Player.SeekTo(TimeSpan.FromSeconds(positionSeconds * (_currentTrack?.Track.PlaybackSpeed ?? 1)));
+                await Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(positionSeconds), _currentTrack?.Track.PlaybackSpeed ?? 1));
             }
             else
             {
@@ -753,7 +753,7 @@ public partial class MainPage : ContentPage
         {
             if (seekTo > 0)
             {
-                await Player.SeekTo(TimeSpan.FromSeconds(seekTo * (_currentTrack?.Track.PlaybackSpeed ?? 1)));
+                await Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(seekTo), _currentTrack?.Track.PlaybackSpeed ?? 1));
             }
             if (_playWhenMediaOpens)
             {
@@ -958,7 +958,7 @@ public partial class MainPage : ContentPage
 #else
             if (_loadedTrackId is not null && Player.Duration > TimeSpan.Zero)
             {
-                await Player.SeekTo(TimeSpan.FromSeconds(PositionSlider.Value * (_currentTrack?.Track.PlaybackSpeed ?? 1)));
+                await Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(PositionSlider.Value), _currentTrack?.Track.PlaybackSpeed ?? 1));
                 PersistPlaybackSnapshot(force: true);
             }
             else
@@ -1169,8 +1169,9 @@ public partial class MainPage : ContentPage
         var duration = snapshot.Duration;
 #else
         var isPlaying = Player.CurrentState == MediaElementState.Playing;
-        var position = Player.Position;
-        var duration = Player.Duration;
+        var speed = _currentTrack?.Track.PlaybackSpeed ?? 1;
+        var position = PlaybackTimeline.ToPlaybackTime(Player.Position, speed);
+        var duration = PlaybackTimeline.ToPlaybackTime(Player.Duration, speed);
 #endif
         var selectedTrack = _currentTrack?.SleepWorld.Id == worldId ? _currentTrack : null;
         var card = _worldCards.First(candidate => candidate.World.Id == worldId);
@@ -1210,7 +1211,7 @@ public partial class MainPage : ContentPage
 #if ANDROID
         AndroidPlaybackBridge.Seek(seconds);
 #else
-        _ = Player.SeekTo(TimeSpan.FromSeconds(Math.Max(0, seconds) * (_currentTrack?.Track.PlaybackSpeed ?? 1)));
+        _ = Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(Math.Max(0, seconds)), _currentTrack?.Track.PlaybackSpeed ?? 1));
 #endif
     }
 
@@ -1442,9 +1443,11 @@ public partial class MainPage : ContentPage
         if (!_isSeeking && _loadedTrackId is not null && Player.Duration > TimeSpan.Zero)
         {
             var speed = _currentTrack?.Track.PlaybackSpeed ?? 1;
-            PositionSlider.Maximum = Player.Duration.TotalSeconds / speed;
-            PositionSlider.Value = Player.Position.TotalSeconds / speed;
-            TimeLabel.Text = $"{FormatTime(Player.Position / speed)} / {FormatTime(Player.Duration / speed)}";
+            var duration = PlaybackTimeline.ToPlaybackTime(Player.Duration, speed);
+            var position = PlaybackTimeline.ToPlaybackTime(Player.Position, speed);
+            PositionSlider.Maximum = duration.TotalSeconds;
+            PositionSlider.Value = position.TotalSeconds;
+            TimeLabel.Text = $"{FormatTime(position)} / {FormatTime(duration)}";
 
             var reachedEnd = Player.Position >= Player.Duration - TimeSpan.FromMilliseconds(500);
             if (_shouldContinuePlayback
@@ -1499,7 +1502,7 @@ public partial class MainPage : ContentPage
 #if ANDROID
             : AndroidPlaybackBridge.Snapshot.Position.TotalSeconds;
 #else
-            : Player.Position.TotalSeconds / currentTrack.Track.PlaybackSpeed;
+            : PlaybackTimeline.ToPlaybackTime(Player.Position, currentTrack.Track.PlaybackSpeed).TotalSeconds;
 #endif
         _stateStore.SavePlayback(currentTrack.Track.Id, position);
         _lastPlaybackSaveUtc = now;
