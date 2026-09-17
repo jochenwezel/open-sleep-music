@@ -1,6 +1,8 @@
 using OpenSleepMusic.Core.Library;
 using OpenSleepMusic.Core.Playback;
 using OpenSleepMusic.App.Localization;
+using OpenSleepMusic.App.Navigation;
+using System.Diagnostics;
 
 namespace OpenSleepMusic.App;
 
@@ -9,23 +11,29 @@ public partial class CollectionTracksPage : ContentPage
     private readonly IReadOnlyList<LocalLibraryTrack> _tracks;
     private readonly AppStateStore _stateStore;
 
-    internal event EventHandler<LocalLibraryTrack>? PlayRequested;
+    private readonly Func<LocalLibraryTrack, Task> _playRequested;
+    private readonly ModalPlaybackNavigation _playbackNavigation = new();
     internal event EventHandler<LocalLibraryTrack>? PreferenceChanged;
 
-    internal CollectionTracksPage(string title, IReadOnlyList<LocalLibraryTrack> tracks, AppStateStore stateStore)
+    internal CollectionTracksPage(string title, IReadOnlyList<LocalLibraryTrack> tracks, AppStateStore stateStore,
+        Func<LocalLibraryTrack, Task> playRequested)
     {
         InitializeComponent();
         TitleLabel.Text = title;
         _tracks = tracks;
         _stateStore = stateStore;
+        _playRequested = playRequested;
         RefreshItems();
     }
 
-    private async void OnCloseClicked(object? sender, EventArgs e) => await Navigation.PopModalAsync();
+    private async void OnCloseClicked(object? sender, EventArgs e)
+    {
+        if (!_playbackNavigation.IsOpening) await Navigation.PopModalAsync();
+    }
 
     private async void OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
-        if (e.CurrentSelection.FirstOrDefault() is not LibraryTrackItem item) return;
+        if (_playbackNavigation.IsOpening || e.CurrentSelection.FirstOrDefault() is not LibraryTrackItem item) return;
         TracksView.SelectedItem = null;
         if (item.IsBlocked)
         {
@@ -38,8 +46,19 @@ public partial class CollectionTracksPage : ContentPage
             await DisplayAlertAsync(AppText.IsGerman ? "Favoriten aktiv" : "Favorites active", AppText.IsGerman ? "Für diese Themensammlung werden derzeit nur Favoriten abgespielt." : "Only favorites are currently played for this collection.", "OK");
             return;
         }
-        PlayRequested?.Invoke(this, item.LocalTrack);
-        await Navigation.PopModalAsync();
+        try
+        {
+            await _playbackNavigation.OpenAsync(
+                () => Navigation.PopModalAsync(),
+                () => _playRequested(item.LocalTrack));
+        }
+        catch (Exception exception)
+        {
+            Debug.WriteLine(exception);
+            await Shell.Current.DisplayAlertAsync(AppText.Get("Play"),
+                AppText.Pick("Der Player konnte nicht geöffnet werden. Bitte erneut versuchen.",
+                    "The player could not be opened. Please try again."), AppText.Get("Close"));
+        }
     }
 
     private void OnFavoriteClicked(object? sender, EventArgs e)
@@ -53,6 +72,7 @@ public partial class CollectionTracksPage : ContentPage
 
     private async void OnDetailsClicked(object? sender, EventArgs e)
     {
+        if (_playbackNavigation.IsOpening) return;
         if (sender is not Button { CommandParameter: LibraryTrackItem item }) return;
         var page = new TrackDetailsPage(item.LocalTrack, _stateStore);
         page.PreferenceChanged += (_, _) =>

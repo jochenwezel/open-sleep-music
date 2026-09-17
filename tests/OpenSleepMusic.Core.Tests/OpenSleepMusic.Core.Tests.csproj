@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Compile Include="..\..\src\OpenSleepMusic.App\Visuals\PlaybackVisualCatalog.cs" Link="AppVisuals\PlaybackVisualCatalog.cs" />
+    <Compile Include="..\..\src\OpenSleepMusic.App\Navigation\ModalPlaybackNavigation.cs" Link="AppNavigation\ModalPlaybackNavigation.cs" />
   </ItemGroup>
 
 </Project>

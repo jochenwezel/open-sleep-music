@@ -322,12 +322,11 @@ public partial class MainPage : ContentPage
             StatusLabel.Text = AppText.Pick("Für diese Themensammlung ist noch keine Musik heruntergeladen.", "No music has been downloaded for this collection yet.");
             return;
         }
-        var page = new CollectionTracksPage(card.DisplayName, tracks, _stateStore);
-        page.PlayRequested += async (_, track) =>
+        var page = new CollectionTracksPage(card.DisplayName, tracks, _stateStore, async track =>
         {
             PlayTrack(track, userInitiated: true);
             await Navigation.PushModalAsync(new ImmersivePlayerPage(this, track.SleepWorld.Id));
-        };
+        });
         page.PreferenceChanged += (_, track) => ApplyTrackPreferences(track);
         await Navigation.PushModalAsync(page);
     }
