@@ -89,16 +89,17 @@ public partial class ImmersivePlayerPage : ContentPage
                 ? AppText.Pick("Aktueller Titel ist blockiert", "Current track is blocked")
                 : AppText.Pick("Aktuellen Titel blockieren", "Block current track"));
         PlayButton.Text = FloatingPlayButton.Text = state.IsPlaying ? "⏸" : "▶";
-        RepeatButton.Text = state.RepeatTrack
-            ? $"↻ {AppText.Get("Track")}"
-            : $"↻ {AppText.Get("Collection")}";
+        RepeatButton.Text = state.RepeatTrack ? "🔂" : "🔁";
         RepeatButton.TextColor = state.RepeatTrack ? Color.FromArgb("#AFA7FF") : Color.FromArgb("#C9C5D8");
         SemanticProperties.SetDescription(
             RepeatButton,
             state.RepeatTrack
                 ? AppText.Pick("Wiederholung: einzelner Titel", "Repeat: single track")
                 : AppText.Pick("Wiederholung: Themensammlung", "Repeat: collection"));
-        TimerButton.Text = $"Zzz {state.TimerText}";
+        TimerButton.Text = "Zzz";
+        TimerButton.TextColor = state.IsSleepTimerActive
+            ? Color.FromArgb("#AFA7FF")
+            : Color.FromArgb("#C9C5D8");
         SemanticProperties.SetDescription(
             TimerButton,
             AppText.Pick($"Schlaftimer: {state.TimerText}", $"Sleep timer: {state.TimerText}"));
@@ -181,4 +182,4 @@ public partial class ImmersivePlayerPage : ContentPage
     private static string FormatTime(TimeSpan value) => value.TotalHours >= 1 ? value.ToString(@"h\:mm\:ss") : value.ToString(@"m\:ss");
 }
 
-internal sealed record ImmersivePlayerState(string? TrackId, string? WorldId, string? Title, bool IsPlaying, bool IsFavorite, bool IsBlocked, bool RepeatTrack, string TimerText, TimeSpan Position, TimeSpan Duration);
+internal sealed record ImmersivePlayerState(string? TrackId, string? WorldId, string? Title, bool IsPlaying, bool IsFavorite, bool IsBlocked, bool RepeatTrack, bool IsSleepTimerActive, string TimerText, TimeSpan Position, TimeSpan Duration);

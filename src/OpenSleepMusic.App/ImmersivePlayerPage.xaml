@@ -36,7 +36,7 @@
                     <Button Text="⏮" Clicked="OnPreviousClicked" BackgroundColor="Transparent" TextColor="White" />
                     <Button Grid.Column="1" x:Name="RepeatButton" Text="↻" Clicked="OnRepeatClicked" BackgroundColor="Transparent" TextColor="#C9C5D8" />
                     <Button Grid.Column="2" x:Name="PlayButton" Text="▶" FontSize="28" Clicked="OnPlayClicked" BackgroundColor="#7367F0" TextColor="White" CornerRadius="28" HeightRequest="58" />
-                    <Button Grid.Column="3" x:Name="TimerButton" Text="Zzz Aus" Clicked="OnTimerClicked" BackgroundColor="Transparent" TextColor="#C9C5D8" />
+                    <Button Grid.Column="3" x:Name="TimerButton" Text="Zzz" Clicked="OnTimerClicked" BackgroundColor="Transparent" TextColor="#C9C5D8" />
                     <Button Grid.Column="4" Text="⏭" Clicked="OnNextClicked" BackgroundColor="Transparent" TextColor="White" />
                 </Grid>
             </Grid>

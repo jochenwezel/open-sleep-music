@@ -1193,6 +1193,7 @@ public partial class MainPage : ContentPage
             worldId is not null && trackId is not null && _stateStore.IsFavorite(worldId, trackId),
             worldId is not null && trackId is not null && _stateStore.IsBlocked(worldId, trackId),
             _repeatMode == PlaybackRepeatMode.Track,
+            _sleepTimer.IsActive,
             _sleepTimer.IsActive ? SleepTimerDisplay.FormatRemaining(_sleepTimer.Remaining) : AppText.Get("Off"),
             selectedTrack is null ? TimeSpan.Zero : position,
             selectedTrack is null ? TimeSpan.Zero : duration);
