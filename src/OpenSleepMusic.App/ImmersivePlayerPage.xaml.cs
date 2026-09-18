@@ -160,6 +160,7 @@ public partial class ImmersivePlayerPage : ContentPage
         _theme = theme;
         Scene.BackgroundColor = Color.FromArgb(theme.StartColor);
         BackgroundColor = Color.FromArgb(theme.StartColor);
+        AmbientBackground.Color = Color.FromArgb(theme.StartColor);
         if (animateMotif && motifChanged)
         {
             _ = TransitionMotifAsync(ImageSource.FromFile(theme.MotifAsset), ++_motifTransitionVersion);
@@ -251,7 +252,7 @@ public partial class ImmersivePlayerPage : ContentPage
         if (_theme is null) return;
         var from = Color.FromArgb(_animateBack ? _theme.EndColor : _theme.StartColor);
         var to = Color.FromArgb(_animateBack ? _theme.StartColor : _theme.EndColor);
-        Scene.Animate("ambient-color", value => Scene.BackgroundColor = Interpolate(from, to, value), 50,
+        AmbientBackground.Animate("ambient-color", value => AmbientBackground.Color = Interpolate(from, to, value), 50,
             (uint)_theme.ColorPhaseDuration.TotalMilliseconds, Easing.SinInOut, (_, cancelled) =>
         {
             if (cancelled) return;
@@ -276,7 +277,7 @@ public partial class ImmersivePlayerPage : ContentPage
 
     private void StopAmbientAnimations()
     {
-        Scene.AbortAnimation("ambient-color");
+        AmbientBackground.AbortAnimation("ambient-color");
         MotifImage.AbortAnimation("ambient-motif");
         SongMotifImage.AbortAnimation("ambient-song-motif");
         SongMotifImage.TranslationY = 0;

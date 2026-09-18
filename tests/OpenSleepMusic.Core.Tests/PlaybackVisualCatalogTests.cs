@@ -34,8 +34,8 @@ public sealed class PlaybackVisualCatalogTests
         var theme = PlaybackVisualCatalog.For("quiet-classics", null);
 
         Assert.Equal(TimeSpan.FromSeconds(15), theme.ColorPhaseDuration);
-        Assert.Equal("#101B45", theme.StartColor);
-        Assert.Equal("#080E28", theme.EndColor);
+        Assert.Equal("#0A1742", theme.StartColor);
+        Assert.Equal("#183B78", theme.EndColor);
     }
 
     [Fact]

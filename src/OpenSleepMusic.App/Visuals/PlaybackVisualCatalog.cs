@@ -12,12 +12,12 @@ internal static class PlaybackVisualCatalog
 {
     private static readonly IReadOnlyDictionary<string, PlaybackVisualTheme> Themes = new Dictionary<string, PlaybackVisualTheme>
     {
-        ["quiet-classics"] = new("#101B45", "#080E28", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15)),
-        ["rain"] = new("#071C31", "#102D43", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15)),
-        ["forest"] = new("#071F25", "#102C27", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15)),
-        ["waves"] = new("#061B38", "#102F45", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15)),
+        ["quiet-classics"] = new("#0A1742", "#183B78", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15)),
+        ["rain"] = new("#081B38", "#164D78", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15)),
+        ["forest"] = new("#08243A", "#15536A", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15)),
+        ["waves"] = new("#071B42", "#155A86", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15)),
         ["fireplace"] = new("#211015", "#321716", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(3), 0.75),
-        ["lullabies"] = new("#07142D", "#10103A", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15))
+        ["lullabies"] = new("#081638", "#243E82", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15))
     };
 
     public static PlaybackVisualTheme For(string? worldId, string? trackId)
