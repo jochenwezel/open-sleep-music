@@ -126,7 +126,7 @@ public partial class ImmersivePlayerPage : ContentPage
             state.IsBlocked
                 ? AppText.Pick("Aktueller Titel ist blockiert", "Current track is blocked")
                 : AppText.Pick("Aktuellen Titel blockieren", "Block current track"));
-        PlayButton.Text = FloatingPlayButton.Text = state.IsPlaying ? "⏸︎" : "▶︎";
+        PlayButton.Text = FloatingPlayButton.Text = state.IsPlaying ? "Ⅱ" : "▶︎";
         RepeatButton.Text = state.RepeatTrack ? "↻¹" : "↻";
         RepeatButton.TextColor = state.RepeatTrack ? Color.FromArgb("#AFA7FF") : Color.FromArgb("#C9C5D8");
         SemanticProperties.SetDescription(

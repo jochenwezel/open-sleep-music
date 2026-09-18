@@ -69,6 +69,43 @@ public sealed class CollectionArtworkDownloaderTests
         finally { if (Directory.Exists(root)) Directory.Delete(root, true); }
     }
 
+    [Fact]
+    public async Task DownloadsOptionalSongMotifAlongsideSharedBackground()
+    {
+        var requests = new List<string>();
+        var sha = Convert.ToHexStringLower(SHA256.HashData(Png));
+        using var client = new HttpClient(new StubHandler(request =>
+        {
+            if (request.RequestUri!.AbsolutePath.EndsWith("catalog.json", StringComparison.Ordinal))
+                return Json("""{"schemaVersion":1,"tracks":[]}""");
+            requests.Add(request.RequestUri.AbsolutePath);
+            return Bytes(HttpStatusCode.OK, Png, "image/png");
+        }));
+        var root = Path.Combine(Path.GetTempPath(), $"open-sleep-collection-art-{Guid.NewGuid():N}");
+        try
+        {
+            var track = Track("one", sha) with
+            {
+                SongMotifUri = new("https://example.test/song.png"),
+                SongMotifFileName = "song.png",
+                SongMotifSha256 = sha
+            };
+            var downloader = new CollectionArtworkDownloader(
+                new ArtworkManifestClient(client, new("https://example.test/catalog.json")),
+                new ArtworkCache(client));
+
+            var result = await downloader.DownloadAsync([track], root);
+
+            Assert.Equal(1, result.AvailableCount);
+            Assert.Equal(0, result.UnavailableCount);
+            Assert.Contains("/shared.png", requests);
+            Assert.Contains("/song.png", requests);
+            Assert.True(File.Exists(Path.Combine(root, "shared.png")));
+            Assert.True(File.Exists(Path.Combine(root, "song.png")));
+        }
+        finally { if (Directory.Exists(root)) Directory.Delete(root, true); }
+    }
+
     private static AudioTrack Track(string id, string sha, string fileName = "shared.png") => new(
         id, id, "Creator", new($"https://example.test/{id}.mp3"), new($"https://example.test/{id}"),
         "CC0", new("https://creativecommons.org/publicdomain/zero/1.0/"), $"{id}.mp3",

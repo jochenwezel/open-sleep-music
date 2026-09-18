@@ -1249,6 +1249,16 @@ public partial class MainPage : ContentPage
         var selectedTrack = _currentTrack?.SleepWorld.Id == worldId ? _currentTrack : null;
         var card = _worldCards.First(candidate => candidate.World.Id == worldId);
         var trackId = selectedTrack?.Track.Id;
+        var artworkTrack = selectedTrack?.Track;
+        if (artworkTrack is null && card.World.Tracks.FirstOrDefault() is { } backgroundTrack)
+        {
+            artworkTrack = backgroundTrack with
+            {
+                SongMotifUri = null,
+                SongMotifFileName = null,
+                SongMotifSha256 = null
+            };
+        }
         return new ImmersivePlayerState(
             trackId,
             worldId,
@@ -1261,7 +1271,7 @@ public partial class MainPage : ContentPage
             _sleepTimer.IsActive ? SleepTimerDisplay.FormatRemaining(_sleepTimer.Remaining) : AppText.Get("Off"),
             selectedTrack is null ? TimeSpan.Zero : position,
             selectedTrack is null ? TimeSpan.Zero : duration,
-            selectedTrack?.Track);
+            artworkTrack);
     }
 
     internal void ImmersiveTogglePlayback(string worldId)
