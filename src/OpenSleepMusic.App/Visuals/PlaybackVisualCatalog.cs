@@ -16,7 +16,7 @@ internal static class PlaybackVisualCatalog
         ["rain"] = new("#071C31", "#102D43", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15)),
         ["forest"] = new("#071F25", "#102C27", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15)),
         ["waves"] = new("#061B38", "#102F45", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15)),
-        ["fireplace"] = new("#211015", "#321716", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(3), 0.80),
+        ["fireplace"] = new("#211015", "#321716", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(3), 0.75),
         ["lullabies"] = new("#07142D", "#10103A", "sleepy_lamb_star.png", TimeSpan.FromSeconds(15))
     };
 
