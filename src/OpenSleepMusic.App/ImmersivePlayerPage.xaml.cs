@@ -7,6 +7,7 @@ namespace OpenSleepMusic.App;
 
 public partial class ImmersivePlayerPage : ContentPage
 {
+    private const double BackgroundArtworkOpacity = 0.78;
     private readonly MainPage _owner;
     private readonly string _worldId;
     private bool _seeking;
@@ -166,7 +167,7 @@ public partial class ImmersivePlayerPage : ContentPage
         else
         {
             MotifImage.Source = ImageSource.FromFile(theme.MotifAsset);
-            MotifImage.Opacity = 0.88;
+            MotifImage.Opacity = BackgroundArtworkOpacity;
         }
     }
 
@@ -175,7 +176,7 @@ public partial class ImmersivePlayerPage : ContentPage
         await MotifImage.FadeToAsync(0, 250, Easing.SinInOut);
         if (version != _motifTransitionVersion || !IsLoaded) return;
         MotifImage.Source = source;
-        await MotifImage.FadeToAsync(0.88, 650, Easing.SinInOut);
+        await MotifImage.FadeToAsync(BackgroundArtworkOpacity, 650, Easing.SinInOut);
     }
 
     private void RequestArtwork(AudioTrack? track, string fallbackAsset)
@@ -262,8 +263,8 @@ public partial class ImmersivePlayerPage : ContentPage
     private void StartMotifFade()
     {
         if (!IsLoaded || _owner.ReducedMotion || _theme?.MotifFadeDuration is not { } duration) return;
-        var from = _fadeMotifBack ? _theme.MotifMinimumOpacity : 0.88;
-        var to = _fadeMotifBack ? 0.88 : _theme.MotifMinimumOpacity;
+        var from = _fadeMotifBack ? _theme.MotifMinimumOpacity : BackgroundArtworkOpacity;
+        var to = _fadeMotifBack ? BackgroundArtworkOpacity : _theme.MotifMinimumOpacity;
         MotifImage.Animate("ambient-motif", value => MotifImage.Opacity = from + ((to - from) * value), 50,
             (uint)duration.TotalMilliseconds, Easing.SinInOut, (_, cancelled) =>
         {
