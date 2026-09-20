@@ -44,6 +44,6 @@ public sealed class PlaybackVisualCatalogTests
         var theme = PlaybackVisualCatalog.For("fireplace", null);
 
         Assert.Equal(TimeSpan.FromSeconds(3), theme.MotifFadeDuration);
-        Assert.InRange(theme.MotifMinimumOpacity, 0.75, 0.88);
+        Assert.InRange(theme.MotifMinimumOpacity, 0.4, 0.62);
     }
 }

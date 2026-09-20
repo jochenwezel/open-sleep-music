@@ -7,7 +7,7 @@ namespace OpenSleepMusic.App;
 
 public partial class ImmersivePlayerPage : ContentPage
 {
-    private const double BackgroundArtworkOpacity = 0.78;
+    private const double BackgroundArtworkOpacity = 0.62;
     private readonly MainPage _owner;
     private readonly string _worldId;
     private bool _seeking;
@@ -62,12 +62,12 @@ public partial class ImmersivePlayerPage : ContentPage
             Grid.SetColumnSpan(TitleLabel, 6);
             TopBar.RowSpacing = 8;
         }
-        var motifSize = landscape ? Math.Min(190d, Height * 0.48d) : Math.Min(280d, Width * 0.68d);
+        var motifSize = landscape
+            ? Math.Min(360d, Math.Min(Width * 0.55d, Height * 0.62d))
+            : Math.Min(420d, Math.Min(Width * 0.84d, Height * 0.56d));
         SongMotifImage.WidthRequest = motifSize;
         SongMotifImage.HeightRequest = motifSize;
-        SongMotifImage.Margin = landscape
-            ? new Thickness(18, 12, 68, 96)
-            : new Thickness(24, 24, 36, 122);
+        SongMotifImage.Margin = 0;
     }
 
     protected override void OnAppearing()

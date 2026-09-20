@@ -170,14 +170,15 @@ $worlds.lullabies.tracks | ForEach-Object {
 foreach ($track in $worlds.lullabies.tracks) { $track.playbackSpeed = [Math]::Round(1 / 1.2, 6) }
 
 $artworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2'
+$backgroundArtworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3'
 $legacyArtworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1'
 $artwork = @{
-    'quiet-classics' = @{ file = 'background_quiet_classics.png'; sha256 = '0711d561294bf5085be5c2b70ab4cde9ca8750cec4aa98568b2932cf08453a2e' }
-    rain = @{ file = 'background_rain.png'; sha256 = '7d5811077c43d119d45751adc8f269debd47a0a5aabc839ed7b323fb763afc35' }
-    forest = @{ file = 'background_forest.png'; sha256 = '9c242462d21698f8baa298062ba1747803d306f30b589780211e3a982b173454' }
-    waves = @{ file = 'background_waves.png'; sha256 = 'ba1f932cef14fffa1b49ae34c86e8f858fa2303cb362a74e9d341a85e0917bc9' }
-    fireplace = @{ file = 'background_fireplace.png'; sha256 = 'e084796e82d373a37a262262a8e0dc6db2cda8a063f8a5bb6259792b557891fb' }
-    lullabies = @{ file = 'background_lullabies.png'; sha256 = '71360dc46ea8da5895ed37f1e044ad5019151bedd692f87e27b2aede9e179c36' }
+    'quiet-classics' = @{ file = 'background_quiet_classics_v3.png'; sha256 = 'ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc' }
+    rain = @{ file = 'background_rain_v3.png'; sha256 = '55a4ebcddb8ebf1fa7613356d9df6e0c58da782f19c24c466bb6d3568f4d35c5' }
+    forest = @{ file = 'background_forest_v3.png'; sha256 = '6f490b2dbe274abd1651b10a195c8b0aad6ec235894d19c76dc67b2f8ab8c87d' }
+    waves = @{ file = 'background_waves_v3.png'; sha256 = 'ae882d4ca258b607260b6f0982743282bfa439ed72ed818e95447d09befc8a88' }
+    fireplace = @{ file = 'background_fireplace_v3.png'; sha256 = '32abf8649eab1472b716ee637ab15e01a403a7723b4c9f3c5a27ca08e2037811' }
+    lullabies = @{ file = 'background_lullabies_v3.png'; sha256 = '696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e' }
 }
 $fallbackArtwork = @{
     'quiet-classics' = @{ file = 'fallback_quiet_classics.png'; sha256 = '35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d' }
@@ -207,7 +208,7 @@ $lullabyArtwork = @{
 foreach ($worldEntry in $worlds.GetEnumerator()) {
     foreach ($track in $worldEntry.Value.tracks) {
         $trackArtwork = $artwork[$worldEntry.Key]
-        $track['artworkUri'] = "$artworkReleaseBase/$($trackArtwork.file)"
+        $track['artworkUri'] = "$backgroundArtworkReleaseBase/$($trackArtwork.file)"
         $track['artworkFileName'] = $trackArtwork.file
         $track['artworkSha256'] = $trackArtwork.sha256
         $fallbackMotif = $fallbackArtwork[$worldEntry.Key]

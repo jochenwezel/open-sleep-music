@@ -6,12 +6,12 @@
     <Grid x:Name="Scene">
         <Grid.GestureRecognizers><TapGestureRecognizer Tapped="OnSceneTapped" /></Grid.GestureRecognizers>
         <BoxView x:Name="AmbientBackground" Color="#0A1742" InputTransparent="True" />
-        <Image x:Name="MotifImage" Source="sleepy_lamb_star.png" Aspect="AspectFit" Opacity="0.78"
-               HorizontalOptions="Fill" VerticalOptions="Fill" MaximumWidthRequest="720" MaximumHeightRequest="720" Margin="32"
+        <Image x:Name="MotifImage" Source="sleepy_lamb_star.png" Aspect="AspectFill" Opacity="0.62"
+               HorizontalOptions="Fill" VerticalOptions="Fill"
                InputTransparent="True" AutomationProperties.IsInAccessibleTree="False" />
         <Image x:Name="SongMotifImage" Aspect="AspectFit" Opacity="0" IsVisible="False"
-               HorizontalOptions="End" VerticalOptions="End" MaximumWidthRequest="280" MaximumHeightRequest="280"
-               WidthRequest="280" HeightRequest="280" Margin="24,24,36,122"
+               HorizontalOptions="Center" VerticalOptions="Center" MaximumWidthRequest="420" MaximumHeightRequest="420"
+               WidthRequest="340" HeightRequest="340" Margin="0"
                InputTransparent="True" AutomationProperties.IsInAccessibleTree="False" />
         <Grid x:Name="Controls" RowDefinitions="Auto,*,Auto" Padding="18" RowSpacing="12">
             <Grid x:Name="TopBar" RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto,*,Auto,Auto,Auto"
