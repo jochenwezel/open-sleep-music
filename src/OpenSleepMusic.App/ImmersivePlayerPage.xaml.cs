@@ -184,7 +184,7 @@ public partial class ImmersivePlayerPage : ContentPage
     {
         var key = track is null
             ? $"fallback:{fallbackAsset}"
-            : $"{track.Id}:{track.ArtworkSha256}:{track.SongMotifSha256}";
+            : $"{track.Id}:{track.ArtworkSha256}:{track.SongMotifSha256}:{track.FallbackMotifSha256}";
         if (_artworkRequestKey == key) return;
         _artworkRequestKey = key;
         _artworkCancellation?.Cancel();
@@ -208,9 +208,10 @@ public partial class ImmersivePlayerPage : ContentPage
             var backgroundSource = artwork.BackgroundPath is null
                 ? ImageSource.FromFile(fallbackAsset)
                 : await LoadCachedImageSourceAsync(artwork.BackgroundPath, cancellationToken);
-            var songMotifSource = artwork.SongMotifPath is null
+            var motifPath = artwork.SongMotifPath ?? artwork.FallbackMotifPath;
+            var songMotifSource = motifPath is null
                 ? null
-                : await LoadCachedImageSourceAsync(artwork.SongMotifPath, cancellationToken);
+                : await LoadCachedImageSourceAsync(motifPath, cancellationToken);
             if (cancellationToken.IsCancellationRequested || key != _artworkRequestKey) return;
             await Task.WhenAll(
                 TransitionMotifAsync(backgroundSource, ++_motifTransitionVersion),
@@ -331,4 +332,7 @@ public partial class ImmersivePlayerPage : ContentPage
 
 internal sealed record ImmersivePlayerState(string? TrackId, string? WorldId, string? Title, bool IsPlaying, bool IsFavorite, bool IsBlocked, bool RepeatTrack, bool IsSleepTimerActive, string TimerText, TimeSpan Position, TimeSpan Duration, AudioTrack? Track);
 
-internal sealed record PlaybackArtworkPaths(string? BackgroundPath, string? SongMotifPath);
+internal sealed record PlaybackArtworkPaths(
+    string? BackgroundPath,
+    string? SongMotifPath,
+    string? FallbackMotifPath);

@@ -32,7 +32,19 @@ public sealed class CollectionArtworkDownloader(
                     ArtworkFileName = track.SongMotifFileName,
                     ArtworkSha256 = track.SongMotifSha256
                 }, results, cacheRoot, cancellationToken);
-            var isAvailable = backgroundAvailable && motifAvailable;
+            var hasFallback = track.FallbackMotifUri is not null;
+            var fallbackAvailable = !hasFallback
+                || await DownloadLayerAsync(track with
+                {
+                    Id = $"{track.Id}:fallback-motif",
+                    ArtworkUri = track.FallbackMotifUri,
+                    ArtworkFileName = track.FallbackMotifFileName,
+                    ArtworkSha256 = track.FallbackMotifSha256
+                }, results, cacheRoot, cancellationToken);
+            var visibleMotifAvailable = track.SongMotifUri is null
+                ? fallbackAvailable
+                : motifAvailable || (hasFallback && fallbackAvailable);
+            var isAvailable = backgroundAvailable && visibleMotifAvailable;
 
             if (isAvailable) available++;
             progress?.Report(new(index + 1, tracks.Count, track.Title));

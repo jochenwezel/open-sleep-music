@@ -1229,8 +1229,17 @@ public partial class MainPage : ContentPage
                 ArtworkFileName = current.SongMotifFileName,
                 ArtworkSha256 = current.SongMotifSha256
             }, root, cancellationToken);
-        await Task.WhenAll(backgroundTask, songMotifTask);
-        return new(backgroundTask.Result, songMotifTask.Result);
+        var fallbackMotifTask = current.FallbackMotifUri is null
+            ? Task.FromResult<string?>(null)
+            : _artworkCache.GetAsync(current with
+            {
+                Id = $"{current.Id}:fallback-motif",
+                ArtworkUri = current.FallbackMotifUri,
+                ArtworkFileName = current.FallbackMotifFileName,
+                ArtworkSha256 = current.FallbackMotifSha256
+            }, root, cancellationToken);
+        await Task.WhenAll(backgroundTask, songMotifTask, fallbackMotifTask);
+        return new(backgroundTask.Result, songMotifTask.Result, fallbackMotifTask.Result);
     }
 
     internal ImmersivePlayerState GetImmersiveState(string worldId)

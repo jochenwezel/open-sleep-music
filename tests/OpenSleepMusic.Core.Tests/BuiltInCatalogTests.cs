@@ -35,9 +35,14 @@ public sealed class BuiltInCatalogTests
             Assert.DoesNotContain("BY-ND", track.License, StringComparison.OrdinalIgnoreCase);
             Assert.NotNull(track.ArtworkUri);
             Assert.Equal(Uri.UriSchemeHttps, track.ArtworkUri!.Scheme);
-            Assert.Contains("/releases/download/artwork-v1/", track.ArtworkUri.AbsoluteUri, StringComparison.Ordinal);
+            Assert.Contains("/releases/download/artwork-v2/", track.ArtworkUri.AbsoluteUri, StringComparison.Ordinal);
             Assert.Matches("^[a-z0-9_-]+\\.png$", track.ArtworkFileName!);
             Assert.Matches("^[0-9a-f]{64}$", track.ArtworkSha256!);
+            Assert.NotNull(track.FallbackMotifUri);
+            Assert.Contains("/releases/download/artwork-v2/", track.FallbackMotifUri!.AbsoluteUri, StringComparison.Ordinal);
+            Assert.Matches("^fallback_[a-z0-9_-]+\\.png$", track.FallbackMotifFileName!);
+            Assert.Matches("^[0-9a-f]{64}$", track.FallbackMotifSha256!);
+            Assert.NotEqual(track.ArtworkFileName, track.FallbackMotifFileName);
             if (!string.IsNullOrWhiteSpace(track.Sha1))
             {
                 Assert.Matches("^[0-9a-f]{40}$", track.Sha1);
@@ -102,18 +107,20 @@ public sealed class BuiltInCatalogTests
     }
 
     [Fact]
-    public void CollectionsWithoutPublishedSongMotifsKeepTheSecondLayerEmpty()
+    public void ForestTracksHaveUniqueTitleSpecificTropicalMotifs()
     {
-        var tracks = BuiltInCatalog.SleepWorlds
-            .Where(world => world.Id != "lullabies")
-            .SelectMany(world => world.Tracks);
+        var tracks = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "forest").Tracks;
 
         Assert.All(tracks, track =>
         {
-            Assert.Null(track.SongMotifUri);
-            Assert.Null(track.SongMotifFileName);
-            Assert.Null(track.SongMotifSha256);
+            Assert.NotNull(track.SongMotifUri);
+            Assert.Contains("/releases/download/artwork-v2/", track.SongMotifUri!.AbsoluteUri, StringComparison.Ordinal);
+            Assert.Matches("^forest_[a-z0-9_]+\\.png$", track.SongMotifFileName!);
+            Assert.Matches("^[0-9a-f]{64}$", track.SongMotifSha256!);
+            Assert.NotEqual(track.ArtworkFileName, track.SongMotifFileName);
+            Assert.NotEqual(track.FallbackMotifFileName, track.SongMotifFileName);
         });
+        Assert.Equal(tracks.Count, tracks.Select(track => track.SongMotifFileName).Distinct(StringComparer.Ordinal).Count());
     }
 
     [Fact]

@@ -20,7 +20,10 @@ public sealed record AudioTrack(
     string? ArtworkSha256 = null,
     Uri? SongMotifUri = null,
     string? SongMotifFileName = null,
-    string? SongMotifSha256 = null)
+    string? SongMotifSha256 = null,
+    Uri? FallbackMotifUri = null,
+    string? FallbackMotifFileName = null,
+    string? FallbackMotifSha256 = null)
 {
     public double PlaybackDurationSeconds => DurationSeconds / Math.Max(PlaybackSpeed, 0.01);
 }

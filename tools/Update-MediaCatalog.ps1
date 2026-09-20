@@ -169,14 +169,33 @@ $worlds.lullabies.tracks | ForEach-Object {
 }
 foreach ($track in $worlds.lullabies.tracks) { $track.playbackSpeed = [Math]::Round(1 / 1.2, 6) }
 
-$artworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1'
+$artworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2'
+$legacyArtworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1'
 $artwork = @{
-    'quiet-classics' = @{ file = 'motif_quiet_classics.png'; sha256 = 'a10d54199e80701c7ea4febb20d457731149f99cc1f2703a535baa3573297d25' }
-    rain = @{ file = 'motif_rain.png'; sha256 = 'cec6cae8a6098f3f298766eb12f4fa62684df3c371a9bd67504fd581820fe93d' }
-    forest = @{ file = 'motif_forest.png'; sha256 = 'a241f118482789ae5b1eb62eea7b5cfd9fd60698368a5b4a8d1cd9f5c83e29e2' }
-    waves = @{ file = 'motif_waves.png'; sha256 = '98988dee31bb657ca4958dd3a36960dfe28facf7871e256f1056faf1dcd1a7fd' }
-    fireplace = @{ file = 'motif_fireplace_a.png'; sha256 = '95dbb13567e253005b83e4284e67f10d8dcc672981da0a335fbf4d27791b2eb5' }
-    lullabies = @{ file = 'sleepy_bear_moon.png'; sha256 = '12039a2dbc713d6281fb4bc6c171cc7821843aec587a2c16d5c948e513f0a455' }
+    'quiet-classics' = @{ file = 'background_quiet_classics.png'; sha256 = '0711d561294bf5085be5c2b70ab4cde9ca8750cec4aa98568b2932cf08453a2e' }
+    rain = @{ file = 'background_rain.png'; sha256 = '7d5811077c43d119d45751adc8f269debd47a0a5aabc839ed7b323fb763afc35' }
+    forest = @{ file = 'background_forest.png'; sha256 = '9c242462d21698f8baa298062ba1747803d306f30b589780211e3a982b173454' }
+    waves = @{ file = 'background_waves.png'; sha256 = 'ba1f932cef14fffa1b49ae34c86e8f858fa2303cb362a74e9d341a85e0917bc9' }
+    fireplace = @{ file = 'background_fireplace.png'; sha256 = 'e084796e82d373a37a262262a8e0dc6db2cda8a063f8a5bb6259792b557891fb' }
+    lullabies = @{ file = 'background_lullabies.png'; sha256 = '71360dc46ea8da5895ed37f1e044ad5019151bedd692f87e27b2aede9e179c36' }
+}
+$fallbackArtwork = @{
+    'quiet-classics' = @{ file = 'fallback_quiet_classics.png'; sha256 = '35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d' }
+    rain = @{ file = 'fallback_rain.png'; sha256 = '90763629c0dfdabce6302992eb94306d9ef36b78afecf9a914d480c1cad18620' }
+    forest = @{ file = 'fallback_forest.png'; sha256 = 'cd9d764c9412b52a9f47e2c094c7f8e3ea1f300dc0e2e3e2d2279b91b82d9328' }
+    waves = @{ file = 'fallback_waves.png'; sha256 = '764e5eec2b6b53f72f24b00065042ae8b205a9ad94d6e69e4bfb193aa398b65f' }
+    fireplace = @{ file = 'fallback_fireplace.png'; sha256 = '5f61496b481ec977cb30999b98f4251af43193dbef011f5d41393eed06ae1271' }
+    lullabies = @{ file = 'fallback_lullabies.png'; sha256 = '24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67' }
+}
+$forestArtwork = @{
+    'relaxingrainsounds-a-tropical-rain-forest-1-mp3' = @{ file = 'forest_tropical_rain_forest_1.png'; sha256 = '449d3b1c1038d89bf1926d99ad6a03697cd0ad1284fe88422a4bd392187aa630' }
+    'relaxingrainsounds-a-tropical-rain-forest-2-mp3' = @{ file = 'forest_tropical_rain_forest_2.png'; sha256 = '606dc39ef6512eb7bbfc7932ad1e39313e5b755502907f29ef84788c22051882' }
+    'relaxingrainsounds-birds-in-the-rain-part-1-mp3' = @{ file = 'forest_birds_in_rain_1.png'; sha256 = '5d47cc5e4d9f4646859c9c1c05ed3b459c1a4102e9d67c07e44651f50974ecd8' }
+    'relaxingrainsounds-birds-in-the-rain-part-2-mp3' = @{ file = 'forest_birds_in_rain_2.png'; sha256 = '71f578bb76b9d6841690c7a48c524db0ed2ac2c1421e66b262fecdfd7261b080' }
+    'relaxingrainsounds-rainforest-part-1-mp3' = @{ file = 'forest_rainforest_1.png'; sha256 = 'e988f3cb74dcb97acaa96cabfdfb64598d322940fe4bd42137ec48ab284a00b6' }
+    'relaxingrainsounds-rainforest-part-2-mp3' = @{ file = 'forest_rainforest_2.png'; sha256 = 'f8d54346e253688484bb8aa08554baa25758c52469e68967c20a168fd520433b' }
+    'relaxingrainsounds-tropical-rain-mp3' = @{ file = 'forest_tropical_rain.png'; sha256 = 'bc651f9b18aae7bdf0836fc8b1c49253c133a613843581a70f6d5c47284a65cf' }
+    'naturesounds-soundtheraphy-relaxing-nature-sounds-birdsong-sound-mp3' = @{ file = 'forest_birdsong.png'; sha256 = 'f1a6a78271a643c763fe98506ef2d7ceebe2e0b1bb8b7617baf7eb5923ebabaa' }
 }
 $lullabyArtwork = @{
     'faure-berceuse-op-56-no-1' = @{ file = 'motif_lullaby_sleepy_child.png'; sha256 = '19b304a437287e6ce4cfab313225237bd2623438777cf905f311a0c27cf5aa55' }
@@ -191,9 +210,19 @@ foreach ($worldEntry in $worlds.GetEnumerator()) {
         $track['artworkUri'] = "$artworkReleaseBase/$($trackArtwork.file)"
         $track['artworkFileName'] = $trackArtwork.file
         $track['artworkSha256'] = $trackArtwork.sha256
+        $fallbackMotif = $fallbackArtwork[$worldEntry.Key]
+        $track['fallbackMotifUri'] = "$artworkReleaseBase/$($fallbackMotif.file)"
+        $track['fallbackMotifFileName'] = $fallbackMotif.file
+        $track['fallbackMotifSha256'] = $fallbackMotif.sha256
+        if ($worldEntry.Key -eq 'forest' -and $forestArtwork.ContainsKey($track.id)) {
+            $songMotif = $forestArtwork[$track.id]
+            $track['songMotifUri'] = "$artworkReleaseBase/$($songMotif.file)"
+            $track['songMotifFileName'] = $songMotif.file
+            $track['songMotifSha256'] = $songMotif.sha256
+        }
         if ($worldEntry.Key -eq 'lullabies' -and $lullabyArtwork.ContainsKey($track.id)) {
             $songMotif = $lullabyArtwork[$track.id]
-            $track['songMotifUri'] = "$artworkReleaseBase/$($songMotif.file)"
+            $track['songMotifUri'] = "$legacyArtworkReleaseBase/$($songMotif.file)"
             $track['songMotifFileName'] = $songMotif.file
             $track['songMotifSha256'] = $songMotif.sha256
         }

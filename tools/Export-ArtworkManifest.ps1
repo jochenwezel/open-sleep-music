@@ -14,6 +14,9 @@ $tracks = @($catalog.sleepWorlds.tracks | ForEach-Object {
         songMotifUri = $_.songMotifUri
         songMotifFileName = $_.songMotifFileName
         songMotifSha256 = $_.songMotifSha256
+        fallbackMotifUri = $_.fallbackMotifUri
+        fallbackMotifFileName = $_.fallbackMotifFileName
+        fallbackMotifSha256 = $_.fallbackMotifSha256
     }
 })
 $manifest = [ordered]@{ schemaVersion = 1; tracks = $tracks }
