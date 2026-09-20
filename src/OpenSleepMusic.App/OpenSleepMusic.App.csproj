@@ -34,7 +34,7 @@
 		<ApplicationId>org.opensleepmusic.app</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationVersion>28</ApplicationVersion>
+		<ApplicationVersion>29</ApplicationVersion>
 		<ApplicationDisplayVersion>0.1.$(ApplicationVersion)</ApplicationDisplayVersion>
 
 		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
