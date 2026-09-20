@@ -10,8 +10,8 @@
                HorizontalOptions="Fill" VerticalOptions="Fill"
                InputTransparent="True" AutomationProperties.IsInAccessibleTree="False" />
         <Image x:Name="SongMotifImage" Aspect="AspectFit" Opacity="0" IsVisible="False"
-               HorizontalOptions="Center" VerticalOptions="Center" MaximumWidthRequest="420" MaximumHeightRequest="420"
-               WidthRequest="340" HeightRequest="340" Margin="0"
+               HorizontalOptions="Center" VerticalOptions="Center" MaximumWidthRequest="240" MaximumHeightRequest="240"
+               WidthRequest="220" HeightRequest="220" Margin="0"
                InputTransparent="True" AutomationProperties.IsInAccessibleTree="False" />
         <Grid x:Name="Controls" RowDefinitions="Auto,*,Auto" Padding="18" RowSpacing="12">
             <Grid x:Name="TopBar" RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto,*,Auto,Auto,Auto"

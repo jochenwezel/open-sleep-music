@@ -63,8 +63,8 @@ public partial class ImmersivePlayerPage : ContentPage
             TopBar.RowSpacing = 8;
         }
         var motifSize = landscape
-            ? Math.Min(360d, Math.Min(Width * 0.55d, Height * 0.62d))
-            : Math.Min(420d, Math.Min(Width * 0.84d, Height * 0.56d));
+            ? Math.Min(200d, Math.Min(Width * 0.34d, Height * 0.46d))
+            : Math.Min(240d, Math.Min(Width * 0.62d, Height * 0.34d));
         SongMotifImage.WidthRequest = motifSize;
         SongMotifImage.HeightRequest = motifSize;
         SongMotifImage.Margin = 0;
