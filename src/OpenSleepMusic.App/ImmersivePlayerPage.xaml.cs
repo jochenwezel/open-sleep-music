@@ -14,9 +14,9 @@ public partial class ImmersivePlayerPage : ContentPage
 
     internal string WorldId => _worldId;
     private bool _animateBack;
-    private bool _fadeMotifBack;
+    private bool _fadeBackgroundBack;
     private bool _driftSongMotifBack;
-    private int _motifTransitionVersion;
+    private int _backgroundTransitionVersion;
     private int _songMotifTransitionVersion;
     private string? _artworkRequestKey;
     private CancellationTokenSource? _artworkCancellation;
@@ -37,13 +37,16 @@ public partial class ImmersivePlayerPage : ContentPage
         _refreshTimer.IsRepeating = true;
         Loaded += (_, _) => StartRefreshing();
         Unloaded += (_, _) => StopRefreshing();
-        SizeChanged += (_, _) => ApplySongMotifLayout();
+        SizeChanged += (_, _) => ApplyResponsiveLayout();
     }
 
-    private void ApplySongMotifLayout()
+    private void ApplyResponsiveLayout()
     {
         if (Width <= 0 || Height <= 0) return;
         var landscape = Width > Height;
+        BackgroundArtworkImage.Rotation = landscape ? 0 : 90;
+        BackgroundArtworkImage.WidthRequest = landscape ? Width : Height;
+        BackgroundArtworkImage.HeightRequest = landscape ? Height : Width;
         TopBar.RowDefinitions.Clear();
         if (landscape)
         {
@@ -62,12 +65,6 @@ public partial class ImmersivePlayerPage : ContentPage
             Grid.SetColumnSpan(TitleLabel, 6);
             TopBar.RowSpacing = 8;
         }
-        var motifSize = landscape
-            ? Math.Min(200d, Math.Min(Width * 0.34d, Height * 0.46d))
-            : Math.Min(240d, Math.Min(Width * 0.62d, Height * 0.34d));
-        SongMotifImage.WidthRequest = motifSize;
-        SongMotifImage.HeightRequest = motifSize;
-        SongMotifImage.Margin = 0;
     }
 
     protected override void OnAppearing()
@@ -107,7 +104,7 @@ public partial class ImmersivePlayerPage : ContentPage
         var theme = PlaybackVisualCatalog.For(state.WorldId, state.TrackId);
         if (theme != _theme)
         {
-            ApplyTheme(theme, animateMotif: _theme is not null && IsLoaded);
+            ApplyTheme(theme);
             if (IsLoaded)
             {
                 StopAmbientAnimations();
@@ -154,30 +151,25 @@ public partial class ImmersivePlayerPage : ContentPage
         DurationLabel.Text = FormatTime(state.Duration);
     }
 
-    private void ApplyTheme(PlaybackVisualTheme theme, bool animateMotif = false)
+    private void ApplyTheme(PlaybackVisualTheme theme)
     {
-        var motifChanged = _theme?.MotifAsset != theme.MotifAsset;
         _theme = theme;
         Scene.BackgroundColor = Color.FromArgb(theme.StartColor);
         BackgroundColor = Color.FromArgb(theme.StartColor);
         AmbientBackground.Color = Color.FromArgb(theme.StartColor);
-        if (animateMotif && motifChanged)
-        {
-            _ = TransitionMotifAsync(ImageSource.FromFile(theme.MotifAsset), ++_motifTransitionVersion);
-        }
-        else
-        {
-            MotifImage.Source = ImageSource.FromFile(theme.MotifAsset);
-            MotifImage.Opacity = BackgroundArtworkOpacity;
-        }
     }
 
-    private async Task TransitionMotifAsync(ImageSource source, int version)
+    private async Task TransitionBackgroundAsync(ImageSource? source, int version)
     {
-        await MotifImage.FadeToAsync(0, 250, Easing.SinInOut);
-        if (version != _motifTransitionVersion || !IsLoaded) return;
-        MotifImage.Source = source;
-        await MotifImage.FadeToAsync(BackgroundArtworkOpacity, 650, Easing.SinInOut);
+        await BackgroundArtworkImage.FadeToAsync(0, 250, Easing.SinInOut);
+        if (version != _backgroundTransitionVersion || !IsLoaded) return;
+        BackgroundArtworkImage.Source = source;
+        BackgroundArtworkImage.IsVisible = source is not null;
+        if (source is not null)
+        {
+            await BackgroundArtworkImage.FadeToAsync(BackgroundArtworkOpacity, 650, Easing.SinInOut);
+            if (version == _backgroundTransitionVersion) StartBackgroundFade();
+        }
     }
 
     private void RequestArtwork(AudioTrack? track, string fallbackAsset)
@@ -192,8 +184,8 @@ public partial class ImmersivePlayerPage : ContentPage
         _artworkCancellation = new CancellationTokenSource();
         if (track is null)
         {
-            _ = TransitionMotifAsync(ImageSource.FromFile(fallbackAsset), ++_motifTransitionVersion);
-            _ = TransitionSongMotifAsync(null, ++_songMotifTransitionVersion);
+            _ = TransitionBackgroundAsync(null, ++_backgroundTransitionVersion);
+            _ = TransitionSongMotifAsync(ImageSource.FromFile(fallbackAsset), ++_songMotifTransitionVersion);
             return;
         }
         _ = LoadArtworkAsync(track, fallbackAsset, key, _artworkCancellation.Token);
@@ -206,15 +198,15 @@ public partial class ImmersivePlayerPage : ContentPage
             var artwork = await _owner.GetArtworkAsync(track, cancellationToken);
             if (cancellationToken.IsCancellationRequested || key != _artworkRequestKey) return;
             var backgroundSource = artwork.BackgroundPath is null
-                ? ImageSource.FromFile(fallbackAsset)
+                ? null
                 : await LoadCachedImageSourceAsync(artwork.BackgroundPath, cancellationToken);
             var motifPath = artwork.SongMotifPath ?? artwork.FallbackMotifPath;
             var songMotifSource = motifPath is null
-                ? null
+                ? ImageSource.FromFile(fallbackAsset)
                 : await LoadCachedImageSourceAsync(motifPath, cancellationToken);
             if (cancellationToken.IsCancellationRequested || key != _artworkRequestKey) return;
             await Task.WhenAll(
-                TransitionMotifAsync(backgroundSource, ++_motifTransitionVersion),
+                TransitionBackgroundAsync(backgroundSource, ++_backgroundTransitionVersion),
                 TransitionSongMotifAsync(songMotifSource, ++_songMotifTransitionVersion));
         }
         catch (OperationCanceledException) { }
@@ -243,7 +235,7 @@ public partial class ImmersivePlayerPage : ContentPage
     {
         if (!IsLoaded || _owner.ReducedMotion) return;
         StartColorAnimation();
-        StartMotifFade();
+        StartBackgroundFade();
         StartSongMotifDrift();
     }
 
@@ -262,24 +254,25 @@ public partial class ImmersivePlayerPage : ContentPage
         });
     }
 
-    private void StartMotifFade()
+    private void StartBackgroundFade()
     {
-        if (!IsLoaded || _owner.ReducedMotion || _theme?.MotifFadeDuration is not { } duration) return;
-        var from = _fadeMotifBack ? _theme.MotifMinimumOpacity : BackgroundArtworkOpacity;
-        var to = _fadeMotifBack ? BackgroundArtworkOpacity : _theme.MotifMinimumOpacity;
-        MotifImage.Animate("ambient-motif", value => MotifImage.Opacity = from + ((to - from) * value), 50,
+        if (!IsLoaded || _owner.ReducedMotion || !BackgroundArtworkImage.IsVisible
+            || _theme?.MotifFadeDuration is not { } duration) return;
+        var from = _fadeBackgroundBack ? _theme.MotifMinimumOpacity : BackgroundArtworkOpacity;
+        var to = _fadeBackgroundBack ? BackgroundArtworkOpacity : _theme.MotifMinimumOpacity;
+        BackgroundArtworkImage.Animate("ambient-motif", value => BackgroundArtworkImage.Opacity = from + ((to - from) * value), 50,
             (uint)duration.TotalMilliseconds, Easing.SinInOut, (_, cancelled) =>
         {
             if (cancelled) return;
-            _fadeMotifBack = !_fadeMotifBack;
-            StartMotifFade();
+            _fadeBackgroundBack = !_fadeBackgroundBack;
+            StartBackgroundFade();
         });
     }
 
     private void StopAmbientAnimations()
     {
         AmbientBackground.AbortAnimation("ambient-color");
-        MotifImage.AbortAnimation("ambient-motif");
+        BackgroundArtworkImage.AbortAnimation("ambient-motif");
         SongMotifImage.AbortAnimation("ambient-song-motif");
         SongMotifImage.TranslationY = 0;
     }

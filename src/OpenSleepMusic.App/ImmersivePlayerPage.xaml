@@ -3,17 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OpenSleepMusic.App.ImmersivePlayerPage"
              BackgroundColor="#07142D" Shell.NavBarIsVisible="False">
-    <Grid x:Name="Scene">
+    <Grid x:Name="Scene" IsClippedToBounds="True">
         <Grid.GestureRecognizers><TapGestureRecognizer Tapped="OnSceneTapped" /></Grid.GestureRecognizers>
         <BoxView x:Name="AmbientBackground" Color="#0A1742" InputTransparent="True" />
-        <Image x:Name="MotifImage" Source="sleepy_lamb_star.png" Aspect="AspectFill" Opacity="0.62"
-               HorizontalOptions="Fill" VerticalOptions="Fill"
-               InputTransparent="True" AutomationProperties.IsInAccessibleTree="False" />
-        <Image x:Name="SongMotifImage" Aspect="AspectFit" Opacity="0" IsVisible="False"
-               HorizontalOptions="Center" VerticalOptions="Center" MaximumWidthRequest="240" MaximumHeightRequest="240"
-               WidthRequest="220" HeightRequest="220" Margin="0"
+        <Image x:Name="BackgroundArtworkImage" Aspect="AspectFill" Opacity="0" IsVisible="False"
+               HorizontalOptions="Center" VerticalOptions="Center" Margin="0"
                InputTransparent="True" AutomationProperties.IsInAccessibleTree="False" />
         <Grid x:Name="Controls" RowDefinitions="Auto,*,Auto" Padding="18" RowSpacing="12">
+            <Image Grid.Row="1" x:Name="SongMotifImage" Aspect="AspectFit" Opacity="0" IsVisible="False"
+                   HorizontalOptions="Fill" VerticalOptions="Fill" Margin="0"
+                   InputTransparent="True" AutomationProperties.IsInAccessibleTree="False" />
             <Grid x:Name="TopBar" RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto,*,Auto,Auto,Auto"
                   ColumnSpacing="8" RowSpacing="8">
                 <Button Text="‹" Clicked="OnBackClicked" BackgroundColor="#99252C45" TextColor="White" AutomationId="ImmersiveBackButton" />
