@@ -45,7 +45,7 @@ internal static class AppText
     public static string WorldName(string id, string fallback) => IsGerman ? fallback : id switch
     {
         "quiet-classics" => "Quiet classics", "rain" => "Gentle rain", "forest" => "Forest",
-        "waves" => "Water & waves", "fireplace" => "Fireplace", _ => fallback
+        "waves" => "Water & waves", "fireplace" => "Fireplace", "lullabies" => "Lullabies for little ones", _ => fallback
     };
 
     public static string WorldDescription(string id, string fallback) => IsGerman ? fallback : id switch
@@ -54,6 +54,7 @@ internal static class AppText
         "rain" => "Light to steady rain without selected thunder peaks.",
         "forest" => "Long forest and rainforest recordings with wind, water and birds.",
         "waves" => "Calm ocean, shore, waves and a babbling brook.",
-        "fireplace" => "Quiet crackling of a fireplace.", _ => fallback
+        "fireplace" => "Quiet crackling of a fireplace.",
+        "lullabies" => "Gentle piano, music-box and instrumental pieces without vocals.", _ => fallback
     };
 }
