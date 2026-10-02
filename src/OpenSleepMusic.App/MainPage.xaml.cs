@@ -1072,7 +1072,7 @@ public partial class MainPage : ContentPage
         var index = Array.IndexOf(SleepTimerMinutes, _sleepTimerMinutes);
         if (index < 0)
         {
-            _sleepTimerMinutes = AppStateStore.DefaultSleepTimerMinutes;
+            _sleepTimerMinutes = 60;
             index = Array.IndexOf(SleepTimerMinutes, _sleepTimerMinutes);
         }
         _restoringControls = true;

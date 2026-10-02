@@ -21,8 +21,6 @@ internal sealed record PersistedPlaybackState(string TrackId, double PositionSec
 
 internal sealed class AppStateStore(IPreferences? preferences = null)
 {
-    internal const int DefaultSleepTimerMinutes = 45;
-
     private const string VolumeKey = "player.volume";
     private const string ShuffleKey = "player.shuffle";
     private const string RepeatModeKey = "player.repeat-mode";
@@ -46,7 +44,7 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
             ? parsedRepeatMode
             : PlaybackRepeatMode.SleepWorld;
         var selectedWorld = EmptyToNull(_preferences.Get(SelectedWorldKey, string.Empty));
-        var timerMinutes = _preferences.Get(TimerMinutesKey, DefaultSleepTimerMinutes);
+        var timerMinutes = _preferences.Get(TimerMinutesKey, 60);
         var timerEndText = EmptyToNull(_preferences.Get(TimerEndKey, string.Empty));
         DateTimeOffset? timerEnd = DateTimeOffset.TryParse(timerEndText, out var parsedTimerEnd)
             ? parsedTimerEnd
