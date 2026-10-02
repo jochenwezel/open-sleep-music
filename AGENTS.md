@@ -57,6 +57,29 @@ Also update `docs/music-sources.md` when adding or removing a source collection,
 
 ## Catalog maintenance workflow
 
+`Vorauswahl` is a separate Preview-only audition collection defined in
+`tools/preselection-candidates.json`. Candidates may have unreviewed recording
+rights and pending listening reviews; keep `licenseReviewStatus` explicit and
+retain broad instrument tags. Candidates with checked stable direct audio delivery
+may be downloaded and played offline in Preview, using the ordinary resilient
+download pipeline and explicit unchecked recording-rights metadata. Resolve
+delivery metadata with `tools/Resolve-PreselectionDownloads.ps1`; keep candidates
+without such delivery as external source-page references. Do not extract temporary
+streaming URLs or bypass purchase/access controls. Favoriting
+a candidate is not rights approval. Before promotion to a production sleep world,
+document the specific recording-rights review with status `verified`, an accepted
+`approvedLicense`, its HTTPS `approvedLicenseUri`, and an HTTPS
+`licenseEvidenceUri`. Retain the approved license and attribution in the production
+entry, and complete all audio-delivery and sleep-suitability checks above. Do not
+bypass the generator or Core promotion guards by changing an ID or source URL.
+
+Preselection must never appear in a stable release. Builds default to the stable
+channel; enable it only for preview artifacts with `-p:OpenSleepMusicPreview=true`.
+The release workflow derives this flag from GitHub's `release.prerelease` field,
+not from the tag name or the MSBuild `Release` configuration. Stable packages use
+`media-catalog.production.json` and must not embed the candidate resource or compile
+the Preselection page. Test both channel variants before changing these gates.
+
 `tools/Update-MediaCatalog.ps1` is the reproducible catalog generator. Make selection changes in that script and regenerate the JSON instead of hand-editing generated entries.
 
 After changing the catalog:

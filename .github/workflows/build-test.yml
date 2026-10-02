@@ -12,6 +12,11 @@ permissions:
 jobs:
   build-windows:
     runs-on: windows-2025-vs2026
+    strategy:
+      matrix:
+        preview: [false, true]
+    env:
+      OpenSleepMusicPreview: ${{ matrix.preview }}
     steps:
       - uses: actions/checkout@v5
       - name: Restore

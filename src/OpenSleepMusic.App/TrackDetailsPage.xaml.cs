@@ -35,6 +35,13 @@ public partial class TrackDetailsPage : ContentPage
             ? string.Join(", ", track.Instrumentation.Select(TranslateInstrument))
             : AppText.Pick("Nicht angegeben", "Not specified");
         LicenseLabel.Text = track.License;
+        if (localTrack.SleepWorld.Id == "preselection")
+        {
+            LicenseHelpLabel.Text = AppText.Pick(
+                "Vorauswahl: Die Lizenz der Aufnahme und ihre Schlaf-Eignung sind noch ungeprüft. Die Quellenangabe ist keine Freigabe für eine produktive Sammlung.",
+                "Preselection: Recording rights and sleep suitability are unreviewed. The source declaration is not production approval.");
+            LicenseLabel.Text += " · " + AppText.Pick("Prüfung offen", "Review pending");
+        }
         FileLabel.Text = localTrack.FilePath;
         UpdatePreferenceButtons();
     }

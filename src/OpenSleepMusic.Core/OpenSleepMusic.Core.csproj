@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Catalog\media-catalog.json" />
+    <EmbeddedResource Include="Catalog\media-catalog.json" Condition="'$(OpenSleepMusicPreview)' == 'true'" />
+    <EmbeddedResource Include="Catalog\media-catalog.production.json" Condition="'$(OpenSleepMusicPreview)' != 'true'" LogicalName="OpenSleepMusic.Core.Catalog.media-catalog.json" />
+    <EmbeddedResource Include="Catalog\preselection-candidates.json" Condition="'$(OpenSleepMusicPreview)' == 'true'" />
   </ItemGroup>
 
 </Project>

@@ -5,15 +5,51 @@ namespace OpenSleepMusic.Core.Tests;
 public sealed class BuiltInCatalogTests
 {
     [Fact]
+    public void RemainingMazurkasUseOneAndAHalfTimesListeningDuration()
+    {
+        var world = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "quiet-classics");
+        var mazurkas = world.Tracks.Where(track => track.Title.Contains("Mazurka", StringComparison.OrdinalIgnoreCase)).ToArray();
+        Assert.NotEmpty(mazurkas);
+        Assert.All(mazurkas, track =>
+        {
+            Assert.Equal(1 / 1.5, track.PlaybackSpeed, 6);
+            Assert.InRange(track.PlaybackDurationSeconds / track.DurationSeconds, 1.49999, 1.50001);
+        });
+        Assert.All(world.Tracks.Except(mazurkas), track => Assert.Equal(1d, track.PlaybackSpeed));
+    }
+
+    [Fact]
+    public void CatalogExcludesPersistentlyBlacklistedTracks()
+    {
+        using var stream = typeof(BuiltInCatalogTests).Assembly.GetManifestResourceStream("OpenSleepMusic.Core.Tests.media-catalog-blacklist.json");
+        Assert.NotNull(stream);
+        var ids = System.Text.Json.JsonSerializer.Deserialize<string[]>(stream!)!;
+        Assert.NotEmpty(ids);
+        Assert.Equal(ids.Length, ids.Distinct(StringComparer.Ordinal).Count());
+        var tracks = BuiltInCatalog.SleepWorlds.SelectMany(world => world.Tracks);
+        Assert.All(ids, id => Assert.DoesNotContain(tracks, track => track.Id == id));
+    }
+
+    [Fact]
     public void CatalogIsLargeConsistentAndFullyAttributed()
     {
         var worlds = BuiltInCatalog.SleepWorlds;
         var tracks = worlds.SelectMany(world => world.Tracks).ToArray();
 
-        Assert.Equal(6, worlds.Count);
-        Assert.True(tracks.Length >= 140, $"Expected at least 140 tracks, found {tracks.Length}.");
+        Assert.Equal(BuildChannel.IsPreview ? 7 : 6, worlds.Count);
+        Assert.True(tracks.Length >= 134, $"Expected at least 134 tracks, found {tracks.Length}.");
         Assert.True(BuiltInCatalog.TotalDuration >= TimeSpan.FromHours(15));
-        Assert.All(worlds, world => Assert.NotEmpty(world.Tracks));
+        Assert.All(worlds.Where(world => world.Id != "preselection"), world => Assert.NotEmpty(world.Tracks));
+        if (BuildChannel.IsPreview)
+        {
+            var preselection = Assert.Single(worlds, world => world.Id == "preselection");
+            Assert.Equal("Vorauswahl", preselection.Name);
+            Assert.Equal(50, preselection.Tracks.Count);
+        }
+        else
+        {
+            Assert.DoesNotContain(worlds, world => world.Id == "preselection");
+        }
         Assert.DoesNotContain(tracks, track => track.Title.Contains("Preludes, Op. 28", StringComparison.OrdinalIgnoreCase));
         Assert.DoesNotContain(worlds, world => world.Id == "brown-noise");
 
@@ -62,7 +98,7 @@ public sealed class BuiltInCatalogTests
     public void QuietClassicsRetainsReviewedGentleInstrumentDiversity()
     {
         var world = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "quiet-classics");
-        Assert.Contains(world.Tracks, track => track.Instrumentation?.Contains("harp") == true);
+        // The harp/recorder pilot was blacklisted after field feedback.
         Assert.True(world.Tracks.Count(track => track.Instrumentation?.Contains("cello") == true) >= 2);
         Assert.Contains(world.Tracks, track =>
             track.Id == "haydn-cello-concerto-no-1-adagio" &&
@@ -76,10 +112,9 @@ public sealed class BuiltInCatalogTests
         var world = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "lullabies");
 
         Assert.Equal("Schlaflieder für Kleine", world.Name);
-        Assert.Equal(5, world.Tracks.Count);
+        Assert.Equal(4, world.Tracks.Count);
         Assert.Equal(
             [
-                "antti-luode-another-lullaby",
                 "burgmuller-berceuse-op-109-no-7",
                 "faure-berceuse-op-56-no-1",
                 "music-box-guten-abend-gute-nacht",

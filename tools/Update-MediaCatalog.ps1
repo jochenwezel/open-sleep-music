@@ -53,6 +53,7 @@ function Convert-ToSeconds([string]$Length) {
 }
 
 $worlds = [ordered]@{
+    'preselection' = [ordered]@{ name = 'Vorauswahl'; description = 'Kandidaten herunterladen und offline probehören. Lizenz- und Eignungsprüfung noch offen. Nur in Preview-Versionen.'; icon = '🧪'; tracks = [Collections.Generic.List[object]]::new() }
     'quiet-classics' = [ordered]@{ name = 'Ruhige Klassik'; description = 'Sanfte Klavier-, Harfen-, Cello- und Streicheraufnahmen mit ruhiger Dynamik.'; icon = '🎼'; tracks = [Collections.Generic.List[object]]::new() }
     rain = [ordered]@{ name = 'Sanfter Regen'; description = 'Leichter bis kräftiger Regen, ohne ausgewählte Gewitterspitzen.'; icon = '🌧️'; tracks = [Collections.Generic.List[object]]::new() }
     forest = [ordered]@{ name = 'Wald'; description = 'Lange Wald- und Regenwaldaufnahmen mit Wind, Wasser und Vögeln.'; icon = '🌲'; tracks = [Collections.Generic.List[object]]::new() }
@@ -69,6 +70,10 @@ $chopin.files |
     Sort-Object name |
     ForEach-Object {
         $track = New-ArchiveTrack $chopin $_ 'Various artists; produced by Musopen'
+        if ($_.name -match 'Mazurka') {
+            # Provisional field-test setting: 150% listening time for the faster dances.
+            $track.playbackSpeed = [Math]::Round(1 / 1.5, 6)
+        }
         if ($_.name -match 'Cello Sonata') {
             $track.instrumentation = @('cello', 'piano')
             $track.ensembleType = 'duo'
@@ -169,6 +174,26 @@ $worlds.lullabies.tracks | ForEach-Object {
 }
 foreach ($track in $worlds.lullabies.tracks) { $track.playbackSpeed = [Math]::Round(1 / 1.2, 6) }
 
+# Preview audition tracks are separate from production admission. Only stable,
+# header-checked delivery metadata may be materialized as a downloadable track.
+$candidateManifest = Get-Content (Join-Path $PSScriptRoot 'preselection-candidates.json') -Raw | ConvertFrom-Json
+foreach ($candidate in $candidateManifest.candidates) {
+    if (!$candidate.downloadUri) { continue }
+    if (([Uri]$candidate.downloadUri).Scheme -ne 'https' -or !$candidate.deliveryCheckedAtUtc -or
+        $candidate.durationSeconds -le 0 -or $candidate.fileName -notmatch '^[a-z0-9_-]+\.(mp3|ogg|flac|wav|mp4|m4a)$') {
+        throw "Invalid preselection delivery metadata: $($candidate.id)"
+    }
+    $worlds.preselection.tracks.Add([ordered]@{
+        id = $candidate.id; title = $candidate.title; creator = $candidate.creator
+        downloadUri = $candidate.downloadUri; sourcePageUri = $candidate.sourcePageUri
+        license = $candidate.declaredLicense
+        licenseUri = if ($candidate.declaredLicenseUri) { $candidate.declaredLicenseUri } else { $candidate.sourcePageUri }
+        fileName = $candidate.fileName; durationSeconds = $candidate.durationSeconds; sha1 = $candidate.sha1
+        instrumentation = @($candidate.instrumentation); ensembleType = 'unreviewed'
+        licenseReviewStatus = $candidate.licenseReviewStatus
+    })
+}
+
 $artworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2'
 $backgroundArtworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3'
 $legacyArtworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1'
@@ -207,11 +232,12 @@ $lullabyArtwork = @{
 }
 foreach ($worldEntry in $worlds.GetEnumerator()) {
     foreach ($track in $worldEntry.Value.tracks) {
-        $trackArtwork = $artwork[$worldEntry.Key]
+        $artworkWorldId = if ($worldEntry.Key -eq 'preselection') { 'quiet-classics' } else { $worldEntry.Key }
+        $trackArtwork = $artwork[$artworkWorldId]
         $track['artworkUri'] = "$backgroundArtworkReleaseBase/$($trackArtwork.file)"
         $track['artworkFileName'] = $trackArtwork.file
         $track['artworkSha256'] = $trackArtwork.sha256
-        $fallbackMotif = $fallbackArtwork[$worldEntry.Key]
+        $fallbackMotif = $fallbackArtwork[$artworkWorldId]
         $track['fallbackMotifUri'] = "$artworkReleaseBase/$($fallbackMotif.file)"
         $track['fallbackMotifFileName'] = $fallbackMotif.file
         $track['fallbackMotifSha256'] = $fallbackMotif.sha256
@@ -230,6 +256,12 @@ foreach ($worldEntry in $worlds.GetEnumerator()) {
     }
 }
 
+# Apply the persistent curation blacklist to every source before serialization.
+$blacklistedIds = @(Get-Content (Join-Path $PSScriptRoot 'media-catalog-blacklist.json') -Raw | ConvertFrom-Json)
+foreach ($entry in $worlds.GetEnumerator()) {
+    $entry.Value.tracks = @($entry.Value.tracks | Where-Object { $_.id -notin $blacklistedIds })
+}
+
 $manifestWorlds = foreach ($entry in $worlds.GetEnumerator()) {
     [ordered]@{
         id = $entry.Key
@@ -246,8 +278,55 @@ $manifest = [ordered]@{
     sleepWorlds = @($manifestWorlds)
 }
 
+# Unreviewed candidates stay outside the downloadable catalog. Moving a candidate
+# into a production world requires a documented review of the specific recording.
+$candidateManifest = Get-Content (Join-Path $PSScriptRoot 'preselection-candidates.json') -Raw | ConvertFrom-Json
+if ($candidateManifest.schemaVersion -ne 1) { throw 'Unsupported preselection schema.' }
+$candidateManifest.candidates = @($candidateManifest.candidates | Where-Object { $_.id -notin $blacklistedIds })
+if (@($candidateManifest.candidates.id | Sort-Object -Unique).Count -ne $candidateManifest.candidates.Count -or
+    @($candidateManifest.candidates.sourcePageUri | Sort-Object -Unique).Count -ne $candidateManifest.candidates.Count) {
+    throw 'Duplicate preselection IDs or source pages.'
+}
+foreach ($candidate in $candidateManifest.candidates) {
+    if (([Uri]$candidate.sourcePageUri).Scheme -ne 'https' -or
+        $candidate.licenseReviewStatus -notin @('unchecked', 'verified', 'rejected') -or
+        !$candidate.instrumentation.Count) { throw "Invalid candidate metadata: $($candidate.id)" }
+}
+foreach ($world in $manifestWorlds) {
+    if ($world.id -eq 'preselection') { continue }
+    foreach ($track in $world.tracks) {
+        $candidate = $candidateManifest.candidates | Where-Object {
+            $_.id -eq $track.id -or [Uri]$_.sourcePageUri -eq [Uri]$track.sourcePageUri
+        }
+        if ($candidate -and ($candidate.licenseReviewStatus -ne 'verified' -or
+            !$candidate.licenseEvidenceUri -or ([Uri]$candidate.licenseEvidenceUri).Scheme -ne 'https' -or
+            [string]::IsNullOrWhiteSpace($candidate.creator) -or
+            [string]::IsNullOrWhiteSpace($candidate.declaredLicense) -or
+            $candidate.approvedLicense -notin @('CC0 1.0', 'CC BY 3.0', 'CC BY 4.0', 'CC BY-SA 3.0', 'CC BY-SA 4.0', 'Public Domain', 'Public Domain Dedication') -or
+            !$candidate.approvedLicenseUri -or ([Uri]$candidate.approvedLicenseUri).Scheme -ne 'https' -or
+            [string]::IsNullOrWhiteSpace($candidate.reviewNotes))) {
+            throw "Candidate '$($track.id)' cannot enter the production catalog without a documented recording-rights review."
+        }
+        if ($candidate -and ($track.license -ne $candidate.approvedLicense -or
+            [Uri]$track.licenseUri -ne [Uri]$candidate.approvedLicenseUri)) {
+            throw "Candidate '$($track.id)' must retain its approved recording license."
+        }
+    }
+}
+$candidateOutputPath = Join-Path (Split-Path $OutputPath) 'preselection-candidates.json'
+[IO.File]::WriteAllText($candidateOutputPath, ($candidateManifest | ConvertTo-Json -Depth 8) + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))
+
 $json = $manifest | ConvertTo-Json -Depth 8
 [IO.File]::WriteAllText((Resolve-Path (Split-Path $OutputPath)).Path + '\' + (Split-Path $OutputPath -Leaf), $json + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))
+
+# Stable packages contain neither the review world nor the candidate resource.
+$productionManifest = [ordered]@{
+    schemaVersion = $manifest.schemaVersion
+    generatedAtUtc = $manifest.generatedAtUtc
+    sleepWorlds = @($manifestWorlds | Where-Object id -ne 'preselection')
+}
+$productionOutputPath = Join-Path (Split-Path $OutputPath) 'media-catalog.production.json'
+[IO.File]::WriteAllText($productionOutputPath, ($productionManifest | ConvertTo-Json -Depth 8) + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))
 
 $tracks = @($manifestWorlds | ForEach-Object { @($_.tracks) })
 $seconds = ($tracks | ForEach-Object { [double]$_['durationSeconds'] } | Measure-Object -Sum).Sum

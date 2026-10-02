@@ -77,4 +77,8 @@
 	  <ProjectReference Include="..\OpenSleepMusic.Core\OpenSleepMusic.Core.csproj" />
 	</ItemGroup>
 
+	<ItemGroup Condition="'$(OpenSleepMusicPreview)' != 'true'">
+	  <Compile Remove="PreselectionPage.cs" />
+	</ItemGroup>
+
 </Project>

@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "researchedOn": "2026-10-02",
+  "purpose": "Instrumental recordings for Preselection; research only, not admitted to the downloadable catalog.",
+  "candidates": [
+    {
+      "id": "el-noi-de-la-mare-jujutacular",
+      "title": "El Noi de la Mare",
+      "creator": "Jujutacular",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:El_Noi_de_la_Mare_(guitar).ogg",
+      "declaredRecordingLicense": "CC BY-SA 3.0",
+      "licenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "instrumentation": [
+        "guitar"
+      ],
+      "ensembleType": "solo",
+      "status": "pending-listening-and-delivery-review",
+      "notes": "Traditional Catalan melody; uploader identifies the recording as own work and separately licenses the recording/performance. Complete listening review and audio signature/duration/checksum verification remain outstanding.",
+      "licenseReviewStatus": "unchecked"
+    },
+    {
+      "id": "pachelbel-canon-guitar-aitua",
+      "title": "Johann Pachelbel – Canon in D major, P. 37",
+      "creator": "Aitua",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Pachelbel_-_Canon_in_D_major,_P._37_(Guitar).ogg",
+      "declaredRecordingLicense": "CC BY-SA 4.0",
+      "licenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "instrumentation": [
+        "guitar"
+      ],
+      "ensembleType": "unverified",
+      "status": "pending-source-listening-and-delivery-review",
+      "notes": "Commons identifies Aitua and links the original Free Music Archive release. Check original release rights, arrangement/number of guitar parts, tempo and dynamic development before admission.",
+      "licenseReviewStatus": "unchecked"
+    },
+    {
+      "id": "schubert-daphne-am-bach-bert-alink",
+      "title": "Franz Schubert – Daphne am Bach, D.411",
+      "creator": "Bert Alink",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schubert%27s_Daphne_am_Bach,_D.411_(guitar)_-_Bert_Alink.ogg",
+      "declaredRecordingLicense": "CC BY 4.0",
+      "licenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "instrumentation": [
+        "guitar"
+      ],
+      "ensembleType": "unverified",
+      "status": "pending-source-listening-and-delivery-review",
+      "notes": "Instrumental guitar version of an older song; Commons identifies Bert Alink and links IMSLP. Verify the original recording grant, arrangement, sleep suitability and delivery.",
+      "licenseReviewStatus": "unchecked"
+    },
+    {
+      "id": "tano-niha-mbanua-somasido-instrumental",
+      "title": "Tanö Niha Mbanua Somasido – Instrumental",
+      "creator": "Slaia; composition/arrangement credited to Yasato Harefa in the description",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Tan%C3%B6_Niha_Mbanua_Somasido_-_Instrumental.ogg",
+      "declaredRecordingLicense": "CC BY-SA 4.0",
+      "licenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "instrumentation": [
+        "pan-flute"
+      ],
+      "ensembleType": "unverified",
+      "status": "pending-source-listening-and-delivery-review",
+      "notes": "Uploader declares own work and describes a pan-flute instrumental. An additional instrument-diversity lead, not yet established as an old familiar melody. Check composition/arrangement rights, acoustic versus synthesized instrumentation and any accompaniment.",
+      "licenseReviewStatus": "unchecked"
+    },
+    {
+      "id": "llyn-y-fan-cor-telyn-teilo-excerpt",
+      "title": "Llyn y Fan",
+      "creator": "Côr Telyn Teilo; required attribution: Sain (Recordiau) Cyf.",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Llyn_y_Fan_-_C%C3%B4r_Telyn_Teilo.ogg",
+      "declaredRecordingLicense": "CC BY-SA 3.0",
+      "licenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "instrumentation": [
+        "harp"
+      ],
+      "ensembleType": "unverified",
+      "status": "excluded-short-excerpt",
+      "notes": "Rights-holder permission is documented by Wikimedia VRT ticket 2017050910011681, but the available file is only a 30-second excerpt. Do not infer that the complete album recording shares this grant.",
+      "licenseReviewStatus": "unchecked"
+    },
+    {
+      "id": "respighi-il-conte-orlando-marine-band",
+      "title": "Ottorino Respighi – Balletto detto Il conte Orlando",
+      "creator": "The President's Own United States Marine Band; conductor Michael J. Colburn",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Balletto_detto_Il_conte_Orlando.ogg",
+      "declaredRecordingLicense": "Public Domain (US government work; source declaration)",
+      "licenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "instrumentation": [
+        "harp",
+        "strings",
+        "harpsichord",
+        "orchestra"
+      ],
+      "ensembleType": "orchestra",
+      "status": "deprioritized-pending-listening-review",
+      "notes": "Source categories identify these instrument families; full instrumentation needs verification. Ensemble recording, not solo harp. Source marks Allegro and a live performance, so assess tempo, peaks and applause before considering admission.",
+      "licenseReviewStatus": "unchecked"
+    }
+  ]
+}

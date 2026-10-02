@@ -23,7 +23,8 @@ public sealed record AudioTrack(
     string? SongMotifSha256 = null,
     Uri? FallbackMotifUri = null,
     string? FallbackMotifFileName = null,
-    string? FallbackMotifSha256 = null)
+    string? FallbackMotifSha256 = null,
+    string LicenseReviewStatus = "verified")
 {
     public double PlaybackDurationSeconds => DurationSeconds / Math.Max(PlaybackSpeed, 0.01);
 }

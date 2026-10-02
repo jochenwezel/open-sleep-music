@@ -1,0 +1,1261 @@
+{
+  "schemaVersion": 1,
+  "candidates": [
+    {
+      "id": "candidate-el-noi-de-la-mare-guitar",
+      "title": "El Noi de la Mare (guitar)",
+      "creator": "Jujutacular",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:El_Noi_de_la_Mare_(guitar).ogg",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e0/El_Noi_de_la_Mare_%28guitar%29.ogg",
+      "fileName": "candidate-el-noi-de-la-mare-guitar.ogg",
+      "durationSeconds": 132.656,
+      "sha1": "331640f4330cca46aa482ac7fd5d8bde17ee3102",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:00.5782928+02:00"
+    },
+    {
+      "id": "candidate-pachelbel-canon-in-d-major-p-37-guitar",
+      "title": "Pachelbel - Canon in D major, P. 37 (Guitar)",
+      "creator": "Aitua",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Pachelbel_-_Canon_in_D_major,_P._37_(Guitar).ogg",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 4.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pachelbel_-_Canon_in_D_major%2C_P._37_%28Guitar%29.ogg",
+      "fileName": "candidate-pachelbel-canon-in-d-major-p-37-guitar.ogg",
+      "durationSeconds": 201.064,
+      "sha1": "0e460d2fff2daf2c434200b589bee292d7c2eabe",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0",
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:02.7493374+02:00"
+    },
+    {
+      "id": "candidate-schubert-s-daphne-am-bach-d-411-guitar-bert-alink",
+      "title": "Schubert's Daphne am Bach, D.411 (guitar) - Bert Alink",
+      "creator": "Bert Alink",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schubert%27s_Daphne_am_Bach,_D.411_(guitar)_-_Bert_Alink.ogg",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY 4.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Schubert%27s_Daphne_am_Bach%2C_D.411_%28guitar%29_-_Bert_Alink.ogg",
+      "fileName": "candidate-schubert-s-daphne-am-bach-d-411-guitar-bert-alink.ogg",
+      "durationSeconds": 96.983,
+      "sha1": "df3439838aa9d72a9361709b18f7b0bbf466437f",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0",
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:04.899595+02:00"
+    },
+    {
+      "id": "candidate-pachelbel-suite-in-f-sharp-minor-p-439-iv-sarabande-guitar",
+      "title": "Pachelbel - Suite in F-sharp minor, P. 439 - IV. Sarabande (Guitar)",
+      "creator": "Bert Alink",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Pachelbel_-_Suite_in_F-sharp_minor,_P._439_-_IV._Sarabande_(Guitar).ogg",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY 4.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pachelbel_-_Suite_in_F-sharp_minor%2C_P._439_-_IV._Sarabande_%28Guitar%29.ogg",
+      "fileName": "candidate-pachelbel-suite-in-f-sharp-minor-p-439-iv-sarabande-guitar.ogg",
+      "durationSeconds": 74.589,
+      "sha1": "d18e8a3d86f000533904e700ab455ee83866da8e",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0",
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:07.0711202+02:00"
+    },
+    {
+      "id": "candidate-romanza-espanola",
+      "title": "Romanza española",
+      "creator": "Composer Unknown. Courtesy of Alias Guitar",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Romanza_espa%C3%B1ola.ogg",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/89/Romanza_espa%C3%B1ola.ogg",
+      "fileName": "candidate-romanza-espanola.ogg",
+      "durationSeconds": 150.356,
+      "sha1": "b7a0245aef8a0eeadd5b372854760e504878b85f",
+      "declaredLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:09.1087426+02:00"
+    },
+    {
+      "id": "candidate-recuerdos-de-la-alhambra",
+      "title": "Recuerdos de la Alhambra",
+      "creator": "Carlo Alberto Boni",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Recuerdos_de_la_Alhambra.ogg",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 3.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Recuerdos_de_la_Alhambra.ogg",
+      "fileName": "candidate-recuerdos-de-la-alhambra.ogg",
+      "durationSeconds": 239.885,
+      "sha1": "be8bb6a5c5f6b1968529fe5b8981393eb40679b9",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0",
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:11.1321841+02:00"
+    },
+    {
+      "id": "candidate-satie-gymnopedie-no-1-performed-by-michael-laucke",
+      "title": "Satie Gymnopedie No 1 performed by Michael Laucke",
+      "creator": "Mlaucke",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac",
+      "fileName": "candidate-satie-gymnopedie-no-1-performed-by-michael-laucke.flac",
+      "durationSeconds": 171.912,
+      "sha1": "090f87e4f5eea9491188eecf003b62ea2a93a36e",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:13.1608771+02:00"
+    },
+    {
+      "id": "candidate-satie-gymnopedie-no-2-performed-by-michael-laucke",
+      "title": "Satie Gymnopedie No 2 performed by Michael Laucke",
+      "creator": "Mlaucke",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac",
+      "fileName": "candidate-satie-gymnopedie-no-2-performed-by-michael-laucke.flac",
+      "durationSeconds": 147.226,
+      "sha1": "6a03288f061dda2e76fe348c71756558fba5cffd",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:15.1885459+02:00"
+    },
+    {
+      "id": "candidate-satie-gymnopedie-no-3-performed-by-michael-laucke",
+      "title": "Satie Gymnopedie No 3 performed by Michael Laucke",
+      "creator": "Mlaucke",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Satie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/db/Satie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac",
+      "fileName": "candidate-satie-gymnopedie-no-3-performed-by-michael-laucke.flac",
+      "durationSeconds": 123.115,
+      "sha1": "8c2b9edde40215a62cd798e621aacd9f27437052",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:17.2163293+02:00"
+    },
+    {
+      "id": "candidate-erik-satie-gnossienne-no-1",
+      "title": "Erik Satie - Gnossienne no 1",
+      "creator": "No machine-readable author provided. Jmfayard assumed (based on copyright claims).",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Erik_Satie_-_Gnossienne_no_1.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 3.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Erik_Satie_-_Gnossienne_no_1.ogg",
+      "fileName": "candidate-erik-satie-gnossienne-no-1.ogg",
+      "durationSeconds": 207.853,
+      "sha1": "26fa578d8b8926e6c2b04e8b1a53731e0efc5737",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:19.337671+02:00"
+    },
+    {
+      "id": "candidate-gnossienne-2-satie",
+      "title": "Gnossienne 2 (Satie)",
+      "creator": "Composer: Erik Satie Performer: La Pianista",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Gnossienne_2_(Satie).ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Gnossienne_2_%28Satie%29.ogg",
+      "fileName": "candidate-gnossienne-2-satie.ogg",
+      "durationSeconds": 101.579,
+      "sha1": "38ae316c66b914989398d2dbba6792e731592d28",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:21.3610673+02:00"
+    },
+    {
+      "id": "candidate-gnossienne-3-satie",
+      "title": "Gnossienne 3 (Satie)",
+      "creator": "Composer: Erik Satie Performer: La Pianista",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Gnossienne_3_(Satie).ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/1/10/Gnossienne_3_%28Satie%29.ogg",
+      "fileName": "candidate-gnossienne-3-satie.ogg",
+      "durationSeconds": 162.664,
+      "sha1": "eb9d29d86c4880acd8c6fb7271d5a3e813400ec6",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:23.4905287+02:00"
+    },
+    {
+      "id": "candidate-gnossienne-4-satie",
+      "title": "Gnossienne 4 (Satie)",
+      "creator": "Composer: Erik Satie Performer: La Pianista",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Gnossienne_4_(Satie).ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Gnossienne_4_%28Satie%29.ogg",
+      "fileName": "candidate-gnossienne-4-satie.ogg",
+      "durationSeconds": 139.328,
+      "sha1": "6ca4eee230a24c7ddf5b7766bbc1680362b6106d",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:25.6106028+02:00"
+    },
+    {
+      "id": "candidate-gnossienne-5-satie",
+      "title": "Gnossienne 5 (Satie)",
+      "creator": "Composer: Erik Satie Performer: La Pianista",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Gnossienne_5_(Satie).ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/07/Gnossienne_5_%28Satie%29.ogg",
+      "fileName": "candidate-gnossienne-5-satie.ogg",
+      "durationSeconds": 172.273,
+      "sha1": "9eecd78bb5a2781f2caf874101c202c07c210d61",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:27.7371466+02:00"
+    },
+    {
+      "id": "candidate-gnossienne-6-satie",
+      "title": "Gnossienne 6 (Satie)",
+      "creator": "Composer: Erik Satie Performer: La Pianista",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Gnossienne_6_(Satie).ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Gnossienne_6_%28Satie%29.ogg",
+      "fileName": "candidate-gnossienne-6-satie.ogg",
+      "durationSeconds": 122.627,
+      "sha1": "3b59823c4cc9f96bc01196602f8c9947cf54d811",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:29.8611855+02:00"
+    },
+    {
+      "id": "candidate-gnossienne-7-satie",
+      "title": "Gnossienne 7 (Satie)",
+      "creator": "Composer: Erik Satie Performer: La Pianista",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Gnossienne_7_(Satie).ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Gnossienne_7_%28Satie%29.ogg",
+      "fileName": "candidate-gnossienne-7-satie.ogg",
+      "durationSeconds": 237.933,
+      "sha1": "8801eba4cb7a402f7c1b1cb9c3e938c7ac9a3e41",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:31.983647+02:00"
+    },
+    {
+      "id": "candidate-robert-schumann-scenes-from-childhood-op-15-i-of-foreign-lands-and-peoples",
+      "title": "Robert Schumann - scenes from childhood, op. 15 - i. of foreign lands and peoples",
+      "creator": "Robert Schumann (1810-1856) (see Musopen for performance author information)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_i._of_foreign_lands_and_peoples.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_i._of_foreign_lands_and_peoples.ogg",
+      "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-i-of-foreign-lands-and-peoples.ogg",
+      "durationSeconds": 111.882,
+      "sha1": "dec46d15e86ae0214eb67e28241d8b7cdbd9d045",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:34.0029277+02:00"
+    },
+    {
+      "id": "candidate-robert-schumann-scenes-from-childhood-op-15-iv-pleading-child",
+      "title": "Robert Schumann - scenes from childhood, op. 15 - iv. pleading child",
+      "creator": "Robert Schumann (1810-1856) (see Musopen for performance author information)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_iv._pleading_child.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/4/49/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_iv._pleading_child.ogg",
+      "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-iv-pleading-child.ogg",
+      "durationSeconds": 82.86,
+      "sha1": "9e5f999438c3ae5d0da4decf0aeb6b32a58dca87",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:36.1383923+02:00"
+    },
+    {
+      "id": "candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming",
+      "title": "Robert Schumann - scenes from childhood, op. 15 - vii. dreaming",
+      "creator": "Robert Schumann (1810-1856) (see Musopen for performance author information)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_vii._dreaming.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/06/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vii._dreaming.ogg",
+      "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming.ogg",
+      "durationSeconds": 202.998,
+      "sha1": "435250ff46d4632eb5d6c5f4af9e3b26154406fc",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:38.2590556+02:00"
+    },
+    {
+      "id": "candidate-robert-schumann-scenes-from-childhood-op-15-viii-at-the-fireside",
+      "title": "Robert Schumann - scenes from childhood, op. 15 - viii. at the fireside",
+      "creator": "Robert Schumann (1810-1856) (see Musopen for performance author information)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_viii._at_the_fireside.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_viii._at_the_fireside.ogg",
+      "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-viii-at-the-fireside.ogg",
+      "durationSeconds": 72.594,
+      "sha1": "80420579c3a2e184dbfab5eb53667a0716df5a75",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:40.4023392+02:00"
+    },
+    {
+      "id": "candidate-robert-schumann-scenes-from-childhood-op-15-xii-child-falling-asleep",
+      "title": "Robert Schumann - scenes from childhood, op. 15 - xii. child falling asleep",
+      "creator": "Robert Schumann (1810-1856) (see Musopen for performance author information)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_xii._child_falling_asleep.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_xii._child_falling_asleep.ogg",
+      "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-xii-child-falling-asleep.ogg",
+      "durationSeconds": 121.469,
+      "sha1": "0a4443d811a70596b1cb16f8a081cae60de34366",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:42.4337807+02:00"
+    },
+    {
+      "id": "candidate-robert-schumann-scenes-from-childhood-op-15-xiii-the-poet-speaks",
+      "title": "Robert Schumann - scenes from childhood, op. 15 - xiii. the poet speaks",
+      "creator": "Robert Schumann (1810-1856) (see Musopen for performance author information)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_xiii._the_poet_speaks.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/4/42/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_xiii._the_poet_speaks.ogg",
+      "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-xiii-the-poet-speaks.ogg",
+      "durationSeconds": 164.78,
+      "sha1": "44f5299a63c2595ff16d0a7dba91903aca37996c",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:44.5594122+02:00"
+    },
+    {
+      "id": "candidate-robert-schumann-fantasie-lento-sostenuto-sempre-piano",
+      "title": "Robert Schumann - Fantasie - Lento sostenuto Sempre piano",
+      "creator": "Neal and Nancy O'Doan",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_Fantasie_-_Lento_sostenuto_Sempre_piano.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 2.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Robert_Schumann_-_Fantasie_-_Lento_sostenuto_Sempre_piano.ogg",
+      "fileName": "candidate-robert-schumann-fantasie-lento-sostenuto-sempre-piano.ogg",
+      "durationSeconds": 656.053,
+      "sha1": "ac986ab4e444bbe746cf64d94665168fed5ca0d5",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/2.0",
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:46.6849272+02:00"
+    },
+    {
+      "id": "candidate-schumann-arabeske-andrea-valori",
+      "title": "Schumann-arabeske-andrea-valori",
+      "creator": "Mario Andrea Valori",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schumann-arabeske-andrea-valori.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 4.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Schumann-arabeske-andrea-valori.ogg",
+      "fileName": "candidate-schumann-arabeske-andrea-valori.ogg",
+      "durationSeconds": 379.646,
+      "sha1": "c7519af6b4b54bafdfe71b428eec66b4cb34dcf6",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0",
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:48.7977869+02:00"
+    },
+    {
+      "id": "candidate-schubert-piano-sonata-no-13-in-a-major-d664-ii-andante-paul-pitman",
+      "title": "Schubert - Piano Sonata No. 13 in A major, D664 - II. Andante (Paul Pitman)",
+      "creator": "Franz Schubert",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schubert_-_Piano_Sonata_No._13_in_A_major,_D664_-_II._Andante_(Paul_Pitman).flac",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/df/Schubert_-_Piano_Sonata_No._13_in_A_major%2C_D664_-_II._Andante_%28Paul_Pitman%29.flac",
+      "fileName": "candidate-schubert-piano-sonata-no-13-in-a-major-d664-ii-andante-paul-pitman.flac",
+      "durationSeconds": 290.84,
+      "sha1": "5a82bf23b027d933abd95b21f39ddf7e303bec43",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:50.9525835+02:00"
+    },
+    {
+      "id": "candidate-schubert-piano-sonata-no-14-in-a-minor-d784-ii-andante-paul-pitman",
+      "title": "Schubert - Piano Sonata No. 14 in A minor, D784 - II. Andante (Paul Pitman)",
+      "creator": "Franz Schubert",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schubert_-_Piano_Sonata_No._14_in_A_minor,_D784_-_II._Andante_(Paul_Pitman).flac",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/4/41/Schubert_-_Piano_Sonata_No._14_in_A_minor%2C_D784_-_II._Andante_%28Paul_Pitman%29.flac",
+      "fileName": "candidate-schubert-piano-sonata-no-14-in-a-minor-d784-ii-andante-paul-pitman.flac",
+      "durationSeconds": 229.76,
+      "sha1": "28e6602c3a9670b40b2d3fa8bd418b1cccfa2251",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:53.0753547+02:00"
+    },
+    {
+      "id": "candidate-schubert-piano-sonata-no-16-in-a-minor-d845-ii-andante-poco-mosso-paul-pitman",
+      "title": "Schubert - Piano Sonata No. 16 in A minor, D845 - II. Andante, poco mosso (Paul Pitman)",
+      "creator": "Franz Schubert",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schubert_-_Piano_Sonata_No._16_in_A_minor,_D845_-_II._Andante,_poco_mosso_(Paul_Pitman).flac",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/6/60/Schubert_-_Piano_Sonata_No._16_in_A_minor%2C_D845_-_II._Andante%2C_poco_mosso_%28Paul_Pitman%29.flac",
+      "fileName": "candidate-schubert-piano-sonata-no-16-in-a-minor-d845-ii-andante-poco-mosso-paul-pitman.flac",
+      "durationSeconds": 784.133,
+      "sha1": "4bb084edd38bd75c2659f7f144f3a61d9d4a07fc",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:55.2212405+02:00"
+    },
+    {
+      "id": "candidate-schubert-piano-sonata-no-19-in-c-minor-d958-ii-adagio-paul-pitman",
+      "title": "Schubert - Piano Sonata No. 19 in C minor, D958 - II. Adagio (Paul Pitman)",
+      "creator": "Franz Schubert",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schubert_-_Piano_Sonata_No._19_in_C_minor,_D958_-_II._Adagio_(Paul_Pitman).flac",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/7/70/Schubert_-_Piano_Sonata_No._19_in_C_minor%2C_D958_-_II._Adagio_%28Paul_Pitman%29.flac",
+      "fileName": "candidate-schubert-piano-sonata-no-19-in-c-minor-d958-ii-adagio-paul-pitman.flac",
+      "durationSeconds": 468.373,
+      "sha1": "7ff236a5327ca2df0ac49bf3afae353074db8804",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:57.3719918+02:00"
+    },
+    {
+      "id": "candidate-schubert-piano-sonata-no-8-in-e-flat-major-d568-ii-andante-molto-paul-pitman",
+      "title": "Schubert - Piano Sonata No. 8 in E flat major, D568 - II. Andante molto (Paul Pitman)",
+      "creator": "Franz Schubert",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schubert_-_Piano_Sonata_No._8_in_E_flat_major,_D568_-_II._Andante_molto_(Paul_Pitman).flac",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/5/54/Schubert_-_Piano_Sonata_No._8_in_E_flat_major%2C_D568_-_II._Andante_molto_%28Paul_Pitman%29.flac",
+      "fileName": "candidate-schubert-piano-sonata-no-8-in-e-flat-major-d568-ii-andante-molto-paul-pitman.flac",
+      "durationSeconds": 417.413,
+      "sha1": "54a5c0935c9ccd78f4c022ff8cd1faa0a380fd20",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:59.5242185+02:00"
+    },
+    {
+      "id": "candidate-mozart-piano-sonata-no-10-c-major-ii-andante-cantabile",
+      "title": "Mozart - Piano Sonata No. 10 C major - II. Andante cantabile",
+      "creator": "Bernd Krueger",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._10_C_major_-_II._Andante_cantabile.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 3.0 de",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Mozart_-_Piano_Sonata_No._10_C_major_-_II._Andante_cantabile.ogg",
+      "fileName": "candidate-mozart-piano-sonata-no-10-c-major-ii-andante-cantabile.ogg",
+      "durationSeconds": 395.807,
+      "sha1": "2481042d97a629193c5379836737eec445346c16",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "deliveryCheckedAtUtc": "2026-10-02T23:50:01.6768413+02:00"
+    },
+    {
+      "id": "candidate-mozart-piano-sonata-no-11-in-a-major-i-andante-grazioso",
+      "title": "Mozart - Piano Sonata No. 11 in A major - I. Andante grazioso",
+      "creator": "Bernd Krueger",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._11_in_A_major_-_I._Andante_grazioso.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 3.0 de",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Mozart_-_Piano_Sonata_No._11_in_A_major_-_I._Andante_grazioso.ogg",
+      "fileName": "candidate-mozart-piano-sonata-no-11-in-a-major-i-andante-grazioso.ogg",
+      "durationSeconds": 835.082,
+      "sha1": "6ff8a0d34f5b3c5646ed92160e8471fdad142249",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "deliveryCheckedAtUtc": "2026-10-02T23:50:03.7033958+02:00"
+    },
+    {
+      "id": "candidate-mozart-piano-sonata-no-13-in-b-flat-major-ii-andante-cantabile",
+      "title": "Mozart - Piano Sonata No. 13 in B-flat major - II. Andante cantabile",
+      "creator": "Bernd Krueger",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._13_in_B-flat_major_-_II._Andante_cantabile.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 3.0 de",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Mozart_-_Piano_Sonata_No._13_in_B-flat_major_-_II._Andante_cantabile.ogg",
+      "fileName": "candidate-mozart-piano-sonata-no-13-in-b-flat-major-ii-andante-cantabile.ogg",
+      "durationSeconds": 524.725,
+      "sha1": "6340d119c013593190e6de50dca633ba37238fa0",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "deliveryCheckedAtUtc": "2026-10-02T23:50:05.8376294+02:00"
+    },
+    {
+      "id": "candidate-mozart-piano-sonata-no-16-in-c-major-ii-andante",
+      "title": "Mozart - Piano Sonata No. 16 in C major - II. Andante",
+      "creator": "Bernd Krueger",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._16_in_C_major_-_II._Andante.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 3.0 de",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Mozart_-_Piano_Sonata_No._16_in_C_major_-_II._Andante.ogg",
+      "fileName": "candidate-mozart-piano-sonata-no-16-in-c-major-ii-andante.ogg",
+      "durationSeconds": 346.302,
+      "sha1": "8da001d8f135d32bbfcacad731232b3cc0a1b0a5",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "deliveryCheckedAtUtc": "2026-10-02T23:50:07.8708487+02:00"
+    },
+    {
+      "id": "candidate-mozart-piano-sonata-no-12-in-f-major-ii-adagio",
+      "title": "Mozart - Piano Sonata No. 12 in F major - II. Adagio",
+      "creator": "Bernd Krueger",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._12_in_F_major_-_II._Adagio.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 3.0 de",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mozart_-_Piano_Sonata_No._12_in_F_major_-_II._Adagio.ogg",
+      "fileName": "candidate-mozart-piano-sonata-no-12-in-f-major-ii-adagio.ogg",
+      "durationSeconds": 266.89,
+      "sha1": "a32db13e34a7b7b5fe5104f8dedce353bfc3abbe",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "deliveryCheckedAtUtc": "2026-10-02T23:50:10.0431024+02:00"
+    },
+    {
+      "id": "candidate-mozart-piano-sonata-no-17-in-b-flat-major-ii-adagio",
+      "title": "Mozart - Piano Sonata No. 17 in B-flat major - II. Adagio",
+      "creator": "Bernd Krueger",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._17_in_B-flat_major_-_II._Adagio.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 3.0 de",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Mozart_-_Piano_Sonata_No._17_in_B-flat_major_-_II._Adagio.ogg",
+      "fileName": "candidate-mozart-piano-sonata-no-17-in-b-flat-major-ii-adagio.ogg",
+      "durationSeconds": 457.387,
+      "sha1": "170b1842283a5135c98e6c9854b7815fac715cab",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "deliveryCheckedAtUtc": "2026-10-02T23:50:12.1985768+02:00"
+    },
+    {
+      "id": "candidate-mozart-piano-sonata-no-9-in-d-major-ii-andantino-con-espressione",
+      "title": "Mozart - Piano Sonata No. 9 in D major - II. Andantino con espressione",
+      "creator": "Bernd Krueger",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._9_in_D_major_-_II._Andantino_con_espressione.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 3.0 de",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Mozart_-_Piano_Sonata_No._9_in_D_major_-_II._Andantino_con_espressione.ogg",
+      "fileName": "candidate-mozart-piano-sonata-no-9-in-d-major-ii-andantino-con-espressione.ogg",
+      "durationSeconds": 281.379,
+      "sha1": "058ae0d0048c12108c08393103711eb0001b213b",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "deliveryCheckedAtUtc": "2026-10-02T23:50:14.3604835+02:00"
+    },
+    {
+      "id": "candidate-mozart-concerto-for-flute-and-harp-2-andantino",
+      "title": "Mozart - Concerto for Flute and Harp - 2. Andantino",
+      "creator": "Wolfgang Amadeus Mozart (composer)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Concerto_for_Flute_and_Harp_-_2._Andantino.ogg",
+      "instrumentation": [
+        "flute",
+        "harp",
+        "orchestra"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 2.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Mozart_-_Concerto_for_Flute_and_Harp_-_2._Andantino.ogg",
+      "fileName": "candidate-mozart-concerto-for-flute-and-harp-2-andantino.ogg",
+      "durationSeconds": 579.253,
+      "sha1": "8a0d941ead626d54ace85b644cb0e0696c8c691d",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/2.0",
+      "deliveryCheckedAtUtc": "2026-10-02T23:50:16.5169758+02:00"
+    },
+    {
+      "id": "candidate-sonatina-harp-antti-luode",
+      "title": "Sonatina Harp (Antti Luode)",
+      "creator": "Antti Luode",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Sonatina_Harp_(Antti_Luode).mp3",
+      "instrumentation": [
+        "harp"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY 3.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/7/72/Sonatina_Harp_%28Antti_Luode%29.mp3",
+      "fileName": "candidate-sonatina-harp-antti-luode.mp3",
+      "durationSeconds": 222.563,
+      "sha1": "5e38ebec57e1ce22966ada0cb5e6e8e104e900ba",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by/3.0",
+      "deliveryCheckedAtUtc": "2026-10-02T23:50:18.7237957+02:00"
+    },
+    {
+      "id": "candidate-evening-fall-harp-isrc-usuan1100236",
+      "title": "Evening Fall (Harp) (ISRC USUAN1100236)",
+      "creator": "Evening Fall (Harp) Kevin MacLeod",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Evening_Fall_(Harp)_(ISRC_USUAN1100236).mp3",
+      "instrumentation": [
+        "harp"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY 3.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Evening_Fall_%28Harp%29_%28ISRC_USUAN1100236%29.mp3",
+      "fileName": "candidate-evening-fall-harp-isrc-usuan1100236.mp3",
+      "durationSeconds": 145.219,
+      "sha1": "fac52a04b8fc463352b5c60a180d4046e705974f",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by/3.0",
+      "deliveryCheckedAtUtc": "2026-10-02T23:50:20.8512776+02:00"
+    },
+    {
+      "id": "candidate-tano-niha-mbanua-somasido-instrumental",
+      "title": "Tanö Niha Mbanua Somasido - Instrumental",
+      "creator": "Slaia",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Tan%C3%B6_Niha_Mbanua_Somasido_-_Instrumental.ogg",
+      "instrumentation": [
+        "pan-flute"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 4.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Tan%C3%B6_Niha_Mbanua_Somasido_-_Instrumental.ogg",
+      "fileName": "candidate-tano-niha-mbanua-somasido-instrumental.ogg",
+      "durationSeconds": 175.842,
+      "sha1": "7420120674e58bc27a5afefb39f9957c40a0d601",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0",
+      "deliveryCheckedAtUtc": "2026-10-02T23:50:22.9990137+02:00"
+    },
+    {
+      "id": "candidate-clair-de-lune-claude-debussy-suite-bergamasque",
+      "title": "Clair de lune (Claude Debussy) Suite bergamasque",
+      "creator": "Claude Debussy",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Clair_de_lune_(Claude_Debussy)_Suite_bergamasque.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/b/be/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg",
+      "fileName": "candidate-clair-de-lune-claude-debussy-suite-bergamasque.ogg",
+      "durationSeconds": 304.089,
+      "sha1": "50d152ad99294c8dd3783b6ddde30b1dfaef19c3",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:50:25.0321815+02:00"
+    },
+    {
+      "id": "candidate-debussy-preludes-book-2-v-bruyeres-giorgi-latsabidze",
+      "title": "Debussy- Preludes, Book 2- V. Bruyeres. Giorgi Latsabidze",
+      "creator": "Giorgi Latsabidze",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Debussy-_Preludes,_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "FAL",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/25/Debussy-_Preludes%2C_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga",
+      "fileName": "candidate-debussy-preludes-book-2-v-bruyeres-giorgi-latsabidze.ogg",
+      "durationSeconds": 139.672,
+      "sha1": "9115928d266825aeb00bb613f454b43645184fcb",
+      "declaredLicenseUri": "https://artlibre.org/licence/lal/en",
+      "deliveryCheckedAtUtc": "2026-10-02T23:52:14.2864967+02:00"
+    },
+    {
+      "id": "candidate-debussy-preludes-book-2-x-canope",
+      "title": "Debussy- Preludes, Book 2- X. Canope",
+      "creator": "Giorgi Latsabidze",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Debussy-_Preludes,_Book_2-_X._Canope.oga",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "FAL",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Debussy-_Preludes%2C_Book_2-_X._Canope.oga",
+      "fileName": "candidate-debussy-preludes-book-2-x-canope.ogg",
+      "durationSeconds": 166.819,
+      "sha1": "e4e2cafe476274ad31b74764c603b4a233f689f1",
+      "declaredLicenseUri": "https://artlibre.org/licence/lal/en",
+      "deliveryCheckedAtUtc": "2026-10-02T23:52:16.4687331+02:00"
+    },
+    {
+      "id": "candidate-claude-debussy-reverie-arr-for-soprano-saxophone-and-piano-david-hernando-vitores",
+      "title": "Claude Debussy - Rêverie - Arr for Soprano saxophone and piano - David Hernando Vitores",
+      "creator": "Claude Debussy",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg",
+      "instrumentation": [
+        "saxophone",
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 4.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg.mp3",
+      "fileName": "candidate-claude-debussy-reverie-arr-for-soprano-saxophone-and-piano-david-hernando-vitores.mp3",
+      "durationSeconds": 280.764,
+      "sha1": null,
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0",
+      "deliveryCheckedAtUtc": "2026-10-02T23:52:20.6538931+02:00"
+    },
+    {
+      "id": "candidate-grieg-sommeraften-op-71-no-2",
+      "title": "Grieg, Sommeraften, op 71 no 2",
+      "creator": "Constantin Stephan, piano",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Grieg,_Sommeraften,_op_71_no_2.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 4.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/b/be/Grieg%2C_Sommeraften%2C_op_71_no_2.ogg",
+      "fileName": "candidate-grieg-sommeraften-op-71-no-2.ogg",
+      "durationSeconds": 153.396,
+      "sha1": "fd1bb0511edd0cbe01ebeabd7e8be52d36b91cc8",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0",
+      "deliveryCheckedAtUtc": "2026-10-02T23:52:22.879171+02:00"
+    },
+    {
+      "id": "candidate-grieg-folkevise-op-12-no-5",
+      "title": "Grieg, Folkevise Op 12 No 5",
+      "creator": "Constantin Stephan, piano",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Grieg,_Folkevise_Op_12_No_5.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 4.0",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Grieg%2C_Folkevise_Op_12_No_5.ogg",
+      "fileName": "candidate-grieg-folkevise-op-12-no-5.ogg",
+      "durationSeconds": 117.734,
+      "sha1": "ed4f3404bbd3cedbf8ebc01aa2e539f008169ff7",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0",
+      "deliveryCheckedAtUtc": "2026-10-02T23:52:25.048052+02:00"
+    },
+    {
+      "id": "candidate-grieg-edvard-lyric-pieces-book-iv-opus-47-part-no-2-album-leaf",
+      "title": "Grieg, Edvard — Lyric Pieces Book IV, Opus 47- Part No. 2 - Album Leaf",
+      "creator": "Edvard Grieg",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Grieg,_Edvard_%E2%80%94_Lyric_Pieces_Book_IV,_Opus_47-_Part_No._2_-_Album_Leaf.ogg",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "CC BY-SA 3.0 de",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Grieg%2C_Edvard_%E2%80%94_Lyric_Pieces_Book_IV%2C_Opus_47-_Part_No._2_-_Album_Leaf.ogg",
+      "fileName": "candidate-grieg-edvard-lyric-pieces-book-iv-opus-47-part-no-2-album-leaf.ogg",
+      "durationSeconds": 188.651,
+      "sha1": "2fbb51a561df1e92c466d93a1cb5344e90b757e0",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "deliveryCheckedAtUtc": "2026-10-02T23:52:27.2220749+02:00"
+    },
+    {
+      "id": "candidate-mozart-string-quartet-no-15-in-d-minor-k421-ii-andante-musopen-string-quartet",
+      "title": "Mozart - String Quartet No. 15 in D minor, K421 - II. Andante (Musopen String Quartet)",
+      "creator": "Wolfgang Amadeus Mozart",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_String_Quartet_No._15_in_D_minor,_K421_-_II._Andante_(Musopen_String_Quartet).flac",
+      "instrumentation": [
+        "strings"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/21/Mozart_-_String_Quartet_No._15_in_D_minor%2C_K421_-_II._Andante_%28Musopen_String_Quartet%29.flac",
+      "fileName": "candidate-mozart-string-quartet-no-15-in-d-minor-k421-ii-andante-musopen-string-quartet.flac",
+      "durationSeconds": 315.211,
+      "sha1": "ce788ddda71db6b71727786e69c7bf80ea31d48c",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:52:29.3797734+02:00"
+    },
+    {
+      "id": "candidate-mozart-string-quartet-no-19-in-c-major-k465-dissonance-ii-andante-cantabile-musopen-string-quartet",
+      "title": "Mozart - String Quartet No. 19 in C major, K465 'Dissonance' - II. Andante cantabile (Musopen String Quartet)",
+      "creator": "Wolfgang Amadeus Mozart",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_String_Quartet_No._19_in_C_major,_K465_%27Dissonance%27_-_II._Andante_cantabile_(Musopen_String_Quartet).flac",
+      "instrumentation": [
+        "strings"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Mozart_-_String_Quartet_No._19_in_C_major%2C_K465_%27Dissonance%27_-_II._Andante_cantabile_%28Musopen_String_Quartet%29.flac",
+      "fileName": "candidate-mozart-string-quartet-no-19-in-c-major-k465-dissonance-ii-andante-cantabile-musopen-string-quartet.flac",
+      "durationSeconds": 461.291,
+      "sha1": "ea1dc5c099c861c869244c31847f2d073c5333c4",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:52:31.4053369+02:00"
+    },
+    {
+      "id": "candidate-mozart-s-serenade-no-10-grand-partita-iii-adagio-andante-united-states-marine-band",
+      "title": "Mozart's Serenade No. 10 \"Grand Partita\" - III. Adagio. Andante - United States Marine Band",
+      "creator": "United States Marine Band",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart%27s_Serenade_No._10_%22Grand_Partita%22_-_III._Adagio._Andante_-_United_States_Marine_Band.mp3",
+      "instrumentation": [
+        "orchestra"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Public domain",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/6/60/Mozart%27s_Serenade_No._10_%22Grand_Partita%22_-_III._Adagio._Andante_-_United_States_Marine_Band.mp3",
+      "fileName": "candidate-mozart-s-serenade-no-10-grand-partita-iii-adagio-andante-united-states-marine-band.mp3",
+      "durationSeconds": 332.544,
+      "sha1": "97ad74565bb284950b25db545c9fc3b9cf482734",
+      "declaredLicenseUri": null,
+      "deliveryCheckedAtUtc": "2026-10-02T23:52:33.4378567+02:00"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-guter-mond",
+      "title": "Guter Mond",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/guter-mond",
+      "instrumentation": [
+        "music-box"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "traditional-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-sandman-is-here",
+      "title": "Sandman Is Here",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/sandman-is-here",
+      "instrumentation": [
+        "music-box"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "traditional-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-beethoven-lullaby",
+      "title": "Beethoven Lullaby - Ode To Joy",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/beethoven-lullaby-ode-to-joy",
+      "instrumentation": [
+        "music-box"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "gentle-arrangement"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-hush-little-baby",
+      "title": "Hush Little Baby",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/hush-little-baby",
+      "instrumentation": [
+        "music-box",
+        "orchestra"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "traditional-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-rock-a-bye-baby",
+      "title": "Rock-a-bye Baby",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/rock-a-bye-baby",
+      "instrumentation": [
+        "music-box",
+        "orchestra"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "traditional-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-sleep-baby-sleep",
+      "title": "Sleep Baby Sleep",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/sleep-baby-sleep",
+      "instrumentation": [
+        "music-box",
+        "orchestra"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "traditional-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-brahms-lullaby",
+      "title": "Brahms' Lullaby - Guten Abend, gut' Nacht",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/brahms-lullaby-guten-abend-gut-nacht",
+      "instrumentation": [
+        "music-box"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "traditional-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-mozart-lullaby",
+      "title": "Mozart Lullaby - Twinkle Twinkle Little Star",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/mozart-lullaby-twinkle-twinkle-little-star",
+      "instrumentation": [
+        "music-box"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "traditional-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-the-moon-has-risen",
+      "title": "The Moon Has Risen",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/the-moon-has-risen",
+      "instrumentation": [
+        "music-box"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "traditional-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-noahs-lullaby",
+      "title": "Noah's Lullaby",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/noahs-lullaby",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "modern-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-claires-lullaby",
+      "title": "Claire's Lullaby",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/claires-lullaby",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "modern-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-williams-lullaby",
+      "title": "William's Lullaby",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/williams-lullaby",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "modern-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-aarons-lullaby",
+      "title": "Aaron's Lullaby",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/aarons-lullaby",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "modern-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-wonderful-mias-lullaby",
+      "title": "Mia's Lullaby",
+      "creator": "Wonderful Lullabies",
+      "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/mias-lullaby",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "modern-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-background-hug",
+      "title": "Hug",
+      "creator": "The Background Musicians",
+      "sourcePageUri": "https://thebackgroundmusicians.bandcamp.com/track/hug",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "modern-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-background-shine",
+      "title": "Shine",
+      "creator": "The Background Musicians",
+      "sourcePageUri": "https://thebackgroundmusicians.bandcamp.com/track/shine",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "modern-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-background-shooting-star",
+      "title": "Shooting Star",
+      "creator": "The Background Musicians",
+      "sourcePageUri": "https://thebackgroundmusicians.bandcamp.com/track/shooting-star",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "modern-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-background-little-ballad",
+      "title": "Little Ballad",
+      "creator": "The Background Musicians",
+      "sourcePageUri": "https://thebackgroundmusicians.bandcamp.com/track/little-ballad",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "All rights reserved (source declaration; not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "modern-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-schubert-kenban",
+      "title": "Wiegenlied / Schubert (piano solo)",
+      "creator": "KenBan Music; piano arrangement: Takashi Yoshimatsu",
+      "sourcePageUri": "https://kenbanmusic.com/wiegenlied-schubert/",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Not established",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Performer page identifies an instrumental piano arrangement of Schubert D 498 and embeds a listening video. Traditional cradle-song melody; complete listening review pending. Composition public-domain status does not establish recording or modern arrangement rights.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "traditional-lullaby"
+    },
+    {
+      "id": "candidate-lullabies-bedtime-lullaby-peder-helland",
+      "title": "Bedtime Lullaby (Radio Edit)",
+      "creator": "Peder B. Helland",
+      "sourcePageUri": "https://soothingrelaxation.com/products/bedtime-lullaby-radio-edit-single",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "unchecked",
+      "declaredLicense": "Personal-listening purchase; separate project licensing offered (not approved)",
+      "licenseEvidenceUri": null,
+      "reviewNotes": "Researched 2026-10-02. Official artist storefront lists a 2021 recording lasting 2:48, a preview player and an official listening video. Soft-piano bedtime lead; complete listening review pending. Personal purchase does not authorize redistribution; no compatible project grant established.",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "modern-lullaby"
+    }
+  ]
+}

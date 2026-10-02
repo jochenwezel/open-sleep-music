@@ -257,6 +257,16 @@ public partial class MainPage : ContentPage
 #endif
     }
 
+    private async void OnResearchReferencesClicked(object? sender, EventArgs e)
+    {
+#if OPEN_SLEEP_MUSIC_PREVIEW
+        if (sender is Button { CommandParameter: SleepWorldCard { HasResearchReferences: true } })
+            await Navigation.PushModalAsync(new PreselectionPage(_stateStore));
+#else
+        await Task.CompletedTask;
+#endif
+    }
+
     private async void OnWorldActionClicked(object? sender, EventArgs e)
     {
         if (sender is not Button { CommandParameter: SleepWorldCard card } button)
@@ -1404,6 +1414,12 @@ public partial class MainPage : ContentPage
                     ? []
                     : new[] { new CatalogFeedbackEntry(item.World.Id, item.World.Name, item.Track.Id, item.Track.Title, state) };
             })
+            .Concat(BuiltInPreselection.Candidates.Where(candidate => !BuiltInCatalog.SleepWorlds.SelectMany(world => world.Tracks).Any(track => track.Id == candidate.Id)).SelectMany(candidate =>
+            {
+                var state = _stateStore.IsBlocked("preselection", candidate.Id) ? "blocked"
+                    : _stateStore.IsFavorite("preselection", candidate.Id) ? "favorite" : null;
+                return state is null ? [] : new[] { new CatalogFeedbackEntry("preselection", "Vorauswahl", candidate.Id, candidate.Title, state) };
+            }))
             .ToArray();
 
         if (ratings.Length == 0 && string.IsNullOrWhiteSpace(comment))
@@ -1777,7 +1793,13 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
 
     public bool HasDownloads => DownloadedCount > 0;
 
-    public bool IsComplete => DownloadedCount == World.Tracks.Count;
+    public bool HasTracks => World.Tracks.Count > 0;
+
+    public bool HasResearchReferences => BuildChannel.IsPreview && World.Id == "preselection";
+
+    public string ResearchReferencesText => AppText.Pick("Weitere Hörreferenzen ↗", "More listening references ↗");
+
+    public bool IsComplete => World.Tracks.Count > 0 && DownloadedCount == World.Tracks.Count;
 
     public bool IsDownloading => _isDownloading;
 
@@ -1785,7 +1807,9 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
 
     public bool IsSelected => _isSelected;
 
-    public string ActionText => IsDownloading
+    public string ActionText => !HasTracks
+        ? AppText.Pick("Noch keine Titel", "No tracks yet")
+        : IsDownloading
         ? AppText.Pick("Download abbrechen", "Cancel download")
         : IsPlaying
         ? $"⏸ {AppText.Pick("Pausieren", "Pause")}"
@@ -1795,7 +1819,9 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
             ? AppText.Get("Download")
             : AppText.IsGerman ? $"Vervollständigen ({DownloadedCount}/{World.Tracks.Count})" : $"Complete ({DownloadedCount}/{World.Tracks.Count})";
 
-    public string StatusText => DownloadedCount == 0
+    public string StatusText => !HasTracks
+        ? AppText.Pick("Kandidaten werden vorbereitet", "Candidates are being prepared")
+        : DownloadedCount == 0
         ? (AppText.IsGerman ? "Nicht heruntergeladen" : "Not downloaded")
         : IsComplete
             ? (AppText.IsGerman ? $"Vollständig · {DownloadedCount} Titel · {FormatSize(SizeBytes)}" : $"Complete · {DownloadedCount} tracks · {FormatSize(SizeBytes)}")

@@ -4,5 +4,8 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsNotAsErrors>$(WarningsNotAsErrors);NU1900</WarningsNotAsErrors>
     <Deterministic>true</Deterministic>
+    <!-- Stable builds are the default. Preview release jobs opt in explicitly. -->
+    <OpenSleepMusicPreview Condition="'$(OpenSleepMusicPreview)' == ''">false</OpenSleepMusicPreview>
+    <DefineConstants Condition="'$(OpenSleepMusicPreview)' == 'true'">$(DefineConstants);OPEN_SLEEP_MUSIC_PREVIEW</DefineConstants>
   </PropertyGroup>
 </Project>

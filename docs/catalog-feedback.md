@@ -19,3 +19,7 @@ During the preview phase, testers should send the generated `.json` file through
 For a quick aggregate, group `ratings` by `trackId` and `state`. Repeated reports are not linked to an installation and therefore must not be interpreted as unique-user counts. A block is a strong signal for manual listening review, not an automatic deletion instruction. Verify the recording, transition behavior, and source before changing the catalog generator.
 
 If a central endpoint is introduced later, retain explicit consent and the same minimal schema. Do not add stable installation identifiers or background submission merely for deduplication.
+
+## Preselection ratings
+
+Favorites and blocks from source-page audition candidates are exported with world ID preselection and the stable candidate ID. These candidates are outside the downloadable catalog; catalogTrackCount continues to count only downloadable tracks. License review state is kept in tools/preselection-candidates.json, separately from personal ratings. Favoriting a candidate does not approve its recording rights or promote it into a production collection.

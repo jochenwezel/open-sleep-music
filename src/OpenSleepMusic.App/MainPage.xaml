@@ -35,7 +35,7 @@
                                     </DataTrigger>
                                 </Border.Triggers>
                                 <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
-                                <Grid RowDefinitions="Auto,Auto" RowSpacing="5">
+                                <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="5">
                                     <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*" ColumnSpacing="10" RowSpacing="5">
                                         <Label Text="{Binding World.Icon}" FontSize="27" Grid.RowSpan="2" InputTransparent="True" />
                                         <Label Grid.Column="1" Text="{Binding DisplayName}" FontSize="16" FontAttributes="Bold" TextColor="#F7F3FF" InputTransparent="True" />
@@ -48,7 +48,7 @@
                                                 SemanticProperties.Description="{Binding DisplayName}" />
                                     </Grid>
                                     <Grid Grid.Row="1" ColumnDefinitions="*,Auto" ColumnSpacing="8">
-                                        <Button Text="{Binding ActionText}"
+                                        <Button Text="{Binding ActionText}" IsEnabled="{Binding HasTracks}"
                                                 CommandParameter="{Binding .}" Clicked="OnWorldActionClicked"
                                                 BackgroundColor="#7367F0" TextColor="White" CornerRadius="10" />
                                         <Button Grid.Column="1" Text="⋯" WidthRequest="44" IsEnabled="{Binding HasDownloads}"
@@ -56,6 +56,9 @@
                                                 BackgroundColor="#252C45" TextColor="White" CornerRadius="10"
                                                 AutomationId="ManageWorldButton" />
                                     </Grid>
+                                    <Button Grid.Row="2" IsVisible="{Binding HasResearchReferences}" Text="{Binding ResearchReferencesText}"
+                                            CommandParameter="{Binding .}" Clicked="OnResearchReferencesClicked"
+                                            BackgroundColor="#252C45" TextColor="White" CornerRadius="10" />
                                 </Grid>
                             </Border>
                         </DataTemplate>

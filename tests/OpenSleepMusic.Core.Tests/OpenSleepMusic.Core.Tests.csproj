@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -28,4 +28,7 @@
     <Compile Include="..\..\src\OpenSleepMusic.App\Localization\AppLanguage.cs" Link="AppLocalization\AppLanguage.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="../../tools/media-catalog-blacklist.json" LogicalName="OpenSleepMusic.Core.Tests.media-catalog-blacklist.json" />
+  </ItemGroup>
 </Project>
