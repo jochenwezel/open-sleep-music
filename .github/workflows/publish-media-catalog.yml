@@ -1,0 +1,37 @@
+name: Publish media catalog
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - src/OpenSleepMusic.Core/Catalog/media-catalog.json
+      - src/OpenSleepMusic.Core/Catalog/media-catalog.production.json
+      - .github/workflows/publish-media-catalog.yml
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: global.json
+      - name: Validate stable and preview catalogs
+        run: dotnet test tests/OpenSleepMusic.Core.Tests/OpenSleepMusic.Core.Tests.csproj --configuration Release
+      - name: Prepare catalog channel assets
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path artifacts/catalog-channel -Force | Out-Null
+          $production = 'src/OpenSleepMusic.Core/Catalog/media-catalog.production.json'
+          $preview = 'src/OpenSleepMusic.Core/Catalog/media-catalog.json'
+          $stable = if (Test-Path $production) { $production } else { $preview }
+          Copy-Item $stable artifacts/catalog-channel/media-catalog.json
+          Copy-Item $preview artifacts/catalog-channel/media-catalog.preview.json
+      - name: Upload catalog channel assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload artwork-catalog artifacts/catalog-channel/media-catalog.json artifacts/catalog-channel/media-catalog.preview.json --clobber

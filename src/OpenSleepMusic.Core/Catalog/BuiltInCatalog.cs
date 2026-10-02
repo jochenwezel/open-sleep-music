@@ -7,12 +7,16 @@ public static class BuiltInCatalog
 {
     private const string ResourceName = "OpenSleepMusic.Core.Catalog.media-catalog.json";
 
-    public static IReadOnlyList<SleepWorld> SleepWorlds { get; } = Load();
+    private static readonly CatalogManifest Manifest = Load();
+
+    public static IReadOnlyList<SleepWorld> SleepWorlds { get; } = Manifest.SleepWorlds;
+
+    public static DateTimeOffset GeneratedAtUtc => Manifest.GeneratedAtUtc;
 
     public static TimeSpan TotalDuration => TimeSpan.FromSeconds(
         SleepWorlds.SelectMany(world => world.Tracks).Sum(track => track.DurationSeconds));
 
-    private static IReadOnlyList<SleepWorld> Load()
+    private static CatalogManifest Load()
     {
         using var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(ResourceName)
             ?? throw new InvalidOperationException($"Embedded catalog resource '{ResourceName}' was not found.");
@@ -35,6 +39,6 @@ public static class BuiltInCatalog
             BuiltInPreselection.EnsureProductionTrackAllowed(track);
         }
 
-        return manifest.SleepWorlds;
+        return manifest;
     }
 }

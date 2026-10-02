@@ -23,6 +23,7 @@ public partial class MainPage : ContentPage
     private readonly ArtworkCache _artworkCache;
     private readonly ArtworkManifestClient _artworkManifest;
     private readonly CollectionArtworkDownloader _artworkDownloader;
+    private readonly CatalogUpdateClient _catalogUpdateClient;
     private readonly LocalLibraryScanner _libraryScanner = new();
     private readonly LocalLibraryManager _libraryManager = new();
     private readonly AppStateStore _stateStore = new();
@@ -32,7 +33,8 @@ public partial class MainPage : ContentPage
         IsVisible = false,
         ShouldAutoPlay = false
     };
-    private readonly IReadOnlyList<SleepWorldCard> _worldCards;
+    private IReadOnlyList<SleepWorld> _catalogWorlds = BuiltInCatalog.SleepWorlds;
+    private IReadOnlyList<SleepWorldCard> _worldCards;
     private readonly string _downloadRoot = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.MyMusic),
         "Open Sleep Music");
@@ -99,7 +101,13 @@ public partial class MainPage : ContentPage
             new Uri("https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-catalog/artwork-catalog.json"),
             downloadLog);
         _artworkDownloader = new CollectionArtworkDownloader(_artworkManifest, _artworkCache);
-        _worldCards = BuiltInCatalog.SleepWorlds.Select(world => new SleepWorldCard(world)).ToArray();
+        _catalogUpdateClient = new CatalogUpdateClient(
+            _httpClient,
+            new Uri(BuildChannel.IsPreview
+                ? "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-catalog/media-catalog.preview.json"
+                : "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-catalog/media-catalog.json"),
+            downloadLog);
+        _worldCards = _catalogWorlds.Select(world => new SleepWorldCard(world)).ToArray();
         WorldsView.ItemsSource = _worldCards;
 
         _initialState = _stateStore.Load();
@@ -128,6 +136,7 @@ public partial class MainPage : ContentPage
         SizeChanged += (_, _) => ApplyResponsiveLayout(Width, Height);
         Loaded += async (_, _) =>
         {
+            await RefreshCatalogAsync();
             await RefreshLibraryAsync();
 #if ANDROID
             await OpenRequestedAndroidPlaybackAsync();
@@ -362,8 +371,8 @@ public partial class MainPage : ContentPage
 
     internal Task OpenImmersiveCollectionTracksAsync(string worldId)
     {
-        var card = _worldCards.First(card => card.World.Id == worldId);
-        return OpenCollectionTracksAsync(card);
+        var card = _worldCards.FirstOrDefault(card => card.World.Id == worldId);
+        return card is null ? Task.CompletedTask : OpenCollectionTracksAsync(card);
     }
 
     private async Task DownloadWorldAsync(SleepWorldCard card, bool isRepair)
@@ -532,13 +541,26 @@ public partial class MainPage : ContentPage
     {
         try
         {
-            _library = await _libraryScanner.ScanAsync(_downloadRoot, BuiltInCatalog.SleepWorlds);
+            _library = await _libraryScanner.ScanAsync(_downloadRoot, _catalogWorlds);
 #if ANDROID
-            if (_library.Count == 0 && AndroidPlaybackBridge.Snapshot.TrackId is not null)
+            if (AndroidPlaybackBridge.Snapshot.TrackId is { } androidTrackId
+                && !_library.Any(track => track.Track.Id == androidTrackId))
             {
                 AndroidPlaybackBridge.Stop();
             }
 #endif
+            if (_currentTrack is not null)
+            {
+                var refreshedCurrentTrack = _library.FirstOrDefault(track => track.Track.Id == _currentTrack.Track.Id);
+                if (refreshedCurrentTrack is null)
+                {
+                    StopAndClearPlayback();
+                }
+                else
+                {
+                    _currentTrack = refreshedCurrentTrack;
+                }
+            }
             foreach (var card in _worldCards)
             {
                 var tracks = _library.Where(track => track.SleepWorld.Id == card.World.Id).ToArray();
@@ -567,6 +589,18 @@ public partial class MainPage : ContentPage
             Debug.WriteLine(exception);
             StatusLabel.Text = AppText.Pick("Die lokale Musikbibliothek konnte nicht aktualisiert werden.", "The local music library could not be refreshed.");
         }
+    }
+
+    private async Task RefreshCatalogAsync()
+    {
+        var selectedWorldId = _selectedWorldCard?.World.Id ?? _initialState.SelectedWorldId;
+        var snapshot = await _catalogUpdateClient.ResolveAsync(
+            new CatalogSnapshot(BuiltInCatalog.GeneratedAtUtc, BuiltInCatalog.SleepWorlds),
+            Path.Combine(FileSystem.AppDataDirectory, "catalog", BuildChannel.IsPreview ? "preview" : "stable"));
+        _catalogWorlds = snapshot.SleepWorlds;
+        _worldCards = _catalogWorlds.Select(world => new SleepWorldCard(world)).ToArray();
+        WorldsView.ItemsSource = _worldCards;
+        _selectedWorldCard = _worldCards.FirstOrDefault(card => card.World.Id == selectedWorldId);
     }
 
     private void RestorePlaybackOnce()
@@ -1186,6 +1220,7 @@ public partial class MainPage : ContentPage
             }
             else if (action == refreshAction)
             {
+                await RefreshCatalogAsync();
                 await RefreshLibraryAsync();
             }
             else if (action == settingsAction)
@@ -1414,7 +1449,7 @@ public partial class MainPage : ContentPage
                     ? []
                     : new[] { new CatalogFeedbackEntry(item.World.Id, item.World.Name, item.Track.Id, item.Track.Title, state) };
             })
-            .Concat(BuiltInPreselection.Candidates.Where(candidate => !BuiltInCatalog.SleepWorlds.SelectMany(world => world.Tracks).Any(track => track.Id == candidate.Id)).SelectMany(candidate =>
+            .Concat(BuiltInPreselection.Candidates.Where(candidate => !_catalogWorlds.SelectMany(world => world.Tracks).Any(track => track.Id == candidate.Id)).SelectMany(candidate =>
             {
                 var state = _stateStore.IsBlocked("preselection", candidate.Id) ? "blocked"
                     : _stateStore.IsFavorite("preselection", candidate.Id) ? "favorite" : null;
