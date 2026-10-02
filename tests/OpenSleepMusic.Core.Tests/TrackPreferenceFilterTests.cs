@@ -10,16 +10,32 @@ public sealed class TrackPreferenceFilterTests
     public void Apply_UsesAllNonBlockedTracks_WhenThereAreNoFavorites()
     {
         var tracks = Tracks("one", "two", "three");
-        var result = TrackPreferenceFilter.Apply(tracks, _ => false, id => id == "two");
+        var result = TrackPreferenceFilter.Apply(tracks, _ => false, id => id == "two", favoritesOnly: false);
         Assert.Equal(["one", "three"], result.Select(item => item.Track.Id));
     }
 
     [Fact]
-    public void Apply_UsesOnlyNonBlockedFavorites_WhenFavoriteExists()
+    public void Apply_UsesAllNonBlockedTracks_WhenFavoritesExistButModeIsOff()
     {
         var tracks = Tracks("one", "two", "three");
-        var result = TrackPreferenceFilter.Apply(tracks, id => id is "one" or "two", id => id == "two");
+        var result = TrackPreferenceFilter.Apply(tracks, id => id is "one" or "two", id => id == "two", favoritesOnly: false);
+        Assert.Equal(["one", "three"], result.Select(item => item.Track.Id));
+    }
+
+    [Fact]
+    public void Apply_UsesOnlyNonBlockedFavorites_WhenModeIsOn()
+    {
+        var tracks = Tracks("one", "two", "three");
+        var result = TrackPreferenceFilter.Apply(tracks, id => id is "one" or "two", id => id == "two", favoritesOnly: true);
         Assert.Equal(["one"], result.Select(item => item.Track.Id));
+    }
+
+    [Fact]
+    public void Apply_ReturnsNoTracks_WhenFavoritesOnlyModeHasNoFavorites()
+    {
+        var tracks = Tracks("one", "two");
+        var result = TrackPreferenceFilter.Apply(tracks, _ => false, _ => false, favoritesOnly: true);
+        Assert.Empty(result);
     }
 
     private static LocalLibraryTrack[] Tracks(params string[] ids)

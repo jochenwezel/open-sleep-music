@@ -31,6 +31,7 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
     private const string PlaybackPositionKey = "playback.position-seconds";
     private const string FavoritePrefix = "track.favorite.";
     private const string BlockedPrefix = "track.blocked.";
+    private const string FavoritesOnlyPrefix = "collection.favorites-only.";
     private const string LanguageKey = "appearance.language";
     private const string ReducedMotionKey = "appearance.reduced-motion";
     private readonly IPreferences _preferences = preferences ?? Preferences.Default;
@@ -112,6 +113,12 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
 
     public bool IsBlocked(string worldId, string trackId) =>
         _preferences.Get(PreferenceKey(BlockedPrefix, worldId, trackId), false);
+
+    public bool IsFavoritesOnly(string worldId) =>
+        _preferences.Get(FavoritesOnlyPrefix + worldId, false);
+
+    public void SetFavoritesOnly(string worldId, bool value) =>
+        _preferences.Set(FavoritesOnlyPrefix + worldId, value);
 
     public void SetFavorite(string worldId, string trackId, bool value)
     {

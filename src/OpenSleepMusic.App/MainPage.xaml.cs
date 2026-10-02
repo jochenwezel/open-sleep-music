@@ -332,7 +332,7 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private async Task OpenCollectionTracksAsync(SleepWorldCard card, bool openPlayerAfterSelection = true)
+    private async Task OpenCollectionTracksAsync(SleepWorldCard card)
     {
         var tracks = _library.Where(track => track.SleepWorld.Id == card.World.Id).ToArray();
         if (tracks.Length == 0)
@@ -340,22 +340,20 @@ public partial class MainPage : ContentPage
             StatusLabel.Text = AppText.Pick("Für diese Themensammlung ist noch keine Musik heruntergeladen.", "No music has been downloaded for this collection yet.");
             return;
         }
-        var page = new CollectionTracksPage(card.DisplayName, tracks, _stateStore, async track =>
+        var page = new CollectionTracksPage(card.DisplayName, tracks, _stateStore, track =>
         {
             PlayTrack(track, userInitiated: true);
-            if (openPlayerAfterSelection)
-            {
-                await Navigation.PushModalAsync(new ImmersivePlayerPage(this, track.SleepWorld.Id));
-            }
+            return Task.CompletedTask;
         });
         page.PreferenceChanged += (_, track) => ApplyTrackPreferences(track);
+        page.PlaybackFilterChanged += (_, _) => ApplyPlaybackFilter(card.World.Id);
         await Navigation.PushModalAsync(page);
     }
 
     internal Task OpenImmersiveCollectionTracksAsync(string worldId)
     {
         var card = _worldCards.First(card => card.World.Id == worldId);
-        return OpenCollectionTracksAsync(card, openPlayerAfterSelection: false);
+        return OpenCollectionTracksAsync(card);
     }
 
     private async Task DownloadWorldAsync(SleepWorldCard card, bool isRepair)
@@ -611,7 +609,8 @@ public partial class MainPage : ContentPage
     private IReadOnlyList<LocalLibraryTrack> GetPlayableTracks(string worldId) => TrackPreferenceFilter.Apply(
         _library.Where(track => track.SleepWorld.Id == worldId).ToArray(),
         trackId => _stateStore.IsFavorite(worldId, trackId),
-        trackId => _stateStore.IsBlocked(worldId, trackId));
+        trackId => _stateStore.IsBlocked(worldId, trackId),
+        _stateStore.IsFavoritesOnly(worldId));
 
     private void SetPlaybackControlsEnabled(bool enabled)
     {
@@ -629,11 +628,6 @@ public partial class MainPage : ContentPage
             if (item.IsBlocked)
             {
                 StatusLabel.Text = AppText.Pick("Dieser Titel ist blockiert. Die Blockierung kann über ⓘ aufgehoben werden.", "This track is blocked. You can unblock it via ⓘ.");
-                return;
-            }
-            if (!_visibleLibrary.Contains(item.LocalTrack))
-            {
-                StatusLabel.Text = AppText.Pick("Für diese Themensammlung werden derzeit nur Favoriten abgespielt.", "Only favorites are currently played for this collection.");
                 return;
             }
             PlayTrack(item.LocalTrack, userInitiated: true);
@@ -682,6 +676,11 @@ public partial class MainPage : ContentPage
 
     private void ApplyTrackPreferences(LocalLibraryTrack changedTrack)
     {
+        ApplyPlaybackFilter(changedTrack.SleepWorld.Id);
+    }
+
+    private void ApplyPlaybackFilter(string changedWorldId)
+    {
         var wasPlaying = _shouldContinuePlayback;
 #if ANDROID
         var position = AndroidPlaybackBridge.Snapshot.Position.TotalSeconds;
@@ -690,8 +689,8 @@ public partial class MainPage : ContentPage
 #endif
         ApplyLibraryFilter();
 
-        if (_playbackQueue.ActiveWorldId != changedTrack.SleepWorld.Id) return;
-        _playbackQueue.Activate(changedTrack.SleepWorld.Id, GetPlayableTracks(changedTrack.SleepWorld.Id));
+        if (_playbackQueue.ActiveWorldId != changedWorldId) return;
+        _playbackQueue.Activate(changedWorldId, GetPlayableTracks(changedWorldId));
         UpdateNextTrack();
 
         if (_currentTrack is null || _activeLibrary.Contains(_currentTrack))
@@ -730,7 +729,12 @@ public partial class MainPage : ContentPage
 
         if (userInitiated || _playbackQueue.ActiveWorldId != track.SleepWorld.Id)
         {
-            _playbackQueue.Activate(track.SleepWorld.Id, GetPlayableTracks(track.SleepWorld.Id));
+            var queue = GetPlayableTracks(track.SleepWorld.Id);
+            if (!queue.Contains(track))
+            {
+                queue = [track, .. queue];
+            }
+            _playbackQueue.Activate(track.SleepWorld.Id, queue);
         }
 
         _currentTrack = track;
