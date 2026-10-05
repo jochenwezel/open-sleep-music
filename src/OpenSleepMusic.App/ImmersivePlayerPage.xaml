@@ -13,6 +13,12 @@
             <Image Grid.Row="1" x:Name="SongMotifImage" Aspect="AspectFit" Opacity="0" IsVisible="False"
                    HorizontalOptions="Fill" VerticalOptions="Fill" Margin="0"
                    InputTransparent="True" AutomationProperties.IsInAccessibleTree="False" />
+            <VerticalStackLayout Grid.Row="1" x:Name="BlockedCollectionPanel" IsVisible="False"
+                                 VerticalOptions="Center" Spacing="16" BackgroundColor="#B8171D31" Padding="20">
+                <Label x:Name="BlockedCollectionLabel" TextColor="White" HorizontalTextAlignment="Center" />
+                <Button x:Name="UnblockTrackListButton" Clicked="OnTrackListClicked"
+                        BackgroundColor="Transparent" TextColor="#AFA7FF" />
+            </VerticalStackLayout>
             <Grid x:Name="TopBar" RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto,*,Auto,Auto,Auto"
                   ColumnSpacing="8" RowSpacing="8">
                 <Button Text="‹" Clicked="OnBackClicked" BackgroundColor="#99252C45" TextColor="White" AutomationId="ImmersiveBackButton" />

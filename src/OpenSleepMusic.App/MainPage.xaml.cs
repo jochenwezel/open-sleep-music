@@ -726,6 +726,7 @@ public partial class MainPage : ContentPage
     private void ApplyPlaybackFilter(string changedWorldId)
     {
         var wasPlaying = _shouldContinuePlayback;
+        var previousOrder = _activeLibrary.Select(track => track.Track.Id).ToArray();
 #if ANDROID
         var position = AndroidPlaybackBridge.Snapshot.Position.TotalSeconds;
 #else
@@ -750,7 +751,11 @@ public partial class MainPage : ContentPage
 
         if (_activeLibrary.Count > 0)
         {
-            PlayInitialTrack(fromActiveQueue: true, autoPlay: wasPlaying);
+            var replacementId = PlaybackQueue.SelectAfterRemoval(
+                previousOrder, _activeLibrary.Select(track => track.Track.Id).ToArray(),
+                _currentTrack.Track.Id,
+                _shuffleEnabled ? Random.Shared.Next(_activeLibrary.Count) : null);
+            PlayTrack(_activeLibrary.First(track => track.Track.Id == replacementId), autoPlay: wasPlaying);
         }
         else
         {
@@ -1330,6 +1335,12 @@ public partial class MainPage : ContentPage
             selectedTrack is null ? TimeSpan.Zero : position,
             selectedTrack is null ? TimeSpan.Zero : duration,
             artworkTrack);
+    }
+
+    internal bool AreAllTracksBlocked(string worldId)
+    {
+        var tracks = _catalogWorlds.FirstOrDefault(world => world.Id == worldId)?.Tracks;
+        return tracks is { Count: > 0 } && tracks.All(track => _stateStore.IsBlocked(worldId, track.Id));
     }
 
     internal void ImmersiveTogglePlayback(string worldId)

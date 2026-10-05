@@ -2,6 +2,21 @@ namespace OpenSleepMusic.Core.Playback;
 
 public static class PlaybackQueue
 {
+    public static string? SelectAfterRemoval(
+        IReadOnlyList<string> previousOrder, IReadOnlyList<string> availableIds,
+        string removedId, int? randomIndex = null)
+    {
+        if (availableIds.Count == 0) return null;
+        if (randomIndex is { } index) return availableIds[index];
+        var available = availableIds.ToHashSet(StringComparer.Ordinal);
+        var removedIndex = previousOrder.ToList().IndexOf(removedId);
+        for (var i = removedIndex + 1; i < previousOrder.Count; i++)
+            if (available.Contains(previousOrder[i])) return previousOrder[i];
+        for (var i = removedIndex - 1; i >= 0; i--)
+            if (available.Contains(previousOrder[i])) return previousOrder[i];
+        return availableIds[0];
+    }
+
     public static int MoveSequential(int itemCount, int currentIndex, int offset)
     {
         if (itemCount <= 0) throw new ArgumentOutOfRangeException(nameof(itemCount));

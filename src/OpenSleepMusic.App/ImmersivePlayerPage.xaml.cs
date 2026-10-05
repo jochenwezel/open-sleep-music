@@ -113,6 +113,12 @@ public partial class ImmersivePlayerPage : ContentPage
         }
         RequestArtwork(state.Track, theme.MotifAsset);
         TitleLabel.Text = state.Title ?? AppText.Get("NoTrack");
+        var allBlocked = _owner.AreAllTracksBlocked(_worldId);
+        BlockedCollectionPanel.IsVisible = allBlocked;
+        BlockedCollectionLabel.Text = AppText.Pick(
+            "Alle Titel dieser Sammlung sind blockiert.", "All tracks in this collection are blocked.");
+        UnblockTrackListButton.Text = AppText.Pick("Titelliste öffnen", "Open track list");
+        PlayButton.IsEnabled = FloatingPlayButton.IsEnabled = !allBlocked;
         FavoriteButton.IsEnabled = state.TrackId is not null;
         BlockButton.IsEnabled = state.TrackId is not null;
         PositionSlider.IsEnabled = state.TrackId is not null;
