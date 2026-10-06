@@ -8,6 +8,26 @@ public sealed class PlaybackTimelineTests
     [InlineData(.5)]
     [InlineData(1)]
     [InlineData(1.25)]
+    public void BothOffsetsUseOriginalMediaTimeBeforeSpeedAdjustment(double speed)
+    {
+        var original = TimeSpan.FromSeconds(100);
+        var duration = PlaybackTimeline.Duration(original, speed, 6400, 3600);
+        Assert.Equal(90 / speed, duration.TotalSeconds, 6);
+        Assert.Equal(96.4, PlaybackTimeline.ToMediaTime(duration, speed, 6400, original, 3600).TotalSeconds, 6);
+        Assert.Equal(96.4, PlaybackTimeline.ToMediaTime(TimeSpan.FromHours(1), speed, 6400, original, 3600).TotalSeconds, 6);
+        Assert.False(PlaybackTimeline.HasReachedEnd(TimeSpan.FromSeconds(96.399), original, 3600));
+        Assert.True(PlaybackTimeline.HasReachedEnd(TimeSpan.FromSeconds(96.4), original, 3600));
+        Assert.Equal(6.4, PlaybackTimeline.ToMediaTime(TimeSpan.Zero, speed, 6400, original, 3600).TotalSeconds, 6);
+    }
+
+    [Fact]
+    public void NegativeEndOffsetIsRejected() =>
+        Assert.Throws<ArgumentOutOfRangeException>(() => PlaybackTimeline.Duration(TimeSpan.FromSeconds(100), 1, 0, -1));
+
+    [Theory]
+    [InlineData(.5)]
+    [InlineData(1)]
+    [InlineData(1.25)]
     public void OffsetAppliesOnceToStartSeekResumeAndListeningDuration(double speed)
     {
         const int offset = 6400;

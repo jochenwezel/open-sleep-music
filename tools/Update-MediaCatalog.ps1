@@ -184,7 +184,10 @@ foreach ($candidate in $candidateManifest.candidates) {
         ($null -ne $candidate.startOffsetMilliseconds -and
             ($candidate.startOffsetMilliseconds -isnot [long] -and $candidate.startOffsetMilliseconds -isnot [int])) -or
         [long]$candidate.startOffsetMilliseconds -lt 0 -or
-        [long]$candidate.startOffsetMilliseconds -ge [double]$candidate.durationSeconds * 1000 -or
+        ($null -ne $candidate.endOffsetMilliseconds -and
+            ($candidate.endOffsetMilliseconds -isnot [long] -and $candidate.endOffsetMilliseconds -isnot [int])) -or
+        [long]$candidate.endOffsetMilliseconds -lt 0 -or
+        ([long]$candidate.startOffsetMilliseconds + [long]$candidate.endOffsetMilliseconds) -ge [double]$candidate.durationSeconds * 1000 -or
         $candidate.fileName -notmatch '^[a-z0-9_-]+\.(mp3|ogg|flac|wav|mp4|m4a)$') {
         throw "Invalid preselection delivery metadata: $($candidate.id)"
     }
@@ -196,6 +199,7 @@ foreach ($candidate in $candidateManifest.candidates) {
             elseif ($candidate.declaredLicenseUri) { $candidate.declaredLicenseUri } else { $candidate.sourcePageUri }
         fileName = $candidate.fileName; durationSeconds = $candidate.durationSeconds; sha1 = $candidate.sha1
         startOffsetMilliseconds = [int]$candidate.startOffsetMilliseconds
+        endOffsetMilliseconds = [int]$candidate.endOffsetMilliseconds
         instrumentation = @($candidate.instrumentation); ensembleType = 'unreviewed'
         licenseReviewStatus = $candidate.licenseReviewStatus
     })
@@ -274,8 +278,11 @@ $manifestWorlds = foreach ($entry in $worlds.GetEnumerator()) {
         if (($null -ne $track.startOffsetMilliseconds -and
                 ($track.startOffsetMilliseconds -isnot [long] -and $track.startOffsetMilliseconds -isnot [int])) -or
             [long]$track.startOffsetMilliseconds -lt 0 -or
-            [long]$track.startOffsetMilliseconds -ge [double]$track.durationSeconds * 1000) {
-            throw "Invalid playback start offset: $($track.id)"
+            ($null -ne $track.endOffsetMilliseconds -and
+                ($track.endOffsetMilliseconds -isnot [long] -and $track.endOffsetMilliseconds -isnot [int])) -or
+            [long]$track.endOffsetMilliseconds -lt 0 -or
+            ([long]$track.startOffsetMilliseconds + [long]$track.endOffsetMilliseconds) -ge [double]$track.durationSeconds * 1000) {
+            throw "Invalid playback offsets: $($track.id)"
         }
     }
     [ordered]@{

@@ -1,5 +1,13 @@
 # Runtime catalog updates
 
+## Playback offsets
+
+`startOffsetMilliseconds` and `endOffsetMilliseconds` are optional non-negative integer milliseconds, both defaulting to zero. They refer exclusively to the original audio file at 100% speed, never to the stretched listening duration. The start offset is measured from the beginning; the end offset is the amount removed from the original end. The usable original interval is `[startOffsetMilliseconds, originalDurationMilliseconds - endOffsetMilliseconds]`. Their sum must be strictly smaller than the original duration.
+
+Speed is applied after trimming: listening duration = `(original duration - start offset - end offset) / playback speed`. For example, a 100-second recording with a 6,400 ms start offset and 3,600 ms end offset has 90 seconds of usable audio, or 180 seconds at 50% speed. Its displayed position starts at zero; seeks and resume positions are relative to that usable interval. Repeat and next-track transitions occur at the trimmed end. The players check the trimmed boundary every 100 ms, so transition precision is subject to platform scheduling rather than sample-accurate editing. Audio downloads and checksums remain unchanged. Missing end offsets in older catalogs and Android sessions remain zero.
+
+## Delivery
+
 Open Sleep Music always packages an embedded media catalog so first launch and offline use do not depend on a server. On startup, the app also checks the mutable `artwork-catalog` GitHub release for a newer catalog:
 
 - stable builds use `media-catalog.json`;

@@ -25,8 +25,9 @@ public sealed record AudioTrack(
     string? FallbackMotifFileName = null,
     string? FallbackMotifSha256 = null,
     string LicenseReviewStatus = "verified",
-    int StartOffsetMilliseconds = 0)
+    int StartOffsetMilliseconds = 0,
+    int EndOffsetMilliseconds = 0)
 {
-    public double PlaybackDurationSeconds => Playback.PlaybackTimeline.ToPlaybackTime(
-        TimeSpan.FromSeconds(DurationSeconds), PlaybackSpeed, StartOffsetMilliseconds).TotalSeconds;
+    public double PlaybackDurationSeconds => Playback.PlaybackTimeline.Duration(
+        TimeSpan.FromSeconds(DurationSeconds), PlaybackSpeed, StartOffsetMilliseconds, EndOffsetMilliseconds).TotalSeconds;
 }

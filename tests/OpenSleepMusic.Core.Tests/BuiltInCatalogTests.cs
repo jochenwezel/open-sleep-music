@@ -67,7 +67,8 @@ public sealed class BuiltInCatalogTests
             Assert.Equal(Uri.UriSchemeHttps, track.SourcePageUri.Scheme);
             Assert.Equal(Uri.UriSchemeHttps, track.LicenseUri.Scheme);
             Assert.True(track.DurationSeconds > 0, $"{track.Id} has no duration.");
-            Assert.True(track.StartOffsetMilliseconds >= 0 && track.StartOffsetMilliseconds < track.DurationSeconds * 1000,
+            Assert.True(track.StartOffsetMilliseconds >= 0 && track.EndOffsetMilliseconds >= 0
+                && (long)track.StartOffsetMilliseconds + track.EndOffsetMilliseconds < track.DurationSeconds * 1000,
                 $"{track.Id} has an invalid start offset.");
             Assert.True(track.VolumeGain > 0, $"{track.Id} has an invalid volume gain.");
             Assert.InRange(track.PlaybackSpeed, .5, 2);

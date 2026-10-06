@@ -104,6 +104,8 @@ Before committing, inspect the generated diff, run `git diff --check`, and confi
 
 ## Download resilience is a product requirement
 
+Playback trim metadata uses `startOffsetMilliseconds` and `endOffsetMilliseconds` as non-negative integer milliseconds of the original recording at 100% speed. Apply speed/stretching only after trimming. Both default to zero and their sum must leave a positive playable interval. Preserve original downloads and checksums; document all trim choices in source metadata.
+
 A broken media source must never make an entire sleep-world download fail.
 
 - Download into a `.part` file and move it into the library only after signature and optional checksum validation.

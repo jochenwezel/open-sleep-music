@@ -8,6 +8,34 @@ namespace OpenSleepMusic.Core.Tests;
 public sealed class CatalogUpdateClientTests
 {
     [Theory]
+    [InlineData("0", true)]
+    [InlineData("3000", true)]
+    [InlineData("-1", false)]
+    [InlineData("60000", false)]
+    [InlineData("55000", false)]
+    [InlineData("3.5", false)]
+    public async Task CombinedOffsetsMustLeavePlayableAudio(string endOffset, bool valid)
+    {
+        var root = TemporaryRoot();
+        try
+        {
+            var json = CatalogJson("remote").Replace("\"playbackSpeed\": 1",
+                $"\"playbackSpeed\": 1, \"startOffsetMilliseconds\": 5000, \"endOffsetMilliseconds\": {endOffset}");
+            using var online = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.OK, json)));
+            var embedded = Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero));
+            var result = await new CatalogUpdateClient(online, CatalogUri).ResolveAsync(embedded, root);
+            Assert.Equal(valid ? "remote" : "embedded", Assert.Single(result.SleepWorlds).Id);
+            if (valid)
+            {
+                using var offline = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.NotFound, "missing")));
+                var cached = await new CatalogUpdateClient(offline, CatalogUri).ResolveAsync(embedded, root);
+                Assert.Equal(int.Parse(endOffset), Assert.Single(cached.SleepWorlds[0].Tracks).EndOffsetMilliseconds);
+            }
+        }
+        finally { Directory.Delete(root, true); }
+    }
+
+    [Theory]
     [InlineData(null, 0)]
     [InlineData("6400", 6400)]
     public async Task StartOffsetLoadsFromRemoteCatalogAndSurvivesOfflineCache(string? jsonOffset, int expectedOffset)
