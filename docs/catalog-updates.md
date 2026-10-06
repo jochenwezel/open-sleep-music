@@ -9,4 +9,6 @@ A fully validated remote catalog replaces the embedded collection and track list
 
 Stable builds reject any remote catalog containing the preview-only Preselection collection. Tracks with unchecked recording rights are accepted only inside that collection and only by Preview builds.
 
+Preview catalogs also contain the `pre-qualify` collection with `externalReferences`: source-page audition links, explicit recording-rights review status, creator credits and instrumentation. These references open externally rather than entering the audio-download pipeline. The installed Preview app renders them directly from the updated catalog. Stable builds reject this collection and all external references. Existing reference preferences retain their `preselection` storage keys for continuity.
+
 `.github/workflows/publish-media-catalog.yml` validates and publishes both channel files whenever their repository sources change. The mutable release contains only metadata; audio and artwork continue to use their separately validated download URLs and caches.

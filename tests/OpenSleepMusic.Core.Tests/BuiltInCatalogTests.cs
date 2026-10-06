@@ -36,19 +36,23 @@ public sealed class BuiltInCatalogTests
         var worlds = BuiltInCatalog.SleepWorlds;
         var tracks = worlds.SelectMany(world => world.Tracks).ToArray();
 
-        Assert.Equal(BuildChannel.IsPreview ? 7 : 6, worlds.Count);
+        Assert.Equal(BuildChannel.IsPreview ? 8 : 6, worlds.Count);
         Assert.True(tracks.Length >= 134, $"Expected at least 134 tracks, found {tracks.Length}.");
         Assert.True(BuiltInCatalog.TotalDuration >= TimeSpan.FromHours(15));
-        Assert.All(worlds.Where(world => world.Id != "preselection"), world => Assert.NotEmpty(world.Tracks));
+        Assert.All(worlds.Where(world => world.Id is not ("preselection" or "pre-qualify")), world => Assert.NotEmpty(world.Tracks));
         if (BuildChannel.IsPreview)
         {
             var preselection = Assert.Single(worlds, world => world.Id == "preselection");
             Assert.Equal("Vorauswahl", preselection.Name);
             Assert.Equal(50, preselection.Tracks.Count);
+            var references = Assert.Single(worlds, world => world.Id == "pre-qualify");
+            Assert.Empty(references.Tracks);
+            Assert.Equal(20, references.ExternalReferences!.Count);
         }
         else
         {
             Assert.DoesNotContain(worlds, world => world.Id == "preselection");
+            Assert.DoesNotContain(worlds, world => world.Id == "pre-qualify" || world.ExternalReferences is { Count: > 0 });
         }
         Assert.DoesNotContain(tracks, track => track.Title.Contains("Preludes, Op. 28", StringComparison.OrdinalIgnoreCase));
         Assert.DoesNotContain(worlds, world => world.Id == "brown-noise");

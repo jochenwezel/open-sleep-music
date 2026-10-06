@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-02T22:03:31.6395705+00:00",
+  "generatedAtUtc": "2026-10-06T03:35:14.8700133+00:00",
   "sleepWorlds": [
     {
       "id": "preselection",
@@ -4098,6 +4098,318 @@
           "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/sleepy_lamb_star.png",
           "songMotifFileName": "sleepy_lamb_star.png",
           "songMotifSha256": "dda54da1b91f317ab83061af55ccf00e1b161c1fc367fe8e626181e563b41b06"
+        }
+      ]
+    },
+    {
+      "id": "pre-qualify",
+      "name": "Vorschau pre-qualify",
+      "description": "Externe Quellen zum Probehören. Lizenz und Schlaf-Eignung noch ungeprüft. Nur in Preview-Versionen.",
+      "icon": "🔎",
+      "tracks": [],
+      "externalReferences": [
+        {
+          "id": "candidate-lullabies-wonderful-guter-mond",
+          "title": "Guter Mond",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/guter-mond",
+          "instrumentation": [
+            "music-box"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "traditional-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-wonderful-sandman-is-here",
+          "title": "Sandman Is Here",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/sandman-is-here",
+          "instrumentation": [
+            "music-box"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "traditional-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-wonderful-beethoven-lullaby",
+          "title": "Beethoven Lullaby - Ode To Joy",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/beethoven-lullaby-ode-to-joy",
+          "instrumentation": [
+            "music-box"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "gentle-arrangement"
+        },
+        {
+          "id": "candidate-lullabies-wonderful-hush-little-baby",
+          "title": "Hush Little Baby",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/hush-little-baby",
+          "instrumentation": [
+            "music-box",
+            "orchestra"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "traditional-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-wonderful-rock-a-bye-baby",
+          "title": "Rock-a-bye Baby",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/rock-a-bye-baby",
+          "instrumentation": [
+            "music-box",
+            "orchestra"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "traditional-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-wonderful-sleep-baby-sleep",
+          "title": "Sleep Baby Sleep",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/sleep-baby-sleep",
+          "instrumentation": [
+            "music-box",
+            "orchestra"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "traditional-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-wonderful-brahms-lullaby",
+          "title": "Brahms' Lullaby - Guten Abend, gut' Nacht",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/brahms-lullaby-guten-abend-gut-nacht",
+          "instrumentation": [
+            "music-box"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "traditional-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-wonderful-mozart-lullaby",
+          "title": "Mozart Lullaby - Twinkle Twinkle Little Star",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/mozart-lullaby-twinkle-twinkle-little-star",
+          "instrumentation": [
+            "music-box"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "traditional-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-wonderful-the-moon-has-risen",
+          "title": "The Moon Has Risen",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/the-moon-has-risen",
+          "instrumentation": [
+            "music-box"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "traditional-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-wonderful-noahs-lullaby",
+          "title": "Noah's Lullaby",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/noahs-lullaby",
+          "instrumentation": [
+            "piano"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "modern-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-wonderful-claires-lullaby",
+          "title": "Claire's Lullaby",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/claires-lullaby",
+          "instrumentation": [
+            "piano"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "modern-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-wonderful-williams-lullaby",
+          "title": "William's Lullaby",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/williams-lullaby",
+          "instrumentation": [
+            "piano"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "modern-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-wonderful-aarons-lullaby",
+          "title": "Aaron's Lullaby",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/aarons-lullaby",
+          "instrumentation": [
+            "piano"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "modern-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-wonderful-mias-lullaby",
+          "title": "Mia's Lullaby",
+          "creator": "Wonderful Lullabies",
+          "sourcePageUri": "https://wonderfullullabies.bandcamp.com/track/mias-lullaby",
+          "instrumentation": [
+            "piano"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "modern-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-background-hug",
+          "title": "Hug",
+          "creator": "The Background Musicians",
+          "sourcePageUri": "https://thebackgroundmusicians.bandcamp.com/track/hug",
+          "instrumentation": [
+            "piano"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "modern-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-background-shine",
+          "title": "Shine",
+          "creator": "The Background Musicians",
+          "sourcePageUri": "https://thebackgroundmusicians.bandcamp.com/track/shine",
+          "instrumentation": [
+            "piano"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "modern-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-background-shooting-star",
+          "title": "Shooting Star",
+          "creator": "The Background Musicians",
+          "sourcePageUri": "https://thebackgroundmusicians.bandcamp.com/track/shooting-star",
+          "instrumentation": [
+            "piano"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "modern-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-background-little-ballad",
+          "title": "Little Ballad",
+          "creator": "The Background Musicians",
+          "sourcePageUri": "https://thebackgroundmusicians.bandcamp.com/track/little-ballad",
+          "instrumentation": [
+            "piano"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "All rights reserved (source declaration; not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "modern-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-schubert-kenban",
+          "title": "Wiegenlied / Schubert (piano solo)",
+          "creator": "KenBan Music; piano arrangement: Takashi Yoshimatsu",
+          "sourcePageUri": "https://kenbanmusic.com/wiegenlied-schubert/",
+          "instrumentation": [
+            "piano"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "Not established",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Performer page identifies an instrumental piano arrangement of Schubert D 498 and embeds a listening video. Traditional cradle-song melody; complete listening review pending. Composition public-domain status does not establish recording or modern arrangement rights.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "traditional-lullaby"
+        },
+        {
+          "id": "candidate-lullabies-bedtime-lullaby-peder-helland",
+          "title": "Bedtime Lullaby (Radio Edit)",
+          "creator": "Peder B. Helland",
+          "sourcePageUri": "https://soothingrelaxation.com/products/bedtime-lullaby-radio-edit-single",
+          "instrumentation": [
+            "piano"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "Personal-listening purchase; separate project licensing offered (not approved)",
+          "licenseEvidenceUri": null,
+          "reviewNotes": "Researched 2026-10-02. Official artist storefront lists a 2021 recording lasting 2:48, a preview player and an official listening video. Soft-piano bedtime lead; complete listening review pending. Personal purchase does not authorize redistribution; no compatible project grant established.",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "modern-lullaby"
         }
       ]
     }

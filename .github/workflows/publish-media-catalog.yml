@@ -21,7 +21,9 @@ jobs:
         with:
           global-json-file: global.json
       - name: Validate stable and preview catalogs
-        run: dotnet test tests/OpenSleepMusic.Core.Tests/OpenSleepMusic.Core.Tests.csproj --configuration Release
+        run: |
+          dotnet test tests/OpenSleepMusic.Core.Tests/OpenSleepMusic.Core.Tests.csproj --configuration Release
+          dotnet test tests/OpenSleepMusic.Core.Tests/OpenSleepMusic.Core.Tests.csproj --configuration Release -p:OpenSleepMusicPreview=true
       - name: Prepare catalog channel assets
         shell: pwsh
         run: |

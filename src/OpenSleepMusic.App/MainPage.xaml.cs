@@ -269,8 +269,8 @@ public partial class MainPage : ContentPage
     private async void OnResearchReferencesClicked(object? sender, EventArgs e)
     {
 #if OPEN_SLEEP_MUSIC_PREVIEW
-        if (sender is Button { CommandParameter: SleepWorldCard { HasResearchReferences: true } })
-            await Navigation.PushModalAsync(new PreselectionPage(_stateStore));
+        if (sender is Button { CommandParameter: SleepWorldCard { HasResearchReferences: true } card })
+            await Navigation.PushModalAsync(new PreselectionPage(_stateStore, card.World));
 #else
         await Task.CompletedTask;
 #endif
@@ -511,6 +511,13 @@ public partial class MainPage : ContentPage
         _isOpeningWorld = true;
         try
         {
+#if OPEN_SLEEP_MUSIC_PREVIEW
+            if (card.HasResearchReferences)
+            {
+                await Navigation.PushModalAsync(new PreselectionPage(_stateStore, card.World));
+                return;
+            }
+#endif
             SelectWorld(card);
             // Validated files are moved into place atomically, so an in-progress
             // collection can safely expose everything downloaded so far.
@@ -1447,7 +1454,7 @@ public partial class MainPage : ContentPage
             return;
         }
 
-        var ratings = BuiltInCatalog.SleepWorlds
+        var ratings = _catalogWorlds
             .SelectMany(world => world.Tracks.Select(track => new { World = world, Track = track }))
             .SelectMany(item =>
             {
@@ -1460,11 +1467,11 @@ public partial class MainPage : ContentPage
                     ? []
                     : new[] { new CatalogFeedbackEntry(item.World.Id, item.World.Name, item.Track.Id, item.Track.Title, state) };
             })
-            .Concat(BuiltInPreselection.Candidates.Where(candidate => !_catalogWorlds.SelectMany(world => world.Tracks).Any(track => track.Id == candidate.Id)).SelectMany(candidate =>
+            .Concat(_catalogWorlds.SelectMany(world => world.ExternalReferences ?? []).SelectMany(candidate =>
             {
                 var state = _stateStore.IsBlocked("preselection", candidate.Id) ? "blocked"
                     : _stateStore.IsFavorite("preselection", candidate.Id) ? "favorite" : null;
-                return state is null ? [] : new[] { new CatalogFeedbackEntry("preselection", "Vorauswahl", candidate.Id, candidate.Title, state) };
+                return state is null ? [] : new[] { new CatalogFeedbackEntry("pre-qualify", "Vorschau pre-qualify", candidate.Id, candidate.Title, state) };
             }))
             .ToArray();
 
@@ -1841,9 +1848,9 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
 
     public bool HasTracks => World.Tracks.Count > 0;
 
-    public bool HasResearchReferences => BuildChannel.IsPreview && World.Id == "preselection";
+    public bool HasResearchReferences => BuildChannel.IsPreview && World.ExternalReferences is { Count: > 0 };
 
-    public string ResearchReferencesText => AppText.Pick("Weitere Hörreferenzen ↗", "More listening references ↗");
+    public string ResearchReferencesText => AppText.Pick("Quellen probehören ↗", "Audition sources ↗");
 
     public bool IsComplete => World.Tracks.Count > 0 && DownloadedCount == World.Tracks.Count;
 
@@ -1865,7 +1872,9 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
             ? AppText.Get("Download")
             : AppText.IsGerman ? $"Vervollständigen ({DownloadedCount}/{World.Tracks.Count})" : $"Complete ({DownloadedCount}/{World.Tracks.Count})";
 
-    public string StatusText => !HasTracks
+    public string StatusText => HasResearchReferences
+        ? AppText.Pick($"{World.ExternalReferences!.Count} externe Hörreferenzen", $"{World.ExternalReferences!.Count} external listening references")
+        : !HasTracks
         ? AppText.Pick("Kandidaten werden vorbereitet", "Candidates are being prepared")
         : DownloadedCount == 0
         ? (AppText.IsGerman ? "Nicht heruntergeladen" : "Not downloaded")

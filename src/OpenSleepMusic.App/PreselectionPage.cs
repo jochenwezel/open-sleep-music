@@ -5,22 +5,22 @@ namespace OpenSleepMusic.App;
 
 internal sealed class PreselectionPage : ContentPage
 {
-    public PreselectionPage(AppStateStore stateStore)
+    public PreselectionPage(AppStateStore stateStore, SleepWorld world)
     {
-        Title = AppText.Pick("Vorauswahl", "Preselection");
+        Title = AppText.WorldName(world.Id, world.Name);
         BackgroundColor = Color.FromArgb("#0B1020");
         var close = new Button { Text = AppText.Get("Close") };
         close.Clicked += async (_, _) => await Navigation.PopModalAsync();
         var introduction = new Label
         {
             Text = AppText.Pick(
-                $"{BuiltInPreselection.Candidates.Count(candidate => candidate.DownloadUri is null)} weitere Hörreferenzen ohne geprüfte Downloadquelle. Die Aufnahme öffnet sich auf ihrer Originalseite im Browser. Lizenz und Schlaf-Eignung sind noch ungeprüft. Herunterladbare Kandidaten findest du direkt in der Sammlung Vorauswahl.",
-                $"{BuiltInPreselection.Candidates.Count(candidate => candidate.DownloadUri is null)} additional listening references without checked download delivery. Recordings open on their original pages in your browser. Recording rights and sleep suitability are unreviewed. Downloadable candidates are in the Preselection collection."),
+                $"{world.ExternalReferences?.Count ?? 0} externe Hörreferenzen. Die Aufnahme öffnet sich auf ihrer Originalseite im Browser. Lizenz und Schlaf-Eignung sind noch ungeprüft.",
+                $"{world.ExternalReferences?.Count ?? 0} external listening references. Recordings open on their original pages in your browser. Recording rights and sleep suitability are unreviewed."),
             TextColor = Colors.White
         };
         var list = new CollectionView
         {
-            ItemsSource = BuiltInPreselection.Candidates.Where(candidate => candidate.DownloadUri is null).ToArray(),
+            ItemsSource = world.ExternalReferences ?? [],
             SelectionMode = SelectionMode.None,
             ItemTemplate = new DataTemplate(() =>
             {

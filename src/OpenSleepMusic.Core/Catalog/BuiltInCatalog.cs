@@ -29,7 +29,8 @@ public static class BuiltInCatalog
             throw new InvalidDataException($"Unsupported media catalog schema {manifest.SchemaVersion}.");
         }
 
-        if (!BuildChannel.IsPreview && manifest.SleepWorlds.Any(world => world.Id == "preselection"))
+        if (!BuildChannel.IsPreview && manifest.SleepWorlds.Any(world => world.Id is "preselection" or "pre-qualify"
+                || world.ExternalReferences is { Count: > 0 }))
             throw new InvalidDataException("Preselection must not be included in a stable release catalog.");
 
         foreach (var track in manifest.SleepWorlds

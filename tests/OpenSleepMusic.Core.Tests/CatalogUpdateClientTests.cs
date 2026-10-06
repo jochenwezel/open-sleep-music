@@ -7,6 +7,33 @@ namespace OpenSleepMusic.Core.Tests;
 
 public sealed class CatalogUpdateClientTests
 {
+    [Theory]
+    [InlineData("https://example.test/source", true)]
+    [InlineData("http://example.test/source", false)]
+    public async Task ExternalReferencesLoadOnlyInPreviewWithSecureSource(string source, bool valid)
+    {
+        var root = TemporaryRoot();
+        try
+        {
+            var json = System.Text.Json.Nodes.JsonNode.Parse(CatalogJson("pre-qualify"))!;
+            var world = json["sleepWorlds"]![0]!;
+            world["tracks"] = new System.Text.Json.Nodes.JsonArray();
+            world["externalReferences"] = System.Text.Json.Nodes.JsonNode.Parse($$"""
+                [{"id":"reference","title":"Audition","creator":"Artist",
+                  "sourcePageUri":"{{source}}","instrumentation":["harp"],
+                  "licenseReviewStatus":"unchecked","declaredLicense":"Unknown",
+                  "reviewNotes":"Pending review"}]
+                """);
+            using var client = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.OK, json.ToJsonString())));
+            var result = await new CatalogUpdateClient(client, CatalogUri).ResolveAsync(
+                Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero)), root);
+            Assert.Equal(BuildChannel.IsPreview && valid ? "pre-qualify" : "embedded", Assert.Single(result.SleepWorlds).Id);
+            if (BuildChannel.IsPreview && valid)
+                Assert.Equal(source, Assert.Single(result.SleepWorlds[0].ExternalReferences!).SourcePageUri.AbsoluteUri);
+        }
+        finally { Directory.Delete(root, true); }
+    }
+
     [Fact]
     public async Task ValidRemoteCatalogReplacesEmbeddedCatalogAndSupportsOfflineCache()
     {

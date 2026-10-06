@@ -117,7 +117,8 @@ public sealed partial class CatalogUpdateClient(
             throw new InvalidDataException("Media catalog generation timestamp is invalid.");
         if (manifest.SleepWorlds is null || manifest.SleepWorlds.Count is < 1 or > 100)
             throw new InvalidDataException("Media catalog collection count is invalid.");
-        if (!BuildChannel.IsPreview && manifest.SleepWorlds.Any(world => world.Id == "preselection"))
+        if (!BuildChannel.IsPreview && manifest.SleepWorlds.Any(world => world.Id is "preselection" or "pre-qualify"
+                || world.ExternalReferences is { Count: > 0 }))
             throw new InvalidDataException("A stable app cannot load the preview preselection collection.");
 
         var worldIds = new HashSet<string>(StringComparer.Ordinal);
@@ -153,6 +154,21 @@ public sealed partial class CatalogUpdateClient(
                 ValidateArtworkLayer(track.FallbackMotifUri, track.FallbackMotifFileName, track.FallbackMotifSha256, track.Id);
                 if (world.Id != "preselection")
                     BuiltInPreselection.EnsureProductionTrackAllowed(track);
+            }
+            if (world.ExternalReferences is { Count: > 0 } references)
+            {
+                if (!BuildChannel.IsPreview || world.Id != "pre-qualify" || references.Count > 1000)
+                    throw new InvalidDataException("External audition references are preview-only.");
+                foreach (var reference in references)
+                {
+                    if (reference is null || !PortableId().IsMatch(reference.Id)
+                        || !trackIds.Add(reference.Id) || string.IsNullOrWhiteSpace(reference.Title)
+                        || string.IsNullOrWhiteSpace(reference.Creator) || !IsHttps(reference.SourcePageUri)
+                        || reference.Instrumentation is not { Count: > 0 }
+                        || reference.LicenseReviewStatus is not ("unchecked" or "verified" or "rejected")
+                        || reference.DownloadUri is not null)
+                        throw new InvalidDataException("Invalid external audition reference.");
+                }
             }
         }
     }

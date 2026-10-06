@@ -1,6 +1,6 @@
 # Reviewed media catalog
 
-The stable catalog contains 134 downloadable entries in six sleep worlds, totaling about 18.1 hours. Preview adds 50 downloadable audition candidates (about 3.65 hours) and 20 external listening references in Preselection. The exact per-file download URL, source page, creator, recording license, duration, instrumentation, ensemble type, file name, and SHA-1 (when supplied upstream) are stored in `src/OpenSleepMusic.Core/Catalog/media-catalog.json`.
+The stable catalog contains 134 downloadable entries in six sleep worlds, totaling about 18.1 hours. Preview adds 50 downloadable audition candidates (about 3.65 hours) in Preselection and 20 external listening references in the separate Preview pre-qualify collection. Both collection lists are delivered through the runtime catalog. The exact per-file download URL, source page, creator, recording license, duration, instrumentation, ensemble type, file name, and SHA-1 (when supplied upstream) are stored in `src/OpenSleepMusic.Core/Catalog/media-catalog.json`.
 
 A composition being in the public domain does **not** automatically make a modern recording public domain. The catalog therefore uses recordings whose collection pages explicitly declare CC0 or public-domain status. It deliberately excludes tracks whose names indicate thunder or storms.
 

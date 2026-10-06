@@ -316,6 +316,16 @@ foreach ($world in $manifestWorlds) {
 $candidateOutputPath = Join-Path (Split-Path $OutputPath) 'preselection-candidates.json'
 [IO.File]::WriteAllText($candidateOutputPath, ($candidateManifest | ConvertTo-Json -Depth 8) + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))
 
+$manifestWorlds = @($manifestWorlds) + @([ordered]@{
+    id = 'pre-qualify'
+    name = 'Vorschau pre-qualify'
+    description = 'Externe Quellen zum Probehören. Lizenz und Schlaf-Eignung noch ungeprüft. Nur in Preview-Versionen.'
+    icon = '🔎'
+    tracks = @()
+    externalReferences = @($candidateManifest.candidates | Where-Object { !$_.downloadUri })
+})
+$manifest.sleepWorlds = @($manifestWorlds)
+
 $json = $manifest | ConvertTo-Json -Depth 8
 [IO.File]::WriteAllText((Resolve-Path (Split-Path $OutputPath)).Path + '\' + (Split-Path $OutputPath -Leaf), $json + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))
 
@@ -323,7 +333,7 @@ $json = $manifest | ConvertTo-Json -Depth 8
 $productionManifest = [ordered]@{
     schemaVersion = $manifest.schemaVersion
     generatedAtUtc = $manifest.generatedAtUtc
-    sleepWorlds = @($manifestWorlds | Where-Object id -ne 'preselection')
+    sleepWorlds = @($manifestWorlds | Where-Object { $_.id -notin @('preselection', 'pre-qualify') })
 }
 $productionOutputPath = Join-Path (Split-Path $OutputPath) 'media-catalog.production.json'
 [IO.File]::WriteAllText($productionOutputPath, ($productionManifest | ConvertTo-Json -Depth 8) + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))

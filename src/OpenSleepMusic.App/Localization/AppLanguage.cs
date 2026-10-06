@@ -45,6 +45,7 @@ internal static class AppText
     public static string WorldName(string id, string fallback) => IsGerman ? fallback : id switch
     {
         "preselection" => "Preselection",
+        "pre-qualify" => "Preview pre-qualify",
         "quiet-classics" => "Quiet classics", "rain" => "Gentle rain", "forest" => "Forest",
         "waves" => "Water & waves", "fireplace" => "Fireplace", "lullabies" => "Lullabies for little ones", _ => fallback
     };
@@ -52,6 +53,7 @@ internal static class AppText
     public static string WorldDescription(string id, string fallback) => IsGerman ? fallback : id switch
     {
         "preselection" => "Download candidates and audition offline. Rights and suitability reviews pending. Preview versions only.",
+        "pre-qualify" => "External audition sources. Recording rights and sleep suitability are unreviewed. Preview versions only.",
         "quiet-classics" => "Nocturnes, mazurkas and gentle classical miniatures.",
         "rain" => "Light to steady rain without selected thunder peaks.",
         "forest" => "Long forest and rainforest recordings with wind, water and birds.",

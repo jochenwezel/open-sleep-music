@@ -73,7 +73,11 @@ document the specific recording-rights review with status `verified`, an accepte
 entry, and complete all audio-delivery and sleep-suitability checks above. Do not
 bypass the generator or Core promotion guards by changing an ID or source URL.
 
-Preselection must never appear in a stable release. Builds default to the stable
+Preselection must never appear in a stable release. The `pre-qualify` collection contains external audition references in the
+Preview runtime catalog; it must also be excluded from stable manifests and rejected
+by stable runtime updates. Keep explicit review status, source URLs, credits and
+instrumentation when updating its references through the catalog generator.
+Builds default to the stable
 channel; enable it only for preview artifacts with `-p:OpenSleepMusicPreview=true`.
 The release workflow derives this flag from GitHub's `release.prerelease` field,
 not from the tag name or the MSBuild `Release` configuration. Stable packages use
