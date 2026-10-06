@@ -19,7 +19,7 @@ public sealed class PreselectionTests
     public void ResearchCandidatesHaveSourcesTagsAndExplicitReviewStates()
     {
         var candidates = BuiltInPreselection.Candidates;
-        Assert.Equal(BuildChannel.IsPreview ? 76 : 0, candidates.Count);
+        Assert.Equal(BuildChannel.IsPreview ? 85 : 0, candidates.Count);
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.Id).Distinct().Count());
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.SourcePageUri).Distinct().Count());
         var downloadableTracks = BuiltInCatalog.SleepWorlds.Where(world => world.Id != "preselection").SelectMany(world => world.Tracks).ToArray();
@@ -68,7 +68,7 @@ public sealed class PreselectionTests
             return;
         }
         Assert.NotNull(world);
-        Assert.Equal(56, world.Tracks.Count);
+        Assert.Equal(62, world.Tracks.Count);
         Assert.All(world.Tracks, track =>
         {
             var candidate = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == track.Id);
@@ -84,7 +84,7 @@ public sealed class PreselectionTests
             else
                 Assert.Throws<InvalidOperationException>(() => BuiltInPreselection.EnsureProductionTrackAllowed(track));
         });
-        Assert.Equal(20, BuiltInPreselection.Candidates.Count(candidate => candidate.DownloadUri is null));
+        Assert.Equal(23, BuiltInPreselection.Candidates.Count(candidate => candidate.DownloadUri is null));
     }
 
     [Fact]
@@ -99,12 +99,38 @@ public sealed class PreselectionTests
         Assert.Equal("CC BY-SA 3.0", recuerdos.ApprovedLicense);
         Assert.Contains("Carlo Alberto Boni", recuerdos.Creator);
         Assert.True(recuerdos.CanPromote);
-        Assert.Equal(6, BuiltInPreselection.Candidates.Count(candidate => candidate.SelectionKind == "gentle-guitar"));
+        Assert.Equal(9, BuiltInPreselection.Candidates.Count(candidate => candidate.SelectionKind == "gentle-guitar"));
         var alternative = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == "candidate-romanza-ten-string-leon-egea");
         Assert.Equal("verified", alternative.LicenseReviewStatus);
         Assert.Equal("CC BY-SA 4.0", alternative.ApprovedLicense);
         Assert.Equal(6400, alternative.StartOffsetMilliseconds);
         Assert.EndsWith("IMSLP933760-PMLP81963-romance_anonimo.mp3", alternative.DownloadUri!.AbsoluteUri);
+    }
+
+    [Fact]
+    public void NatureAuditionsSeparateRecordingRightsFromDeliveryAndProductionAdmission()
+    {
+        var nature = BuiltInPreselection.Candidates.Where(candidate => candidate.SelectionKind?.StartsWith("nature-", StringComparison.Ordinal) == true).ToArray();
+        Assert.Equal(BuildChannel.IsPreview ? 6 : 0, nature.Length);
+        if (!BuildChannel.IsPreview) return;
+        Assert.All(nature, candidate =>
+        {
+            Assert.Equal("verified", candidate.LicenseReviewStatus);
+            Assert.Contains(candidate.ApprovedLicense, new[] { "CC0 1.0", "CC BY-SA 4.0" });
+            Assert.Contains("nature", candidate.Instrumentation);
+            Assert.Equal(0, candidate.StartOffsetMilliseconds);
+            Assert.Equal(0, candidate.EndOffsetMilliseconds);
+        });
+        var downloaded = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "preselection").Tracks;
+        Assert.Equal(3, nature.Count(candidate => downloaded.Any(track => track.Id == candidate.Id)));
+        var references = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "pre-qualify").ExternalReferences!;
+        Assert.Equal(3, nature.Count(candidate => references.Any(reference => reference.Id == candidate.Id)));
+        foreach (var id in new[] { "candidate-night-crickets-owlstorm", "candidate-jungle-choco-jaime-enrique", "candidate-savanna-night-august-sandberg" })
+        {
+            var reference = Assert.Single(references, candidate => candidate.Id == id);
+            Assert.Null(reference.DownloadUri);
+            Assert.DoesNotContain(downloaded, track => track.Id == id);
+        }
     }
 
     [Fact]
