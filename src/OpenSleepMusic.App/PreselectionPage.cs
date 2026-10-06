@@ -50,8 +50,28 @@ internal sealed class PreselectionPage : ContentPage
                 open.Clicked += async (_, _) =>
                 {
                     if (row.BindingContext is not ReviewCandidate candidate) return;
-                    try { await Browser.Default.OpenAsync(candidate.SourcePageUri, BrowserLaunchMode.External); }
-                    catch { await DisplayAlertAsync(AppText.Get("Source"), AppText.Pick("Die Quellseite konnte nicht geöffnet werden.", "The source page could not be opened."), "OK"); }
+                    try
+                    {
+                        if (await Browser.Default.OpenAsync(candidate.SourcePageUri, BrowserLaunchMode.External)) return;
+                    }
+                    catch (Exception exception) { System.Diagnostics.Debug.WriteLine(exception); }
+#if ANDROID
+                    // Dispatch directly when Android package visibility hides an installed URL handler.
+                    try
+                    {
+                        using var intent = new Android.Content.Intent(Android.Content.Intent.ActionView,
+                            Android.Net.Uri.Parse(candidate.SourcePageUri.AbsoluteUri));
+                        intent.AddFlags(Android.Content.ActivityFlags.NewTask);
+                        Platform.AppContext.StartActivity(intent);
+                        return;
+                    }
+                    catch (Exception exception) { System.Diagnostics.Debug.WriteLine(exception); }
+#endif
+                    var copy = await DisplayAlertAsync(AppText.Get("Source"),
+                        AppText.Pick("Die Quellseite konnte nicht geöffnet werden. Link zum manuellen Öffnen kopieren?",
+                            "The source page could not be opened. Copy the link to open it manually?"),
+                        AppText.Pick("Link kopieren", "Copy link"), AppText.Get("Close"));
+                    if (copy) await Clipboard.Default.SetTextAsync(candidate.SourcePageUri.AbsoluteUri);
                 };
                 favorite.Clicked += (_, _) =>
                 {
