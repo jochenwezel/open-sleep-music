@@ -30,7 +30,11 @@ function Test-AudioHeader([string]$Url) {
     } finally { $response.Dispose(); $request.Dispose() }
 }
 try {
-    $candidates = @($manifest.candidates | Where-Object { $_.sourcePageUri -like 'https://commons.wikimedia.org/wiki/File:*' })
+    $candidates = @($manifest.candidates | Where-Object {
+        $_.sourcePageUri -like 'https://commons.wikimedia.org/wiki/File:*' -and
+        !($_.downloadUri -and $_.deliveryCheckedAtUtc)
+    })
+    if (!$candidates.Count) { return }
     $titles = $candidates | ForEach-Object { [Uri]::UnescapeDataString(([Uri]$_.sourcePageUri).AbsolutePath.Substring(6)).Replace('_',' ') }
     $api = 'https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url%7Csize%7Csha1%7Cextmetadata&titles=' + [Uri]::EscapeDataString(($titles -join '|'))
     $metadata = $client.GetStringAsync($api).GetAwaiter().GetResult() | ConvertFrom-Json

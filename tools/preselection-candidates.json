@@ -80,7 +80,7 @@
     {
       "id": "candidate-romanza-espanola",
       "title": "Romanza española",
-      "creator": "Composer Unknown. Courtesy of Alias Guitar",
+      "creator": "Alisa Gladyseva (Alias Guitar); composer unknown",
       "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Romanza_espa%C3%B1ola.ogg",
       "instrumentation": [
         "guitar"
@@ -88,7 +88,7 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "CC0",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Recording-rights review 2026-10-06: the exact Commons audio page declares CC0 and FAL and identifies Alisa Gladyseva/ Alias Guitar as the performer/source. Uploaded by Nacasma, not explicitly as own work; no performer-authorized recording grant or permission archive is linked. The related video repeats the same courtesy/CC0 claim and is not independent permission evidence. The Facebook source could not be checked. CC0 is a source declaration only; production approval remains withheld until the recording/performer rights grant is established. User positively auditioned the performance alone and with quiet cricket ambience.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/89/Romanza_espa%C3%B1ola.ogg",
       "fileName": "candidate-romanza-espanola.ogg",
       "durationSeconds": 150.356,
@@ -99,21 +99,23 @@
     {
       "id": "candidate-recuerdos-de-la-alhambra",
       "title": "Recuerdos de la Alhambra",
-      "creator": "Carlo Alberto Boni",
+      "creator": "Francisco Tárrega; guitar and recording: Carlo Alberto Boni (Outonomia)",
       "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Recuerdos_de_la_Alhambra.ogg",
       "instrumentation": [
         "guitar"
       ],
-      "licenseReviewStatus": "unchecked",
+      "licenseReviewStatus": "verified",
       "declaredLicense": "CC BY-SA 3.0",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Recording-rights review 2026-10-06: exact Commons file identifies Carlo Alberto Boni as performer/author, source Own work, uploaded by the same linked author account Outonomia on 2011-09-29, with an explicit copyright-holder CC BY-SA 3.0 Unported grant. Composition: Francisco Tárrega. Retain performer/composer/source/license attribution and identify edits; redistributed adaptations must comply with ShareAlike. This is a documented source-grant review, not an independent guarantee of copyright ownership. User positively auditioned the performance alone and with quiet cricket ambience. Remaining production audio/suitability checks are separate; retained in Preview.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Recuerdos_de_la_Alhambra.ogg",
       "fileName": "candidate-recuerdos-de-la-alhambra.ogg",
       "durationSeconds": 239.885,
       "sha1": "be8bb6a5c5f6b1968529fe5b8981393eb40679b9",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0",
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:11.1321841+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:11.1321841+02:00",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Recuerdos_de_la_Alhambra.ogg&oldid=1059400139",
+      "approvedLicense": "CC BY-SA 3.0",
+      "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/"
     },
     {
       "id": "candidate-satie-gymnopedie-no-1-performed-by-michael-laucke",
@@ -1256,6 +1258,121 @@
       "reviewNotes": "Researched 2026-10-02. Official artist storefront lists a 2021 recording lasting 2:48, a preview player and an official listening video. Soft-piano bedtime lead; complete listening review pending. Personal purchase does not authorize redistribution; no compatible project grant established.",
       "intendedWorldId": "lullabies",
       "selectionKind": "modern-lullaby"
+    },
+    {
+      "id": "candidate-tarrega-lagrima-leon-egea",
+      "title": "Lágrima (10-string guitar)",
+      "creator": "Francisco Tárrega; guitar: Ramón León Egea",
+      "sourcePageUri": "https://imslp.org/wiki/L%C3%A1grima_(T%C3%A1rrega,_Francisco)",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "verified",
+      "declaredLicense": "CC BY-SA 4.0",
+      "licenseEvidenceUri": "https://imslp.org/wiki/L%C3%A1grima_(T%C3%A1rrega,_Francisco)",
+      "reviewNotes": "Recording-rights review 2026-10-06: IMSLP recording #964947 identifies the performer/uploader and a recording-specific CC BY-SA 4.0 grant, distinct from score/MIDI licenses. Audio delivery uses the stable HTTPS MP3 URL exposed by the public player; 128-byte MP3 signature checked. Duration is the recording-specific listing, not an average work duration. Warm plucked-guitar audition lead; full sleep-suitability review pending. Credit performer and composer, license and source, describe modifications; follow ShareAlike for redistributed adaptations where applicable. Retained in Preview.",
+      "approvedLicense": "CC BY-SA 4.0",
+      "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "intendedWorldId": "quiet-classics",
+      "selectionKind": "gentle-guitar",
+      "downloadUri": "https://s9.imslp.org/files/imglnks/usimg/1/16/IMSLP964947-PMLP340750-Lágrima_de_Tárrega_en_Guitarra_de_10_Cuerdas_-_Ramón_León_Egea.mp3",
+      "fileName": "candidate-tarrega-lagrima-leon-egea.mp3",
+      "durationSeconds": 126,
+      "sha1": null,
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "deliveryCheckedAtUtc": "2026-10-06T21:22:32.6461302+02:00"
+    },
+    {
+      "id": "candidate-tarrega-adelita-leon-egea",
+      "title": "Adelita (10-string guitar)",
+      "creator": "Francisco Tárrega; guitar: Ramón León Egea",
+      "sourcePageUri": "https://imslp.org/wiki/Adelita_(T%C3%A1rrega,_Francisco)",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "verified",
+      "declaredLicense": "CC BY-SA 4.0",
+      "licenseEvidenceUri": "https://imslp.org/wiki/Adelita_(T%C3%A1rrega,_Francisco)",
+      "reviewNotes": "Recording-rights review 2026-10-06: IMSLP recording #965129 identifies the performer/uploader and a recording-specific CC BY-SA 4.0 grant, distinct from score/MIDI licenses. Audio delivery uses the stable HTTPS MP3 URL exposed by the public player; 128-byte MP3 signature checked. Duration is the recording-specific listing, not an average work duration. Warm plucked-guitar audition lead; full sleep-suitability review pending. Credit performer and composer, license and source, describe modifications; follow ShareAlike for redistributed adaptations where applicable. Retained in Preview.",
+      "approvedLicense": "CC BY-SA 4.0",
+      "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "intendedWorldId": "quiet-classics",
+      "selectionKind": "gentle-guitar",
+      "downloadUri": "https://s9.cn.imslp.org/files/imglnks/usimg/7/7e/IMSLP965129-PMLP95949-Adelita_de_Tárrega_en_Guitarra_de_10_Cuerdas_-_Ramón_León_Egea.mp3",
+      "fileName": "candidate-tarrega-adelita-leon-egea.mp3",
+      "durationSeconds": 113,
+      "sha1": null,
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "deliveryCheckedAtUtc": "2026-10-06T21:22:33.8263055+02:00"
+    },
+    {
+      "id": "candidate-barrios-julia-florida-edson-lopes",
+      "title": "Julia Florida",
+      "creator": "Agustín Barrios Mangoré; guitar: Edson Lopes (LopeStudio)",
+      "sourcePageUri": "https://imslp.org/wiki/Julia_Florida_(Barrios_Mangor%C3%A9,_Agust%C3%ADn)",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "verified",
+      "declaredLicense": "CC BY 3.0",
+      "licenseEvidenceUri": "https://imslp.org/wiki/Julia_Florida_(Barrios_Mangor%C3%A9,_Agust%C3%ADn)",
+      "reviewNotes": "Recording-rights review 2026-10-06: IMSLP recording #254546 identifies the performer/uploader and a recording-specific CC BY 3.0 grant, distinct from score/MIDI licenses. Audio delivery uses the stable HTTPS MP3 URL exposed by the public player; 128-byte MP3 signature checked. Duration is the recording-specific listing, not an average work duration. Warm plucked-guitar audition lead; full sleep-suitability review pending. Credit performer and composer, license and source, describe modifications; follow ShareAlike for redistributed adaptations where applicable. Retained in Preview.",
+      "approvedLicense": "CC BY 3.0",
+      "approvedLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
+      "intendedWorldId": "quiet-classics",
+      "selectionKind": "gentle-guitar",
+      "downloadUri": "https://ks15.imslp.org/files/imglnks/usimg/e/e4/IMSLP254546-PMLP411050-BARRIOS_-_Julia_Florida_(Barcarola).mp3",
+      "fileName": "candidate-barrios-julia-florida-edson-lopes.mp3",
+      "durationSeconds": 267,
+      "sha1": null,
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
+      "deliveryCheckedAtUtc": "2026-10-06T21:22:34.6068161+02:00"
+    },
+    {
+      "id": "candidate-sor-op-31-no-1-guitar",
+      "title": "Fernando Sor – Op. 31 No. 1",
+      "creator": "Fernando Sor; guitar and recording: Jujutacular",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Sor_Op_31_No._1.ogg",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "verified",
+      "declaredLicense": "CC BY-SA 3.0",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/wiki/File:Sor_Op_31_No._1.ogg",
+      "reviewNotes": "Recording-rights review 2026-10-06: exact Commons file credits Jujutacular, source Own work, uploaded by the same account with an explicit copyright-holder CC BY-SA 3.0 Unported grant (alternative GFDL not selected). Classical plucked-guitar study as an audition lead; complete sleep-suitability listening still pending. Preserve composer/performer/source/license attribution, identify edits and follow ShareAlike for redistributed adaptations.",
+      "approvedLicense": "CC BY-SA 3.0",
+      "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "intendedWorldId": "quiet-classics",
+      "selectionKind": "gentle-guitar",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Sor_Op_31_No._1.ogg",
+      "fileName": "candidate-sor-op-31-no-1-guitar.ogg",
+      "durationSeconds": 84.939,
+      "sha1": "97a84f25f0ce6f796df26321a108fe445f7a3036",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0",
+      "deliveryCheckedAtUtc": "2026-10-06T19:23:02.4284864+00:00"
+    },
+    {
+      "id": "candidate-sor-op-35-no-17-guitar",
+      "title": "Fernando Sor – Op. 35 No. 17",
+      "creator": "Fernando Sor; guitar and recording: Jujutacular",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Sor_Op_35_No._17.ogg",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "verified",
+      "declaredLicense": "CC BY-SA 3.0",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/wiki/File:Sor_Op_35_No._17.ogg",
+      "reviewNotes": "Recording-rights review 2026-10-06: exact Commons file credits Jujutacular, source Own work, uploaded by the same account with an explicit copyright-holder CC BY-SA 3.0 Unported grant (alternative GFDL not selected). Classical plucked-guitar study as an audition lead; complete sleep-suitability listening still pending. Preserve composer/performer/source/license attribution, identify edits and follow ShareAlike for redistributed adaptations.",
+      "approvedLicense": "CC BY-SA 3.0",
+      "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "intendedWorldId": "quiet-classics",
+      "selectionKind": "gentle-guitar",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Sor_Op_35_No._17.ogg",
+      "fileName": "candidate-sor-op-35-no-17-guitar.ogg",
+      "durationSeconds": 126.317,
+      "sha1": "503af163129c43d46e03d36ff012f819fee8e7f2",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0",
+      "deliveryCheckedAtUtc": "2026-10-06T19:23:04.6085538+00:00"
     }
   ]
 }

@@ -37,10 +37,14 @@ public partial class TrackDetailsPage : ContentPage
         LicenseLabel.Text = track.License;
         if (localTrack.SleepWorld.Id == "preselection")
         {
-            LicenseHelpLabel.Text = AppText.Pick(
+            LicenseHelpLabel.Text = track.LicenseReviewStatus == "verified" ? AppText.Pick(
+                "Vorauswahl: Die Quellenfreigabe der Aufnahme wurde geprüft. Die Prüfung der Schlaf-Eignung und die Freigabe für eine produktive Sammlung erfolgen separat.",
+                "Preselection: The source grant for this recording has been reviewed. Sleep suitability and production admission are separate checks.") : AppText.Pick(
                 "Vorauswahl: Die Lizenz der Aufnahme und ihre Schlaf-Eignung sind noch ungeprüft. Die Quellenangabe ist keine Freigabe für eine produktive Sammlung.",
                 "Preselection: Recording rights and sleep suitability are unreviewed. The source declaration is not production approval.");
-            LicenseLabel.Text += " · " + AppText.Pick("Prüfung offen", "Review pending");
+            LicenseLabel.Text += " · " + (track.LicenseReviewStatus == "verified"
+                ? AppText.Pick("Lizenz geprüft", "License reviewed")
+                : AppText.Pick("Prüfung offen", "Review pending"));
         }
         FileLabel.Text = localTrack.FilePath;
         UpdatePreferenceButtons();

@@ -186,8 +186,9 @@ foreach ($candidate in $candidateManifest.candidates) {
     $worlds.preselection.tracks.Add([ordered]@{
         id = $candidate.id; title = $candidate.title; creator = $candidate.creator
         downloadUri = $candidate.downloadUri; sourcePageUri = $candidate.sourcePageUri
-        license = $candidate.declaredLicense
-        licenseUri = if ($candidate.declaredLicenseUri) { $candidate.declaredLicenseUri } else { $candidate.sourcePageUri }
+        license = if ($candidate.licenseReviewStatus -eq 'verified') { $candidate.approvedLicense } else { $candidate.declaredLicense }
+        licenseUri = if ($candidate.licenseReviewStatus -eq 'verified') { $candidate.approvedLicenseUri }
+            elseif ($candidate.declaredLicenseUri) { $candidate.declaredLicenseUri } else { $candidate.sourcePageUri }
         fileName = $candidate.fileName; durationSeconds = $candidate.durationSeconds; sha1 = $candidate.sha1
         instrumentation = @($candidate.instrumentation); ensembleType = 'unreviewed'
         licenseReviewStatus = $candidate.licenseReviewStatus

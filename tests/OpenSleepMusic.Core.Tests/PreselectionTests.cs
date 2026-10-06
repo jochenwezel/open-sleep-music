@@ -19,7 +19,7 @@ public sealed class PreselectionTests
     public void ResearchCandidatesHaveSourcesTagsAndExplicitReviewStates()
     {
         var candidates = BuiltInPreselection.Candidates;
-        Assert.Equal(BuildChannel.IsPreview ? 70 : 0, candidates.Count);
+        Assert.Equal(BuildChannel.IsPreview ? 75 : 0, candidates.Count);
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.Id).Distinct().Count());
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.SourcePageUri).Distinct().Count());
         var downloadableTracks = BuiltInCatalog.SleepWorlds.Where(world => world.Id != "preselection").SelectMany(world => world.Tracks).ToArray();
@@ -68,19 +68,37 @@ public sealed class PreselectionTests
             return;
         }
         Assert.NotNull(world);
-        Assert.Equal(50, world.Tracks.Count);
+        Assert.Equal(55, world.Tracks.Count);
         Assert.All(world.Tracks, track =>
         {
             var candidate = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == track.Id);
             Assert.Equal(candidate.DownloadUri, track.DownloadUri);
             Assert.Equal(candidate.FileName, track.FileName);
-            Assert.Equal("unchecked", track.LicenseReviewStatus);
+            Assert.Equal(candidate.LicenseReviewStatus, track.LicenseReviewStatus);
             Assert.NotNull(candidate.DeliveryCheckedAtUtc);
             Assert.Equal("https", track.DownloadUri.Scheme);
             Assert.True(track.DurationSeconds > 0);
-            Assert.Throws<InvalidOperationException>(() => BuiltInPreselection.EnsureProductionTrackAllowed(track));
+            if (candidate.CanPromote)
+                BuiltInPreselection.EnsureProductionTrackAllowed(track);
+            else
+                Assert.Throws<InvalidOperationException>(() => BuiltInPreselection.EnsureProductionTrackAllowed(track));
         });
         Assert.Equal(20, BuiltInPreselection.Candidates.Count(candidate => candidate.DownloadUri is null));
+    }
+
+    [Fact]
+    public void GuitarReviewRetainsTheDistinctionBetweenDeclarationAndRecordingGrant()
+    {
+        if (!BuildChannel.IsPreview) return;
+        var romanza = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == "candidate-romanza-espanola");
+        Assert.Equal("unchecked", romanza.LicenseReviewStatus);
+        Assert.False(romanza.CanPromote);
+        var recuerdos = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == "candidate-recuerdos-de-la-alhambra");
+        Assert.Equal("verified", recuerdos.LicenseReviewStatus);
+        Assert.Equal("CC BY-SA 3.0", recuerdos.ApprovedLicense);
+        Assert.Contains("Carlo Alberto Boni", recuerdos.Creator);
+        Assert.True(recuerdos.CanPromote);
+        Assert.Equal(5, BuiltInPreselection.Candidates.Count(candidate => candidate.SelectionKind == "gentle-guitar"));
     }
 
     [Fact]
