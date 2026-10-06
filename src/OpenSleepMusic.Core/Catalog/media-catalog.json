@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-06T19:23:57.1453999+00:00",
+  "generatedAtUtc": "2026-10-06T19:52:20.1576747+00:00",
   "sleepWorlds": [
     {
       "id": "preselection",
@@ -19,6 +19,7 @@
           "fileName": "candidate-el-noi-de-la-mare-guitar.ogg",
           "durationSeconds": 132.656,
           "sha1": "331640f4330cca46aa482ac7fd5d8bde17ee3102",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "guitar"
           ],
@@ -42,6 +43,7 @@
           "fileName": "candidate-pachelbel-canon-in-d-major-p-37-guitar.ogg",
           "durationSeconds": 201.064,
           "sha1": "0e460d2fff2daf2c434200b589bee292d7c2eabe",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "guitar"
           ],
@@ -65,6 +67,7 @@
           "fileName": "candidate-schubert-s-daphne-am-bach-d-411-guitar-bert-alink.ogg",
           "durationSeconds": 96.983,
           "sha1": "df3439838aa9d72a9361709b18f7b0bbf466437f",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "guitar"
           ],
@@ -88,6 +91,7 @@
           "fileName": "candidate-pachelbel-suite-in-f-sharp-minor-p-439-iv-sarabande-guitar.ogg",
           "durationSeconds": 74.589,
           "sha1": "d18e8a3d86f000533904e700ab455ee83866da8e",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "guitar"
           ],
@@ -111,6 +115,7 @@
           "fileName": "candidate-romanza-espanola.ogg",
           "durationSeconds": 150.356,
           "sha1": "b7a0245aef8a0eeadd5b372854760e504878b85f",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "guitar"
           ],
@@ -134,6 +139,7 @@
           "fileName": "candidate-recuerdos-de-la-alhambra.ogg",
           "durationSeconds": 239.885,
           "sha1": "be8bb6a5c5f6b1968529fe5b8981393eb40679b9",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "guitar"
           ],
@@ -157,6 +163,7 @@
           "fileName": "candidate-satie-gymnopedie-no-1-performed-by-michael-laucke.flac",
           "durationSeconds": 171.912,
           "sha1": "090f87e4f5eea9491188eecf003b62ea2a93a36e",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "guitar"
           ],
@@ -180,6 +187,7 @@
           "fileName": "candidate-satie-gymnopedie-no-2-performed-by-michael-laucke.flac",
           "durationSeconds": 147.226,
           "sha1": "6a03288f061dda2e76fe348c71756558fba5cffd",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "guitar"
           ],
@@ -203,6 +211,7 @@
           "fileName": "candidate-satie-gymnopedie-no-3-performed-by-michael-laucke.flac",
           "durationSeconds": 123.115,
           "sha1": "8c2b9edde40215a62cd798e621aacd9f27437052",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "guitar"
           ],
@@ -226,6 +235,7 @@
           "fileName": "candidate-erik-satie-gnossienne-no-1.ogg",
           "durationSeconds": 207.853,
           "sha1": "26fa578d8b8926e6c2b04e8b1a53731e0efc5737",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -249,6 +259,7 @@
           "fileName": "candidate-gnossienne-2-satie.ogg",
           "durationSeconds": 101.579,
           "sha1": "38ae316c66b914989398d2dbba6792e731592d28",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -272,6 +283,7 @@
           "fileName": "candidate-gnossienne-3-satie.ogg",
           "durationSeconds": 162.664,
           "sha1": "eb9d29d86c4880acd8c6fb7271d5a3e813400ec6",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -295,6 +307,7 @@
           "fileName": "candidate-gnossienne-4-satie.ogg",
           "durationSeconds": 139.328,
           "sha1": "6ca4eee230a24c7ddf5b7766bbc1680362b6106d",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -318,6 +331,7 @@
           "fileName": "candidate-gnossienne-5-satie.ogg",
           "durationSeconds": 172.273,
           "sha1": "9eecd78bb5a2781f2caf874101c202c07c210d61",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -341,6 +355,7 @@
           "fileName": "candidate-gnossienne-6-satie.ogg",
           "durationSeconds": 122.627,
           "sha1": "3b59823c4cc9f96bc01196602f8c9947cf54d811",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -364,6 +379,7 @@
           "fileName": "candidate-gnossienne-7-satie.ogg",
           "durationSeconds": 237.933,
           "sha1": "8801eba4cb7a402f7c1b1cb9c3e938c7ac9a3e41",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -387,6 +403,7 @@
           "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-i-of-foreign-lands-and-peoples.ogg",
           "durationSeconds": 111.882,
           "sha1": "dec46d15e86ae0214eb67e28241d8b7cdbd9d045",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -410,6 +427,7 @@
           "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-iv-pleading-child.ogg",
           "durationSeconds": 82.86,
           "sha1": "9e5f999438c3ae5d0da4decf0aeb6b32a58dca87",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -433,6 +451,7 @@
           "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming.ogg",
           "durationSeconds": 202.998,
           "sha1": "435250ff46d4632eb5d6c5f4af9e3b26154406fc",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -456,6 +475,7 @@
           "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-viii-at-the-fireside.ogg",
           "durationSeconds": 72.594,
           "sha1": "80420579c3a2e184dbfab5eb53667a0716df5a75",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -479,6 +499,7 @@
           "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-xii-child-falling-asleep.ogg",
           "durationSeconds": 121.469,
           "sha1": "0a4443d811a70596b1cb16f8a081cae60de34366",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -502,6 +523,7 @@
           "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-xiii-the-poet-speaks.ogg",
           "durationSeconds": 164.78,
           "sha1": "44f5299a63c2595ff16d0a7dba91903aca37996c",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -525,6 +547,7 @@
           "fileName": "candidate-robert-schumann-fantasie-lento-sostenuto-sempre-piano.ogg",
           "durationSeconds": 656.053,
           "sha1": "ac986ab4e444bbe746cf64d94665168fed5ca0d5",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -548,6 +571,7 @@
           "fileName": "candidate-schumann-arabeske-andrea-valori.ogg",
           "durationSeconds": 379.646,
           "sha1": "c7519af6b4b54bafdfe71b428eec66b4cb34dcf6",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -571,6 +595,7 @@
           "fileName": "candidate-schubert-piano-sonata-no-13-in-a-major-d664-ii-andante-paul-pitman.flac",
           "durationSeconds": 290.84,
           "sha1": "5a82bf23b027d933abd95b21f39ddf7e303bec43",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -594,6 +619,7 @@
           "fileName": "candidate-schubert-piano-sonata-no-14-in-a-minor-d784-ii-andante-paul-pitman.flac",
           "durationSeconds": 229.76,
           "sha1": "28e6602c3a9670b40b2d3fa8bd418b1cccfa2251",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -617,6 +643,7 @@
           "fileName": "candidate-schubert-piano-sonata-no-16-in-a-minor-d845-ii-andante-poco-mosso-paul-pitman.flac",
           "durationSeconds": 784.133,
           "sha1": "4bb084edd38bd75c2659f7f144f3a61d9d4a07fc",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -640,6 +667,7 @@
           "fileName": "candidate-schubert-piano-sonata-no-19-in-c-minor-d958-ii-adagio-paul-pitman.flac",
           "durationSeconds": 468.373,
           "sha1": "7ff236a5327ca2df0ac49bf3afae353074db8804",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -663,6 +691,7 @@
           "fileName": "candidate-schubert-piano-sonata-no-8-in-e-flat-major-d568-ii-andante-molto-paul-pitman.flac",
           "durationSeconds": 417.413,
           "sha1": "54a5c0935c9ccd78f4c022ff8cd1faa0a380fd20",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -686,6 +715,7 @@
           "fileName": "candidate-mozart-piano-sonata-no-10-c-major-ii-andante-cantabile.ogg",
           "durationSeconds": 395.807,
           "sha1": "2481042d97a629193c5379836737eec445346c16",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -709,6 +739,7 @@
           "fileName": "candidate-mozart-piano-sonata-no-11-in-a-major-i-andante-grazioso.ogg",
           "durationSeconds": 835.082,
           "sha1": "6ff8a0d34f5b3c5646ed92160e8471fdad142249",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -732,6 +763,7 @@
           "fileName": "candidate-mozart-piano-sonata-no-13-in-b-flat-major-ii-andante-cantabile.ogg",
           "durationSeconds": 524.725,
           "sha1": "6340d119c013593190e6de50dca633ba37238fa0",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -755,6 +787,7 @@
           "fileName": "candidate-mozart-piano-sonata-no-16-in-c-major-ii-andante.ogg",
           "durationSeconds": 346.302,
           "sha1": "8da001d8f135d32bbfcacad731232b3cc0a1b0a5",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -778,6 +811,7 @@
           "fileName": "candidate-mozart-piano-sonata-no-12-in-f-major-ii-adagio.ogg",
           "durationSeconds": 266.89,
           "sha1": "a32db13e34a7b7b5fe5104f8dedce353bfc3abbe",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -801,6 +835,7 @@
           "fileName": "candidate-mozart-piano-sonata-no-17-in-b-flat-major-ii-adagio.ogg",
           "durationSeconds": 457.387,
           "sha1": "170b1842283a5135c98e6c9854b7815fac715cab",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -824,6 +859,7 @@
           "fileName": "candidate-mozart-piano-sonata-no-9-in-d-major-ii-andantino-con-espressione.ogg",
           "durationSeconds": 281.379,
           "sha1": "058ae0d0048c12108c08393103711eb0001b213b",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -847,6 +883,7 @@
           "fileName": "candidate-mozart-concerto-for-flute-and-harp-2-andantino.ogg",
           "durationSeconds": 579.253,
           "sha1": "8a0d941ead626d54ace85b644cb0e0696c8c691d",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "flute",
             "harp",
@@ -872,6 +909,7 @@
           "fileName": "candidate-sonatina-harp-antti-luode.mp3",
           "durationSeconds": 222.563,
           "sha1": "5e38ebec57e1ce22966ada0cb5e6e8e104e900ba",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "harp"
           ],
@@ -895,6 +933,7 @@
           "fileName": "candidate-evening-fall-harp-isrc-usuan1100236.mp3",
           "durationSeconds": 145.219,
           "sha1": "fac52a04b8fc463352b5c60a180d4046e705974f",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "harp"
           ],
@@ -918,6 +957,7 @@
           "fileName": "candidate-tano-niha-mbanua-somasido-instrumental.ogg",
           "durationSeconds": 175.842,
           "sha1": "7420120674e58bc27a5afefb39f9957c40a0d601",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "pan-flute"
           ],
@@ -941,6 +981,7 @@
           "fileName": "candidate-clair-de-lune-claude-debussy-suite-bergamasque.ogg",
           "durationSeconds": 304.089,
           "sha1": "50d152ad99294c8dd3783b6ddde30b1dfaef19c3",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -964,6 +1005,7 @@
           "fileName": "candidate-debussy-preludes-book-2-v-bruyeres-giorgi-latsabidze.ogg",
           "durationSeconds": 139.672,
           "sha1": "9115928d266825aeb00bb613f454b43645184fcb",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -987,6 +1029,7 @@
           "fileName": "candidate-debussy-preludes-book-2-x-canope.ogg",
           "durationSeconds": 166.819,
           "sha1": "e4e2cafe476274ad31b74764c603b4a233f689f1",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -1010,6 +1053,7 @@
           "fileName": "candidate-claude-debussy-reverie-arr-for-soprano-saxophone-and-piano-david-hernando-vitores.mp3",
           "durationSeconds": 280.764,
           "sha1": null,
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "saxophone",
             "piano"
@@ -1034,6 +1078,7 @@
           "fileName": "candidate-grieg-sommeraften-op-71-no-2.ogg",
           "durationSeconds": 153.396,
           "sha1": "fd1bb0511edd0cbe01ebeabd7e8be52d36b91cc8",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -1057,6 +1102,7 @@
           "fileName": "candidate-grieg-folkevise-op-12-no-5.ogg",
           "durationSeconds": 117.734,
           "sha1": "ed4f3404bbd3cedbf8ebc01aa2e539f008169ff7",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -1080,6 +1126,7 @@
           "fileName": "candidate-grieg-edvard-lyric-pieces-book-iv-opus-47-part-no-2-album-leaf.ogg",
           "durationSeconds": 188.651,
           "sha1": "2fbb51a561df1e92c466d93a1cb5344e90b757e0",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "piano"
           ],
@@ -1103,6 +1150,7 @@
           "fileName": "candidate-mozart-string-quartet-no-15-in-d-minor-k421-ii-andante-musopen-string-quartet.flac",
           "durationSeconds": 315.211,
           "sha1": "ce788ddda71db6b71727786e69c7bf80ea31d48c",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "strings"
           ],
@@ -1126,6 +1174,7 @@
           "fileName": "candidate-mozart-string-quartet-no-19-in-c-major-k465-dissonance-ii-andante-cantabile-musopen-string-quartet.flac",
           "durationSeconds": 461.291,
           "sha1": "ea1dc5c099c861c869244c31847f2d073c5333c4",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "strings"
           ],
@@ -1149,6 +1198,7 @@
           "fileName": "candidate-mozart-s-serenade-no-10-grand-partita-iii-adagio-andante-united-states-marine-band.mp3",
           "durationSeconds": 332.544,
           "sha1": "97ad74565bb284950b25db545c9fc3b9cf482734",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "orchestra"
           ],
@@ -1172,6 +1222,7 @@
           "fileName": "candidate-tarrega-lagrima-leon-egea.mp3",
           "durationSeconds": 126,
           "sha1": null,
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "guitar"
           ],
@@ -1195,6 +1246,7 @@
           "fileName": "candidate-tarrega-adelita-leon-egea.mp3",
           "durationSeconds": 113,
           "sha1": null,
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "guitar"
           ],
@@ -1218,6 +1270,7 @@
           "fileName": "candidate-barrios-julia-florida-edson-lopes.mp3",
           "durationSeconds": 267,
           "sha1": null,
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "guitar"
           ],
@@ -1241,6 +1294,7 @@
           "fileName": "candidate-sor-op-31-no-1-guitar.ogg",
           "durationSeconds": 84.939,
           "sha1": "97a84f25f0ce6f796df26321a108fe445f7a3036",
+          "startOffsetMilliseconds": 0,
           "instrumentation": [
             "guitar"
           ],
@@ -1264,6 +1318,31 @@
           "fileName": "candidate-sor-op-35-no-17-guitar.ogg",
           "durationSeconds": 126.317,
           "sha1": "503af163129c43d46e03d36ff012f819fee8e7f2",
+          "startOffsetMilliseconds": 0,
+          "instrumentation": [
+            "guitar"
+          ],
+          "ensembleType": "unreviewed",
+          "licenseReviewStatus": "verified",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_quiet_classics_v3.png",
+          "artworkFileName": "background_quiet_classics_v3.png",
+          "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",
+          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_quiet_classics.png",
+          "fallbackMotifFileName": "fallback_quiet_classics.png",
+          "fallbackMotifSha256": "35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d"
+        },
+        {
+          "id": "candidate-romanza-ten-string-leon-egea",
+          "title": "Romanza española (10-string guitar)",
+          "creator": "Composer unknown; guitar and recording: Ramón León Egea",
+          "downloadUri": "https://ks15.imslp.org/files/imglnks/usimg/0/0f/IMSLP933760-PMLP81963-romance_anonimo.mp3",
+          "sourcePageUri": "https://imslp.org/wiki/Romanza_(Anonymous)",
+          "license": "CC BY-SA 4.0",
+          "licenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "fileName": "candidate-romanza-ten-string-leon-egea.mp3",
+          "durationSeconds": 171.312,
+          "sha1": null,
+          "startOffsetMilliseconds": 6400,
           "instrumentation": [
             "guitar"
           ],

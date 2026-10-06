@@ -1373,6 +1373,30 @@
       "sha1": "503af163129c43d46e03d36ff012f819fee8e7f2",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0",
       "deliveryCheckedAtUtc": "2026-10-06T21:23:04.6085538+02:00"
+    },
+    {
+      "id": "candidate-romanza-ten-string-leon-egea",
+      "title": "Romanza española (10-string guitar)",
+      "creator": "Composer unknown; guitar and recording: Ramón León Egea",
+      "sourcePageUri": "https://imslp.org/wiki/Romanza_(Anonymous)",
+      "instrumentation": [
+        "guitar"
+      ],
+      "licenseReviewStatus": "verified",
+      "declaredLicense": "CC BY-SA 4.0",
+      "licenseEvidenceUri": "https://imslp.org/index.php?title=Romanza_(Anonymous)&oldid=4766773",
+      "reviewNotes": "Recording-rights review 2026-10-06: IMSLP recording #933760 identifies performer/publisher and uploader Ramón León Egea, uploaded 2024-09-25 with an explicit recording-specific CC BY-SA 4.0 grant. Preserve performer, source and license attribution. The listener prefers this ten-string performance over #934003, which has intrusive background noise. PCM analysis of the unchanged original places the first strong guitar onset between 6.5 and 6.6 seconds; playback starts at 6400 ms to retain its attack and a short lead-in. Original bytes are downloaded; no edited recording is produced or hosted. Decoded original duration 171.312 seconds; MP3 delivery checked, no upstream SHA-1 provided. Retained in Preview pending final suitability review with the skipped prelude.",
+      "approvedLicense": "CC BY-SA 4.0",
+      "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "intendedWorldId": "quiet-classics",
+      "selectionKind": "gentle-guitar",
+      "downloadUri": "https://ks15.imslp.org/files/imglnks/usimg/0/0f/IMSLP933760-PMLP81963-romance_anonimo.mp3",
+      "fileName": "candidate-romanza-ten-string-leon-egea.mp3",
+      "durationSeconds": 171.312,
+      "sha1": null,
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "deliveryCheckedAtUtc": "2026-10-06T21:51:10.8272427+02:00",
+      "startOffsetMilliseconds": 6400
     }
   ]
 }

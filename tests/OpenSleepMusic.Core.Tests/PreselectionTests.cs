@@ -19,7 +19,7 @@ public sealed class PreselectionTests
     public void ResearchCandidatesHaveSourcesTagsAndExplicitReviewStates()
     {
         var candidates = BuiltInPreselection.Candidates;
-        Assert.Equal(BuildChannel.IsPreview ? 75 : 0, candidates.Count);
+        Assert.Equal(BuildChannel.IsPreview ? 76 : 0, candidates.Count);
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.Id).Distinct().Count());
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.SourcePageUri).Distinct().Count());
         var downloadableTracks = BuiltInCatalog.SleepWorlds.Where(world => world.Id != "preselection").SelectMany(world => world.Tracks).ToArray();
@@ -68,13 +68,14 @@ public sealed class PreselectionTests
             return;
         }
         Assert.NotNull(world);
-        Assert.Equal(55, world.Tracks.Count);
+        Assert.Equal(56, world.Tracks.Count);
         Assert.All(world.Tracks, track =>
         {
             var candidate = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == track.Id);
             Assert.Equal(candidate.DownloadUri, track.DownloadUri);
             Assert.Equal(candidate.FileName, track.FileName);
             Assert.Equal(candidate.LicenseReviewStatus, track.LicenseReviewStatus);
+            Assert.Equal(candidate.StartOffsetMilliseconds, track.StartOffsetMilliseconds);
             Assert.NotNull(candidate.DeliveryCheckedAtUtc);
             Assert.Equal("https", track.DownloadUri.Scheme);
             Assert.True(track.DurationSeconds > 0);
@@ -98,7 +99,12 @@ public sealed class PreselectionTests
         Assert.Equal("CC BY-SA 3.0", recuerdos.ApprovedLicense);
         Assert.Contains("Carlo Alberto Boni", recuerdos.Creator);
         Assert.True(recuerdos.CanPromote);
-        Assert.Equal(5, BuiltInPreselection.Candidates.Count(candidate => candidate.SelectionKind == "gentle-guitar"));
+        Assert.Equal(6, BuiltInPreselection.Candidates.Count(candidate => candidate.SelectionKind == "gentle-guitar"));
+        var alternative = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == "candidate-romanza-ten-string-leon-egea");
+        Assert.Equal("verified", alternative.LicenseReviewStatus);
+        Assert.Equal("CC BY-SA 4.0", alternative.ApprovedLicense);
+        Assert.Equal(6400, alternative.StartOffsetMilliseconds);
+        Assert.EndsWith("IMSLP933760-PMLP81963-romance_anonimo.mp3", alternative.DownloadUri!.AbsoluteUri);
     }
 
     [Fact]

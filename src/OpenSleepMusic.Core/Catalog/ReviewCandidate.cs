@@ -19,7 +19,8 @@ public sealed record ReviewCandidate(
     double? DurationSeconds = null,
     string? Sha1 = null,
     Uri? DeclaredLicenseUri = null,
-    DateTimeOffset? DeliveryCheckedAtUtc = null)
+    DateTimeOffset? DeliveryCheckedAtUtc = null,
+    int StartOffsetMilliseconds = 0)
 {
     public bool CanPromote => LicenseReviewStatus == "verified"
         && LicenseEvidenceUri?.Scheme == Uri.UriSchemeHttps

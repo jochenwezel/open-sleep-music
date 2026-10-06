@@ -46,6 +46,7 @@ internal static class AndroidPlaybackBridge
         intent.PutStringArrayListExtra("paths", queue.Select(item => item.FilePath).ToArray());
         intent.PutExtra("gains", queue.Select(item => item.Track.VolumeGain).ToArray());
         intent.PutExtra("speeds", queue.Select(item => item.Track.PlaybackSpeed).ToArray());
+        intent.PutExtra("startOffsets", queue.Select(item => item.Track.StartOffsetMilliseconds).ToArray());
         intent.PutExtra("index", Math.Max(0, queue.IndexOf(selected)));
         intent.PutExtra("position", Math.Max(0, startSeconds));
         intent.PutExtra("autoPlay", autoPlay);

@@ -141,6 +141,8 @@ public sealed partial class CatalogUpdateClient(
                     || !IsHttps(track.SourcePageUri) || !IsHttps(track.LicenseUri)
                     || !PortableAudioName().IsMatch(track.FileName) || track.DurationSeconds <= 0
                     || track.DurationSeconds > TimeSpan.FromDays(1).TotalSeconds
+                    || track.StartOffsetMilliseconds < 0
+                    || track.StartOffsetMilliseconds >= track.DurationSeconds * 1000
                     || track.VolumeGain is <= 0 or > 8 || track.PlaybackSpeed is < 0.25 or > 4
                     || track.LicenseReviewStatus is not ("verified" or "unchecked")
                     || track.LicenseReviewStatus == "unchecked"

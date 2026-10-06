@@ -8,6 +8,51 @@ namespace OpenSleepMusic.Core.Tests;
 public sealed class CatalogUpdateClientTests
 {
     [Theory]
+    [InlineData(null, 0)]
+    [InlineData("6400", 6400)]
+    public async Task StartOffsetLoadsFromRemoteCatalogAndSurvivesOfflineCache(string? jsonOffset, int expectedOffset)
+    {
+        var root = TemporaryRoot();
+        try
+        {
+            var json = CatalogJson("remote");
+            if (jsonOffset is not null)
+                json = json.Replace("\"playbackSpeed\": 1", $"\"playbackSpeed\": 1, \"startOffsetMilliseconds\": {jsonOffset}");
+            using var online = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.OK, json)));
+            var embedded = Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero));
+            var result = await new CatalogUpdateClient(online, CatalogUri).ResolveAsync(embedded, root);
+            var track = Assert.Single(Assert.Single(result.SleepWorlds).Tracks);
+            Assert.Equal(expectedOffset, track.StartOffsetMilliseconds);
+            Assert.Equal(60 - expectedOffset / 1000d, track.PlaybackDurationSeconds, 6);
+
+            using var offline = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.NotFound, "missing")));
+            var cached = await new CatalogUpdateClient(offline, CatalogUri).ResolveAsync(embedded, root);
+            Assert.Equal(expectedOffset, Assert.Single(Assert.Single(cached.SleepWorlds).Tracks).StartOffsetMilliseconds);
+        }
+        finally { Directory.Delete(root, true); }
+    }
+
+    [Theory]
+    [InlineData("-1")]
+    [InlineData("60000")]
+    [InlineData("60001")]
+    [InlineData("6400.5")]
+    [InlineData("2147483648")]
+    public async Task InvalidStartOffsetRejectsRemoteCatalog(string jsonOffset)
+    {
+        var root = TemporaryRoot();
+        try
+        {
+            var json = CatalogJson("remote").Replace("\"playbackSpeed\": 1", $"\"playbackSpeed\": 1, \"startOffsetMilliseconds\": {jsonOffset}");
+            using var client = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.OK, json)));
+            var embedded = Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero));
+            var result = await new CatalogUpdateClient(client, CatalogUri).ResolveAsync(embedded, root);
+            Assert.Equal(embedded, result);
+        }
+        finally { Directory.Delete(root, true); }
+    }
+
+    [Theory]
     [InlineData("https://example.test/source", true)]
     [InlineData("http://example.test/source", false)]
     public async Task ExternalReferencesLoadOnlyInPreviewWithSecureSource(string source, bool valid)

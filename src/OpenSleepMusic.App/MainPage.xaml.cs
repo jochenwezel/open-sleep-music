@@ -737,7 +737,7 @@ public partial class MainPage : ContentPage
 #if ANDROID
         var position = AndroidPlaybackBridge.Snapshot.Position.TotalSeconds;
 #else
-        var position = PlaybackTimeline.ToPlaybackTime(Player.Position, _currentTrack?.Track.PlaybackSpeed ?? 1).TotalSeconds;
+        var position = PlaybackTimeline.ToPlaybackTime(Player.Position, _currentTrack?.Track.PlaybackSpeed ?? 1, _currentTrack?.Track.StartOffsetMilliseconds ?? 0).TotalSeconds;
 #endif
         ApplyLibraryFilter();
 
@@ -827,8 +827,9 @@ public partial class MainPage : ContentPage
         else
         {
             _loadedTrackId = track.Track.Id;
+            Player.Pause();
             Player.Source = MediaSource.FromFile(track.FilePath);
-            if (autoPlay) Player.Play();
+            // MediaOpened applies the start offset before playback begins.
         }
 #endif
 
@@ -843,14 +844,7 @@ public partial class MainPage : ContentPage
     {
         try
         {
-            if (positionSeconds > 0)
-            {
-                await Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(positionSeconds), _currentTrack?.Track.PlaybackSpeed ?? 1));
-            }
-            else
-            {
-                await Player.SeekTo(TimeSpan.Zero);
-            }
+            await Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(positionSeconds), _currentTrack?.Track.PlaybackSpeed ?? 1, _currentTrack?.Track.StartOffsetMilliseconds ?? 0));
             if (autoPlay) Player.Play();
         }
         catch (Exception exception)
@@ -866,9 +860,9 @@ public partial class MainPage : ContentPage
         _pendingSeekSeconds = 0;
         try
         {
-            if (seekTo > 0)
+            if (seekTo > 0 || _currentTrack?.Track.StartOffsetMilliseconds > 0)
             {
-                await Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(seekTo), _currentTrack?.Track.PlaybackSpeed ?? 1));
+                await Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(seekTo), _currentTrack?.Track.PlaybackSpeed ?? 1, _currentTrack?.Track.StartOffsetMilliseconds ?? 0));
             }
             if (_playWhenMediaOpens)
             {
@@ -1073,7 +1067,7 @@ public partial class MainPage : ContentPage
 #else
             if (_loadedTrackId is not null && Player.Duration > TimeSpan.Zero)
             {
-                await Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(PositionSlider.Value), _currentTrack?.Track.PlaybackSpeed ?? 1));
+                await Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(PositionSlider.Value), _currentTrack?.Track.PlaybackSpeed ?? 1, _currentTrack?.Track.StartOffsetMilliseconds ?? 0));
                 PersistPlaybackSnapshot(force: true);
             }
             else
@@ -1313,8 +1307,8 @@ public partial class MainPage : ContentPage
 #else
         var isPlaying = Player.CurrentState == MediaElementState.Playing;
         var speed = _currentTrack?.Track.PlaybackSpeed ?? 1;
-        var position = PlaybackTimeline.ToPlaybackTime(Player.Position, speed);
-        var duration = PlaybackTimeline.ToPlaybackTime(Player.Duration, speed);
+        var position = PlaybackTimeline.ToPlaybackTime(Player.Position, speed, _currentTrack?.Track.StartOffsetMilliseconds ?? 0);
+        var duration = PlaybackTimeline.ToPlaybackTime(Player.Duration, speed, _currentTrack?.Track.StartOffsetMilliseconds ?? 0);
 #endif
         var selectedTrack = _currentTrack?.SleepWorld.Id == worldId ? _currentTrack : null;
         var card = _worldCards.First(candidate => candidate.World.Id == worldId);
@@ -1372,7 +1366,7 @@ public partial class MainPage : ContentPage
 #if ANDROID
         AndroidPlaybackBridge.Seek(seconds);
 #else
-        _ = Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(Math.Max(0, seconds)), _currentTrack?.Track.PlaybackSpeed ?? 1));
+        _ = Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(Math.Max(0, seconds)), _currentTrack?.Track.PlaybackSpeed ?? 1, _currentTrack?.Track.StartOffsetMilliseconds ?? 0));
 #endif
     }
 
@@ -1613,8 +1607,8 @@ public partial class MainPage : ContentPage
         if (!_isSeeking && _loadedTrackId is not null && Player.Duration > TimeSpan.Zero)
         {
             var speed = _currentTrack?.Track.PlaybackSpeed ?? 1;
-            var duration = PlaybackTimeline.ToPlaybackTime(Player.Duration, speed);
-            var position = PlaybackTimeline.ToPlaybackTime(Player.Position, speed);
+            var duration = PlaybackTimeline.ToPlaybackTime(Player.Duration, speed, _currentTrack?.Track.StartOffsetMilliseconds ?? 0);
+            var position = PlaybackTimeline.ToPlaybackTime(Player.Position, speed, _currentTrack?.Track.StartOffsetMilliseconds ?? 0);
             PositionSlider.Maximum = duration.TotalSeconds;
             PositionSlider.Value = position.TotalSeconds;
             TimeLabel.Text = $"{FormatTime(position)} / {FormatTime(duration)}";
@@ -1672,7 +1666,7 @@ public partial class MainPage : ContentPage
 #if ANDROID
             : AndroidPlaybackBridge.Snapshot.Position.TotalSeconds;
 #else
-            : PlaybackTimeline.ToPlaybackTime(Player.Position, currentTrack.Track.PlaybackSpeed).TotalSeconds;
+            : PlaybackTimeline.ToPlaybackTime(Player.Position, currentTrack.Track.PlaybackSpeed, currentTrack.Track.StartOffsetMilliseconds).TotalSeconds;
 #endif
         _stateStore.SavePlayback(currentTrack.Track.Id, position);
         _lastPlaybackSaveUtc = now;

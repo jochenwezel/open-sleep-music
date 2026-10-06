@@ -44,7 +44,7 @@ public sealed class BuiltInCatalogTests
         {
             var preselection = Assert.Single(worlds, world => world.Id == "preselection");
             Assert.Equal("Vorauswahl", preselection.Name);
-            Assert.Equal(55, preselection.Tracks.Count);
+            Assert.Equal(56, preselection.Tracks.Count);
             var references = Assert.Single(worlds, world => world.Id == "pre-qualify");
             Assert.Empty(references.Tracks);
             Assert.Equal(20, references.ExternalReferences!.Count);
@@ -67,6 +67,8 @@ public sealed class BuiltInCatalogTests
             Assert.Equal(Uri.UriSchemeHttps, track.SourcePageUri.Scheme);
             Assert.Equal(Uri.UriSchemeHttps, track.LicenseUri.Scheme);
             Assert.True(track.DurationSeconds > 0, $"{track.Id} has no duration.");
+            Assert.True(track.StartOffsetMilliseconds >= 0 && track.StartOffsetMilliseconds < track.DurationSeconds * 1000,
+                $"{track.Id} has an invalid start offset.");
             Assert.True(track.VolumeGain > 0, $"{track.Id} has an invalid volume gain.");
             Assert.InRange(track.PlaybackSpeed, .5, 2);
             Assert.False(string.IsNullOrWhiteSpace(track.Creator));
