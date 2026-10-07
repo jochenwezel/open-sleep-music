@@ -40,6 +40,8 @@ Every catalog entry must pass all of the following checks. A large catalog is le
 - Store a positive duration and a unique, stable ID and local filename.
 - Store the upstream SHA-1 checksum when the source provides one. Do not invent a checksum from a partial response.
 - Prefer stable item/file URLs over temporary CDN, signed, session, or query-token URLs.
+- Prefer a verified, source-provided MP3 version of the same recording when its quality and stable delivery are suitable, especially when an Ogg file has device-specific duration or seeking problems. Ogg/Vorbis remains acceptable when no suitable MP3 is available; it is not generally unsupported.
+- Do not introduce automatic transcoding into the ordinary download pipeline. Use existing upstream transcodes when available, preserving attribution and documenting the encoding change. Validate the delivered format and use only a checksum belonging to those exact bytes; an original Ogg checksum must not be applied to an MP3 transcode.
 - Ensure filenames are portable across Windows, Android, iOS, and macOS and do not collide case-insensitively.
 
 ### 4. Preserve attribution and traceability
