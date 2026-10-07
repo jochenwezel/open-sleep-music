@@ -23,7 +23,8 @@ public sealed record ReviewCandidate(
     int StartOffsetMilliseconds = 0,
     int EndOffsetMilliseconds = 0,
     double VolumeGain = 1,
-    double PlaybackSpeed = 1)
+    double PlaybackSpeed = 1,
+    IReadOnlyList<string>? IntendedWorldIds = null)
 {
     public bool CanPromote => LicenseReviewStatus == "verified"
         && LicenseEvidenceUri?.Scheme == Uri.UriSchemeHttps

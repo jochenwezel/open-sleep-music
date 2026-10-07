@@ -187,13 +187,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "CC BY-SA 3.0",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Erik_Satie_-_Gnossienne_no_1.ogg",
       "fileName": "candidate-erik-satie-gnossienne-no-1.ogg",
       "durationSeconds": 207.853,
       "sha1": "26fa578d8b8926e6c2b04e8b1a53731e0efc5737",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:19.337671+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:19.337671+02:00",
+      "volumeGain": 0.7
     },
     {
       "id": "candidate-gnossienne-2-satie",
@@ -206,13 +207,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Gnossienne_2_%28Satie%29.ogg",
       "fileName": "candidate-gnossienne-2-satie.ogg",
       "durationSeconds": 101.579,
       "sha1": "38ae316c66b914989398d2dbba6792e731592d28",
       "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:21.3610673+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:21.3610673+02:00",
+      "volumeGain": 0.7
     },
     {
       "id": "candidate-gnossienne-3-satie",
@@ -225,13 +227,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/1/10/Gnossienne_3_%28Satie%29.ogg",
       "fileName": "candidate-gnossienne-3-satie.ogg",
       "durationSeconds": 162.664,
       "sha1": "eb9d29d86c4880acd8c6fb7271d5a3e813400ec6",
       "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:23.4905287+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:23.4905287+02:00",
+      "volumeGain": 0.7
     },
     {
       "id": "candidate-gnossienne-4-satie",
@@ -244,13 +247,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Gnossienne_4_%28Satie%29.ogg",
       "fileName": "candidate-gnossienne-4-satie.ogg",
       "durationSeconds": 139.328,
       "sha1": "6ca4eee230a24c7ddf5b7766bbc1680362b6106d",
       "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:25.6106028+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:25.6106028+02:00",
+      "volumeGain": 0.7
     },
     {
       "id": "candidate-gnossienne-5-satie",
@@ -263,13 +267,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/07/Gnossienne_5_%28Satie%29.ogg",
       "fileName": "candidate-gnossienne-5-satie.ogg",
       "durationSeconds": 172.273,
       "sha1": "9eecd78bb5a2781f2caf874101c202c07c210d61",
       "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:27.7371466+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:27.7371466+02:00",
+      "volumeGain": 0.7
     },
     {
       "id": "candidate-gnossienne-6-satie",
@@ -282,13 +287,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Gnossienne_6_%28Satie%29.ogg",
       "fileName": "candidate-gnossienne-6-satie.ogg",
       "durationSeconds": 122.627,
       "sha1": "3b59823c4cc9f96bc01196602f8c9947cf54d811",
       "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:29.8611855+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:29.8611855+02:00",
+      "volumeGain": 0.7
     },
     {
       "id": "candidate-gnossienne-7-satie",
@@ -301,13 +307,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Gnossienne_7_%28Satie%29.ogg",
       "fileName": "candidate-gnossienne-7-satie.ogg",
       "durationSeconds": 237.933,
       "sha1": "8801eba4cb7a402f7c1b1cb9c3e938c7ac9a3e41",
       "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:31.983647+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:31.983647+02:00",
+      "volumeGain": 0.7
     },
     {
       "id": "candidate-robert-schumann-scenes-from-childhood-op-15-i-of-foreign-lands-and-peoples",
@@ -320,13 +327,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Scenes from Childhood performances to play 10 percent quieter. Apply volumeGain 0.9 as playback metadata; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_i._of_foreign_lands_and_peoples.ogg",
       "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-i-of-foreign-lands-and-peoples.ogg",
       "durationSeconds": 111.882,
       "sha1": "dec46d15e86ae0214eb67e28241d8b7cdbd9d045",
       "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:34.0029277+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:34.0029277+02:00",
+      "volumeGain": 0.9
     },
     {
       "id": "candidate-robert-schumann-scenes-from-childhood-op-15-iv-pleading-child",
@@ -339,13 +347,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Scenes from Childhood performances to play 10 percent quieter. Apply volumeGain 0.9 as playback metadata; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/4/49/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_iv._pleading_child.ogg",
       "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-iv-pleading-child.ogg",
       "durationSeconds": 82.86,
       "sha1": "9e5f999438c3ae5d0da4decf0aeb6b32a58dca87",
       "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:36.1383923+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:36.1383923+02:00",
+      "volumeGain": 0.9
     },
     {
       "id": "candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming",
@@ -358,13 +367,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Scenes from Childhood performances to play 10 percent quieter. Apply volumeGain 0.9 as playback metadata; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/06/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vii._dreaming.ogg",
       "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming.ogg",
       "durationSeconds": 202.998,
       "sha1": "435250ff46d4632eb5d6c5f4af9e3b26154406fc",
       "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:38.2590556+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:38.2590556+02:00",
+      "volumeGain": 0.9
     },
     {
       "id": "candidate-robert-schumann-scenes-from-childhood-op-15-viii-at-the-fireside",
@@ -377,13 +387,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Scenes from Childhood performances to play 10 percent quieter. Apply volumeGain 0.9 as playback metadata; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_viii._at_the_fireside.ogg",
       "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-viii-at-the-fireside.ogg",
       "durationSeconds": 72.594,
       "sha1": "80420579c3a2e184dbfab5eb53667a0716df5a75",
       "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:40.4023392+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:40.4023392+02:00",
+      "volumeGain": 0.9
     },
     {
       "id": "candidate-robert-schumann-scenes-from-childhood-op-15-xii-child-falling-asleep",
@@ -396,13 +407,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Scenes from Childhood performances to play 10 percent quieter. Apply volumeGain 0.9 as playback metadata; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_xii._child_falling_asleep.ogg",
       "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-xii-child-falling-asleep.ogg",
       "durationSeconds": 121.469,
       "sha1": "0a4443d811a70596b1cb16f8a081cae60de34366",
       "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:42.4337807+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:42.4337807+02:00",
+      "volumeGain": 0.9
     },
     {
       "id": "candidate-robert-schumann-scenes-from-childhood-op-15-xiii-the-poet-speaks",
@@ -415,13 +427,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Scenes from Childhood performances to play 10 percent quieter. Apply volumeGain 0.9 as playback metadata; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/4/42/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_xiii._the_poet_speaks.ogg",
       "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-xiii-the-poet-speaks.ogg",
       "durationSeconds": 164.78,
       "sha1": "44f5299a63c2595ff16d0a7dba91903aca37996c",
       "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:44.5594122+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:44.5594122+02:00",
+      "volumeGain": 0.9
     },
     {
       "id": "candidate-robert-schumann-fantasie-lento-sostenuto-sempre-piano",
@@ -453,13 +466,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "CC BY-SA 4.0",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests Arabeske (Mario Andrea Valori) to play 50 percent louder. Apply volumeGain 1.5 as playback metadata, subject to the existing player volume ceiling; original recording, duration and checksum are preserved.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Schumann-arabeske-andrea-valori.ogg",
       "fileName": "candidate-schumann-arabeske-andrea-valori.ogg",
       "durationSeconds": 379.646,
       "sha1": "c7519af6b4b54bafdfe71b428eec66b4cb34dcf6",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0",
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:48.7977869+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:48.7977869+02:00",
+      "volumeGain": 1.5
     },
     {
       "id": "candidate-schubert-piano-sonata-no-13-in-a-major-d664-ii-andante-paul-pitman",
@@ -770,21 +784,27 @@
     {
       "id": "candidate-clair-de-lune-claude-debussy-suite-bergamasque",
       "title": "Clair de lune (Claude Debussy) Suite bergamasque",
-      "creator": "Claude Debussy",
+      "creator": "Claude Debussy; piano and recording: Laurens Goedhart",
       "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Clair_de_lune_(Claude_Debussy)_Suite_bergamasque.ogg",
       "instrumentation": [
         "piano"
       ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "licenseReviewStatus": "verified",
+      "declaredLicense": "CC BY 3.0",
+      "licenseEvidenceUri": "https://web.archive.org/web/20120210054738/http://soundcloud.com/laurensgoedhart/claude-debussys-clair-de-lune",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-rights review 2026-10-07: authoritative Commons revision 1264119050 identifies pianist/recordist Laurens Goedhart and a recording-specific CC BY 3.0 grant, distinct from the composition public-domain label. The linked 2012-02-10 archive of the performer SoundCloud page describes his own Yamaha C3 piano recording, credits him as uploader and links CC BY 3.0; the current performer page still identifies his own recording and License cc-by. Preserve composer, pianist, source page, original SoundCloud and archived grant attribution, and upstream conversion credit Akaniji. A listener comment reports a later automated copyright claim; this does not supersede the documented performer grant. The maintainer proposes this audition for both Quiet Classics and For Little Ones. Final destination, full listening suitability, relative levels and transitions remain pending; rights approval alone is not production promotion.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/b/be/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg",
       "fileName": "candidate-clair-de-lune-claude-debussy-suite-bergamasque.ogg",
       "durationSeconds": 304.089,
       "sha1": "50d152ad99294c8dd3783b6ddde30b1dfaef19c3",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:50:25.0321815+02:00"
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
+      "deliveryCheckedAtUtc": "2026-10-02T23:50:25.0321815+02:00",
+      "approvedLicense": "CC BY 3.0",
+      "approvedLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
+      "intendedWorldIds": [
+        "quiet-classics",
+        "lullabies"
+      ]
     },
     {
       "id": "candidate-debussy-preludes-book-2-v-bruyeres-giorgi-latsabidze",
