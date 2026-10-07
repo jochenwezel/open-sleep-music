@@ -19,7 +19,7 @@ public sealed class PreselectionTests
     public void ResearchCandidatesHaveSourcesTagsAndExplicitReviewStates()
     {
         var candidates = BuiltInPreselection.Candidates;
-        Assert.Equal(BuildChannel.IsPreview ? 88 : 0, candidates.Count);
+        Assert.Equal(BuildChannel.IsPreview ? 87 : 0, candidates.Count);
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.Id).Distinct().Count());
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.SourcePageUri).Distinct().Count());
         var downloadableTracks = BuiltInCatalog.SleepWorlds.Where(world => world.Id != "preselection").SelectMany(world => world.Tracks).ToArray();
@@ -68,7 +68,7 @@ public sealed class PreselectionTests
             return;
         }
         Assert.NotNull(world);
-        Assert.Equal(64, world.Tracks.Count);
+        Assert.Equal(63, world.Tracks.Count);
         Assert.All(world.Tracks, track =>
         {
             var candidate = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == track.Id);
@@ -90,12 +90,10 @@ public sealed class PreselectionTests
     }
 
     [Fact]
-    public void GuitarReviewRetainsTheDistinctionBetweenDeclarationAndRecordingGrant()
+    public void GuitarReviewRetainsApprovedGrantsAndExcludesRejectedRomanza()
     {
         if (!BuildChannel.IsPreview) return;
-        var romanza = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == "candidate-romanza-espanola");
-        Assert.Equal("unchecked", romanza.LicenseReviewStatus);
-        Assert.False(romanza.CanPromote);
+        Assert.DoesNotContain(BuiltInPreselection.Candidates, candidate => candidate.Id == "candidate-romanza-espanola");
         var recuerdos = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == "candidate-recuerdos-de-la-alhambra");
         Assert.Equal("verified", recuerdos.LicenseReviewStatus);
         Assert.Equal("CC BY-SA 3.0", recuerdos.ApprovedLicense);

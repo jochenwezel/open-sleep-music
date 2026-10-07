@@ -87,10 +87,10 @@
       "instrumentation": [
         "guitar"
       ],
-      "licenseReviewStatus": "unchecked",
+      "licenseReviewStatus": "rejected",
       "declaredLicense": "CC0",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Recording-rights review 2026-10-06: the exact Commons audio page declares CC0 and FAL and identifies Alisa Gladyseva/ Alias Guitar as the performer/source. Uploaded by Nacasma, not explicitly as own work; no performer-authorized recording grant or permission archive is linked. The related video repeats the same courtesy/CC0 claim and is not independent permission evidence. The Facebook source could not be checked. CC0 is a source declaration only; production approval remains withheld until the recording/performer rights grant is established. User positively auditioned the performance alone and with quiet cricket ambience.",
+      "reviewNotes": "Recording-rights review 2026-10-06: the exact Commons audio page declares CC0 and FAL and identifies Alisa Gladyseva/ Alias Guitar as the performer/source. Uploaded by Nacasma, not explicitly as own work; no performer-authorized recording grant or permission archive is linked. The related video repeats the same courtesy/CC0 claim and is not independent permission evidence. The Facebook source could not be checked. CC0 is a source declaration only; production approval remains withheld until the recording/performer rights grant is established. User positively auditioned the performance alone and with quiet cricket ambience. Catalog rejection 2026-10-07: the maintainer selects the rights-reviewed Ramón León Egea ten-string recording instead and explicitly removes this Alisa Gladyseva performance. Its performer-authorized recording grant remains unresolved. Persistently blacklist candidate-romanza-espanola; keep this source record only as an exclusion audit, outside all generated candidate resources and runtime collections. This rejection is a catalog-admission decision, not a determination that the recording is unlawfully distributed.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/89/Romanza_espa%C3%B1ola.ogg",
       "fileName": "candidate-romanza-espanola.ogg",
       "durationSeconds": 150.356,

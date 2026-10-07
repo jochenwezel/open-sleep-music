@@ -80,25 +80,6 @@
       "deliveryCheckedAtUtc": "2026-10-02T23:49:07.0711202+02:00"
     },
     {
-      "id": "candidate-romanza-espanola",
-      "title": "Romanza española",
-      "creator": "Alisa Gladyseva (Alias Guitar); composer unknown",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Romanza_espa%C3%B1ola.ogg",
-      "instrumentation": [
-        "guitar"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "CC0",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Recording-rights review 2026-10-06: the exact Commons audio page declares CC0 and FAL and identifies Alisa Gladyseva/ Alias Guitar as the performer/source. Uploaded by Nacasma, not explicitly as own work; no performer-authorized recording grant or permission archive is linked. The related video repeats the same courtesy/CC0 claim and is not independent permission evidence. The Facebook source could not be checked. CC0 is a source declaration only; production approval remains withheld until the recording/performer rights grant is established. User positively auditioned the performance alone and with quiet cricket ambience.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/89/Romanza_espa%C3%B1ola.ogg",
-      "fileName": "candidate-romanza-espanola.ogg",
-      "durationSeconds": 150.356,
-      "sha1": "b7a0245aef8a0eeadd5b372854760e504878b85f",
-      "declaredLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:09.1087426+02:00"
-    },
-    {
       "id": "candidate-recuerdos-de-la-alhambra",
       "title": "Recuerdos de la Alhambra",
       "creator": "Francisco Tárrega; guitar and recording: Carlo Alberto Boni (Outonomia)",

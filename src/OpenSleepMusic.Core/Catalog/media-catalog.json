@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-07T19:24:19.0917989+00:00",
+  "generatedAtUtc": "2026-10-07T19:34:59.2789768+00:00",
   "sleepWorlds": [
     {
       "id": "preselection",
@@ -96,31 +96,6 @@
           "fileName": "candidate-pachelbel-suite-in-f-sharp-minor-p-439-iv-sarabande-guitar.ogg",
           "durationSeconds": 74.589,
           "sha1": "d18e8a3d86f000533904e700ab455ee83866da8e",
-          "startOffsetMilliseconds": 0,
-          "endOffsetMilliseconds": 0,
-          "instrumentation": [
-            "guitar"
-          ],
-          "ensembleType": "unreviewed",
-          "licenseReviewStatus": "unchecked",
-          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_quiet_classics_v3.png",
-          "artworkFileName": "background_quiet_classics_v3.png",
-          "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",
-          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_quiet_classics.png",
-          "fallbackMotifFileName": "fallback_quiet_classics.png",
-          "fallbackMotifSha256": "35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d"
-        },
-        {
-          "id": "candidate-romanza-espanola",
-          "title": "Romanza española",
-          "creator": "Alisa Gladyseva (Alias Guitar); composer unknown",
-          "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/89/Romanza_espa%C3%B1ola.ogg",
-          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Romanza_espa%C3%B1ola.ogg",
-          "license": "CC0",
-          "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
-          "fileName": "candidate-romanza-espanola.ogg",
-          "durationSeconds": 150.356,
-          "sha1": "b7a0245aef8a0eeadd5b372854760e504878b85f",
           "startOffsetMilliseconds": 0,
           "endOffsetMilliseconds": 0,
           "instrumentation": [

@@ -28,6 +28,9 @@ public sealed class BuiltInCatalogTests
         Assert.Equal(ids.Length, ids.Distinct(StringComparer.Ordinal).Count());
         var tracks = BuiltInCatalog.SleepWorlds.SelectMany(world => world.Tracks);
         Assert.All(ids, id => Assert.DoesNotContain(tracks, track => track.Id == id));
+        Assert.All(ids, id => Assert.DoesNotContain(BuiltInPreselection.Candidates, candidate => candidate.Id == id));
+        var references = BuiltInCatalog.SleepWorlds.SelectMany(world => world.ExternalReferences ?? []);
+        Assert.All(ids, id => Assert.DoesNotContain(references, reference => reference.Id == id));
     }
 
     [Fact]
@@ -44,7 +47,7 @@ public sealed class BuiltInCatalogTests
         {
             var preselection = Assert.Single(worlds, world => world.Id == "preselection");
             Assert.Equal("Vorauswahl", preselection.Name);
-            Assert.Equal(64, preselection.Tracks.Count);
+            Assert.Equal(63, preselection.Tracks.Count);
             var references = Assert.Single(worlds, world => world.Id == "pre-qualify");
             Assert.Empty(references.Tracks);
             Assert.Equal(24, references.ExternalReferences!.Count);
