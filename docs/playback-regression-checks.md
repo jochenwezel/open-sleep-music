@@ -81,3 +81,22 @@ These are manual checks, not a record of completed device validation.
    survive; older saved queues without it must still restore built-in tracks.
 5. Confirm that a later positive native duration takes precedence and that an
    untrimmed recording is not cut short solely by an estimated catalog length.
+
+## Shared collection recordings
+
+1. Refresh the catalog in an updated Stable or Preview app. Confirm Romanza,
+   Recuerdos, Julia Florida and Clair de lune appear in both Quiet Classics and
+   Lullabies for little ones; Preview Preselection must no longer list them.
+2. Download one collection, then the other. Shared MP3s must be reused locally
+   without another HTTP audio request. Repeat starting with existing Preview MP3s.
+3. Delete either collection. Shared recordings in the other must remain playable
+   offline. Cancel a reuse/download operation and check for leftover `.part` files.
+4. Play consecutive shared recordings in Lullabies on Android. The queue and
+   notification-opened player must stay in Lullabies rather than switching to
+   Quiet Classics. Repeat in Quiet Classics. Browse another collection, restart
+   the app and recreate the Android service: the playing collection must restore
+   independently of the last browsed collection.
+5. Romanza must skip its leading silence at 6400 ms; original media bytes and
+   the visible listening timeline must retain the documented trim behavior.
+
+These shared-collection device checks remain manual release validation.

@@ -105,7 +105,7 @@ public sealed partial class CatalogUpdateClient(
             CatalogJsonContext.Default.CatalogManifest,
             cancellationToken) ?? throw new InvalidDataException("Media catalog is empty.");
         Validate(manifest);
-        return new CatalogSnapshot(manifest.GeneratedAtUtc, manifest.SleepWorlds);
+        return new CatalogSnapshot(manifest.GeneratedAtUtc, CatalogMembership.Resolve(manifest.SleepWorlds));
     }
 
     private static void Validate(CatalogManifest manifest)

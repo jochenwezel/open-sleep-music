@@ -5,4 +5,5 @@ internal sealed record PlaybackSnapshot(
     bool IsPlaying,
     TimeSpan Position,
     TimeSpan Duration,
-    string? Error = null);
+    string? Error = null,
+    string? WorldId = null);

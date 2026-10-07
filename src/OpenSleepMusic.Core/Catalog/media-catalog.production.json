@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-07T19:59:04.4991739+00:00",
+  "generatedAtUtc": "2026-10-07T20:10:17.0412002+00:00",
   "sleepWorlds": [
     {
       "id": "quiet-classics",
@@ -2024,6 +2024,118 @@
             "bassoon"
           ],
           "ensembleType": "octet",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_quiet_classics_v3.png",
+          "artworkFileName": "background_quiet_classics_v3.png",
+          "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",
+          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_quiet_classics.png",
+          "fallbackMotifFileName": "fallback_quiet_classics.png",
+          "fallbackMotifSha256": "35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d"
+        },
+        {
+          "id": "candidate-recuerdos-de-la-alhambra",
+          "title": "Recuerdos de la Alhambra",
+          "creator": "Francisco Tárrega; guitar and recording: Carlo Alberto Boni (Outonomia)",
+          "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a3/Recuerdos_de_la_Alhambra.ogg/Recuerdos_de_la_Alhambra.ogg.mp3",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Recuerdos_de_la_Alhambra.ogg",
+          "license": "CC BY-SA 3.0",
+          "licenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "fileName": "candidate-recuerdos-de-la-alhambra.mp3",
+          "durationSeconds": 239.884,
+          "sha1": null,
+          "startOffsetMilliseconds": 0,
+          "endOffsetMilliseconds": 0,
+          "instrumentation": [
+            "guitar"
+          ],
+          "ensembleType": "solo",
+          "licenseReviewStatus": "verified",
+          "additionalWorldIds": [
+            "lullabies"
+          ],
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_quiet_classics_v3.png",
+          "artworkFileName": "background_quiet_classics_v3.png",
+          "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",
+          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_quiet_classics.png",
+          "fallbackMotifFileName": "fallback_quiet_classics.png",
+          "fallbackMotifSha256": "35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d"
+        },
+        {
+          "id": "candidate-clair-de-lune-claude-debussy-suite-bergamasque",
+          "title": "Clair de lune (Claude Debussy) Suite bergamasque",
+          "creator": "Claude Debussy; piano and recording: Laurens Goedhart; original Commons conversion: Akaniji",
+          "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/be/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg.mp3",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Clair_de_lune_(Claude_Debussy)_Suite_bergamasque.ogg",
+          "license": "CC BY 3.0",
+          "licenseUri": "https://creativecommons.org/licenses/by/3.0/",
+          "fileName": "candidate-clair-de-lune-claude-debussy-suite-bergamasque.mp3",
+          "durationSeconds": 304.089,
+          "sha1": null,
+          "startOffsetMilliseconds": 0,
+          "endOffsetMilliseconds": 0,
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo",
+          "licenseReviewStatus": "verified",
+          "additionalWorldIds": [
+            "lullabies"
+          ],
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_quiet_classics_v3.png",
+          "artworkFileName": "background_quiet_classics_v3.png",
+          "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",
+          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_quiet_classics.png",
+          "fallbackMotifFileName": "fallback_quiet_classics.png",
+          "fallbackMotifSha256": "35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d"
+        },
+        {
+          "id": "candidate-barrios-julia-florida-edson-lopes",
+          "title": "Julia Florida",
+          "creator": "Agustín Barrios Mangoré; guitar: Edson Lopes (LopeStudio)",
+          "downloadUri": "https://ks15.imslp.org/files/imglnks/usimg/e/e4/IMSLP254546-PMLP411050-BARRIOS_-_Julia_Florida_(Barcarola).mp3",
+          "sourcePageUri": "https://imslp.org/wiki/Julia_Florida_(Barrios_Mangor%C3%A9,_Agust%C3%ADn)",
+          "license": "CC BY 3.0",
+          "licenseUri": "https://creativecommons.org/licenses/by/3.0/",
+          "fileName": "candidate-barrios-julia-florida-edson-lopes.mp3",
+          "durationSeconds": 267.52,
+          "sha1": null,
+          "startOffsetMilliseconds": 0,
+          "endOffsetMilliseconds": 0,
+          "instrumentation": [
+            "guitar"
+          ],
+          "ensembleType": "solo",
+          "licenseReviewStatus": "verified",
+          "additionalWorldIds": [
+            "lullabies"
+          ],
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_quiet_classics_v3.png",
+          "artworkFileName": "background_quiet_classics_v3.png",
+          "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",
+          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_quiet_classics.png",
+          "fallbackMotifFileName": "fallback_quiet_classics.png",
+          "fallbackMotifSha256": "35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d"
+        },
+        {
+          "id": "candidate-romanza-ten-string-leon-egea",
+          "title": "Romanza española (10-string guitar)",
+          "creator": "Composer unknown; guitar and recording: Ramón León Egea",
+          "downloadUri": "https://ks15.imslp.org/files/imglnks/usimg/0/0f/IMSLP933760-PMLP81963-romance_anonimo.mp3",
+          "sourcePageUri": "https://imslp.org/wiki/Romanza_(Anonymous)",
+          "license": "CC BY-SA 4.0",
+          "licenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "fileName": "candidate-romanza-ten-string-leon-egea.mp3",
+          "durationSeconds": 171.312,
+          "sha1": null,
+          "startOffsetMilliseconds": 6400,
+          "endOffsetMilliseconds": 0,
+          "instrumentation": [
+            "guitar"
+          ],
+          "ensembleType": "solo",
+          "licenseReviewStatus": "verified",
+          "additionalWorldIds": [
+            "lullabies"
+          ],
           "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_quiet_classics_v3.png",
           "artworkFileName": "background_quiet_classics_v3.png",
           "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",

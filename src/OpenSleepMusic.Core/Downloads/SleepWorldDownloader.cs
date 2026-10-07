@@ -57,7 +57,12 @@ public sealed class SleepWorldDownloader(HttpClient httpClient, IDownloadLogSink
                 }
             }
 
-            if (await TryDownloadAsync(track, targetPath, cancellationToken))
+            if (track.AdditionalWorldIds is { Count: > 0 }
+                && await TryReuseAsync(track, destinationRoot, targetPath, cancellationToken))
+            {
+                existing++;
+            }
+            else if (await TryDownloadAsync(track, targetPath, cancellationToken))
             {
                 downloaded++;
             }
@@ -69,6 +74,50 @@ public sealed class SleepWorldDownloader(HttpClient httpClient, IDownloadLogSink
 
         progress?.Report(new DownloadProgress(sleepWorld.Tracks.Count, sleepWorld.Tracks.Count, string.Empty));
         return new DownloadBatchResult(downloaded, existing, skipped);
+    }
+
+    private async Task<bool> TryReuseAsync(AudioTrack track, string destinationRoot, string targetPath,
+        CancellationToken cancellationToken)
+    {
+        var temporaryPath = targetPath + ".part";
+        try
+        {
+            // Keep separate collection files so removing one collection cannot break another.
+            // Globally unique manifest filenames also allow reuse of earlier Preview downloads.
+            foreach (var directory in Directory.EnumerateDirectories(destinationRoot))
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                if ((File.GetAttributes(directory) & FileAttributes.ReparsePoint) != 0) continue;
+                var sourcePath = Path.Combine(directory, track.FileName);
+                if (string.Equals(sourcePath, targetPath, StringComparison.OrdinalIgnoreCase)
+                    || !File.Exists(sourcePath)
+                    || (File.GetAttributes(sourcePath) & FileAttributes.ReparsePoint) != 0) continue;
+                if (await AudioFileValidator.GetValidationErrorAsync(sourcePath, track.Sha1, cancellationToken) is not null)
+                    continue;
+
+                await using (var source = File.OpenRead(sourcePath))
+                await using (var target = File.Create(temporaryPath))
+                    await source.CopyToAsync(target, cancellationToken);
+                if (await AudioFileValidator.GetValidationErrorAsync(temporaryPath, track.Sha1, cancellationToken) is not null)
+                    continue;
+                cancellationToken.ThrowIfCancellationRequested();
+                File.Move(temporaryPath, targetPath, true);
+                return true;
+            }
+        }
+        catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
+        {
+            await LogAsync(track, $"Local reuse failed: {exception.Message}", cancellationToken);
+        }
+        finally
+        {
+            try { File.Delete(temporaryPath); }
+            catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
+            {
+                await LogAsync(track, $"Partial file could not be removed: {exception.Message}", CancellationToken.None);
+            }
+        }
+        return false;
     }
 
     private async Task<bool> TryDownloadAsync(

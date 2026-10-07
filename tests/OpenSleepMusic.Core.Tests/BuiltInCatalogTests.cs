@@ -37,7 +37,9 @@ public sealed class BuiltInCatalogTests
     public void CatalogIsLargeConsistentAndFullyAttributed()
     {
         var worlds = BuiltInCatalog.SleepWorlds;
-        var tracks = worlds.SelectMany(world => world.Tracks).ToArray();
+        var memberships = worlds.SelectMany(world => world.Tracks).ToArray();
+        var tracks = memberships.DistinctBy(track => track.Id).ToArray();
+        Assert.All(memberships, track => Assert.Same(tracks.Single(asset => asset.Id == track.Id), track));
 
         Assert.Equal(BuildChannel.IsPreview ? 8 : 6, worlds.Count);
         Assert.True(tracks.Length >= 134, $"Expected at least 134 tracks, found {tracks.Length}.");
@@ -47,7 +49,7 @@ public sealed class BuiltInCatalogTests
         {
             var preselection = Assert.Single(worlds, world => world.Id == "preselection");
             Assert.Equal("Vorauswahl", preselection.Name);
-            Assert.Equal(63, preselection.Tracks.Count);
+            Assert.Equal(59, preselection.Tracks.Count);
             var references = Assert.Single(worlds, world => world.Id == "pre-qualify");
             Assert.Empty(references.Tracks);
             Assert.Equal(24, references.ExternalReferences!.Count);
@@ -122,7 +124,8 @@ public sealed class BuiltInCatalogTests
         var world = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "lullabies");
 
         Assert.Equal("Schlaflieder für Kleine", world.Name);
-        Assert.Equal(4, world.Tracks.Count);
+        Assert.Equal(8, world.Tracks.Count);
+        var originalTracks = world.Tracks.Where(track => track.AdditionalWorldIds is not { Count: > 0 }).ToArray();
         Assert.Equal(
             [
                 "burgmuller-berceuse-op-109-no-7",
@@ -130,8 +133,8 @@ public sealed class BuiltInCatalogTests
                 "music-box-guten-abend-gute-nacht",
                 "music-box-schlafe-mein-prinzchen"
             ],
-            world.Tracks.Select(track => track.Id).Order(StringComparer.Ordinal));
-        Assert.All(world.Tracks, track =>
+            originalTracks.Select(track => track.Id).Order(StringComparer.Ordinal));
+        Assert.All(originalTracks, track =>
         {
             Assert.Equal(1 / 1.2, track.PlaybackSpeed, 5);
             Assert.DoesNotContain("vocal", track.Title, StringComparison.OrdinalIgnoreCase);

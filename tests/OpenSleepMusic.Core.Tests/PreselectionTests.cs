@@ -29,7 +29,14 @@ public sealed class PreselectionTests
             Assert.NotEmpty(candidate.Title);
             Assert.NotEmpty(candidate.Instrumentation);
             Assert.Contains(candidate.LicenseReviewStatus, new[] { "unchecked", "verified", "rejected" });
-            Assert.DoesNotContain(downloadableTracks, track => track.Id == candidate.Id);
+            if (candidate.PromotedWorldIds is { Count: > 0 } destinations)
+            {
+                candidate.EnsurePromotionAllowed();
+                Assert.All(destinations, id => Assert.Contains(BuiltInCatalog.SleepWorlds.Single(world => world.Id == id).Tracks,
+                    track => track.Id == candidate.Id && track.License == candidate.ApprovedLicense));
+            }
+            else
+                Assert.DoesNotContain(downloadableTracks, track => track.Id == candidate.Id);
             if (!candidate.CanPromote)
                 Assert.Throws<InvalidOperationException>(candidate.EnsurePromotionAllowed);
         });
@@ -68,7 +75,7 @@ public sealed class PreselectionTests
             return;
         }
         Assert.NotNull(world);
-        Assert.Equal(63, world.Tracks.Count);
+        Assert.Equal(59, world.Tracks.Count);
         Assert.All(world.Tracks, track =>
         {
             var candidate = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == track.Id);
@@ -184,7 +191,7 @@ public sealed class PreselectionTests
             Assert.False(candidate.CanPromote);
             Assert.Contains(candidate.SelectionKind, new[] { "traditional-lullaby", "modern-lullaby", "gentle-arrangement" });
         });
-        Assert.Equal(4, BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies").Tracks.Count);
+        Assert.Equal(8, BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies").Tracks.Count);
     }
 
     [Fact]

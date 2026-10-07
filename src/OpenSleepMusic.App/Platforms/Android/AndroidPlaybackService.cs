@@ -263,7 +263,8 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         }
         catch (Exception exception)
         {
-            AndroidPlaybackBridge.Publish(new(item.Id, false, TimeSpan.Zero, TimeSpan.Zero, exception.Message));
+            AndroidPlaybackBridge.Publish(new(item.Id, false, TimeSpan.Zero, TimeSpan.Zero, exception.Message,
+                WorldId: System.IO.Path.GetFileName(System.IO.Path.GetDirectoryName(item.Path))));
             SkipFailedTrack(item.Id, exception.Message);
         }
     }
@@ -598,7 +599,8 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         var playing = IsPlaying();
         if (item is not null)
         {
-            AndroidPlaybackBridge.Publish(new(item.Id, playing, TimeSpan.FromMilliseconds(position), TimeSpan.FromMilliseconds(duration)));
+            AndroidPlaybackBridge.Publish(new(item.Id, playing, TimeSpan.FromMilliseconds(position), TimeSpan.FromMilliseconds(duration),
+                WorldId: System.IO.Path.GetFileName(System.IO.Path.GetDirectoryName(item.Path))));
             _session?.SetPlaybackState(new PlaybackState.Builder()!
                 .SetActions(PlaybackState.ActionPlay | PlaybackState.ActionPause | PlaybackState.ActionPlayPause |
                             PlaybackState.ActionSkipToNext | PlaybackState.ActionSkipToPrevious | PlaybackState.ActionSeekTo)!

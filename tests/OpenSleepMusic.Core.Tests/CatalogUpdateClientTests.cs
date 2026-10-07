@@ -205,6 +205,81 @@ public sealed class CatalogUpdateClientTests
         finally { Directory.Delete(root, true); }
     }
 
+    [Fact]
+    public async Task SharedMembershipIsResolvedFromRemoteAndOfflineCacheWithoutDuplicatingTheManifest()
+    {
+        var root = TemporaryRoot();
+        try
+        {
+            var json = SharedCatalogJson("other");
+            using var client = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.OK, json)));
+            var embedded = Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero));
+            var remote = await new CatalogUpdateClient(client, CatalogUri).ResolveAsync(embedded, root);
+            Assert.Equal(2, remote.SleepWorlds.Count);
+            Assert.Same(Assert.Single(remote.SleepWorlds[0].Tracks), Assert.Single(remote.SleepWorlds[1].Tracks));
+            using var offline = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.NotFound, "missing")));
+            var cached = await new CatalogUpdateClient(offline, CatalogUri).ResolveAsync(embedded, root);
+            Assert.Equal(2, cached.SleepWorlds.Count);
+            Assert.Same(Assert.Single(cached.SleepWorlds[0].Tracks), Assert.Single(cached.SleepWorlds[1].Tracks));
+            using var manifest = System.Text.Json.JsonDocument.Parse(await File.ReadAllTextAsync(Path.Combine(root, "media-catalog.json")));
+            Assert.Empty(manifest.RootElement.GetProperty("sleepWorlds")[1].GetProperty("tracks").EnumerateArray());
+        }
+        finally { Directory.Delete(root, true); }
+    }
+
+    [Theory]
+    [InlineData("missing")]
+    [InlineData("remote")]
+    [InlineData("other,other")]
+    [InlineData("preselection")]
+    [InlineData("pre-qualify")]
+    public async Task InvalidSharedMembershipKeepsThePreviousCatalog(string targets)
+    {
+        var root = TemporaryRoot();
+        try
+        {
+            using var client = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.OK, SharedCatalogJson(targets))));
+            var embedded = Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero));
+            var result = await new CatalogUpdateClient(client, CatalogUri).ResolveAsync(embedded, root);
+            Assert.Equal("embedded", Assert.Single(result.SleepWorlds).Id);
+            Assert.False(File.Exists(Path.Combine(root, "media-catalog.json")));
+        }
+        finally { Directory.Delete(root, true); }
+    }
+
+    [Theory]
+    [InlineData("unchecked")]
+    [InlineData("verified")]
+    public async Task PreviewSourceCannotShareItsRecordingIntoProduction(string reviewStatus)
+    {
+        var root = TemporaryRoot();
+        try
+        {
+            var json = System.Text.Json.Nodes.JsonNode.Parse(SharedCatalogJson("other"))!;
+            json["sleepWorlds"]![0]!["id"] = "preselection";
+            json["sleepWorlds"]![0]!["tracks"]![0]!["licenseReviewStatus"] = reviewStatus;
+            using var client = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.OK, json.ToJsonString())));
+            var embedded = Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero));
+            var result = await new CatalogUpdateClient(client, CatalogUri).ResolveAsync(embedded, root);
+            Assert.Equal("embedded", Assert.Single(result.SleepWorlds).Id);
+            Assert.False(File.Exists(Path.Combine(root, "media-catalog.json")));
+        }
+        finally { Directory.Delete(root, true); }
+    }
+
+    private static string SharedCatalogJson(string targets)
+    {
+        var json = System.Text.Json.Nodes.JsonNode.Parse(CatalogJson("remote"))!;
+        var worlds = json["sleepWorlds"]!.AsArray();
+        worlds[0]!["tracks"]![0]!["additionalWorldIds"] = new System.Text.Json.Nodes.JsonArray(
+            targets.Split(',').Select(value => (System.Text.Json.Nodes.JsonNode?)System.Text.Json.Nodes.JsonValue.Create(value)).ToArray());
+        var other = worlds[0]!.DeepClone();
+        other["id"] = targets is "preselection" or "pre-qualify" ? targets : "other";
+        other["tracks"] = new System.Text.Json.Nodes.JsonArray();
+        worlds.Add(other);
+        return json.ToJsonString();
+    }
+
     private static readonly Uri CatalogUri = new("https://example.test/media-catalog.json");
 
     private static string TemporaryRoot()

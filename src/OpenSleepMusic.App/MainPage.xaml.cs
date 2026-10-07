@@ -562,7 +562,7 @@ public partial class MainPage : ContentPage
 #endif
             if (_currentTrack is not null)
             {
-                var refreshedCurrentTrack = _library.FirstOrDefault(track => track.Track.Id == _currentTrack.Track.Id);
+                var refreshedCurrentTrack = FindPlaybackTrack(_currentTrack.Track.Id);
                 if (refreshedCurrentTrack is null)
                 {
                     StopAndClearPlayback();
@@ -614,6 +614,14 @@ public partial class MainPage : ContentPage
         _selectedWorldCard = _worldCards.FirstOrDefault(card => card.World.Id == selectedWorldId);
     }
 
+    private LocalLibraryTrack? FindPlaybackTrack(string trackId, string? preferredWorldId = null)
+    {
+        var worldId = preferredWorldId ?? _playbackQueue.ActiveWorldId ?? _currentTrack?.SleepWorld.Id
+            ?? _selectedWorldCard?.World.Id ?? _initialState.SelectedWorldId;
+        return _library.FirstOrDefault(track => track.Track.Id == trackId && track.SleepWorld.Id == worldId)
+            ?? _library.FirstOrDefault(track => track.Track.Id == trackId);
+    }
+
     private void RestorePlaybackOnce()
     {
         if (_didRestorePlayback)
@@ -625,7 +633,7 @@ public partial class MainPage : ContentPage
         var saved = _stateStore.LoadPlayback();
         var track = saved is null
             ? null
-            : _library.FirstOrDefault(candidate => candidate.Track.Id == saved.TrackId);
+            : FindPlaybackTrack(saved.TrackId, saved.WorldId);
         if (track is null || saved is null)
         {
             return;
@@ -840,7 +848,7 @@ public partial class MainPage : ContentPage
         PlayPauseButton.Text = autoPlay ? "⏸" : "▶";
         SetPlaybackControlsEnabled(true);
         UpdateNextTrack();
-        _stateStore.SavePlayback(track.Track.Id, Math.Max(0, startPositionSeconds));
+        _stateStore.SavePlayback(track.Track.Id, Math.Max(0, startPositionSeconds), track.SleepWorld.Id);
         _lastPlaybackSaveUtc = DateTimeOffset.UtcNow;
     }
 
@@ -1503,7 +1511,7 @@ public partial class MainPage : ContentPage
             DateTimeOffset.UtcNow,
             AppInfo.Current.VersionString,
             DeviceInfo.Current.Platform.ToString(),
-            BuiltInCatalog.SleepWorlds.Sum(world => world.Tracks.Count),
+            BuiltInCatalog.SleepWorlds.SelectMany(world => world.Tracks).DistinctBy(track => track.Id).Count(),
             ratings,
             string.IsNullOrWhiteSpace(comment) ? null : comment.Trim());
         var json = JsonSerializer.Serialize(report, FeedbackJsonContext.Default.CatalogFeedbackReport);
@@ -1682,7 +1690,7 @@ public partial class MainPage : ContentPage
 #else
             : PlaybackTimeline.ToPlaybackTime(Player.Position, currentTrack.Track.PlaybackSpeed, currentTrack.Track.StartOffsetMilliseconds).TotalSeconds;
 #endif
-        _stateStore.SavePlayback(currentTrack.Track.Id, position);
+        _stateStore.SavePlayback(currentTrack.Track.Id, position, currentTrack.SleepWorld.Id);
         _lastPlaybackSaveUtc = now;
     }
 
@@ -1750,7 +1758,7 @@ public partial class MainPage : ContentPage
         var trackId = AndroidPlaybackBridge.PeekOpenCurrentTrackId();
         if (trackId is null) return;
 
-        var track = _library.FirstOrDefault(item => item.Track.Id == trackId);
+        var track = FindPlaybackTrack(trackId, AndroidPlaybackBridge.Snapshot.WorldId);
         if (track is null || !AndroidPlaybackBridge.ConsumeOpenCurrentRequest(trackId)) return;
 
         ApplyAndroidSnapshot(AndroidPlaybackBridge.Snapshot);
@@ -1793,8 +1801,9 @@ public partial class MainPage : ContentPage
             UpdateWorldPlaybackState(false);
             return;
         }
-        var track = _library.FirstOrDefault(item => item.Track.Id == snapshot.TrackId);
-        if (track is not null && _currentTrack?.Track.Id != snapshot.TrackId)
+        var track = FindPlaybackTrack(snapshot.TrackId, snapshot.WorldId);
+        if (track is not null && (_currentTrack?.Track.Id != snapshot.TrackId
+            || _currentTrack?.SleepWorld.Id != track.SleepWorld.Id))
         {
             if (_playbackQueue.ActiveWorldId != track.SleepWorld.Id)
                 _playbackQueue.Activate(track.SleepWorld.Id, GetPlayableTracks(track.SleepWorld.Id));

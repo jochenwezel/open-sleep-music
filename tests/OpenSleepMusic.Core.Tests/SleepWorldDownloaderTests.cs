@@ -1,6 +1,7 @@
 using System.Net;
 using OpenSleepMusic.Core.Catalog;
 using OpenSleepMusic.Core.Downloads;
+using OpenSleepMusic.Core.Library;
 
 namespace OpenSleepMusic.Core.Tests;
 
@@ -164,6 +165,71 @@ public sealed class SleepWorldDownloaderTests
                 Directory.Delete(destination, true);
             }
         }
+    }
+
+    [Theory]
+    [InlineData("first", "second")]
+    [InlineData("second", "first")]
+    [InlineData("preselection", "second")]
+    public async Task SharedRecordingDownloadsOnceAndCollectionsCanBeRemovedIndependently(string firstId, string secondId)
+    {
+        var track = Track("shared", "shared.mp3", "https://example.test/audio") with { AdditionalWorldIds = ["second"] };
+        var first = new SleepWorld(firstId, "First", "Description", "T", [track]);
+        var second = new SleepWorld(secondId, "Second", "Description", "T", [track]);
+        var requests = 0;
+        using var client = new HttpClient(new StubHandler(_ =>
+        {
+            requests++;
+            return Response(HttpStatusCode.OK, [.. "ID3"u8, .. new byte[256]], "audio/mpeg");
+        }));
+        var root = Path.Combine(Path.GetTempPath(), $"open-sleep-shared-{Guid.NewGuid():N}");
+        try
+        {
+            var downloader = new SleepWorldDownloader(client);
+            Assert.Equal(1, (await downloader.DownloadAsync(first, root)).DownloadedCount);
+            var result = await downloader.DownloadAsync(second, root);
+            Assert.Equal(1, result.ExistingCount);
+            Assert.Equal(0, result.DownloadedCount);
+            Assert.Equal(1, requests);
+            Assert.Empty(Directory.EnumerateFiles(root, "*.part", SearchOption.AllDirectories));
+            var manager = new LocalLibraryManager(new LocalLibraryScanner());
+            await manager.DeleteWorldAsync(root, first);
+            Assert.Single(await new LocalLibraryScanner().ScanAsync(root, [second]));
+            Assert.False(Directory.Exists(Path.Combine(root, first.Id)));
+        }
+        finally { if (Directory.Exists(root)) Directory.Delete(root, true); }
+    }
+
+    [Theory]
+    [InlineData(false)]
+    [InlineData(true)]
+    public async Task InvalidLocalSharedCopyFallsBackToDownloadWithoutTrustingItsName(bool wrongChecksum)
+    {
+        byte[] audio = [.. "ID3"u8, .. new byte[256]];
+        var track = Track("shared", "shared.mp3", "https://example.test/audio") with
+        {
+            AdditionalWorldIds = ["second"],
+            Sha1 = Convert.ToHexString(System.Security.Cryptography.SHA1.HashData(audio)).ToLowerInvariant()
+        };
+        var world = new SleepWorld("second", "Second", "Description", "T", [track]);
+        var requests = 0;
+        using var client = new HttpClient(new StubHandler(_ =>
+        {
+            requests++;
+            return Response(HttpStatusCode.OK, audio, "audio/mpeg");
+        }));
+        var root = Path.Combine(Path.GetTempPath(), $"open-sleep-shared-{Guid.NewGuid():N}");
+        try
+        {
+            Directory.CreateDirectory(Path.Combine(root, "preselection"));
+            await File.WriteAllBytesAsync(Path.Combine(root, "preselection", track.FileName),
+                wrongChecksum ? [.. "ID3"u8, .. new byte[512]] : [.. "<html>"u8, .. new byte[256]]);
+            Assert.Equal(1, (await new SleepWorldDownloader(client).DownloadAsync(world, root)).DownloadedCount);
+            Assert.Equal(1, requests);
+            Assert.Equal(audio, await File.ReadAllBytesAsync(Path.Combine(root, world.Id, track.FileName)));
+            Assert.Empty(Directory.EnumerateFiles(root, "*.part", SearchOption.AllDirectories));
+        }
+        finally { if (Directory.Exists(root)) Directory.Delete(root, true); }
     }
 
     private static AudioTrack Track(string id, string fileName, string uri) => new(

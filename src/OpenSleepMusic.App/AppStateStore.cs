@@ -17,7 +17,7 @@ internal sealed record PersistedAppState(
     int SleepTimerMinutes,
     DateTimeOffset? SleepTimerEndUtc);
 
-internal sealed record PersistedPlaybackState(string TrackId, double PositionSeconds);
+internal sealed record PersistedPlaybackState(string TrackId, double PositionSeconds, string? WorldId = null);
 
 internal sealed class AppStateStore(IPreferences? preferences = null)
 {
@@ -29,6 +29,7 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
     private const string TimerEndKey = "sleep-timer.end-utc";
     private const string PlaybackTrackKey = "playback.track-id";
     private const string PlaybackPositionKey = "playback.position-seconds";
+    private const string PlaybackWorldKey = "playback.world-id";
     private const string FavoritePrefix = "track.favorite.";
     private const string BlockedPrefix = "track.blocked.";
     private const string FavoritesOnlyPrefix = "collection.favorites-only.";
@@ -70,7 +71,8 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
 
         return new PersistedPlaybackState(
             trackId,
-            Math.Max(0, _preferences.Get(PlaybackPositionKey, 0d)));
+            Math.Max(0, _preferences.Get(PlaybackPositionKey, 0d)),
+            EmptyToNull(_preferences.Get(PlaybackWorldKey, string.Empty)));
     }
 
     public void SaveVolume(double volume) =>
@@ -96,16 +98,18 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
         _preferences.Set(TimerEndKey, endUtc?.ToString("O") ?? string.Empty);
     }
 
-    public void SavePlayback(string trackId, double positionSeconds)
+    public void SavePlayback(string trackId, double positionSeconds, string? worldId = null)
     {
         _preferences.Set(PlaybackTrackKey, trackId);
         _preferences.Set(PlaybackPositionKey, Math.Max(0, positionSeconds));
+        _preferences.Set(PlaybackWorldKey, worldId ?? string.Empty);
     }
 
     public void ClearPlayback()
     {
         _preferences.Remove(PlaybackTrackKey);
         _preferences.Remove(PlaybackPositionKey);
+        _preferences.Remove(PlaybackWorldKey);
     }
 
     public bool IsFavorite(string worldId, string trackId) =>

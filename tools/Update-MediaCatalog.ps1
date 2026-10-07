@@ -209,7 +209,19 @@ foreach ($candidate in $candidateManifest.candidates) {
     }
     if ($null -ne $candidate.volumeGain) { $auditionTrack.volumeGain = $volumeGain }
     if ($null -ne $candidate.playbackSpeed) { $auditionTrack.playbackSpeed = $playbackSpeed }
-    $worlds.preselection.tracks.Add($auditionTrack)
+    if ($candidate.promotedWorldIds) {
+        $destinations = @($candidate.promotedWorldIds)
+        if ($candidate.licenseReviewStatus -ne 'verified' -or
+            @($destinations | Sort-Object -Unique).Count -ne $destinations.Count -or
+            @($destinations | Where-Object { !$worlds.Contains($_) -or $_ -in @('preselection', 'pre-qualify') }).Count) {
+            throw "Invalid promotion destinations or recording review: $($candidate.id)"
+        }
+        $auditionTrack.ensembleType = 'solo'
+        $auditionTrack.additionalWorldIds = @($destinations | Select-Object -Skip 1)
+        $worlds[$destinations[0]].tracks.Add($auditionTrack)
+    } else {
+        $worlds.preselection.tracks.Add($auditionTrack)
+    }
 }
 
 $artworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2'
@@ -307,7 +319,7 @@ $manifest = [ordered]@{
     sleepWorlds = @($manifestWorlds)
 }
 
-# Unreviewed candidates stay outside the downloadable catalog. Moving a candidate
+# Unreviewed candidates stay outside the production catalog. Moving a candidate
 # into a production world requires a documented review of the specific recording.
 $candidateManifest = Get-Content (Join-Path $PSScriptRoot 'preselection-candidates.json') -Raw | ConvertFrom-Json
 if ($candidateManifest.schemaVersion -ne 1) { throw 'Unsupported preselection schema.' }

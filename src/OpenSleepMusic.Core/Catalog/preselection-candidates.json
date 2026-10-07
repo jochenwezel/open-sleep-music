@@ -89,16 +89,20 @@
       ],
       "licenseReviewStatus": "verified",
       "declaredLicense": "CC BY-SA 3.0",
-      "reviewNotes": "Recording-rights review 2026-10-06: exact Commons file identifies Carlo Alberto Boni as performer/author, source Own work, uploaded by the same linked author account Outonomia on 2011-09-29, with an explicit copyright-holder CC BY-SA 3.0 Unported grant. Composition: Francisco Tárrega. Retain performer/composer/source/license attribution and identify edits; redistributed adaptations must comply with ShareAlike. This is a documented source-grant review, not an independent guarantee of copyright ownership. User positively auditioned the performance alone and with quiet cricket ambience. Remaining production audio/suitability checks are separate; retained in Preview. Delivery compatibility update 2026-10-07: maintainer reports correct audio playback but zero duration and a stationary position slider on Android with the original Ogg. Use the existing Wikimedia-hosted MP3 transcode of the same Carlo Alberto Boni performance, retaining the exact source page and CC BY-SA 3.0 attribution. The source file page confirms its completed MP3 transcode. Original Ogg upstream SHA-1 be8bb6a5c5f6b1968529fe5b8981393eb40679b9 is retained here for provenance only; it cannot validate MP3 bytes, and no MP3 upstream checksum is provided, so delivery sha1 is null. HTTPS MP3 returned HTTP 200, ID3 signature and decoded fully to 239.884 seconds. A local Windows MediaPlayer probe read positive duration and successfully sought to 30 seconds for both encodings; the reported Android behavior was not reproduced on an Android device. No on-device conversion, project-edited media or rehosting. A catalog refresh followed by downloading the new MP3 is required on existing installations.",
+      "reviewNotes": "Recording-rights review 2026-10-06: exact Commons file identifies Carlo Alberto Boni as performer/author, source Own work, uploaded by the same linked author account Outonomia on 2011-09-29, with an explicit copyright-holder CC BY-SA 3.0 Unported grant. Composition: Francisco Tárrega. Retain performer/composer/source/license attribution and identify edits; redistributed adaptations must comply with ShareAlike. This is a documented source-grant review, not an independent guarantee of copyright ownership. User positively auditioned the performance alone and with quiet cricket ambience. Remaining production audio/suitability checks are separate; retained in Preview. Delivery compatibility update 2026-10-07: maintainer reports correct audio playback but zero duration and a stationary position slider on Android with the original Ogg. Use the existing Wikimedia-hosted MP3 transcode of the same Carlo Alberto Boni performance, retaining the exact source page and CC BY-SA 3.0 attribution. The source file page confirms its completed MP3 transcode. Original Ogg upstream SHA-1 be8bb6a5c5f6b1968529fe5b8981393eb40679b9 is retained here for provenance only; it cannot validate MP3 bytes, and no MP3 upstream checksum is provided, so delivery sha1 is null. HTTPS MP3 returned HTTP 200, ID3 signature and decoded fully to 239.884 seconds. A local Windows MediaPlayer probe read positive duration and successfully sought to 30 seconds for both encodings; the reported Android behavior was not reproduced on an Android device. No on-device conversion, project-edited media or rehosting. A catalog refresh followed by downloading the new MP3 is required on existing installations. Production promotion 2026-10-07: after audition feedback the maintainer selected this instrumental performance for both Quiet Classics and Lullabies for little ones. This supersedes earlier pending suitability/destination notes. The accepted recording grant and performer attribution are retained. Stable HTTPS MP3 delivery returned actual ID3 audio and decoded completely; duration metadata is the original decoded interval. Playback gain, speed and trim settings are retained; no audio bytes are edited. Canonical ID and filename remain unique, with additionalWorldIds expressing shared membership. Remove the active audition entry while retaining this review record as the promotion audit.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a3/Recuerdos_de_la_Alhambra.ogg/Recuerdos_de_la_Alhambra.ogg.mp3",
       "fileName": "candidate-recuerdos-de-la-alhambra.mp3",
       "durationSeconds": 239.884,
       "sha1": null,
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0",
-      "deliveryCheckedAtUtc": "2026-10-07T21:42:11.8968669+02:00",
+      "deliveryCheckedAtUtc": "2026-10-07T22:06:46.1900131+02:00",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Recuerdos_de_la_Alhambra.ogg&oldid=1059400139",
       "approvedLicense": "CC BY-SA 3.0",
-      "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/"
+      "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "promotedWorldIds": [
+        "quiet-classics",
+        "lullabies"
+      ]
     },
     {
       "id": "candidate-satie-gymnopedie-no-1-performed-by-michael-laucke",
@@ -765,7 +769,7 @@
     {
       "id": "candidate-clair-de-lune-claude-debussy-suite-bergamasque",
       "title": "Clair de lune (Claude Debussy) Suite bergamasque",
-      "creator": "Claude Debussy; piano and recording: Laurens Goedhart",
+      "creator": "Claude Debussy; piano and recording: Laurens Goedhart; original Commons conversion: Akaniji",
       "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Clair_de_lune_(Claude_Debussy)_Suite_bergamasque.ogg",
       "instrumentation": [
         "piano"
@@ -773,16 +777,20 @@
       "licenseReviewStatus": "verified",
       "declaredLicense": "CC BY 3.0",
       "licenseEvidenceUri": "https://web.archive.org/web/20120210054738/http://soundcloud.com/laurensgoedhart/claude-debussys-clair-de-lune",
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-rights review 2026-10-07: authoritative Commons revision 1264119050 identifies pianist/recordist Laurens Goedhart and a recording-specific CC BY 3.0 grant, distinct from the composition public-domain label. The linked 2012-02-10 archive of the performer SoundCloud page describes his own Yamaha C3 piano recording, credits him as uploader and links CC BY 3.0; the current performer page still identifies his own recording and License cc-by. Preserve composer, pianist, source page, original SoundCloud and archived grant attribution, and upstream conversion credit Akaniji. A listener comment reports a later automated copyright claim; this does not supersede the documented performer grant. The maintainer proposes this audition for both Quiet Classics and For Little Ones. Final destination, full listening suitability, relative levels and transitions remain pending; rights approval alone is not production promotion.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/b/be/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg",
-      "fileName": "candidate-clair-de-lune-claude-debussy-suite-bergamasque.ogg",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-rights review 2026-10-07: authoritative Commons revision 1264119050 identifies pianist/recordist Laurens Goedhart and a recording-specific CC BY 3.0 grant, distinct from the composition public-domain label. The linked 2012-02-10 archive of the performer SoundCloud page describes his own Yamaha C3 piano recording, credits him as uploader and links CC BY 3.0; the current performer page still identifies his own recording and License cc-by. Preserve composer, pianist, source page, original SoundCloud and archived grant attribution, and upstream conversion credit Akaniji. A listener comment reports a later automated copyright claim; this does not supersede the documented performer grant. The maintainer proposes this audition for both Quiet Classics and For Little Ones. Final destination, full listening suitability, relative levels and transitions remain pending; rights approval alone is not production promotion. Delivery review 2026-10-07: use the stable Commons MP3 transcode of the same Laurens Goedhart performance under the existing CC BY 3.0 grant. Original Ogg upstream SHA-1 50d152ad99294c8dd3783b6ddde30b1dfaef19c3 is provenance only, not an MP3 checksum. No upstream MP3 checksum is provided. Preserve conversion credit Akaniji; no project editing or rehosting. Production promotion 2026-10-07: after audition feedback the maintainer selected this instrumental performance for both Quiet Classics and Lullabies for little ones. This supersedes earlier pending suitability/destination notes. The accepted recording grant and performer attribution are retained. Stable HTTPS MP3 delivery returned actual ID3 audio and decoded completely; duration metadata is the original decoded interval. Playback gain, speed and trim settings are retained; no audio bytes are edited. Canonical ID and filename remain unique, with additionalWorldIds expressing shared membership. Remove the active audition entry while retaining this review record as the promotion audit.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/be/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg.mp3",
+      "fileName": "candidate-clair-de-lune-claude-debussy-suite-bergamasque.mp3",
       "durationSeconds": 304.089,
-      "sha1": "50d152ad99294c8dd3783b6ddde30b1dfaef19c3",
+      "sha1": null,
       "declaredLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
-      "deliveryCheckedAtUtc": "2026-10-02T23:50:25.0321815+02:00",
+      "deliveryCheckedAtUtc": "2026-10-07T22:06:46.1949026+02:00",
       "approvedLicense": "CC BY 3.0",
       "approvedLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
       "intendedWorldIds": [
+        "quiet-classics",
+        "lullabies"
+      ],
+      "promotedWorldIds": [
         "quiet-classics",
         "lullabies"
       ]
@@ -1319,17 +1327,21 @@
       "licenseReviewStatus": "verified",
       "declaredLicense": "CC BY 3.0",
       "licenseEvidenceUri": "https://imslp.org/wiki/Julia_Florida_(Barrios_Mangor%C3%A9,_Agust%C3%ADn)",
-      "reviewNotes": "Recording-rights review 2026-10-06: IMSLP recording #254546 identifies the performer/uploader and a recording-specific CC BY 3.0 grant, distinct from score/MIDI licenses. Audio delivery uses the stable HTTPS MP3 URL exposed by the public player; 128-byte MP3 signature checked. Duration is the recording-specific listing, not an average work duration. Warm plucked-guitar audition lead; full sleep-suitability review pending. Credit performer and composer, license and source, describe modifications; follow ShareAlike for redistributed adaptations where applicable. Retained in Preview.",
+      "reviewNotes": "Recording-rights review 2026-10-06: IMSLP recording #254546 identifies the performer/uploader and a recording-specific CC BY 3.0 grant, distinct from score/MIDI licenses. Audio delivery uses the stable HTTPS MP3 URL exposed by the public player; 128-byte MP3 signature checked. Duration is the recording-specific listing, not an average work duration. Warm plucked-guitar audition lead; full sleep-suitability review pending. Credit performer and composer, license and source, describe modifications; follow ShareAlike for redistributed adaptations where applicable. Retained in Preview. Production promotion 2026-10-07: after audition feedback the maintainer selected this instrumental performance for both Quiet Classics and Lullabies for little ones. This supersedes earlier pending suitability/destination notes. The accepted recording grant and performer attribution are retained. Stable HTTPS MP3 delivery returned actual ID3 audio and decoded completely; duration metadata is the original decoded interval. Playback gain, speed and trim settings are retained; no audio bytes are edited. Canonical ID and filename remain unique, with additionalWorldIds expressing shared membership. Remove the active audition entry while retaining this review record as the promotion audit.",
       "approvedLicense": "CC BY 3.0",
       "approvedLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
       "intendedWorldId": "quiet-classics",
       "selectionKind": "gentle-guitar",
       "downloadUri": "https://ks15.imslp.org/files/imglnks/usimg/e/e4/IMSLP254546-PMLP411050-BARRIOS_-_Julia_Florida_(Barcarola).mp3",
       "fileName": "candidate-barrios-julia-florida-edson-lopes.mp3",
-      "durationSeconds": 267,
+      "durationSeconds": 267.52,
       "sha1": null,
       "declaredLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
-      "deliveryCheckedAtUtc": "2026-10-06T21:22:34.6068161+02:00"
+      "deliveryCheckedAtUtc": "2026-10-07T22:06:46.1987469+02:00",
+      "promotedWorldIds": [
+        "quiet-classics",
+        "lullabies"
+      ]
     },
     {
       "id": "candidate-sor-op-31-no-1-guitar",
@@ -1388,7 +1400,7 @@
       "licenseReviewStatus": "verified",
       "declaredLicense": "CC BY-SA 4.0",
       "licenseEvidenceUri": "https://imslp.org/index.php?title=Romanza_(Anonymous)&oldid=4766773",
-      "reviewNotes": "Recording-rights review 2026-10-06: IMSLP recording #933760 identifies performer/publisher and uploader Ramón León Egea, uploaded 2024-09-25 with an explicit recording-specific CC BY-SA 4.0 grant. Preserve performer, source and license attribution. The listener prefers this ten-string performance over #934003, which has intrusive background noise. PCM analysis of the unchanged original places the first strong guitar onset between 6.5 and 6.6 seconds; playback starts at 6400 ms to retain its attack and a short lead-in. Original bytes are downloaded; no edited recording is produced or hosted. Decoded original duration 171.312 seconds; MP3 delivery checked, no upstream SHA-1 provided. Retained in Preview pending final suitability review with the skipped prelude.",
+      "reviewNotes": "Recording-rights review 2026-10-06: IMSLP recording #933760 identifies performer/publisher and uploader Ramón León Egea, uploaded 2024-09-25 with an explicit recording-specific CC BY-SA 4.0 grant. Preserve performer, source and license attribution. The listener prefers this ten-string performance over #934003, which has intrusive background noise. PCM analysis of the unchanged original places the first strong guitar onset between 6.5 and 6.6 seconds; playback starts at 6400 ms to retain its attack and a short lead-in. Original bytes are downloaded; no edited recording is produced or hosted. Decoded original duration 171.312 seconds; MP3 delivery checked, no upstream SHA-1 provided. Retained in Preview pending final suitability review with the skipped prelude. Production promotion 2026-10-07: after audition feedback the maintainer selected this instrumental performance for both Quiet Classics and Lullabies for little ones. This supersedes earlier pending suitability/destination notes. The accepted recording grant and performer attribution are retained. Stable HTTPS MP3 delivery returned actual ID3 audio and decoded completely; duration metadata is the original decoded interval. Playback gain, speed and trim settings are retained; no audio bytes are edited. Canonical ID and filename remain unique, with additionalWorldIds expressing shared membership. Remove the active audition entry while retaining this review record as the promotion audit.",
       "approvedLicense": "CC BY-SA 4.0",
       "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
       "intendedWorldId": "quiet-classics",
@@ -1398,8 +1410,12 @@
       "durationSeconds": 171.312,
       "sha1": null,
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "deliveryCheckedAtUtc": "2026-10-06T21:51:10.8272427+02:00",
-      "startOffsetMilliseconds": 6400
+      "deliveryCheckedAtUtc": "2026-10-07T22:06:46.1991643+02:00",
+      "startOffsetMilliseconds": 6400,
+      "promotedWorldIds": [
+        "quiet-classics",
+        "lullabies"
+      ]
     },
     {
       "id": "candidate-meadow-night-crickets-sardin",

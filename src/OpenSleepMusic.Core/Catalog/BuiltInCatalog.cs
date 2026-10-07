@@ -14,7 +14,7 @@ public static class BuiltInCatalog
     public static DateTimeOffset GeneratedAtUtc => Manifest.GeneratedAtUtc;
 
     public static TimeSpan TotalDuration => TimeSpan.FromSeconds(
-        SleepWorlds.SelectMany(world => world.Tracks).Sum(track => track.DurationSeconds));
+        SleepWorlds.SelectMany(world => world.Tracks).DistinctBy(track => track.Id).Sum(track => track.DurationSeconds));
 
     private static CatalogManifest Load()
     {
@@ -40,6 +40,6 @@ public static class BuiltInCatalog
             BuiltInPreselection.EnsureProductionTrackAllowed(track);
         }
 
-        return manifest;
+        return manifest with { SleepWorlds = CatalogMembership.Resolve(manifest.SleepWorlds) };
     }
 }
