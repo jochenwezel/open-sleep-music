@@ -179,8 +179,12 @@ foreach ($track in $worlds.lullabies.tracks) { $track.playbackSpeed = [Math]::Ro
 $candidateManifest = Get-Content (Join-Path $PSScriptRoot 'preselection-candidates.json') -Raw | ConvertFrom-Json
 foreach ($candidate in $candidateManifest.candidates) {
     if (!$candidate.downloadUri) { continue }
+    $volumeGain = if ($null -ne $candidate.volumeGain) { [double]$candidate.volumeGain } else { 1.0 }
+    $playbackSpeed = if ($null -ne $candidate.playbackSpeed) { [double]$candidate.playbackSpeed } else { 1.0 }
     if (([Uri]$candidate.downloadUri).Scheme -ne 'https' -or !$candidate.deliveryCheckedAtUtc -or
         $candidate.durationSeconds -le 0 -or
+        ![double]::IsFinite($volumeGain) -or $volumeGain -le 0 -or
+        ![double]::IsFinite($playbackSpeed) -or $playbackSpeed -lt 0.5 -or $playbackSpeed -gt 2 -or
         ($null -ne $candidate.startOffsetMilliseconds -and
             ($candidate.startOffsetMilliseconds -isnot [long] -and $candidate.startOffsetMilliseconds -isnot [int])) -or
         [long]$candidate.startOffsetMilliseconds -lt 0 -or
@@ -191,7 +195,7 @@ foreach ($candidate in $candidateManifest.candidates) {
         $candidate.fileName -notmatch '^[a-z0-9_-]+\.(mp3|ogg|flac|wav|mp4|m4a)$') {
         throw "Invalid preselection delivery metadata: $($candidate.id)"
     }
-    $worlds.preselection.tracks.Add([ordered]@{
+    $auditionTrack = [ordered]@{
         id = $candidate.id; title = $candidate.title; creator = $candidate.creator
         downloadUri = $candidate.downloadUri; sourcePageUri = $candidate.sourcePageUri
         license = if ($candidate.licenseReviewStatus -eq 'verified') { $candidate.approvedLicense } else { $candidate.declaredLicense }
@@ -202,7 +206,10 @@ foreach ($candidate in $candidateManifest.candidates) {
         endOffsetMilliseconds = [int]$candidate.endOffsetMilliseconds
         instrumentation = @($candidate.instrumentation); ensembleType = 'unreviewed'
         licenseReviewStatus = $candidate.licenseReviewStatus
-    })
+    }
+    if ($null -ne $candidate.volumeGain) { $auditionTrack.volumeGain = $volumeGain }
+    if ($null -ne $candidate.playbackSpeed) { $auditionTrack.playbackSpeed = $playbackSpeed }
+    $worlds.preselection.tracks.Add($auditionTrack)
 }
 
 $artworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2'

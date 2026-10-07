@@ -76,6 +76,8 @@ public sealed class PreselectionTests
             Assert.Equal(candidate.FileName, track.FileName);
             Assert.Equal(candidate.LicenseReviewStatus, track.LicenseReviewStatus);
             Assert.Equal(candidate.StartOffsetMilliseconds, track.StartOffsetMilliseconds);
+            Assert.Equal(candidate.VolumeGain, track.VolumeGain);
+            Assert.Equal(candidate.PlaybackSpeed, track.PlaybackSpeed);
             Assert.NotNull(candidate.DeliveryCheckedAtUtc);
             Assert.Equal("https", track.DownloadUri.Scheme);
             Assert.True(track.DurationSeconds > 0);
@@ -153,6 +155,26 @@ public sealed class PreselectionTests
         Assert.Contains("cowbells", alpine.Instrumentation);
         Assert.Contains("insects", alpine.Instrumentation);
         Assert.DoesNotContain("crickets", alpine.Instrumentation);
+    }
+
+    [Fact]
+    public void CarcassiOpus26AuditionUsesRequestedGainAndSpeedWithoutChangingOriginalDelivery()
+    {
+        if (!BuildChannel.IsPreview) return;
+        var tracks = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "preselection").Tracks;
+        var track = Assert.Single(tracks, track => track.Id == "candidate-carcassi-op-26-no-3-guitar");
+        Assert.Equal(.8, track.VolumeGain);
+        Assert.Equal(.67, track.PlaybackSpeed);
+        Assert.Equal(133.793, track.DurationSeconds);
+        Assert.Equal(133.793 / .67, track.PlaybackDurationSeconds, 3);
+        Assert.Equal("4963fc28577d5b65dc9f1283296d55c64db090cb", track.Sha1);
+        Assert.Equal(0, track.StartOffsetMilliseconds);
+        Assert.Equal(0, track.EndOffsetMilliseconds);
+        Assert.All(tracks.Where(other => other.Id != track.Id), other =>
+        {
+            Assert.Equal(1d, other.VolumeGain);
+            Assert.Equal(1d, other.PlaybackSpeed);
+        });
     }
 
     [Fact]

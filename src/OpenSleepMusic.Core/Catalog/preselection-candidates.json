@@ -1582,7 +1582,7 @@
       "licenseReviewStatus": "verified",
       "declaredLicense": "CC BY-SA 3.0",
       "licenseEvidenceUri": "https://commons.wikimedia.org/wiki/File:Carcassi_Op_26_No._3.ogg",
-      "reviewNotes": "Recording-rights review 2026-10-06: authoritative Commons file-page revision identifies Own work by Jujutacular and the explicit self CC BY-SA 3.0 grant; alternative GFDL not selected. Recorded 2009-08-02. Warm solo guitar audition lead; tempo, dynamic changes, attack noise and suitability with quiet crickets remain unreviewed. Preserve composer, performer, source and license attribution. Original file, checksum and zero trim; retained in Preview.",
+      "reviewNotes": "Recording-rights review 2026-10-06: authoritative Commons file-page revision identifies Own work by Jujutacular and the explicit self CC BY-SA 3.0 grant; alternative GFDL not selected. Recorded 2009-08-02. Warm solo guitar audition lead; tempo, dynamic changes, attack noise and suitability with quiet crickets remain unreviewed. Preserve composer, performer, source and license attribution. Original file, checksum and zero trim; retained in Preview. Listening adjustment 2026-10-07: maintainer requests 20 percent quieter and 33 percent slower. Apply volumeGain 0.8 and playbackSpeed 0.67 through playback metadata; the original duration, source download, upstream SHA-1 and zero trims are preserved. Listening duration becomes approximately 199.691 seconds; this is a playback adjustment, not a redistributed edited recording or production promotion.",
       "approvedLicense": "CC BY-SA 3.0",
       "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
       "intendedWorldId": "quiet-classics",
@@ -1594,7 +1594,9 @@
       "durationSeconds": 133.793,
       "sha1": "4963fc28577d5b65dc9f1283296d55c64db090cb",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0",
-      "deliveryCheckedAtUtc": "2026-10-06T23:12:30.0617261+02:00"
+      "deliveryCheckedAtUtc": "2026-10-06T23:12:30.0617261+02:00",
+      "volumeGain": 0.8,
+      "playbackSpeed": 0.67
     },
     {
       "id": "candidate-carcassi-op-60-no-6-guitar",
