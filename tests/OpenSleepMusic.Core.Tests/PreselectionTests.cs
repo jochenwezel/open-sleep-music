@@ -19,7 +19,7 @@ public sealed class PreselectionTests
     public void ResearchCandidatesHaveSourcesTagsAndExplicitReviewStates()
     {
         var candidates = BuiltInPreselection.Candidates;
-        Assert.Equal(BuildChannel.IsPreview ? 76 : 0, candidates.Count);
+        Assert.Equal(BuildChannel.IsPreview ? 63 : 0, candidates.Count);
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.Id).Distinct().Count());
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.SourcePageUri).Distinct().Count());
         var downloadableTracks = BuiltInCatalog.SleepWorlds.Where(world => world.Id != "preselection").SelectMany(world => world.Tracks).ToArray();
@@ -93,7 +93,7 @@ public sealed class PreselectionTests
             else
                 Assert.Throws<InvalidOperationException>(() => BuiltInPreselection.EnsureProductionTrackAllowed(track));
         });
-        Assert.Equal(24, BuiltInPreselection.Candidates.Count(candidate => candidate.DownloadUri is null));
+        Assert.Equal(11, BuiltInPreselection.Candidates.Count(candidate => candidate.DownloadUri is null));
     }
 
     [Fact]
@@ -200,7 +200,7 @@ public sealed class PreselectionTests
     public void LullabyExpansionStaysInResearchUntilRightsAreReviewed()
     {
         var candidates = BuiltInPreselection.Candidates.Where(candidate => candidate.IntendedWorldId == "lullabies").ToArray();
-        Assert.Equal(BuildChannel.IsPreview ? 20 : 0, candidates.Length);
+        Assert.Equal(BuildChannel.IsPreview ? 7 : 0, candidates.Length);
         Assert.All(candidates, candidate =>
         {
             Assert.Equal("unchecked", candidate.LicenseReviewStatus);
