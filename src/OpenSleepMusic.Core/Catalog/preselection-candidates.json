@@ -818,10 +818,10 @@
       "instrumentation": [
         "music-box"
       ],
-      "licenseReviewStatus": "unchecked",
+      "licenseReviewStatus": "rejected",
       "declaredLicense": "All rights reserved (source declaration; not approved)",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states.",
+      "licenseEvidenceUri": "https://wonderfullullabies.bandcamp.com/track/guter-mond",
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states. Recording-rights review 2026-10-07: the authoritative artist track page declares All rights reserved (also present in its public structured metadata); no accepted redistribution license was located. Rejected refers to the current recording grant, not listening suitability: retain the favorite external audition reference and do not blacklist the melody. A free personal download or purchase would not establish permission to redistribute in this app. The artist licensing page https://www.wonderfullullabies.com/licensing offers individual licensing inquiries, with no public reusable grant. No permission request has been sent. No qualifying instrumental audio alternative located: public-domain scores/MIDI are not recordings, and the Jürgen Knuth IMSLP lead carries CC BY-NC-SA 3.0.",
       "intendedWorldId": "lullabies",
       "selectionKind": "traditional-lullaby"
     },
@@ -833,10 +833,10 @@
       "instrumentation": [
         "music-box"
       ],
-      "licenseReviewStatus": "unchecked",
+      "licenseReviewStatus": "rejected",
       "declaredLicense": "All rights reserved (source declaration; not approved)",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states.",
+      "licenseEvidenceUri": "https://wonderfullullabies.bandcamp.com/track/brahms-lullaby-guten-abend-gut-nacht",
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states. Recording-rights review 2026-10-07: the authoritative artist track page declares All rights reserved (also present in its public structured metadata); no accepted redistribution license was located. Rejected refers to the current recording grant, not listening suitability: retain the favorite external audition reference and do not blacklist the melody. A free personal download or purchase would not establish permission to redistribute in this app. The artist licensing page https://www.wonderfullullabies.com/licensing offers individual licensing inquiries, with no public reusable grant. No permission request has been sent. Alternative recordings: candidate-lullabies-brahms-alexander-blu (CC BY 4.0), candidate-lullabies-brahms-music-box-garuda1982 (CC0 1.0), and the existing production music-box-guten-abend-gute-nacht. These are different performances, not a grant for this Wonderful Lullabies master.",
       "intendedWorldId": "lullabies",
       "selectionKind": "traditional-lullaby"
     },
@@ -848,10 +848,10 @@
       "instrumentation": [
         "music-box"
       ],
-      "licenseReviewStatus": "unchecked",
+      "licenseReviewStatus": "rejected",
       "declaredLicense": "All rights reserved (source declaration; not approved)",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states.",
+      "licenseEvidenceUri": "https://wonderfullullabies.bandcamp.com/track/mozart-lullaby-twinkle-twinkle-little-star",
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted short version with a public player; selected as a bedtime arrangement lead. Instrument tags are provisional; synthesized accompaniment, absence of vocals, loudness peaks and full sleep suitability require listening review. No reuse grant established; recording and arrangement rights require separate review before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states. Recording-rights review 2026-10-07: the authoritative artist track page declares All rights reserved (also present in its public structured metadata); no accepted redistribution license was located. Rejected refers to the current recording grant, not listening suitability: retain the favorite external audition reference and do not blacklist the melody. A free personal download or purchase would not establish permission to redistribute in this app. The artist licensing page https://www.wonderfullullabies.com/licensing offers individual licensing inquiries, with no public reusable grant. No permission request has been sent. Matching-melody alternative: candidate-lullabies-twinkle-alexander-blu (CC BY 4.0). It is a different piano arrangement, not this music-box master. The traditional melody is Ah! vous dirai-je, maman; retain the original artist title without implying Mozart composed that melody.",
       "intendedWorldId": "lullabies",
       "selectionKind": "traditional-lullaby"
     },
@@ -863,10 +863,10 @@
       "instrumentation": [
         "piano"
       ],
-      "licenseReviewStatus": "unchecked",
+      "licenseReviewStatus": "rejected",
       "declaredLicense": "All rights reserved (source declaration; not approved)",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states.",
+      "licenseEvidenceUri": "https://wonderfullullabies.bandcamp.com/track/noahs-lullaby",
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states. Recording-rights review 2026-10-07: the authoritative artist track page declares All rights reserved (also present in its public structured metadata); no accepted redistribution license was located. Rejected refers to the current recording grant, not listening suitability: retain the favorite external audition reference and do not blacklist the melody. A free personal download or purchase would not establish permission to redistribute in this app. The artist licensing page https://www.wonderfullullabies.com/licensing offers individual licensing inquiries, with no public reusable grant. No permission request has been sent. The artist explicitly credits this as its own composition, arrangement and production; another performance would also require composition/arrangement clearance. No freely licensed recording of this same composition was located.",
       "intendedWorldId": "lullabies",
       "selectionKind": "modern-lullaby"
     },
@@ -878,10 +878,10 @@
       "instrumentation": [
         "piano"
       ],
-      "licenseReviewStatus": "unchecked",
+      "licenseReviewStatus": "rejected",
       "declaredLicense": "All rights reserved (source declaration; not approved)",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states.",
+      "licenseEvidenceUri": "https://wonderfullullabies.bandcamp.com/track/claires-lullaby",
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states. Recording-rights review 2026-10-07: the authoritative artist track page declares All rights reserved (also present in its public structured metadata); no accepted redistribution license was located. Rejected refers to the current recording grant, not listening suitability: retain the favorite external audition reference and do not blacklist the melody. A free personal download or purchase would not establish permission to redistribute in this app. The artist licensing page https://www.wonderfullullabies.com/licensing offers individual licensing inquiries, with no public reusable grant. No permission request has been sent. The artist explicitly credits this as its own composition, arrangement and production; another performance would also require composition/arrangement clearance. No freely licensed recording of this same composition was located.",
       "intendedWorldId": "lullabies",
       "selectionKind": "modern-lullaby"
     },
@@ -893,10 +893,10 @@
       "instrumentation": [
         "piano"
       ],
-      "licenseReviewStatus": "unchecked",
+      "licenseReviewStatus": "rejected",
       "declaredLicense": "All rights reserved (source declaration; not approved)",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states.",
+      "licenseEvidenceUri": "https://wonderfullullabies.bandcamp.com/track/williams-lullaby",
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states. Recording-rights review 2026-10-07: the authoritative artist track page declares All rights reserved (also present in its public structured metadata); no accepted redistribution license was located. Rejected refers to the current recording grant, not listening suitability: retain the favorite external audition reference and do not blacklist the melody. A free personal download or purchase would not establish permission to redistribute in this app. The artist licensing page https://www.wonderfullullabies.com/licensing offers individual licensing inquiries, with no public reusable grant. No permission request has been sent. The artist explicitly credits this as its own composition, arrangement and production; another performance would also require composition/arrangement clearance. No freely licensed recording of this same composition was located.",
       "intendedWorldId": "lullabies",
       "selectionKind": "modern-lullaby"
     },
@@ -908,10 +908,10 @@
       "instrumentation": [
         "piano"
       ],
-      "licenseReviewStatus": "unchecked",
+      "licenseReviewStatus": "rejected",
       "declaredLicense": "All rights reserved (source declaration; not approved)",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states.",
+      "licenseEvidenceUri": "https://thebackgroundmusicians.bandcamp.com/track/shooting-star",
+      "reviewNotes": "Researched 2026-10-02. Artist-hosted public player and lullaby/piano release metadata support preliminary audition selection. Complete listening, absence of vocals and sleep suitability remain unreviewed. No reuse permission established; specific recording and composition/arrangement rights must be reviewed before production admission. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-204956.json, Android 0.1.34): maintainer marked this external listening candidate as a favorite. Positive curation feedback does not approve recording rights, establish downloadable audio delivery, or promote this recording into production. Retain its existing explicit rights and delivery states. Recording-rights review 2026-10-07: the authoritative artist track page declares All rights reserved (also present in its public structured metadata); no accepted redistribution license was located. Rejected refers to the current recording grant, not listening suitability: retain the favorite external audition reference and do not blacklist the melody. A free personal download or purchase would not establish permission to redistribute in this app. The same artist album also declares All rights reserved. No accepted grant or freely licensed recording of this same piece was located; unrelated tracks sharing its title are not substitutes for this composition.",
       "intendedWorldId": "lullabies",
       "selectionKind": "modern-lullaby"
     },
@@ -1291,6 +1291,69 @@
       "startOffsetMilliseconds": 0,
       "endOffsetMilliseconds": 0,
       "durationSeconds": 245.938
+    },
+    {
+      "approvedLicense": "CC BY 4.0",
+      "selectionKind": "traditional-lullaby",
+      "reviewNotes": "Recording-rights review 2026-10-07: the recording-specific Orange Free Sounds page credits Alexander Blu and explicitly grants CC BY 4.0 including commercial use. The publisher About page identifies Alexander Blu as the musician behind this site, supporting provenance. Retain creator, recording title, source and canonical license links; indicate modifications if any. Alternative performance of the Wonderful Lullabies Brahms favorite, not its master. Source describes relaxing bedtime music; precise instrumentation, vocal absence, full listening suitability and transitions remain pending maintainer audition. Instrumental tag is provisional. Public HTTPS MP3 returned HTTP 200 with an MPEG signature and decoded completely; duration measured from the original decoded recording. No upstream checksum supplied; do not reuse or invent one. Original file, zero trims, normal gain and speed retained; Preview only, no production promotion.",
+      "approvedLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "durationSeconds": 135.758,
+      "creator": "Johannes Brahms; Alexander Blu",
+      "licenseEvidenceUri": "https://orangefreesounds.com/brahms-lullaby/",
+      "sha1": null,
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "deliveryCheckedAtUtc": "2026-10-07T21:08:37.349955Z",
+      "declaredLicense": "CC BY 4.0",
+      "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/02/Brahms-lullaby.mp3",
+      "instrumentation": [
+        "instrumental"
+      ],
+      "sourcePageUri": "https://orangefreesounds.com/brahms-lullaby/",
+      "fileName": "candidate-lullabies-brahms-alexander-blu.mp3",
+      "licenseReviewStatus": "verified",
+      "id": "candidate-lullabies-brahms-alexander-blu",
+      "intendedWorldId": "lullabies",
+      "title": "Brahms - Guten Abend, gut' Nacht (Alexander Blu)"
+    },
+    {
+      "approvedLicense": "CC BY 4.0",
+      "selectionKind": "traditional-lullaby",
+      "reviewNotes": "Recording-rights review 2026-10-07: the recording-specific Orange Free Sounds page credits Alexander Blu and explicitly grants CC BY 4.0 including commercial use. The publisher About page identifies Alexander Blu as the musician behind this site, supporting provenance. Retain creator, recording title, source and canonical license links; indicate modifications if any. Same traditional melody as the Wonderful Lullabies Mozart-titled favorite, in a different piano arrangement. Source explicitly describes piano lullaby music; full listening suitability, vocal absence and transitions remain pending maintainer audition. Public HTTPS MP3 returned HTTP 200 with an MPEG signature and decoded completely; duration measured from the original decoded recording. No upstream checksum supplied; do not reuse or invent one. Original file, zero trims, normal gain and speed retained; Preview only, no production promotion.",
+      "approvedLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "durationSeconds": 103.367,
+      "creator": "Traditional melody (Ah! vous dirai-je, maman); Alexander Blu",
+      "licenseEvidenceUri": "https://orangefreesounds.com/twinkle-twinkle-little-star-song/",
+      "sha1": null,
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "deliveryCheckedAtUtc": "2026-10-07T21:08:37.826953Z",
+      "declaredLicense": "CC BY 4.0",
+      "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/10/Twinkle-twinkle-little-star-piano.mp3",
+      "instrumentation": [
+        "piano"
+      ],
+      "sourcePageUri": "https://orangefreesounds.com/twinkle-twinkle-little-star-song/",
+      "fileName": "candidate-lullabies-twinkle-alexander-blu.mp3",
+      "licenseReviewStatus": "verified",
+      "id": "candidate-lullabies-twinkle-alexander-blu",
+      "intendedWorldId": "lullabies",
+      "title": "Twinkle Twinkle Little Star (Klavier, Alexander Blu)"
+    },
+    {
+      "approvedLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "id": "candidate-lullabies-brahms-music-box-garuda1982",
+      "licenseEvidenceUri": "https://freesound.org/people/Garuda1982/sounds/416384/",
+      "title": "Brahms - Guten Abend, gut' Nacht (Spieluhr, Garuda1982)",
+      "instrumentation": [
+        "music-box"
+      ],
+      "sourcePageUri": "https://freesound.org/people/Garuda1982/sounds/416384/",
+      "declaredLicense": "CC0 1.0",
+      "licenseReviewStatus": "verified",
+      "selectionKind": "traditional-lullaby",
+      "reviewNotes": "Recording-rights review 2026-10-07: the recording-specific Freesound page declares Creative Commons 0 and credits Garuda1982 with a personal Zoom H2n field recording of a Brahms music box, providing plausible recording provenance. Alternative performance of the Wonderful Lullabies favorite, not its master. Page lists a stereo 96 kHz WAV, 101.709 seconds; mechanical/background noise and full sleep suitability still need audition. Original download requires a Freesound login, so no direct download URL or checked delivery is recorded. Keep this as an external Preview reference; do not extract preview streams or bypass login. No production promotion.",
+      "approvedLicense": "CC0 1.0",
+      "intendedWorldId": "lullabies",
+      "creator": "Johannes Brahms; Garuda1982 (recordist)"
     }
   ]
 }
