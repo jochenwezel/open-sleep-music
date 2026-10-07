@@ -12,7 +12,7 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e0/El_Noi_de_la_Mare_%28guitar%29.ogg",
       "fileName": "candidate-el-noi-de-la-mare-guitar.ogg",
       "durationSeconds": 132.656,
@@ -31,7 +31,7 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "CC BY-SA 4.0",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests 20 percent slower playback. Apply playbackSpeed 0.8 through playback metadata, resulting in 251.330 seconds listening duration from the 201.064-second original. Preserve source download, upstream SHA-1, normal gain and zero trims. Rights review remains unchecked; retain in Preview for audition, without production promotion or an edited audio file.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests 20 percent slower playback. Apply playbackSpeed 0.8 through playback metadata, resulting in 251.330 seconds listening duration from the 201.064-second original. Preserve source download, upstream SHA-1, normal gain and zero trims. Rights review remains unchecked; retain in Preview for audition, without production promotion or an edited audio file. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pachelbel_-_Canon_in_D_major%2C_P._37_%28Guitar%29.ogg",
       "fileName": "candidate-pachelbel-canon-in-d-major-p-37-guitar.ogg",
       "durationSeconds": 201.064,
@@ -51,7 +51,7 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "CC BY 4.0",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests 15 percent slower playback. Apply playbackSpeed 0.85 through playback metadata, resulting in approximately 114.098 seconds listening duration from the 96.983-second original. Preserve original download, upstream SHA-1, normal gain and zero trims. Recording-rights review remains unchecked; retain in Preview for audition without production promotion or an edited audio file.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests 15 percent slower playback. Apply playbackSpeed 0.85 through playback metadata, resulting in approximately 114.098 seconds listening duration from the 96.983-second original. Preserve original download, upstream SHA-1, normal gain and zero trims. Recording-rights review remains unchecked; retain in Preview for audition without production promotion or an edited audio file. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Schubert%27s_Daphne_am_Bach%2C_D.411_%28guitar%29_-_Bert_Alink.ogg",
       "fileName": "candidate-schubert-s-daphne-am-bach-d-411-guitar-bert-alink.ogg",
       "durationSeconds": 96.983,
@@ -71,7 +71,7 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "CC BY 4.0",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pachelbel_-_Suite_in_F-sharp_minor%2C_P._439_-_IV._Sarabande_%28Guitar%29.ogg",
       "fileName": "candidate-pachelbel-suite-in-f-sharp-minor-p-439-iv-sarabande-guitar.ogg",
       "durationSeconds": 74.589,
@@ -89,7 +89,7 @@
       ],
       "licenseReviewStatus": "verified",
       "declaredLicense": "CC BY-SA 3.0",
-      "reviewNotes": "Recording-rights review 2026-10-06: exact Commons file identifies Carlo Alberto Boni as performer/author, source Own work, uploaded by the same linked author account Outonomia on 2011-09-29, with an explicit copyright-holder CC BY-SA 3.0 Unported grant. Composition: Francisco Tárrega. Retain performer/composer/source/license attribution and identify edits; redistributed adaptations must comply with ShareAlike. This is a documented source-grant review, not an independent guarantee of copyright ownership. User positively auditioned the performance alone and with quiet cricket ambience. Remaining production audio/suitability checks are separate; retained in Preview. Delivery compatibility update 2026-10-07: maintainer reports correct audio playback but zero duration and a stationary position slider on Android with the original Ogg. Use the existing Wikimedia-hosted MP3 transcode of the same Carlo Alberto Boni performance, retaining the exact source page and CC BY-SA 3.0 attribution. The source file page confirms its completed MP3 transcode. Original Ogg upstream SHA-1 be8bb6a5c5f6b1968529fe5b8981393eb40679b9 is retained here for provenance only; it cannot validate MP3 bytes, and no MP3 upstream checksum is provided, so delivery sha1 is null. HTTPS MP3 returned HTTP 200, ID3 signature and decoded fully to 239.884 seconds. A local Windows MediaPlayer probe read positive duration and successfully sought to 30 seconds for both encodings; the reported Android behavior was not reproduced on an Android device. No on-device conversion, project-edited media or rehosting. A catalog refresh followed by downloading the new MP3 is required on existing installations. Production promotion 2026-10-07: after audition feedback the maintainer selected this instrumental performance for both Quiet Classics and Lullabies for little ones. This supersedes earlier pending suitability/destination notes. The accepted recording grant and performer attribution are retained. Stable HTTPS MP3 delivery returned actual ID3 audio and decoded completely; duration metadata is the original decoded interval. Playback gain, speed and trim settings are retained; no audio bytes are edited. Canonical ID and filename remain unique, with additionalWorldIds expressing shared membership. Remove the active audition entry while retaining this review record as the promotion audit.",
+      "reviewNotes": "Recording-rights review 2026-10-06: exact Commons file identifies Carlo Alberto Boni as performer/author, source Own work, uploaded by the same linked author account Outonomia on 2011-09-29, with an explicit copyright-holder CC BY-SA 3.0 Unported grant. Composition: Francisco Tárrega. Retain performer/composer/source/license attribution and identify edits; redistributed adaptations must comply with ShareAlike. This is a documented source-grant review, not an independent guarantee of copyright ownership. User positively auditioned the performance alone and with quiet cricket ambience. Remaining production audio/suitability checks are separate; retained in Preview. Delivery compatibility update 2026-10-07: maintainer reports correct audio playback but zero duration and a stationary position slider on Android with the original Ogg. Use the existing Wikimedia-hosted MP3 transcode of the same Carlo Alberto Boni performance, retaining the exact source page and CC BY-SA 3.0 attribution. The source file page confirms its completed MP3 transcode. Original Ogg upstream SHA-1 be8bb6a5c5f6b1968529fe5b8981393eb40679b9 is retained here for provenance only; it cannot validate MP3 bytes, and no MP3 upstream checksum is provided, so delivery sha1 is null. HTTPS MP3 returned HTTP 200, ID3 signature and decoded fully to 239.884 seconds. A local Windows MediaPlayer probe read positive duration and successfully sought to 30 seconds for both encodings; the reported Android behavior was not reproduced on an Android device. No on-device conversion, project-edited media or rehosting. A catalog refresh followed by downloading the new MP3 is required on existing installations. Production promotion 2026-10-07: after audition feedback the maintainer selected this instrumental performance for both Quiet Classics and Lullabies for little ones. This supersedes earlier pending suitability/destination notes. The accepted recording grant and performer attribution are retained. Stable HTTPS MP3 delivery returned actual ID3 audio and decoded completely; duration metadata is the original decoded interval. Playback gain, speed and trim settings are retained; no audio bytes are edited. Canonical ID and filename remain unique, with additionalWorldIds expressing shared membership. Remove the active audition entry while retaining this review record as the promotion audit. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a3/Recuerdos_de_la_Alhambra.ogg/Recuerdos_de_la_Alhambra.ogg.mp3",
       "fileName": "candidate-recuerdos-de-la-alhambra.mp3",
       "durationSeconds": 239.884,
@@ -115,7 +115,7 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac",
       "fileName": "candidate-satie-gymnopedie-no-1-performed-by-michael-laucke.flac",
       "durationSeconds": 171.912,
@@ -134,7 +134,7 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac",
       "fileName": "candidate-satie-gymnopedie-no-2-performed-by-michael-laucke.flac",
       "durationSeconds": 147.226,
@@ -160,86 +160,6 @@
       "sha1": "8c2b9edde40215a62cd798e621aacd9f27437052",
       "declaredLicenseUri": null,
       "deliveryCheckedAtUtc": "2026-10-02T23:49:17.2163293+02:00"
-    },
-    {
-      "id": "candidate-erik-satie-gnossienne-no-1",
-      "title": "Erik Satie - Gnossienne no 1",
-      "creator": "No machine-readable author provided. Jmfayard assumed (based on copyright claims).",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Erik_Satie_-_Gnossienne_no_1.ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "CC BY-SA 3.0",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Erik_Satie_-_Gnossienne_no_1.ogg",
-      "fileName": "candidate-erik-satie-gnossienne-no-1.ogg",
-      "durationSeconds": 207.853,
-      "sha1": "26fa578d8b8926e6c2b04e8b1a53731e0efc5737",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:19.337671+02:00",
-      "volumeGain": 0.7
-    },
-    {
-      "id": "candidate-gnossienne-2-satie",
-      "title": "Gnossienne 2 (Satie)",
-      "creator": "Composer: Erik Satie Performer: La Pianista",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Gnossienne_2_(Satie).ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Gnossienne_2_%28Satie%29.ogg",
-      "fileName": "candidate-gnossienne-2-satie.ogg",
-      "durationSeconds": 101.579,
-      "sha1": "38ae316c66b914989398d2dbba6792e731592d28",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:21.3610673+02:00",
-      "volumeGain": 0.7
-    },
-    {
-      "id": "candidate-gnossienne-3-satie",
-      "title": "Gnossienne 3 (Satie)",
-      "creator": "Composer: Erik Satie Performer: La Pianista",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Gnossienne_3_(Satie).ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/1/10/Gnossienne_3_%28Satie%29.ogg",
-      "fileName": "candidate-gnossienne-3-satie.ogg",
-      "durationSeconds": 162.664,
-      "sha1": "eb9d29d86c4880acd8c6fb7271d5a3e813400ec6",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:23.4905287+02:00",
-      "volumeGain": 0.7
-    },
-    {
-      "id": "candidate-gnossienne-4-satie",
-      "title": "Gnossienne 4 (Satie)",
-      "creator": "Composer: Erik Satie Performer: La Pianista",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Gnossienne_4_(Satie).ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Gnossienne_4_%28Satie%29.ogg",
-      "fileName": "candidate-gnossienne-4-satie.ogg",
-      "durationSeconds": 139.328,
-      "sha1": "6ca4eee230a24c7ddf5b7766bbc1680362b6106d",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:25.6106028+02:00",
-      "volumeGain": 0.7
     },
     {
       "id": "candidate-gnossienne-5-satie",
@@ -279,26 +199,6 @@
       "sha1": "3b59823c4cc9f96bc01196602f8c9947cf54d811",
       "declaredLicenseUri": null,
       "deliveryCheckedAtUtc": "2026-10-02T23:49:29.8611855+02:00",
-      "volumeGain": 0.7
-    },
-    {
-      "id": "candidate-gnossienne-7-satie",
-      "title": "Gnossienne 7 (Satie)",
-      "creator": "Composer: Erik Satie Performer: La Pianista",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Gnossienne_7_(Satie).ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Gnossienne_7_%28Satie%29.ogg",
-      "fileName": "candidate-gnossienne-7-satie.ogg",
-      "durationSeconds": 237.933,
-      "sha1": "8801eba4cb7a402f7c1b1cb9c3e938c7ac9a3e41",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:31.983647+02:00",
       "volumeGain": 0.7
     },
     {
@@ -777,7 +677,7 @@
       "licenseReviewStatus": "verified",
       "declaredLicense": "CC BY 3.0",
       "licenseEvidenceUri": "https://web.archive.org/web/20120210054738/http://soundcloud.com/laurensgoedhart/claude-debussys-clair-de-lune",
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-rights review 2026-10-07: authoritative Commons revision 1264119050 identifies pianist/recordist Laurens Goedhart and a recording-specific CC BY 3.0 grant, distinct from the composition public-domain label. The linked 2012-02-10 archive of the performer SoundCloud page describes his own Yamaha C3 piano recording, credits him as uploader and links CC BY 3.0; the current performer page still identifies his own recording and License cc-by. Preserve composer, pianist, source page, original SoundCloud and archived grant attribution, and upstream conversion credit Akaniji. A listener comment reports a later automated copyright claim; this does not supersede the documented performer grant. The maintainer proposes this audition for both Quiet Classics and For Little Ones. Final destination, full listening suitability, relative levels and transitions remain pending; rights approval alone is not production promotion. Delivery review 2026-10-07: use the stable Commons MP3 transcode of the same Laurens Goedhart performance under the existing CC BY 3.0 grant. Original Ogg upstream SHA-1 50d152ad99294c8dd3783b6ddde30b1dfaef19c3 is provenance only, not an MP3 checksum. No upstream MP3 checksum is provided. Preserve conversion credit Akaniji; no project editing or rehosting. Production promotion 2026-10-07: after audition feedback the maintainer selected this instrumental performance for both Quiet Classics and Lullabies for little ones. This supersedes earlier pending suitability/destination notes. The accepted recording grant and performer attribution are retained. Stable HTTPS MP3 delivery returned actual ID3 audio and decoded completely; duration metadata is the original decoded interval. Playback gain, speed and trim settings are retained; no audio bytes are edited. Canonical ID and filename remain unique, with additionalWorldIds expressing shared membership. Remove the active audition entry while retaining this review record as the promotion audit.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-rights review 2026-10-07: authoritative Commons revision 1264119050 identifies pianist/recordist Laurens Goedhart and a recording-specific CC BY 3.0 grant, distinct from the composition public-domain label. The linked 2012-02-10 archive of the performer SoundCloud page describes his own Yamaha C3 piano recording, credits him as uploader and links CC BY 3.0; the current performer page still identifies his own recording and License cc-by. Preserve composer, pianist, source page, original SoundCloud and archived grant attribution, and upstream conversion credit Akaniji. A listener comment reports a later automated copyright claim; this does not supersede the documented performer grant. The maintainer proposes this audition for both Quiet Classics and For Little Ones. Final destination, full listening suitability, relative levels and transitions remain pending; rights approval alone is not production promotion. Delivery review 2026-10-07: use the stable Commons MP3 transcode of the same Laurens Goedhart performance under the existing CC BY 3.0 grant. Original Ogg upstream SHA-1 50d152ad99294c8dd3783b6ddde30b1dfaef19c3 is provenance only, not an MP3 checksum. No upstream MP3 checksum is provided. Preserve conversion credit Akaniji; no project editing or rehosting. Production promotion 2026-10-07: after audition feedback the maintainer selected this instrumental performance for both Quiet Classics and Lullabies for little ones. This supersedes earlier pending suitability/destination notes. The accepted recording grant and performer attribution are retained. Stable HTTPS MP3 delivery returned actual ID3 audio and decoded completely; duration metadata is the original decoded interval. Playback gain, speed and trim settings are retained; no audio bytes are edited. Canonical ID and filename remain unique, with additionalWorldIds expressing shared membership. Remove the active audition entry while retaining this review record as the promotion audit. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/be/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg.mp3",
       "fileName": "candidate-clair-de-lune-claude-debussy-suite-bergamasque.mp3",
       "durationSeconds": 304.089,
@@ -892,44 +792,6 @@
       "deliveryCheckedAtUtc": "2026-10-02T23:52:25.048052+02:00"
     },
     {
-      "id": "candidate-grieg-edvard-lyric-pieces-book-iv-opus-47-part-no-2-album-leaf",
-      "title": "Grieg, Edvard — Lyric Pieces Book IV, Opus 47- Part No. 2 - Album Leaf",
-      "creator": "Edvard Grieg",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Grieg,_Edvard_%E2%80%94_Lyric_Pieces_Book_IV,_Opus_47-_Part_No._2_-_Album_Leaf.ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "CC BY-SA 3.0 de",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Grieg%2C_Edvard_%E2%80%94_Lyric_Pieces_Book_IV%2C_Opus_47-_Part_No._2_-_Album_Leaf.ogg",
-      "fileName": "candidate-grieg-edvard-lyric-pieces-book-iv-opus-47-part-no-2-album-leaf.ogg",
-      "durationSeconds": 188.651,
-      "sha1": "2fbb51a561df1e92c466d93a1cb5344e90b757e0",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
-      "deliveryCheckedAtUtc": "2026-10-02T23:52:27.2220749+02:00"
-    },
-    {
-      "id": "candidate-mozart-string-quartet-no-15-in-d-minor-k421-ii-andante-musopen-string-quartet",
-      "title": "Mozart - String Quartet No. 15 in D minor, K421 - II. Andante (Musopen String Quartet)",
-      "creator": "Wolfgang Amadeus Mozart",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_String_Quartet_No._15_in_D_minor,_K421_-_II._Andante_(Musopen_String_Quartet).flac",
-      "instrumentation": [
-        "strings"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/21/Mozart_-_String_Quartet_No._15_in_D_minor%2C_K421_-_II._Andante_%28Musopen_String_Quartet%29.flac",
-      "fileName": "candidate-mozart-string-quartet-no-15-in-d-minor-k421-ii-andante-musopen-string-quartet.flac",
-      "durationSeconds": 315.211,
-      "sha1": "ce788ddda71db6b71727786e69c7bf80ea31d48c",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:52:29.3797734+02:00"
-    },
-    {
       "id": "candidate-mozart-string-quartet-no-19-in-c-major-k465-dissonance-ii-andante-cantabile-musopen-string-quartet",
       "title": "Mozart - String Quartet No. 19 in C major, K465 'Dissonance' - II. Andante cantabile (Musopen String Quartet)",
       "creator": "Wolfgang Amadeus Mozart",
@@ -947,25 +809,6 @@
       "sha1": "ea1dc5c099c861c869244c31847f2d073c5333c4",
       "declaredLicenseUri": null,
       "deliveryCheckedAtUtc": "2026-10-02T23:52:31.4053369+02:00"
-    },
-    {
-      "id": "candidate-mozart-s-serenade-no-10-grand-partita-iii-adagio-andante-united-states-marine-band",
-      "title": "Mozart's Serenade No. 10 \"Grand Partita\" - III. Adagio. Andante - United States Marine Band",
-      "creator": "United States Marine Band",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart%27s_Serenade_No._10_%22Grand_Partita%22_-_III._Adagio._Andante_-_United_States_Marine_Band.mp3",
-      "instrumentation": [
-        "orchestra"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/6/60/Mozart%27s_Serenade_No._10_%22Grand_Partita%22_-_III._Adagio._Andante_-_United_States_Marine_Band.mp3",
-      "fileName": "candidate-mozart-s-serenade-no-10-grand-partita-iii-adagio-andante-united-states-marine-band.mp3",
-      "durationSeconds": 332.544,
-      "sha1": "97ad74565bb284950b25db545c9fc3b9cf482734",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:52:33.4378567+02:00"
     },
     {
       "id": "candidate-lullabies-wonderful-guter-mond",
@@ -1327,7 +1170,7 @@
       "licenseReviewStatus": "verified",
       "declaredLicense": "CC BY 3.0",
       "licenseEvidenceUri": "https://imslp.org/wiki/Julia_Florida_(Barrios_Mangor%C3%A9,_Agust%C3%ADn)",
-      "reviewNotes": "Recording-rights review 2026-10-06: IMSLP recording #254546 identifies the performer/uploader and a recording-specific CC BY 3.0 grant, distinct from score/MIDI licenses. Audio delivery uses the stable HTTPS MP3 URL exposed by the public player; 128-byte MP3 signature checked. Duration is the recording-specific listing, not an average work duration. Warm plucked-guitar audition lead; full sleep-suitability review pending. Credit performer and composer, license and source, describe modifications; follow ShareAlike for redistributed adaptations where applicable. Retained in Preview. Production promotion 2026-10-07: after audition feedback the maintainer selected this instrumental performance for both Quiet Classics and Lullabies for little ones. This supersedes earlier pending suitability/destination notes. The accepted recording grant and performer attribution are retained. Stable HTTPS MP3 delivery returned actual ID3 audio and decoded completely; duration metadata is the original decoded interval. Playback gain, speed and trim settings are retained; no audio bytes are edited. Canonical ID and filename remain unique, with additionalWorldIds expressing shared membership. Remove the active audition entry while retaining this review record as the promotion audit.",
+      "reviewNotes": "Recording-rights review 2026-10-06: IMSLP recording #254546 identifies the performer/uploader and a recording-specific CC BY 3.0 grant, distinct from score/MIDI licenses. Audio delivery uses the stable HTTPS MP3 URL exposed by the public player; 128-byte MP3 signature checked. Duration is the recording-specific listing, not an average work duration. Warm plucked-guitar audition lead; full sleep-suitability review pending. Credit performer and composer, license and source, describe modifications; follow ShareAlike for redistributed adaptations where applicable. Retained in Preview. Production promotion 2026-10-07: after audition feedback the maintainer selected this instrumental performance for both Quiet Classics and Lullabies for little ones. This supersedes earlier pending suitability/destination notes. The accepted recording grant and performer attribution are retained. Stable HTTPS MP3 delivery returned actual ID3 audio and decoded completely; duration metadata is the original decoded interval. Playback gain, speed and trim settings are retained; no audio bytes are edited. Canonical ID and filename remain unique, with additionalWorldIds expressing shared membership. Remove the active audition entry while retaining this review record as the promotion audit. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion.",
       "approvedLicense": "CC BY 3.0",
       "approvedLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
       "intendedWorldId": "quiet-classics",
@@ -1342,29 +1185,6 @@
         "quiet-classics",
         "lullabies"
       ]
-    },
-    {
-      "id": "candidate-sor-op-31-no-1-guitar",
-      "title": "Fernando Sor – Op. 31 No. 1",
-      "creator": "Fernando Sor; guitar and recording: Jujutacular",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Sor_Op_31_No._1.ogg",
-      "instrumentation": [
-        "guitar"
-      ],
-      "licenseReviewStatus": "verified",
-      "declaredLicense": "CC BY-SA 3.0",
-      "licenseEvidenceUri": "https://commons.wikimedia.org/wiki/File:Sor_Op_31_No._1.ogg",
-      "reviewNotes": "Recording-rights review 2026-10-06: exact Commons file credits Jujutacular, source Own work, uploaded by the same account with an explicit copyright-holder CC BY-SA 3.0 Unported grant (alternative GFDL not selected). Classical plucked-guitar study as an audition lead; complete sleep-suitability listening still pending. Preserve composer/performer/source/license attribution, identify edits and follow ShareAlike for redistributed adaptations.",
-      "approvedLicense": "CC BY-SA 3.0",
-      "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
-      "intendedWorldId": "quiet-classics",
-      "selectionKind": "gentle-guitar",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Sor_Op_31_No._1.ogg",
-      "fileName": "candidate-sor-op-31-no-1-guitar.ogg",
-      "durationSeconds": 84.939,
-      "sha1": "97a84f25f0ce6f796df26321a108fe445f7a3036",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0",
-      "deliveryCheckedAtUtc": "2026-10-06T21:23:02.4284864+02:00"
     },
     {
       "id": "candidate-sor-op-35-no-17-guitar",
@@ -1566,31 +1386,6 @@
       "durationSeconds": 113.837
     },
     {
-      "id": "candidate-chopin-prelude-6-guitar-leon-egea",
-      "title": "Frédéric Chopin – Prelude op. 28 No. 6 (guitar)",
-      "creator": "Frédéric Chopin; guitar arrangement and recording: Ramón León Egea",
-      "sourcePageUri": "https://imslp.org/wiki/Preludes,_Op.28_(Chopin,_Fr%C3%A9d%C3%A9ric)",
-      "instrumentation": [
-        "guitar"
-      ],
-      "licenseReviewStatus": "verified",
-      "declaredLicense": "CC BY-SA 4.0",
-      "licenseEvidenceUri": "https://imslp.org/wiki/Preludes,_Op.28_(Chopin,_Fr%C3%A9d%C3%A9ric)",
-      "reviewNotes": "Recording-rights review 2026-10-06: IMSLP recording #972259, uploaded through performer/arranger Ramón León Egea on 2025-05-23, explicitly names guitar and a recording-specific CC BY-SA 4.0 grant, independently of piano/score licenses. Listed duration 166 seconds. A plucked-string slow-prelude alternative for audition, not an additional duplicate piano performance. Full listening, recording noise and dynamic changes pending. Preserve composer/arranger/performer, source and license. Zero trims until onset/suitability is checked; Preview only. Original MP3 signature and complete decode checked on 2026-10-06; duration uses decoded original audio, not the rounded listing. Numerical level checks are not a completed listening review.",
-      "approvedLicense": "CC BY-SA 4.0",
-      "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "intendedWorldId": "quiet-classics",
-      "selectionKind": "gentle-guitar",
-      "startOffsetMilliseconds": 0,
-      "endOffsetMilliseconds": 0,
-      "downloadUri": "https://s9.imslp.org/files/imglnks/usimg/4/46/IMSLP972259-PMLP2344-Chopin_-_Prelude_6_Homesickness_arranged_for_guitar_by_Ram%C3%B3n_Le%C3%B3n_Egea.mp3",
-      "durationSeconds": 166.104,
-      "fileName": "candidate-chopin-prelude-6-guitar-leon-egea.mp3",
-      "sha1": null,
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "deliveryCheckedAtUtc": "2026-10-06T23:13:22.3623237+02:00"
-    },
-    {
       "id": "candidate-carcassi-op-26-no-3-guitar",
       "title": "Matteo Carcassi – Op. 26 No. 3",
       "creator": "Matteo Carcassi; guitar and recording: Jujutacular",
@@ -1616,31 +1411,6 @@
       "deliveryCheckedAtUtc": "2026-10-06T23:12:30.0617261+02:00",
       "volumeGain": 0.8,
       "playbackSpeed": 0.67
-    },
-    {
-      "id": "candidate-carcassi-op-60-no-6-guitar",
-      "title": "Matteo Carcassi – Op. 60 No. 6",
-      "creator": "Matteo Carcassi; guitar and recording: Jujutacular",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Carcassi_Op_60_No._6.ogg",
-      "instrumentation": [
-        "guitar"
-      ],
-      "licenseReviewStatus": "verified",
-      "declaredLicense": "CC BY-SA 3.0",
-      "licenseEvidenceUri": "https://commons.wikimedia.org/wiki/File:Carcassi_Op_60_No._6.ogg",
-      "reviewNotes": "Recording-rights review 2026-10-06: authoritative Commons file-page revision identifies Jujutacular as author, Own work and a self CC BY-SA 3.0 recording grant; alternative GFDL not selected. Recorded 2009-08-02. Plucked-guitar study for directional listening, not a claim of sleep suitability; tempo and dynamics especially need audition. Preserve composer/performer/source/license attribution, upstream checksum and original audio. Zero trim and Preview only.",
-      "approvedLicense": "CC BY-SA 3.0",
-      "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
-      "intendedWorldId": "quiet-classics",
-      "selectionKind": "gentle-guitar",
-      "startOffsetMilliseconds": 0,
-      "endOffsetMilliseconds": 0,
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/7/75/Carcassi_Op_60_No._6.ogg",
-      "fileName": "candidate-carcassi-op-60-no-6-guitar.ogg",
-      "durationSeconds": 163.143,
-      "sha1": "0707b5b65bd4271fd9cfd0cd550e34c2c9c08d1a",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0",
-      "deliveryCheckedAtUtc": "2026-10-06T23:12:32.2213127+02:00"
     },
     {
       "id": "candidate-mountain-evening-cowbells-sardin-axeline",

@@ -19,7 +19,7 @@ public sealed class PreselectionTests
     public void ResearchCandidatesHaveSourcesTagsAndExplicitReviewStates()
     {
         var candidates = BuiltInPreselection.Candidates;
-        Assert.Equal(BuildChannel.IsPreview ? 87 : 0, candidates.Count);
+        Assert.Equal(BuildChannel.IsPreview ? 76 : 0, candidates.Count);
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.Id).Distinct().Count());
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.SourcePageUri).Distinct().Count());
         var downloadableTracks = BuiltInCatalog.SleepWorlds.Where(world => world.Id != "preselection").SelectMany(world => world.Tracks).ToArray();
@@ -75,7 +75,7 @@ public sealed class PreselectionTests
             return;
         }
         Assert.NotNull(world);
-        Assert.Equal(59, world.Tracks.Count);
+        Assert.Equal(48, world.Tracks.Count);
         Assert.All(world.Tracks, track =>
         {
             var candidate = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == track.Id);
@@ -106,7 +106,7 @@ public sealed class PreselectionTests
         Assert.Equal("CC BY-SA 3.0", recuerdos.ApprovedLicense);
         Assert.Contains("Carlo Alberto Boni", recuerdos.Creator);
         Assert.True(recuerdos.CanPromote);
-        Assert.Equal(9, BuiltInPreselection.Candidates.Count(candidate => candidate.SelectionKind == "gentle-guitar"));
+        Assert.Equal(6, BuiltInPreselection.Candidates.Count(candidate => candidate.SelectionKind == "gentle-guitar"));
         var alternative = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == "candidate-romanza-ten-string-leon-egea");
         Assert.Equal("verified", alternative.LicenseReviewStatus);
         Assert.Equal("CC BY-SA 4.0", alternative.ApprovedLicense);
@@ -175,9 +175,7 @@ public sealed class PreselectionTests
         Assert.Equal("4963fc28577d5b65dc9f1283296d55c64db090cb", track.Sha1);
         Assert.Equal(0, track.StartOffsetMilliseconds);
         Assert.Equal(0, track.EndOffsetMilliseconds);
-        var otherCarcassi = Assert.Single(tracks, other => other.Id == "candidate-carcassi-op-60-no-6-guitar");
-        Assert.Equal(1d, otherCarcassi.VolumeGain);
-        Assert.Equal(1d, otherCarcassi.PlaybackSpeed);
+        Assert.DoesNotContain(tracks, other => other.Id == "candidate-carcassi-op-60-no-6-guitar");
     }
 
     [Fact]
