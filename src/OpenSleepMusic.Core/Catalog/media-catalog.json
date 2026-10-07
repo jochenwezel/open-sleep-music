@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-07T19:18:41.9214329+00:00",
+  "generatedAtUtc": "2026-10-07T19:22:18.1871052+00:00",
   "sleepWorlds": [
     {
       "id": "preselection",
@@ -51,6 +51,7 @@
           ],
           "ensembleType": "unreviewed",
           "licenseReviewStatus": "unchecked",
+          "playbackSpeed": 0.8,
           "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_quiet_classics_v3.png",
           "artworkFileName": "background_quiet_classics_v3.png",
           "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",

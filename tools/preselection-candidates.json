@@ -31,13 +31,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "CC BY-SA 4.0",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests 20 percent slower playback. Apply playbackSpeed 0.8 through playback metadata, resulting in 251.330 seconds listening duration from the 201.064-second original. Preserve source download, upstream SHA-1, normal gain and zero trims. Rights review remains unchecked; retain in Preview for audition, without production promotion or an edited audio file.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pachelbel_-_Canon_in_D_major%2C_P._37_%28Guitar%29.ogg",
       "fileName": "candidate-pachelbel-canon-in-d-major-p-37-guitar.ogg",
       "durationSeconds": 201.064,
       "sha1": "0e460d2fff2daf2c434200b589bee292d7c2eabe",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0",
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:02.7493374+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:02.7493374+02:00",
+      "playbackSpeed": 0.8
     },
     {
       "id": "candidate-schubert-s-daphne-am-bach-d-411-guitar-bert-alink",

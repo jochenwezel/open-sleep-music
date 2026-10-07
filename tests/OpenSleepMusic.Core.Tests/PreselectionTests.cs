@@ -170,11 +170,9 @@ public sealed class PreselectionTests
         Assert.Equal("4963fc28577d5b65dc9f1283296d55c64db090cb", track.Sha1);
         Assert.Equal(0, track.StartOffsetMilliseconds);
         Assert.Equal(0, track.EndOffsetMilliseconds);
-        Assert.All(tracks.Where(other => other.Id != track.Id), other =>
-        {
-            Assert.Equal(1d, other.VolumeGain);
-            Assert.Equal(1d, other.PlaybackSpeed);
-        });
+        var otherCarcassi = Assert.Single(tracks, other => other.Id == "candidate-carcassi-op-60-no-6-guitar");
+        Assert.Equal(1d, otherCarcassi.VolumeGain);
+        Assert.Equal(1d, otherCarcassi.PlaybackSpeed);
     }
 
     [Fact]
