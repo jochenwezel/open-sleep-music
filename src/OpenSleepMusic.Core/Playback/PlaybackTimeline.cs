@@ -2,6 +2,15 @@ namespace OpenSleepMusic.Core.Playback;
 
 public static class PlaybackTimeline
 {
+    public static TimeSpan ResolveMediaDuration(TimeSpan playerDuration, double catalogDurationSeconds)
+    {
+        if (playerDuration > TimeSpan.Zero) return playerDuration;
+        return double.IsFinite(catalogDurationSeconds) && catalogDurationSeconds > 0
+            && catalogDurationSeconds < TimeSpan.MaxValue.TotalSeconds
+            ? TimeSpan.FromSeconds(catalogDurationSeconds)
+            : TimeSpan.Zero;
+    }
+
     public static TimeSpan ToPlaybackTime(TimeSpan mediaTime, double speed, int startOffsetMilliseconds = 0) =>
         TimeSpan.FromMilliseconds(Math.Max(0, mediaTime.TotalMilliseconds - ValidOffset(startOffsetMilliseconds))) / ValidSpeed(speed);
 

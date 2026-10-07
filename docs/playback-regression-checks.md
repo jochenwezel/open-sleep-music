@@ -65,3 +65,19 @@ native `MediaPlayer`, service lifecycle, audio focus, or device timer scheduling
    same units. Repeat with a normal-speed track.
 
 These are manual checks, not a record of completed device validation.
+
+## Missing native duration
+
+1. On the reporting Android device, refresh the Preview catalog and download the
+   MP3 version of Recuerdos de la Alhambra. Verify approximately four minutes of
+   duration, an advancing position slider, and seeking to 30 seconds and halfway.
+2. With a test player reporting zero or -1 duration while its position advances,
+   verify that catalog duration supplies the main player, immersive player and
+   Android session metadata. Seek forward and backward; requests must retain
+   their media position rather than being clamped to zero.
+3. Repeat with nonzero start/end offsets and a slowed track. Display and seek
+   positions must use listening time; duration fallback uses original media time.
+4. Recreate the Android playback service with a saved queue. Duration metadata must
+   survive; older saved queues without it must still restore built-in tracks.
+5. Confirm that a later positive native duration takes precedence and that an
+   untrimmed recording is not cut short solely by an estimated catalog length.

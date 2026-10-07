@@ -169,6 +169,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         var paths = intent.GetStringArrayListExtra("paths") ?? [];
         var gains = intent.GetDoubleArrayExtra("gains") ?? [];
         var speeds = intent.GetDoubleArrayExtra("speeds") ?? [];
+        var durations = intent.GetDoubleArrayExtra("durations") ?? [];
         var startOffsets = intent.GetIntArrayExtra("startOffsets") ?? [];
         var endOffsets = intent.GetIntArrayExtra("endOffsets") ?? [];
         _queue.Clear();
@@ -178,7 +179,8 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             var speed = i < speeds.Length ? speeds[i] : 1;
             var startOffset = i < startOffsets.Length ? Math.Max(0, startOffsets[i]) : 0;
             var endOffset = i < endOffsets.Length ? Math.Max(0, endOffsets[i]) : 0;
-            _queue.Add(new QueueItem(ids[i]!, titles[i]!, creators[i]!, paths[i]!, gain, speed, startOffset, endOffset));
+            var duration = i < durations.Length ? durations[i] : CatalogDurationSeconds(ids[i]!);
+            _queue.Add(new QueueItem(ids[i]!, titles[i]!, creators[i]!, paths[i]!, gain, speed, startOffset, endOffset, duration));
         }
         if (_queue.Count == 0)
         {
@@ -617,7 +619,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             if (_positionTimer is null) return;
             if (_playerPrepared && IsPlaying() && _queue[_index].EndOffsetMilliseconds > 0
                 && _player is { } player && PlaybackTimeline.HasReachedEnd(
-                    TimeSpan.FromMilliseconds(player.CurrentPosition), TimeSpan.FromMilliseconds(player.Duration),
+                    TimeSpan.FromMilliseconds(player.CurrentPosition), CurrentMediaDuration(),
                     _queue[_index].EndOffsetMilliseconds))
             {
                 CompleteCurrentTrack(player);
@@ -648,7 +650,8 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             item.Gain.ToString(System.Globalization.CultureInfo.InvariantCulture),
             item.Speed.ToString(System.Globalization.CultureInfo.InvariantCulture),
             item.StartOffsetMilliseconds.ToString(System.Globalization.CultureInfo.InvariantCulture),
-            item.EndOffsetMilliseconds.ToString(System.Globalization.CultureInfo.InvariantCulture))));
+            item.EndOffsetMilliseconds.ToString(System.Globalization.CultureInfo.InvariantCulture),
+            item.DurationSeconds.ToString(System.Globalization.CultureInfo.InvariantCulture))));
         preferences?.Edit()?
             .PutString("queue", serializedQueue)?
             .PutInt("index", _index)?
@@ -688,7 +691,11 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
                 var endOffset = fields.Length >= 8 && int.TryParse(fields[7], System.Globalization.NumberStyles.Integer,
                     System.Globalization.CultureInfo.InvariantCulture, out var parsedEndOffset) && parsedEndOffset >= 0
                     ? parsedEndOffset : 0;
-                _queue.Add(new QueueItem(Decode(fields[0]), Decode(fields[1]), Decode(fields[2]), Decode(fields[3]), gain, speed, startOffset, endOffset));
+                var id = Decode(fields[0]);
+                var duration = fields.Length >= 9 && double.TryParse(fields[8], System.Globalization.NumberStyles.Float,
+                    System.Globalization.CultureInfo.InvariantCulture, out var parsedDuration) && double.IsFinite(parsedDuration) && parsedDuration > 0
+                    ? parsedDuration : CatalogDurationSeconds(id);
+                _queue.Add(new QueueItem(id, Decode(fields[1]), Decode(fields[2]), Decode(fields[3]), gain, speed, startOffset, endOffset, duration));
             }
         }
         if (_queue.Count == 0) return;
@@ -786,7 +793,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private int ToMediaMilliseconds(double playbackSeconds) => (int)Math.Clamp(
         PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(playbackSeconds), CurrentSpeed(), CurrentStartOffsetMilliseconds(),
-            _playerPrepared ? TimeSpan.FromMilliseconds(_player?.Duration ?? 0) : null,
+            _playerPrepared && CurrentMediaDuration() > TimeSpan.Zero ? CurrentMediaDuration() : null,
             _queue.Count == 0 ? 0 : _queue[_index].EndOffsetMilliseconds).TotalMilliseconds,
         0, int.MaxValue);
 
@@ -799,8 +806,15 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         : 0;
 
     private int CurrentDurationMilliseconds() => !_playerPrepared || _queue.Count == 0 ? 0 : (int)Math.Clamp(
-        PlaybackTimeline.Duration(TimeSpan.FromMilliseconds(_player?.Duration ?? 0), CurrentSpeed(),
+        PlaybackTimeline.Duration(CurrentMediaDuration(), CurrentSpeed(),
             CurrentStartOffsetMilliseconds(), _queue[_index].EndOffsetMilliseconds).TotalMilliseconds, 0, int.MaxValue);
+
+    private TimeSpan CurrentMediaDuration() => PlaybackTimeline.ResolveMediaDuration(
+        _playerPrepared ? TimeSpan.FromMilliseconds(_player?.Duration ?? 0) : TimeSpan.Zero,
+        _queue.Count == 0 ? 0 : _queue[_index].DurationSeconds);
+
+    private static double CatalogDurationSeconds(string id) => OpenSleepMusic.Core.Catalog.BuiltInCatalog.SleepWorlds
+        .SelectMany(world => world.Tracks).FirstOrDefault(track => track.Id == id)?.DurationSeconds ?? 0;
 
     private void PrepareUserPlayback()
     {
@@ -824,7 +838,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         _player?.SetVolume(volume, volume);
     }
 
-    private sealed record QueueItem(string Id, string Title, string Creator, string Path, double Gain, double Speed, int StartOffsetMilliseconds, int EndOffsetMilliseconds);
+    private sealed record QueueItem(string Id, string Title, string Creator, string Path, double Gain, double Speed, int StartOffsetMilliseconds, int EndOffsetMilliseconds, double DurationSeconds);
 
     private sealed class BecomingNoisyReceiver(AndroidPlaybackService owner) : BroadcastReceiver
     {

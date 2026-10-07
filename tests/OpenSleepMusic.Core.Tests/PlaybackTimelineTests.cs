@@ -5,6 +5,48 @@ namespace OpenSleepMusic.Core.Tests;
 public sealed class PlaybackTimelineTests
 {
     [Theory]
+    [InlineData(0)]
+    [InlineData(-1)]
+    public void MissingPlayerDurationUsesCatalogForPositionAndSeek(double playerDurationSeconds)
+    {
+        var mediaDuration = PlaybackTimeline.ResolveMediaDuration(TimeSpan.FromSeconds(playerDurationSeconds), 239.885);
+        var duration = PlaybackTimeline.Duration(mediaDuration, 1);
+        var position = PlaybackTimeline.ToPlaybackTime(TimeSpan.FromSeconds(30), 1);
+        Assert.Equal(239.885, duration.TotalSeconds, 3);
+        Assert.Equal(30, Math.Min(position.TotalSeconds, duration.TotalSeconds));
+        Assert.Equal(30, PlaybackTimeline.ToMediaTime(position, 1, mediaDuration: mediaDuration).TotalSeconds);
+        Assert.Equal(239.885, PlaybackTimeline.ToMediaTime(TimeSpan.FromMinutes(10), 1, mediaDuration: mediaDuration).TotalSeconds, 3);
+    }
+
+    [Fact]
+    public void AvailablePlayerDurationTakesPrecedenceOverCatalogEstimate()
+    {
+        var actual = TimeSpan.FromSeconds(245);
+        Assert.Equal(actual, PlaybackTimeline.ResolveMediaDuration(actual, 239.885));
+    }
+
+    [Fact]
+    public void CatalogDurationFallbackIsTrimmedBeforeApplyingPlaybackSpeed()
+    {
+        var mediaDuration = PlaybackTimeline.ResolveMediaDuration(TimeSpan.Zero, 171.312);
+        var duration = PlaybackTimeline.Duration(mediaDuration, .8, 6400, 3600);
+        Assert.Equal((171.312 - 10) / .8, duration.TotalSeconds, 6);
+        Assert.Equal(167.712, PlaybackTimeline.ToMediaTime(duration, .8, 6400, mediaDuration, 3600).TotalSeconds, 6);
+        Assert.True(PlaybackTimeline.HasReachedEnd(TimeSpan.FromSeconds(168), mediaDuration, 3600));
+    }
+
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-1)]
+    [InlineData(double.NaN)]
+    [InlineData(double.PositiveInfinity)]
+    [InlineData(double.MaxValue)]
+    public void InvalidCatalogDurationDoesNotInventAPlaybackLength(double catalogDurationSeconds)
+    {
+        Assert.Equal(TimeSpan.Zero, PlaybackTimeline.ResolveMediaDuration(TimeSpan.Zero, catalogDurationSeconds));
+    }
+
+    [Theory]
     [InlineData(.5)]
     [InlineData(1)]
     [InlineData(1.25)]
