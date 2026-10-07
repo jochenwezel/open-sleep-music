@@ -51,13 +51,14 @@
       "licenseReviewStatus": "unchecked",
       "declaredLicense": "CC BY 4.0",
       "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests 15 percent slower playback. Apply playbackSpeed 0.85 through playback metadata, resulting in approximately 114.098 seconds listening duration from the 96.983-second original. Preserve original download, upstream SHA-1, normal gain and zero trims. Recording-rights review remains unchecked; retain in Preview for audition without production promotion or an edited audio file.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Schubert%27s_Daphne_am_Bach%2C_D.411_%28guitar%29_-_Bert_Alink.ogg",
       "fileName": "candidate-schubert-s-daphne-am-bach-d-411-guitar-bert-alink.ogg",
       "durationSeconds": 96.983,
       "sha1": "df3439838aa9d72a9361709b18f7b0bbf466437f",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0",
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:04.899595+02:00"
+      "deliveryCheckedAtUtc": "2026-10-02T23:49:04.899595+02:00",
+      "playbackSpeed": 0.85
     },
     {
       "id": "candidate-pachelbel-suite-in-f-sharp-minor-p-439-iv-sarabande-guitar",
