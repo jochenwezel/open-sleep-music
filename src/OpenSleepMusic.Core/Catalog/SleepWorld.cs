@@ -6,4 +6,5 @@ public sealed record SleepWorld(
     string Description,
     string Icon,
     IReadOnlyList<AudioTrack> Tracks,
-    IReadOnlyList<ReviewCandidate>? ExternalReferences = null);
+    IReadOnlyList<ReviewCandidate>? ExternalReferences = null,
+    IReadOnlyList<string>? TrackOrder = null);

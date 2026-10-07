@@ -1250,7 +1250,7 @@
       "licenseReviewStatus": "verified",
       "declaredLicense": "CC0 1.0",
       "licenseEvidenceUri": "https://bigsoundbank.com/campaign-at-night-4-s1880.html",
-      "reviewNotes": "Recording-rights review 2026-10-06: specific item names Joseph Sardin as author, declares CC0, and links the site license page explicitly naming CC0 1.0 Universal. Field recording made in a French meadow on 2020-05-05 at about 22:00; crickets with occasional frogs. Five-minute audition lead for a quiet background alongside guitar. Full listening, peak levels and loop boundary still need review; no production admission or mixed recording. Original media and zero trims retained. Original MP3 signature and complete decode checked on 2026-10-06; duration uses decoded original audio, not the rounded listing. Numerical level checks are not a completed listening review.",
+      "reviewNotes": "Recording-rights review 2026-10-06: specific item names Joseph Sardin as author, declares CC0, and links the site license page explicitly naming CC0 1.0 Universal. Field recording made in a French meadow on 2020-05-05 at about 22:00; crickets with occasional frogs. Five-minute audition lead for a quiet background alongside guitar. Full listening, peak levels and loop boundary still need review; no production admission or mixed recording. Original media and zero trims retained. Original MP3 signature and complete decode checked on 2026-10-06; duration uses decoded original audio, not the rounded listing. Numerical level checks are not a completed listening review. Listening feedback 2026-10-07: maintainer requests 50% playback loudness. Set absolute volumeGain 0.5 relative to the original normal gain; retain original delivery, duration, checksum, trims and normal playback speed. This is a playback-level adjustment, not editing, a license change or production promotion.",
       "approvedLicense": "CC0 1.0",
       "approvedLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
       "intendedWorldId": "forest",
@@ -1262,7 +1262,8 @@
       "fileName": "candidate-meadow-night-crickets-sardin.mp3",
       "sha1": null,
       "declaredLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "deliveryCheckedAtUtc": "2026-10-06T23:13:22.3525175+02:00"
+      "deliveryCheckedAtUtc": "2026-10-06T23:13:22.3525175+02:00",
+      "volumeGain": 0.5
     },
     {
       "id": "candidate-small-waves-beach-sardin",
@@ -1276,7 +1277,7 @@
       "licenseReviewStatus": "verified",
       "declaredLicense": "CC0 1.0",
       "licenseEvidenceUri": "https://bigsoundbank.com/small-waves-and-beach-2-s1448.html",
-      "reviewNotes": "Recording-rights review 2026-10-06: exact item identifies recordist Joseph Sardin, declares CC0 and links the explicit CC0 1.0 grant. Small waves recorded from ten meters away; approximately six minutes, distinct from the production ocean recordings. Directional audition for a subdued guitar background; full listening, peaks and repeat boundary pending. No production promotion or mixed recording; original file and zero trims retained. Original MP3 signature and complete decode checked on 2026-10-06; duration uses decoded original audio, not the rounded listing. Numerical level checks are not a completed listening review. Listening feedback 2026-10-07: the maintainer finds the wave arrivals too frequent and would prefer roughly half the cadence. The follow-up preference is for naturally longer wave cycles without time stretching. Retain the original at normal speed for comparison while auditioning alternative recordings; no playback-speed change or production admission.",
+      "reviewNotes": "Recording-rights review 2026-10-06: exact item identifies recordist Joseph Sardin, declares CC0 and links the explicit CC0 1.0 grant. Small waves recorded from ten meters away; approximately six minutes, distinct from the production ocean recordings. Directional audition for a subdued guitar background; full listening, peaks and repeat boundary pending. No production promotion or mixed recording; original file and zero trims retained. Original MP3 signature and complete decode checked on 2026-10-06; duration uses decoded original audio, not the rounded listing. Numerical level checks are not a completed listening review. Listening feedback 2026-10-07: the maintainer finds the wave arrivals too frequent and would prefer roughly half the cadence. The follow-up preference is for naturally longer wave cycles without time stretching. Retain the original at normal speed for comparison while auditioning alternative recordings; no playback-speed change or production admission. Listening feedback 2026-10-07: maintainer requests 50% playback loudness. Set absolute volumeGain 0.5 relative to the original normal gain; retain original delivery, duration, checksum, trims and normal playback speed. This is a playback-level adjustment, not editing, a license change or production promotion.",
       "approvedLicense": "CC0 1.0",
       "approvedLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
       "intendedWorldId": "waves",
@@ -1288,7 +1289,8 @@
       "fileName": "candidate-small-waves-beach-sardin.mp3",
       "sha1": null,
       "declaredLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "deliveryCheckedAtUtc": "2026-10-06T23:13:22.3616377+02:00"
+      "deliveryCheckedAtUtc": "2026-10-06T23:13:22.3616377+02:00",
+      "volumeGain": 0.5
     },
     {
       "id": "candidate-nightingale-wind-crickets-childed",

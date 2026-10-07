@@ -25,6 +25,17 @@ internal static class CatalogMembership
                 targetTracks.Add(track);
             }
         }
-        return worlds.Select(world => world with { Tracks = tracksByWorld[world.Id].ToArray() }).ToArray();
+        return worlds.Select(world => world with { Tracks = ResolveOrder(world, tracksByWorld[world.Id]) }).ToArray();
+    }
+
+    private static IReadOnlyList<AudioTrack> ResolveOrder(SleepWorld world, IReadOnlyList<AudioTrack> tracks)
+    {
+        if (world.TrackOrder is null) return tracks.ToArray();
+        var byId = tracks.ToDictionary(track => track.Id, StringComparer.Ordinal);
+        var seen = new HashSet<string>(StringComparer.Ordinal);
+        if (world.TrackOrder.Count != tracks.Count
+            || world.TrackOrder.Any(id => string.IsNullOrWhiteSpace(id) || !seen.Add(id) || !byId.ContainsKey(id)))
+            throw new InvalidDataException($"Invalid complete track order for '{world.Id}'.");
+        return world.TrackOrder.Select(id => byId[id]).ToArray();
     }
 }

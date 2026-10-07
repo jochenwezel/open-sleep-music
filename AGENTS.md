@@ -88,10 +88,21 @@ the Preselection page. Test both channel variants before changing these gates.
 
 `tools/Update-MediaCatalog.ps1` is the reproducible catalog generator. Make selection changes in that script and regenerate the JSON instead of hand-editing generated entries.
 
+The Lullabies for little ones collection uses a persisted mixed default order,
+never alphabetical sorting. `tools/lullabies-track-order.json` contains every
+current membership ID, including shared recordings. The generator retains the
+relative order of existing titles and uses `tools/CatalogOrdering.ps1` to insert
+each new title at a randomly chosen position, including either boundary. Do not
+simply append newcomers or reshuffle the collection on every rebuild. Emit the
+complete `trackOrder` in both channel manifests; Core applies it after resolving
+shared memberships. Removing a title preserves the relative order of survivors.
+This catalog order is independent of the player's optional shuffle setting.
+
 After changing the catalog:
 
 ```powershell
 ./tools/Update-MediaCatalog.ps1
+./tools/Test-CatalogOrdering.ps1
 dotnet test tests/OpenSleepMusic.Core.Tests/OpenSleepMusic.Core.Tests.csproj --configuration Release
 dotnet build src/OpenSleepMusic.App/OpenSleepMusic.App.csproj --framework net10.0-windows10.0.19041.0 --configuration Release
 ```

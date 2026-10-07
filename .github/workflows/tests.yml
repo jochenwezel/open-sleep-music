@@ -23,6 +23,9 @@ jobs:
       - uses: actions/setup-dotnet@v5
         with:
           global-json-file: global.json
+      - name: Test catalog insertion policy
+        shell: pwsh
+        run: ./tools/Test-CatalogOrdering.ps1
       - name: Test core
         run: dotnet test tests/OpenSleepMusic.Core.Tests/OpenSleepMusic.Core.Tests.csproj --configuration Release --collect:"XPlat Code Coverage" --results-directory TestResults
       - name: Upload test results

@@ -3,6 +3,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+. (Join-Path $PSScriptRoot 'CatalogOrdering.ps1')
 $headers = @{ 'User-Agent' = 'OpenSleepMusicCatalog/0.1 (+https://github.com/jochenwezel/open-sleep-music)' }
 $cc0 = 'CC0 1.0'
 $cc0Url = 'https://creativecommons.org/publicdomain/zero/1.0/'
@@ -354,6 +355,28 @@ foreach ($world in $manifestWorlds) {
         }
     }
 }
+# Persist the little-ones collection order, including shared production tracks.
+# New tracks are inserted randomly instead of being appended or alphabetized.
+$lullabyOrderPath = Join-Path $PSScriptRoot 'lullabies-track-order.json'
+$existingLullabyOrder = @()
+if (Test-Path -LiteralPath $lullabyOrderPath) {
+    $existingLullabyOrder = @(Get-Content -LiteralPath $lullabyOrderPath -Raw | ConvertFrom-Json)
+}
+$lullabyWorld = $manifestWorlds | Where-Object { $_.id -eq 'lullabies' }
+$lullabyMemberIds = @($lullabyWorld.tracks.id) + @($manifestWorlds | ForEach-Object { $_.tracks } |
+    Where-Object { 'lullabies' -in $_.additionalWorldIds } | ForEach-Object { $_.id })
+$lullabyOrder = @(Update-CatalogTrackOrder -ExistingOrder $existingLullabyOrder -TrackIds $lullabyMemberIds)
+$lullabyWorld.trackOrder = $lullabyOrder
+$primaryLullabyTracks = @($lullabyWorld.tracks)
+$lullabyWorld.tracks = @($lullabyOrder | ForEach-Object {
+    $orderedId = $_
+    $primaryLullabyTracks | Where-Object { $_.id -eq $orderedId }
+})
+if (($existingLullabyOrder -join "`n") -cne ($lullabyOrder -join "`n")) {
+    [IO.File]::WriteAllText($lullabyOrderPath,
+        (ConvertTo-Json -InputObject $lullabyOrder) + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))
+}
+
 $candidateOutputPath = Join-Path (Split-Path $OutputPath) 'preselection-candidates.json'
 [IO.File]::WriteAllText($candidateOutputPath, ($candidateManifest | ConvertTo-Json -Depth 8) + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))
 

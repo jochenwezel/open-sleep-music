@@ -4,6 +4,25 @@ namespace OpenSleepMusic.Core.Tests;
 
 public sealed class SharedCatalogTests
 {
+    [Fact]
+    public void LittleOnesUsePersistedMixedOrderIncludingSharedRecordings()
+    {
+        var world = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies");
+        Assert.NotNull(world.TrackOrder);
+        Assert.Equal(world.Tracks.Select(track => track.Id), world.TrackOrder);
+        Assert.Equal(8, world.TrackOrder.Count);
+        var titles = world.Tracks.Select(track => track.Title).ToArray();
+        Assert.False(titles.SequenceEqual(titles.Order(StringComparer.OrdinalIgnoreCase)));
+
+        using var stream = typeof(BuiltInCatalog).Assembly.GetManifestResourceStream("OpenSleepMusic.Core.Catalog.media-catalog.json")!;
+        using var json = System.Text.Json.JsonDocument.Parse(stream);
+        var rawWorld = json.RootElement.GetProperty("sleepWorlds").EnumerateArray()
+            .Single(entry => entry.GetProperty("id").GetString() == "lullabies");
+        var canonicalIds = rawWorld.GetProperty("tracks").EnumerateArray()
+            .Select(track => track.GetProperty("id").GetString()).ToArray();
+        Assert.Equal(world.TrackOrder.Where(id => canonicalIds.Contains(id)), canonicalIds);
+    }
+
     [Theory]
     [InlineData("candidate-romanza-ten-string-leon-egea", "CC BY-SA 4.0", 6400)]
     [InlineData("candidate-recuerdos-de-la-alhambra", "CC BY-SA 3.0", 0)]

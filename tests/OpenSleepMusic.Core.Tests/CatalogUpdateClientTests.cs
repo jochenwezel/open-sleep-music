@@ -267,6 +267,62 @@ public sealed class CatalogUpdateClientTests
         finally { Directory.Delete(root, true); }
     }
 
+    [Theory]
+    [InlineData("remote-track,local-track")]
+    [InlineData("local-track,remote-track")]
+    public async Task ExplicitOrderIncludesSharedTracksAndSurvivesOfflineCache(string order)
+    {
+        var root = TemporaryRoot();
+        try
+        {
+            using var client = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.OK, OrderedSharedCatalogJson(order))));
+            var embedded = Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero));
+            var result = await new CatalogUpdateClient(client, CatalogUri).ResolveAsync(embedded, root);
+            var target = result.SleepWorlds.Single(world => world.Id == "other");
+            Assert.Equal(order.Split(','), target.Tracks.Select(track => track.Id));
+            Assert.Same(Assert.Single(result.SleepWorlds[0].Tracks), target.Tracks.Single(track => track.Id == "remote-track"));
+            using var offline = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.NotFound, "missing")));
+            var cached = await new CatalogUpdateClient(offline, CatalogUri).ResolveAsync(embedded, root);
+            Assert.Equal(order.Split(','), cached.SleepWorlds.Single(world => world.Id == "other").Tracks.Select(track => track.Id));
+        }
+        finally { Directory.Delete(root, true); }
+    }
+
+    [Theory]
+    [InlineData("")]
+    [InlineData("remote-track")]
+    [InlineData("remote-track,remote-track")]
+    [InlineData("remote-track,missing")]
+    [InlineData("remote-track,local-track,extra")]
+    public async Task InvalidOrIncompleteTrackOrderKeepsThePreviousCatalog(string order)
+    {
+        var root = TemporaryRoot();
+        try
+        {
+            using var client = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.OK, OrderedSharedCatalogJson(order))));
+            var embedded = Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero));
+            var result = await new CatalogUpdateClient(client, CatalogUri).ResolveAsync(embedded, root);
+            Assert.Equal("embedded", Assert.Single(result.SleepWorlds).Id);
+            Assert.False(File.Exists(Path.Combine(root, "media-catalog.json")));
+        }
+        finally { Directory.Delete(root, true); }
+    }
+
+    private static string OrderedSharedCatalogJson(string order)
+    {
+        var json = System.Text.Json.Nodes.JsonNode.Parse(SharedCatalogJson("other"))!;
+        var local = json["sleepWorlds"]![0]!["tracks"]![0]!.DeepClone();
+        local["id"] = "local-track";
+        local["fileName"] = "local-track.mp3";
+        local["downloadUri"] = "https://example.test/local.mp3";
+        local.AsObject().Remove("additionalWorldIds");
+        var target = json["sleepWorlds"]![1]!;
+        target["tracks"]!.AsArray().Add(local);
+        target["trackOrder"] = new System.Text.Json.Nodes.JsonArray((order.Length == 0 ? [] : order.Split(','))
+            .Select(value => (System.Text.Json.Nodes.JsonNode?)System.Text.Json.Nodes.JsonValue.Create(value)).ToArray());
+        return json.ToJsonString();
+    }
+
     private static string SharedCatalogJson(string targets)
     {
         var json = System.Text.Json.Nodes.JsonNode.Parse(CatalogJson("remote"))!;

@@ -162,6 +162,24 @@ public sealed class PreselectionTests
         Assert.DoesNotContain("crickets", alpine.Instrumentation);
     }
 
+    [Theory]
+    [InlineData("candidate-small-waves-beach-sardin", 373.635)]
+    [InlineData("candidate-meadow-night-crickets-sardin", 299.102)]
+    public void SelectedBackgroundSoundsUseHalfGainAndUnchangedDelivery(string id, double originalDuration)
+    {
+        if (!BuildChannel.IsPreview) return;
+        var track = Assert.Single(BuiltInCatalog.SleepWorlds.Single(world => world.Id == "preselection").Tracks, track => track.Id == id);
+        var candidate = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == id);
+        Assert.Equal(.5, track.VolumeGain);
+        Assert.Equal(.5, candidate.VolumeGain);
+        Assert.Equal(originalDuration, track.DurationSeconds);
+        Assert.Equal(1d, track.PlaybackSpeed);
+        Assert.Equal(0, track.StartOffsetMilliseconds);
+        Assert.Equal(0, track.EndOffsetMilliseconds);
+        Assert.Equal(candidate.DownloadUri, track.DownloadUri);
+        Assert.Equal(candidate.Sha1, track.Sha1);
+    }
+
     [Fact]
     public void CarcassiOpus26AuditionUsesRequestedGainAndSpeedWithoutChangingOriginalDelivery()
     {
