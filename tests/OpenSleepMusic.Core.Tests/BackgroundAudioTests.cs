@@ -45,13 +45,67 @@ public sealed class BackgroundAudioTests
     }
 
     [Fact]
-    public void NestedBackgroundAndPreviewRecordingCannotEnterProduction()
+    public void NestedAndUncheckedPreviewBackgroundsAreRejected()
     {
         var main = Track("piano") with { BackgroundAudio = new("crickets") };
         var nested = Track("crickets") with { BackgroundAudio = new("piano") };
         Assert.Throws<InvalidDataException>(() => BackgroundAudioCatalog.Validate([World(main, nested)]));
         Assert.Throws<InvalidDataException>(() => BackgroundAudioCatalog.Validate([
-            World(main), new("preselection", "Preview", "", "", [Track("crickets")])]));
+            World(main), new("preselection", "Preview", "", "", [Track("crickets") with { LicenseReviewStatus = "unchecked" }])]));
+    }
+
+    [Fact]
+    public void ReviewedPreviewBackgroundIsAllowedOnlyInPreviewBuilds()
+    {
+        var main = Track("piano") with { BackgroundAudio = new("crickets") };
+        SleepWorld[] catalog = [World(main), new("preselection", "Preview", "", "", [Track("crickets")])];
+        if (BuildChannel.IsPreview) BackgroundAudioCatalog.Validate(catalog);
+        else Assert.Throws<InvalidDataException>(() => BackgroundAudioCatalog.Validate(catalog));
+    }
+
+    [Fact]
+    public void PreviewBackgroundMustRetainItsApprovedRecordingLicense()
+    {
+        if (!BuildChannel.IsPreview) return;
+        var source = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "preselection").Tracks
+            .Single(track => track.Id == "candidate-meadow-night-crickets-sardin") with { License = "CC BY 4.0" };
+        var main = Track("piano") with { BackgroundAudio = new(source.Id) };
+        Assert.Throws<InvalidDataException>(() => BackgroundAudioCatalog.Validate([
+            World(main), new("preselection", "Preview", "", "", [source])]));
+    }
+
+    [Theory]
+    [InlineData("candidate-romanza-ten-string-leon-egea")]
+    [InlineData("candidate-recuerdos-de-la-alhambra")]
+    public void GuitarCricketAuditionIsPreviewOnlyAndUsesOneHalfGain(string id)
+    {
+        var worlds = BuiltInCatalog.SleepWorlds;
+        var classics = worlds.Single(world => world.Id == "quiet-classics");
+        var lullabies = worlds.Single(world => world.Id == "lullabies");
+        var primary = classics.Tracks.Single(track => track.Id == id);
+        Assert.Same(primary, lullabies.Tracks.Single(track => track.Id == id));
+        if (!BuildChannel.IsPreview)
+        {
+            Assert.Null(primary.BackgroundAudio);
+            Assert.Null(BackgroundAudioCatalog.Resolve(primary, worlds));
+            return;
+        }
+        var source = worlds.Single(world => world.Id == "preselection").Tracks
+            .Single(track => track.Id == "candidate-meadow-night-crickets-sardin");
+        var background = Assert.IsType<AudioTrack>(BackgroundAudioCatalog.Resolve(primary, worlds));
+        Assert.Equal(.5, source.VolumeGain);
+        Assert.Equal(.5, background.VolumeGain);
+        Assert.Equal(1, background.PlaybackSpeed);
+        Assert.Equal(0, background.StartOffsetMilliseconds);
+        Assert.Equal(0, background.EndOffsetMilliseconds);
+        Assert.Equal(source.DownloadUri, background.DownloadUri);
+        Assert.Equal(source.Sha1, background.Sha1);
+        Assert.True(background.PlaybackDurationSeconds > primary.PlaybackDurationSeconds);
+        foreach (var world in new[] { classics, lullabies })
+        {
+            Assert.DoesNotContain(world.Tracks, track => track.Id == source.Id);
+            Assert.Single(BackgroundAudioCatalog.IncludeDownloads(world, worlds).Tracks, track => track.Id == source.Id);
+        }
     }
 
     [Fact]

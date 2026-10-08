@@ -361,31 +361,33 @@ foreach ($candidate in $candidateManifest.candidates) {
         $candidate.licenseReviewStatus -notin @('unchecked', 'verified', 'rejected') -or
         !$candidate.instrumentation.Count) { throw "Invalid candidate metadata: $($candidate.id)" }
 }
+function Assert-ReviewedCatalogTrack($track) {
+    $candidate = $candidateManifest.candidates | Where-Object {
+        $_.id -eq $track.id -or [Uri]$_.sourcePageUri -eq [Uri]$track.sourcePageUri
+    }
+    if ($candidate -and ($candidate.licenseReviewStatus -ne 'verified' -or
+        !$candidate.licenseEvidenceUri -or ([Uri]$candidate.licenseEvidenceUri).Scheme -ne 'https' -or
+        [string]::IsNullOrWhiteSpace($candidate.creator) -or
+        [string]::IsNullOrWhiteSpace($candidate.declaredLicense) -or
+        $candidate.approvedLicense -notin @('CC0 1.0', 'CC BY 3.0', 'CC BY 4.0', 'CC BY-SA 3.0', 'CC BY-SA 4.0', 'Public Domain', 'Public Domain Dedication') -or
+        !$candidate.approvedLicenseUri -or ([Uri]$candidate.approvedLicenseUri).Scheme -ne 'https' -or
+        [string]::IsNullOrWhiteSpace($candidate.reviewNotes))) {
+        throw "Candidate '$($track.id)' cannot enter the production catalog without a documented recording-rights review."
+    }
+    if ($candidate -and ($track.license -ne $candidate.approvedLicense -or
+        [Uri]$track.licenseUri -ne [Uri]$candidate.approvedLicenseUri)) {
+        throw "Candidate '$($track.id)' must retain its approved recording license."
+    }
+}
 foreach ($world in $manifestWorlds) {
     if ($world.id -eq 'preselection') { continue }
-    foreach ($track in $world.tracks) {
-        $candidate = $candidateManifest.candidates | Where-Object {
-            $_.id -eq $track.id -or [Uri]$_.sourcePageUri -eq [Uri]$track.sourcePageUri
-        }
-        if ($candidate -and ($candidate.licenseReviewStatus -ne 'verified' -or
-            !$candidate.licenseEvidenceUri -or ([Uri]$candidate.licenseEvidenceUri).Scheme -ne 'https' -or
-            [string]::IsNullOrWhiteSpace($candidate.creator) -or
-            [string]::IsNullOrWhiteSpace($candidate.declaredLicense) -or
-            $candidate.approvedLicense -notin @('CC0 1.0', 'CC BY 3.0', 'CC BY 4.0', 'CC BY-SA 3.0', 'CC BY-SA 4.0', 'Public Domain', 'Public Domain Dedication') -or
-            !$candidate.approvedLicenseUri -or ([Uri]$candidate.approvedLicenseUri).Scheme -ne 'https' -or
-            [string]::IsNullOrWhiteSpace($candidate.reviewNotes))) {
-            throw "Candidate '$($track.id)' cannot enter the production catalog without a documented recording-rights review."
-        }
-        if ($candidate -and ($track.license -ne $candidate.approvedLicense -or
-            [Uri]$track.licenseUri -ne [Uri]$candidate.approvedLicenseUri)) {
-            throw "Candidate '$($track.id)' must retain its approved recording license."
-        }
-    }
+    foreach ($track in $world.tracks) { Assert-ReviewedCatalogTrack $track }
 }
 # Optional looping background recordings reference existing catalog assets.
 $backgrounds = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'track-backgrounds.json') -Raw | ConvertFrom-Json -AsHashtable
 $catalogTracks = @{}
 $trackWorlds = @{}
+$previewBackgroundIds = @()
 foreach ($world in $manifestWorlds) {
     foreach ($track in $world.tracks) { $catalogTracks[$track.id] = $track; $trackWorlds[$track.id] = $world.id }
 }
@@ -400,10 +402,18 @@ foreach ($id in $backgrounds.Keys) {
         ![double]::IsFinite([double]$background.volume) -or $background.volume -lt 0 -or $background.volume -gt 1 -or
         $background.startOffsetMilliseconds -lt 0 -or $background.endOffsetMilliseconds -lt 0 -or
         ([double]$background.startOffsetMilliseconds + [double]$background.endOffsetMilliseconds) -ge $source.durationSeconds * 1000 -or
-        ($trackWorlds[$id] -ne 'preselection' -and $trackWorlds[$background.trackId] -eq 'preselection')) {
+        ($background.ContainsKey('previewOnly') -and $background.previewOnly -isnot [bool]) -or
+        ($trackWorlds[$id] -ne 'preselection' -and $trackWorlds[$background.trackId] -eq 'preselection' -and
+            (!$background.previewOnly -or $source.licenseReviewStatus -ne 'verified'))) {
         throw "Invalid background audio for '$id'."
     }
-    $catalogTracks[$id].backgroundAudio = $background
+    if ($trackWorlds[$id] -ne 'preselection' -and $trackWorlds[$background.trackId] -eq 'preselection') {
+        Assert-ReviewedCatalogTrack $source
+    }
+    if ($background.previewOnly) { $previewBackgroundIds += $id }
+    $emittedBackground = $background.Clone()
+    $emittedBackground.Remove('previewOnly')
+    $catalogTracks[$id].backgroundAudio = $emittedBackground
 }
 
 # Persist the little-ones collection order, including shared production tracks.
@@ -449,6 +459,13 @@ $productionManifest = [ordered]@{
     schemaVersion = $manifest.schemaVersion
     generatedAtUtc = $manifest.generatedAtUtc
     sleepWorlds = @($manifestWorlds | Where-Object { $_.id -notin @('preselection', 'pre-qualify') })
+}
+# Clone before removing audition assignments so Preview retains its pairings.
+$productionManifest = $productionManifest | ConvertTo-Json -Depth 8 | ConvertFrom-Json -AsHashtable -DateKind String
+foreach ($world in $productionManifest.sleepWorlds) {
+    foreach ($track in $world.tracks) {
+        if ($track.id -in $previewBackgroundIds) { $track.Remove('backgroundAudio') }
+    }
 }
 $productionOutputPath = Join-Path (Split-Path $OutputPath) 'media-catalog.production.json'
 [IO.File]::WriteAllText($productionOutputPath, ($productionManifest | ConvertTo-Json -Depth 8) + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))

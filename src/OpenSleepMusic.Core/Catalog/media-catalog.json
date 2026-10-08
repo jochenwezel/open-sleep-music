@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-08T20:26:37.1758981+00:00",
+  "generatedAtUtc": "2026-10-08T21:28:58.8920204+00:00",
   "sleepWorlds": [
     {
       "id": "preselection",
@@ -3357,6 +3357,12 @@
               "fallbackMotifFileName": "fallback_lullabies.png",
               "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67"
             }
+          },
+          "backgroundAudio": {
+            "trackId": "candidate-meadow-night-crickets-sardin",
+            "volume": 0.5,
+            "startOffsetMilliseconds": 0,
+            "endOffsetMilliseconds": 0
           }
         },
         {
@@ -3465,6 +3471,12 @@
               "fallbackMotifFileName": "fallback_lullabies.png",
               "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67"
             }
+          },
+          "backgroundAudio": {
+            "trackId": "candidate-meadow-night-crickets-sardin",
+            "volume": 0.5,
+            "startOffsetMilliseconds": 0,
+            "endOffsetMilliseconds": 0
           }
         }
       ]

@@ -19,8 +19,11 @@ public static class BackgroundAudioCatalog
                 || !double.IsFinite(background.Volume) || background.Volume is < 0 or > 1
                 || background.StartOffsetMilliseconds < 0 || background.EndOffsetMilliseconds < 0
                 || (long)background.StartOffsetMilliseconds + background.EndOffsetMilliseconds >= source.Track.DurationSeconds * 1000
-                || world.Id != "preselection" && source.Id == "preselection")
+                || world.Id != "preselection" && source.Id == "preselection"
+                    && (!BuildChannel.IsPreview || source.Track.LicenseReviewStatus != "verified"))
                 throw new InvalidDataException($"Invalid background audio for '{track.Id}'.");
+            if (world.Id != "preselection" && source.Id == "preselection")
+                BuiltInPreselection.EnsureProductionTrackAllowed(source.Track);
         }
     }
 

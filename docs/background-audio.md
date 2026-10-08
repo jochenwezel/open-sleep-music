@@ -14,12 +14,18 @@ An optional secondary recording can loop underneath a primary song. Assign it in
 }
 ```
 
-Run `tools/Update-MediaCatalog.ps1` afterwards. The current assignment file is
-empty: adding this capability does not alter existing listening arrangements.
+Run `tools/Update-MediaCatalog.ps1` afterwards. Romanza española and Recuerdos de
+la Alhambra currently use the meadow crickets at 0.5 volume for Preview audition,
+in both Quiet Classics and Lullabies for little ones.
 
 The referenced recording must already satisfy the catalog's recording-rights and
-delivery policy. Nested backgrounds, self-references, and production references
-to preview-only recordings are rejected. Volume is a factor of the app volume,
+delivery policy. Nested backgrounds and self-references are rejected. Set the
+configuration-only `previewOnly: true` flag for an audition assignment; the generator
+removes that assignment from Stable and does not emit the flag into runtime metadata.
+Only Preview may reference a recording in Preselection from a regular collection,
+and its recording-rights status, approved license and audit must already pass the
+production rights checks. Unchecked candidates remain forbidden. Stable continues
+to reject all such references. Volume is a factor of the app volume,
 not the main track's gain. Both trims use milliseconds of the original recording
 at 100% speed; they must leave a positive interval. Background playback always
 uses normal speed, even when the primary song is stretched.
