@@ -14,4 +14,5 @@ internal sealed record ArtworkManifestEntry(
     string? SongMotifSha256 = null,
     Uri? FallbackMotifUri = null,
     string? FallbackMotifFileName = null,
-    string? FallbackMotifSha256 = null);
+    string? FallbackMotifSha256 = null,
+    IReadOnlyDictionary<string, CollectionArtwork>? CollectionArtwork = null);

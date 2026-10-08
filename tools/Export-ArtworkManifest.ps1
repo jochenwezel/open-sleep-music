@@ -17,10 +17,11 @@ $tracks = @($catalog.sleepWorlds.tracks | ForEach-Object {
         fallbackMotifUri = $_.fallbackMotifUri
         fallbackMotifFileName = $_.fallbackMotifFileName
         fallbackMotifSha256 = $_.fallbackMotifSha256
+        collectionArtwork = $_.collectionArtwork
     }
 })
 $manifest = [ordered]@{ schemaVersion = 1; tracks = $tracks }
 $directory = Split-Path -Parent $OutputPath
 New-Item -ItemType Directory -Force -Path $directory | Out-Null
-$manifest | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $OutputPath -Encoding utf8
+$manifest | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $OutputPath -Encoding utf8
 Write-Host "Wrote $($tracks.Count) artwork entries to $OutputPath"

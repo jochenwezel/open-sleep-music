@@ -14,7 +14,8 @@ public sealed class CollectionArtworkDownloader(
         IReadOnlyList<AudioTrack> tracks,
         string cacheRoot,
         IProgress<ArtworkDownloadProgress>? progress = null,
-        CancellationToken cancellationToken = default)
+        CancellationToken cancellationToken = default,
+        string? worldId = null)
     {
         var results = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
         var available = 0;
@@ -22,7 +23,7 @@ public sealed class CollectionArtworkDownloader(
         for (var index = 0; index < tracks.Count; index++)
         {
             cancellationToken.ThrowIfCancellationRequested();
-            var track = await manifestClient.ResolveAsync(tracks[index], cacheRoot);
+            var track = await manifestClient.ResolveAsync(tracks[index], cacheRoot, worldId);
             var backgroundAvailable = await DownloadLayerAsync(track, results, cacheRoot, cancellationToken);
             var motifAvailable = track.SongMotifUri is null
                 || await DownloadLayerAsync(track with

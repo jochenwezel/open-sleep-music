@@ -440,7 +440,8 @@ public partial class MainPage : ContentPage
                 localTracks,
                 Path.Combine(FileSystem.AppDataDirectory, "artwork"),
                 artworkProgress,
-                cancellation.Token);
+                cancellation.Token,
+                card.World.Id);
             DownloadProgress.Progress = 1;
             StatusLabel.Text = result.AvailableCount == 0
                 ? AppText.Pick("Derzeit sind keine Titel verfügbar. Bitte später erneut versuchen.", "No tracks are currently available. Please try again later.")
@@ -1317,10 +1318,10 @@ public partial class MainPage : ContentPage
 
     internal bool ReducedMotion => _stateStore.LoadReducedMotion();
 
-    internal async Task<PlaybackArtworkPaths> GetArtworkAsync(AudioTrack track, CancellationToken cancellationToken = default)
+    internal async Task<PlaybackArtworkPaths> GetArtworkAsync(AudioTrack track, string worldId, CancellationToken cancellationToken = default)
     {
         var root = Path.Combine(FileSystem.AppDataDirectory, "artwork");
-        var current = await _artworkManifest.ResolveAsync(track, root);
+        var current = await _artworkManifest.ResolveAsync(track, root, worldId);
         var backgroundTask = _artworkCache.GetAsync(current, root, cancellationToken);
         var songMotifTask = current.SongMotifUri is null
             ? Task.FromResult<string?>(null)

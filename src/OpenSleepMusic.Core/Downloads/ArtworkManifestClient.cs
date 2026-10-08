@@ -9,29 +9,33 @@ public sealed partial class ArtworkManifestClient(HttpClient httpClient, Uri man
     private readonly IDownloadLogSink _logSink = logSink ?? new NullDownloadLogSink();
     private Task<IReadOnlyDictionary<string, AudioTrack>>? _loadTask;
 
-    public async Task<AudioTrack> ResolveAsync(AudioTrack fallback, string cacheRoot)
+    public async Task<AudioTrack> ResolveAsync(AudioTrack fallback, string cacheRoot, string? worldId = null)
     {
         _loadTask ??= LoadAsync(cacheRoot);
         var overrides = await _loadTask;
-        if (!overrides.TryGetValue(fallback.Id, out var entry)) return fallback;
+        if (!overrides.TryGetValue(fallback.Id, out var entry)) return CollectionArtwork.ForCollection(fallback, worldId);
 
         // A legacy one-layer entry must not collapse a newer embedded background + song-motif
         // assignment back into one image. Newly exported manifests carry both layers together.
-        if ((fallback.SongMotifUri is not null && entry.SongMotifUri is null)
-            || (fallback.FallbackMotifUri is not null && entry.FallbackMotifUri is null)) return fallback;
+        if ((fallback.SongMotifUri is not null && entry.SongMotifUri is null && entry.CollectionArtwork is null)
+            || (fallback.FallbackMotifUri is not null && entry.FallbackMotifUri is null)
+            || (fallback.CollectionArtwork is { Count: > 0 } && entry.CollectionArtwork is null))
+            return CollectionArtwork.ForCollection(fallback, worldId);
 
-        return fallback with
+        var resolved = fallback with
         {
             ArtworkUri = entry.ArtworkUri,
             ArtworkFileName = entry.ArtworkFileName,
             ArtworkSha256 = entry.ArtworkSha256,
-            SongMotifUri = entry.SongMotifUri ?? fallback.SongMotifUri,
-            SongMotifFileName = entry.SongMotifFileName ?? fallback.SongMotifFileName,
-            SongMotifSha256 = entry.SongMotifSha256 ?? fallback.SongMotifSha256,
+            SongMotifUri = entry.CollectionArtwork is not null ? entry.SongMotifUri : entry.SongMotifUri ?? fallback.SongMotifUri,
+            SongMotifFileName = entry.CollectionArtwork is not null ? entry.SongMotifFileName : entry.SongMotifFileName ?? fallback.SongMotifFileName,
+            SongMotifSha256 = entry.CollectionArtwork is not null ? entry.SongMotifSha256 : entry.SongMotifSha256 ?? fallback.SongMotifSha256,
             FallbackMotifUri = entry.FallbackMotifUri ?? fallback.FallbackMotifUri,
             FallbackMotifFileName = entry.FallbackMotifFileName ?? fallback.FallbackMotifFileName,
-            FallbackMotifSha256 = entry.FallbackMotifSha256 ?? fallback.FallbackMotifSha256
+            FallbackMotifSha256 = entry.FallbackMotifSha256 ?? fallback.FallbackMotifSha256,
+            CollectionArtwork = entry.CollectionArtwork ?? fallback.CollectionArtwork
         };
+        return CollectionArtwork.ForCollection(resolved, worldId);
     }
 
     private async Task<IReadOnlyDictionary<string, AudioTrack>> LoadAsync(string cacheRoot)
@@ -73,6 +77,7 @@ public sealed partial class ArtworkManifestClient(HttpClient httpClient, Uri man
         var result = new Dictionary<string, AudioTrack>(StringComparer.Ordinal);
         foreach (var entry in manifest.Tracks)
         {
+            CollectionArtwork.Validate(entry.CollectionArtwork, entry.TrackId);
             if (string.IsNullOrWhiteSpace(entry.TrackId) || entry.ArtworkUri.Scheme != Uri.UriSchemeHttps
                 || !PortablePngName().IsMatch(entry.ArtworkFileName)
                 || !Sha256().IsMatch(entry.ArtworkSha256)
@@ -86,7 +91,8 @@ public sealed partial class ArtworkManifestClient(HttpClient httpClient, Uri man
                 SongMotifUri: entry.SongMotifUri, SongMotifFileName: entry.SongMotifFileName,
                 SongMotifSha256: entry.SongMotifSha256,
                 FallbackMotifUri: entry.FallbackMotifUri, FallbackMotifFileName: entry.FallbackMotifFileName,
-                FallbackMotifSha256: entry.FallbackMotifSha256)))
+                FallbackMotifSha256: entry.FallbackMotifSha256,
+                CollectionArtwork: entry.CollectionArtwork)))
                 throw new InvalidDataException($"Duplicate artwork entry '{entry.TrackId}'.");
         }
         return result;

@@ -155,6 +155,7 @@ public sealed partial class CatalogUpdateClient(
                 ValidateArtworkLayer(track.ArtworkUri, track.ArtworkFileName, track.ArtworkSha256, track.Id);
                 ValidateArtworkLayer(track.SongMotifUri, track.SongMotifFileName, track.SongMotifSha256, track.Id);
                 ValidateArtworkLayer(track.FallbackMotifUri, track.FallbackMotifFileName, track.FallbackMotifSha256, track.Id);
+                CollectionArtwork.Validate(track.CollectionArtwork, track.Id);
                 if (world.Id != "preselection")
                     BuiltInPreselection.EnsureProductionTrackAllowed(track);
             }

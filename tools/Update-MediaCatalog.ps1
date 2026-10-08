@@ -294,12 +294,22 @@ foreach ($worldEntry in $worlds.GetEnumerator()) {
             $track['songMotifFileName'] = $songMotif.file
             $track['songMotifSha256'] = $songMotif.sha256
         }
-        # Shared guitar recordings retain one title motif in both collections.
+        # Child-centered guitar motifs belong only to the little-ones collection.
         if ($guitarLullabyArtwork.ContainsKey($track.id)) {
             $songMotif = $guitarLullabyArtwork[$track.id]
-            $track['songMotifUri'] = "$guitarArtworkReleaseBase/$($songMotif.file)"
-            $track['songMotifFileName'] = $songMotif.file
-            $track['songMotifSha256'] = $songMotif.sha256
+            $track['collectionArtwork'] = [ordered]@{
+                lullabies = [ordered]@{
+                    artworkUri = "$backgroundArtworkReleaseBase/$($artwork.lullabies.file)"
+                    artworkFileName = $artwork.lullabies.file
+                    artworkSha256 = $artwork.lullabies.sha256
+                    songMotifUri = "$guitarArtworkReleaseBase/$($songMotif.file)"
+                    songMotifFileName = $songMotif.file
+                    songMotifSha256 = $songMotif.sha256
+                    fallbackMotifUri = "$artworkReleaseBase/$($fallbackArtwork.lullabies.file)"
+                    fallbackMotifFileName = $fallbackArtwork.lullabies.file
+                    fallbackMotifSha256 = $fallbackArtwork.lullabies.sha256
+                }
+            }
         }
     }
 }

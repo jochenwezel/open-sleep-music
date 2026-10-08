@@ -187,9 +187,10 @@ public partial class ImmersivePlayerPage : ContentPage
 
     private void RequestArtwork(AudioTrack? track, string fallbackAsset)
     {
-        var key = track is null
+        var selectedArtwork = track is null ? null : CollectionArtwork.ForCollection(track, _worldId);
+        var key = selectedArtwork is null
             ? $"fallback:{fallbackAsset}"
-            : $"{track.Id}:{track.ArtworkSha256}:{track.SongMotifSha256}:{track.FallbackMotifSha256}";
+            : $"{_worldId}:{selectedArtwork.Id}:{selectedArtwork.ArtworkSha256}:{selectedArtwork.SongMotifSha256}:{selectedArtwork.FallbackMotifSha256}";
         if (_artworkRequestKey == key) return;
         _artworkRequestKey = key;
         _artworkCancellation?.Cancel();
@@ -208,7 +209,7 @@ public partial class ImmersivePlayerPage : ContentPage
     {
         try
         {
-            var artwork = await _owner.GetArtworkAsync(track, cancellationToken);
+            var artwork = await _owner.GetArtworkAsync(track, _worldId, cancellationToken);
             if (cancellationToken.IsCancellationRequested || key != _artworkRequestKey) return;
             var background = artwork.BackgroundPath is null
                 ? (Source: (ImageSource?)null, Key: "none")

@@ -8,6 +8,47 @@ namespace OpenSleepMusic.Core.Tests;
 public sealed class CatalogUpdateClientTests
 {
     [Theory]
+    [InlineData("other", true)]
+    [InlineData("remote", true)]
+    [InlineData("missing", false)]
+    public async Task CollectionArtworkRequiresMembershipAndSurvivesOfflineCatalog(string artworkWorld, bool valid)
+    {
+        var root = TemporaryRoot();
+        try
+        {
+            var json = System.Text.Json.Nodes.JsonNode.Parse(SharedCatalogJson("other"))!;
+            var layers = new System.Text.Json.Nodes.JsonObject
+            {
+                ["artworkUri"] = "https://example.test/background.png",
+                ["artworkFileName"] = "background.png",
+                ["artworkSha256"] = new string('0', 64),
+                ["songMotifUri"] = "https://example.test/motif.png",
+                ["songMotifFileName"] = "motif.png",
+                ["songMotifSha256"] = new string('1', 64)
+            };
+            json["sleepWorlds"]![0]!["tracks"]![0]!["collectionArtwork"] = new System.Text.Json.Nodes.JsonObject
+            {
+                [artworkWorld] = layers
+            };
+            var embedded = Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero));
+            using var online = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.OK, json.ToJsonString())));
+            var result = await new CatalogUpdateClient(online, CatalogUri).ResolveAsync(embedded, root);
+            if (!valid)
+            {
+                Assert.Equal(embedded, result);
+                Assert.False(File.Exists(Path.Combine(root, "media-catalog.json")));
+                return;
+            }
+            using var offline = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.NotFound, "missing")));
+            var cached = await new CatalogUpdateClient(offline, CatalogUri).ResolveAsync(embedded, root);
+            var track = Assert.Single(cached.SleepWorlds.Single(world => world.Id == "other").Tracks);
+            Assert.Equal("motif.png", CollectionArtwork.ForCollection(track, artworkWorld).SongMotifFileName);
+            Assert.Same(track, Assert.Single(cached.SleepWorlds.Single(world => world.Id == "remote").Tracks));
+        }
+        finally { Directory.Delete(root, true); }
+    }
+
+    [Theory]
     [InlineData("0", true)]
     [InlineData("3000", true)]
     [InlineData("-1", false)]

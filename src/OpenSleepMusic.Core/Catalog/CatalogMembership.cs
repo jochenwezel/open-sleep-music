@@ -10,6 +10,10 @@ internal static class CatalogMembership
         foreach (var world in worlds)
         foreach (var track in world.Tracks)
         {
+            CollectionArtwork.Validate(track.CollectionArtwork, track.Id);
+            if (track.CollectionArtwork is not null && track.CollectionArtwork.Keys.Any(id =>
+                    id != world.Id && track.AdditionalWorldIds?.Contains(id) != true))
+                throw new InvalidDataException($"Collection artwork must target a membership of '{track.Id}'.");
             if (track.AdditionalWorldIds is not { Count: > 0 } targets) continue;
             if (targets.Count >= worlds.Count || world.Id is "preselection" or "pre-qualify"
                 || track.LicenseReviewStatus != "verified")
