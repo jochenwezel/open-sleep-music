@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-07T21:10:16.5825016+00:00",
+  "generatedAtUtc": "2026-10-08T19:16:36.7310587+00:00",
   "sleepWorlds": [
     {
       "id": "preselection",
@@ -4275,6 +4275,7 @@
           ],
           "ensembleType": "solo",
           "playbackSpeed": 0.833333,
+          "volumeGain": 0.7,
           "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_lullabies_v3.png",
           "artworkFileName": "background_lullabies_v3.png",
           "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",
@@ -4341,10 +4342,10 @@
       "trackOrder": [
         "music-box-schlafe-mein-prinzchen",
         "candidate-romanza-ten-string-leon-egea",
-        "candidate-barrios-julia-florida-edson-lopes",
         "candidate-clair-de-lune-claude-debussy-suite-bergamasque",
         "candidate-recuerdos-de-la-alhambra",
         "burgmuller-berceuse-op-109-no-7",
+        "candidate-barrios-julia-florida-edson-lopes",
         "music-box-guten-abend-gute-nacht",
         "faure-berceuse-op-56-no-1"
       ]
