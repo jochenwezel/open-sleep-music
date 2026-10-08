@@ -8,6 +8,10 @@ Open Sleep Music is a privacy-friendly, advertising-free application that makes 
 
 The app targets .NET MAUI with Windows and Android as the primary platforms. Keep the solution usable from Visual Studio and retain the iOS and Mac Catalyst targets unless a task explicitly changes the platform strategy.
 
+## Artwork for little ones
+
+Every song motif used in Lullabies for little ones must place a small child, an animal (preferably young), a star or the moon at the visual center. This focal subject must dominate the composition, not be a minor detail added to a landscape. Stars and the moon may be gently personified. Connect the surrounding setting, objects or details clearly to the song title or documented work context. Keep scenes gentle and restful, with the existing soft watercolor style and phone-readable silhouettes. Follow the transparent-layer and delivery requirements in `docs/visual-assets.md`.
+
 ## Media catalog admission policy
 
 Every catalog entry must pass all of the following checks. A large catalog is less important than a trustworthy one.
