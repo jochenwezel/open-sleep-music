@@ -34,7 +34,7 @@
                 </Label>
             </Grid>
 
-            <Grid Grid.Row="2" RowDefinitions="Auto,Auto" RowSpacing="8" BackgroundColor="#B8171D31" Padding="12">
+            <Grid Grid.Row="2" x:Name="TransportControls" RowDefinitions="Auto,Auto" RowSpacing="8" BackgroundColor="#B8171D31" Padding="12">
                 <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
                     <Label x:Name="PositionLabel" Text="0:00" TextColor="White" VerticalOptions="Center" />
                     <Slider Grid.Column="1" x:Name="PositionSlider" Minimum="0" Maximum="1" DragStarted="OnSeekStarted" DragCompleted="OnSeekCompleted" />

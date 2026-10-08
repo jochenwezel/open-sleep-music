@@ -11,6 +11,7 @@ public partial class ImmersivePlayerPage : ContentPage
     private readonly MainPage _owner;
     private readonly string _worldId;
     private bool _seeking;
+    private bool _controlsVisible = true;
 
     internal string WorldId => _worldId;
     private bool _animateBack;
@@ -305,8 +306,11 @@ public partial class ImmersivePlayerPage : ContentPage
 
     private void OnSceneTapped(object? sender, TappedEventArgs e)
     {
-        Controls.IsVisible = !Controls.IsVisible;
-        FloatingPlayButton.IsVisible = !Controls.IsVisible;
+        _controlsVisible = !_controlsVisible;
+        foreach (var button in TopBar.Children.OfType<Button>())
+            button.IsVisible = _controlsVisible;
+        TransportControls.IsVisible = _controlsVisible;
+        FloatingPlayButton.IsVisible = !_controlsVisible;
     }
 
     private async void OnBackClicked(object? sender, EventArgs e) => await Navigation.PopModalAsync();
