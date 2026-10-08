@@ -33,6 +33,11 @@ public partial class MainPage : ContentPage
         IsVisible = false,
         ShouldAutoPlay = false
     };
+#if !ANDROID
+    private readonly DesktopBackgroundPlayer _backgroundPlayer = new();
+    private int _playbackGeneration;
+    private bool _backgroundEnding;
+#endif
     private IReadOnlyList<SleepWorld> _catalogWorlds = BuiltInCatalog.SleepWorlds;
     private IReadOnlyList<SleepWorldCard> _worldCards;
     private readonly string _downloadRoot = Path.Combine(
@@ -90,6 +95,9 @@ public partial class MainPage : ContentPage
         Player.MediaFailed += OnMediaFailed;
         Player.StateChanged += OnPlayerStateChanged;
         RootGrid.Add(Player);
+#if !ANDROID
+        RootGrid.Add(_backgroundPlayer.Element);
+#endif
 #endif
         _httpClient = new HttpClient { Timeout = TimeSpan.FromMinutes(15) };
         _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(
@@ -413,7 +421,7 @@ public partial class MainPage : ContentPage
 
         try
         {
-            var result = await downloader.DownloadAsync(card.World, _downloadRoot, progress, cancellation.Token);
+            var result = await downloader.DownloadAsync(BackgroundAudioCatalog.IncludeDownloads(card.World, _catalogWorlds), _downloadRoot, progress, cancellation.Token);
             await RefreshLibraryAsync(preserveStatus: true);
             var localTracks = _library
                 .Where(track => track.SleepWorld.Id == card.World.Id)
@@ -576,6 +584,7 @@ public partial class MainPage : ContentPage
             {
                 var tracks = _library.Where(track => track.SleepWorld.Id == card.World.Id).ToArray();
                 card.SetLibraryStatus(tracks.Length, tracks.Sum(track => new FileInfo(track.FilePath).Length));
+                card.SetBackgroundsReady(card.World.Tracks.All(track => track.BackgroundAudio is null || ResolveBackgroundSource(track, card.World.Id) is not null));
             }
 
             var cardToSelect = _selectedWorldCard
@@ -782,8 +791,21 @@ public partial class MainPage : ContentPage
         }
     }
 
+    private BackgroundPlaybackSource? ResolveBackgroundSource(AudioTrack track, string worldId)
+    {
+        var background = BackgroundAudioCatalog.Resolve(track, _catalogWorlds);
+        if (background is null) return null;
+        var path = Path.Combine(_downloadRoot, worldId, background.FileName);
+        if (!File.Exists(path)) return null;
+        return new(path, background.VolumeGain, background.StartOffsetMilliseconds, background.EndOffsetMilliseconds, background.DurationSeconds);
+    }
+
     private void PlayTrack(LocalLibraryTrack track, bool userInitiated = false, double startPositionSeconds = 0, bool autoPlay = true)
     {
+#if !ANDROID
+        _playbackGeneration++;
+        _backgroundEnding = false;
+#endif
         if (userInitiated)
         {
             _consecutivePlaybackFailures = 0;
@@ -828,8 +850,11 @@ public partial class MainPage : ContentPage
             VolumeSlider.Value,
             _sleepTimerEndUtc,
             autoPlay,
-            userInitiated);
+            userInitiated,
+            item => ResolveBackgroundSource(item.Track, item.SleepWorld.Id));
 #else
+        _backgroundPlayer.Configure(ResolveBackgroundSource(track.Track, track.SleepWorld.Id), startPositionSeconds);
+        _backgroundPlayer.SetVolume(VolumeSlider.Value);
         Player.Volume = PlaybackVolume.ApplyGain(VolumeSlider.Value, track.Track.VolumeGain);
         Player.Speed = track.Track.PlaybackSpeed;
         if (_loadedTrackId == track.Track.Id)
@@ -857,6 +882,9 @@ public partial class MainPage : ContentPage
 
     private async Task SeekAndPlayAsync(double positionSeconds, bool autoPlay = true)
     {
+#if !ANDROID
+        _backgroundPlayer.SeekForMainPosition(positionSeconds);
+#endif
         try
         {
             await Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(positionSeconds), _currentTrack?.Track.PlaybackSpeed ?? 1, _currentTrack?.Track.StartOffsetMilliseconds ?? 0, CurrentMediaDuration() > TimeSpan.Zero ? CurrentMediaDuration() : null, _currentTrack?.Track.EndOffsetMilliseconds ?? 0));
@@ -1000,12 +1028,26 @@ public partial class MainPage : ContentPage
         PlayTrack(tracks[index], userInitiated: !fromActiveQueue, autoPlay: autoPlay);
     }
 
-    private void OnMediaEnded(object? sender, EventArgs e)
+    private async void OnMediaEnded(object? sender, EventArgs e)
     {
-        if (!_shouldContinuePlayback)
+        if (!_shouldContinuePlayback || _isTrackTransitioning)
         {
             return;
         }
+#if !ANDROID
+        var endingTrack = _currentTrack;
+        var generation = _playbackGeneration;
+        _isTrackTransitioning = true;
+        _backgroundEnding = true;
+        Player.Pause();
+        await _backgroundPlayer.FadeOutAsync(VolumeSlider.Value);
+        if (generation != _playbackGeneration) return;
+        _backgroundEnding = false;
+        _isTrackTransitioning = false;
+        if (!_shouldContinuePlayback || _currentTrack != endingTrack) return;
+#else
+        await Task.CompletedTask;
+#endif
 
         if (_repeatMode == PlaybackRepeatMode.Track && _currentTrack is not null)
         {
@@ -1037,6 +1079,11 @@ public partial class MainPage : ContentPage
 
     private void OnPlayerStateChanged(object? sender, MediaStateChangedEventArgs e)
     {
+#if !ANDROID
+        if (!_backgroundEnding && !(e.NewState == MediaElementState.Stopped && _shouldContinuePlayback))
+            _backgroundPlayer.SetPlaying(e.NewState == MediaElementState.Playing);
+        if (!_shouldContinuePlayback) _backgroundPlayer.SetPlaying(false);
+#endif
         if (e.NewState == MediaElementState.Playing)
         {
             _isTrackTransitioning = false;
@@ -1082,6 +1129,7 @@ public partial class MainPage : ContentPage
 #else
             if (_loadedTrackId is not null && CurrentMediaDuration() > TimeSpan.Zero)
             {
+                _backgroundPlayer.SeekForMainPosition(PositionSlider.Value);
                 await Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(PositionSlider.Value), _currentTrack?.Track.PlaybackSpeed ?? 1, _currentTrack?.Track.StartOffsetMilliseconds ?? 0, CurrentMediaDuration() > TimeSpan.Zero ? CurrentMediaDuration() : null, _currentTrack?.Track.EndOffsetMilliseconds ?? 0));
                 PersistPlaybackSnapshot(force: true);
             }
@@ -1189,6 +1237,7 @@ public partial class MainPage : ContentPage
     {
 #if !ANDROID
         Player.Volume = PlaybackVolume.ApplyGain(e.NewValue, _currentTrack?.Track.VolumeGain ?? 1);
+        _backgroundPlayer.SetVolume(e.NewValue);
 #endif
         VolumeLabel.Text = $"{e.NewValue:P0}";
         if (!_restoringControls)
@@ -1382,6 +1431,7 @@ public partial class MainPage : ContentPage
 #if ANDROID
         AndroidPlaybackBridge.Seek(seconds);
 #else
+        _backgroundPlayer.SeekForMainPosition(seconds);
         _ = Player.SeekTo(PlaybackTimeline.ToMediaTime(TimeSpan.FromSeconds(Math.Max(0, seconds)), _currentTrack?.Track.PlaybackSpeed ?? 1, _currentTrack?.Track.StartOffsetMilliseconds ?? 0, CurrentMediaDuration() > TimeSpan.Zero ? CurrentMediaDuration() : null, _currentTrack?.Track.EndOffsetMilliseconds ?? 0));
 #endif
     }
@@ -1604,6 +1654,9 @@ public partial class MainPage : ContentPage
 
     private bool UpdatePlaybackStatus()
     {
+#if !ANDROID
+        _backgroundPlayer.Tick();
+#endif
         if (!_downloadInProgress && _statusHideAtUtc is { } hideAt && DateTimeOffset.UtcNow >= hideAt)
         {
             StatusLabel.IsVisible = false;
@@ -1640,7 +1693,6 @@ public partial class MainPage : ContentPage
                 && reachedEnd
                 && (reachedTrimmedEnd || Player.CurrentState != MediaElementState.Playing))
             {
-                if (reachedTrimmedEnd) Player.Pause();
                 OnMediaEnded(Player, EventArgs.Empty);
             }
 
@@ -1702,6 +1754,9 @@ public partial class MainPage : ContentPage
 #else
         Player.Stop();
         Player.Source = null;
+        _backgroundPlayer.Stop();
+        _playbackGeneration++;
+        _backgroundEnding = false;
 #endif
         _loadedTrackId = null;
         _currentTrack = null;
@@ -1735,6 +1790,7 @@ public partial class MainPage : ContentPage
             {
                 token.ThrowIfCancellationRequested();
                 Player.Volume = SleepTimerDisplay.FadeVolume(configuredVolume, step / (double)steps);
+                _backgroundPlayer.SetVolume(VolumeSlider.Value, 1 - step / (double)steps);
                 await Task.Delay(TimeSpan.FromMilliseconds(100), token);
             }
             Player.Pause();
@@ -1745,6 +1801,7 @@ public partial class MainPage : ContentPage
         finally
         {
             Player.Volume = PlaybackVolume.ApplyGain(VolumeSlider.Value, _currentTrack?.Track.VolumeGain ?? 1);
+            _backgroundPlayer.SetVolume(VolumeSlider.Value);
         }
     }
 #endif
@@ -1869,7 +1926,15 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
 
     public string ResearchReferencesText => AppText.Pick("Quellen probehören ↗", "Audition sources ↗");
 
-    public bool IsComplete => World.Tracks.Count > 0 && DownloadedCount == World.Tracks.Count;
+    private bool _backgroundsReady = true;
+    public void SetBackgroundsReady(bool ready)
+    {
+        if (_backgroundsReady == ready) return;
+        _backgroundsReady = ready;
+        OnPropertyChanged(nameof(IsComplete));
+        OnPropertyChanged(nameof(ActionText));
+    }
+    public bool IsComplete => World.Tracks.Count > 0 && DownloadedCount == World.Tracks.Count && _backgroundsReady;
 
     public bool IsDownloading => _isDownloading;
 

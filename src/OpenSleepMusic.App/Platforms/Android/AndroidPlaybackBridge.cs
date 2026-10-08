@@ -37,13 +37,15 @@ internal static class AndroidPlaybackBridge
         double volume,
         DateTimeOffset? timerEndUtc,
         bool autoPlay = true,
-        bool userInitiated = false)
+        bool userInitiated = false,
+        Func<LocalLibraryTrack, OpenSleepMusic.Core.Playback.BackgroundPlaybackSource?>? backgroundSource = null)
     {
         var intent = CreateIntent(ActionLoad);
         intent.PutStringArrayListExtra("ids", queue.Select(item => item.Track.Id).ToArray());
         intent.PutStringArrayListExtra("titles", queue.Select(item => item.Track.Title).ToArray());
         intent.PutStringArrayListExtra("creators", queue.Select(item => item.Track.Creator).ToArray());
         intent.PutStringArrayListExtra("paths", queue.Select(item => item.FilePath).ToArray());
+        intent.PutStringArrayListExtra("backgrounds", queue.Select(item => backgroundSource?.Invoke(item)?.ToJson() ?? "").ToArray());
         intent.PutExtra("gains", queue.Select(item => item.Track.VolumeGain).ToArray());
         intent.PutExtra("speeds", queue.Select(item => item.Track.PlaybackSpeed).ToArray());
         intent.PutExtra("durations", queue.Select(item => item.Track.DurationSeconds).ToArray());

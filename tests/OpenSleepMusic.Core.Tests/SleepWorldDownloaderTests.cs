@@ -8,6 +8,32 @@ namespace OpenSleepMusic.Core.Tests;
 public sealed class SleepWorldDownloaderTests
 {
     [Fact]
+    public async Task MissingBackgroundDoesNotPreventPrimaryDownloadOrAppearInSongList()
+    {
+        var main = Track("main", "main.ogg", "https://example.test/main") with { BackgroundAudio = new("ambient") };
+        var ambient = Track("ambient", "ambient.ogg", "https://example.test/ambient");
+        var world = new SleepWorld("test", "Test", "", "", [main]);
+        var catalog = new[] { world, new SleepWorld("ambient", "Ambient", "", "", [ambient]) };
+        using var client = new HttpClient(new StubHandler(request => request.RequestUri!.AbsolutePath == "/ambient"
+            ? Response(HttpStatusCode.NotFound, [], "text/html")
+            : Response(HttpStatusCode.OK, [.. "OggS"u8, .. new byte[256]], "audio/ogg")));
+        var log = new RecordingLogSink();
+        var destination = Path.Combine(Path.GetTempPath(), $"open-sleep-music-tests-{Guid.NewGuid():N}");
+        try
+        {
+            var result = await new SleepWorldDownloader(client, log).DownloadAsync(
+                BackgroundAudioCatalog.IncludeDownloads(world, catalog), destination);
+            Assert.Equal(1, result.DownloadedCount);
+            Assert.Equal(1, result.SkippedCount);
+            Assert.Single(world.Tracks);
+            Assert.True(File.Exists(Path.Combine(destination, "test", "main.ogg")));
+            Assert.False(File.Exists(Path.Combine(destination, "test", "ambient.ogg.part")));
+            Assert.Contains(log.Entries, entry => entry.Contains("ambient"));
+        }
+        finally { Directory.Delete(destination, true); }
+    }
+
+    [Fact]
     public async Task StalledBodyTimesOutCleansPartialFileAndContinuesWithNextTrack()
     {
         var world = new SleepWorld("test", "Test", "Test", "T",

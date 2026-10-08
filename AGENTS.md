@@ -123,6 +123,8 @@ Before committing, inspect the generated diff, run `git diff --check`, and confi
 
 Playback trim metadata uses `startOffsetMilliseconds` and `endOffsetMilliseconds` as non-negative integer milliseconds of the original recording at 100% speed. Apply speed/stretching only after trimming. Both default to zero and their sum must leave a positive playable interval. Preserve original downloads and checksums; document all trim choices in source metadata.
 
+Optional `backgroundAudio` references one existing catalog track, with relative volume (0–1) and original-recording trim offsets. Maintain assignments in `tools/track-backgrounds.json` and regenerate the catalog. Backgrounds play at 100% speed, loop within their trimmed interval, follow primary playback/focus/timer fades, and fade out for 600 ms at the primary track's end before advancing. Do not allow nested backgrounds or production references to unchecked preview recordings. Download background dependencies with the collection without exposing them as additional songs; missing background audio must not prevent primary playback.
+
 A broken media source must never make an entire sleep-world download fail.
 
 - Download into a `.part` file and move it into the library only after signature and optional checksum validation.

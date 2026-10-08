@@ -5,6 +5,7 @@ internal static class CatalogMembership
 {
     public static IReadOnlyList<SleepWorld> Resolve(IReadOnlyList<SleepWorld> worlds)
     {
+        BackgroundAudioCatalog.Validate(worlds);
         var tracksByWorld = worlds.ToDictionary(world => world.Id, world => world.Tracks.ToList(), StringComparer.Ordinal);
         foreach (var world in worlds)
         foreach (var track in world.Tracks)

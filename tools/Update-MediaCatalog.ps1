@@ -359,6 +359,30 @@ foreach ($world in $manifestWorlds) {
         }
     }
 }
+# Optional looping background recordings reference existing catalog assets.
+$backgrounds = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'track-backgrounds.json') -Raw | ConvertFrom-Json -AsHashtable
+$catalogTracks = @{}
+$trackWorlds = @{}
+foreach ($world in $manifestWorlds) {
+    foreach ($track in $world.tracks) { $catalogTracks[$track.id] = $track; $trackWorlds[$track.id] = $world.id }
+}
+foreach ($id in $backgrounds.Keys) {
+    $background = $backgrounds[$id]
+    $source = $catalogTracks[$background.trackId]
+    if (!$catalogTracks.ContainsKey($id) -or !$source -or $id -eq $background.trackId -or
+        $backgrounds.ContainsKey($background.trackId) -or
+        !$background.ContainsKey('volume') -or
+        ($background.ContainsKey('startOffsetMilliseconds') -and $background.startOffsetMilliseconds -isnot [long] -and $background.startOffsetMilliseconds -isnot [int]) -or
+        ($background.ContainsKey('endOffsetMilliseconds') -and $background.endOffsetMilliseconds -isnot [long] -and $background.endOffsetMilliseconds -isnot [int]) -or
+        ![double]::IsFinite([double]$background.volume) -or $background.volume -lt 0 -or $background.volume -gt 1 -or
+        $background.startOffsetMilliseconds -lt 0 -or $background.endOffsetMilliseconds -lt 0 -or
+        ([double]$background.startOffsetMilliseconds + [double]$background.endOffsetMilliseconds) -ge $source.durationSeconds * 1000 -or
+        ($trackWorlds[$id] -ne 'preselection' -and $trackWorlds[$background.trackId] -eq 'preselection')) {
+        throw "Invalid background audio for '$id'."
+    }
+    $catalogTracks[$id].backgroundAudio = $background
+}
+
 # Persist the little-ones collection order, including shared production tracks.
 # New tracks are inserted randomly instead of being appended or alphabetized.
 $lullabyOrderPath = Join-Path $PSScriptRoot 'lullabies-track-order.json'
