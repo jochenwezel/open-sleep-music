@@ -20,6 +20,8 @@ public partial class ImmersivePlayerPage : ContentPage
     private int _backgroundTransitionVersion;
     private int _songMotifTransitionVersion;
     private string? _artworkRequestKey;
+    private string? _backgroundImageKey;
+    private string? _songMotifImageKey;
     private CancellationTokenSource? _artworkCancellation;
     private readonly VolumeOverlayView _volumeOverlay;
     private readonly IDispatcherTimer _refreshTimer;
@@ -166,10 +168,14 @@ public partial class ImmersivePlayerPage : ContentPage
         AmbientBackground.Color = Color.FromArgb(theme.StartColor);
     }
 
-    private async Task TransitionBackgroundAsync(ImageSource? source, int version)
+    private async Task TransitionBackgroundAsync(ImageSource? source, string imageKey)
     {
+        if (_backgroundImageKey == imageKey) return;
+        _backgroundImageKey = imageKey;
+        var version = ++_backgroundTransitionVersion;
         await BackgroundArtworkImage.FadeToAsync(0, 250, Easing.SinInOut);
-        if (version != _backgroundTransitionVersion || !IsLoaded) return;
+        if (version != _backgroundTransitionVersion) return;
+        if (!IsLoaded) { _backgroundImageKey = null; return; }
         BackgroundArtworkImage.Source = source;
         BackgroundArtworkImage.IsVisible = source is not null;
         if (source is not null)
@@ -191,8 +197,8 @@ public partial class ImmersivePlayerPage : ContentPage
         _artworkCancellation = new CancellationTokenSource();
         if (track is null)
         {
-            _ = TransitionBackgroundAsync(null, ++_backgroundTransitionVersion);
-            _ = TransitionSongMotifAsync(ImageSource.FromFile(fallbackAsset), ++_songMotifTransitionVersion);
+            _ = TransitionBackgroundAsync(null, "none");
+            _ = TransitionSongMotifAsync(ImageSource.FromFile(fallbackAsset), $"asset:{fallbackAsset}");
             return;
         }
         _ = LoadArtworkAsync(track, fallbackAsset, key, _artworkCancellation.Token);
@@ -204,25 +210,29 @@ public partial class ImmersivePlayerPage : ContentPage
         {
             var artwork = await _owner.GetArtworkAsync(track, cancellationToken);
             if (cancellationToken.IsCancellationRequested || key != _artworkRequestKey) return;
-            var backgroundSource = artwork.BackgroundPath is null
-                ? null
+            var background = artwork.BackgroundPath is null
+                ? (Source: (ImageSource?)null, Key: "none")
                 : await LoadCachedImageSourceAsync(artwork.BackgroundPath, cancellationToken);
             var motifPath = artwork.SongMotifPath ?? artwork.FallbackMotifPath;
-            var songMotifSource = motifPath is null
-                ? ImageSource.FromFile(fallbackAsset)
+            var motif = motifPath is null
+                ? (Source: (ImageSource?)ImageSource.FromFile(fallbackAsset), Key: $"asset:{fallbackAsset}")
                 : await LoadCachedImageSourceAsync(motifPath, cancellationToken);
             if (cancellationToken.IsCancellationRequested || key != _artworkRequestKey) return;
             await Task.WhenAll(
-                TransitionBackgroundAsync(backgroundSource, ++_backgroundTransitionVersion),
-                TransitionSongMotifAsync(songMotifSource, ++_songMotifTransitionVersion));
+                TransitionBackgroundAsync(background.Source, background.Key),
+                TransitionSongMotifAsync(motif.Source, motif.Key));
         }
         catch (OperationCanceledException) { }
     }
 
-    private async Task TransitionSongMotifAsync(ImageSource? source, int version)
+    private async Task TransitionSongMotifAsync(ImageSource? source, string imageKey)
     {
+        if (_songMotifImageKey == imageKey) return;
+        _songMotifImageKey = imageKey;
+        var version = ++_songMotifTransitionVersion;
         await SongMotifImage.FadeToAsync(0, 250, Easing.SinInOut);
-        if (version != _songMotifTransitionVersion || !IsLoaded) return;
+        if (version != _songMotifTransitionVersion) return;
+        if (!IsLoaded) { _songMotifImageKey = null; return; }
         SongMotifImage.Source = source;
         SongMotifImage.IsVisible = source is not null;
         if (source is not null)
@@ -232,10 +242,12 @@ public partial class ImmersivePlayerPage : ContentPage
         }
     }
 
-    private static async Task<ImageSource> LoadCachedImageSourceAsync(string path, CancellationToken cancellationToken)
+    private static async Task<(ImageSource? Source, string Key)> LoadCachedImageSourceAsync(string path, CancellationToken cancellationToken)
     {
         var bytes = await File.ReadAllBytesAsync(path, cancellationToken);
-        return ImageSource.FromStream(() => new MemoryStream(bytes, writable: false));
+        // Compare the resolved image bytes, including manifest overrides and fallback files.
+        var key = Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(bytes));
+        return (ImageSource.FromStream(() => new MemoryStream(bytes, writable: false)), key);
     }
 
     private void StartAmbientAnimations()
