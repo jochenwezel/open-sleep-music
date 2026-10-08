@@ -232,6 +232,7 @@ foreach ($candidate in $candidateManifest.candidates) {
 $artworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2'
 $backgroundArtworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3'
 $legacyArtworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1'
+$guitarArtworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v4'
 $artwork = @{
     'quiet-classics' = @{ file = 'background_quiet_classics_v3.png'; sha256 = 'ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc' }
     rain = @{ file = 'background_rain_v3.png'; sha256 = '55a4ebcddb8ebf1fa7613356d9df6e0c58da782f19c24c466bb6d3568f4d35c5' }
@@ -265,6 +266,11 @@ $lullabyArtwork = @{
     'music-box-guten-abend-gute-nacht' = @{ file = 'sleepy_lamb_star.png'; sha256 = 'dda54da1b91f317ab83061af55ccf00e1b161c1fc367fe8e626181e563b41b06' }
     'antti-luode-another-lullaby' = @{ file = 'motif_lullaby_boat.png'; sha256 = '5f12ded5d87122b8714eb88d29c35ee3082a5b9554545a131d019c4a4a26216f' }
 }
+$guitarLullabyArtwork = @{
+    'candidate-romanza-ten-string-leon-egea' = @{ file = 'motif_lullaby_romanza_espanola_a.png'; sha256 = '545f2250fee2e5753950fdad92a31163ed6e2aeab995858d91690f117f195759' }
+    'candidate-recuerdos-de-la-alhambra' = @{ file = 'motif_lullaby_alhambra_a.png'; sha256 = 'f11d70b0548143b57f2b9e34b7b2e063050bae14e056c4f577a5b70de5d6e5d9' }
+    'candidate-barrios-julia-florida-edson-lopes' = @{ file = 'motif_lullaby_julia_florida_a.png'; sha256 = 'c7891628ff87a3a39d636738f13ea6b50cf9797d7e6bfefd02510b5abbb08ece' }
+}
 foreach ($worldEntry in $worlds.GetEnumerator()) {
     foreach ($track in $worldEntry.Value.tracks) {
         $artworkWorldId = if ($worldEntry.Key -eq 'preselection') { 'quiet-classics' } else { $worldEntry.Key }
@@ -285,6 +291,13 @@ foreach ($worldEntry in $worlds.GetEnumerator()) {
         if ($worldEntry.Key -eq 'lullabies' -and $lullabyArtwork.ContainsKey($track.id)) {
             $songMotif = $lullabyArtwork[$track.id]
             $track['songMotifUri'] = "$legacyArtworkReleaseBase/$($songMotif.file)"
+            $track['songMotifFileName'] = $songMotif.file
+            $track['songMotifSha256'] = $songMotif.sha256
+        }
+        # Shared guitar recordings retain one title motif in both collections.
+        if ($guitarLullabyArtwork.ContainsKey($track.id)) {
+            $songMotif = $guitarLullabyArtwork[$track.id]
+            $track['songMotifUri'] = "$guitarArtworkReleaseBase/$($songMotif.file)"
             $track['songMotifFileName'] = $songMotif.file
             $track['songMotifSha256'] = $songMotif.sha256
         }

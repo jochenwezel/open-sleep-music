@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-08T19:38:07.6902780+00:00",
+  "generatedAtUtc": "2026-10-08T20:18:51.3627986+00:00",
   "sleepWorlds": [
     {
       "id": "preselection",
@@ -3344,7 +3344,10 @@
           "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",
           "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_quiet_classics.png",
           "fallbackMotifFileName": "fallback_quiet_classics.png",
-          "fallbackMotifSha256": "35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d"
+          "fallbackMotifSha256": "35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v4/motif_lullaby_alhambra_a.png",
+          "songMotifFileName": "motif_lullaby_alhambra_a.png",
+          "songMotifSha256": "f11d70b0548143b57f2b9e34b7b2e063050bae14e056c4f577a5b70de5d6e5d9"
         },
         {
           "id": "candidate-clair-de-lune-claude-debussy-suite-bergamasque",
@@ -3398,7 +3401,10 @@
           "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",
           "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_quiet_classics.png",
           "fallbackMotifFileName": "fallback_quiet_classics.png",
-          "fallbackMotifSha256": "35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d"
+          "fallbackMotifSha256": "35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v4/motif_lullaby_julia_florida_a.png",
+          "songMotifFileName": "motif_lullaby_julia_florida_a.png",
+          "songMotifSha256": "c7891628ff87a3a39d636738f13ea6b50cf9797d7e6bfefd02510b5abbb08ece"
         },
         {
           "id": "candidate-romanza-ten-string-leon-egea",
@@ -3426,7 +3432,10 @@
           "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",
           "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_quiet_classics.png",
           "fallbackMotifFileName": "fallback_quiet_classics.png",
-          "fallbackMotifSha256": "35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d"
+          "fallbackMotifSha256": "35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v4/motif_lullaby_romanza_espanola_a.png",
+          "songMotifFileName": "motif_lullaby_romanza_espanola_a.png",
+          "songMotifSha256": "545f2250fee2e5753950fdad92a31163ed6e2aeab995858d91690f117f195759"
         }
       ]
     },
