@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-08T19:16:36.7310587+00:00",
+  "generatedAtUtc": "2026-10-08T19:20:32.4188013+00:00",
   "sleepWorlds": [
     {
       "id": "preselection",
@@ -4328,6 +4328,7 @@
           ],
           "ensembleType": "solo",
           "playbackSpeed": 0.833333,
+          "volumeGain": 0.75,
           "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_lullabies_v3.png",
           "artworkFileName": "background_lullabies_v3.png",
           "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",

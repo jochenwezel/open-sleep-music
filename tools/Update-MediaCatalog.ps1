@@ -176,6 +176,8 @@ $worlds.lullabies.tracks | ForEach-Object {
 foreach ($track in $worlds.lullabies.tracks) { $track.playbackSpeed = [Math]::Round(1 / 1.2, 6) }
 # Maintainer listening feedback 2026-10-08: Burgmüller's Berceuse 30% quieter.
 ($worlds.lullabies.tracks | Where-Object id -eq 'burgmuller-berceuse-op-109-no-7').volumeGain = 0.7
+# Maintainer follow-up 2026-10-08: Fauré's Berceuse 25% quieter.
+($worlds.lullabies.tracks | Where-Object id -eq 'faure-berceuse-op-56-no-1').volumeGain = 0.75
 
 # Preview audition tracks are separate from production admission. Only stable,
 # header-checked delivery metadata may be materialized as a downloadable track.
