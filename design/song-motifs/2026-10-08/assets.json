@@ -1,0 +1,50 @@
+[
+  {
+    "sha256": "545f2250fee2e5753950fdad92a31163ed6e2aeab995858d91690f117f195759",
+    "license": "MIT (project-generated artwork)",
+    "trackId": "candidate-romanza-ten-string-leon-egea",
+    "height": 1536,
+    "width": 1024,
+    "option": "A",
+    "status": "Generated design option; not yet assigned in runtime catalog",
+    "subject": "Small child with Spanish guitar on a rose-framed Spanish balcony",
+    "fileName": "motif_lullaby_romanza_espanola_a.png",
+    "format": "PNG RGBA"
+  },
+  {
+    "sha256": "f11d70b0548143b57f2b9e34b7b2e063050bae14e056c4f577a5b70de5d6e5d9",
+    "license": "MIT (project-generated artwork)",
+    "trackId": "candidate-recuerdos-de-la-alhambra",
+    "height": 1536,
+    "width": 1024,
+    "option": "A",
+    "status": "Generated design option; not yet assigned in runtime catalog",
+    "subject": "Sleeping lion cub with Alhambra Lion Courtyard details",
+    "fileName": "motif_lullaby_alhambra_a.png",
+    "format": "PNG RGBA"
+  },
+  {
+    "sha256": "c7891628ff87a3a39d636738f13ea6b50cf9797d7e6bfefd02510b5abbb08ece",
+    "license": "MIT (project-generated artwork)",
+    "trackId": "candidate-barrios-julia-florida-edson-lopes",
+    "height": 1536,
+    "width": 1024,
+    "option": "A",
+    "status": "Generated design option; not yet assigned in runtime catalog",
+    "subject": "Small girl with guitar in a flowering garden",
+    "fileName": "motif_lullaby_julia_florida_a.png",
+    "format": "PNG RGBA"
+  },
+  {
+    "sha256": "0b355b67788b65d20e1bb3306ee01845d1b591525175410c9b44dd52324373ea",
+    "license": "MIT (project-generated artwork)",
+    "trackId": "candidate-barrios-julia-florida-edson-lopes",
+    "height": 1536,
+    "width": 1024,
+    "option": "B",
+    "status": "Generated design option; not yet assigned in runtime catalog",
+    "subject": "Sleeping duckling in a flower-decorated boat",
+    "fileName": "motif_lullaby_julia_florida_b.png",
+    "format": "PNG RGBA"
+  }
+]
