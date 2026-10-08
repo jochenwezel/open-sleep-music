@@ -24,10 +24,10 @@ public sealed class SharedCatalogTests
     }
 
     [Theory]
-    [InlineData("candidate-romanza-ten-string-leon-egea", "CC BY-SA 4.0", 6400)]
-    [InlineData("candidate-recuerdos-de-la-alhambra", "CC BY-SA 3.0", 0)]
-    [InlineData("candidate-barrios-julia-florida-edson-lopes", "CC BY 3.0", 0)]
-    public void SelectedRecordingsShareBothProductionCollectionsAndRetainApprovedDelivery(string id, string license, int offset)
+    [InlineData("candidate-romanza-ten-string-leon-egea", "CC BY-SA 4.0", 6400, 10000)]
+    [InlineData("candidate-recuerdos-de-la-alhambra", "CC BY-SA 3.0", 0, 0)]
+    [InlineData("candidate-barrios-julia-florida-edson-lopes", "CC BY 3.0", 0, 0)]
+    public void SelectedRecordingsShareBothProductionCollectionsAndRetainApprovedDelivery(string id, string license, int offset, int endOffset)
     {
         var classics = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "quiet-classics");
         var lullabies = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies");
@@ -37,6 +37,7 @@ public sealed class SharedCatalogTests
         Assert.Equal("verified", track.LicenseReviewStatus);
         Assert.Equal(license, track.License);
         Assert.Equal(offset, track.StartOffsetMilliseconds);
+        Assert.Equal(endOffset, track.EndOffsetMilliseconds);
         Assert.EndsWith(".mp3", track.FileName);
         Assert.Equal(1d, track.PlaybackSpeed);
         Assert.DoesNotContain(BuiltInCatalog.SleepWorlds.Where(world => world.Id == "preselection").SelectMany(world => world.Tracks),

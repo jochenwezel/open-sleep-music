@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-08T19:24:27.5643935+00:00",
+  "generatedAtUtc": "2026-10-08T19:38:07.6902780+00:00",
   "sleepWorlds": [
     {
       "id": "preselection",
@@ -3412,7 +3412,7 @@
           "durationSeconds": 171.312,
           "sha1": null,
           "startOffsetMilliseconds": 6400,
-          "endOffsetMilliseconds": 0,
+          "endOffsetMilliseconds": 10000,
           "instrumentation": [
             "guitar"
           ],
