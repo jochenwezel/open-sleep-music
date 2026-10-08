@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-08T19:20:32.4188013+00:00",
+  "generatedAtUtc": "2026-10-08T19:24:27.5643935+00:00",
   "sleepWorlds": [
     {
       "id": "preselection",
@@ -3364,9 +3364,7 @@
           ],
           "ensembleType": "solo",
           "licenseReviewStatus": "verified",
-          "additionalWorldIds": [
-            "lullabies"
-          ],
+          "additionalWorldIds": [],
           "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_quiet_classics_v3.png",
           "artworkFileName": "background_quiet_classics_v3.png",
           "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",
@@ -4343,7 +4341,6 @@
       "trackOrder": [
         "music-box-schlafe-mein-prinzchen",
         "candidate-romanza-ten-string-leon-egea",
-        "candidate-clair-de-lune-claude-debussy-suite-bergamasque",
         "candidate-recuerdos-de-la-alhambra",
         "burgmuller-berceuse-op-109-no-7",
         "candidate-barrios-julia-florida-edson-lopes",

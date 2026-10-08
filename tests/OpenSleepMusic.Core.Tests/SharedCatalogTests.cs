@@ -10,7 +10,7 @@ public sealed class SharedCatalogTests
         var world = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies");
         Assert.NotNull(world.TrackOrder);
         Assert.Equal(world.Tracks.Select(track => track.Id), world.TrackOrder);
-        Assert.Equal(8, world.TrackOrder.Count);
+        Assert.Equal(7, world.TrackOrder.Count);
         var titles = world.Tracks.Select(track => track.Title).ToArray();
         Assert.False(titles.SequenceEqual(titles.Order(StringComparer.OrdinalIgnoreCase)));
 
@@ -27,7 +27,6 @@ public sealed class SharedCatalogTests
     [InlineData("candidate-romanza-ten-string-leon-egea", "CC BY-SA 4.0", 6400)]
     [InlineData("candidate-recuerdos-de-la-alhambra", "CC BY-SA 3.0", 0)]
     [InlineData("candidate-barrios-julia-florida-edson-lopes", "CC BY 3.0", 0)]
-    [InlineData("candidate-clair-de-lune-claude-debussy-suite-bergamasque", "CC BY 3.0", 0)]
     public void SelectedRecordingsShareBothProductionCollectionsAndRetainApprovedDelivery(string id, string license, int offset)
     {
         var classics = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "quiet-classics");
@@ -51,5 +50,19 @@ public sealed class SharedCatalogTests
         Assert.Equal(canonical.Length, canonical.Select(entry => entry.GetProperty("id").GetString()).Distinct().Count());
         Assert.Equal(canonical.Length, canonical.Select(entry => entry.GetProperty("fileName").GetString()).Distinct(StringComparer.OrdinalIgnoreCase).Count());
         Assert.Equal(canonical.Length, canonical.Select(entry => entry.GetProperty("downloadUri").GetString()).Distinct().Count());
+    }
+
+    [Fact]
+    public void ClairDeLuneRemainsInClassicsAfterLittleOnesRemoval()
+    {
+        const string id = "candidate-clair-de-lune-claude-debussy-suite-bergamasque";
+        var classics = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "quiet-classics");
+        var lullabies = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies");
+        var track = Assert.Single(classics.Tracks, track => track.Id == id);
+        Assert.Equal("verified", track.LicenseReviewStatus);
+        Assert.Equal("CC BY 3.0", track.License);
+        Assert.DoesNotContain(lullabies.Tracks, track => track.Id == id);
+        Assert.DoesNotContain(id, lullabies.TrackOrder!);
+        Assert.DoesNotContain("lullabies", track.AdditionalWorldIds ?? []);
     }
 }

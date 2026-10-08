@@ -124,7 +124,7 @@ public sealed class BuiltInCatalogTests
         var world = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "lullabies");
 
         Assert.Equal("Schlaflieder für Kleine", world.Name);
-        Assert.Equal(8, world.Tracks.Count);
+        Assert.Equal(7, world.Tracks.Count);
         var originalTracks = world.Tracks.Where(track => track.AdditionalWorldIds is not { Count: > 0 }).ToArray();
         Assert.Equal(
             [

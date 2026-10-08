@@ -238,7 +238,7 @@ public sealed class PreselectionTests
             Assert.Equal("CC0 1.0", external.ApprovedLicense);
             Assert.Null(external.DownloadUri);
         }
-        Assert.Equal(8, BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies").Tracks.Count);
+        Assert.Equal(7, BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies").Tracks.Count);
     }
 
     [Fact]
