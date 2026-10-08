@@ -15,6 +15,7 @@ internal sealed class DesktopBackgroundPlayer
     private double _position;
     private int _version;
     private double _endFadeFactor = 1;
+    private double _eventFadeFactor = 1;
 
     public DesktopBackgroundPlayer()
     {
@@ -40,8 +41,11 @@ internal sealed class DesktopBackgroundPlayer
         if (playing) Element.Play(); else Element.Pause();
     }
 
-    public void SetVolume(double appVolume, double fadeFactor = 1) =>
-        Element.Volume = Math.Clamp(appVolume * (_source?.Volume ?? 0) * fadeFactor * _endFadeFactor, 0, 1);
+    public void SetVolume(double appVolume, double? fadeFactor = null)
+    {
+        if (fadeFactor is { } factor) _eventFadeFactor = factor;
+        Element.Volume = Math.Clamp(appVolume * (_source?.Volume ?? 0) * _eventFadeFactor * _endFadeFactor, 0, 1);
+    }
 
     public void SeekForMainPosition(double seconds)
     {
@@ -78,24 +82,17 @@ internal sealed class DesktopBackgroundPlayer
     {
         _version++;
         _endFadeFactor = 1;
+        _eventFadeFactor = 1;
         _playing = _ready = _seeking = false;
         _source = null;
         Element.Stop();
         Element.Source = null;
     }
 
-    public async Task FadeOutAsync(double appVolume)
+    public void UpdateEndFade(TimeSpan position, TimeSpan duration, double appVolume)
     {
-        if (_source is null || !_ready) { Stop(); return; }
-        var version = _version;
-        for (var step = 1; step <= 12; step++)
-        {
-            if (version != _version) return;
-            _endFadeFactor = 1 - step / 12d;
-            SetVolume(appVolume);
-            await Task.Delay(50);
-        }
-        if (version == _version) Stop();
+        _endFadeFactor = BackgroundEndFade.VolumeFactor(position, duration);
+        SetVolume(appVolume);
     }
 }
 #endif

@@ -35,8 +35,6 @@ public partial class MainPage : ContentPage
     };
 #if !ANDROID
     private readonly DesktopBackgroundPlayer _backgroundPlayer = new();
-    private int _playbackGeneration;
-    private bool _backgroundEnding;
 #endif
     private IReadOnlyList<SleepWorld> _catalogWorlds = BuiltInCatalog.SleepWorlds;
     private IReadOnlyList<SleepWorldCard> _worldCards;
@@ -802,10 +800,6 @@ public partial class MainPage : ContentPage
 
     private void PlayTrack(LocalLibraryTrack track, bool userInitiated = false, double startPositionSeconds = 0, bool autoPlay = true)
     {
-#if !ANDROID
-        _playbackGeneration++;
-        _backgroundEnding = false;
-#endif
         if (userInitiated)
         {
             _consecutivePlaybackFailures = 0;
@@ -1028,25 +1022,14 @@ public partial class MainPage : ContentPage
         PlayTrack(tracks[index], userInitiated: !fromActiveQueue, autoPlay: autoPlay);
     }
 
-    private async void OnMediaEnded(object? sender, EventArgs e)
+    private void OnMediaEnded(object? sender, EventArgs e)
     {
         if (!_shouldContinuePlayback || _isTrackTransitioning)
         {
             return;
         }
 #if !ANDROID
-        var endingTrack = _currentTrack;
-        var generation = _playbackGeneration;
-        _isTrackTransitioning = true;
-        _backgroundEnding = true;
-        Player.Pause();
-        await _backgroundPlayer.FadeOutAsync(VolumeSlider.Value);
-        if (generation != _playbackGeneration) return;
-        _backgroundEnding = false;
-        _isTrackTransitioning = false;
-        if (!_shouldContinuePlayback || _currentTrack != endingTrack) return;
-#else
-        await Task.CompletedTask;
+        _backgroundPlayer.Stop();
 #endif
 
         if (_repeatMode == PlaybackRepeatMode.Track && _currentTrack is not null)
@@ -1080,7 +1063,7 @@ public partial class MainPage : ContentPage
     private void OnPlayerStateChanged(object? sender, MediaStateChangedEventArgs e)
     {
 #if !ANDROID
-        if (!_backgroundEnding && !(e.NewState == MediaElementState.Stopped && _shouldContinuePlayback))
+        if (!(e.NewState == MediaElementState.Stopped && _shouldContinuePlayback))
             _backgroundPlayer.SetPlaying(e.NewState == MediaElementState.Playing);
         if (!_shouldContinuePlayback) _backgroundPlayer.SetPlaying(false);
 #endif
@@ -1679,6 +1662,7 @@ public partial class MainPage : ContentPage
             var duration = PlaybackTimeline.Duration(CurrentMediaDuration(), speed, _currentTrack?.Track.StartOffsetMilliseconds ?? 0, _currentTrack?.Track.EndOffsetMilliseconds ?? 0);
             var position = PlaybackTimeline.ToPlaybackTime(Player.Position, speed, _currentTrack?.Track.StartOffsetMilliseconds ?? 0);
             if (position > duration) position = duration;
+            _backgroundPlayer.UpdateEndFade(position, duration, VolumeSlider.Value);
             PositionSlider.Maximum = duration.TotalSeconds;
             PositionSlider.Value = Math.Min(position.TotalSeconds, duration.TotalSeconds);
             TimeLabel.Text = $"{FormatTime(position)} / {FormatTime(duration)}";
@@ -1755,8 +1739,6 @@ public partial class MainPage : ContentPage
         Player.Stop();
         Player.Source = null;
         _backgroundPlayer.Stop();
-        _playbackGeneration++;
-        _backgroundEnding = false;
 #endif
         _loadedTrackId = null;
         _currentTrack = null;
@@ -1801,7 +1783,7 @@ public partial class MainPage : ContentPage
         finally
         {
             Player.Volume = PlaybackVolume.ApplyGain(VolumeSlider.Value, _currentTrack?.Track.VolumeGain ?? 1);
-            _backgroundPlayer.SetVolume(VolumeSlider.Value);
+            _backgroundPlayer.SetVolume(VolumeSlider.Value, 1);
         }
     }
 #endif

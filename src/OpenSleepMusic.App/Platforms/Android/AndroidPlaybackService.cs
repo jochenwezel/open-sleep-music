@@ -635,6 +635,10 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         _positionTimer = new Timer(_ => MainThread.BeginInvokeOnMainThread(() =>
         {
             if (_positionTimer is null) return;
+            _backgroundEndFadeFactor = BackgroundEndFade.VolumeFactor(
+                TimeSpan.FromMilliseconds(CurrentPositionMilliseconds()),
+                TimeSpan.FromMilliseconds(CurrentDurationMilliseconds()));
+            SetPlayerVolume();
             _backgroundPlayer.Tick();
             if (_playerPrepared && IsPlaying() && _queue[_index].EndOffsetMilliseconds > 0
                 && _player is { } player && PlaybackTimeline.HasReachedEnd(
@@ -652,22 +656,13 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         }), null, TimeSpan.FromMilliseconds(100), TimeSpan.FromMilliseconds(100));
     }
 
-    private async void CompleteCurrentTrack(MediaPlayer player)
+    private void CompleteCurrentTrack(MediaPlayer player)
     {
         if (!ReferenceEquals(_player, player) || _finishingPlayer == player) return;
         _finishingPlayer = player;
         if (player.IsPlaying) player.Pause();
-        if (_queue[_index].Background is not null)
-        {
-            for (var step = 1; step <= 12; step++)
-            {
-                if (!ReferenceEquals(_player, player) || _finishingPlayer != player) return;
-                _backgroundEndFadeFactor = 1 - step / 12d;
-                SetPlayerVolume();
-                await Task.Delay(50);
-            }
-        }
-        if (!ReferenceEquals(_player, player) || _finishingPlayer != player) return;
+        _backgroundEndFadeFactor = 0;
+        SetPlayerVolume();
         _backgroundPlayer.Dispose();
         _finishingPlayer = null;
         _backgroundEndFadeFactor = 1;

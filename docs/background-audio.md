@@ -31,9 +31,12 @@ does not prevent the primary recording from playing. Existing downloads remain
 unmodified, with their original checksums and attribution.
 
 Pause, resume, audio-focus ducking and sleep-timer fades affect both players. The
-background loops its trimmed interval until the main song ends. At that boundary
-it fades out over 600 ms before the next song (or single-song repeat) starts;
-there is no abrupt mid-recording cutoff. Explicit stop releases both players.
+background loops its trimmed interval until the main song ends. It fades out during
+the final 600 ms of the primary song's playable, speed-adjusted duration and reaches
+silence at the same endpoint, without delaying the next song or single-song repeat.
+For primary songs shorter than 600 ms, the fade spans their entire playable duration.
+Zero or invalid duration yields zero background volume, without negative intervals.
+Explicit stop releases both players.
 Seeking/resuming positions the background modulo its trimmed interval. Android
 persists its configuration with the playback queue and uses the existing foreground
 service, audio focus and notification rather than a second media session.
