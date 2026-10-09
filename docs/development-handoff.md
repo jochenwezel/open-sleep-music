@@ -57,7 +57,7 @@ meadow-cricket background assignments; real-device listening is still pending.
   remove the media card and prevent restoration of that explicitly stopped
   session. Home and screen-lock background playback must continue working.
 - [x] Assign Romanza española and Recuerdos de la Alhambra to the reviewed
-  meadow-cricket recording at 35% background volume for Preview audition in
+  meadow-cricket recording at 30% background volume for Preview audition in
   `tools/track-backgrounds.json` and regenerate both catalogs. Preserve the
   recording-rights, dependency-download and trim rules in
   [background-audio.md](background-audio.md).
@@ -91,7 +91,8 @@ recording rights are verified, causing the catalog update to fall back silently.
 Repairing a collection cannot change that binary validation rule. The tested
 Preview-only rights guard and pairings from `de152b9` are included in Preview
 0.1.38. The maintainer confirmed working background playback on 9 October 2026
-and subsequently requested reducing both cricket assignments from 50% to 35%.
+and subsequently requested reducing both cricket assignments from 50% to 35%,
+then to 30% after further listening.
 This gain change is a catalog update compatible with 0.1.38.
 After installing the update, repair the desired collection to fetch the
 separate cricket dependency, then start Romanza or Recuerdos again. The app plays
