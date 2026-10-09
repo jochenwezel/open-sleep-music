@@ -38,6 +38,18 @@ Both archives were checked for bundled audio and contain none. Install this
 update to enable the separate artwork per collection, then refresh the library.
 Device validation remains pending.
 
+Preview 0.1.38 is now published from
+`a9dfdf8a245847f63194c927d57e786b1e7dadb1`:
+[release](https://github.com/jochenwezel/open-sleep-music/releases/tag/v0.1.38),
+[successful package workflow](https://github.com/jochenwezel/open-sleep-music/actions/runs/37893217013).
+The downloaded Android APK and Windows ZIP match their published SHA-256
+digests, and the separate APK checksum file matches. The APK reports the existing
+`org.opensleepmusic.app` identity, version code 38 and version name 0.1.38.
+APK signature verification matches the durable release certificate documented
+in `android-signing.md`, allowing an in-place update from 0.1.37.
+Both packages contain no bundled audio files. The update enables the reviewed
+meadow-cricket background assignments; real-device listening is still pending.
+
 ## Open todos
 
 - [ ] Fix and validate [Android task-close cleanup, issue 19](https://github.com/jochenwezel/open-sleep-music/issues/19).
