@@ -94,6 +94,9 @@ Preview-only rights guard and pairings from `de152b9` are included in Preview
 and subsequently requested reducing both cricket assignments from 50% to 35%,
 then to 30% after further listening.
 This gain change is a catalog update compatible with 0.1.38.
+The collection list now starts with Lullabies for little ones in both channels;
+Preview places Preselection immediately before the final pre-qualify collection.
+The other collections retain their relative order, and song order is unchanged.
 After installing the update, repair the desired collection to fetch the
 separate cricket dependency, then start Romanza or Recuerdos again. The app plays
 both original recordings using its background feature; no mixed song file is

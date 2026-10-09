@@ -54,13 +54,13 @@ function Convert-ToSeconds([string]$Length) {
 }
 
 $worlds = [ordered]@{
-    'preselection' = [ordered]@{ name = 'Vorauswahl'; description = 'Kandidaten herunterladen und offline probehören. Lizenz- und Eignungsprüfung noch offen. Nur in Preview-Versionen.'; icon = '🧪'; tracks = [Collections.Generic.List[object]]::new() }
+    lullabies = [ordered]@{ name = 'Schlaflieder für Kleine'; description = 'Sanfte Klavier-, Spieluhr- und Instrumentalstücke ohne Gesang.'; icon = '🌙'; tracks = [Collections.Generic.List[object]]::new() }
     'quiet-classics' = [ordered]@{ name = 'Ruhige Klassik'; description = 'Sanfte Klavier-, Harfen-, Cello- und Streicheraufnahmen mit ruhiger Dynamik.'; icon = '🎼'; tracks = [Collections.Generic.List[object]]::new() }
     rain = [ordered]@{ name = 'Sanfter Regen'; description = 'Leichter bis kräftiger Regen, ohne ausgewählte Gewitterspitzen.'; icon = '🌧️'; tracks = [Collections.Generic.List[object]]::new() }
     forest = [ordered]@{ name = 'Wald'; description = 'Lange Wald- und Regenwaldaufnahmen mit Wind, Wasser und Vögeln.'; icon = '🌲'; tracks = [Collections.Generic.List[object]]::new() }
     waves = [ordered]@{ name = 'Wasser & Wellen'; description = 'Meereswellen, Strand, Bachplätschern und gleichmäßige Wassergeräusche.'; icon = '🌊'; tracks = [Collections.Generic.List[object]]::new() }
     fireplace = [ordered]@{ name = 'Kaminfeuer'; description = 'Ruhiges Knistern eines Kaminfeuers.'; icon = '🔥'; tracks = [Collections.Generic.List[object]]::new() }
-    lullabies = [ordered]@{ name = 'Schlaflieder für Kleine'; description = 'Sanfte Klavier-, Spieluhr- und Instrumentalstücke ohne Gesang.'; icon = '🌙'; tracks = [Collections.Generic.List[object]]::new() }
+    'preselection' = [ordered]@{ name = 'Vorauswahl'; description = 'Kandidaten herunterladen und offline probehören. Lizenz- und Eignungsprüfung noch offen. Nur in Preview-Versionen.'; icon = '🧪'; tracks = [Collections.Generic.List[object]]::new() }
 }
 
 $chopin = Get-ArchiveMetadata 'musopen-chopin-complete-works-flac'

@@ -42,11 +42,14 @@ public sealed class BuiltInCatalogTests
         Assert.All(memberships, track => Assert.Same(tracks.Single(asset => asset.Id == track.Id), track));
 
         Assert.Equal(BuildChannel.IsPreview ? 8 : 6, worlds.Count);
+        Assert.Equal("lullabies", worlds[0].Id);
         Assert.True(tracks.Length >= 134, $"Expected at least 134 tracks, found {tracks.Length}.");
         Assert.True(BuiltInCatalog.TotalDuration >= TimeSpan.FromHours(15));
         Assert.All(worlds.Where(world => world.Id is not ("preselection" or "pre-qualify")), world => Assert.NotEmpty(world.Tracks));
         if (BuildChannel.IsPreview)
         {
+            Assert.Equal("preselection", worlds[^2].Id);
+            Assert.Equal("pre-qualify", worlds[^1].Id);
             var preselection = Assert.Single(worlds, world => world.Id == "preselection");
             Assert.Equal("Vorauswahl", preselection.Name);
             Assert.Equal(50, preselection.Tracks.Count);
