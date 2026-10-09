@@ -44,9 +44,9 @@ Device validation remains pending.
   Removing the app from Recents must stop playback, release the media session,
   remove the media card and prevent restoration of that explicitly stopped
   session. Home and screen-lock background playback must continue working.
-- [ ] Choose suitable primary/background pairs in `tools/track-backgrounds.json`
-  and regenerate the catalog. The assignment file is currently empty; the
-  capability alone does not add backgrounds to existing songs. Preserve the
+- [x] Assign Romanza española and Recuerdos de la Alhambra to the reviewed
+  meadow-cricket recording at 50% background volume for Preview audition in
+  `tools/track-backgrounds.json` and regenerate both catalogs. Preserve the
   recording-rights, dependency-download and trim rules in
   [background-audio.md](background-audio.md).
 - [ ] Perform Windows and Android listening checks with an assigned background:
@@ -72,6 +72,16 @@ Device validation remains pending.
   checks.
 
 ## Concurrent catalog and artwork work
+
+The first meadow-cricket assignments were published after Preview 0.1.37.
+That binary rejects backgrounds sourced from Preselection even when their
+recording rights are verified, causing the catalog update to fall back silently.
+Repairing a collection cannot change that binary validation rule. The tested
+Preview-only rights guard and pairings from `de152b9` are included in Preview
+0.1.38. After installing the update, repair the desired collection to fetch the
+separate cricket dependency, then start Romanza or Recuerdos again. The app plays
+both original recordings using its background feature; no mixed song file is
+downloaded or packaged. Real-device listening remains pending.
 
 Romanza A, Alhambra A and Julia Florida A were selected and assigned after the
 0.1.36 app release. Julia B, the duckling, remains an unassigned design for
