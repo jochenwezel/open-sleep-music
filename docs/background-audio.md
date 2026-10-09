@@ -15,7 +15,7 @@ An optional secondary recording can loop underneath a primary song. Assign it in
 ```
 
 Run `tools/Update-MediaCatalog.ps1` afterwards. Romanza española and Recuerdos de
-la Alhambra currently use the meadow crickets at 0.5 volume for Preview audition,
+la Alhambra currently use the meadow crickets at 0.35 volume for Preview audition,
 in both Quiet Classics and Lullabies for little ones.
 
 The referenced recording must already satisfy the catalog's recording-rights and

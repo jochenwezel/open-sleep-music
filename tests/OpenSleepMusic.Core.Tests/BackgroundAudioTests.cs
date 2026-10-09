@@ -77,7 +77,7 @@ public sealed class BackgroundAudioTests
     [Theory]
     [InlineData("candidate-romanza-ten-string-leon-egea")]
     [InlineData("candidate-recuerdos-de-la-alhambra")]
-    public void GuitarCricketAuditionIsPreviewOnlyAndUsesOneHalfGain(string id)
+    public void GuitarCricketAuditionIsPreviewOnlyAndUsesAssignedGain(string id)
     {
         var worlds = BuiltInCatalog.SleepWorlds;
         var classics = worlds.Single(world => world.Id == "quiet-classics");
@@ -94,7 +94,7 @@ public sealed class BackgroundAudioTests
             .Single(track => track.Id == "candidate-meadow-night-crickets-sardin");
         var background = Assert.IsType<AudioTrack>(BackgroundAudioCatalog.Resolve(primary, worlds));
         Assert.Equal(.5, source.VolumeGain);
-        Assert.Equal(.5, background.VolumeGain);
+        Assert.Equal(.35, background.VolumeGain);
         Assert.Equal(1, background.PlaybackSpeed);
         Assert.Equal(0, background.StartOffsetMilliseconds);
         Assert.Equal(0, background.EndOffsetMilliseconds);
