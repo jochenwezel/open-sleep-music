@@ -1268,7 +1268,13 @@
       "proposedWorldIds": [
         "lullabies"
       ],
-      "collectionReason": "The separately confirmed listening favorite is an original piano lullaby, a strong lead for the child collection.",
+      "collectionReason": "The maintainer confirms Little Lullaby by Alex_089 for Lullabies for little ones. Complete the remaining technical and admission checks before catalog promotion.",
+      "collectionFeedback": {
+        "date": "2026-10-14",
+        "confirmedWorldIds": [
+          "lullabies"
+        ]
+      },
       "admissionBlockers": [
         "Not in the new feedback export; included from the separate explicit favorite instruction.",
         "Resolve decoded duration/portable filename and complete delivery/listening checks before admission."

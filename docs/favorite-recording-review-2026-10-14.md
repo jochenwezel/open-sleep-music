@@ -8,12 +8,14 @@ The [machine-readable review](../tools/favorite-rights-review-2026-10-14.json) r
 
 ## Lullabies for little ones
 
+The maintainer confirms Little Lullaby by Alex_089 for this collection. Its remaining technical and admission checks precede catalog promotion.
+
 | Recording and source | Recording credit | Recording license | Collection reason and remaining checks |
 | --- | --- | --- | --- |
 | [El Noi de la Mare](https://commons.wikimedia.org/wiki/File:El_Noi_de_la_Mare_(guitar).ogg) | Traditional Catalan melody; guitar and recording: Jujutacular | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | Instrumental cradle/carol melody on a single guitar; a clear child collection lead. |
 | [Guten Abend, gut' Nacht — Brahms Lullaby](https://orangefreesounds.com/brahms-lullaby/) | Johannes Brahms; performance/production: Alexander Blu | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | A familiar cradle-song melody; retain as a distinct performance from the existing music-box recording. Confirm precise instruments and whole-track vocal absence before admission. |
 | [Twinkle Twinkle Little Star — piano](https://orangefreesounds.com/twinkle-twinkle-little-star-song/) | Traditional melody, Ah! vous dirai-je, maman; performance/production: Alexander Blu | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | A recognizable piano nursery melody; credit the traditional tune rather than calling Mozart its composer. |
-| [Little Lullaby](https://opengameart.org/content/little-lullaby) | Composition/recording: Alex_089 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | The separately confirmed listening favorite is an original piano lullaby, a strong lead for the child collection. Not in the new feedback export; included from the separate explicit favorite instruction. Resolve decoded duration/portable filename and complete delivery/listening checks before admission. |
+| [Little Lullaby](https://opengameart.org/content/little-lullaby) | Composition/recording: Alex_089 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | Confirmed for Lullabies for little ones. Resolve decoded duration/portable filename and complete delivery/listening checks before admission. |
 
 The Alexander Blu favorites here are Brahms Lullaby and Twinkle Twinkle Little Star. They are different recordings from the rejected Little Princess and Baby Lullaby Music proposals; those exclusions remain in effect.
 
