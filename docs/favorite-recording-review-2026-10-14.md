@@ -2,7 +2,7 @@
 
 The review covers the 38 favorites in the latest feedback export and Little Lullaby, separately confirmed in chat. Thirty have a recording-specific CC or public-domain grant supported by their source provenance. Two Debussy recordings use the free Free Art License, which needs a separate production-policy review. Seven Bandcamp recordings retain all rights reserved and cannot enter the freely licensed catalog.
 
-The proposed split keeps recognizable lullabies in Lullabies for little ones, longer classical movements and adult miniatures in Quiet Classics, and environmental recordings in the appropriate nature collection. Träumerei, Lágrima and Folkevise are proposed for both music collections. Assignments reflect source instrumentation/context and the maintainer's favorites; full dynamics, endpoints and transitions still need admission checks. No recording is promoted by this proposal.
+The proposed split keeps recognizable lullabies in Lullabies for little ones, longer classical movements and adult miniatures in Quiet Classics, and environmental recordings in the appropriate nature collection. Träumerei and Lágrima are proposed for both music collections. Following explicit maintainer feedback, Grieg's Folkevise is proposed for Quiet Classics only. Assignments reflect source instrumentation/context and the maintainer's favorites; full dynamics, endpoints and transitions still need admission checks. No recording is promoted by this proposal.
 
 The [machine-readable review](../tools/favorite-rights-review-2026-10-14.json) retains a source and recording-license decision for every recording, versioned Commons evidence where available, original delivery metadata and pending admission work. The private feedback file and its comment are not committed.
 
@@ -24,13 +24,13 @@ Use a single recording with memberships in Quiet Classics and Lullabies for litt
 | Recording and source | Recording credit | Recording license | Collection reason and remaining checks |
 | --- | --- | --- | --- |
 | [Kinderszenen, Op. 15 — VII. Träumerei](https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_vii._dreaming.ogg) | Robert Schumann; piano: Donald Betts; recording supplied by Musopen | [Public Domain Dedication](https://creativecommons.org/publicdomain/mark/1.0/) | A compact lyrical piano piece suitable for a shared membership, subject to full dynamics and transition checks. |
-| [Folkevise, Op. 12 No. 5](https://commons.wikimedia.org/wiki/File:Grieg,_Folkevise_Op_12_No_5.ogg) | Edvard Grieg; piano and recording: Constantin Stephan | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | A compact folk-song piano miniature; a good shared-membership lead alongside Träumerei. |
 | [Lágrima — 10-string guitar](https://imslp.org/wiki/L%C3%A1grima_(T%C3%A1rrega,_Francisco)) | Francisco Tárrega; guitar and recording: Ramón León Egea | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | A short guitar miniature; shared membership broadens the child collection without adding an ensemble. |
 
 ## Quiet Classics
 
 | Recording and source | Recording credit | Recording license | Collection reason and remaining checks |
 | --- | --- | --- | --- |
+| [Folkevise, Op. 12 No. 5](https://commons.wikimedia.org/wiki/File:Grieg,_Folkevise_Op_12_No_5.ogg) | Edvard Grieg; piano and recording: Constantin Stephan | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | Retain for Quiet Classics only; the maintainer explicitly excludes this recording from Lullabies for little ones. |
 | [Andantino 'Spring', B. 117](https://archive.org/details/musopen-chopin-complete-works-flac) | Frédéric Chopin; various artists, produced by Musopen | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) | Keep the existing piano miniature in Quiet Classics; no duplicate entry. |
 | [Canon in D major, P. 37 — guitar](https://commons.wikimedia.org/wiki/File:Pachelbel_-_Canon_in_D_major,_P._37_(Guitar).ogg) | Johann Pachelbel; guitar/arrangement: Aitua | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | Repeating guitar texture fits the adult classical collection; preserve the requested 80% playback speed. |
 | [Daphne am Bach, D. 411 — guitar](https://commons.wikimedia.org/wiki/File:Schubert%27s_Daphne_am_Bach,_D.411_(guitar)_-_Bert_Alink.ogg) | Franz Schubert; arrangement, guitar and recording: Bert Alink | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | A lyrical guitar transcription; retain the requested 85% playback speed. |

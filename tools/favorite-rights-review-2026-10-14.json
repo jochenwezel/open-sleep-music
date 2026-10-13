@@ -643,10 +643,18 @@
         "piano"
       ],
       "proposedWorldIds": [
-        "quiet-classics",
-        "lullabies"
+        "quiet-classics"
       ],
-      "collectionReason": "A compact folk-song piano miniature; a good shared-membership lead alongside Träumerei.",
+      "collectionReason": "Retain this piano miniature for Quiet Classics only. The maintainer explicitly excludes it from Lullabies for little ones.",
+      "collectionFeedback": {
+        "date": "2026-10-14",
+        "excludedWorldIds": [
+          "lullabies"
+        ],
+        "retainedWorldIds": [
+          "quiet-classics"
+        ]
+      },
       "admissionBlockers": [],
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Grieg%2C_Folkevise_Op_12_No_5.ogg",
       "fileName": "candidate-grieg-folkevise-op-12-no-5.ogg",
