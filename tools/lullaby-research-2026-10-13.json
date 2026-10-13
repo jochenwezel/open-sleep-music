@@ -5,7 +5,7 @@
   "status": "research-only-not-runtime-catalog",
   "scope": "50 new instrumental lullaby and gentle miniature leads beyond earlier classical/Commons and Bandcamp searches.",
   "rightsNote": "Compatible recording licenses are declared by the linked sources. LicenseReviewStatus remains unchecked until the complete recording-specific admission review; no track is promoted.",
-  "listeningNote": "Priorities are curation inferences from source descriptions, not completed listening approval. Full dynamics, silence, noise, child suitability and loop boundaries remain pending.",
+  "listeningNote": "One maintainer listening favorite is retained; four rejected recordings are excluded from the active shortlist and preserved as rejected audit records. Full admission checks remain pending for the favorite and all unreviewed candidates.",
   "deduplication": {
     "comparedWith": [
       "tools/preselection-candidates.json",
@@ -32,7 +32,7 @@
       "licenseReviewStatus": "unchecked",
       "licenseEvidenceUri": "https://opengameart.org/content/little-lullaby",
       "sourceCheckedAtUtc": "2026-10-13T21:42:36.984174+00:00",
-      "listeningReviewStatus": "pending",
+      "listeningReviewStatus": "favorite",
       "auditionPriority": 1,
       "selectionReason": "Soft original piano lullaby.",
       "listeningChecks": "Confirm strings and whole-track dynamics.",
@@ -48,39 +48,12 @@
         "bytesInspected": 4096,
         "audioSignatureVerified": true
       },
-      "auditionOrder": 1
-    },
-    {
-      "id": "research-lullaby-alexander-blu-baby-lullaby-music-loop",
-      "title": "Baby Lullaby Music (loop)",
-      "creator": "Alexander Blu",
-      "sourcePageUri": "https://orangefreesounds.com/baby-lullaby-music/",
-      "instrumentation": [
-        "celesta"
-      ],
-      "intendedWorldId": "lullabies",
-      "declaredLicense": "CC BY 4.0",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
-      "licenseReviewStatus": "unchecked",
-      "licenseEvidenceUri": "https://orangefreesounds.com/baby-lullaby-music/",
-      "sourceCheckedAtUtc": "2026-10-13T21:42:36.984174+00:00",
-      "listeningReviewStatus": "pending",
-      "auditionPriority": 1,
-      "selectionReason": "Gentle celesta loop.",
-      "listeningChecks": "Source claims loopability; check the actual repeat seam.",
-      "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/09/Baby-lullaby-loop.mp3",
-      "archiveUri": null,
-      "sourceDurationSeconds": 89,
-      "sha1": null,
-      "deliveryReviewStatus": "header-verified",
-      "deliveryProbe": {
-        "checkedAtUtc": "2026-10-13T21:42:36.984174+00:00",
-        "httpStatus": 206,
-        "initialBytesHex": "fffb90600000033c25d04d24600a2940",
-        "bytesInspected": 4096,
-        "audioSignatureVerified": true
-      },
-      "auditionOrder": 2
+      "auditionOrder": 1,
+      "listeningFeedback": {
+        "date": "2026-10-14",
+        "verdict": "favorite",
+        "notes": "Maintainer describes Little Lullaby by Alex_089 as good. Retain as a listening favorite; complete recording-rights and admission checks before promotion."
+      }
     },
     {
       "id": "research-lullaby-alexander-blu-baby-sleep-music",
@@ -180,38 +153,6 @@
         "audioSignatureVerified": true
       },
       "auditionOrder": 5
-    },
-    {
-      "id": "research-lullaby-alexander-blu-lullaby-song-little-princess",
-      "title": "Lullaby Song – Little Princess",
-      "creator": "Alexander Blu",
-      "sourcePageUri": "https://orangefreesounds.com/lullaby-song-soft-piano-music/",
-      "instrumentation": [
-        "piano"
-      ],
-      "intendedWorldId": "lullabies",
-      "declaredLicense": "CC BY 4.0",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
-      "licenseReviewStatus": "unchecked",
-      "licenseEvidenceUri": "https://orangefreesounds.com/lullaby-song-soft-piano-music/",
-      "sourceCheckedAtUtc": "2026-10-13T21:42:36.984174+00:00",
-      "listeningReviewStatus": "pending",
-      "auditionPriority": 1,
-      "selectionReason": "Child-oriented soft piano melody.",
-      "listeningChecks": "Check whole track and medium pulse.",
-      "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2015/09/Lullaby-song-little-princess.mp3",
-      "archiveUri": null,
-      "sourceDurationSeconds": 122,
-      "sha1": null,
-      "deliveryReviewStatus": "header-verified",
-      "deliveryProbe": {
-        "checkedAtUtc": "2026-10-13T21:42:36.984174+00:00",
-        "httpStatus": 206,
-        "initialBytesHex": "fffb9060000ff0000069000000080000",
-        "bytesInspected": 4096,
-        "audioSignatureVerified": true
-      },
-      "auditionOrder": 6
     },
     {
       "id": "research-lullaby-kevin-macleod-evening",
@@ -465,38 +406,6 @@
       "auditionOrder": 13
     },
     {
-      "id": "research-lullaby-michael-klier-autumn-lullaby",
-      "title": "Autumn Lullaby",
-      "creator": "Michael Klier",
-      "sourcePageUri": "https://opengameart.org/content/autumn-lullaby",
-      "instrumentation": [
-        "guitar"
-      ],
-      "intendedWorldId": "lullabies",
-      "declaredLicense": "CC BY-SA 3.0",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
-      "licenseReviewStatus": "unchecked",
-      "licenseEvidenceUri": "https://opengameart.org/content/autumn-lullaby",
-      "sourceCheckedAtUtc": "2026-10-13T21:42:36.984174+00:00",
-      "listeningReviewStatus": "pending",
-      "auditionPriority": 1,
-      "selectionReason": "Composer-recorded cozy guitar lullaby.",
-      "listeningChecks": "Check finger noise, transient peaks and ending decay.",
-      "downloadUri": "https://opengameart.org/sites/default/files/Autumn%20Lullaby.wav",
-      "archiveUri": null,
-      "sourceDurationSeconds": null,
-      "sha1": null,
-      "deliveryReviewStatus": "header-verified",
-      "deliveryProbe": {
-        "checkedAtUtc": "2026-10-13T21:42:36.984174+00:00",
-        "httpStatus": 206,
-        "initialBytesHex": "5249464668b8110257415645666d7420",
-        "bytesInspected": 4096,
-        "audioSignatureVerified": true
-      },
-      "auditionOrder": 14
-    },
-    {
       "id": "research-lullaby-mouthlessgames-a-warm-fireplace",
       "title": "A Warm Fireplace",
       "creator": "MouthlessGames",
@@ -528,38 +437,6 @@
         "audioSignatureVerified": true
       },
       "auditionOrder": 15
-    },
-    {
-      "id": "research-lullaby-shane-ivers-moments",
-      "title": "Moments",
-      "creator": "Shane Ivers",
-      "sourcePageUri": "https://www.silvermansound.com/free-music/moments",
-      "instrumentation": [
-        "acoustic-guitar"
-      ],
-      "intendedWorldId": "lullabies",
-      "declaredLicense": "CC BY 4.0",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
-      "licenseReviewStatus": "unchecked",
-      "licenseEvidenceUri": "https://www.silvermansound.com/free-music/moments",
-      "sourceCheckedAtUtc": "2026-10-13T21:42:36.984174+00:00",
-      "listeningReviewStatus": "pending",
-      "auditionPriority": 1,
-      "selectionReason": "Warm solo fingerstyle guitar.",
-      "listeningChecks": "Check finger and string noise and the full ending.",
-      "downloadUri": "https://www.silvermansound.com/wp-content/uploads/moments.mp3",
-      "archiveUri": null,
-      "sourceDurationSeconds": 148,
-      "sha1": null,
-      "deliveryReviewStatus": "header-verified",
-      "deliveryProbe": {
-        "checkedAtUtc": "2026-10-13T21:42:36.984174+00:00",
-        "httpStatus": 206,
-        "initialBytesHex": "49443303000000001f76545353450000",
-        "bytesInspected": 4096,
-        "audioSignatureVerified": true
-      },
-      "auditionOrder": 16
     },
     {
       "id": "research-lullaby-shane-ivers-precious-memories",
@@ -1727,5 +1604,162 @@
       },
       "auditionOrder": 50
     }
-  ]
+  ],
+  "rejectedCandidates": [
+    {
+      "id": "research-lullaby-alexander-blu-baby-lullaby-music-loop",
+      "title": "Baby Lullaby Music (loop)",
+      "creator": "Alexander Blu",
+      "sourcePageUri": "https://orangefreesounds.com/baby-lullaby-music/",
+      "instrumentation": [
+        "celesta"
+      ],
+      "intendedWorldId": "lullabies",
+      "declaredLicense": "CC BY 4.0",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "licenseReviewStatus": "unchecked",
+      "licenseEvidenceUri": "https://orangefreesounds.com/baby-lullaby-music/",
+      "sourceCheckedAtUtc": "2026-10-13T21:42:36.984174+00:00",
+      "listeningReviewStatus": "rejected",
+      "auditionPriority": 1,
+      "selectionReason": "Gentle celesta loop.",
+      "listeningChecks": "Source claims loopability; check the actual repeat seam.",
+      "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/09/Baby-lullaby-loop.mp3",
+      "archiveUri": null,
+      "sourceDurationSeconds": 89,
+      "sha1": null,
+      "deliveryReviewStatus": "header-verified",
+      "deliveryProbe": {
+        "checkedAtUtc": "2026-10-13T21:42:36.984174+00:00",
+        "httpStatus": 206,
+        "initialBytesHex": "fffb90600000033c25d04d24600a2940",
+        "bytesInspected": 4096,
+        "audioSignatureVerified": true
+      },
+      "auditionOrder": 2,
+      "listeningFeedback": {
+        "date": "2026-10-14",
+        "verdict": "rejected",
+        "notes": "Maintainer requests removing this recording from the lullaby selection. For Alexander Blu, feedback identifies the two tracks in the five-item recommendation, not the other recordings by this creator."
+      }
+    },
+    {
+      "id": "research-lullaby-alexander-blu-lullaby-song-little-princess",
+      "title": "Lullaby Song – Little Princess",
+      "creator": "Alexander Blu",
+      "sourcePageUri": "https://orangefreesounds.com/lullaby-song-soft-piano-music/",
+      "instrumentation": [
+        "piano"
+      ],
+      "intendedWorldId": "lullabies",
+      "declaredLicense": "CC BY 4.0",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "licenseReviewStatus": "unchecked",
+      "licenseEvidenceUri": "https://orangefreesounds.com/lullaby-song-soft-piano-music/",
+      "sourceCheckedAtUtc": "2026-10-13T21:42:36.984174+00:00",
+      "listeningReviewStatus": "rejected",
+      "auditionPriority": 1,
+      "selectionReason": "Child-oriented soft piano melody.",
+      "listeningChecks": "Check whole track and medium pulse.",
+      "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2015/09/Lullaby-song-little-princess.mp3",
+      "archiveUri": null,
+      "sourceDurationSeconds": 122,
+      "sha1": null,
+      "deliveryReviewStatus": "header-verified",
+      "deliveryProbe": {
+        "checkedAtUtc": "2026-10-13T21:42:36.984174+00:00",
+        "httpStatus": 206,
+        "initialBytesHex": "fffb9060000ff0000069000000080000",
+        "bytesInspected": 4096,
+        "audioSignatureVerified": true
+      },
+      "auditionOrder": 6,
+      "listeningFeedback": {
+        "date": "2026-10-14",
+        "verdict": "rejected",
+        "notes": "Maintainer requests removing this recording from the lullaby selection. For Alexander Blu, feedback identifies the two tracks in the five-item recommendation, not the other recordings by this creator."
+      }
+    },
+    {
+      "id": "research-lullaby-michael-klier-autumn-lullaby",
+      "title": "Autumn Lullaby",
+      "creator": "Michael Klier",
+      "sourcePageUri": "https://opengameart.org/content/autumn-lullaby",
+      "instrumentation": [
+        "guitar"
+      ],
+      "intendedWorldId": "lullabies",
+      "declaredLicense": "CC BY-SA 3.0",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "licenseReviewStatus": "unchecked",
+      "licenseEvidenceUri": "https://opengameart.org/content/autumn-lullaby",
+      "sourceCheckedAtUtc": "2026-10-13T21:42:36.984174+00:00",
+      "listeningReviewStatus": "rejected",
+      "auditionPriority": 1,
+      "selectionReason": "Composer-recorded cozy guitar lullaby.",
+      "listeningChecks": "Check finger noise, transient peaks and ending decay.",
+      "downloadUri": "https://opengameart.org/sites/default/files/Autumn%20Lullaby.wav",
+      "archiveUri": null,
+      "sourceDurationSeconds": null,
+      "sha1": null,
+      "deliveryReviewStatus": "header-verified",
+      "deliveryProbe": {
+        "checkedAtUtc": "2026-10-13T21:42:36.984174+00:00",
+        "httpStatus": 206,
+        "initialBytesHex": "5249464668b8110257415645666d7420",
+        "bytesInspected": 4096,
+        "audioSignatureVerified": true
+      },
+      "auditionOrder": 14,
+      "listeningFeedback": {
+        "date": "2026-10-14",
+        "verdict": "rejected",
+        "notes": "Maintainer requests removing this recording from the lullaby selection. For Alexander Blu, feedback identifies the two tracks in the five-item recommendation, not the other recordings by this creator."
+      }
+    },
+    {
+      "id": "research-lullaby-shane-ivers-moments",
+      "title": "Moments",
+      "creator": "Shane Ivers",
+      "sourcePageUri": "https://www.silvermansound.com/free-music/moments",
+      "instrumentation": [
+        "acoustic-guitar"
+      ],
+      "intendedWorldId": "lullabies",
+      "declaredLicense": "CC BY 4.0",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "licenseReviewStatus": "unchecked",
+      "licenseEvidenceUri": "https://www.silvermansound.com/free-music/moments",
+      "sourceCheckedAtUtc": "2026-10-13T21:42:36.984174+00:00",
+      "listeningReviewStatus": "rejected",
+      "auditionPriority": 1,
+      "selectionReason": "Warm solo fingerstyle guitar.",
+      "listeningChecks": "Check finger and string noise and the full ending.",
+      "downloadUri": "https://www.silvermansound.com/wp-content/uploads/moments.mp3",
+      "archiveUri": null,
+      "sourceDurationSeconds": 148,
+      "sha1": null,
+      "deliveryReviewStatus": "header-verified",
+      "deliveryProbe": {
+        "checkedAtUtc": "2026-10-13T21:42:36.984174+00:00",
+        "httpStatus": 206,
+        "initialBytesHex": "49443303000000001f76545353450000",
+        "bytesInspected": 4096,
+        "audioSignatureVerified": true
+      },
+      "auditionOrder": 16,
+      "listeningFeedback": {
+        "date": "2026-10-14",
+        "verdict": "rejected",
+        "notes": "Maintainer requests removing this recording from the lullaby selection. For Alexander Blu, feedback identifies the two tracks in the five-item recommendation, not the other recordings by this creator."
+      }
+    }
+  ],
+  "listeningFeedbackSummary": {
+    "date": "2026-10-14",
+    "activeCandidates": 46,
+    "favorites": 1,
+    "remainingUnreviewedCandidates": 45,
+    "rejectedCandidates": 4
+  }
 }
