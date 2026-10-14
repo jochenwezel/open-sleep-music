@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-14T13:44:49.9799754+00:00",
+  "generatedAtUtc": "2026-10-14T19:14:32.0076797+00:00",
   "sleepWorlds": [
     {
       "id": "lullabies",
@@ -4615,6 +4615,92 @@
           "approvedLicense": "CC0 1.0",
           "intendedWorldId": "lullabies",
           "creator": "Johannes Brahms; Garuda1982 (recordist)"
+        },
+        {
+          "id": "candidate-faure-berceuse-cello-piano-lutter-897828",
+          "title": "Fauré – Berceuse op. 56 Nr. 1 (Cello und Klavier, Ingo Lutter)",
+          "creator": "Gabriel Fauré; arrangement and cello: Ingo Lutter; piano: Finale-GPO-Audio",
+          "sourcePageUri": "https://imslp.org/wiki/Special:ReverseLookup/897828",
+          "instrumentation": [
+            "cello",
+            "piano"
+          ],
+          "declaredLicense": "CC BY-SA 4.0",
+          "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "licenseEvidenceUri": "https://imslp.org/wiki/Dolly_Suite,_Op.56_(Faur%C3%A9,_Gabriel)#IMSLP897828",
+          "durationSeconds": 184,
+          "reviewNotes": "Added 2026-10-14 at the maintainer request as an external pre-qualify audition of the Berceuse alternatives. The exact IMSLP recording #897828 credits performer/uploader Ingo Lutter, cello, and Finale-GPO-Audio, piano, under CC BY-SA 4.0; MP4 audio/video, source-listed rounded duration 3:04. Recording and arrangement grant, generated-instrument rights and full listening remain pending admission review. Source page/permanent file link returned HTTP 200 and resolves to the specific recording anchor. No direct download delivery has been assigned or validated for the app. Retain original source audio; no extraction, conversion or production promotion. Requested audition speed is the unmodified original tempo (100%). PlaybackSpeed 1 is explicit audition metadata; the external browser player is outside app speed control.",
+          "licenseReviewStatus": "unchecked",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "gentle-arrangement",
+          "playbackSpeed": 1,
+          "volumeGain": 1,
+          "startOffsetMilliseconds": 0,
+          "endOffsetMilliseconds": 0
+        },
+        {
+          "id": "candidate-faure-berceuse-synth-cello-piano-lutter-827886",
+          "title": "Fauré – Berceuse op. 56 Nr. 1 (Cello und Klavier, synthetisiert)",
+          "creator": "Gabriel Fauré; arrangement and production: Ingo Lutter; synthesized performance: Finale-GPO-Audio",
+          "sourcePageUri": "https://imslp.org/wiki/Special:ReverseLookup/827886",
+          "instrumentation": [
+            "cello",
+            "piano"
+          ],
+          "declaredLicense": "CC BY-SA 4.0",
+          "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "licenseEvidenceUri": "https://imslp.org/wiki/Dolly_Suite,_Op.56_(Faur%C3%A9,_Gabriel)#IMSLP827886",
+          "durationSeconds": 166,
+          "reviewNotes": "Added 2026-10-14 at the maintainer request as an external pre-qualify audition. The exact IMSLP synthesized recording #827886 credits uploader/arranger Ingo Lutter and Finale-GPO-Audio under CC BY-SA 4.0; already-rendered MP3, source-listed rounded duration 2:46. It is the complete synthesized cello/piano version, not the piano-only accompaniment #827887 or a raw MIDI file. Recording/arrangement and instrument-render rights, audio delivery and full listening remain pending admission review. Source page/permanent file link returned HTTP 200 and resolves to the specific recording anchor. No app download, new rendering or production promotion. Requested audition speed is the unmodified original tempo (100%). PlaybackSpeed 1 is explicit audition metadata; the external browser player is outside app speed control.",
+          "licenseReviewStatus": "unchecked",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "gentle-arrangement",
+          "playbackSpeed": 1,
+          "volumeGain": 1,
+          "startOffsetMilliseconds": 0,
+          "endOffsetMilliseconds": 0
+        },
+        {
+          "id": "candidate-faure-berceuse-digital-piano-pracchia-78",
+          "title": "Fauré – Berceuse op. 56 Nr. 1 (Digitales Klavier, Pracchia-78)",
+          "creator": "Gabriel Fauré; synthesized performance and production: Pracchia-78",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Gabriel_Faur%C3%A9_-_Berceuse_dalla_suite_Dolly.ogg",
+          "instrumentation": [
+            "piano"
+          ],
+          "declaredLicense": "Public Domain Dedication",
+          "declaredLicenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
+          "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Gabriel_Faur%C3%A9_-_Berceuse_dalla_suite_Dolly.ogg&oldid=1269037171",
+          "durationSeconds": 189.199274376417,
+          "reviewNotes": "Added 2026-10-14 at the maintainer request as an external pre-qualify audition. The exact Commons file is an own-work synthesized performance uploaded by Pracchia-78 and expressly dedicated worldwide to the public domain. The Public Domain Mark identifies the stated status; the dedication evidence is the copyright-holder statement on the file page. Source duration 189.199274376417 seconds. The page identifies Conexant GM500 Beta.sf2 as the sound bank; underlying sound-bank/render rights and full listening remain unchecked, so no production approval is recorded. Keep an external source reference without an app download or delivery checksum. No new synthesized audio is generated. Requested audition speed is the unmodified original tempo (100%). PlaybackSpeed 1 is explicit audition metadata; the external browser player is outside app speed control.",
+          "licenseReviewStatus": "unchecked",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "gentle-arrangement",
+          "playbackSpeed": 1,
+          "volumeGain": 1,
+          "startOffsetMilliseconds": 0,
+          "endOffsetMilliseconds": 0
+        },
+        {
+          "id": "candidate-faure-berceuse-midi-mutopia-1536",
+          "title": "MIDI – Fauré, Berceuse op. 56 Nr. 1 (Flöte und Gitarre, Mutopia)",
+          "creator": "Gabriel Fauré; adaptation/typesetting maintained by Mike Blackstock (Mutopia)",
+          "sourcePageUri": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1536",
+          "instrumentation": [
+            "flute",
+            "guitar"
+          ],
+          "licenseReviewStatus": "unchecked",
+          "declaredLicense": "Public Domain (score/MIDI source declaration; not a recording grant)",
+          "declaredLicenseUri": "https://www.mutopiaproject.org/legal.html",
+          "licenseEvidenceUri": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1536",
+          "intendedWorldId": "lullabies",
+          "selectionKind": "gentle-arrangement",
+          "playbackSpeed": 1,
+          "volumeGain": 1,
+          "startOffsetMilliseconds": 0,
+          "endOffsetMilliseconds": 0,
+          "reviewNotes": "Added 2026-10-14 at the maintainer request as an external pre-qualify MIDI source reference. The exact Mutopia item 1536 identifies a flute/guitar adaptation of Berceuse from Dolly op. 56, maintained by Mike Blackstock, and declares Public Domain. It is not the original four-hand or Brian M. Jones solo-piano version. The item links the Standard MIDI File at https://www.mutopiaproject.org/ftp/FaureG/O56/faure_dolly_berceuse/faure_dolly_berceuse.mid; checked HTTP 200, MThd signature, format 1, three tracks, 384 ticks per quarter note, 8342 bytes. MIDI contains note/controller events, not playable audio for this app. No audio downloadUri, audio duration or recording-license approval is assigned. PlaybackSpeed 1 records original-tempo intent; external software controls actual MIDI playback. Rendering would require separately reviewed score/MIDI provenance, licensed instrument samples, full audio delivery and listening checks. No synthesized recording, app MIDI playback or production promotion is introduced."
         }
       ]
     }
