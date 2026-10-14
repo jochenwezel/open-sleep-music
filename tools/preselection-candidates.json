@@ -815,40 +815,46 @@
     {
       "id": "candidate-debussy-preludes-book-2-v-bruyeres-giorgi-latsabidze",
       "title": "Debussy- Preludes, Book 2- V. Bruyeres. Giorgi Latsabidze",
-      "creator": "Giorgi Latsabidze",
+      "creator": "Claude Debussy; piano and recording: Giorgi Latsabidze",
       "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Debussy-_Preludes,_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga",
       "instrumentation": [
         "piano"
       ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "FAL",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "licenseReviewStatus": "verified",
+      "declaredLicense": "Free Art License 1.3",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Debussy-_Preludes,_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga&oldid=1030346924",
+      "reviewNotes": "Recording-rights review 2026-10-14: the exact Commons file identifies Giorgi Latsabidze as pianist/recordist, source Own work, and an explicit Free Art License 1.3 grant, with public VRT permission confirmation 2009122110015996. The private correspondence was not accessed. The maintainer accepts FAL 1.3 for the project. Retain composer, performer, original source and exact license links; identify modifications, preserve copyleft for redistributed adaptations and keep the audio independently accessible. Maintainer favorite retained as listening feedback; full dynamics, endings, transitions and current audio delivery still require admission checks. Proposed destination is Quiet Classics; no production promotion. Preserve original URL, filename, duration, upstream SHA-1, speed and trims.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/25/Debussy-_Preludes%2C_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga",
       "fileName": "candidate-debussy-preludes-book-2-v-bruyeres-giorgi-latsabidze.ogg",
       "durationSeconds": 139.672,
       "sha1": "9115928d266825aeb00bb613f454b43645184fcb",
-      "declaredLicenseUri": "https://artlibre.org/licence/lal/en",
-      "deliveryCheckedAtUtc": "2026-10-02T23:52:14.2864967+02:00"
+      "declaredLicenseUri": "https://artlibre.org/licence/lal/en/",
+      "deliveryCheckedAtUtc": "2026-10-02T23:52:14.2864967+02:00",
+      "approvedLicense": "Free Art License 1.3",
+      "approvedLicenseUri": "https://artlibre.org/licence/lal/en/",
+      "intendedWorldId": "quiet-classics"
     },
     {
       "id": "candidate-debussy-preludes-book-2-x-canope",
       "title": "Debussy- Preludes, Book 2- X. Canope",
-      "creator": "Giorgi Latsabidze",
+      "creator": "Claude Debussy; piano and recording: Giorgi Latsabidze",
       "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Debussy-_Preludes,_Book_2-_X._Canope.oga",
       "instrumentation": [
         "piano"
       ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "FAL",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
+      "licenseReviewStatus": "verified",
+      "declaredLicense": "Free Art License 1.3",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Debussy-_Preludes,_Book_2-_X._Canope.oga&oldid=910040686",
+      "reviewNotes": "Recording-rights review 2026-10-14: the exact Commons file identifies Giorgi Latsabidze as pianist/recordist, source Own work, and an explicit Free Art License 1.3 grant, with public VRT permission confirmation 2009122110015996. The private correspondence was not accessed. The maintainer accepts FAL 1.3 for the project. Retain composer, performer, original source and exact license links; identify modifications, preserve copyleft for redistributed adaptations and keep the audio independently accessible. Maintainer favorite retained as listening feedback; full dynamics, endings, transitions and current audio delivery still require admission checks. Proposed destination is Quiet Classics; no production promotion. Preserve original URL, filename, duration, upstream SHA-1, speed and trims.",
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Debussy-_Preludes%2C_Book_2-_X._Canope.oga",
       "fileName": "candidate-debussy-preludes-book-2-x-canope.ogg",
       "durationSeconds": 166.819,
       "sha1": "e4e2cafe476274ad31b74764c603b4a233f689f1",
-      "declaredLicenseUri": "https://artlibre.org/licence/lal/en",
-      "deliveryCheckedAtUtc": "2026-10-02T23:52:16.4687331+02:00"
+      "declaredLicenseUri": "https://artlibre.org/licence/lal/en/",
+      "deliveryCheckedAtUtc": "2026-10-02T23:52:16.4687331+02:00",
+      "approvedLicense": "Free Art License 1.3",
+      "approvedLicenseUri": "https://artlibre.org/licence/lal/en/",
+      "intendedWorldId": "quiet-classics"
     },
     {
       "id": "candidate-claude-debussy-reverie-arr-for-soprano-saxophone-and-piano-david-hernando-vitores",

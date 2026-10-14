@@ -12,12 +12,12 @@
   "summary": {
     "reviewedRecordings": 39,
     "compatibleCcOrPdRecordingGrants": 30,
-    "freeArtLicenseRecordingsRequiringProjectPolicyReview": 2,
     "recordingsWithoutCompatibleReuseGrant": 7,
     "exactCcLicenseVersionsUnsupportedByPromotionGuard": 5,
-    "existingProductionRecordings": 1
+    "existingProductionRecordings": 1,
+    "freeArtLicenseRecordingsAcceptedByProject": 2
   },
-  "admissionNote": "Source recording grants and provenance were reviewed separately from compositions. Collection assignments are curation proposals from source instrumentation/context and maintainer favorites, not a completed independent full listening review. No runtime catalog, candidate review state, production memberships or promotion guards are changed.",
+  "admissionNote": "Source recording grants and provenance were reviewed separately from compositions. Collection assignments are curation proposals from source instrumentation/context and maintainer favorites, not a completed independent full listening review. Following maintainer approval, Core and the generator accept Free Art License 1.3, and the two Debussy candidate grants and Preview rights metadata are verified. No production memberships are changed; full audio and sleep-admission checks remain pending.",
   "deliveryNote": "Initial-byte probes are supplementary and are not full decoding. Several Wikimedia download requests returned HTTP 429; no retry flood or access-control workaround was used. Existing original URLs/checksums are retained and must be revalidated before promotion. Three Freesound originals require login and have no admitted direct download.",
   "proposedNewCollection": {
     "name": "Natur bei Nacht",
@@ -542,7 +542,7 @@
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Debussy-_Preludes,_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga&oldid=1030346924",
       "recordingLicense": "Free Art License 1.3",
       "recordingLicenseUri": "https://artlibre.org/licence/lal/en/",
-      "recordingRightsFinding": "free-recording-grant-confirmed-project-policy-review-required",
+      "recordingRightsFinding": "recording-specific-compatible-grant-confirmed",
       "provenance": "Own-work files with public VRT confirmation 2009122110015996 and an explicit Free Art License grant. This is a free copyleft license, not a non-commercial license.",
       "additionalEvidenceUris": [],
       "instrumentation": [
@@ -551,9 +551,9 @@
       "proposedWorldIds": [
         "quiet-classics"
       ],
-      "collectionReason": "Impressionist piano miniatures for Quiet Classics; retain in Preview while their license is assessed for production support.",
+      "collectionReason": "Impressionist piano miniature for Quiet Classics; the maintainer accepts the FAL 1.3 recording license. Complete audio and sleep-admission checks before promotion.",
       "admissionBlockers": [
-        "Free Art License is outside the current accepted production licenses and promotion guard; admission needs a separately reviewed policy/support change."
+        "Full audio-delivery, dynamics, endings and transition checks remain pending before production promotion."
       ],
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/25/Debussy-_Preludes%2C_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga",
       "fileName": "candidate-debussy-preludes-book-2-v-bruyeres-giorgi-latsabidze.ogg",
@@ -563,7 +563,8 @@
         "error": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)"
       },
       "existingPlaybackSettings": {},
-      "runtimeChange": false
+      "runtimeChange": true,
+      "runtimeChangeScope": "Preview recording-rights metadata only; no production membership."
     },
     {
       "id": "candidate-debussy-preludes-book-2-x-canope",
@@ -573,7 +574,7 @@
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Debussy-_Preludes,_Book_2-_X._Canope.oga&oldid=910040686",
       "recordingLicense": "Free Art License 1.3",
       "recordingLicenseUri": "https://artlibre.org/licence/lal/en/",
-      "recordingRightsFinding": "free-recording-grant-confirmed-project-policy-review-required",
+      "recordingRightsFinding": "recording-specific-compatible-grant-confirmed",
       "provenance": "Own-work files with public VRT confirmation 2009122110015996 and an explicit Free Art License grant. This is a free copyleft license, not a non-commercial license.",
       "additionalEvidenceUris": [],
       "instrumentation": [
@@ -582,9 +583,9 @@
       "proposedWorldIds": [
         "quiet-classics"
       ],
-      "collectionReason": "Impressionist piano miniatures for Quiet Classics; retain in Preview while their license is assessed for production support.",
+      "collectionReason": "Impressionist piano miniature for Quiet Classics; the maintainer accepts the FAL 1.3 recording license. Complete audio and sleep-admission checks before promotion.",
       "admissionBlockers": [
-        "Free Art License is outside the current accepted production licenses and promotion guard; admission needs a separately reviewed policy/support change."
+        "Full audio-delivery, dynamics, endings and transition checks remain pending before production promotion."
       ],
       "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Debussy-_Preludes%2C_Book_2-_X._Canope.oga",
       "fileName": "candidate-debussy-preludes-book-2-x-canope.ogg",
@@ -594,7 +595,8 @@
         "error": "HTTP Error 429: Too many requests - please contact noc@wikimedia.org to discuss a less disruptive approach or instead use thumbnail images in sizes listed on https://w.wiki/GHai. (0c640b1)"
       },
       "existingPlaybackSettings": {},
-      "runtimeChange": false
+      "runtimeChange": true,
+      "runtimeChangeScope": "Preview recording-rights metadata only; no production membership."
     },
     {
       "id": "candidate-claude-debussy-reverie-arr-for-soprano-saxophone-and-piano-david-hernando-vitores",
@@ -1293,5 +1295,10 @@
       "existingPlaybackSettings": {},
       "runtimeChange": false
     }
-  ]
+  ],
+  "licensePolicyFeedback": {
+    "date": "2026-10-14",
+    "acceptedRecordingLicense": "Free Art License 1.3",
+    "notes": "Maintainer accepts adding FAL 1.3. Full audio and sleep-admission checks still precede production promotion."
+  }
 }

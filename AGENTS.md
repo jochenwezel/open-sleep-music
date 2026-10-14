@@ -21,6 +21,7 @@ Every catalog entry must pass all of the following checks. A large catalog is le
 - Verify the license of the **specific performance and recording**. A public-domain composition does not make a modern recording public domain.
 - Prefer recordings released under CC0 or an unambiguous public-domain dedication.
 - CC BY and CC BY-SA recordings are acceptable only when the source identifies the rights holder or performer and all required attribution is retained in the catalog.
+- Free Art License 1.3 recordings are also acceptable with a recording-specific grant and identified rights holder or performer. Retain the exact license, author credits and original source; identify modifications and preserve copyleft terms for redistributed adaptations. Keep the audio independently accessible from the application.
 - Do not admit material licensed as CC BY-NC, CC BY-ND, with custom non-commercial restrictions, or with unclear/incompatible terms.
 - Do not infer a license from a search result, filename, collection name, or the general policy of a hosting portal. Open and review the authoritative item/file page.
 - Treat implausible license claims cautiously. For example, an uploader applying CC0 to a recent commercial-label recording is not sufficient evidence that they own the rights. Exclude it unless independent provenance establishes the grant.

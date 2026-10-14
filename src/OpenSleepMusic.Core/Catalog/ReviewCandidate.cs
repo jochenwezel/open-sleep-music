@@ -34,6 +34,7 @@ public sealed record ReviewCandidate(
         && !string.IsNullOrWhiteSpace(ReviewNotes)
         && ApprovedLicense is "CC0 1.0" or "CC BY 3.0" or "CC BY 4.0"
             or "CC BY-SA 3.0" or "CC BY-SA 4.0" or "Public Domain" or "Public Domain Dedication"
+            or "Free Art License 1.3"
         && ApprovedLicenseUri?.Scheme == Uri.UriSchemeHttps;
 
     public void EnsurePromotionAllowed()

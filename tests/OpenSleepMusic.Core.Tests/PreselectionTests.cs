@@ -66,6 +66,35 @@ public sealed class PreselectionTests
     }
 
     [Fact]
+    public void FreeArtLicense13RequiresTheSpecificRecordingGrantAndEvidence()
+    {
+        var candidate = new ReviewCandidate("test-fal", "Test recording", "Performer",
+            new Uri("https://example.org/recording"), ["piano"], "verified", "Free Art License 1.3",
+            new Uri("https://example.org/recording-rights"), "Recording-specific FAL 1.3 grant reviewed.",
+            "Free Art License 1.3", new Uri("https://artlibre.org/licence/lal/en/"));
+
+        candidate.EnsurePromotionAllowed();
+        Assert.False((candidate with { LicenseReviewStatus = "unchecked" }).CanPromote);
+        Assert.False((candidate with { LicenseEvidenceUri = null }).CanPromote);
+        Assert.False((candidate with { ApprovedLicense = "FAL" }).CanPromote);
+        Assert.False((candidate with { ApprovedLicense = "Free Art License 1.2" }).CanPromote);
+        Assert.False((candidate with { ApprovedLicenseUri = new Uri("http://artlibre.org/licence/lal/en/") }).CanPromote);
+
+        if (!BuildChannel.IsPreview) return;
+        foreach (var id in new[] { "candidate-debussy-preludes-book-2-v-bruyeres-giorgi-latsabidze", "candidate-debussy-preludes-book-2-x-canope" })
+        {
+            var reviewed = Assert.Single(BuiltInPreselection.Candidates, entry => entry.Id == id);
+            Assert.Equal("verified", reviewed.LicenseReviewStatus);
+            Assert.Equal("Free Art License 1.3", reviewed.ApprovedLicense);
+            Assert.Equal("https://artlibre.org/licence/lal/en/", reviewed.ApprovedLicenseUri!.AbsoluteUri);
+            Assert.Contains("2009122110015996", reviewed.ReviewNotes);
+            reviewed.EnsurePromotionAllowed();
+            Assert.DoesNotContain(BuiltInCatalog.SleepWorlds.Single(world => world.Id == "quiet-classics").Tracks,
+                track => track.Id == id);
+        }
+    }
+
+    [Fact]
     public void PreviewCandidatesUseTheOrdinaryOfflineDownloadCatalog()
     {
         var world = BuiltInCatalog.SleepWorlds.SingleOrDefault(world => world.Id == "preselection");
