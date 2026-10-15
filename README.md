@@ -1,6 +1,6 @@
 # open-sleep-music
 
-Open Sleep Music is a privacy-friendly, advertising-free app for downloading and playing freely licensed sleep music and ambient sounds offline.
+Open Sleep Music is a privacy-friendly, advertising-free app for downloading and playing licensed sleep music and ambient sounds offline.
 
 The project is at an early preview stage. The interface offers curated **theme collections**, resilient collection downloads, a validated local library, persistent favorites and blocked tracks, player settings and playback position, collection repair and removal, playback controls, volume, seeking, sequential or random playback, repeat modes, a sleep timer, source/license details, and an explicit privacy-friendly catalog-feedback export. Android playback continues through a foreground media service when the screen is locked or the app is in the background. Individual unavailable or invalid downloads never stop the batch: desktop builds record technical details locally, while the interface continues with every usable track.
 
@@ -8,7 +8,7 @@ The project is at an early preview stage. The interface offers curated **theme c
 
 - no advertising, tracking, accounts, or cloud requirement
 - offline playback after downloading a collection
-- only public-domain or explicitly compatible freely licensed recordings
+- only public-domain or explicitly compatible licensed recordings; separately marked CC BY-NC audio is restricted to noncommercial use
 - source, creator, and license metadata for every file
 - resilient catalogs: HTTP errors, HTML responses, and invalid audio are skipped
 - Android and desktop first; iOS and Mac Catalyst remain solution targets

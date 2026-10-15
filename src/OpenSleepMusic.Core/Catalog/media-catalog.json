@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-14T19:14:32.0076797+00:00",
+  "generatedAtUtc": "2026-10-15T20:30:23.9678175+00:00",
   "sleepWorlds": [
     {
       "id": "lullabies",
@@ -4390,6 +4390,33 @@
           ],
           "ensembleType": "unreviewed",
           "licenseReviewStatus": "verified",
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_quiet_classics_v3.png",
+          "artworkFileName": "background_quiet_classics_v3.png",
+          "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",
+          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_quiet_classics.png",
+          "fallbackMotifFileName": "fallback_quiet_classics.png",
+          "fallbackMotifSha256": "35b4ef983fc4b067ecfb20359036665482a770b0cc2d8eef40d38727e257b05d"
+        },
+        {
+          "id": "candidate-faure-berceuse-piano-duet-517196",
+          "title": "Gabriel Fauré – Berceuse op. 56 Nr. 1 (Klavier zu vier Händen, Tempovergleich)",
+          "creator": "Gabriel Fauré; piano primo: Gabriel Antonio Hernandez Romero; piano secondo: Shawn Christopher White; recording ℗ 2017, Montreal",
+          "downloadUri": "https://s9.imslp.org/files/imglnks/usimg/4/43/IMSLP517196-PMLP10472-dolly_March_15_2017_final_MP3.mp3",
+          "sourcePageUri": "https://imslp.org/wiki/Special:ReverseLookup/517196",
+          "license": "CC BY-NC 4.0",
+          "licenseUri": "https://creativecommons.org/licenses/by-nc/4.0/",
+          "fileName": "candidate-faure-berceuse-piano-duet-517196.mp3",
+          "durationSeconds": 1005.636,
+          "sha1": null,
+          "startOffsetMilliseconds": 2600,
+          "endOffsetMilliseconds": 830336,
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "unreviewed",
+          "licenseReviewStatus": "verified",
+          "volumeGain": 1.0,
+          "playbackSpeed": 0.69,
           "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_quiet_classics_v3.png",
           "artworkFileName": "background_quiet_classics_v3.png",
           "artworkSha256": "ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc",

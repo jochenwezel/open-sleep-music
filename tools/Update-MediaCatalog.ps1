@@ -369,7 +369,7 @@ function Assert-ReviewedCatalogTrack($track) {
         !$candidate.licenseEvidenceUri -or ([Uri]$candidate.licenseEvidenceUri).Scheme -ne 'https' -or
         [string]::IsNullOrWhiteSpace($candidate.creator) -or
         [string]::IsNullOrWhiteSpace($candidate.declaredLicense) -or
-        $candidate.approvedLicense -notin @('CC0 1.0', 'CC BY 3.0', 'CC BY 4.0', 'CC BY-SA 3.0', 'CC BY-SA 4.0', 'Public Domain', 'Public Domain Dedication', 'Free Art License 1.3') -or
+        $candidate.approvedLicense -notin @('CC0 1.0', 'CC BY 3.0', 'CC BY 4.0', 'CC BY-SA 3.0', 'CC BY-SA 4.0', 'Public Domain', 'Public Domain Dedication', 'Free Art License 1.3', 'CC BY-NC 4.0') -or
         !$candidate.approvedLicenseUri -or ([Uri]$candidate.approvedLicenseUri).Scheme -ne 'https' -or
         [string]::IsNullOrWhiteSpace($candidate.reviewNotes))) {
         throw "Candidate '$($track.id)' cannot enter the production catalog without a documented recording-rights review."

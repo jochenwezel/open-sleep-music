@@ -52,7 +52,7 @@ public sealed class BuiltInCatalogTests
             Assert.Equal("pre-qualify", worlds[^1].Id);
             var preselection = Assert.Single(worlds, world => world.Id == "preselection");
             Assert.Equal("Vorauswahl", preselection.Name);
-            Assert.Equal(50, preselection.Tracks.Count);
+            Assert.Equal(51, preselection.Tracks.Count);
             var references = Assert.Single(worlds, world => world.Id == "pre-qualify");
             Assert.Empty(references.Tracks);
             Assert.Equal(16, references.ExternalReferences!.Count);
@@ -82,7 +82,8 @@ public sealed class BuiltInCatalogTests
             Assert.InRange(track.PlaybackSpeed, .5, 2);
             Assert.False(string.IsNullOrWhiteSpace(track.Creator));
             Assert.False(string.IsNullOrWhiteSpace(track.License));
-            Assert.DoesNotContain("BY-NC", track.License, StringComparison.OrdinalIgnoreCase);
+            if (track.License.Contains("BY-NC", StringComparison.OrdinalIgnoreCase))
+                Assert.Equal("CC BY-NC 4.0", track.License);
             Assert.DoesNotContain("BY-ND", track.License, StringComparison.OrdinalIgnoreCase);
             Assert.NotNull(track.ArtworkUri);
             Assert.Equal(Uri.UriSchemeHttps, track.ArtworkUri!.Scheme);

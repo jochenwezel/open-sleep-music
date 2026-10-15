@@ -1445,6 +1445,33 @@
       "startOffsetMilliseconds": 0,
       "endOffsetMilliseconds": 0,
       "reviewNotes": "Added 2026-10-14 at the maintainer request as an external pre-qualify MIDI source reference. The exact Mutopia item 1536 identifies a flute/guitar adaptation of Berceuse from Dolly op. 56, maintained by Mike Blackstock, and declares Public Domain. It is not the original four-hand or Brian M. Jones solo-piano version. The item links the Standard MIDI File at https://www.mutopiaproject.org/ftp/FaureG/O56/faure_dolly_berceuse/faure_dolly_berceuse.mid; checked HTTP 200, MThd signature, format 1, three tracks, 384 ticks per quarter note, 8342 bytes. MIDI contains note/controller events, not playable audio for this app. No audio downloadUri, audio duration or recording-license approval is assigned. PlaybackSpeed 1 records original-tempo intent; external software controls actual MIDI playback. Rendering would require separately reviewed score/MIDI provenance, licensed instrument samples, full audio delivery and listening checks. No synthesized recording, app MIDI playback or production promotion is introduced."
+    },
+    {
+      "id": "candidate-faure-berceuse-piano-duet-517196",
+      "title": "Gabriel Fauré – Berceuse op. 56 Nr. 1 (Klavier zu vier Händen, Tempovergleich)",
+      "creator": "Gabriel Fauré; piano primo: Gabriel Antonio Hernandez Romero; piano secondo: Shawn Christopher White; recording ℗ 2017, Montreal",
+      "sourcePageUri": "https://imslp.org/wiki/Special:ReverseLookup/517196",
+      "instrumentation": [
+        "piano"
+      ],
+      "licenseReviewStatus": "verified",
+      "declaredLicense": "CC BY-NC 4.0",
+      "declaredLicenseUri": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "approvedLicense": "CC BY-NC 4.0",
+      "approvedLicenseUri": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "licenseEvidenceUri": "https://imslp.org/wiki/Dolly_Suite,_Op.56_(Faur%C3%A9,_Gabriel)#IMSLP517196",
+      "intendedWorldId": "lullabies",
+      "selectionKind": "gentle-arrangement",
+      "downloadUri": "https://s9.imslp.org/files/imglnks/usimg/4/43/IMSLP517196-PMLP10472-dolly_March_15_2017_final_MP3.mp3",
+      "fileName": "candidate-faure-berceuse-piano-duet-517196.mp3",
+      "durationSeconds": 1005.636,
+      "sha1": null,
+      "deliveryCheckedAtUtc": "2026-10-15T22:29:37.664996+02:00",
+      "startOffsetMilliseconds": 2600,
+      "endOffsetMilliseconds": 830336,
+      "playbackSpeed": 0.69,
+      "volumeGain": 1,
+      "reviewNotes": "Maintainer-authorized noncommercial Preview audition, 2026-10-15. Exact IMSLP recording #517196: complete Dolly Suite for piano four hands, credited to Gabriel Antonio Hernandez Romero (primo) and Shawn Christopher White (secondo), Montreal recording ℗ 2017, uploaded by performer Gabrielhero on 2018-03-29. The authoritative item explicitly declares CC BY-NC 4.0; grant verified for noncommercial use under the revised repository policy, not unrestricted reuse. Retain both performers, copyright notice, source and license link. Remove from any monetized app offering and its associated download/catalog-update delivery before app/store charges, advertising, subscriptions, paid features or other commercial use, unless separate permission is documented. Permanent source link and public embedded player identify the stable original MP3; HTTP 200, MPEG audio frame signature fffb9064, 16090174 bytes, full decode 1005.636 seconds. No upstream checksum supplied; do not fabricate one. Playback modifications only: trim the original 100% recording to [2.600, 175.300) seconds, endOffsetMilliseconds 830336, preserving a short lead-in and the first movement final resonance. First attack starts near 2.85 seconds; second movement starts near 175.40 seconds; final 175.25-175.35 second windows are below -85 dBFS RMS. Apply speed 0.69 after trimming, yielding 250.290 seconds (about 4:10). A chroma-based alignment of matching musical phrases against the Brian M. Jones original, whose existing app speed is 0.833333, estimates 0.688824; rounded to 0.69 for a similar musical pulse, not equal total duration. Expressive timing differs between performances; final tempo, tone quality and transitions await maintainer listening. Preserve the complete original download; no transcoded, cut or mixed media file is published. Existing production Berceuse, its settings and lullaby order remain unchanged."
     }
   ]
 }
