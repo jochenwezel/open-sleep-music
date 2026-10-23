@@ -23,7 +23,7 @@ function Resolve-SongFile([string]$SongRoot, [string]$RelativePath) {
 foreach ($manifest in $songFiles) {
     $songRoot = $manifest.Directory.FullName
     $song = $strictUtf8.GetString([IO.File]::ReadAllBytes($manifest.FullName)) | ConvertFrom-Json
-    foreach ($textFile in Get-ChildItem -LiteralPath $songRoot -File -Recurse | Where-Object Extension -In @('.md', '.json', '.txt', '.sha256')) {
+    foreach ($textFile in Get-ChildItem -LiteralPath $songRoot -File -Recurse | Where-Object Extension -In @('.md', '.json', '.txt', '.sha256', '.ly')) {
         $decoded = $strictUtf8.GetString([IO.File]::ReadAllBytes($textFile.FullName))
         if ($decoded -match $brokenTextPattern) { throw "Corrupt text encoding in publication: $($textFile.FullName)" }
     }
@@ -88,6 +88,18 @@ foreach ($manifest in $songFiles) {
     $midiCount = @(Get-ChildItem -LiteralPath (Join-Path $songRoot 'midi') -File).Count
     if ($audioCount -ne $song.variants.Count -or $midiCount -ne $song.variants.Count) {
         throw 'Keep exactly the selected MP3/MIDI variants in their publication folders.'
+    }
+    if ($song.scores) {
+        Resolve-SongFile $songRoot $song.scores.engravingMetadataPath | Out-Null
+        Resolve-SongFile $songRoot $song.scores.editableSourcePath | Out-Null
+        foreach ($score in $song.scores.documents) {
+            $path = Resolve-SongFile $songRoot $score.path
+            $bytes = [IO.File]::ReadAllBytes($path)
+            if ([Text.Encoding]::ASCII.GetString($bytes, 0, 5) -ne '%PDF-') { throw 'Invalid score PDF signature.' }
+            if ($score.pages -le 0 -or (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant() -ne $score.sha256) {
+                throw "Invalid score metadata or checksum: $($score.path)"
+            }
+        }
     }
     Write-Host "Verified $($song.id): $($song.variants.Count) variants, $($listed.Count) checksummed files."
 }

@@ -86,3 +86,15 @@ records each URL and SHA-256. MIDI files and license evidence remain independent
 available in this directory. No music release or release ZIP is required.
 `checksums.sha256` covers all song files other than itself.
 Publication does not automatically replace the app's existing catalog recording.
+
+## Printable working scores
+
+[Score notes and editable source](scores/README.md). These are rhythmically
+quantized MIDI working editions requiring musical proofreading, with approximate
+tempo references for both audio speeds.
+
+- [Piano solo](scores/burgmuller-berceuse-op109-no7-piano-v1.pdf) - 2 page(s).
+- [Piano with strings - full score](scores/burgmuller-berceuse-op109-no7-piano-strings-v1.pdf) - 3 page(s).
+- [Violin part](scores/burgmuller-berceuse-op109-no7-violin-v1.pdf) - 1 page(s).
+- [Viola part](scores/burgmuller-berceuse-op109-no7-viola-v1.pdf) - 1 page(s).
+- [Cello part](scores/burgmuller-berceuse-op109-no7-cello-v1.pdf) - 1 page(s).

@@ -84,3 +84,15 @@ The MP3 links above use commit-pinned Raw GitHub downloads. `song.json` retains 
 audio commit, direct HTTPS URLs, exact hashes, durations and measured loudness.
 No music release or release ZIP is needed. `checksums.sha256` covers every song
 file except itself. This publication is independent of app catalog promotion.
+
+## Printable working scores
+
+[Score notes and editable source](scores/README.md). These are rhythmically
+quantized MIDI working editions requiring musical proofreading, with approximate
+tempo references for both audio speeds.
+
+- [Piano solo](scores/faure-berceuse-op56-no1-piano-v1.pdf) - 4 page(s).
+- [Piano with strings - full score](scores/faure-berceuse-op56-no1-piano-strings-v1.pdf) - 7 page(s).
+- [Violin part](scores/faure-berceuse-op56-no1-violin-v1.pdf) - 2 page(s).
+- [Viola part](scores/faure-berceuse-op56-no1-viola-v1.pdf) - 2 page(s).
+- [Cello part](scores/faure-berceuse-op56-no1-cello-v1.pdf) - 2 page(s).

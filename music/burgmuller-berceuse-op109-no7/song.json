@@ -118,5 +118,61 @@
   ],
   "catalogStatus": "Published independently; existing application catalog entries have not been replaced",
   "limitations": "Automatic note, velocity and pedal estimation may contain errors. Binary sustain does not encode reliable half-pedal. Original tempo means timing of the BastienM source performance; the MIDI 120 BPM grid is not an inferred score tempo. General MIDI playback differs from the sampled MP3s.",
-  "audioCommit": "5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967"
+  "audioCommit": "5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967",
+  "scores": {
+    "editionVersion": 1,
+    "status": "automatic-working-edition; layout-reviewed; musical-proofreading-required",
+    "editionTempo": "One written edition serves original and sleep MIDI timing; approximate tempo references are printed in each PDF",
+    "sourceMidiVariant": "piano-original",
+    "engravingMetadataPath": "scores/engraving.json",
+    "editableSourcePath": "scores/burgmuller-berceuse-op109-no7.ly",
+    "documents": [
+      {
+        "id": "piano",
+        "title": "Piano solo",
+        "path": "scores/burgmuller-berceuse-op109-no7-piano-v1.pdf",
+        "pages": 2,
+        "sha256": "acf13fd73b451463ac7951326fba1f8592bcde4fa97f9e7042768fa733a13adb",
+        "license": "CC BY-SA 3.0",
+        "licenseUri": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "id": "piano-strings",
+        "title": "Piano with strings - full score",
+        "path": "scores/burgmuller-berceuse-op109-no7-piano-strings-v1.pdf",
+        "pages": 3,
+        "sha256": "872505607e18457ad130a73daf27f8790f8358a8bcaa9131716a28b64ddbac5c",
+        "license": "CC BY-SA 3.0",
+        "licenseUri": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "id": "violin",
+        "title": "Violin part",
+        "path": "scores/burgmuller-berceuse-op109-no7-violin-v1.pdf",
+        "pages": 1,
+        "sha256": "e45ab3abad3a44a2f3bd7cab46766e91d3ada663bfc2d2ed5fa53760e1c62a3b",
+        "license": "CC BY-SA 3.0",
+        "licenseUri": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "id": "viola",
+        "title": "Viola part",
+        "path": "scores/burgmuller-berceuse-op109-no7-viola-v1.pdf",
+        "pages": 1,
+        "sha256": "206b57b5dce4b4a31841e796d0c5362d241e9ed94b35d647f16f779a6dc50064",
+        "license": "CC BY-SA 3.0",
+        "licenseUri": "https://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "id": "cello",
+        "title": "Cello part",
+        "path": "scores/burgmuller-berceuse-op109-no7-cello-v1.pdf",
+        "pages": 1,
+        "sha256": "9b3f0ff1924557080f9c296e9f52795d0b3cbf49362649fd2ab3ba2ecb2d922f",
+        "license": "CC BY-SA 3.0",
+        "licenseUri": "https://creativecommons.org/licenses/by-sa/3.0/"
+      }
+    ],
+    "limitations": "Performance MIDI is not a score beat grid. Onsets and durations are quantized to sixteenths on a saved original-performance measure grid; hand allocation and inner-voice lengths are editorial. Very short events below 80ms are omitted; repeated passages are written out. Automatically estimated pitches/velocities/pedal and the newly prepared arrangement may contain mistakes. These are not note-for-note proofread composer editions."
+  }
 }

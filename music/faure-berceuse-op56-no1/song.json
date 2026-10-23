@@ -114,5 +114,61 @@
   ],
   "catalogStatus": "Published independently at maintainer request; existing app recording is unchanged; newly prepared strings await listening feedback",
   "limitations": "Estimated piano notes, velocities and binary pedal can contain errors. No reliable half-pedal. New string doubling is not a historical orchestration. General MIDI playback differs from the sampled MP3s.",
-  "audioCommit": "92af08a8a3851ec2894e94566bd38d34a6070f1e"
+  "audioCommit": "92af08a8a3851ec2894e94566bd38d34a6070f1e",
+  "scores": {
+    "editionVersion": 1,
+    "status": "automatic-working-edition; layout-reviewed; musical-proofreading-required",
+    "editionTempo": "One written edition serves original and sleep MIDI timing; approximate tempo references are printed in each PDF",
+    "sourceMidiVariant": "piano-original",
+    "engravingMetadataPath": "scores/engraving.json",
+    "editableSourcePath": "scores/faure-berceuse-op56-no1.ly",
+    "documents": [
+      {
+        "id": "piano",
+        "title": "Piano solo",
+        "path": "scores/faure-berceuse-op56-no1-piano-v1.pdf",
+        "pages": 4,
+        "sha256": "79bb9921174edc47922df3d80c3286f849558854415a0e9e5963ce2cd2074639",
+        "license": "CC BY 3.0",
+        "licenseUri": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "id": "piano-strings",
+        "title": "Piano with strings - full score",
+        "path": "scores/faure-berceuse-op56-no1-piano-strings-v1.pdf",
+        "pages": 7,
+        "sha256": "8f4bbb069a11609455d9d212bc2b9e4a14246b8fd83bbad95b01cb7deb40a76f",
+        "license": "CC BY 3.0",
+        "licenseUri": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "id": "violin",
+        "title": "Violin part",
+        "path": "scores/faure-berceuse-op56-no1-violin-v1.pdf",
+        "pages": 2,
+        "sha256": "0f092bd9ff9c6102c086a7416fb9faf224ed4062150cfc13adc3ab4809b02fb0",
+        "license": "CC BY 3.0",
+        "licenseUri": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "id": "viola",
+        "title": "Viola part",
+        "path": "scores/faure-berceuse-op56-no1-viola-v1.pdf",
+        "pages": 2,
+        "sha256": "1e0dbb2feaa1964cda321c17de31d2d31fd2473b1a15730b8b10165ca43d08cb",
+        "license": "CC BY 3.0",
+        "licenseUri": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "id": "cello",
+        "title": "Cello part",
+        "path": "scores/faure-berceuse-op56-no1-cello-v1.pdf",
+        "pages": 2,
+        "sha256": "45d089308e26f3479ce837cffe2cdd56a03c579ef4e12018ae00820f86bb75a5",
+        "license": "CC BY 3.0",
+        "licenseUri": "https://creativecommons.org/licenses/by/3.0/"
+      }
+    ],
+    "limitations": "Performance MIDI is not a score beat grid. Onsets and durations are quantized to sixteenths on a saved original-performance measure grid; hand allocation and inner-voice lengths are editorial. Very short events below 80ms are omitted; repeated passages are written out. Automatically estimated pitches/velocities/pedal and the newly prepared arrangement may contain mistakes. These are not note-for-note proofread composer editions."
+  }
 }

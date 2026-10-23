@@ -33,6 +33,17 @@ Its general
 permits throttling and other restrictions. Raw delivery has no blanket unlimited
 bandwidth guarantee. The [repository-size guidance](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)
 recommends staying ideally below 1 GB and strongly below 5 GB; ordinary Git files
-over 100 MiB are blocked. The two current songs total approximately 43 MB. Watch
+over 100 MiB are blocked. The two current songs including scores total approximately 44 MB. Watch
 repository growth as hundreds of works are added, and review storage/distribution
 if it becomes material. Checked 2026-10-23.
+
+## Printable working scores
+
+- [Burgmüller: piano, full score and string parts](burgmuller-berceuse-op109-no7/scores/README.md).
+- [Fauré: piano, full score and string parts](faure-berceuse-op56-no1/scores/README.md).
+
+The PDFs are automatic MIDI working editions with rhythmically quantized notes,
+two-staff piano notation, separate string staves/parts, approximate tempo
+references, source credits and licenses. They require musical proofreading before
+performance. Original and sleep audio timing share one written edition. Editable
+LilyPond sources and saved measure-grid metadata accompany each work.
