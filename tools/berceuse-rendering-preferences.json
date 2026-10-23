@@ -42,8 +42,16 @@
   },
   "additionalStrings": {
     "status": "audition-pending",
-    "feedback": "The maintainer requests a trial with a few strings for chamber-orchestra fullness. This is separate from the approved piano-voice preference.",
-    "audition": "Burgmuller op. 109 No. 7: piano B with newly arranged held violin, viola and cello accompaniment",
+    "feedback": "The maintainer likes the background fullness from strings but reports incorrect, late harmony changes, especially in the last third. They request correction across the entire piece. String accompaniment remains pending renewed listening approval; the YDP B piano preference is retained.",
+    "audition": "Burgmuller op. 109 No. 7: piano B with newly arranged held violin, viola and cello accompaniment; full-piece revision C2",
+    "revision": {
+      "fileName": "C2-Berceuse-Klavier-mit-Kammerstreichern.mp3",
+      "sha256": "dcd59573b9755d852b84887d61a9cb5993c4e6ab08391b29d01782e34893416b",
+      "durationSeconds": 99.13469387755102,
+      "integratedLufs": -23.2122639002631,
+      "method": "Review the full piano transcription's accompaniment notes and attacks, including dominant upper harmonies over tonic bass pedals and individual final-cadence changes. Do not infer an unchanged chord from a sustained bass alone. Gate each string note and its room response to silence before incompatible harmonic changes, retaining common tones only across compatible regions.",
+      "validation": "37 full-piece harmonic regions, 127 compatible string-note/region intersections, paired MIDI events, full MP3 decode, matched loudness, peak headroom, quiet ending and matching local Nextcloud copies. This is structural verification against estimated piano notes, not a claim of error-free transcription or listening approval."
+    },
     "sampleSourceUri": "https://github.com/sgossner/VSCO-2-CE",
     "sampleLicense": "CC0 1.0",
     "sampleLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/"
