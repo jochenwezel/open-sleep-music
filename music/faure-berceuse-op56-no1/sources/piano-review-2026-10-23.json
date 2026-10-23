@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-23",
-  "status": "transcription-correction-required; private-solo-audition-pending",
+  "status": "transcription-correction-required; A4-not-convincing; new-score-based-private-auditions-pending",
   "scope": "Piano solo first, at the maintainer request. No string reworking in this review.",
   "maintainerFeedback": "The converted MIDI contains apparent incorrect pitches or note timing and repeated dissonances. The opening sequence already differs from the original.",
   "source": "piano-transcription.json",
@@ -1485,5 +1485,23 @@
     ],
     "unchanged": "All surviving note attacks, pitches and velocities, every CC64/CC91/program event, selected YDP B timbre/EQ/reverb, constant loudness target, sleep speed; only documented false-repeat candidates and preceding key-off restorations changed. Strings, app catalog and committed audio/MIDI/PDF bytes untouched.",
     "limitations": "69 first-four-partial candidates retained due to possible quiet attacks or higher-partial evidence. Additional wrong/missing pitches, octave errors, uncertain key durations or pedal events may remain. Frequency of detected candidates is not a measure of perceived severity. Whole-piece listening review is still needed."
+  },
+  "scoreBasedFollowUp": {
+    "status": "new-basis-prepared; listening-and-proofreading-pending",
+    "maintainerFeedback": "A4 remains unconvincing. Find usable original scores/digital MIDI as a new starting point or plausibility reference; additionally audition Mutopia with its intended instruments.",
+    "researchPath": "score-basis-research-2026-10-23.json",
+    "auditionFolder": "Open Sleep Music/Probehören/2026-10-23-Faure-Notenbasis",
+    "auditions": [
+      {
+        "fileName": "01-Mutopia-Floete-und-Gitarre-Einschlaftempo.mp3",
+        "sha256": "56cbddb534b59c21ad472df793675b31667f78a19108688afe87c335e0514508",
+        "durationSeconds": 255.13795918367347
+      },
+      {
+        "fileName": "02-Notenbasis-YDP-Klavier-Einschlaftempo.mp3",
+        "sha256": "935cfcc9e90575cfd48a91610a97970376a1dabae562ef40131719c787af79f3",
+        "durationSeconds": 253.93632653061223
+      }
+    ]
   }
 }

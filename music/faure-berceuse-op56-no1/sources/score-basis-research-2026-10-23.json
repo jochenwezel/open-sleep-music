@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "status": "private-score-based-auditions; musical-proofread-and-maintainer-listening-pending",
+  "maintainerFeedback": "A4 remains unconvincing. Find usable original scores/digital MIDI as a new starting point or plausibility reference; additionally audition Mutopia with its intended instruments.",
+  "sourceDistinction": "Historical publisher score is authoritative primary material. Community digital editions are not official publisher-certified MIDI. A four-hands original and a flute/guitar adaptation are different arrangements from Brian M. Jones solo performance; note-count differences do not identify all transcription errors.",
+  "historicalScore": {
+    "publisher": "J. Hamelle, Paris",
+    "year": 1894,
+    "library": "Sibley Music Library, University of Rochester",
+    "canonicalSourceUri": "https://hdl.handle.net/1802/12341",
+    "declaredRights": "This item is in the public domain.",
+    "file": {
+      "fileName": "hamelle-original-1894.pdf",
+      "url": "https://urresearch.rochester.edu/fileDownloadForInstitutionalItem.action?itemFileId=27396&itemId=12025",
+      "bytes": 2362732,
+      "sha256": "053edb9432dac8e57a6bd52a2a91f5ebcdc2a494be90438eaeacea7fae914e6e"
+    },
+    "use": "Visual primary-source reference, not audio-to-MIDI estimation. Complete suite in 49 pages; Berceuse in printed pages 2-7."
+  },
+  "mutopia": {
+    "canonicalSourceUri": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1536",
+    "maintainer": "Mike Blackstock",
+    "edition": "Mutopia-2008/09/01-1536",
+    "instrumentation": [
+      "flute",
+      "nylon-string acoustic guitar"
+    ],
+    "declaredLicense": "Public Domain",
+    "licenseEvidenceUri": "https://www.mutopiaproject.org/legal.html",
+    "rightsReview": "Specific item declares Public Domain; Mutopia legal page states contributors dedicate their contribution and allow modification and recording.",
+    "sourceFiles": [
+      {
+        "fileName": "mutopia-1536.ly",
+        "url": "https://www.mutopiaproject.org/ftp/FaureG/O56/faure_dolly_berceuse/faure_dolly_berceuse.ly",
+        "bytes": 7502,
+        "sha256": "99f09bbde22ea377d5384be162478e3864a454e27f6fbcd47413c5f195c56f40"
+      },
+      {
+        "fileName": "mutopia-1536.mid",
+        "url": "https://www.mutopiaproject.org/ftp/FaureG/O56/faure_dolly_berceuse/faure_dolly_berceuse.mid",
+        "bytes": 8342,
+        "sha256": "6c5903d76ebe3d60c1ccf535932f287668225a9ed2f4ae6544abd5dafabf004c"
+      },
+      {
+        "fileName": "mutopia-item.html",
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1536",
+        "bytes": 5971,
+        "sha256": "0f49020ea52f27504381ab4e3e464ab87438b2973e44b2d257e01c9a91d48a91"
+      },
+      {
+        "fileName": "mutopia-1536.pdf",
+        "url": "https://www.mutopiaproject.org/ftp/FaureG/O56/faure_dolly_berceuse/faure_dolly_berceuse-a4.pdf",
+        "bytes": 102509,
+        "sha256": "4e581c44858bf296c7cd939ceadd8692d10651fa330eec2a58511a0f54769aac"
+      },
+      {
+        "fileName": "mutopia-license.html",
+        "url": "https://www.mutopiaproject.org/legal.html",
+        "bytes": 6786,
+        "sha256": "21dd9566f45b2b238be3e79c449d03fb964854e85e5d1d6e6c244d3352136aa3"
+      }
+    ],
+    "audition": {
+      "fileName": "01-Mutopia-Floete-und-Gitarre-Einschlaftempo.mp3",
+      "sha256": "56cbddb534b59c21ad472df793675b31667f78a19108688afe87c335e0514508",
+      "bytes": 8176000,
+      "durationSeconds": 255.13795918367347,
+      "integratedLufs": -23.218186465082052,
+      "truePeakDbtp4x": -9.535837494809375,
+      "tail": {
+        "originalRenderedSeconds": 263.85995464852607,
+        "selectedEndSeconds": 255.1,
+        "removedSeconds": 8.759954648526078,
+        "peakThresholdDbfs": -90,
+        "lastPeakAboveThresholdSeconds": 254.7,
+        "quietMarginSeconds": 0.35,
+        "finalFadeMilliseconds": 80,
+        "startOffsetMilliseconds": 0
+      },
+      "changes": "Mutopia 1536 flute/nylon-guitar adaptation. All original pitches, note-on ticks and note-off ticks retained. MIDI tempo changed from quarter=60 to quarter=39, no waveform stretching. Source has uniform velocity 127; render-only flute velocity 62 and guitar 82, flute mapped to VSCO SFZ soft layer, fixed stem balance, modest room, constant loudness gain, inaudible ending trim. No audio-to-MIDI transcription and no strings.",
+      "sourceMidiSha256": "6c5903d76ebe3d60c1ccf535932f287668225a9ed2f4ae6544abd5dafabf004c",
+      "auditionMidiSha256": "d3fa1836e078d1b215db7895f00143ec6a145652e42ce50ae8df016318b4d27e",
+      "quarterBpm": 39,
+      "sourceQuarterBpm": 60,
+      "notes": {
+        "flute": 214,
+        "guitar": 755
+      }
+    },
+    "sampleSources": [
+      {
+        "name": "VSCO 2 Community Edition flute",
+        "creator": "Sam Gossner / Versilian Studios; Simon Dalzell / Ivy Audio; sample cutting Elan Hickler / Soundemote",
+        "sourceUri": "https://github.com/sgossner/VSCO-2-CE",
+        "license": "CC0 1.0",
+        "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "commit": "6dd651d55dde97fd4028699be9d4481f26917891"
+      },
+      {
+        "name": "Spanish classical guitar, 2019-06-18",
+        "creator": "Roberto / FreePats",
+        "sourceUri": "https://freepats.zenvoid.org/Guitar/acoustic-guitar.html",
+        "license": "CC0 1.0",
+        "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "archiveSha256": "8c192f1fc640a553199a4a43a17ae12354a6a05e3d6aad79bd43b5d29314ff51"
+      }
+    ],
+    "newRecordingLicense": "CC0 1.0"
+  },
+  "newPianoBasis": {
+    "canonicalSourceUri": "https://musescore.com/user/22249306/scores/5904479",
+    "contributor": "tonic64",
+    "instrumentation": "One piano, four hands, Prima and Seconda; not a two-hand reduction",
+    "official": false,
+    "datasetUri": "https://zenodo.org/records/15571083",
+    "datasetDoi": "10.5281/zenodo.15571083",
+    "datasetVersion": "v9, 2025-06-01",
+    "datasetLicense": "CC BY 4.0",
+    "datasetLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+    "datasetAuthors": [
+      "Phillip Long",
+      "Zachary Novack",
+      "Julian McAuley",
+      "Taylor Berg-Kirkpatrick"
+    ],
+    "datasetCitations": [
+      "https://doi.org/10.1109/ICASSP49660.2025.10890217",
+      "https://arxiv.org/abs/2410.02084"
+    ],
+    "scoreLicense": "CC0 1.0",
+    "scoreLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "archivedLicenseString": "<a href=\"https://creativecommons.org/publicdomain/zero/1.0/\" target=\"_blank\"><i class=\"icon-cc-zero\"></i> Creative Commons copyright waiver</a>",
+    "rightsReview": "Specific archived MuseScore metadata identifies contributor tonic64, public-domain status and explicit CC0 URL. PDMX index agrees, with license_conflict=False, no_license_conflict=True, has_paywall=False, all_valid=True. Direct MuseScore HTML did not expose readable current license text in this session; the preserved dataset snapshot supplies the recording-basis grant evidence. No private or paywalled download was extracted.",
+    "selectedDatasetEntry": {
+      "path": "./data/3/26/Qmdjg6kQGLDjAZCmbewUZqabGCEvJtB7VCdVcafhU5Dq6S.json",
+      "metadata": "./metadata/0/5904479.json",
+      "mxl": "./mxl/3/26/Qmdjg6kQGLDjAZCmbewUZqabGCEvJtB7VCdVcafhU5Dq6S.mxl",
+      "pdf": "./pdf/3/26/Qmdjg6kQGLDjAZCmbewUZqabGCEvJtB7VCdVcafhU5Dq6S.pdf",
+      "mid": "./mid/3/26/Qmdjg6kQGLDjAZCmbewUZqabGCEvJtB7VCdVcafhU5Dq6S.mid",
+      "version": "3.01",
+      "is_user_pro": "False",
+      "is_user_publisher": "False",
+      "is_user_staff": "False",
+      "has_paywall": "False",
+      "is_rated": "True",
+      "is_official": "False",
+      "is_original": "False",
+      "is_draft": "False",
+      "has_custom_audio": "False",
+      "has_custom_video": "False",
+      "n_comments": "6",
+      "n_favorites": "103",
+      "n_views": "2284",
+      "n_ratings": "72",
+      "rating": "4.85",
+      "license": "cc-zero",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "license_conflict": "False",
+      "genres": "classical",
+      "groups": "NA",
+      "tags": "NA",
+      "song_name": "Dolly Suite Op.56",
+      "title": "Fauré - Dolly Suite No. 1: Berceuse",
+      "subtitle": "NA",
+      "artist_name": "Gabriel Fauré",
+      "composer_name": "Gabriel Fauré",
+      "publisher": "NA",
+      "complexity": "0",
+      "n_tracks": "2",
+      "tracks": "0-0",
+      "song_length": "73080",
+      "song_length.seconds": "136.34287658481605",
+      "song_length.bars": "83",
+      "song_length.beats": "166",
+      "n_notes": "1227",
+      "notes_per_bar": "14.783132530120485",
+      "n_annotations": "160",
+      "has_annotations": "True",
+      "n_lyrics": "0",
+      "has_lyrics": "False",
+      "n_tokens": "1387",
+      "pitch_class_entropy": "3.144776108925256",
+      "scale_consistency": "0.8798319327731092",
+      "groove_consistency": "0.9679878048780488",
+      "best_path": "./data/9/34/QmRNeyqi6H3oAWnke6kN4KNNRzxdVip48GiVz5Q565zKaD.json",
+      "is_best_path": "False",
+      "best_arrangement": "./data/9/34/QmRNeyqi6H3oAWnke6kN4KNNRzxdVip48GiVz5Q565zKaD.json",
+      "is_best_arrangement": "False",
+      "best_unique_arrangement": "./data/3/26/Qmdjg6kQGLDjAZCmbewUZqabGCEvJtB7VCdVcafhU5Dq6S.json",
+      "is_best_unique_arrangement": "True",
+      "subset:all": "True",
+      "subset:rated": "True",
+      "subset:deduplicated": "True",
+      "subset:rated_deduplicated": "True",
+      "subset:no_license_conflict": "True",
+      "subset:all_valid": "True"
+    },
+    "exactSourceFiles": [
+      {
+        "archiveUrl": "https://zenodo.org/records/15571083/files/metadata.tar.gz?download=1",
+        "archiveMd5": "5bc79445090dd2fe5e96cffa77a3461c",
+        "member": "./metadata/0/5904479.json",
+        "fileName": "tonic64-5904479-metadata.json",
+        "sha256": "9b292d2d29a9b5391bbd4f0e72e4505d174ae5a55a634e22872587b2f20a4487",
+        "bytes": 12593
+      },
+      {
+        "archiveUrl": "https://zenodo.org/records/15571083/files/mid.tar.gz?download=1",
+        "archiveMd5": "d920a21b2fcd99a56d9c381b39debbb2",
+        "member": "./mid/3/26/Qmdjg6kQGLDjAZCmbewUZqabGCEvJtB7VCdVcafhU5Dq6S.mid",
+        "fileName": "tonic64-5904479-original.mid",
+        "sha256": "ebd928c8f1c48a9b8ba13a4735721964397914d70b3db23695e69979aef68977",
+        "bytes": 9606
+      }
+    ],
+    "audition": {
+      "fileName": "02-Notenbasis-YDP-Klavier-Einschlaftempo.mp3",
+      "sha256": "935cfcc9e90575cfd48a91610a97970376a1dabae562ef40131719c787af79f3",
+      "bytes": 8137773,
+      "durationSeconds": 253.93632653061223,
+      "integratedLufs": -28.51937231297097,
+      "loudnessTargetLufs": -28.509732868794195,
+      "truePeakDbtp4x": -2.194153524472799,
+      "tail": {
+        "originalRenderedSeconds": 262.96598639455783,
+        "selectedEndSeconds": 253.9,
+        "removedSeconds": 9.065986394557823,
+        "peakThresholdDbfs": -90,
+        "lastPeakAboveThresholdSeconds": 253.48,
+        "quietMarginSeconds": 0.35,
+        "finalFadeMilliseconds": 80,
+        "startOffsetMilliseconds": 0
+      },
+      "changes": "New score-based starting point: tonic64 MuseScore 5904479, original four-hands piano setting, CC0 metadata preserved in PDMX. No notes or timing inferred from Brian Jones recording. Exact source note ticks/pitches retained; source expressive tempo map scaled uniformly to approximately 253 seconds plus release; source velocities scaled 0.8 only for rendering. Separate staff channels and common pedal, YDP B EQ/reverb, constant loudness gain, inaudible tail trim. This is a four-hands single-piano score, not a two-hand reduction. Spot-check only against historical Hamelle score; full editorial proofread/listening pending.",
+      "sourceMidiSha256": "ebd928c8f1c48a9b8ba13a4735721964397914d70b3db23695e69979aef68977",
+      "auditionMidiSha256": "ced367cb50ce936d4298e93560b97ad9d5e0ef0b0871780bcdb1e8730f8dbbcf",
+      "tempoDurationFactor": 1.6826040375863416,
+      "sourceDurationSeconds": 150.36217336250002,
+      "noteCountsByStaff": [
+        238,
+        196,
+        464,
+        324
+      ],
+      "totalNotes": 1222,
+      "sourceTempoChanges": 47,
+      "sourcePedalEvents": 192
+    },
+    "pianoSamples": {
+      "name": "YDP Grand Piano variant B",
+      "license": "CC BY 3.0",
+      "licenseUri": "https://creativecommons.org/licenses/by/3.0/",
+      "credits": "Zenph Studios, Dr. Mikhail Krishtal and team; OLPC sound sample library / Dr. Richard Boulanger; SF2 and sample modifications by Roberto (roberto@zenvoid.org), FreePats",
+      "sourceUri": "https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html"
+    },
+    "newRecordingLicense": "CC BY 3.0",
+    "loudnessNote": "Wide source MIDI dynamics require a lower fixed level than the usual target to retain unclipped peaks without compression or limiting. This piano audition measures about -28.52 LUFS; Mutopia is about -23.22 LUFS."
+  },
+  "visualSpotChecks": [
+    {
+      "source": "Hamelle printed page 3, Prima opening",
+      "finding": "After two bars of rests, opening B5/B4 octave on quarter beats 4 and 5, then the tied B5 followed by G#5-A5-B5, agrees with the digital piano MIDI. The tied B is not a separate attack at beat 6. Additionally, the first eight bars have the same 16 melody attacks, with identical beat positions and pitches, in the Mutopia flute MIDI and the tonic64 upper piano staff."
+    },
+    {
+      "source": "Hamelle printed page 7, Prima eight-bar reprise",
+      "finding": "The high E-major 8va decoration is present in the new MIDI around bar 59; the source MIDI upper-staff pitches there include B5-E6-C#6-D#6. Visual inspection of the historical figure is a spot check, not certification of every pitch, ornament or duration."
+    }
+  ],
+  "remainingChecks": [
+    "Full musical proofreading of the community piano edition against the historical source, including ornaments, pedal and shared same-pitch voices.",
+    "Listen to whole new auditions; decide on arrangement and expressive rendering before any catalog or publication replacement.",
+    "The source MIDI exports 1222 positive-velocity note-ons, while PDMX symbolic index reports 1227 notes; do not equate the two representations or claim a complete editorial match."
+  ],
+  "delivery": {
+    "nextcloudFolder": "Open Sleep Music/Probehören/2026-10-23-Faure-Notenbasis",
+    "verified": "Local Nextcloud-sync destination copies compared byte-for-byte using SHA-256. Server-side completion is not independently confirmed."
+  },
+  "unchanged": "Committed MP3/MIDI/PDF bytes, commit-pinned media URLs, app catalog and string arrangements are unchanged. Private files remain outside Git."
+}
