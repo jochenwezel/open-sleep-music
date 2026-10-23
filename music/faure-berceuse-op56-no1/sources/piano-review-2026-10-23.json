@@ -47,5 +47,207 @@
     "reviewStatus": "first correction audition only; no listening approval or complete musical proofread",
     "comparison": "Source, published MIDI and corrected MIDI excerpts use original speed, original seconds 1.65–26.65, matched loudness and the same excerpt ending fade."
   },
-  "limitations": "Long false notes, missing attacks, octave errors and pedal errors can remain. Technical MIDI checks and posterior scores do not prove musical accuracy. Version 1 score PDFs inherit the uncorrected MIDI. Existing published media and PDF bytes, pinned downloads and app source recording remain unchanged. No corrected media is published or promoted by this review."
+  "limitations": "Long false notes, missing attacks, octave errors and pedal errors can remain. Technical MIDI checks and posterior scores do not prove musical accuracy. Version 1 score PDFs inherit the uncorrected MIDI. Existing published media and PDF bytes, pinned downloads and app source recording remain unchanged. No corrected media is published or promoted by this review.",
+  "targetedFollowUp": {
+    "revision": "A3",
+    "status": "targeted-private-solo-correction; listening-review-pending",
+    "maintainerFeedback": "The piano appears to stumble repeatedly at 2:51–3:12, more noticeably than in the original recording.",
+    "timingAssumption": "Reported 2:51–3:12 refers to slow A2; original interval is 142.499943–159.999936 seconds.",
+    "sleepIntervalSeconds": [
+      171,
+      192
+    ],
+    "originalIntervalSeconds": [
+      142.499943,
+      159.999936
+    ],
+    "evidence": "Nine immediate repeated-pitch detections have no fresh increase above 2 dB in their first four partial envelopes (including the fundamental) in the original, including B4 re-attacks at sleep 180.722s and 181.049s. They follow the previous same-pitch key interval with a 5–15ms artificial split. In MIDI each becomes a new complete piano attack at estimated velocity, unlike a decaying/shared partial in the source.",
+    "selectionCaution": "This narrow source-envelope diagnostic is recording-specific and not a general true/false note classifier. Ambiguous shared harmonics and octave detections were left unchanged.",
+    "rejectedRepeatedAttacks": [
+      {
+        "index": 137,
+        "name": "B2",
+        "midi_note": 47,
+        "onset_time": 149.7834014892578,
+        "offset_time": 149.86000061035156,
+        "slowOnset": 179.74015368317086,
+        "velocity": 52,
+        "partialChangeDb": [
+          -0.2,
+          -1.5,
+          -2.2,
+          -1.2
+        ],
+        "samePitchGap": 0.013397216796875,
+        "previousSamePitchIndex": 136
+      },
+      {
+        "index": 552,
+        "name": "G#3",
+        "midi_note": 56,
+        "onset_time": 150.88311767578125,
+        "offset_time": 151.03720092773438,
+        "slowOnset": 181.05981363486296,
+        "velocity": 48,
+        "partialChangeDb": [
+          -3.4,
+          -2.2,
+          -3.1,
+          -1.1
+        ],
+        "samePitchGap": 0.01312255859375,
+        "previousSamePitchIndex": 551
+      },
+      {
+        "index": 1394,
+        "name": "G#4",
+        "midi_note": 68,
+        "onset_time": 147.84356689453125,
+        "offset_time": 148.8651885986328,
+        "slowOnset": 177.412351238378,
+        "velocity": 57,
+        "partialChangeDb": [
+          -16.4,
+          0.5,
+          0.8,
+          1.1
+        ],
+        "samePitchGap": 0.0135650634765625,
+        "previousSamePitchIndex": 1393
+      },
+      {
+        "index": 1412,
+        "name": "G#4",
+        "midi_note": 68,
+        "onset_time": 159.5565643310547,
+        "offset_time": 159.8443145751953,
+        "slowOnset": 191.46795378444713,
+        "velocity": 58,
+        "partialChangeDb": [
+          -2.0,
+          0.2,
+          -6.9,
+          -2.4
+        ],
+        "samePitchGap": 0.006561279296875,
+        "previousSamePitchIndex": 1411
+      },
+      {
+        "index": 1600,
+        "name": "B4",
+        "midi_note": 71,
+        "onset_time": 146.1350555419922,
+        "offset_time": 146.69166564941406,
+        "slowOnset": 175.36213679524533,
+        "velocity": 54,
+        "partialChangeDb": [
+          -9.2,
+          -0.7,
+          -3.2,
+          -0.3
+        ],
+        "samePitchGap": 0.0050506591796875,
+        "previousSamePitchIndex": 1599
+      },
+      {
+        "index": 1604,
+        "name": "B4",
+        "midi_note": 71,
+        "onset_time": 150.601318359375,
+        "offset_time": 150.86000061035156,
+        "slowOnset": 180.72165431991172,
+        "velocity": 54,
+        "partialChangeDb": [
+          -6.6,
+          -12.7,
+          -9.8,
+          -9.2
+        ],
+        "samePitchGap": 0.011322021484375,
+        "previousSamePitchIndex": 1603
+      },
+      {
+        "index": 1605,
+        "name": "B4",
+        "midi_note": 71,
+        "onset_time": 150.87432861328125,
+        "offset_time": 151.47999572753906,
+        "slowOnset": 181.0492667556442,
+        "velocity": 59,
+        "partialChangeDb": [
+          -0.6,
+          -2.0,
+          -2.5,
+          1.9
+        ],
+        "samePitchGap": 0.0143280029296875,
+        "previousSamePitchIndex": 1604
+      },
+      {
+        "index": 1614,
+        "name": "B4",
+        "midi_note": 71,
+        "onset_time": 156.76467895507812,
+        "offset_time": 157.5399932861328,
+        "slowOnset": 188.11768999316976,
+        "velocity": 61,
+        "partialChangeDb": [
+          -0.6,
+          -10.8,
+          -10.7,
+          -6.0
+        ],
+        "samePitchGap": 0.014678955078125,
+        "previousSamePitchIndex": 1613
+      },
+      {
+        "index": 1618,
+        "name": "B4",
+        "midi_note": 71,
+        "onset_time": 159.91744995117188,
+        "offset_time": 160.53472900390625,
+        "slowOnset": 191.90101670181292,
+        "velocity": 61,
+        "partialChangeDb": [
+          1.2,
+          -2.1,
+          -9.2,
+          -1.5
+        ],
+        "samePitchGap": 0.0074462890625,
+        "previousSamePitchIndex": 1617
+      }
+    ],
+    "restoredKeyOffsetsOriginalSeconds": {
+      "136": 149.86000061035156,
+      "551": 151.03720092773438,
+      "1393": 148.8651885986328,
+      "1411": 159.8443145751953,
+      "1599": 146.69166564941406,
+      "1603": 151.47999572753906,
+      "1613": 157.5399932861328,
+      "1617": 160.53472900390625
+    },
+    "noteCounts": {
+      "a2EntirePiece": 1958,
+      "a3EntirePiece": 1949,
+      "a2ReportedInterval": 196,
+      "a3ReportedInterval": 187
+    },
+    "controlledRenders": {
+      "roomContributionDifferenceRelativeToWetDb": -18.587988509408436,
+      "pedalContributionDifferenceRelativeToNormalDb": -13.149208200564047,
+      "method": "Same A2 event timing, soundfont, EQ and original fixed gain; only room disabled or CC64 values set to zero. RMS difference describes signal contribution, not a perceptual blame percentage. All nine false note_on events remain in both controls."
+    },
+    "auditionAudio": {
+      "fileName": "Faure-Solo-A3-Abschnittskorrektur-Einschlaftempo.mp3",
+      "durationSeconds": 255.94775510204082,
+      "integratedLufs": -23.21389257320374,
+      "truePeakDbtp4x": -6.313853026916171,
+      "sha256": "b744e19a947e0bc073f028a3eeedeaf2e60c4510838c4620ae041e883edbd6aa"
+    },
+    "comparison": "Original source, A2 and A3 excerpts at original tempo; source seconds 139.0–163.5, matched loudness, same excerpt fades. Reported interval begins 3.5 seconds into these clips.",
+    "unchanged": "All surviving note onsets, pitches and velocities, all pedal/CC91 events, YDP soundfont and processing; except eight explicit key-off restorations. No string changes. Published media/PDFs and app catalog untouched.",
+    "limitations": "Additional wrong or missing notes, octave errors, premature or overly long key holds and pedal errors can remain. Original source performance is not declared error-free. No complete score-forced correction or independent listening approval."
+  }
 }
