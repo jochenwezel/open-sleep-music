@@ -1,16 +1,17 @@
-# Friedrich BurgmÃ¼ller â€” Berceuse op. 109 No. 7
+# Friedrich Burgmüller — Berceuse op. 109 No. 7
 
 These four project recordings adapt BastienM's December 2007 piano performance.
 The selected piano is **YDP Grand Piano variant B**. The string versions add the
 maintainer-approved, full-piece corrected C2 violin, viola and cello accompaniment.
-This is a new accompaniment, not a historical BurgmÃ¼ller orchestration.
+This is a new accompaniment, not a historical Burgmüller orchestration.
 
-| Version | MP3 | Editable MIDI | Duration |
-| --- | --- | --- | --- |
-| piano-original | [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-original.mp3) | [MIDI](midi/burgmuller-berceuse-op109-no7-piano-original.mid) | 1:23 |
-| piano-sleep | [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-sleep.mp3) | [MIDI](midi/burgmuller-berceuse-op109-no7-piano-sleep.mid) | 1:39 |
-| piano-strings-original | [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-strings-original.mp3) | [MIDI](midi/burgmuller-berceuse-op109-no7-piano-strings-original.mid) | 1:23 |
-| piano-strings-sleep | [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-strings-sleep.mp3) | [MIDI](midi/burgmuller-berceuse-op109-no7-piano-strings-sleep.mid) | 1:39 |
+- **Piano - original tempo** (1:23): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-original.mp3) / [MIDI](midi/burgmuller-berceuse-op109-no7-piano-original.mid).
+
+- **Piano - sleep tempo** (1:39): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-sleep.mp3) / [MIDI](midi/burgmuller-berceuse-op109-no7-piano-sleep.mid).
+
+- **Piano with strings - original tempo** (1:23): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-strings-original.mp3) / [MIDI](midi/burgmuller-berceuse-op109-no7-piano-strings-original.mid).
+
+- **Piano with strings - sleep tempo** (1:39): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-strings-sleep.mp3) / [MIDI](midi/burgmuller-berceuse-op109-no7-piano-strings-sleep.mid).
 
 The sleep versions use event speed **0.833333**. Original tempo retains the source
 performance's timing. MIDI timing is changed before synthesis; the encoded audio
@@ -23,7 +24,7 @@ compression or limiting is used.
 
 ## Attribution and license
 
-- Composition: Friedrich BurgmÃ¼ller, Berceuse op. 109 No. 7.
+- Composition: Friedrich Burgmüller, Berceuse op. 109 No. 7.
 - Source performance/recording: **BastienM**, December 2007, own work according to
   the [specific Wikimedia Commons file page](https://commons.wikimedia.org/wiki/File:Berceuse_Burgmuller.ogg).
 - MIDI/audio adaptation and new string accompaniment: **Open Sleep Music contributors**, 2026.

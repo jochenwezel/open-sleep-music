@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "burgmuller-berceuse-op109-no7",
   "title": "Berceuse op. 109 No. 7",
-  "composer": "Friedrich BurgmÃ¼ller",
+  "composer": "Friedrich Burgmüller",
   "sourcePerformer": "BastienM",
   "adaptationCredits": "Open Sleep Music contributors",
   "publicationVersion": "2026-10-23-v1",
@@ -15,7 +15,7 @@
   "variants": [
     {
       "id": "piano-original",
-      "title": "Berceuse op. 109 Nr. 7 â€“ YDP-Klavier â€“ Originaltempo",
+      "title": "Berceuse op. 109 Nr. 7 – YDP-Klavier – Originaltempo",
       "tempoFactor": 1.0,
       "tempoDescription": "Original source performance timing",
       "instruments": [
@@ -39,7 +39,7 @@
     },
     {
       "id": "piano-sleep",
-      "title": "Berceuse op. 109 Nr. 7 â€“ YDP-Klavier â€“ Einschlaftempo",
+      "title": "Berceuse op. 109 Nr. 7 – YDP-Klavier – Einschlaftempo",
       "tempoFactor": 0.833333,
       "tempoDescription": "Sleep tempo, 83.3333% of source event speed",
       "instruments": [
@@ -63,7 +63,7 @@
     },
     {
       "id": "piano-strings-original",
-      "title": "Berceuse op. 109 Nr. 7 â€“ YDP-Klavier mit Kammerstreichern â€“ Originaltempo",
+      "title": "Berceuse op. 109 Nr. 7 – YDP-Klavier mit Kammerstreichern – Originaltempo",
       "tempoFactor": 1.0,
       "tempoDescription": "Original source performance timing",
       "instruments": [
@@ -90,7 +90,7 @@
     },
     {
       "id": "piano-strings-sleep",
-      "title": "Berceuse op. 109 Nr. 7 â€“ YDP-Klavier mit Kammerstreichern â€“ Einschlaftempo",
+      "title": "Berceuse op. 109 Nr. 7 – YDP-Klavier mit Kammerstreichern – Einschlaftempo",
       "tempoFactor": 0.833333,
       "tempoDescription": "Sleep tempo, 83.3333% of source event speed",
       "instruments": [

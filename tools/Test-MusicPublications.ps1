@@ -6,6 +6,10 @@ $songFiles = @(Get-ChildItem -LiteralPath $resolvedRoot -Filter song.json -Recur
 if ($songFiles.Count -eq 0) { throw 'No music publication manifests found.' }
 $ids = [Collections.Generic.HashSet[string]]::new([StringComparer]::OrdinalIgnoreCase)
 $downloadUris = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+$strictUtf8 = [Text.UTF8Encoding]::new($false, $true)
+# UTF-8 decoded as Windows-1252 and saved again remains byte-valid UTF-8.
+# Detect those common broken multibyte sequences, plus replacement characters.
+$brokenTextPattern = '\uFFFD|\u00C3[\u0080-\u00BF]|\u00C2[\u0080-\u00BF]|\u00E2(?:\u20AC|\u0080)'
 
 function Resolve-SongFile([string]$SongRoot, [string]$RelativePath) {
     $path = [IO.Path]::GetFullPath((Join-Path $SongRoot $RelativePath))
@@ -18,7 +22,11 @@ function Resolve-SongFile([string]$SongRoot, [string]$RelativePath) {
 
 foreach ($manifest in $songFiles) {
     $songRoot = $manifest.Directory.FullName
-    $song = Get-Content -LiteralPath $manifest.FullName -Raw | ConvertFrom-Json
+    $song = $strictUtf8.GetString([IO.File]::ReadAllBytes($manifest.FullName)) | ConvertFrom-Json
+    foreach ($textFile in Get-ChildItem -LiteralPath $songRoot -File -Recurse | Where-Object Extension -In @('.md', '.json', '.txt', '.sha256')) {
+        $decoded = $strictUtf8.GetString([IO.File]::ReadAllBytes($textFile.FullName))
+        if ($decoded -match $brokenTextPattern) { throw "Corrupt text encoding in publication: $($textFile.FullName)" }
+    }
     if (-not $ids.Add($song.id)) { throw "Duplicate song ID: $($song.id)" }
     if ($song.id -ne $manifest.Directory.Name) { throw 'Song ID must match its directory.' }
     foreach ($uri in @($song.licenseUri, $song.sourcePageUri)) {

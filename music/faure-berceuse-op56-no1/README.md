@@ -1,4 +1,4 @@
-# Gabriel FaurÃ© â€” Berceuse op. 56 No. 1
+# Gabriel Fauré — Berceuse op. 56 No. 1
 
 These project recordings adapt **Brian M. Jones's solo piano arrangement and
 September 2010 performance** of the Berceuse from the Dolly Suite. They use the
@@ -6,12 +6,13 @@ preferred warm **YDP Grand Piano variant B**, with a separate restrained string
 variation requested by the maintainer. The new string variation awaits listening
 feedback; publication does not replace the existing app recording.
 
-| Version | MP3 | Editable MIDI | Duration |
-| --- | --- | --- | --- |
-| Piano, original timing | [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-original.mp3) | [MIDI](midi/faure-berceuse-op56-no1-piano-original.mid) | 3:34 |
-| Piano, sleep tempo | [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-sleep.mp3) | [MIDI](midi/faure-berceuse-op56-no1-piano-sleep.mid) | 4:16 |
-| Piano and strings, original timing | [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-strings-original.mp3) | [MIDI](midi/faure-berceuse-op56-no1-piano-strings-original.mid) | 3:34 |
-| Piano and strings, sleep tempo | [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-strings-sleep.mp3) | [MIDI](midi/faure-berceuse-op56-no1-piano-strings-sleep.mid) | 4:16 |
+- **Piano - original tempo** (3:34): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-original.mp3) / [MIDI](midi/faure-berceuse-op56-no1-piano-original.mid).
+
+- **Piano - sleep tempo** (4:16): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-sleep.mp3) / [MIDI](midi/faure-berceuse-op56-no1-piano-sleep.mid).
+
+- **Piano with strings - original tempo** (3:34): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-strings-original.mp3) / [MIDI](midi/faure-berceuse-op56-no1-piano-strings-original.mid).
+
+- **Piano with strings - sleep tempo** (4:16): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-strings-sleep.mp3) / [MIDI](midi/faure-berceuse-op56-no1-piano-strings-sleep.mid).
 
 Sleep timing uses event speed **0.833333**. Original timing follows the source
 performance. MIDI event timing is changed before synthesis; the MP3s are not
@@ -22,7 +23,7 @@ dynamics compression or limiting. Original tempo has no separate listening feedb
 
 ## Attribution and license
 
-- Composition: **Gabriel FaurÃ©**, Berceuse, Dolly Suite op. 56 No. 1.
+- Composition: **Gabriel Fauré**, Berceuse, Dolly Suite op. 56 No. 1.
 - Source solo arrangement and recording: **Brian M. Jones**, September 2010.
   The [specific Commons file page](https://commons.wikimedia.org/wiki/File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg)
   declares **CC BY 3.0** for the performance and identifies its YouTube origin.
@@ -60,7 +61,7 @@ tones are guessed. Weighted non-overlapping intervals select notes by register;
 long source holds are capped at 2.2 original seconds. All 392 complete wet/dry
 string-note releases stay inside the corresponding source piano key intervals.
 The reference string RMS is 11 dB below the piano. This is a newly prepared
-accompaniment, not a historical FaurÃ© orchestration or a score-verified edition.
+accompaniment, not a historical Fauré orchestration or a score-verified edition.
 
 [piano-transcription.json](sources/piano-transcription.json) preserves estimated
 original note velocities and pedal events. [The string arrangement](sources/string-arrangement-original-timing.json)
