@@ -30,13 +30,25 @@
       "reverbWidth": 0.9,
       "chorusEnabled": false,
       "highPassHz": 35,
-      "bodyEq": { "frequencyHz": 210, "gainDb": 2.4, "q": 0.65 },
-      "presenceEq": { "frequencyHz": 3100, "gainDb": -1.6, "q": 0.8 },
+      "bodyEq": {
+        "frequencyHz": 210,
+        "gainDb": 2.4,
+        "q": 0.65
+      },
+      "presenceEq": {
+        "frequencyHz": 3100,
+        "gainDb": -1.6,
+        "q": 0.8
+      },
       "lowPassHz": 9500,
       "integratedLoudnessTargetLufs": -23.21,
       "loudnessStrategy": "Constant gain only; retain safe peak headroom and note dynamics; no compressor or limiter",
       "mp3BitrateKbps": 256,
-      "tailTrim": { "significantPeakThresholdDbfs": -90, "quietMarginSeconds": 0.35, "finalInaudibleFadeMilliseconds": 80 }
+      "tailTrim": {
+        "significantPeakThresholdDbfs": -90,
+        "quietMarginSeconds": 0.35,
+        "finalInaudibleFadeMilliseconds": 80
+      }
     },
     "verification": "Confirm actual reverb in the output using a wet/dry comparison. Earlier Salamander A/B renders were effectively identical because no MIDI reverb send reached the effect. Check loudness matching, full decoding, headroom, quiet ending and retained credits before delivering an audition."
   },
@@ -59,9 +71,42 @@
   "publication": {
     "songDirectory": "music/burgmuller-berceuse-op109-no7",
     "manifest": "music/burgmuller-berceuse-op109-no7/song.json",
-    "releaseTag": "music-2026-10-23-v1",
-    "retainedVariants": ["piano-original", "piano-sleep", "piano-strings-original", "piano-strings-sleep"],
-    "note": "Published MP3 decoded samples retain the selected auditions; ID3 metadata is updated for publication. The manifest records published-byte hashes separately from original audition hashes. Original-tempo renders use the same selected voice and arrangement without separate listening feedback."
+    "retainedVariants": [
+      "piano-original",
+      "piano-sleep",
+      "piano-strings-original",
+      "piano-strings-sleep"
+    ],
+    "note": "Published MP3 decoded samples retain the selected auditions; ID3 metadata is updated for publication. The manifest records published-byte hashes separately from original audition hashes. Original-tempo renders use the same selected voice and arrangement without separate listening feedback.",
+    "delivery": "Commit-pinned Raw GitHub files; no music releases or release ZIPs",
+    "audioCommit": "5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967"
   },
-  "admissionBoundary": "Piano-voice preference is not approval to replace any catalog recording or to promote an arrangement. Retain each specific source performance's recording license, attribution, modification disclosure and original files. Keep estimated original MIDI velocities separately from render-only softening. Complete recording-specific rights, audio-delivery, suitability and listening checks for each resulting recording before promotion."
+  "admissionBoundary": "Piano-voice preference is not approval to replace any catalog recording or to promote an arrangement. Retain each specific source performance's recording license, attribution, modification disclosure and original files. Keep estimated original MIDI velocities separately from render-only softening. Complete recording-specific rights, audio-delivery, suitability and listening checks for each resulting recording before promotion.",
+  "recommendedBerceuseStyle": {
+    "status": "maintainer-recommended-starting-point",
+    "description": "Follow the successful Burgmuller preparation for future Berceuse pieces: warm instrumental YDP piano B, expressive estimated dynamics and overlapping notes with sustain, restrained verified room ambience, and a separately auditioned chamber-string variation for background fullness.",
+    "piano": "Use preferredPiano.renderSettings as defaults; soften velocities only for rendering, preserve raw source events. No chorus, compressor or limiter.",
+    "strings": "Quiet violin, viola and cello; reference RMS 11 dB below piano. Check the full piece, including harmonies above a sustained bass and rapid cadences. Align attacks and complete wet/dry releases; tie only compatible common tones.",
+    "variants": [
+      "piano-original",
+      "piano-sleep",
+      "piano-strings-original",
+      "piano-strings-sleep"
+    ],
+    "tempoAndEnding": "Adjust MIDI-event timing before synthesis, retain each chosen performance tempo and an appropriately chosen sleep tempo; preserve musical decay and remove only an inaudible tail.",
+    "review": "Match listening levels and audition every new accompaniment across the whole work. The style recommendation is not automatic arrangement, rights or catalog approval."
+  },
+  "additionalPublications": [
+    {
+      "songDirectory": "music/faure-berceuse-op56-no1",
+      "audioCommit": "92af08a8a3851ec2894e94566bd38d34a6070f1e",
+      "retainedVariants": [
+        "piano-original",
+        "piano-sleep",
+        "piano-strings-original",
+        "piano-strings-sleep"
+      ],
+      "stringsReviewStatus": "new-accompaniment-prepared-at-maintainer-request; listening-feedback-pending"
+    }
+  ]
 }

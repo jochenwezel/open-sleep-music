@@ -1,0 +1,38 @@
+{
+  "sourceRecording": {
+    "composer": "Gabriel FaurÃ©",
+    "creator": "Brian M. Jones, solo piano transcription and performance, September 2010",
+    "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg",
+    "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg&oldid=1269037211",
+    "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg",
+    "sha1": "16f742aed631bbd30a78e3298fb77672655bf306",
+    "license": "CC BY 3.0",
+    "licenseUri": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceHistory": "Commons records a YouTube-derived Ogg from Brian M. Jones solo piano transcription; use the exact catalog original, not the separate NC four-hand performance.",
+    "verifiedOn": "2026-10-23",
+    "upstreamBytes": 2085710,
+    "upstreamDurationSeconds": 214.62204081632652,
+    "evidenceSummary": "The specific Commons page separately labels the Brian M. Jones performance CC BY 3.0 and identifies its September 2010 solo transcription/YouTube source. Original downloaded bytes match the source SHA-1. This is not the distinct NC-licensed Romero/White four-hand performance."
+  },
+  "pianoSamples": {
+    "sourcePage": "https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html",
+    "downloadUri": "https://freepats.zenvoid.org/Piano/YDP-GrandPiano/YDP-GrandPiano-SF2-20160804.tar.bz2",
+    "sha256": "d243dc3e182a60df2a16e92828c1821cf3eb5748b45e2e2bdcfa9cf7af056026",
+    "license": "CC BY 3.0",
+    "licenseUri": "https://creativecommons.org/licenses/by/3.0/",
+    "credits": "Zenph Studios and Dr. Mikhail Krishtal and team; OLPC sound sample library / Dr. Richard Boulanger; SF2 and sample modifications by Roberto (roberto@zenvoid.org), FreePats",
+    "verifiedOn": "2026-10-23",
+    "evidenceSummary": "The YDP Grand Piano section on FreePats identifies Zenph/OLPC sources and the CC BY 3.0 grant. The downloaded 2016-08-04 soundfont includes matching original credits and license declaration."
+  },
+  "stringSamples": {
+    "sourceUri": "https://github.com/sgossner/VSCO-2-CE",
+    "licenseEvidenceUri": "https://github.com/sgossner/VSCO-2-CE/blob/master/LICENSE",
+    "license": "CC0 1.0",
+    "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "verifiedOn": "2026-10-23",
+    "credits": "Strings: VSCO 2 Community Edition, Versilian Studios/Sam Gossner, Ivy Audio/Simon Dalzell, sample cutting Elan Hickler/Soundemote. CC0 1.0 https://creativecommons.org/publicdomain/zero/1.0/.",
+    "files": "../sources/string-sample-provenance.json",
+    "verification": "Individual sample bytes checked against the Git blob SHA-1 from source tree metadata; SHA-256 values retained for exact local bytes."
+  },
+  "reviewBoundary": "Source-declared grants and provenance checks are documented; no endorsement or independent copyright guarantee is claimed."
+}

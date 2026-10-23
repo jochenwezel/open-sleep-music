@@ -21,7 +21,7 @@ foreach ($manifest in $songFiles) {
     $song = Get-Content -LiteralPath $manifest.FullName -Raw | ConvertFrom-Json
     if (-not $ids.Add($song.id)) { throw "Duplicate song ID: $($song.id)" }
     if ($song.id -ne $manifest.Directory.Name) { throw 'Song ID must match its directory.' }
-    foreach ($uri in @($song.licenseUri, $song.sourcePageUri, $song.archiveDownloadUri)) {
+    foreach ($uri in @($song.licenseUri, $song.sourcePageUri)) {
         if ($uri -notmatch '^https://') { throw "Expected HTTPS source/license/download URI: $uri" }
     }
     foreach ($name in @('README.md', 'checksums.sha256', $song.sourceEvidencePath)) {
@@ -49,8 +49,13 @@ foreach ($manifest in $songFiles) {
     foreach ($variant in $song.variants) {
         if (-not $variantIds.Add($variant.id)) { throw 'Duplicate variant ID.' }
         if ($variant.durationSeconds -le 0 -or $variant.tempoFactor -le 0) { throw 'Invalid duration or tempo.' }
-        if ($variant.downloadUri -notmatch '^https://github\.com/[^/]+/[^/]+/releases/download/music-[^/]+/[^/]+\.mp3$') {
-            throw 'Use a fixed-version music release MP3 URL.'
+        if ($variant.downloadUri -notmatch '^https://raw\.githubusercontent\.com/[^/]+/[^/]+/([0-9a-f]{40})/music/[^/]+/audio/[^/]+\.mp3$') {
+            throw 'Use a full-commit-pinned Raw GitHub MP3 URL.'
+        }
+        if ($Matches[1] -ne $song.audioCommit) { throw 'Download commit must match audioCommit.' }
+        $uriPath = [Uri]::UnescapeDataString(([Uri]$variant.downloadUri).AbsolutePath)
+        if (-not $uriPath.EndsWith('/music/' + $song.id + '/' + $variant.audioPath, [StringComparison]::Ordinal)) {
+            throw 'Download path must match the published audio path.'
         }
         if (-not $downloadUris.Add($variant.downloadUri)) { throw 'Duplicate audio download URL.' }
         foreach ($kind in @('audio', 'midi')) {

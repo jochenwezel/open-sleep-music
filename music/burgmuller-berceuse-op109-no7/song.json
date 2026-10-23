@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "id": "burgmuller-berceuse-op109-no7",
   "title": "Berceuse op. 109 No. 7",
-  "composer": "Friedrich Burgmüller",
+  "composer": "Friedrich BurgmÃ¼ller",
   "sourcePerformer": "BastienM",
   "adaptationCredits": "Open Sleep Music contributors",
-  "publicationVersion": "music-2026-10-23-v1",
+  "publicationVersion": "2026-10-23-v1",
   "publicationDate": "2026-10-23",
   "license": "CC BY-SA 3.0",
   "licenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
@@ -15,7 +15,7 @@
   "variants": [
     {
       "id": "piano-original",
-      "title": "Berceuse op. 109 Nr. 7 – YDP-Klavier – Originaltempo",
+      "title": "Berceuse op. 109 Nr. 7 â€“ YDP-Klavier â€“ Originaltempo",
       "tempoFactor": 1.0,
       "tempoDescription": "Original source performance timing",
       "instruments": [
@@ -24,7 +24,7 @@
       "ensembleType": "solo piano",
       "audioPath": "audio/burgmuller-berceuse-op109-no7-piano-original.mp3",
       "midiPath": "midi/burgmuller-berceuse-op109-no7-piano-original.mid",
-      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/music-2026-10-23-v1/burgmuller-berceuse-op109-no7-piano-original.mp3",
+      "downloadUri": "https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-original.mp3",
       "durationSeconds": 82.83428571428571,
       "integratedLufs": -23.20679951242382,
       "truePeakDbtp4x": -7.115332867757863,
@@ -39,7 +39,7 @@
     },
     {
       "id": "piano-sleep",
-      "title": "Berceuse op. 109 Nr. 7 – YDP-Klavier – Einschlaftempo",
+      "title": "Berceuse op. 109 Nr. 7 â€“ YDP-Klavier â€“ Einschlaftempo",
       "tempoFactor": 0.833333,
       "tempoDescription": "Sleep tempo, 83.3333% of source event speed",
       "instruments": [
@@ -48,7 +48,7 @@
       "ensembleType": "solo piano",
       "audioPath": "audio/burgmuller-berceuse-op109-no7-piano-sleep.mp3",
       "midiPath": "midi/burgmuller-berceuse-op109-no7-piano-sleep.mid",
-      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/music-2026-10-23-v1/burgmuller-berceuse-op109-no7-piano-sleep.mp3",
+      "downloadUri": "https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-sleep.mp3",
       "durationSeconds": 99.13469387755102,
       "integratedLufs": -23.21665816866241,
       "truePeakDbtp4x": -7.085139402445492,
@@ -63,7 +63,7 @@
     },
     {
       "id": "piano-strings-original",
-      "title": "Berceuse op. 109 Nr. 7 – YDP-Klavier mit Kammerstreichern – Originaltempo",
+      "title": "Berceuse op. 109 Nr. 7 â€“ YDP-Klavier mit Kammerstreichern â€“ Originaltempo",
       "tempoFactor": 1.0,
       "tempoDescription": "Original source performance timing",
       "instruments": [
@@ -75,7 +75,7 @@
       "ensembleType": "piano with chamber strings",
       "audioPath": "audio/burgmuller-berceuse-op109-no7-piano-strings-original.mp3",
       "midiPath": "midi/burgmuller-berceuse-op109-no7-piano-strings-original.mid",
-      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/music-2026-10-23-v1/burgmuller-berceuse-op109-no7-piano-strings-original.mp3",
+      "downloadUri": "https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-strings-original.mp3",
       "durationSeconds": 82.83428571428571,
       "integratedLufs": -23.206973875208334,
       "truePeakDbtp4x": -7.389038238466441,
@@ -90,7 +90,7 @@
     },
     {
       "id": "piano-strings-sleep",
-      "title": "Berceuse op. 109 Nr. 7 – YDP-Klavier mit Kammerstreichern – Einschlaftempo",
+      "title": "Berceuse op. 109 Nr. 7 â€“ YDP-Klavier mit Kammerstreichern â€“ Einschlaftempo",
       "tempoFactor": 0.833333,
       "tempoDescription": "Sleep tempo, 83.3333% of source event speed",
       "instruments": [
@@ -102,7 +102,7 @@
       "ensembleType": "piano with chamber strings",
       "audioPath": "audio/burgmuller-berceuse-op109-no7-piano-strings-sleep.mp3",
       "midiPath": "midi/burgmuller-berceuse-op109-no7-piano-strings-sleep.mid",
-      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/music-2026-10-23-v1/burgmuller-berceuse-op109-no7-piano-strings-sleep.mp3",
+      "downloadUri": "https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-strings-sleep.mp3",
       "durationSeconds": 99.13469387755102,
       "integratedLufs": -23.2122639002631,
       "truePeakDbtp4x": -7.37780906097155,
@@ -116,7 +116,7 @@
       "reviewStatus": "maintainer-approved"
     }
   ],
-  "archiveDownloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/music-2026-10-23-v1/burgmuller-berceuse-op109-no7.zip",
   "catalogStatus": "Published independently; existing application catalog entries have not been replaced",
-  "limitations": "Automatic note, velocity and pedal estimation may contain errors. Binary sustain does not encode reliable half-pedal. Original tempo means timing of the BastienM source performance; the MIDI 120 BPM grid is not an inferred score tempo. General MIDI playback differs from the sampled MP3s."
+  "limitations": "Automatic note, velocity and pedal estimation may contain errors. Binary sustain does not encode reliable half-pedal. Original tempo means timing of the BastienM source performance; the MIDI 120 BPM grid is not an inferred score tempo. General MIDI playback differs from the sampled MP3s.",
+  "audioCommit": "5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967"
 }
