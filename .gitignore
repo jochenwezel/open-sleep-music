@@ -28,6 +28,9 @@ Thumbs.db
 *.log
 *.jsonl
 
+## Explicitly curated project music publications (see music/README.md)
+!/music/*/audio/*.mp3
+
 ## Signing material and store credentials
 /.local-secrets/
 *.key

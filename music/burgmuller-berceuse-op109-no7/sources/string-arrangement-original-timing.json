@@ -1,0 +1,1703 @@
+{
+  "source": "BastienM Burgmuller op.109 no.7 piano transcription",
+  "version": 2,
+  "method": "Full-piece manual revision against transcribed piano note attacks and arpeggio pitch evidence; explicit dominant harmonies over tonic bass pedals; individual final-cadence changes; no historical-orchestration claim. Score download was bot-blocked and was not used.",
+  "speed": 1,
+  "parts": {
+    "cello": [
+      {
+        "note": 53,
+        "start": 0.3218686282634735,
+        "end": 3.942582304255371,
+        "soundingEnd": 4.059248924255371,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 48,
+        "start": 4.059248924255371,
+        "end": 5.717799360529785,
+        "soundingEnd": 5.834465980529785,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 46
+      },
+      {
+        "note": 53,
+        "start": 5.834465980529785,
+        "end": 8.459828550593262,
+        "soundingEnd": 8.576495170593262,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 53,
+        "start": 8.576495170593262,
+        "end": 11.201857740656738,
+        "soundingEnd": 11.318524360656738,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 48,
+        "start": 11.318524360656738,
+        "end": 12.948934728876953,
+        "soundingEnd": 13.065601348876953,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 53,
+        "start": 13.065601348876953,
+        "end": 15.766259367243652,
+        "soundingEnd": 15.882925987243652,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      },
+      {
+        "note": 53,
+        "start": 15.882925987243652,
+        "end": 18.58358400561035,
+        "soundingEnd": 18.70025062561035,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      },
+      {
+        "note": 48,
+        "start": 18.70025062561035,
+        "end": 20.300390417353515,
+        "soundingEnd": 20.417057037353516,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 46
+      },
+      {
+        "note": 53,
+        "start": 20.417057037353516,
+        "end": 22.942834074274906,
+        "soundingEnd": 23.059500694274906,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 48
+      },
+      {
+        "note": 53,
+        "start": 23.059500694274906,
+        "end": 25.58527773119629,
+        "soundingEnd": 25.70194435119629,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 48
+      },
+      {
+        "note": 48,
+        "start": 25.70194435119629,
+        "end": 27.32617777086914,
+        "soundingEnd": 27.44284439086914,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 53,
+        "start": 27.44284439086914,
+        "end": 30.081754858271484,
+        "soundingEnd": 30.198421478271484,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 42
+      },
+      {
+        "note": 53,
+        "start": 30.198421478271484,
+        "end": 32.83733194567383,
+        "soundingEnd": 32.95399856567383,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 42
+      },
+      {
+        "note": 52,
+        "start": 32.95399856567383,
+        "end": 34.52590387560547,
+        "soundingEnd": 34.64257049560547,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 55
+      },
+      {
+        "note": 50,
+        "start": 34.64257049560547,
+        "end": 36.4944059202832,
+        "soundingEnd": 36.6110725402832,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 55
+      },
+      {
+        "note": 53,
+        "start": 36.6110725402832,
+        "end": 38.4908773253125,
+        "soundingEnd": 38.6075439453125,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 48,
+        "start": 38.6075439453125,
+        "end": 42.205747778193356,
+        "soundingEnd": 42.32241439819336,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 53,
+        "start": 42.32241439819336,
+        "end": 44.981077368037106,
+        "soundingEnd": 45.09774398803711,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      },
+      {
+        "note": 53,
+        "start": 45.09774398803711,
+        "end": 47.756406957880856,
+        "soundingEnd": 47.87307357788086,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      },
+      {
+        "note": 52,
+        "start": 47.87307357788086,
+        "end": 49.51003854967774,
+        "soundingEnd": 49.626705169677734,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 52
+      },
+      {
+        "note": 50,
+        "start": 49.626705169677734,
+        "end": 51.501917059199215,
+        "soundingEnd": 51.61858367919922,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 55
+      },
+      {
+        "note": 53,
+        "start": 51.61858367919922,
+        "end": 53.42511957384766,
+        "soundingEnd": 53.54178619384766,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 49
+      },
+      {
+        "note": 48,
+        "start": 53.54178619384766,
+        "end": 57.02257745958985,
+        "soundingEnd": 57.13924407958985,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 49
+      },
+      {
+        "note": 53,
+        "start": 57.13924407958985,
+        "end": 59.078664953486324,
+        "soundingEnd": 59.19533157348633,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      },
+      {
+        "note": 48,
+        "start": 59.19533157348633,
+        "end": 61.02224558092773,
+        "soundingEnd": 61.13891220092773,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 37
+      },
+      {
+        "note": 53,
+        "start": 61.13891220092773,
+        "end": 62.9456006834668,
+        "soundingEnd": 63.062267303466804,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 48,
+        "start": 63.062267303466804,
+        "end": 64.77913110949218,
+        "soundingEnd": 64.89579772949219,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 48
+      },
+      {
+        "note": 53,
+        "start": 64.89579772949219,
+        "end": 67.54736536242189,
+        "soundingEnd": 67.66403198242188,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 41
+      },
+      {
+        "note": 53,
+        "start": 67.66403198242188,
+        "end": 70.31559961535157,
+        "soundingEnd": 70.43226623535156,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 41
+      },
+      {
+        "note": 50,
+        "start": 70.43226623535156,
+        "end": 70.65765991210938,
+        "soundingEnd": 70.75425720214844,
+        "releaseSeconds": 0.09659729003906273,
+        "attackSeconds": 0.070833305,
+        "velocity": 53
+      },
+      {
+        "note": 53,
+        "start": 70.75425720214844,
+        "end": 70.9692367553711,
+        "soundingEnd": 71.06137084960938,
+        "releaseSeconds": 0.09213409423827924,
+        "attackSeconds": 0.06756500244140479,
+        "velocity": 48
+      },
+      {
+        "note": 55,
+        "start": 71.06137084960938,
+        "end": 71.33873956896484,
+        "soundingEnd": 71.45540618896484,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 45
+      },
+      {
+        "note": 53,
+        "start": 71.45540618896484,
+        "end": 71.71327590942383,
+        "soundingEnd": 71.82379150390625,
+        "releaseSeconds": 0.11051559448242282,
+        "attackSeconds": 0.070833305,
+        "velocity": 45
+      },
+      {
+        "note": 50,
+        "start": 71.82379150390625,
+        "end": 72.21383112169923,
+        "soundingEnd": 72.33049774169922,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 45
+      },
+      {
+        "note": 53,
+        "start": 72.33049774169922,
+        "end": 72.77673547960939,
+        "soundingEnd": 72.89340209960938,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 42
+      },
+      {
+        "note": 55,
+        "start": 72.89340209960938,
+        "end": 74.03837030626954,
+        "soundingEnd": 74.15503692626953,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 48
+      },
+      {
+        "note": 53,
+        "start": 74.15503692626953,
+        "end": 77.5,
+        "soundingEnd": 78.33333300000001,
+        "releaseSeconds": 0.833333,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      }
+    ],
+    "viola": [
+      {
+        "note": 57,
+        "start": 0.3218686282634735,
+        "end": 3.942582304255371,
+        "soundingEnd": 4.059248924255371,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 58,
+        "start": 4.059248924255371,
+        "end": 5.717799360529785,
+        "soundingEnd": 5.834465980529785,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 46
+      },
+      {
+        "note": 57,
+        "start": 5.834465980529785,
+        "end": 8.459828550593262,
+        "soundingEnd": 8.576495170593262,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 57,
+        "start": 8.576495170593262,
+        "end": 11.201857740656738,
+        "soundingEnd": 11.318524360656738,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 58,
+        "start": 11.318524360656738,
+        "end": 12.948934728876953,
+        "soundingEnd": 13.065601348876953,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 57,
+        "start": 13.065601348876953,
+        "end": 15.766259367243652,
+        "soundingEnd": 15.882925987243652,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      },
+      {
+        "note": 57,
+        "start": 15.882925987243652,
+        "end": 18.58358400561035,
+        "soundingEnd": 18.70025062561035,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      },
+      {
+        "note": 58,
+        "start": 18.70025062561035,
+        "end": 20.300390417353515,
+        "soundingEnd": 20.417057037353516,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 46
+      },
+      {
+        "note": 57,
+        "start": 20.417057037353516,
+        "end": 22.942834074274906,
+        "soundingEnd": 23.059500694274906,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 48
+      },
+      {
+        "note": 57,
+        "start": 23.059500694274906,
+        "end": 25.58527773119629,
+        "soundingEnd": 25.70194435119629,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 48
+      },
+      {
+        "note": 58,
+        "start": 25.70194435119629,
+        "end": 27.32617777086914,
+        "soundingEnd": 27.44284439086914,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 57,
+        "start": 27.44284439086914,
+        "end": 29.258276159541015,
+        "soundingEnd": 29.374942779541016,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 42
+      },
+      {
+        "note": 58,
+        "start": 29.374942779541016,
+        "end": 31.145559484736324,
+        "soundingEnd": 31.262226104736325,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 57,
+        "start": 31.262226104736325,
+        "end": 33.81998270250976,
+        "soundingEnd": 33.936649322509766,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 45
+      },
+      {
+        "note": 57,
+        "start": 33.936649322509766,
+        "end": 36.4944059202832,
+        "soundingEnd": 36.6110725402832,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 45
+      },
+      {
+        "note": 56,
+        "start": 36.6110725402832,
+        "end": 38.4908773253125,
+        "soundingEnd": 38.6075439453125,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 57,
+        "start": 38.6075439453125,
+        "end": 40.19499033190429,
+        "soundingEnd": 40.3116569519043,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 58,
+        "start": 40.3116569519043,
+        "end": 42.205747778193356,
+        "soundingEnd": 42.32241439819336,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 57,
+        "start": 42.32241439819336,
+        "end": 44.10730951525391,
+        "soundingEnd": 44.223976135253906,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      },
+      {
+        "note": 58,
+        "start": 44.223976135253906,
+        "end": 45.94872110583008,
+        "soundingEnd": 46.06538772583008,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 53
+      },
+      {
+        "note": 57,
+        "start": 46.06538772583008,
+        "end": 48.72531908251465,
+        "soundingEnd": 48.84198570251465,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 57,
+        "start": 48.84198570251465,
+        "end": 51.501917059199215,
+        "soundingEnd": 51.61858367919922,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 56,
+        "start": 51.61858367919922,
+        "end": 53.42511957384766,
+        "soundingEnd": 53.54178619384766,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 49
+      },
+      {
+        "note": 57,
+        "start": 53.54178619384766,
+        "end": 55.04059808947265,
+        "soundingEnd": 55.15726470947265,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 49
+      },
+      {
+        "note": 58,
+        "start": 55.15726470947265,
+        "end": 57.02257745958985,
+        "soundingEnd": 57.13924407958985,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 57,
+        "start": 57.13924407958985,
+        "end": 59.078664953486324,
+        "soundingEnd": 59.19533157348633,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      },
+      {
+        "note": 58,
+        "start": 59.19533157348633,
+        "end": 61.02224558092773,
+        "soundingEnd": 61.13891220092773,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 37
+      },
+      {
+        "note": 57,
+        "start": 61.13891220092773,
+        "end": 62.9456006834668,
+        "soundingEnd": 63.062267303466804,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 58,
+        "start": 63.062267303466804,
+        "end": 64.77913110949218,
+        "soundingEnd": 64.89579772949219,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 48
+      },
+      {
+        "note": 57,
+        "start": 64.89579772949219,
+        "end": 67.54736536242189,
+        "soundingEnd": 67.66403198242188,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 41
+      },
+      {
+        "note": 57,
+        "start": 67.66403198242188,
+        "end": 70.31559961535157,
+        "soundingEnd": 70.43226623535156,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 41
+      },
+      {
+        "note": 58,
+        "start": 70.43226623535156,
+        "end": 70.65765991210938,
+        "soundingEnd": 70.75425720214844,
+        "releaseSeconds": 0.09659729003906273,
+        "attackSeconds": 0.070833305,
+        "velocity": 53
+      },
+      {
+        "note": 57,
+        "start": 70.75425720214844,
+        "end": 70.9692367553711,
+        "soundingEnd": 71.06137084960938,
+        "releaseSeconds": 0.09213409423827924,
+        "attackSeconds": 0.06756500244140479,
+        "velocity": 48
+      },
+      {
+        "note": 58,
+        "start": 71.06137084960938,
+        "end": 71.33873956896484,
+        "soundingEnd": 71.45540618896484,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 45
+      },
+      {
+        "note": 57,
+        "start": 71.45540618896484,
+        "end": 71.71327590942383,
+        "soundingEnd": 71.82379150390625,
+        "releaseSeconds": 0.11051559448242282,
+        "attackSeconds": 0.070833305,
+        "velocity": 45
+      },
+      {
+        "note": 58,
+        "start": 71.82379150390625,
+        "end": 72.21383112169923,
+        "soundingEnd": 72.33049774169922,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 45
+      },
+      {
+        "note": 57,
+        "start": 72.33049774169922,
+        "end": 72.77673547960939,
+        "soundingEnd": 72.89340209960938,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 42
+      },
+      {
+        "note": 58,
+        "start": 72.89340209960938,
+        "end": 74.03837030626954,
+        "soundingEnd": 74.15503692626953,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 48
+      },
+      {
+        "note": 57,
+        "start": 74.15503692626953,
+        "end": 77.5,
+        "soundingEnd": 78.33333300000001,
+        "releaseSeconds": 0.833333,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      }
+    ],
+    "violin": [
+      {
+        "note": 60,
+        "start": 0.3218686282634735,
+        "end": 3.942582304255371,
+        "soundingEnd": 4.059248924255371,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 64,
+        "start": 4.059248924255371,
+        "end": 5.717799360529785,
+        "soundingEnd": 5.834465980529785,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 46
+      },
+      {
+        "note": 60,
+        "start": 5.834465980529785,
+        "end": 8.459828550593262,
+        "soundingEnd": 8.576495170593262,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 60,
+        "start": 8.576495170593262,
+        "end": 11.201857740656738,
+        "soundingEnd": 11.318524360656738,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 64,
+        "start": 11.318524360656738,
+        "end": 12.948934728876953,
+        "soundingEnd": 13.065601348876953,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 60,
+        "start": 13.065601348876953,
+        "end": 15.766259367243652,
+        "soundingEnd": 15.882925987243652,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      },
+      {
+        "note": 60,
+        "start": 15.882925987243652,
+        "end": 18.58358400561035,
+        "soundingEnd": 18.70025062561035,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      },
+      {
+        "note": 64,
+        "start": 18.70025062561035,
+        "end": 20.300390417353515,
+        "soundingEnd": 20.417057037353516,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 46
+      },
+      {
+        "note": 60,
+        "start": 20.417057037353516,
+        "end": 22.942834074274906,
+        "soundingEnd": 23.059500694274906,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 48
+      },
+      {
+        "note": 60,
+        "start": 23.059500694274906,
+        "end": 25.58527773119629,
+        "soundingEnd": 25.70194435119629,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 48
+      },
+      {
+        "note": 64,
+        "start": 25.70194435119629,
+        "end": 27.32617777086914,
+        "soundingEnd": 27.44284439086914,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 60,
+        "start": 27.44284439086914,
+        "end": 29.258276159541015,
+        "soundingEnd": 29.374942779541016,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 42
+      },
+      {
+        "note": 62,
+        "start": 29.374942779541016,
+        "end": 31.145559484736324,
+        "soundingEnd": 31.262226104736325,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 60,
+        "start": 31.262226104736325,
+        "end": 32.83733194567383,
+        "soundingEnd": 32.95399856567383,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 45
+      },
+      {
+        "note": 61,
+        "start": 32.95399856567383,
+        "end": 34.52590387560547,
+        "soundingEnd": 34.64257049560547,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 55
+      },
+      {
+        "note": 65,
+        "start": 34.64257049560547,
+        "end": 36.4944059202832,
+        "soundingEnd": 36.6110725402832,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 55
+      },
+      {
+        "note": 62,
+        "start": 36.6110725402832,
+        "end": 38.4908773253125,
+        "soundingEnd": 38.6075439453125,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 65,
+        "start": 38.6075439453125,
+        "end": 40.19499033190429,
+        "soundingEnd": 40.3116569519043,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 64,
+        "start": 40.3116569519043,
+        "end": 42.205747778193356,
+        "soundingEnd": 42.32241439819336,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 60,
+        "start": 42.32241439819336,
+        "end": 44.10730951525391,
+        "soundingEnd": 44.223976135253906,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      },
+      {
+        "note": 62,
+        "start": 44.223976135253906,
+        "end": 45.94872110583008,
+        "soundingEnd": 46.06538772583008,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 53
+      },
+      {
+        "note": 60,
+        "start": 46.06538772583008,
+        "end": 47.756406957880856,
+        "soundingEnd": 47.87307357788086,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 61,
+        "start": 47.87307357788086,
+        "end": 49.51003854967774,
+        "soundingEnd": 49.626705169677734,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 52
+      },
+      {
+        "note": 65,
+        "start": 49.626705169677734,
+        "end": 51.501917059199215,
+        "soundingEnd": 51.61858367919922,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 55
+      },
+      {
+        "note": 62,
+        "start": 51.61858367919922,
+        "end": 53.42511957384766,
+        "soundingEnd": 53.54178619384766,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 49
+      },
+      {
+        "note": 65,
+        "start": 53.54178619384766,
+        "end": 55.04059808947265,
+        "soundingEnd": 55.15726470947265,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 49
+      },
+      {
+        "note": 64,
+        "start": 55.15726470947265,
+        "end": 57.02257745958985,
+        "soundingEnd": 57.13924407958985,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 50
+      },
+      {
+        "note": 60,
+        "start": 57.13924407958985,
+        "end": 59.078664953486324,
+        "soundingEnd": 59.19533157348633,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      },
+      {
+        "note": 64,
+        "start": 59.19533157348633,
+        "end": 61.02224558092773,
+        "soundingEnd": 61.13891220092773,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 37
+      },
+      {
+        "note": 60,
+        "start": 61.13891220092773,
+        "end": 62.9456006834668,
+        "soundingEnd": 63.062267303466804,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 47
+      },
+      {
+        "note": 64,
+        "start": 63.062267303466804,
+        "end": 64.77913110949218,
+        "soundingEnd": 64.89579772949219,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 48
+      },
+      {
+        "note": 60,
+        "start": 64.89579772949219,
+        "end": 67.54736536242189,
+        "soundingEnd": 67.66403198242188,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 41
+      },
+      {
+        "note": 60,
+        "start": 67.66403198242188,
+        "end": 70.31559961535157,
+        "soundingEnd": 70.43226623535156,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 41
+      },
+      {
+        "note": 65,
+        "start": 70.43226623535156,
+        "end": 70.65765991210938,
+        "soundingEnd": 70.75425720214844,
+        "releaseSeconds": 0.09659729003906273,
+        "attackSeconds": 0.070833305,
+        "velocity": 53
+      },
+      {
+        "note": 60,
+        "start": 70.75425720214844,
+        "end": 70.9692367553711,
+        "soundingEnd": 71.06137084960938,
+        "releaseSeconds": 0.09213409423827924,
+        "attackSeconds": 0.06756500244140479,
+        "velocity": 48
+      },
+      {
+        "note": 62,
+        "start": 71.06137084960938,
+        "end": 71.33873956896484,
+        "soundingEnd": 71.45540618896484,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 45
+      },
+      {
+        "note": 60,
+        "start": 71.45540618896484,
+        "end": 71.71327590942383,
+        "soundingEnd": 71.82379150390625,
+        "releaseSeconds": 0.11051559448242282,
+        "attackSeconds": 0.070833305,
+        "velocity": 45
+      },
+      {
+        "note": 65,
+        "start": 71.82379150390625,
+        "end": 72.21383112169923,
+        "soundingEnd": 72.33049774169922,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 45
+      },
+      {
+        "note": 60,
+        "start": 72.33049774169922,
+        "end": 72.77673547960939,
+        "soundingEnd": 72.89340209960938,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 42
+      },
+      {
+        "note": 65,
+        "start": 72.89340209960938,
+        "end": 74.03837030626954,
+        "soundingEnd": 74.15503692626953,
+        "releaseSeconds": 0.11666662000000001,
+        "attackSeconds": 0.070833305,
+        "velocity": 48
+      },
+      {
+        "note": 60,
+        "start": 74.15503692626953,
+        "end": 77.5,
+        "soundingEnd": 78.33333300000001,
+        "releaseSeconds": 0.833333,
+        "attackSeconds": 0.070833305,
+        "velocity": 43
+      }
+    ]
+  },
+  "harmonies": [
+    {
+      "startOriginal": 0.3218686282634735,
+      "start": 0.3218686282634735,
+      "chord": "F",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 4.059248924255371,
+      "end": 4.059248924255371,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 4.059248924255371,
+      "start": 4.059248924255371,
+      "chord": "C7",
+      "voicing": [
+        48,
+        58,
+        64
+      ],
+      "endOriginal": 5.834465980529785,
+      "end": 5.834465980529785,
+      "pitchClasses": [
+        0,
+        4,
+        10
+      ]
+    },
+    {
+      "startOriginal": 5.834465980529785,
+      "start": 5.834465980529785,
+      "chord": "F",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 11.318524360656738,
+      "end": 11.318524360656738,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 11.318524360656738,
+      "start": 11.318524360656738,
+      "chord": "C7",
+      "voicing": [
+        48,
+        58,
+        64
+      ],
+      "endOriginal": 13.065601348876953,
+      "end": 13.065601348876953,
+      "pitchClasses": [
+        0,
+        4,
+        10
+      ]
+    },
+    {
+      "startOriginal": 13.065601348876953,
+      "start": 13.065601348876953,
+      "chord": "F",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 18.70025062561035,
+      "end": 18.70025062561035,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 18.70025062561035,
+      "start": 18.70025062561035,
+      "chord": "C7",
+      "voicing": [
+        48,
+        58,
+        64
+      ],
+      "endOriginal": 20.417057037353516,
+      "end": 20.417057037353516,
+      "pitchClasses": [
+        0,
+        4,
+        10
+      ]
+    },
+    {
+      "startOriginal": 20.417057037353516,
+      "start": 20.417057037353516,
+      "chord": "F",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 25.70194435119629,
+      "end": 25.70194435119629,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 25.70194435119629,
+      "start": 25.70194435119629,
+      "chord": "C7",
+      "voicing": [
+        48,
+        58,
+        64
+      ],
+      "endOriginal": 27.44284439086914,
+      "end": 27.44284439086914,
+      "pitchClasses": [
+        0,
+        4,
+        10
+      ]
+    },
+    {
+      "startOriginal": 27.44284439086914,
+      "start": 27.44284439086914,
+      "chord": "F",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 29.374942779541016,
+      "end": 29.374942779541016,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 29.374942779541016,
+      "start": 29.374942779541016,
+      "chord": "Bb",
+      "voicing": [
+        53,
+        58,
+        62
+      ],
+      "endOriginal": 31.262226104736328,
+      "end": 31.262226104736328,
+      "pitchClasses": [
+        2,
+        5,
+        10
+      ]
+    },
+    {
+      "startOriginal": 31.262226104736328,
+      "start": 31.262226104736328,
+      "chord": "F",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 32.95399856567383,
+      "end": 32.95399856567383,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 32.95399856567383,
+      "start": 32.95399856567383,
+      "chord": "A7/E",
+      "voicing": [
+        52,
+        57,
+        61
+      ],
+      "endOriginal": 34.64257049560547,
+      "end": 34.64257049560547,
+      "pitchClasses": [
+        1,
+        4,
+        9
+      ]
+    },
+    {
+      "startOriginal": 34.64257049560547,
+      "start": 34.64257049560547,
+      "chord": "Dm",
+      "voicing": [
+        50,
+        57,
+        65
+      ],
+      "endOriginal": 36.6110725402832,
+      "end": 36.6110725402832,
+      "pitchClasses": [
+        2,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 36.6110725402832,
+      "start": 36.6110725402832,
+      "chord": "Bdim7",
+      "voicing": [
+        53,
+        56,
+        62
+      ],
+      "endOriginal": 38.6075439453125,
+      "end": 38.6075439453125,
+      "pitchClasses": [
+        2,
+        5,
+        8
+      ]
+    },
+    {
+      "startOriginal": 38.6075439453125,
+      "start": 38.6075439453125,
+      "chord": "F/C",
+      "voicing": [
+        48,
+        57,
+        65
+      ],
+      "endOriginal": 40.3116569519043,
+      "end": 40.3116569519043,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 40.3116569519043,
+      "start": 40.3116569519043,
+      "chord": "C7",
+      "voicing": [
+        48,
+        58,
+        64
+      ],
+      "endOriginal": 42.32241439819336,
+      "end": 42.32241439819336,
+      "pitchClasses": [
+        0,
+        4,
+        10
+      ]
+    },
+    {
+      "startOriginal": 42.32241439819336,
+      "start": 42.32241439819336,
+      "chord": "F",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 44.223976135253906,
+      "end": 44.223976135253906,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 44.223976135253906,
+      "start": 44.223976135253906,
+      "chord": "Bb",
+      "voicing": [
+        53,
+        58,
+        62
+      ],
+      "endOriginal": 46.06538772583008,
+      "end": 46.06538772583008,
+      "pitchClasses": [
+        2,
+        5,
+        10
+      ]
+    },
+    {
+      "startOriginal": 46.06538772583008,
+      "start": 46.06538772583008,
+      "chord": "F",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 47.87307357788086,
+      "end": 47.87307357788086,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 47.87307357788086,
+      "start": 47.87307357788086,
+      "chord": "A7/E",
+      "voicing": [
+        52,
+        57,
+        61
+      ],
+      "endOriginal": 49.626705169677734,
+      "end": 49.626705169677734,
+      "pitchClasses": [
+        1,
+        4,
+        9
+      ]
+    },
+    {
+      "startOriginal": 49.626705169677734,
+      "start": 49.626705169677734,
+      "chord": "Dm",
+      "voicing": [
+        50,
+        57,
+        65
+      ],
+      "endOriginal": 51.61858367919922,
+      "end": 51.61858367919922,
+      "pitchClasses": [
+        2,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 51.61858367919922,
+      "start": 51.61858367919922,
+      "chord": "Bdim7",
+      "voicing": [
+        53,
+        56,
+        62
+      ],
+      "endOriginal": 53.541786193847656,
+      "end": 53.541786193847656,
+      "pitchClasses": [
+        2,
+        5,
+        8
+      ]
+    },
+    {
+      "startOriginal": 53.541786193847656,
+      "start": 53.541786193847656,
+      "chord": "F/C",
+      "voicing": [
+        48,
+        57,
+        65
+      ],
+      "endOriginal": 55.157264709472656,
+      "end": 55.157264709472656,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 55.157264709472656,
+      "start": 55.157264709472656,
+      "chord": "C7",
+      "voicing": [
+        48,
+        58,
+        64
+      ],
+      "endOriginal": 57.139244079589844,
+      "end": 57.139244079589844,
+      "pitchClasses": [
+        0,
+        4,
+        10
+      ]
+    },
+    {
+      "startOriginal": 57.139244079589844,
+      "start": 57.139244079589844,
+      "chord": "F",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 59.19533157348633,
+      "end": 59.19533157348633,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 59.19533157348633,
+      "start": 59.19533157348633,
+      "chord": "C7 over F pedal",
+      "voicing": [
+        48,
+        58,
+        64
+      ],
+      "endOriginal": 61.138912200927734,
+      "end": 61.138912200927734,
+      "pitchClasses": [
+        0,
+        4,
+        10
+      ]
+    },
+    {
+      "startOriginal": 61.138912200927734,
+      "start": 61.138912200927734,
+      "chord": "F",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 63.0622673034668,
+      "end": 63.0622673034668,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 63.0622673034668,
+      "start": 63.0622673034668,
+      "chord": "C7 over F pedal",
+      "voicing": [
+        48,
+        58,
+        64
+      ],
+      "endOriginal": 64.89579772949219,
+      "end": 64.89579772949219,
+      "pitchClasses": [
+        0,
+        4,
+        10
+      ]
+    },
+    {
+      "startOriginal": 64.89579772949219,
+      "start": 64.89579772949219,
+      "chord": "F",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 70.43226623535156,
+      "end": 70.43226623535156,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 70.43226623535156,
+      "start": 70.43226623535156,
+      "chord": "Bb/D",
+      "voicing": [
+        50,
+        58,
+        65
+      ],
+      "endOriginal": 70.75425720214844,
+      "end": 70.75425720214844,
+      "pitchClasses": [
+        2,
+        5,
+        10
+      ]
+    },
+    {
+      "startOriginal": 70.75425720214844,
+      "start": 70.75425720214844,
+      "chord": "F/A",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 71.06137084960938,
+      "end": 71.06137084960938,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 71.06137084960938,
+      "start": 71.06137084960938,
+      "chord": "Gm/Bb",
+      "voicing": [
+        55,
+        58,
+        62
+      ],
+      "endOriginal": 71.45540618896484,
+      "end": 71.45540618896484,
+      "pitchClasses": [
+        2,
+        7,
+        10
+      ]
+    },
+    {
+      "startOriginal": 71.45540618896484,
+      "start": 71.45540618896484,
+      "chord": "F/A",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 71.82379150390625,
+      "end": 71.82379150390625,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 71.82379150390625,
+      "start": 71.82379150390625,
+      "chord": "Bb/D",
+      "voicing": [
+        50,
+        58,
+        65
+      ],
+      "endOriginal": 72.33049774169922,
+      "end": 72.33049774169922,
+      "pitchClasses": [
+        2,
+        5,
+        10
+      ]
+    },
+    {
+      "startOriginal": 72.33049774169922,
+      "start": 72.33049774169922,
+      "chord": "F/A",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 72.89340209960938,
+      "end": 72.89340209960938,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    },
+    {
+      "startOriginal": 72.89340209960938,
+      "start": 72.89340209960938,
+      "chord": "G-Bb-F suspension; no added E",
+      "voicing": [
+        55,
+        58,
+        65
+      ],
+      "endOriginal": 74.15503692626953,
+      "end": 74.15503692626953,
+      "pitchClasses": [
+        5,
+        7,
+        10
+      ]
+    },
+    {
+      "startOriginal": 74.15503692626953,
+      "start": 74.15503692626953,
+      "chord": "F final",
+      "voicing": [
+        53,
+        57,
+        60
+      ],
+      "endOriginal": 77.5,
+      "end": 77.5,
+      "pitchClasses": [
+        0,
+        5,
+        9
+      ]
+    }
+  ],
+  "validation": {
+    "allPieceHarmonyRegions": 37,
+    "compatibleNoteRegionIntersections": 127,
+    "releasePolicy": "Per-note wet and dry string audio gated to silence by incompatible harmonic boundaries; common tones only tied across compatible regions; no global string reverb tail after the gate."
+  }
+}

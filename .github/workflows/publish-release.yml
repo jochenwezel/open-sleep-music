@@ -12,6 +12,7 @@ env:
 
 jobs:
   publish-android:
+    if: ${{ !startsWith(github.event.release.tag_name, 'music-') }}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v5
@@ -73,6 +74,7 @@ jobs:
         run: gh release upload "${{ github.event.release.tag_name }}" artifacts/android/* --clobber
 
   publish-windows:
+    if: ${{ !startsWith(github.event.release.tag_name, 'music-') }}
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v5

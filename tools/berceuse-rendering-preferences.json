@@ -41,8 +41,8 @@
     "verification": "Confirm actual reverb in the output using a wet/dry comparison. Earlier Salamander A/B renders were effectively identical because no MIDI reverb send reached the effect. Check loudness matching, full decoding, headroom, quiet ending and retained credits before delivering an audition."
   },
   "additionalStrings": {
-    "status": "audition-pending",
-    "feedback": "The maintainer likes the background fullness from strings but reports incorrect, late harmony changes, especially in the last third. They request correction across the entire piece. String accompaniment remains pending renewed listening approval; the YDP B piano preference is retained.",
+    "status": "maintainer-approved-for-burgmuller-c2",
+    "feedback": "After the full-piece C2 harmony correction, the maintainer applauds and selects the YDP piano with and without strings, each at original and sleep tempo, for publication. Approval of this Burgmuller arrangement does not approve newly created string accompaniments for other pieces.",
     "audition": "Burgmuller op. 109 No. 7: piano B with newly arranged held violin, viola and cello accompaniment; full-piece revision C2",
     "revision": {
       "fileName": "C2-Berceuse-Klavier-mit-Kammerstreichern.mp3",
@@ -55,6 +55,13 @@
     "sampleSourceUri": "https://github.com/sgossner/VSCO-2-CE",
     "sampleLicense": "CC0 1.0",
     "sampleLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  "publication": {
+    "songDirectory": "music/burgmuller-berceuse-op109-no7",
+    "manifest": "music/burgmuller-berceuse-op109-no7/song.json",
+    "releaseTag": "music-2026-10-23-v1",
+    "retainedVariants": ["piano-original", "piano-sleep", "piano-strings-original", "piano-strings-sleep"],
+    "note": "Published MP3 decoded samples retain the selected auditions; ID3 metadata is updated for publication. The manifest records published-byte hashes separately from original audition hashes. Original-tempo renders use the same selected voice and arrangement without separate listening feedback."
   },
   "admissionBoundary": "Piano-voice preference is not approval to replace any catalog recording or to promote an arrangement. Retain each specific source performance's recording license, attribution, modification disclosure and original files. Keep estimated original MIDI velocities separately from render-only softening. Complete recording-specific rights, audio-delivery, suitability and listening checks for each resulting recording before promotion."
 }

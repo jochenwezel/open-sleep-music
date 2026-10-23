@@ -1,0 +1,76 @@
+{
+  "piano": {
+    "id": "ydp-b-warm-room",
+    "status": "maintainer-preferred",
+    "appliesTo": "All Berceuse pieces when preparing MIDI-based replacement recordings",
+    "feedback": "The maintainer likes the new YDP variant B very much and selects it as the preferred piano voice for future Berceuse conversions.",
+    "approvedAuditionFile": "B-voller-Fluegel-mit-Raum-YDP.mp3",
+    "approvedAuditionSha256": "5eee3efcad5144bcc31f0f37428c8a46efb9587b63d4058cf89d412312993ddc",
+    "soundbank": "YDP Grand Piano, FreePats SF2 version 2016-08-04, Yamaha Disklavier Pro",
+    "soundbankSourcePageUri": "https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html",
+    "soundbankDownloadUri": "https://freepats.zenvoid.org/Piano/YDP-GrandPiano/YDP-GrandPiano-SF2-20160804.tar.bz2",
+    "soundbankLicense": "CC BY 3.0",
+    "soundbankLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
+    "soundbankCredits": "Zenph Studios, Dr. Mikhail Krishtal and team; OLPC sound sample library / Dr. Richard Boulanger; SF2 and sample modifications by Roberto (roberto@zenvoid.org), FreePats",
+    "synthesizer": "FluidSynth 2.6.1",
+    "renderSettings": {
+      "sampleRateHz": 44100,
+      "channels": 2,
+      "renderOnlyVelocityScale": 0.8,
+      "tempo": "Retain each recording's chosen audition tempo through MIDI-event timing; do not impose the Burgmuller tempo on other pieces or stretch rendered audio",
+      "reverbEnabled": true,
+      "reverbEngine": "free",
+      "reverbMidiController91": 90,
+      "reverbRoomSize": 0.43,
+      "reverbLevel": 0.38,
+      "reverbDamp": 0.65,
+      "reverbWidth": 0.9,
+      "chorusEnabled": false,
+      "highPassHz": 35,
+      "bodyEq": {
+        "frequencyHz": 210,
+        "gainDb": 2.4,
+        "q": 0.65
+      },
+      "presenceEq": {
+        "frequencyHz": 3100,
+        "gainDb": -1.6,
+        "q": 0.8
+      },
+      "lowPassHz": 9500,
+      "integratedLoudnessTargetLufs": -23.21,
+      "loudnessStrategy": "Constant gain only; retain safe peak headroom and note dynamics; no compressor or limiter",
+      "mp3BitrateKbps": 256,
+      "tailTrim": {
+        "significantPeakThresholdDbfs": -90,
+        "quietMarginSeconds": 0.35,
+        "finalInaudibleFadeMilliseconds": 80
+      }
+    },
+    "verification": "Confirm actual reverb in the output using a wet/dry comparison. Earlier Salamander A/B renders were effectively identical because no MIDI reverb send reached the effect. Check loudness matching, full decoding, headroom, quiet ending and retained credits before delivering an audition."
+  },
+  "strings": {
+    "sampleRateHz": 44100,
+    "stringToPianoRmsDb": -11,
+    "maximumBowPhraseSecondsAtSleepTempo": 4.5,
+    "appTimingFactor": 0.833333,
+    "envelope": "Squared-sine attack, squared-cosine release; durations from per-note arrangement metadata. For original tempo multiply sleep-event times and envelope durations by 0.833333.",
+    "room": "Deterministic RNG seed 1097; mono per-note IR, length 0.35s, T60 0.24s, 9ms predelay, second-order 4500Hz lowpass, energy-normalized; wet gain 0.18, before per-note release gate.",
+    "samplePreparation": "Decode 44100 Hz stereo; remove leading recording silence up to first 10ms RMS block >=1.5% of maximum block RMS, retain 35ms lead. Fold stereo to mono and normalize RMS over 0.5-2.5s to 0.08. Resample mapped pitch using source SFZ root/tune and polyphase conversion (rational denominator <=2048). No sample loops required.",
+    "pans": {
+      "cello": 0.22,
+      "viola": 0.04,
+      "violin": -0.23
+    },
+    "levels": {
+      "cello": 0.85,
+      "viola": 0.78,
+      "violin": 0.73
+    },
+    "filters": "Second-order highpass: cello 80Hz, viola 110Hz, violin 150Hz; second-order 6200Hz lowpass. Equal-power pan. Per-note velocity multiplier (velocity/48)^1.25; sustained bow swell 0.94+0.06*sin(0..pi).",
+    "note": "MIDI file notes already have the 0.8 render-velocity scale. Do not soften them a second time. General MIDI string voices and envelopes do not reproduce the sample-rendered MP3 exactly."
+  },
+  "synthesizer": "FluidSynth 2.6.1; render piano with gain 0.6, no chorus, reverb and explicit CC91=90; pad eight seconds for room decay before tail trim",
+  "encoders": "LAME via lameenc, 256 kbps stereo, quality 2",
+  "originalRecordingUnchanged": true
+}

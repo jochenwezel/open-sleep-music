@@ -1,0 +1,37 @@
+{
+  "sourceRecording": {
+    "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Berceuse_Burgmuller.ogg",
+    "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Berceuse_Burgmuller.ogg",
+    "sha1": "2701c3802dae189dd59b4980aa363a1d467a9007",
+    "creator": "BastienM",
+    "composer": "Friedrich BurgmÃ¼ller",
+    "license": "CC BY-SA 3.0",
+    "licenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "evidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Berceuse_Burgmuller.ogg&oldid=1227002970",
+    "verifiedOn": "2026-10-23",
+    "evidenceSummary": "The specific original file page identifies BastienM, own work, December 2007, and offers CC BY-SA 3.0 among multiple licenses. We select CC BY-SA 3.0 and retain its adaptation terms. Original downloaded bytes match the source-provided SHA-1.",
+    "upstreamBytes": 1143541,
+    "upstreamDurationSeconds": 84.57836734693878
+  },
+  "pianoSamples": {
+    "sourcePage": "https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html",
+    "downloadUri": "https://freepats.zenvoid.org/Piano/YDP-GrandPiano/YDP-GrandPiano-SF2-20160804.tar.bz2",
+    "sha256": "d243dc3e182a60df2a16e92828c1821cf3eb5748b45e2e2bdcfa9cf7af056026",
+    "license": "CC BY 3.0",
+    "licenseUri": "https://creativecommons.org/licenses/by/3.0/",
+    "credits": "Zenph Studios and Dr. Mikhail Krishtal and team; OLPC sound sample library / Dr. Richard Boulanger; SF2 and sample modifications by Roberto (roberto@zenvoid.org), FreePats",
+    "verifiedOn": "2026-10-23",
+    "evidenceSummary": "The YDP Grand Piano section on FreePats identifies Zenph/OLPC sources and the CC BY 3.0 grant. The downloaded 2016-08-04 soundfont includes matching original credits and license declaration."
+  },
+  "stringSamples": {
+    "sourceUri": "https://github.com/sgossner/VSCO-2-CE",
+    "licenseEvidenceUri": "https://github.com/sgossner/VSCO-2-CE/blob/master/LICENSE",
+    "license": "CC0 1.0",
+    "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "verifiedOn": "2026-10-23",
+    "credits": "Strings: VSCO 2 Community Edition, Versilian Studios/Sam Gossner, Ivy Audio/Simon Dalzell, sample cutting Elan Hickler/Soundemote. CC0 1.0 https://creativecommons.org/publicdomain/zero/1.0/.",
+    "files": "../sources/string-sample-provenance.json",
+    "verification": "Individual sample bytes checked against the Git blob SHA-1 from source tree metadata; SHA-256 values retained for exact local bytes."
+  },
+  "reviewBoundary": "Source-declared grants and provenance checks are documented; no endorsement or independent copyright guarantee is claimed."
+}
