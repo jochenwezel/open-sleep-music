@@ -1,5 +1,10 @@
 # Working notation for Gabriel Fauré - Berceuse op. 56 No. 1
 
+**Review update, 2026-10-23:** the source MIDI has reported pitch and attack
+errors, including in the opening. These version 1 PDFs inherit its estimated
+notes and require correction before use as performance material. The private
+solo correction auditions are not incorporated into these PDFs.
+
 These PDFs are **automatic MIDI working editions** for musicians, not a
 note-for-note proofread original score. They use the published original-tempo
 MIDI notes plus the stored complete-release string metadata. Both audio tempos

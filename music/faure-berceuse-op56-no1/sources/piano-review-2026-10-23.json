@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "status": "transcription-correction-required; private-solo-audition-pending",
+  "scope": "Piano solo first, at the maintainer request. No string reworking in this review.",
+  "maintainerFeedback": "The converted MIDI contains apparent incorrect pitches or note timing and repeated dissonances. The opening sequence already differs from the original.",
+  "source": "piano-transcription.json",
+  "publishedAudioCommit": "92af08a8a3851ec2894e94566bd38d34a6070f1e",
+  "publishedOriginalMidiSha256": "c97580ea6e95088d122ada935ff646956a61e30527bd77fd0d1c4cbc3ca96e76",
+  "posteriorSha256": "47eafed2ecf7dd793679aba14b083542b67ad30beb28f816ca7649811372a339",
+  "diagnosis": {
+    "originalNoteCount": 2053,
+    "unsupportedMicroEvents": 91,
+    "pedalExtendedBeyond100ms": 51,
+    "firstAttack": {
+      "sourceNoteIndex": 2,
+      "pitch": 38,
+      "name": "D2",
+      "onsetSeconds": 1.949056625366211,
+      "keyDurationSeconds": 0.010943374633789027,
+      "pedalSoundingSeconds": 1.404,
+      "frameActivationMaximum": 0.007,
+      "description": "Additional detected D2 beside E2. An onset-only micro-event becomes a sustained audible MIDI note through the pedal."
+    },
+    "policy": "Private A1 rejects only detections shorter than 50ms with frame activation never reaching the model note-active threshold 0.1. This is a conservative rejection class, not proof of all true source notes.",
+    "openingAdditionalRejectedSourceIndexes": [
+      496,
+      255,
+      499,
+      500
+    ],
+    "openingAdditionalFindings": "Private A2 also removes three source-reviewed G#3 re-attacks at 2.456, 5.005 and 5.603 original seconds while the source partials decay, and an E3 detection at 2.484 seconds without a separate fundamental/second-partial attack. Shared higher partials from the newly struck notes were considered. Two prior G#3 intervals are rejoined across false splits. No score pitch substitutions or quantization.",
+    "openingOffsetEditsOriginalSeconds": {
+      "495": 3.355940341949463,
+      "498": 5.956968307495117
+    }
+  },
+  "privateAudition": {
+    "revision": "A2",
+    "removedNoteCount": 95,
+    "remainingNoteCount": 1958,
+    "tempoFactor": 0.833333,
+    "audioSha256": "92d1278d20e31032defa68efeb574614706d14b5d9f604377399b316b053263c",
+    "audioDurationSeconds": 255.94775510204082,
+    "integratedLufs": -23.21226554198581,
+    "truePeakDbtp4x": -6.3198908031407575,
+    "reviewStatus": "first correction audition only; no listening approval or complete musical proofread",
+    "comparison": "Source, published MIDI and corrected MIDI excerpts use original speed, original seconds 1.65–26.65, matched loudness and the same excerpt ending fade."
+  },
+  "limitations": "Long false notes, missing attacks, octave errors and pedal errors can remain. Technical MIDI checks and posterior scores do not prove musical accuracy. Version 1 score PDFs inherit the uncorrected MIDI. Existing published media and PDF bytes, pinned downloads and app source recording remain unchanged. No corrected media is published or promoted by this review."
+}

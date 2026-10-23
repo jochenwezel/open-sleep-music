@@ -1,5 +1,12 @@
 # Gabriel Fauré — Berceuse op. 56 No. 1
 
+**Piano transcription review, 2026-10-23:** the maintainer reports wrong notes
+and attacks, including in the opening. Version 1 requires musical correction;
+the YDP instrument preference does not approve its automatically detected notes.
+Private solo correction auditions are being reviewed. The existing MIDI, MP3
+and derived working-score bytes are preserved, and the app retains the source
+recording. [Review findings](sources/piano-review-2026-10-23.json).
+
 These project recordings adapt **Brian M. Jones's solo piano arrangement and
 September 2010 performance** of the Berceuse from the Dolly Suite. They use the
 preferred warm **YDP Grand Piano variant B**, with a separate restrained string

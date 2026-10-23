@@ -106,7 +106,9 @@
         "piano-strings-original",
         "piano-strings-sleep"
       ],
-      "stringsReviewStatus": "new-accompaniment-prepared-at-maintainer-request; listening-feedback-pending"
+      "stringsReviewStatus": "new-accompaniment-prepared-at-maintainer-request; listening-feedback-pending",
+      "pianoReviewStatus": "transcription-correction-required; private-solo-audition-A2-pending",
+      "pianoReviewFindingsPath": "music/faure-berceuse-op56-no1/sources/piano-review-2026-10-23.json"
     }
   ]
 }
