@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "scope": "Manual offline MIDI-to-audio preparation of Berceuse recordings; not consumed by the app or catalog generator",
+  "feedbackDate": "2026-10-23",
+  "preferredPiano": {
+    "id": "ydp-b-warm-room",
+    "status": "maintainer-preferred",
+    "appliesTo": "All Berceuse pieces when preparing MIDI-based replacement recordings",
+    "feedback": "The maintainer likes the new YDP variant B very much and selects it as the preferred piano voice for future Berceuse conversions.",
+    "approvedAuditionFile": "B-voller-Fluegel-mit-Raum-YDP.mp3",
+    "approvedAuditionSha256": "5eee3efcad5144bcc31f0f37428c8a46efb9587b63d4058cf89d412312993ddc",
+    "soundbank": "YDP Grand Piano, FreePats SF2 version 2016-08-04, Yamaha Disklavier Pro",
+    "soundbankSourcePageUri": "https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html",
+    "soundbankDownloadUri": "https://freepats.zenvoid.org/Piano/YDP-GrandPiano/YDP-GrandPiano-SF2-20160804.tar.bz2",
+    "soundbankLicense": "CC BY 3.0",
+    "soundbankLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
+    "soundbankCredits": "Zenph Studios, Dr. Mikhail Krishtal and team; OLPC sound sample library / Dr. Richard Boulanger; SF2 and sample modifications by Roberto (roberto@zenvoid.org), FreePats",
+    "synthesizer": "FluidSynth 2.6.1",
+    "renderSettings": {
+      "sampleRateHz": 44100,
+      "channels": 2,
+      "renderOnlyVelocityScale": 0.8,
+      "tempo": "Retain each recording's chosen audition tempo through MIDI-event timing; do not impose the Burgmuller tempo on other pieces or stretch rendered audio",
+      "reverbEnabled": true,
+      "reverbEngine": "free",
+      "reverbMidiController91": 90,
+      "reverbRoomSize": 0.43,
+      "reverbLevel": 0.38,
+      "reverbDamp": 0.65,
+      "reverbWidth": 0.9,
+      "chorusEnabled": false,
+      "highPassHz": 35,
+      "bodyEq": { "frequencyHz": 210, "gainDb": 2.4, "q": 0.65 },
+      "presenceEq": { "frequencyHz": 3100, "gainDb": -1.6, "q": 0.8 },
+      "lowPassHz": 9500,
+      "integratedLoudnessTargetLufs": -23.21,
+      "loudnessStrategy": "Constant gain only; retain safe peak headroom and note dynamics; no compressor or limiter",
+      "mp3BitrateKbps": 256,
+      "tailTrim": { "significantPeakThresholdDbfs": -90, "quietMarginSeconds": 0.35, "finalInaudibleFadeMilliseconds": 80 }
+    },
+    "verification": "Confirm actual reverb in the output using a wet/dry comparison. Earlier Salamander A/B renders were effectively identical because no MIDI reverb send reached the effect. Check loudness matching, full decoding, headroom, quiet ending and retained credits before delivering an audition."
+  },
+  "additionalStrings": {
+    "status": "audition-pending",
+    "feedback": "The maintainer requests a trial with a few strings for chamber-orchestra fullness. This is separate from the approved piano-voice preference.",
+    "audition": "Burgmuller op. 109 No. 7: piano B with newly arranged held violin, viola and cello accompaniment",
+    "sampleSourceUri": "https://github.com/sgossner/VSCO-2-CE",
+    "sampleLicense": "CC0 1.0",
+    "sampleLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  "admissionBoundary": "Piano-voice preference is not approval to replace any catalog recording or to promote an arrangement. Retain each specific source performance's recording license, attribution, modification disclosure and original files. Keep estimated original MIDI velocities separately from render-only softening. Complete recording-specific rights, audio-delivery, suitability and listening checks for each resulting recording before promotion."
+}

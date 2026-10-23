@@ -95,6 +95,8 @@ the Preselection page. Test both channel variants before changing these gates.
 
 `tools/Update-MediaCatalog.ps1` is the reproducible catalog generator. Make selection changes in that script and regenerate the JSON instead of hand-editing generated entries.
 
+For MIDI-based Berceuse recording preparation, consult `tools/berceuse-rendering-preferences.json`. The maintainer prefers the YDP variant B piano voice for future conversions. Its separate string accompaniment remains an audition pending listening feedback. These preferences do not replace recording-rights checks or authorize automatic catalog replacement or promotion.
+
 The Lullabies for little ones collection uses a persisted mixed default order,
 never alphabetical sorting. `tools/lullabies-track-order.json` contains every
 current membership ID, including shared recordings. The generator retains the
