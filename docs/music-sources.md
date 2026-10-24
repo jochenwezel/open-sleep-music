@@ -46,6 +46,8 @@ Catalog tests require unique identifiers and filenames, HTTPS URLs, attribution 
 
 The remaining Chopin mazurkas provisionally play at two-thirds speed (150% listening time) for another listening review. Their original recording durations remain in the catalog metadata and source totals above. This tempo adjustment is not a final suitability approval; further unsuitable recordings will be blacklisted after review.
 
+On 24 October 2026, an [initial three-work YDP audition](mazurka-auditions-2026-10-24.md) prepares op. 68 no. 2, op. 67 no. 2 and op. 63 no. 2 with piano solo and optional quiet chamber strings at the current sleep tempo. These private Nextcloud auditions do not replace the catalog recordings. Recording-specific research credits Olga Gurevich / Musopen and retains IMSLP's CC BY 4.0 terms; the Archive mirror's different CC0 declaration remains a discrepancy to reconcile before production promotion or public project-music publication. Exact delivered hashes and the pending review status are retained in the [audition manifest](../tools/mazurka-auditions-2026-10-24.json).
+
 On 2026-10-02, the maintainer requested removal of all 20 blocked track IDs from field feedback: five Quiet Classics recordings, fourteen Gentle Rain recordings, and one lullaby. Their IDs are retained in tools/media-catalog-blacklist.json; the generator excludes them from every source. Catalog tests prevent their reintroduction. The raw report is not committed. The harp/recorder pilot and Another Lullaby are no longer included. The minimum count is now 134 to reflect this deliberate removal; the 15-hour duration floor remains unchanged.
 
 ## Preselection review collection

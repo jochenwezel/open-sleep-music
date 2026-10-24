@@ -1,0 +1,471 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "scope": "Initial private auditions for three of 57 catalog mazurkas; no production catalog replacement",
+  "nextcloudRelativeDirectory": "Open Sleep Music/Probehören/2026-10-24-Chopin-Mazurken-YDP",
+  "reviewStatus": "awaiting-maintainer-listening; recording-license-discrepancy-needs-reconciliation-before-production",
+  "overview": {
+    "fileName": "00-Ueberblick-je-20-Sekunden-Solo-dann-Streicher.mp3",
+    "durationSeconds": 126.04081632653062,
+    "integratedLufs": -23.237030556000093,
+    "truePeakDbtp4x": -6.829517318573339,
+    "final250msRmsDbfs": -240.0,
+    "sha256": "5f07fc2734d9279c7952efb868d1d0047aba9f54816defd4077e480cf431b472",
+    "bytes": 4041160
+  },
+  "recordingRightsReview": {
+    "date": "2026-10-24",
+    "archiveDeclaration": "CC0 1.0 (uploader-declared mirror metadata); retained as historical catalog/source metadata, not the sole evidence for these adaptations",
+    "finding": "Original MP3 ID3 TPE1 credits OIga Gurevich; official Musopen performer pages corroborate Olga Gurevich. IMSLP names her matching op.68 no.2 (2:22), op.67 no.2 (1:51), op.63 no.2 (1:38) Musopen performances and declares CC BY 4.0. Use these attribution terms conservatively; do not assert that the uploader can waive them. No production catalog license change is made in this audition task.",
+    "recordings": [
+      {
+        "opus": 68,
+        "number": 2,
+        "performer": "Olga Gurevich",
+        "publisher": "Musopen",
+        "acceptedAuditionLicense": "CC BY 4.0",
+        "licenseUri": "https://creativecommons.org/licenses/by/4.0/",
+        "recordingSourcePageUri": "https://imslp.org/wiki/Mazurkas,_Op.68_(Chopin,_Fr%C3%A9d%C3%A9ric)",
+        "recordingIndex": 479617,
+        "identityEvidence": "Matching work, performer embedded in exact Archive MP3 and corroborated by official Musopen performer page, and matching recording duration. No byte-identity claim between different portal transcodes.",
+        "reviewStatus": "accepted-attribution-terms-for-private-audition; reconcile-mirror-license-before-production-promotion"
+      },
+      {
+        "opus": 67,
+        "number": 2,
+        "performer": "Olga Gurevich",
+        "publisher": "Musopen",
+        "acceptedAuditionLicense": "CC BY 4.0",
+        "licenseUri": "https://creativecommons.org/licenses/by/4.0/",
+        "recordingSourcePageUri": "https://imslp.org/wiki/Mazurkas,_Op.67_(Chopin,_Fr%C3%A9d%C3%A9ric)",
+        "recordingIndex": 478375,
+        "identityEvidence": "Matching work, performer embedded in exact Archive MP3 and corroborated by official Musopen performer page, and matching recording duration. No byte-identity claim between different portal transcodes.",
+        "reviewStatus": "accepted-attribution-terms-for-private-audition; reconcile-mirror-license-before-production-promotion"
+      },
+      {
+        "opus": 63,
+        "number": 2,
+        "performer": "Olga Gurevich",
+        "publisher": "Musopen",
+        "acceptedAuditionLicense": "CC BY 4.0",
+        "licenseUri": "https://creativecommons.org/licenses/by/4.0/",
+        "recordingSourcePageUri": "https://imslp.org/wiki/Mazurkas,_Op.63_(Chopin,_Fr%C3%A9d%C3%A9ric)",
+        "recordingIndex": 478372,
+        "identityEvidence": "Matching work, performer embedded in exact Archive MP3 and corroborated by official Musopen performer page, and matching recording duration. No byte-identity claim between different portal transcodes.",
+        "reviewStatus": "accepted-attribution-terms-for-private-audition; reconcile-mirror-license-before-production-promotion"
+      }
+    ]
+  },
+  "auditions": [
+    {
+      "trackId": "musopen-chopin-complete-works-flac-mazurka-in-a-minor-op-68-no-2-mp3",
+      "title": "Mazurka in A minor, Op. 68 no. 2",
+      "tempoFactor": 0.666667,
+      "sourceSha256": "32fec316df0ae69ec82cec91e4833cf46e3a5b92e59ab66055f70cb69ad4a955",
+      "sourceRecordingLicense": "CC BY 4.0",
+      "projectAdaptationLicense": "CC BY 4.0",
+      "pianoSamplesLicense": "CC BY 3.0",
+      "stringSamplesLicense": "CC0 1.0",
+      "midi": [
+        {
+          "fileName": "piano-original.mid",
+          "tempoFactor": 1,
+          "notes": 1264,
+          "samePitchOverlapCorrections": 0,
+          "sha256": "1bf017babe8c8637daf6f5db4ff71f58bf809d407d8d9849a217737fe50a5e88",
+          "durationSeconds": 142.3328125
+        },
+        {
+          "fileName": "piano-sleep.mid",
+          "tempoFactor": 0.666667,
+          "notes": 1264,
+          "samePitchOverlapCorrections": 0,
+          "sha256": "cbf4493c5daaabeefb07ae7d966db540fc4c75604edd447c48e41f9678a9d158",
+          "durationSeconds": 213.49947916666667
+        },
+        {
+          "fileName": "piano-sleep-strings.mid",
+          "tempoFactor": 0.666667,
+          "notes": 1681,
+          "samePitchOverlapCorrections": 0,
+          "sha256": "2880385150870cd4fac4d3fcda2402238e21c1ab90c540b28a9856f0ae6a6cf9",
+          "durationSeconds": 213.49947916666667
+        }
+      ],
+      "mp3": [
+        {
+          "fileName": "01A-mazurka-in-a-minor-op-68-no-2-Einschlaftempo.mp3",
+          "durationSeconds": 210.44244897959183,
+          "integratedLufs": -23.211954765204073,
+          "truePeakDbtp4x": -5.652188506427618,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "e75bf7e2affd467ac71d240c8bda4c09e394b3a63f168ff604c2b7fce45c3194",
+          "bytes": 6744869,
+          "variant": "A",
+          "tailTrim": {
+            "originalRenderedSeconds": 223.50367346938776,
+            "selectedEndSeconds": 210.4,
+            "removedSeconds": 13.103673469387756,
+            "peakThresholdDbfs": -90,
+            "lastPeakAboveThresholdSeconds": 210.02,
+            "quietMarginSeconds": 0.35,
+            "finalFadeMilliseconds": 80,
+            "startOffsetMilliseconds": 0
+          },
+          "listeningReviewStatus": "pending"
+        },
+        {
+          "fileName": "01B-mazurka-in-a-minor-op-68-no-2-Einschlaftempo.mp3",
+          "durationSeconds": 210.44244897959183,
+          "integratedLufs": -23.21213984846987,
+          "truePeakDbtp4x": -5.741626541023664,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "b976364af8ae8debd789e385060102be6349877b881c949a81803b96a87db494",
+          "bytes": 6745551,
+          "variant": "B",
+          "tailTrim": {
+            "originalRenderedSeconds": 223.50367346938776,
+            "selectedEndSeconds": 210.4,
+            "removedSeconds": 13.103673469387756,
+            "peakThresholdDbfs": -90,
+            "lastPeakAboveThresholdSeconds": 210.02,
+            "quietMarginSeconds": 0.35,
+            "finalFadeMilliseconds": 80,
+            "startOffsetMilliseconds": 0
+          },
+          "listeningReviewStatus": "pending"
+        }
+      ],
+      "stringToPianoRmsDb": -11,
+      "wetDryDifferenceRelativeDb": -17.69757252134194,
+      "pianoSettings": {
+        "sampleRateHz": 44100,
+        "channels": 2,
+        "renderOnlyVelocityScale": 0.8,
+        "tempo": "Retain each recording's chosen audition tempo through MIDI-event timing; do not impose the Burgmuller tempo on other pieces or stretch rendered audio",
+        "reverbEnabled": true,
+        "reverbEngine": "free",
+        "reverbMidiController91": 90,
+        "reverbRoomSize": 0.43,
+        "reverbLevel": 0.38,
+        "reverbDamp": 0.65,
+        "reverbWidth": 0.9,
+        "chorusEnabled": false,
+        "highPassHz": 35,
+        "bodyEq": {
+          "frequencyHz": 210,
+          "gainDb": 2.4,
+          "q": 0.65
+        },
+        "presenceEq": {
+          "frequencyHz": 3100,
+          "gainDb": -1.6,
+          "q": 0.8
+        },
+        "lowPassHz": 9500,
+        "integratedLoudnessTargetLufs": -23.21,
+        "loudnessStrategy": "Constant gain only; retain safe peak headroom and note dynamics; no compressor or limiter",
+        "mp3BitrateKbps": 256,
+        "tailTrim": {
+          "significantPeakThresholdDbfs": -90,
+          "quietMarginSeconds": 0.35,
+          "finalInaudibleFadeMilliseconds": 80
+        }
+      },
+      "stringMethod": "New optional quiet cello/viola/violin doublings of actual estimated piano notes, no inferred triads or invented chord tones. Each complete wet/dry string release ends within its corresponding source piano key interval, capped at 1.6 original seconds. No beat quantization. Automatic transcription and this new accompaniment await listening review.",
+      "estimatedPianoNoteCount": 1264,
+      "estimatedPedalIntervalCount": 130,
+      "recordingSpecificRightsReview": {
+        "opus": 68,
+        "number": 2,
+        "performer": "Olga Gurevich",
+        "publisher": "Musopen",
+        "acceptedAuditionLicense": "CC BY 4.0",
+        "licenseUri": "https://creativecommons.org/licenses/by/4.0/",
+        "recordingSourcePageUri": "https://imslp.org/wiki/Mazurkas,_Op.68_(Chopin,_Fr%C3%A9d%C3%A9ric)",
+        "recordingIndex": 479617,
+        "identityEvidence": "Matching work, performer embedded in exact Archive MP3 and corroborated by official Musopen performer page, and matching recording duration. No byte-identity claim between different portal transcodes.",
+        "reviewStatus": "accepted-attribution-terms-for-private-audition; reconcile-mirror-license-before-production-promotion"
+      },
+      "reviewStatus": "private-audition-awaiting-listening; automatic-transcription-may-have-errors; no-catalog-replacement"
+    },
+    {
+      "trackId": "musopen-chopin-complete-works-flac-mazurka-in-g-minor-op-67-no-2-mp3",
+      "title": "Mazurka in G minor, Op. 67 no. 2",
+      "tempoFactor": 0.666667,
+      "sourceSha256": "05815f351f53adf36b178d33fce14a23b23284c768762b4bf59098cfc89097e7",
+      "sourceRecordingLicense": "CC BY 4.0",
+      "projectAdaptationLicense": "CC BY 4.0",
+      "pianoSamplesLicense": "CC BY 3.0",
+      "stringSamplesLicense": "CC0 1.0",
+      "midi": [
+        {
+          "fileName": "piano-original.mid",
+          "tempoFactor": 1,
+          "notes": 859,
+          "samePitchOverlapCorrections": 0,
+          "sha256": "ff8b273df928af5a7c9def68679dd4dc8bc67dee9a2d7875705b8cdcde07bfeb",
+          "durationSeconds": 110.99947916666666
+        },
+        {
+          "fileName": "piano-sleep.mid",
+          "tempoFactor": 0.666667,
+          "notes": 859,
+          "samePitchOverlapCorrections": 0,
+          "sha256": "d2f44596fde5e2047f11b10080b5efd507e3720528a38ba6a6af08feb6a1f598",
+          "durationSeconds": 166.49947916666667
+        },
+        {
+          "fileName": "piano-sleep-strings.mid",
+          "tempoFactor": 0.666667,
+          "notes": 1067,
+          "samePitchOverlapCorrections": 0,
+          "sha256": "3961d3030bdd53bd998616634feab8ed6f27be0d85b98ad488e25644210d5a51",
+          "durationSeconds": 166.49947916666667
+        }
+      ],
+      "mp3": [
+        {
+          "fileName": "02A-mazurka-in-g-minor-op-67-no-2-Einschlaftempo.mp3",
+          "durationSeconds": 162.35102040816327,
+          "integratedLufs": -23.217967711685105,
+          "truePeakDbtp4x": -6.11907086286343,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "e88223d23f4c203966d12d2d794c0610dd791840700971bd23cfe04cb1f43c79",
+          "bytes": 5204404,
+          "variant": "A",
+          "tailTrim": {
+            "originalRenderedSeconds": 176.50648526077097,
+            "selectedEndSeconds": 162.3,
+            "removedSeconds": 14.206485260770975,
+            "peakThresholdDbfs": -90,
+            "lastPeakAboveThresholdSeconds": 161.88,
+            "quietMarginSeconds": 0.35,
+            "finalFadeMilliseconds": 80,
+            "startOffsetMilliseconds": 0
+          },
+          "listeningReviewStatus": "pending"
+        },
+        {
+          "fileName": "02B-mazurka-in-g-minor-op-67-no-2-Einschlaftempo.mp3",
+          "durationSeconds": 162.35102040816327,
+          "integratedLufs": -23.209841020929638,
+          "truePeakDbtp4x": -6.269521809378737,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "43937c4ae818b083f4d8e8c04b419386b23a6e7b4be9839554f1082245a098ea",
+          "bytes": 5205086,
+          "variant": "B",
+          "tailTrim": {
+            "originalRenderedSeconds": 176.50648526077097,
+            "selectedEndSeconds": 162.3,
+            "removedSeconds": 14.206485260770975,
+            "peakThresholdDbfs": -90,
+            "lastPeakAboveThresholdSeconds": 161.86,
+            "quietMarginSeconds": 0.35,
+            "finalFadeMilliseconds": 80,
+            "startOffsetMilliseconds": 0
+          },
+          "listeningReviewStatus": "pending"
+        }
+      ],
+      "stringToPianoRmsDb": -11,
+      "wetDryDifferenceRelativeDb": -17.86306847679604,
+      "pianoSettings": {
+        "sampleRateHz": 44100,
+        "channels": 2,
+        "renderOnlyVelocityScale": 0.8,
+        "tempo": "Retain each recording's chosen audition tempo through MIDI-event timing; do not impose the Burgmuller tempo on other pieces or stretch rendered audio",
+        "reverbEnabled": true,
+        "reverbEngine": "free",
+        "reverbMidiController91": 90,
+        "reverbRoomSize": 0.43,
+        "reverbLevel": 0.38,
+        "reverbDamp": 0.65,
+        "reverbWidth": 0.9,
+        "chorusEnabled": false,
+        "highPassHz": 35,
+        "bodyEq": {
+          "frequencyHz": 210,
+          "gainDb": 2.4,
+          "q": 0.65
+        },
+        "presenceEq": {
+          "frequencyHz": 3100,
+          "gainDb": -1.6,
+          "q": 0.8
+        },
+        "lowPassHz": 9500,
+        "integratedLoudnessTargetLufs": -23.21,
+        "loudnessStrategy": "Constant gain only; retain safe peak headroom and note dynamics; no compressor or limiter",
+        "mp3BitrateKbps": 256,
+        "tailTrim": {
+          "significantPeakThresholdDbfs": -90,
+          "quietMarginSeconds": 0.35,
+          "finalInaudibleFadeMilliseconds": 80
+        }
+      },
+      "stringMethod": "New optional quiet cello/viola/violin doublings of actual estimated piano notes, no inferred triads or invented chord tones. Each complete wet/dry string release ends within its corresponding source piano key interval, capped at 1.6 original seconds. No beat quantization. Automatic transcription and this new accompaniment await listening review.",
+      "estimatedPianoNoteCount": 859,
+      "estimatedPedalIntervalCount": 114,
+      "recordingSpecificRightsReview": {
+        "opus": 67,
+        "number": 2,
+        "performer": "Olga Gurevich",
+        "publisher": "Musopen",
+        "acceptedAuditionLicense": "CC BY 4.0",
+        "licenseUri": "https://creativecommons.org/licenses/by/4.0/",
+        "recordingSourcePageUri": "https://imslp.org/wiki/Mazurkas,_Op.67_(Chopin,_Fr%C3%A9d%C3%A9ric)",
+        "recordingIndex": 478375,
+        "identityEvidence": "Matching work, performer embedded in exact Archive MP3 and corroborated by official Musopen performer page, and matching recording duration. No byte-identity claim between different portal transcodes.",
+        "reviewStatus": "accepted-attribution-terms-for-private-audition; reconcile-mirror-license-before-production-promotion"
+      },
+      "reviewStatus": "private-audition-awaiting-listening; automatic-transcription-may-have-errors; no-catalog-replacement"
+    },
+    {
+      "trackId": "musopen-chopin-complete-works-flac-mazurkaa-in-f-minor-op-63-no-2-mp3",
+      "title": "Mazurka in F minor, Op. 63 no. 2",
+      "tempoFactor": 0.666667,
+      "sourceSha256": "88193fe68628696fb802413b3867e0597d0df5e83bf9410603abd1224c08e86d",
+      "sourceRecordingLicense": "CC BY 4.0",
+      "projectAdaptationLicense": "CC BY 4.0",
+      "pianoSamplesLicense": "CC BY 3.0",
+      "stringSamplesLicense": "CC0 1.0",
+      "midi": [
+        {
+          "fileName": "piano-original.mid",
+          "tempoFactor": 1,
+          "notes": 671,
+          "samePitchOverlapCorrections": 0,
+          "sha256": "42e2673a60608809c9b24bcad86032dfc44dfca6612c3629bd3c1821b971d500",
+          "durationSeconds": 97.53385416666667
+        },
+        {
+          "fileName": "piano-sleep.mid",
+          "tempoFactor": 0.666667,
+          "notes": 671,
+          "samePitchOverlapCorrections": 0,
+          "sha256": "9beec17a81bdf2443d7c6d7fafb5f3a8a2475c6298bcb88921b73124eafe0260",
+          "durationSeconds": 146.30104166666666
+        },
+        {
+          "fileName": "piano-sleep-strings.mid",
+          "tempoFactor": 0.666667,
+          "notes": 890,
+          "samePitchOverlapCorrections": 0,
+          "sha256": "b644e61d0a93f166702dd9a29cae1dc2334c87cb8f3c46ddd7e2cff8e34a687d",
+          "durationSeconds": 146.30104166666666
+        }
+      ],
+      "mp3": [
+        {
+          "fileName": "03A-mazurkaa-in-f-minor-op-63-no-2-Einschlaftempo.mp3",
+          "durationSeconds": 144.53551020408165,
+          "integratedLufs": -23.218140280333387,
+          "truePeakDbtp4x": -5.061213506325308,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "e1d4fc3002dd0c20e6b6760aa99b743862954af8b64674618d84fbfb98b395d1",
+          "bytes": 4633738,
+          "variant": "A",
+          "tailTrim": {
+            "originalRenderedSeconds": 156.30512471655328,
+            "selectedEndSeconds": 144.5,
+            "removedSeconds": 11.805124716553287,
+            "peakThresholdDbfs": -90,
+            "lastPeakAboveThresholdSeconds": 144.14,
+            "quietMarginSeconds": 0.35,
+            "finalFadeMilliseconds": 80,
+            "startOffsetMilliseconds": 0
+          },
+          "listeningReviewStatus": "pending"
+        },
+        {
+          "fileName": "03B-mazurkaa-in-f-minor-op-63-no-2-Einschlaftempo.mp3",
+          "durationSeconds": 144.53551020408165,
+          "integratedLufs": -23.223505556087552,
+          "truePeakDbtp4x": -5.210394751526416,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "7a53a92724442eaf5cfb1cb733237ca733b1e56623788c3579e2de976b5bf626",
+          "bytes": 4634420,
+          "variant": "B",
+          "tailTrim": {
+            "originalRenderedSeconds": 156.30512471655328,
+            "selectedEndSeconds": 144.5,
+            "removedSeconds": 11.805124716553287,
+            "peakThresholdDbfs": -90,
+            "lastPeakAboveThresholdSeconds": 144.12,
+            "quietMarginSeconds": 0.35,
+            "finalFadeMilliseconds": 80,
+            "startOffsetMilliseconds": 0
+          },
+          "listeningReviewStatus": "pending"
+        }
+      ],
+      "stringToPianoRmsDb": -11,
+      "wetDryDifferenceRelativeDb": -18.376057623059737,
+      "pianoSettings": {
+        "sampleRateHz": 44100,
+        "channels": 2,
+        "renderOnlyVelocityScale": 0.8,
+        "tempo": "Retain each recording's chosen audition tempo through MIDI-event timing; do not impose the Burgmuller tempo on other pieces or stretch rendered audio",
+        "reverbEnabled": true,
+        "reverbEngine": "free",
+        "reverbMidiController91": 90,
+        "reverbRoomSize": 0.43,
+        "reverbLevel": 0.38,
+        "reverbDamp": 0.65,
+        "reverbWidth": 0.9,
+        "chorusEnabled": false,
+        "highPassHz": 35,
+        "bodyEq": {
+          "frequencyHz": 210,
+          "gainDb": 2.4,
+          "q": 0.65
+        },
+        "presenceEq": {
+          "frequencyHz": 3100,
+          "gainDb": -1.6,
+          "q": 0.8
+        },
+        "lowPassHz": 9500,
+        "integratedLoudnessTargetLufs": -23.21,
+        "loudnessStrategy": "Constant gain only; retain safe peak headroom and note dynamics; no compressor or limiter",
+        "mp3BitrateKbps": 256,
+        "tailTrim": {
+          "significantPeakThresholdDbfs": -90,
+          "quietMarginSeconds": 0.35,
+          "finalInaudibleFadeMilliseconds": 80
+        }
+      },
+      "stringMethod": "New optional quiet cello/viola/violin doublings of actual estimated piano notes, no inferred triads or invented chord tones. Each complete wet/dry string release ends within its corresponding source piano key interval, capped at 1.6 original seconds. No beat quantization. Automatic transcription and this new accompaniment await listening review.",
+      "estimatedPianoNoteCount": 671,
+      "estimatedPedalIntervalCount": 89,
+      "recordingSpecificRightsReview": {
+        "opus": 63,
+        "number": 2,
+        "performer": "Olga Gurevich",
+        "publisher": "Musopen",
+        "acceptedAuditionLicense": "CC BY 4.0",
+        "licenseUri": "https://creativecommons.org/licenses/by/4.0/",
+        "recordingSourcePageUri": "https://imslp.org/wiki/Mazurkas,_Op.63_(Chopin,_Fr%C3%A9d%C3%A9ric)",
+        "recordingIndex": 478372,
+        "identityEvidence": "Matching work, performer embedded in exact Archive MP3 and corroborated by official Musopen performer page, and matching recording duration. No byte-identity claim between different portal transcodes.",
+        "reviewStatus": "accepted-attribution-terms-for-private-audition; reconcile-mirror-license-before-production-promotion"
+      },
+      "reviewStatus": "private-audition-awaiting-listening; automatic-transcription-may-have-errors; no-catalog-replacement"
+    }
+  ],
+  "localPreparation": {
+    "scripts": [
+      "prepare_mazurka_batch.py",
+      "render_mazurka_batch.py"
+    ],
+    "scriptSha256": {
+      "prepare_mazurka_batch.py": "50a415a3bd41000c89f80173f28f515c47ed13ebae5fd77875e980c6c9040858",
+      "render_mazurka_batch.py": "cedc05606fd77e3583cbef0bed05f2bbdcaf676eec93a236e79448eff8f56d16"
+    },
+    "model": "Kong et al., High-resolution Piano Transcription with Pedals, note-and-pedal checkpoint Zenodo 4034264",
+    "catalogChanged": false,
+    "audioCommitted": false,
+    "nextcloudServerDownloadIndependentlyVerified": false
+  }
+}
