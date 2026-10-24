@@ -107,7 +107,7 @@
         "piano-strings-sleep"
       ],
       "stringsReviewStatus": "new-accompaniment-prepared-at-maintainer-request; listening-feedback-pending",
-      "pianoReviewStatus": "transcription-correction-required; score-renders-rejected; reference-guided-performance-review-open",
+      "pianoReviewStatus": "transcription-correction-required; private-A5-short-comparison-listening-pending",
       "pianoReviewFindingsPath": "music/faure-berceuse-op56-no1/sources/piano-review-2026-10-23.json",
       "scoreReferencePolicy": "Both 2026-10-23 score-based auditions rejected as mechanical. Use their notes as tentative melody/harmony references only; preserve the Jones performance expression and confirm corrections against the original recording."
     }

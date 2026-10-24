@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-23",
-  "status": "transcription-correction-required; score-renders-rejected; reference-guided-performance-review-open",
+  "status": "transcription-correction-required; private-A5-short-comparison-listening-pending",
   "scope": "Piano solo first, at the maintainer request. No string reworking in this review.",
   "maintainerFeedback": "The converted MIDI contains apparent incorrect pitches or note timing and repeated dissonances. The opening sequence already differs from the original.",
   "source": "piano-transcription.json",
@@ -1575,5 +1575,422 @@
       "fullPrivateReportSha256": "c374c2bfe6d1384afb30c1fb6d809cea0b481f534294817ecbd275c5e05ced88",
       "fullReportNextcloudRelativePath": "Quellen/reference-cues-2026-10-24.json"
     }
+  },
+  "performancePreservingFollowUp": {
+    "revision": "A5",
+    "date": "2026-10-24",
+    "status": "two-short-performance-derived-comparisons; listening-review-pending",
+    "authorization": "Maintainer accepted the proposed next step: exact opening/2:51-3:12 review, targeted correction preserving performance, short matched original/current/corrected comparison before whole-piece work.",
+    "basis": "A4 original-performance and sleep MIDI. No new score-based rendition or string changes.",
+    "method": "Local independent Basic Pitch analysis corroborates selected lower notes without sustained support for the putative octave notes. Source spectra and accompaniment-only partial profiles were inspected with notation used as contextual clues. Nineteen probable octave/shared-harmonic repeat artifacts are omitted in the two windows. These are proposed audition edits, not certified key-stroke recovery.",
+    "independentCheck": {
+      "name": "Spotify Basic Pitch",
+      "version": "0.4.0",
+      "sourceUri": "https://github.com/spotify/basic-pitch",
+      "license": "Apache-2.0",
+      "runtime": "ONNX CPU, onnxruntime 1.31.0",
+      "modelFileSha256": "2c3c1d144bfa61ad236e92e169c13535c880469a12a047d4e73451f2c059a0ec",
+      "purpose": "Corroboration of selected source attacks/pitches only. Different AMT models can share errors; no replacement MIDI generated.",
+      "settings": {
+        "onsetThreshold": 0.5,
+        "frameThreshold": 0.3,
+        "minimumNoteMilliseconds": 80,
+        "melodiaTrick": false
+      }
+    },
+    "removedNoteCount": 19,
+    "remainingWholeTimelineNoteCount": 1895,
+    "openingRemovedCount": 12,
+    "reportedSectionRemovedCount": 7,
+    "removedSourceNotes": [
+      {
+        "index": 1746,
+        "name": "E5",
+        "pitch": 76,
+        "originalSeconds": 8.019335746765137,
+        "slowSeconds": 9.623206745400863,
+        "category": "probable-harmonic-octave-duplication",
+        "lowerSourceIndex": 1121,
+        "basicPitchOnsetMax": 0.423117995262146,
+        "basicPitchNoteMax": 0.12700945138931274
+      },
+      {
+        "index": 1644,
+        "name": "C#5",
+        "pitch": 73,
+        "originalSeconds": 8.292109489440918,
+        "slowSeconds": 9.95053536754325,
+        "category": "probable-harmonic-octave-duplication",
+        "lowerSourceIndex": 961,
+        "basicPitchOnsetMax": 0.5709543228149414,
+        "basicPitchNoteMax": 0.1387365162372589
+      },
+      {
+        "index": 1707,
+        "name": "D#5",
+        "pitch": 75,
+        "originalSeconds": 8.706018447875977,
+        "slowSeconds": 10.447226316341698,
+        "category": "probable-harmonic-octave-duplication",
+        "lowerSourceIndex": 1066,
+        "basicPitchOnsetMax": 0.47216400504112244,
+        "basicPitchNoteMax": 0.11532571911811829
+      },
+      {
+        "index": 1747,
+        "name": "E5",
+        "pitch": 76,
+        "originalSeconds": 10.344883918762207,
+        "slowSeconds": 12.413865668060916,
+        "category": "probable-harmonic-octave-duplication",
+        "lowerSourceIndex": 1122,
+        "basicPitchOnsetMax": 0.22974765300750732,
+        "basicPitchNoteMax": 0.10447314381599426
+      },
+      {
+        "index": 1708,
+        "name": "D#5",
+        "pitch": 75,
+        "originalSeconds": 13.151956558227539,
+        "slowSeconds": 15.78235418281472,
+        "category": "probable-harmonic-octave-duplication",
+        "lowerSourceIndex": 1068,
+        "basicPitchOnsetMax": 0.3896580934524536,
+        "basicPitchNoteMax": 0.127789705991745
+      },
+      {
+        "index": 1645,
+        "name": "C#5",
+        "pitch": 73,
+        "originalSeconds": 15.174686431884766,
+        "slowSeconds": 18.20963100211412,
+        "category": "probable-harmonic-octave-duplication",
+        "lowerSourceIndex": 964,
+        "basicPitchOnsetMax": 0.4905558228492737,
+        "basicPitchNoteMax": 0.16507765650749207
+      },
+      {
+        "index": 1709,
+        "name": "D#5",
+        "pitch": 75,
+        "originalSeconds": 15.551545143127441,
+        "slowSeconds": 18.661861636497584,
+        "category": "probable-harmonic-octave-duplication",
+        "lowerSourceIndex": 1069,
+        "basicPitchOnsetMax": 0.5411626696586609,
+        "basicPitchNoteMax": 0.13719671964645386
+      },
+      {
+        "index": 1752,
+        "name": "E5",
+        "pitch": 76,
+        "originalSeconds": 17.41230010986328,
+        "slowSeconds": 20.894768489743335,
+        "category": "probable-harmonic-octave-duplication",
+        "lowerSourceIndex": 1126,
+        "basicPitchOnsetMax": 0.4790021777153015,
+        "basicPitchNoteMax": 0.10962629318237305
+      },
+      {
+        "index": 1646,
+        "name": "C#5",
+        "pitch": 73,
+        "originalSeconds": 17.683671951293945,
+        "slowSeconds": 21.220414829718667,
+        "category": "probable-harmonic-octave-duplication",
+        "lowerSourceIndex": 965,
+        "basicPitchOnsetMax": 0.5461944937705994,
+        "basicPitchNoteMax": 0.1185646653175354
+      },
+      {
+        "index": 1710,
+        "name": "D#5",
+        "pitch": 75,
+        "originalSeconds": 18.107036590576172,
+        "slowSeconds": 21.728452600072448,
+        "category": "probable-harmonic-octave-duplication",
+        "lowerSourceIndex": 1070,
+        "basicPitchOnsetMax": 0.32632339000701904,
+        "basicPitchNoteMax": 0.11395233869552612
+      },
+      {
+        "index": 1671,
+        "name": "C#5",
+        "pitch": 73,
+        "originalSeconds": 144.14306640625,
+        "slowSeconds": 172.97174887619954,
+        "category": "probable-harmonic-octave-duplication",
+        "lowerSourceIndex": 1010,
+        "basicPitchOnsetMax": 0.6069976091384888,
+        "basicPitchNoteMax": 0.2436252236366272
+      },
+      {
+        "index": 1738,
+        "name": "D#5",
+        "pitch": 75,
+        "originalSeconds": 144.5181884765625,
+        "slowSeconds": 173.42189554063322,
+        "category": "probable-harmonic-octave-duplication",
+        "lowerSourceIndex": 1105,
+        "basicPitchOnsetMax": 0.39977288246154785,
+        "basicPitchNoteMax": 0.11512672901153564
+      },
+      {
+        "index": 1504,
+        "name": "B4",
+        "pitch": 71,
+        "originalSeconds": 7.753416538238525,
+        "slowSeconds": 9.304103567527658,
+        "category": "probable-shared-harmonic-repeat",
+        "lowerSourceIndex": 701,
+        "basicPitchOnsetMax": 0.6053541898727417,
+        "basicPitchNoteMax": 0.14447695016860962
+      },
+      {
+        "index": 1507,
+        "name": "B4",
+        "pitch": 71,
+        "originalSeconds": 10.056034088134766,
+        "slowSeconds": 12.067245732660012,
+        "category": "probable-shared-harmonic-repeat",
+        "lowerSourceIndex": 703,
+        "basicPitchOnsetMax": 0.49624618887901306,
+        "basicPitchNoteMax": 0.11196279525756836
+      },
+      {
+        "index": 1594,
+        "name": "B4",
+        "pitch": 71,
+        "originalSeconds": 143.5880126953125,
+        "slowSeconds": 172.30568415664865,
+        "category": "probable-shared-harmonic-repeat",
+        "lowerSourceIndex": 856,
+        "basicPitchOnsetMax": 0.4737047553062439,
+        "basicPitchNoteMax": 0.17406752705574036
+      },
+      {
+        "index": 1595,
+        "name": "B4",
+        "pitch": 71,
+        "originalSeconds": 143.8548126220703,
+        "slowSeconds": 172.62584419682204,
+        "category": "probable-shared-harmonic-repeat",
+        "lowerSourceIndex": 857,
+        "basicPitchOnsetMax": 0.39414986968040466,
+        "basicPitchNoteMax": 0.19964581727981567
+      },
+      {
+        "index": 1602,
+        "name": "B4",
+        "pitch": 71,
+        "originalSeconds": 148.08438110351562,
+        "slowSeconds": 177.70132840475011,
+        "category": "probable-shared-harmonic-repeat",
+        "lowerSourceIndex": 865,
+        "basicPitchOnsetMax": 0.5949973464012146,
+        "basicPitchNoteMax": 0.15662378072738647
+      },
+      {
+        "index": 1397,
+        "name": "G#4",
+        "pitch": 68,
+        "originalSeconds": 150.60679626464844,
+        "slowSeconds": 180.72822780886926,
+        "category": "probable-shared-harmonic-repeat",
+        "lowerSourceIndex": 551,
+        "basicPitchOnsetMax": 0.28251194953918457,
+        "basicPitchNoteMax": 0.11382272839546204
+      },
+      {
+        "index": 1616,
+        "name": "B4",
+        "pitch": 71,
+        "originalSeconds": 158.15771484375,
+        "slowSeconds": 189.7893337282335,
+        "category": "probable-shared-harmonic-repeat",
+        "lowerSourceIndex": 884,
+        "basicPitchOnsetMax": 0.3938937485218048,
+        "basicPitchNoteMax": 0.10634759068489075
+      }
+    ],
+    "performancePreservation": "Only selected note-on/off pairs removed. Every surviving non-meta event is an exact subset of A4 at unchanged ticks and values, including all key-offs, velocities, CC64 and CC91. No quantization, pitch substitution, inserted original-score voices or key-off extension through pedal releases. YDP B processing retained.",
+    "comparisons": [
+      {
+        "fileName": "01-Anfang-Original-A4-A5.mp3",
+        "sha256": "2cd27eea2bcc1eec77f9441c4215f8f1cfc69d16f459aa99fb98370f528afcff",
+        "durationSeconds": 65.72408163265307,
+        "truePeakDbtp4x": -6.807162194519649,
+        "integratedLufs": -23.193830498138343,
+        "originalInterval": [
+          1.65,
+          19.45
+        ],
+        "sleepInterval": [
+          1.9800007920003166,
+          23.340009336003735
+        ],
+        "sections": [
+          {
+            "title": "Originalaufnahme",
+            "startSeconds": 0,
+            "endSeconds": 21.36,
+            "integratedLufs": -23.209999999999997
+          },
+          {
+            "title": "Bisherige MIDI A4",
+            "startSeconds": 22.16,
+            "endSeconds": 43.519999999999996,
+            "integratedLufs": -23.210000000000004
+          },
+          {
+            "title": "Prüfkorrektur A5",
+            "startSeconds": 44.31999999999999,
+            "endSeconds": 65.67999999999999,
+            "integratedLufs": -23.210000000000004
+          }
+        ],
+        "commonTargetLufs": -23.21,
+        "interVersionRmsDifferenceDb": -12.112504455634369
+      },
+      {
+        "fileName": "02-Problemstelle-Original-A4-A5.mp3",
+        "sha256": "7ff122b18008e9c4d089a15c1e3db41caf2fb3e86f18d291f01874da263dca56",
+        "durationSeconds": 89.83510204081632,
+        "truePeakDbtp4x": -8.422108128791185,
+        "integratedLufs": -23.235802566142514,
+        "originalInterval": [
+          139,
+          163.5
+        ],
+        "sleepInterval": [
+          166.80006672002668,
+          196.2000784800314
+        ],
+        "sections": [
+          {
+            "title": "Originalaufnahme",
+            "startSeconds": 0,
+            "endSeconds": 29.4,
+            "integratedLufs": -23.209999999999997
+          },
+          {
+            "title": "Bisherige MIDI A4",
+            "startSeconds": 30.2,
+            "endSeconds": 59.599999999999994,
+            "integratedLufs": -23.210000000000008
+          },
+          {
+            "title": "Prüfkorrektur A5",
+            "startSeconds": 60.39999999999999,
+            "endSeconds": 89.79999999999998,
+            "integratedLufs": -23.210000000000004
+          }
+        ],
+        "commonTargetLufs": -23.21,
+        "interVersionRmsDifferenceDb": -16.87022897540656
+      }
+    ],
+    "midiFiles": [
+      {
+        "fileName": "Faure-Solo-A5-gezielte-Pruefstellen-original.mid",
+        "sha256": "d5b3fdb0fed068d8b854d659a70a0d2abbcaec8d9e2259fe8f98d2fceb08fdbc",
+        "basisSha256": "b090b0a75f92d1125271f565bfb134dbe8b5de38a85795e3ea4820ff1e6beb82",
+        "speed": 1,
+        "noteCount": 1895,
+        "sourceRemovedIndexes": [
+          1746,
+          1644,
+          1707,
+          1747,
+          1708,
+          1645,
+          1709,
+          1752,
+          1646,
+          1710,
+          1671,
+          1738,
+          1504,
+          1507,
+          1594,
+          1595,
+          1602,
+          1397,
+          1616
+        ],
+        "allOtherNonMetaEventsUnchanged": true,
+        "noKeyOffExtensions": true
+      },
+      {
+        "fileName": "Faure-Solo-A5-gezielte-Pruefstellen-sleep.mid",
+        "sha256": "3787cef8fe6f4a2eb55379ee2fd6a2ca61ab42ed88f648557764a93e5e317c04",
+        "basisSha256": "62bdd3e2afede24b4be3b47460eef15fb7e4b8f7631f3e73dd776c4d9d486cf5",
+        "speed": 0.833333,
+        "noteCount": 1895,
+        "sourceRemovedIndexes": [
+          1746,
+          1644,
+          1707,
+          1747,
+          1708,
+          1645,
+          1709,
+          1752,
+          1646,
+          1710,
+          1671,
+          1738,
+          1504,
+          1507,
+          1594,
+          1595,
+          1602,
+          1397,
+          1616
+        ],
+        "allOtherNonMetaEventsUnchanged": true,
+        "noKeyOffExtensions": true
+      }
+    ],
+    "validation": {
+      "maximumPairedOriginalTimeErrorSeconds": 0.0004721156250582226,
+      "decodedComparisonSectionLoudness": [
+        {
+          "fileName": "01-Anfang-Original-A4-A5.mp3",
+          "decodedSectionLufs": [
+            -23.177522809863945,
+            -23.181425484406528,
+            -23.163541397727396
+          ],
+          "spreadLufs": 0.017884086679131883,
+          "last50msRmsRelativeToPrevious100msDb": -16.6093806115791,
+          "last5msPeakDbfs": -240.0
+        },
+        {
+          "fileName": "02-Problemstelle-Original-A4-A5.mp3",
+          "decodedSectionLufs": [
+            -23.190615296623534,
+            -23.212255304511583,
+            -23.212592981318014
+          ],
+          "spreadLufs": 0.02197768469448036,
+          "last50msRmsRelativeToPrevious100msDb": -11.849357200780439,
+          "last5msPeakDbfs": -240.0
+        }
+      ],
+      "notePairingAndSustainReleased": true,
+      "allSurvivingNonMetaEventsExactlyUnchanged": true,
+      "localNextcloudCopyHashesMatch": true
+    },
+    "fullPrivateReportSha256": "06d56fe9c050464444c65967beef17ff1b425568f37520f4c374b4c9d0a966da",
+    "privateAuditionFolder": "Open Sleep Music/Probehören/2026-10-24-Faure-A5-Kurzvergleich",
+    "sourceRecordingSha1": "16f742aed631bbd30a78e3298fb77672655bf306",
+    "limitations": [
+      "Nineteen probable edits, not a certified error-free transcription. Independent models may share errors and can omit quiet real notes.",
+      "Reference editions differ from the Jones solo arrangement; no score-only missing-note restoration or full note replacement applied.",
+      "Source partial ratios can be confounded by overlap, reverb, velocity-dependent brightness, inharmonicity and weak denominator values. Full ratios are diagnostic data, not automatic rejection criteria.",
+      "Many uncertain octave/repeat/duration/pedal cases remain. Only the two audition windows are changed beyond A4. A5 is not a full-piece listening approval."
+    ],
+    "unchanged": "Published MIDI/MP3/PDF bytes, catalog, strings, YDP B settings and previous audition files."
   }
 }

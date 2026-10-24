@@ -7,6 +7,11 @@ Private solo correction auditions are being reviewed. The existing MIDI, MP3
 and derived working-score bytes are preserved, and the app retains the source
 recording. [Review findings](sources/piano-review-2026-10-23.json).
 
+A5 offers two short, matched-tempo/source-A4-A5 comparisons with 19 proposed
+octave/repeat artifact removals. Every surviving performance event, velocity,
+key-off and pedal control is unchanged from A4. These private excerpts await
+listening review before any whole-piece preparation or publication replacement.
+
 The maintainer still finds A4 unconvincing and, on 2026-10-24, rejected both
 score-based auditions as mechanical and unattractive.
 [Reference research and feedback](sources/score-basis-research-2026-10-23.json)
