@@ -2,8 +2,9 @@
 
 The maintainer requests new versions of the slowed mazurkas in Quiet Classics,
 using the successful Burgmuller preparation as the sound reference. The catalog
-contains 57 mazurkas. This initial comparison covers three shorter works while
-the scope of the remaining recordings is being clarified.
+contains 57 mazurkas. This initial comparison covers three shorter works.
+After positive feedback, the maintainer requests the same preparation for
+the [remaining 54 works](mazurka-auditions-remaining-2026-10-24.md).
 
 | Work | Complete audition duration | Source pianist |
 | --- | --- | --- |

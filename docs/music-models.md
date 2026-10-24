@@ -13,9 +13,14 @@ Local inference does not incur a hosted model's per-request fee. It still consum
 electricity, storage and processing time. Optional rented GPUs or hosted APIs have
 their own charges; none is required for the proposed first local Transkun test.
 The host has an NVIDIA RTX 4060 with 8 GB VRAM. The existing transcription runtime
-contains CPU-only PyTorch; a separate CUDA runtime is being evaluated without
-modifying the working CPU environment. Hardware presence alone does not confirm
-that a particular model fits or that acceleration has been verified.
+contains CPU-only PyTorch; a separate PyTorch 2.11.0 / CUDA 12.8 runtime recognizes
+the RTX 4060 without modifying the working CPU environment. A 36.5-second
+comparison against the existing CPU transcription retained all 486 notes and
+their integer velocities; maximum onset/offset differences were under 4
+microseconds with the same Kong checkpoint and float32 processing, TF32 disabled.
+The validated CUDA configuration processes eight segments per inference batch
+and is used for the remaining mazurka preparation. This validates that test
+case, not every recording, another transcription model or its memory fit.
 
 For a new Fauré comparison, first transcribe a short original-recording passage
 with an independently trained model, render it with the same YDP B preset and
