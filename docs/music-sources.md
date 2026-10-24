@@ -1,5 +1,10 @@
 # Reviewed media catalog
 
+Internal recording-quality assessments, retention decisions, replacement
+priorities and the continuing history of attempted improvements are maintained
+centrally in [Catalog quality notes](catalog-quality-notes.md), keyed by stable
+catalog track ID. They are separate from recording-rights approval.
+
 The stable catalog contains 138 unique downloadable recordings in six sleep worlds, totaling about 18.38 hours. Three guitar recordings belong to both Quiet Classics and Lullabies for little ones: the resolved collections contain 93 and 7 titles respectively. Preview adds 51 downloadable audition candidates in Preselection and 16 external listening references in the separate Preview pre-qualify collection: 189 unique downloadable Preview tracks in total. Both collection lists are delivered through the runtime catalog. The exact per-file download URL, source page, creator, recording license, duration, instrumentation, ensemble type, file name, and SHA-1 (when supplied upstream) are stored in `src/OpenSleepMusic.Core/Catalog/media-catalog.json`.
 
 A composition being in the public domain does **not** automatically make a modern recording public domain. Production currently uses recordings whose authoritative source pages declare compatible free recording licenses. Following the maintainer's policy change on 2026-10-15, a specifically reviewed CC BY-NC 4.0 recording may also be included for noncommercial app use; the first such entry is a Preview audition, described below. NC audio retains its separate restrictions, independently of the MIT-licensed application. Before monetizing an offering through app/store prices, advertising, paid features, subscriptions, commercial promotion or other commercial use, remove NC recordings from that offering and its associated download/catalog-update delivery, or document separate commercial permission. Free pricing alone is not proof of noncommercial use. This is a release/distribution requirement in `AGENTS.md`, not an implemented commercial-build filter. The catalog deliberately excludes tracks whose names indicate thunder or storms.

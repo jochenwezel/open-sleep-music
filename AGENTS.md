@@ -66,6 +66,8 @@ Also update `docs/music-sources.md` when adding or removing a source collection,
 
 ## Catalog maintenance workflow
 
+Maintain `docs/catalog-quality-notes.md` as the central, cross-song internal quality and improvement register, keyed by stable catalog track ID. Record current quality, whether to retain the work, replacement priority, alternative-source findings and the append-only history of actual improvement attempts with `YYYY-MM`, the AI engine/session label and effort, actual transcription/render tools and outcome. Continue updating this register as new feedback and attempts occur; preserve failed attempts after later success, distinguish maintainer listening judgments from measurements, and never invent an engine label or approval. Link existing detailed evidence instead of creating separate per-song quality registers. Internal notes do not themselves alter runtime catalog admission, playback or licensing.
+
 `Vorauswahl` is a separate Preview-only audition collection defined in
 `tools/preselection-candidates.json`. Candidates may have unreviewed recording
 rights and pending listening reviews; keep `licenseReviewStatus` explicit and
