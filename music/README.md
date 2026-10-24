@@ -7,8 +7,8 @@ relicense the music or instrument samples.
 
 | Work | Published versions | License |
 | --- | --- | --- |
-| [Friedrich Burgmüller — Berceuse op. 109 No. 7](burgmuller-berceuse-op109-no7/README.md) | YDP piano; YDP piano with corrected chamber strings; each at original and sleep tempo | CC BY-SA 3.0 adaptations; YDP samples CC BY 3.0; VSCO strings CC0 1.0 |
-| [Gabriel Fauré — Berceuse op. 56 No. 1](faure-berceuse-op56-no1/README.md) | Version 1: YDP piano and optional string doubling, each in two tempos; piano transcription correction required, solo correction auditions pending | CC BY 3.0 adaptations and YDP samples; VSCO strings CC0 1.0 |
+| [Friedrich Burgmüller — Berceuse op. 109 No. 7](burgmuller-berceuse-op109-no7/README.md) | YDP piano and corrected chamber strings in both tempos; strings at sleep tempo selected for the app catalog on 2026-10-24 | CC BY-SA 3.0 adaptations; YDP samples CC BY 3.0; VSCO strings CC0 1.0 |
+| [Gabriel Fauré — Berceuse op. 56 No. 1](faure-berceuse-op56-no1/README.md) | Version 1 retained for provenance; conversion abandoned after rejected correction auditions; original app recording retained | CC BY 3.0 adaptations and YDP samples; VSCO strings CC0 1.0 |
 
 Each directory contains `song.json`, `audio/`, `midi/`, `sources/` and `licenses/`.
 Publish selected versions here; retain existing immutable media if later feedback

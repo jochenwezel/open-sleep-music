@@ -116,7 +116,7 @@
       "reviewStatus": "maintainer-approved"
     }
   ],
-  "catalogStatus": "Published independently; existing application catalog entries have not been replaced",
+  "catalogStatus": "piano-strings-sleep admitted on 2026-10-24 as the replacement lullaby recording; remaining variants published independently",
   "limitations": "Automatic note, velocity and pedal estimation may contain errors. Binary sustain does not encode reliable half-pedal. Original tempo means timing of the BastienM source performance; the MIDI 120 BPM grid is not an inferred score tempo. General MIDI playback differs from the sampled MP3s.",
   "audioCommit": "5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967",
   "scores": {
@@ -174,5 +174,16 @@
       }
     ],
     "limitations": "Performance MIDI is not a score beat grid. Onsets and durations are quantized to sixteenths on a saved original-performance measure grid; hand allocation and inner-voice lengths are editorial. Very short events below 80ms are omitted; repeated passages are written out. Automatically estimated pitches/velocities/pedal and the newly prepared arrangement may contain mistakes. These are not note-for-note proofread composer editions."
+  },
+  "catalogAdmission": {
+    "date": "2026-10-24",
+    "trackId": "burgmuller-berceuse-op-109-no-7",
+    "worldIds": [
+      "lullabies"
+    ],
+    "variantId": "piano-strings-sleep",
+    "evidencePath": "sources/catalog-admission-2026-10-24.json",
+    "playbackSpeed": 1,
+    "volumeGain": 1
   }
 }

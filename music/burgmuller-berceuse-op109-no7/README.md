@@ -5,6 +5,12 @@ The selected piano is **YDP Grand Piano variant B**. The string versions add the
 maintainer-approved, full-piece corrected C2 violin, viola and cello accompaniment.
 This is a new accompaniment, not a historical Burgmüller orchestration.
 
+On 2026-10-24 the maintainer selects **piano with strings - sleep tempo** as the
+replacement for the existing little-ones catalog recording. The catalog retains
+its stable track ID, artwork and order, downloads the exact published MP3, and
+uses normal playback speed/gain because timing and loudness are already rendered.
+[Catalog admission and delivery checks](sources/catalog-admission-2026-10-24.json).
+
 - **Piano - original tempo** (1:23): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-original.mp3) / [MIDI](midi/burgmuller-berceuse-op109-no7-piano-original.mid).
 
 - **Piano - sleep tempo** (1:39): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-sleep.mp3) / [MIDI](midi/burgmuller-berceuse-op109-no7-piano-sleep.mid).

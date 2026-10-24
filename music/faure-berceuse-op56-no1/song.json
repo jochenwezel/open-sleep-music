@@ -112,7 +112,7 @@
       "downloadUri": "https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-strings-sleep.mp3"
     }
   ],
-  "catalogStatus": "Published version 1 retains its original bytes; piano transcription correction pending; private solo auditions under review; existing app source recording unchanged",
+  "catalogStatus": "Conversion abandoned after rejected auditions on 2026-10-24; original Brian M. Jones catalog recording retained; version 1 files preserved for provenance",
   "limitations": "Estimated piano notes, velocities and binary pedal can contain errors. No reliable half-pedal. New string doubling is not a historical orchestration. General MIDI playback differs from the sampled MP3s.",
   "audioCommit": "92af08a8a3851ec2894e94566bd38d34a6070f1e",
   "scores": {

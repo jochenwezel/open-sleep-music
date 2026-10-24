@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-24",
+  "variant": "piano-strings-sleep",
+  "downloadUri": "https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-strings-sleep.mp3",
+  "sourcePageUri": "https://github.com/jochenwezel/open-sleep-music/blob/main/music/burgmuller-berceuse-op109-no7/README.md",
+  "rangeStatus": 206,
+  "mp3SignatureVerified": true,
+  "fullByteCount": 3179291,
+  "sha1": "9989caaa9c006d20d10b662ec5faa7a59561b98d",
+  "sha256": "00d58b905cd138c4651ad4b7c998012c314903f88f003b0f2a8fc28e9cd896a0",
+  "matchesApprovedPublishedBytes": true,
+  "durationSeconds": 99.13469387755102,
+  "integratedLufs": -23.2122639002631,
+  "truePeakDbtp4x": -7.37780906097155,
+  "last350msPeakDbfs": -240.0,
+  "license": "CC BY-SA 3.0",
+  "sampleLicenses": "YDP CC BY 3.0; VSCO strings CC0 1.0",
+  "sourceRightsPagesRechecked": "Wikimedia Commons Berceuse Burgmuller.ogg; FreePats YDP Grand Piano; official VSCO repository CC0 license.",
+  "status": "verified-and-maintainer-approved-for-production-replacement",
+  "catalogTrackId": "burgmuller-berceuse-op-109-no-7",
+  "worldIds": [
+    "lullabies"
+  ],
+  "selectedPublicationVariant": "piano-strings-sleep",
+  "maintainerInstruction": "Abandon the Faure conversion and replace the first successfully prepared Berceuse (Burgmuller op. 109 No. 7) with the approved project version including strings.",
+  "previousRecording": {
+    "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Berceuse_Burgmuller.ogg",
+    "creator": "BastienM",
+    "fileName": "burgmuller-berceuse-op-109-no-7.ogg",
+    "sha1": "2701c3802dae189dd59b4980aa363a1d467a9007",
+    "durationSeconds": 84.578,
+    "playbackSpeed": 0.833333,
+    "volumeGain": 0.7
+  },
+  "playback": {
+    "speed": 1,
+    "volumeGain": 1,
+    "startOffsetMilliseconds": 0,
+    "endOffsetMilliseconds": 0,
+    "reason": "Sleep event tempo and matched loudness are already encoded in the approved MP3. Do not apply the previous source recording settings twice."
+  },
+  "identityPreservation": "Same catalog ID, title, artwork, collection membership and saved mixed track order; new filename and exact MP3 checksum require the replacement bytes on collection repair/download.",
+  "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "rightsEvidencePath": "../licenses/source-evidence.json",
+  "rightsReview": "Specific BastienM source file page rechecked, attribution/share-alike 3.0 selected. Project MIDI resynthesis and new C2 string arrangement retain CC BY-SA 3.0. YDP sample credits and CC BY 3.0 grant and VSCO CC0 grant preserved independently. Composer public-domain status is not used to license the source recording.",
+  "generator": "tools/Update-MediaCatalog.ps1 reads the approved publication variant and regenerates both channel manifests.",
+  "newRecordingNotAppBundled": true,
+  "sourcePagePolicy": "Canonical project song README retains current corrected UTF-8 credits; media download URI stays pinned to the original full audio commit."
+}

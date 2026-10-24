@@ -3,14 +3,15 @@
 **Piano transcription review, 2026-10-23:** the maintainer reports wrong notes
 and attacks, including in the opening. Version 1 requires musical correction;
 the YDP instrument preference does not approve its automatically detected notes.
-Private solo correction auditions are being reviewed. The existing MIDI, MP3
+On 2026-10-24 the maintainer rejects A5 and abandons the Fauré conversion.
+The original Brian M. Jones catalog recording remains in use. Existing MIDI, MP3
 and derived working-score bytes are preserved, and the app retains the source
 recording. [Review findings](sources/piano-review-2026-10-23.json).
 
 A5 offers two short, matched-tempo/source-A4-A5 comparisons with 19 proposed
 octave/repeat artifact removals. Every surviving performance event, velocity,
-key-off and pedal control is unchanged from A4. These private excerpts await
-listening review before any whole-piece preparation or publication replacement.
+key-off and pedal control is unchanged from A4. The maintainer rejects these
+private excerpts; no whole-piece preparation or catalog replacement follows.
 
 The maintainer still finds A4 unconvincing and, on 2026-10-24, rejected both
 score-based auditions as mechanical and unattractive.
@@ -25,8 +26,8 @@ errors. The YDP B preference remains; no new rendition or replacement is approve
 These project recordings adapt **Brian M. Jones's solo piano arrangement and
 September 2010 performance** of the Berceuse from the Dolly Suite. They use the
 preferred warm **YDP Grand Piano variant B**, with a separate restrained string
-variation requested by the maintainer. The new string variation awaits listening
-feedback; publication does not replace the existing app recording.
+variation requested by the maintainer. The string variation is not pursued after
+the solo conversion is abandoned; publication does not replace the app recording.
 
 - **Piano - original tempo** (3:34): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-original.mp3) / [MIDI](midi/faure-berceuse-op56-no1-piano-original.mid).
 

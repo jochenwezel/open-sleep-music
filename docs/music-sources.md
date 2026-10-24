@@ -343,3 +343,32 @@ At the maintainer's explicit request, [Fauré's Berceuse op. 56 No. 1](../music/
 At the maintainer's request, both published Berceuses also include versioned piano-solo PDFs, piano/string full scores, and separate violin, viola and cello parts in each song's `scores/` directory. These automatic working editions retain the source recording's CC BY-SA 3.0 (Burgmuller) or CC BY 3.0 (Faure) credits and terms. They do not contain instrument samples. LilyPond 2.26.0 engraves the editable sources; `tools/Export-MidiScores.py` uses saved original-performance measure anchors to quantize rhythms to sixteenths, chordify simultaneous attacks, allocate piano voices and use complete string release boundaries. Both audio speeds share one written edition with approximate tempo references. Repeats are written out, very short attacks below 80 ms are omitted, and note lengths/dynamics/pedal instructions involve editorial choices. These are layout-reviewed working scores requiring musical proofreading, not verified original editions or changes to the approved audio/MIDI files.
 
 Burgmuller's expanded 41-measure grid uses a historical score only to check meter/form; no scanned engraving is republished. Faure's 83-measure alignment uses Mike Blackstock's [Mutopia 1536 public-domain flute/guitar adaptation](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1536) for form, key changes and melody-voice identification, while the published notes derive from the project's Brian M. Jones MIDI adaptation. Reference credits, source MIDI hashes, quantization choices and review status accompany each score. All pages are rendered for visual inspection; standalone PDFs preserve readable attribution, license links and source links, and publication checksum lists cover the PDF and editable files. Production catalog entries, media bytes and pinned audio URLs remain unchanged.
+
+## Burgmuller catalog replacement and end of Faure conversion, 2026-10-24
+
+The maintainer selects the approved **Burgmuller Berceuse op. 109 No. 7, YDP piano
+with corrected C2 chamber strings, sleep tempo** to replace the former BastienM
+Ogg in Lullabies for little ones. The stable ID, title, artwork, membership and
+persisted order are preserved. The catalog now links the independently published
+[recording and credits](https://github.com/jochenwezel/open-sleep-music/blob/main/music/burgmuller-berceuse-op109-no7/README.md)
+and its full-commit-pinned MP3. The new portable filename prevents reuse of the
+old Ogg as the replacement. It is about 99.13 seconds, already rendered at the
+chosen 0.833333 sleep event speed and -23.21 LUFS; application playback speed and
+gain are both 1, with no trims. The former 0.7 gain belonged to the source Ogg.
+Instrumentation now identifies piano, violin, viola and cello rather than solo
+piano. Recording/adaptation terms remain CC BY-SA 3.0; BastienM, the project
+adaptation and the YDP CC BY 3.0 / VSCO CC0 instrument credits are retained in
+catalog attribution, the source publication and MP3 tags.
+
+[Admission evidence](../music/burgmuller-berceuse-op109-no7/sources/catalog-admission-2026-10-24.json)
+records an HTTP 206 initial-byte probe, full MP3 decode, matching published
+SHA-1/SHA-256, loudness/headroom and a quiet natural ending. The source recording
+page, FreePats YDP grant and official VSCO license were rechecked. This is a
+replacement of one existing production recording in both channel manifests;
+there are still 138 unique production tracks and seven little-ones memberships.
+No media bytes are changed, and no music release or release ZIP is created.
+
+The maintainer rejects the Fauré A5 comparison and abandons that MIDI conversion.
+Its historical project files and review findings remain identifiable, while the
+existing Brian M. Jones source recording stays in the app unchanged. No further
+Fauré correction audition or synthesized catalog replacement is approved.

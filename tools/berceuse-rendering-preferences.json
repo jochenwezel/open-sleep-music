@@ -79,7 +79,10 @@
     ],
     "note": "Published MP3 decoded samples retain the selected auditions; ID3 metadata is updated for publication. The manifest records published-byte hashes separately from original audition hashes. Original-tempo renders use the same selected voice and arrangement without separate listening feedback.",
     "delivery": "Commit-pinned Raw GitHub files; no music releases or release ZIPs",
-    "audioCommit": "5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967"
+    "audioCommit": "5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967",
+    "catalogTrackId": "burgmuller-berceuse-op-109-no-7",
+    "catalogVariant": "piano-strings-sleep",
+    "catalogAdmissionDate": "2026-10-24"
   },
   "admissionBoundary": "Piano-voice preference is not approval to replace any catalog recording or to promote an arrangement. Retain each specific source performance's recording license, attribution, modification disclosure and original files. Keep estimated original MIDI velocities separately from render-only softening. Complete recording-specific rights, audio-delivery, suitability and listening checks for each resulting recording before promotion.",
   "recommendedBerceuseStyle": {
@@ -106,8 +109,8 @@
         "piano-strings-original",
         "piano-strings-sleep"
       ],
-      "stringsReviewStatus": "new-accompaniment-prepared-at-maintainer-request; listening-feedback-pending",
-      "pianoReviewStatus": "transcription-correction-required; private-A5-short-comparison-listening-pending",
+      "stringsReviewStatus": "not-pursued-after-abandoned-solo-conversion; no-catalog-promotion",
+      "pianoReviewStatus": "maintainer-rejected-A5; conversion-abandoned; retain-original-catalog-recording",
       "pianoReviewFindingsPath": "music/faure-berceuse-op56-no1/sources/piano-review-2026-10-23.json",
       "scoreReferencePolicy": "Both 2026-10-23 score-based auditions rejected as mechanical. Use their notes as tentative melody/harmony references only; preserve the Jones performance expression and confirm corrections against the original recording."
     }

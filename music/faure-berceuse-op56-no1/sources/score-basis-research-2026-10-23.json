@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-23",
-  "status": "score-based-audio-renders-rejected; reference-notes-only; expressive-transcription-review-open",
+  "status": "conversion-abandoned; reference-and-rejected-audition-history-only",
   "maintainerFeedback": "A4 remains unconvincing. Find usable original scores/digital MIDI as a new starting point or plausibility reference; additionally audition Mutopia with its intended instruments.",
   "sourceDistinction": "Historical publisher score is authoritative primary material. Community digital editions are not official publisher-certified MIDI. A four-hands original and a flute/guitar adaptation are different arrangements from Brian M. Jones solo performance; note-count differences do not identify all transcription errors.",
   "historicalScore": {
@@ -350,5 +350,10 @@
     ],
     "fullPrivateReportSha256": "c374c2bfe6d1384afb30c1fb6d809cea0b481f534294817ecbd275c5e05ced88",
     "fullReportNextcloudRelativePath": "Quellen/reference-cues-2026-10-24.json"
+  },
+  "finalMaintainerDecision": {
+    "date": "2026-10-24",
+    "feedback": "A5 is not satisfactory either. Abandon the Faure conversion.",
+    "outcome": "No further correction work or synthesized replacement; retain original Brian M. Jones app recording and provenance of rejected attempts."
   }
 }

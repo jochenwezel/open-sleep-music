@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-23",
-  "status": "transcription-correction-required; private-A5-short-comparison-listening-pending",
+  "status": "maintainer-rejected-A5; conversion-abandoned; retain-original-catalog-recording",
   "scope": "Piano solo first, at the maintainer request. No string reworking in this review.",
   "maintainerFeedback": "The converted MIDI contains apparent incorrect pitches or note timing and repeated dissonances. The opening sequence already differs from the original.",
   "source": "piano-transcription.json",
@@ -1579,7 +1579,7 @@
   "performancePreservingFollowUp": {
     "revision": "A5",
     "date": "2026-10-24",
-    "status": "two-short-performance-derived-comparisons; listening-review-pending",
+    "status": "maintainer-rejected; conversion-abandoned",
     "authorization": "Maintainer accepted the proposed next step: exact opening/2:51-3:12 review, targeted correction preserving performance, short matched original/current/corrected comparison before whole-piece work.",
     "basis": "A4 original-performance and sleep MIDI. No new score-based rendition or string changes.",
     "method": "Local independent Basic Pitch analysis corroborates selected lower notes without sustained support for the putative octave notes. Source spectra and accompaniment-only partial profiles were inspected with notation used as contextual clues. Nineteen probable octave/shared-harmonic repeat artifacts are omitted in the two windows. These are proposed audition edits, not certified key-stroke recovery.",
@@ -1992,5 +1992,10 @@
       "Many uncertain octave/repeat/duration/pedal cases remain. Only the two audition windows are changed beyond A4. A5 is not a full-piece listening approval."
     ],
     "unchanged": "Published MIDI/MP3/PDF bytes, catalog, strings, YDP B settings and previous audition files."
+  },
+  "finalMaintainerDecision": {
+    "date": "2026-10-24",
+    "feedback": "A5 is not satisfactory either. Abandon the Faure conversion.",
+    "outcome": "No further correction work or synthesized replacement; retain original Brian M. Jones app recording and provenance of rejected attempts."
   }
 }

@@ -140,7 +140,7 @@ public sealed class BuiltInCatalogTests
             originalTracks.Select(track => track.Id).Order(StringComparer.Ordinal));
         Assert.All(originalTracks, track =>
         {
-            Assert.Equal(1 / 1.2, track.PlaybackSpeed, 5);
+            Assert.Equal(track.Id == "burgmuller-berceuse-op-109-no-7" ? 1 : 1 / 1.2, track.PlaybackSpeed, 5);
             Assert.DoesNotContain("vocal", track.Title, StringComparison.OrdinalIgnoreCase);
             Assert.DoesNotContain("song", track.Title, StringComparison.OrdinalIgnoreCase);
             Assert.NotNull(track.SongMotifUri);
@@ -156,6 +156,28 @@ public sealed class BuiltInCatalogTests
                 Assert.EndsWith(".mp3", track.FileName, StringComparison.OrdinalIgnoreCase);
                 Assert.Contains("/transcoded/", track.DownloadUri.AbsoluteUri, StringComparison.Ordinal);
             });
+    }
+
+    [Fact]
+    public void ApprovedBurgmullerStringsPlayAtTheirRenderedSleepTempo()
+    {
+        var world = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "lullabies");
+        var track = Assert.Single(world.Tracks, track => track.Id == "burgmuller-berceuse-op-109-no-7");
+
+        Assert.Equal(1d, track.PlaybackSpeed);
+        Assert.Equal(1d, track.VolumeGain);
+        Assert.Equal(0, track.StartOffsetMilliseconds);
+        Assert.Equal(0, track.EndOffsetMilliseconds);
+        Assert.InRange(track.PlaybackDurationSeconds, 99, 100);
+        Assert.Equal(track.DurationSeconds, track.PlaybackDurationSeconds, 3);
+        Assert.EndsWith("-piano-strings-sleep.mp3", track.FileName, StringComparison.Ordinal);
+        Assert.Matches("^https://raw\\.githubusercontent\\.com/jochenwezel/open-sleep-music/[0-9a-f]{40}/music/burgmuller-berceuse-op109-no7/audio/", track.DownloadUri.AbsoluteUri);
+        Assert.Equal("9989caaa9c006d20d10b662ec5faa7a59561b98d", track.Sha1);
+        Assert.Equal("CC BY-SA 3.0", track.License);
+        Assert.Equal("verified", track.LicenseReviewStatus);
+        Assert.Contains("BastienM", track.Creator, StringComparison.Ordinal);
+        Assert.Contains("Open Sleep Music contributors", track.Creator, StringComparison.Ordinal);
+        Assert.Equal(new[] { "cello", "piano", "viola", "violin" }, track.Instrumentation!.Order(StringComparer.Ordinal));
     }
 
     [Fact]
