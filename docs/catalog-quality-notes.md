@@ -43,6 +43,10 @@ Evidence: [recording and alternative-source research](faure-berceuse-research-20
 
 ## Maintenance
 
+The [music model comparison](music-models.md) records candidate tools, local-use
+costs and outstanding weight-license questions. Proposed methods are not failed
+attempts and must not be inserted into the history as if they had been tested.
+
 - Add other songs to these same tables; do not create a separate quality register
   per song or a parallel replacement-priority list.
 - Update current quality, retention, priority, known alternatives and next action
