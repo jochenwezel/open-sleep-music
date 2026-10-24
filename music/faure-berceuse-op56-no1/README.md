@@ -7,12 +7,15 @@ Private solo correction auditions are being reviewed. The existing MIDI, MP3
 and derived working-score bytes are preserved, and the app retains the source
 recording. [Review findings](sources/piano-review-2026-10-23.json).
 
-The maintainer still finds A4 unconvincing.
-[New score-basis research](sources/score-basis-research-2026-10-23.json) records
-the historical Hamelle source, a CC0 community edition of the four-hands piano
-original via PDMX, and the public-domain Mutopia flute/guitar adaptation. Both
-have separate private slow auditions in Nextcloud. Neither audition is an
-approved replacement or a complete musical proofread.
+The maintainer still finds A4 unconvincing and, on 2026-10-24, rejected both
+score-based auditions as mechanical and unattractive.
+[Reference research and feedback](sources/score-basis-research-2026-10-23.json)
+retain the historical Hamelle score, CC0 community four-hands edition via PDMX,
+and public-domain Mutopia flute/guitar adaptation as notation references only.
+Use them to suggest specific melody/harmony checks against the Jones recording,
+while retaining the performance's timing, dynamics, overlaps and sustain.
+Arrangement or broad pitch-class differences alone do not prove transcription
+errors. The YDP B preference remains; no new rendition or replacement is approved.
 
 These project recordings adapt **Brian M. Jones's solo piano arrangement and
 September 2010 performance** of the Berceuse from the Dolly Suite. They use the

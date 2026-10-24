@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-23",
-  "status": "transcription-correction-required; A4-not-convincing; new-score-based-private-auditions-pending",
+  "status": "transcription-correction-required; score-renders-rejected; reference-guided-performance-review-open",
   "scope": "Piano solo first, at the maintainer request. No string reworking in this review.",
   "maintainerFeedback": "The converted MIDI contains apparent incorrect pitches or note timing and repeated dissonances. The opening sequence already differs from the original.",
   "source": "piano-transcription.json",
@@ -1487,7 +1487,7 @@
     "limitations": "69 first-four-partial candidates retained due to possible quiet attacks or higher-partial evidence. Additional wrong/missing pitches, octave errors, uncertain key durations or pedal events may remain. Frequency of detected candidates is not a measure of perceived severity. Whole-piece listening review is still needed."
   },
   "scoreBasedFollowUp": {
-    "status": "new-basis-prepared; listening-and-proofreading-pending",
+    "status": "renderings-rejected-as-mechanical; notation-reference-only",
     "maintainerFeedback": "A4 remains unconvincing. Find usable original scores/digital MIDI as a new starting point or plausibility reference; additionally audition Mutopia with its intended instruments.",
     "researchPath": "score-basis-research-2026-10-23.json",
     "auditionFolder": "Open Sleep Music/Probehören/2026-10-23-Faure-Notenbasis",
@@ -1502,6 +1502,78 @@
         "sha256": "935cfcc9e90575cfd48a91610a97970376a1dabae562ef40131719c787af79f3",
         "durationSeconds": 253.93632653061223
       }
-    ]
+    ],
+    "maintainerFollowUp": {
+      "date": "2026-10-24",
+      "status": "both-score-based-audio-renders-rejected; reference-notes-only",
+      "maintainerFeedback": "Both sound very mechanical and unattractive. They may only provide clues where melody and harmony in the performance-derived MIDI deviate too much.",
+      "scope": "Reject the Mutopia flute/guitar and tonic64 score-based piano renditions as listening candidates. Preserve the YDP B instrument preference for performance-derived Berceuse work.",
+      "usePolicy": "Use reference notation only to suggest specific melody, register or harmony checks. Confirm each proposed musical edit against the Jones source recording, accounting for arrangement differences. Preserve its expressive timing, rubato, velocities, overlaps and pedal, except for individually justified and documented correction of transcription mistakes. Do not wholesale replace performance events with score playback, quantize the performance globally, invent missing original four-hands voices, or make another score-only audition as a remedy for this feedback."
+    },
+    "referenceComparisonSummary": {
+      "date": "2026-10-24",
+      "status": "reference-cues-only; no-audio-confirmation; no-musical-edits",
+      "method": "For each retained A4 note, map its original onset onto the existing inferred bar grid. Look for its pitch class among sounding or nearby reference notes in a broad +/-0.5 quarter-beat window, in both reference editions. Retain cues absent from both only if original key duration >=90 ms and source velocity >=35. This tolerates octaves and some timing variation but is not an error detector.",
+      "basis": {
+        "performanceMidi": "A4 original timing",
+        "performanceMidiSha256": "b090b0a75f92d1125271f565bfb134dbe8b5de38a85795e3ea4820ff1e6beb82",
+        "noteCount": 1914,
+        "barGrid": "music/faure-berceuse-op56-no1/scores/engraving.json",
+        "barGridStatus": "Approximate performance-derived DTW grid; not an independently verified alignment.",
+        "referenceMidiSha256": {
+          "mutopia": "6c5903d76ebe3d60c1ccf535932f287668225a9ed2f4ae6544abd5dafabf004c",
+          "tonic64": "ebd928c8f1c48a9b8ba13a4735721964397914d70b3db23695e69979aef68977"
+        }
+      },
+      "cueCount": 41,
+      "meaning": "Unconfirmed comparison cues, not detected errors. No musical correction made.",
+      "higherCountWindows": [
+        {
+          "approximateBar": 16,
+          "slowStartSeconds": 45.56977378210873,
+          "slowEndSeconds": 48.34384105384502,
+          "cueCount": 5
+        },
+        {
+          "approximateBar": 48,
+          "slowStartSeconds": 139.58155607676306,
+          "slowEndSeconds": 143.87919878703107,
+          "cueCount": 3
+        },
+        {
+          "approximateBar": 19,
+          "slowStartSeconds": 54.36879158394242,
+          "slowEndSeconds": 56.979679774293785,
+          "cueCount": 2
+        },
+        {
+          "approximateBar": 31,
+          "slowStartSeconds": 89.32428499729212,
+          "slowEndSeconds": 91.82475596818364,
+          "cueCount": 2
+        },
+        {
+          "approximateBar": 32,
+          "slowStartSeconds": 91.82475596818364,
+          "slowEndSeconds": 96.33890267130326,
+          "cueCount": 2
+        }
+      ],
+      "reportedSection": {
+        "slowStartSeconds": 171,
+        "slowEndSeconds": 192,
+        "cuesInRange": 0,
+        "interpretation": "No shared reference pitch-class contrast in this broad-window comparison. This does not exclude wrong register, individual pitches within a broad sonority, repeat attacks, timing, sustain or alignment errors."
+      },
+      "limitations": [
+        "The references and the Jones performance are different arrangements. Legitimate passing notes, decorations, octave redistribution and harmony differences can remain unmatched.",
+        "DTW/bar-grid errors can create clusters of apparent mismatches.",
+        "Sustain acoustics, common harmonics and model ambiguity require checking actual recording evidence before removing or replacing any note.",
+        "A pitch-class match cannot certify correct melody, register, timing or harmony. No missing score voices are inserted.",
+        "The cue count is not an error count or a measure of perceived severity."
+      ],
+      "fullPrivateReportSha256": "c374c2bfe6d1384afb30c1fb6d809cea0b481f534294817ecbd275c5e05ced88",
+      "fullReportNextcloudRelativePath": "Quellen/reference-cues-2026-10-24.json"
+    }
   }
 }
