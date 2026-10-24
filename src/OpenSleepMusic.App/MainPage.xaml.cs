@@ -373,7 +373,7 @@ public partial class MainPage : ContentPage
         {
             PlayTrack(track, userInitiated: true);
             return Task.CompletedTask;
-        });
+        }, _catalogWorlds);
         page.PreferenceChanged += (_, track) => ApplyTrackPreferences(track);
         page.PlaybackFilterChanged += (_, _) => ApplyPlaybackFilter(card.World.Id);
         await Navigation.PushModalAsync(page);
@@ -735,7 +735,7 @@ public partial class MainPage : ContentPage
 
     private async Task OpenTrackDetailsAsync(LocalLibraryTrack track)
     {
-        var page = new TrackDetailsPage(track, _stateStore);
+        var page = new TrackDetailsPage(track, _stateStore, _catalogWorlds);
         page.PreferenceChanged += (_, _) => ApplyTrackPreferences(track);
         await Navigation.PushModalAsync(page);
     }

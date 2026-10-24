@@ -45,6 +45,43 @@ public sealed class BackgroundAudioTests
     }
 
     [Fact]
+    public void ResolvedBackgroundRetainsIndependentAttributionFromCurrentCatalog()
+    {
+        var main = Track("piano") with
+        {
+            Creator = "Piano performer",
+            License = "CC BY-SA 3.0",
+            LicenseUri = new("https://creativecommons.org/licenses/by-sa/3.0/"),
+            BackgroundAudio = new("crickets", .3, 1000, 2000)
+        };
+        var source = Track("crickets") with
+        {
+            Title = "Updated meadow recording",
+            Creator = "Updated field recordist",
+            SourcePageUri = new("https://example.org/updated-recording"),
+            License = "CC BY 4.0",
+            LicenseUri = new("https://creativecommons.org/licenses/by/4.0/"),
+            LicenseReviewStatus = "unchecked"
+        };
+        SleepWorld[] catalog = [World(main), new("ambient", "Ambient", "", "", [source])];
+
+        var background = Assert.IsType<AudioTrack>(BackgroundAudioCatalog.Resolve(main, catalog));
+
+        Assert.Equal(source.Title, background.Title);
+        Assert.Equal(source.Creator, background.Creator);
+        Assert.Equal(source.SourcePageUri, background.SourcePageUri);
+        Assert.Equal(source.License, background.License);
+        Assert.Equal(source.LicenseUri, background.LicenseUri);
+        Assert.Equal("unchecked", background.LicenseReviewStatus);
+        Assert.Equal(.3, background.VolumeGain);
+        Assert.Equal(1000, background.StartOffsetMilliseconds);
+        Assert.Equal(2000, background.EndOffsetMilliseconds);
+        Assert.Equal("Piano performer", main.Creator);
+        Assert.Equal("CC BY-SA 3.0", main.License);
+        Assert.Equal("https://creativecommons.org/licenses/by-sa/3.0/", main.LicenseUri.AbsoluteUri);
+    }
+
+    [Fact]
     public void NestedAndUncheckedPreviewBackgroundsAreRejected()
     {
         var main = Track("piano") with { BackgroundAudio = new("crickets") };
@@ -101,6 +138,12 @@ public sealed class BackgroundAudioTests
         Assert.Equal(source.DownloadUri, background.DownloadUri);
         Assert.Equal(source.Sha1, background.Sha1);
         Assert.True(background.PlaybackDurationSeconds > primary.PlaybackDurationSeconds);
+        Assert.Equal("Campaign at Night #4 – Grillen auf der Wiese", background.Title);
+        Assert.Equal("Joseph Sardin / BigSoundBank", background.Creator);
+        Assert.Equal("CC0 1.0", background.License);
+        Assert.Equal("https://creativecommons.org/publicdomain/zero/1.0/", background.LicenseUri.AbsoluteUri);
+        Assert.Equal("https://bigsoundbank.com/campaign-at-night-4-s1880.html", background.SourcePageUri.AbsoluteUri);
+        Assert.Equal("verified", background.LicenseReviewStatus);
         foreach (var world in new[] { classics, lullabies })
         {
             Assert.DoesNotContain(world.Tracks, track => track.Id == source.Id);

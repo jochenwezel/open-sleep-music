@@ -1,4 +1,5 @@
 using OpenSleepMusic.Core.Library;
+using OpenSleepMusic.Core.Catalog;
 using OpenSleepMusic.Core.Playback;
 using OpenSleepMusic.App.Localization;
 using OpenSleepMusic.App.Navigation;
@@ -12,6 +13,7 @@ public partial class CollectionTracksPage : ContentPage
 {
     private readonly IReadOnlyList<LocalLibraryTrack> _tracks;
     private readonly AppStateStore _stateStore;
+    private readonly IReadOnlyList<SleepWorld> _catalog;
 
     private readonly Func<LocalLibraryTrack, Task> _playRequested;
     private readonly ModalPlaybackNavigation _playbackNavigation = new();
@@ -21,12 +23,13 @@ public partial class CollectionTracksPage : ContentPage
     internal event EventHandler? PlaybackFilterChanged;
 
     internal CollectionTracksPage(string title, IReadOnlyList<LocalLibraryTrack> tracks, AppStateStore stateStore,
-        Func<LocalLibraryTrack, Task> playRequested)
+        Func<LocalLibraryTrack, Task> playRequested, IReadOnlyList<SleepWorld> catalog)
     {
         InitializeComponent();
         TitleLabel.Text = title;
         _tracks = tracks;
         _stateStore = stateStore;
+        _catalog = catalog;
         _playRequested = playRequested;
         _worldId = tracks.FirstOrDefault()?.SleepWorld.Id;
         _items = tracks.Select(track => new CollectionTrackListItem(track)).ToArray();
@@ -77,7 +80,7 @@ public partial class CollectionTracksPage : ContentPage
     {
         if (_playbackNavigation.IsOpening) return;
         if (sender is not Button { CommandParameter: CollectionTrackListItem item }) return;
-        var page = new TrackDetailsPage(item.LocalTrack, _stateStore);
+        var page = new TrackDetailsPage(item.LocalTrack, _stateStore, _catalog);
         page.PreferenceChanged += (_, _) =>
         {
             RefreshItemStates();
