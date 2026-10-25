@@ -85,9 +85,9 @@ contains full-source inference, its own estimated pedal and original/sleep MIDI
 with unsoftened estimated velocities. D1 is not applied; no further Basic Pitch
 render is made. Full inference can differ from cropped inference because of
 segment context; the previous excerpt is not spliced into the new output.
-Complete listening remains pending. Aria's separate checkpoint-rights review
-is also unresolved, so this is private audition/research rather than production
-admission or public music publication.
+At the time of preparing those auditions, complete listening and Aria's
+checkpoint-rights review remained pending. The subsequent full-piece approval
+and scoped author-component review below supersede that earlier status.
 
 Keep recording, model/code and instrument-sample rights separate. Running a model
 does not remove source-performance rights, and a free code license does not

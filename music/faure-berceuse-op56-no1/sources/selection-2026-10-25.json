@@ -27,5 +27,6 @@
   ],
   "legacyPublicationCommit": "7a7b98a8d8bf7cd1e452817f14276bd7967de0a0",
   "legacyAudioCommit": "92af08a8a3851ec2894e94566bd38d34a6070f1e",
-  "legacyPolicy": "Removed from current file set at maintainer request; historical commit-pinned bytes remain reachable. Source recordings and preparation inputs retained locally."
+  "legacyPolicy": "Removed from current file set at maintainer request; historical commit-pinned bytes remain reachable. Source recordings and preparation inputs retained locally.",
+  "catalogAdoption": "Stable and Preview runtime catalog assets published and verified over HTTPS on 2026-10-25; same stable ID, rendered sleep timing, player speed/gain 1."
 }

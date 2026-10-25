@@ -102,6 +102,26 @@
   "additionalPublications": [
     {
       "songDirectory": "music/faure-berceuse-op56-no1",
+      "audioCommit": "a929a1419af6383a9340f7f3279ef15b3ca27f04",
+      "retainedVariants": [
+        "aria-piano-sleep-v2"
+      ],
+      "stringsReviewStatus": "retired; no Aria strings requested or approved",
+      "pianoReviewStatus": "complete Aria/YDP solo explicitly maintainer-approved on 2026-10-25; selected for Lullabies for little ones",
+      "pianoReviewFindingsPath": "music/faure-berceuse-op56-no1/sources/piano-review-2026-10-23.json",
+      "scoreReferencePolicy": "Both 2026-10-23 score-based auditions rejected as mechanical. Use their notes as tentative melody/harmony references only; preserve the Jones performance expression and confirm corrections against the original recording.",
+      "catalogTrackId": "faure-berceuse-op-56-no-1",
+      "catalogVariant": "aria-piano-sleep-v2",
+      "catalogAdmissionDate": "2026-10-25",
+      "transcriptionModel": "Aria-AMT piano-medium-double-1.0; own estimated pedal; no additional beat grid",
+      "modelLicenseReviewPath": "docs/aria-amt-license-review-2026-10-25.md",
+      "selectedVariantScope": "Only the approved sleep solo is published/current. Original-timing MIDI is a preparation input; old four-variant style recommendation does not invent approval of new Faure versions."
+    }
+  ],
+  "faureRetiredPublicationHistory": [
+    {
+      "date": "2026-10-25",
+      "songDirectory": "music/faure-berceuse-op56-no1",
       "audioCommit": "92af08a8a3851ec2894e94566bd38d34a6070f1e",
       "retainedVariants": [
         "piano-original",
