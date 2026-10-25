@@ -86,3 +86,11 @@ Nextcloud files. This verifies local delivery into the synchronized folder, not
 an independent authenticated server download or a musical listening approval.
 The compact [audition manifest](../tools/mazurka-auditions-2026-10-24.json) retains
 the exact delivered-file hashes, settings and rights-review status.
+
+On 2026-10-25 each of these three folders also receives a separate
+`00-Schnellvergleich-Original-YDP-Streicher.mp3`, comparing the same 15-second
+passage from the slowed original, existing YDP solo and existing YDP/string
+recording at matched loudness, with one-second pauses. The original six full
+MP3s, nine MIDI files and earlier overview remain byte-identical. See the
+[57-work comparison manifest](../tools/mazurka-quick-comparisons-2026-10-25.json)
+for positions, processing, attribution and new-file checksums.

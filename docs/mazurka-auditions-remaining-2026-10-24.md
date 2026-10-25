@@ -23,6 +23,21 @@ short fades. Section times and full-work links are retained in `batch-report.jso
 Original-performance solo MIDI, sleep solo MIDI and sleep piano/string MIDI
 accompany each work; original-tempo MP3s are not part of this audition request.
 
+On 2026-10-25 the maintainer requests a quick source/render comparison in every
+work folder, including the initial three. Each folder now additionally contains
+`00-Schnellvergleich-Original-YDP-Streicher.mp3`: the same 15-second passage from
+the original recording at 0:00, YDP solo at 0:16 and YDP with strings at 0:32,
+with one-second pauses and matched loudness. The source alone uses pitch-preserving
+FFmpeg `atempo=0.666667`; synthetic excerpts retain their existing MIDI-derived
+sleep timing. The passage starts up to two seconds before the first existing
+string entry so that the accompaniment is represented. Short excerpt fades are
+intentional. This reference processing can have its own artifacts and does not
+claim identity with the app's tempo implementation. Existing complete MP3/MIDI
+bytes remain unchanged. A top-level `02-SCHNELLVERGLEICHE.md` links all 57 files;
+the [comparison manifest](../tools/mazurka-quick-comparisons-2026-10-25.json)
+retains exact source/full-version input hashes, excerpt positions, chapter times,
+measurements, copied-file hashes and the existing rights-review state.
+
 ## Preparation and its limits
 
 The Kong high-resolution note/pedal model estimates expressive timing, velocities,
