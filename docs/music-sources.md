@@ -382,4 +382,6 @@ No media bytes are changed, and no music release or release ZIP is created.
 The maintainer rejects the Fauré A5 comparison and abandons that MIDI conversion.
 Its historical project files and review findings remain identifiable, while the
 existing Brian M. Jones source recording stays in the app unchanged. No further
-Fauré correction audition or synthesized catalog replacement is approved.
+Fauré correction audition or synthesized catalog replacement is approved at that point.
+
+On 2026-10-25, the maintainer separately authorizes a short independent Transkun V2 test using the same Brian M. Jones CC BY 3.0 source. Two contextual excerpts compare source-reference audio, the prior Kong A2 MIDI and new Transkun estimates with the same YDP B piano, event speed 0.833333 and matched loudness. [The test record](../tools/transkun-faure-test-2026-10-25.json) retains checkpoint/code/source hashes, settings, limitations, measurements and copied-file hashes. Eight MP3 comparisons and eight contextual MIDI files are prepared privately in Nextcloud; original-performance notes and estimated velocities remain separate from render-only softening. Source and YDP sample attribution remain CC BY 3.0; Transkun's MIT code/model distribution does not replace recording rights. This is a new independent-model trial with musical feedback pending, not a full-piece conversion, catalog replacement or approval of the rejected A1–A5 path. Continue its outcome in the central [quality register](catalog-quality-notes.md).

@@ -1,0 +1,413 @@
+{
+  "date": "2026-10-25",
+  "trackId": "faure-berceuse-op-56-no-1",
+  "status": "private-Transkun-independent-test; maintainer-listening-pending",
+  "assistantSessionLabel": {
+    "value": "ChatGPT 6.1 Sol Hoch",
+    "source": "maintainer-supplied session label, not the transcription model"
+  },
+  "inference": {
+    "date": "2026-10-25",
+    "sourceSha256": "0f03a7bcd856c01a4534ac8b82b9b512df6bea5b6679c089e9f20786fc240235",
+    "sourceSha1": "16f742aed631bbd30a78e3298fb77672655bf306",
+    "model": "Transkun V2 bundled 2.0.pt",
+    "repository": "https://github.com/Yujia-Yan/Transkun",
+    "sourceCommit": "c5cb8370e17b4a1650b5971ba87ee4b0d208e5b6",
+    "modelSha256": "50a80010effc2a59ffcd068a95cd2b29bd7f23a27a3515bc3ccd209c89a3d44c",
+    "configurationSha256": "d3d989214eb148230ee5df476d994dcde6af595904d3f968f1221d2e3bea5ac6",
+    "configuration": {
+      "f_min": 30,
+      "f_max": 8000,
+      "n_mels": 229,
+      "segmentHopSizeInSecond": 8,
+      "segmentSizeInSecond": 16,
+      "hopSize": 1024,
+      "windowSize": 4096,
+      "fs": 44100,
+      "nExtraWins": 5,
+      "baseSize": 64,
+      "downsampleF": true,
+      "posEmbedInitGamma": 1,
+      "nHead": 8,
+      "fourierSize": 64,
+      "nLayers": 6,
+      "enabledAttn": [
+        "F",
+        "T"
+      ],
+      "hiddenFactorAttn": 1,
+      "hiddenFactor": 4,
+      "velocityPredictorHiddenSize": 512,
+      "refinedOFPredictorHiddenSize": 512,
+      "scoringExpansionFactor": 4,
+      "useInnerProductScorer": true,
+      "scoreDropoutProb": 0.1,
+      "contextDropoutProb": 0.0,
+      "velocityDropoutProb": 0.1,
+      "refinedOFDropoutProb": 0.1
+    },
+    "license": "MIT",
+    "torch": "2.11.0+cu128",
+    "device": "NVIDIA GeForce RTX 4060",
+    "peakCudaAllocatedMB": 883.2041015625,
+    "TF32": false,
+    "loadPolicy": "torch.load(weights_only=True), strict state-dict match; unmodified upstream model source",
+    "decode": "Original Ogg decoded to float32 stereo at model rate 44100 Hz using miniaudio; no denoising or pitch correction.",
+    "passages": [
+      {
+        "id": "01-Anfang",
+        "contextStart": 0.0,
+        "contextEnd": 36.0,
+        "coreStart": 1.65,
+        "coreEnd": 26.65,
+        "inferenceSeconds": 5.907000000006519,
+        "noteCount": 200,
+        "pedalCounts": {
+          "64": 18,
+          "66": 0,
+          "67": 0
+        },
+        "rawEventsSha256": "2ecb829efca8efa3acb784851f530d291dc7f9fc2fc09bac415fbaf8c987c776"
+      },
+      {
+        "id": "02-Pruefstelle",
+        "contextStart": 130.0,
+        "contextEnd": 187.0,
+        "coreStart": 142.499943,
+        "coreEnd": 174.499943,
+        "inferenceSeconds": 2.625,
+        "noteCount": 309,
+        "pedalCounts": {
+          "64": 26,
+          "66": 0,
+          "67": 0
+        },
+        "rawEventsSha256": "390b2696d311121c773cab7b6765e8303103e08e533b39cb6cf02d72d7408f82"
+      }
+    ],
+    "reviewStatus": "technical inference completed; musical listening pending"
+  },
+  "source": {
+    "composer": "Gabriel Fauré",
+    "creator": "Brian M. Jones, solo piano transcription and performance, September 2010",
+    "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg",
+    "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg&oldid=1269037211",
+    "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg",
+    "sha1": "16f742aed631bbd30a78e3298fb77672655bf306",
+    "license": "CC BY 3.0",
+    "licenseUri": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceHistory": "Commons records a YouTube-derived Ogg from Brian M. Jones solo piano transcription; use the exact catalog original, not the separate NC four-hand performance."
+  },
+  "previousA2MidiSha256": "3a9a56374f3e63022775f49166c8cd5ae3f5d8ea076acb84c098a11a173950cd",
+  "renderSettings": {
+    "id": "ydp-b-warm-room",
+    "status": "maintainer-preferred",
+    "appliesTo": "All Berceuse pieces when preparing MIDI-based replacement recordings",
+    "feedback": "The maintainer likes the new YDP variant B very much and selects it as the preferred piano voice for future Berceuse conversions.",
+    "approvedAuditionFile": "B-voller-Fluegel-mit-Raum-YDP.mp3",
+    "approvedAuditionSha256": "5eee3efcad5144bcc31f0f37428c8a46efb9587b63d4058cf89d412312993ddc",
+    "soundbank": "YDP Grand Piano, FreePats SF2 version 2016-08-04, Yamaha Disklavier Pro",
+    "soundbankSourcePageUri": "https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html",
+    "soundbankDownloadUri": "https://freepats.zenvoid.org/Piano/YDP-GrandPiano/YDP-GrandPiano-SF2-20160804.tar.bz2",
+    "soundbankLicense": "CC BY 3.0",
+    "soundbankLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
+    "soundbankCredits": "Zenph Studios, Dr. Mikhail Krishtal and team; OLPC sound sample library / Dr. Richard Boulanger; SF2 and sample modifications by Roberto (roberto@zenvoid.org), FreePats",
+    "synthesizer": "FluidSynth 2.6.1",
+    "renderSettings": {
+      "sampleRateHz": 44100,
+      "channels": 2,
+      "renderOnlyVelocityScale": 0.8,
+      "tempo": "Retain each recording's chosen audition tempo through MIDI-event timing; do not impose the Burgmuller tempo on other pieces or stretch rendered audio",
+      "reverbEnabled": true,
+      "reverbEngine": "free",
+      "reverbMidiController91": 90,
+      "reverbRoomSize": 0.43,
+      "reverbLevel": 0.38,
+      "reverbDamp": 0.65,
+      "reverbWidth": 0.9,
+      "chorusEnabled": false,
+      "highPassHz": 35,
+      "bodyEq": {
+        "frequencyHz": 210,
+        "gainDb": 2.4,
+        "q": 0.65
+      },
+      "presenceEq": {
+        "frequencyHz": 3100,
+        "gainDb": -1.6,
+        "q": 0.8
+      },
+      "lowPassHz": 9500,
+      "integratedLoudnessTargetLufs": -23.21,
+      "loudnessStrategy": "Constant gain only; retain safe peak headroom and note dynamics; no compressor or limiter",
+      "mp3BitrateKbps": 256,
+      "tailTrim": {
+        "significantPeakThresholdDbfs": -90,
+        "quietMarginSeconds": 0.35,
+        "finalInaudibleFadeMilliseconds": 80
+      }
+    },
+    "verification": "Confirm actual reverb in the output using a wet/dry comparison. Earlier Salamander A/B renders were effectively identical because no MIDI reverb send reached the effect. Check loudness matching, full decoding, headroom, quiet ending and retained credits before delivering an audition."
+  },
+  "passages": [
+    {
+      "id": "01-Anfang",
+      "contextStart": 0.0,
+      "contextEnd": 36.0,
+      "coreStart": 1.65,
+      "coreEnd": 26.65,
+      "inferenceSeconds": 5.907000000006519,
+      "noteCount": 200,
+      "pedalCounts": {
+        "64": 18,
+        "66": 0,
+        "67": 0
+      },
+      "rawEventsSha256": "2ecb829efca8efa3acb784851f530d291dc7f9fc2fc09bac415fbaf8c987c776",
+      "mp3": [
+        {
+          "fileName": "01-Anfang-A-Originalaufnahme.mp3",
+          "durationSeconds": 30.380408163265304,
+          "integratedLufs": -23.199096477134567,
+          "truePeakDbtp4x": -6.14836084675821,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "60621202fc30c52c8c72e1452ff5a81cb40060eda86a3d09c01923206b52b5b1",
+          "bytes": 976082
+        },
+        {
+          "fileName": "01-Anfang-B-Bisheriges-Kong-A2-YDP.mp3",
+          "durationSeconds": 30.380408163265304,
+          "integratedLufs": -23.251792591766712,
+          "truePeakDbtp4x": -7.296940594189136,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "106fcd454f6bb9bbbdd2f481b3bfa1cbd40fc67ef31d129bbd7d98d236d95296",
+          "bytes": 976314
+        },
+        {
+          "fileName": "01-Anfang-C-Transkun-V2-YDP.mp3",
+          "durationSeconds": 30.380408163265304,
+          "integratedLufs": -23.19838755603152,
+          "truePeakDbtp4x": -6.559827771467733,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "1660d9d799d9f991988b84055b3b81950722db69ae3d996b491ac3718da3e8ae",
+          "bytes": 976286
+        },
+        {
+          "fileName": "00-01-Anfang-Vergleich-A-B-C.mp3",
+          "durationSeconds": 92.68244897959184,
+          "integratedLufs": -23.207669963568687,
+          "truePeakDbtp4x": -6.14836084675821,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "57755bf9a9418959ac971a315a394a10e1d3cc52a4382888994b3d2d43eef05d",
+          "bytes": 2971588
+        }
+      ],
+      "midi": [
+        {
+          "fileName": "piano-original.mid",
+          "sha256": "404a015f1388fbc7bc67ff180f78753369f30680999e574a631b6c14e6662aa7",
+          "notes": 357,
+          "speed": 1,
+          "durationSeconds": 36.0015625,
+          "relativePath": "01-Anfang/Kong-A2/piano-original.mid"
+        },
+        {
+          "fileName": "piano-sleep.mid",
+          "sha256": "95be95565b2ec162b25b94937773780d93640456e633b03d1dc68d9c4f776ec1",
+          "notes": 357,
+          "speed": 0.833333,
+          "durationSeconds": 43.2015625,
+          "relativePath": "01-Anfang/Kong-A2/piano-sleep.mid"
+        },
+        {
+          "fileName": "piano-original.mid",
+          "sha256": "e5b243154e812ffc35f6be62e4591f0181d51532919820e8a659ad5e052b67ae",
+          "notes": 200,
+          "speed": 1,
+          "durationSeconds": 36.0015625,
+          "relativePath": "01-Anfang/Transkun-V2/piano-original.mid"
+        },
+        {
+          "fileName": "piano-sleep.mid",
+          "sha256": "4cf9283918d55cff841aa97416ef3889a328b88a947bbcaea26081ddff234dab",
+          "notes": 200,
+          "speed": 0.833333,
+          "durationSeconds": 43.2015625,
+          "relativePath": "01-Anfang/Transkun-V2/piano-sleep.mid"
+        }
+      ],
+      "wetDryDifferenceRelativeDb": {
+        "Kong-A2": -18.0333723381673,
+        "Transkun-V2": -18.01733946673571
+      },
+      "modelAgreement": {
+        "aNoteCount": 230,
+        "bNoteCount": 142,
+        "samePitchOnsetsWithin50ms": 138,
+        "medianMatchedOnsetDifferenceSeconds": 0.006250000000001421,
+        "interpretation": "Agreement between estimates only; neither model is ground truth and counts do not establish musical quality."
+      },
+      "rawKongCoreNoteCount": 243,
+      "sharedLoudnessTargetLufs": -23.21
+    },
+    {
+      "id": "02-Pruefstelle",
+      "contextStart": 130.0,
+      "contextEnd": 187.0,
+      "coreStart": 142.499943,
+      "coreEnd": 174.499943,
+      "inferenceSeconds": 2.625,
+      "noteCount": 309,
+      "pedalCounts": {
+        "64": 26,
+        "66": 0,
+        "67": 0
+      },
+      "rawEventsSha256": "390b2696d311121c773cab7b6765e8303103e08e533b39cb6cf02d72d7408f82",
+      "mp3": [
+        {
+          "fileName": "02-Pruefstelle-A-Originalaufnahme.mp3",
+          "durationSeconds": 38.79183673469388,
+          "integratedLufs": -23.222859397868174,
+          "truePeakDbtp4x": -8.755386396201331,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "1721320966267222208cb09fbb08ed388a6297fec1770fc503d6e965e6e1dee9",
+          "bytes": 1245548
+        },
+        {
+          "fileName": "02-Pruefstelle-B-Bisheriges-Kong-A2-YDP.mp3",
+          "durationSeconds": 38.79183673469388,
+          "integratedLufs": -23.222559418730487,
+          "truePeakDbtp4x": -7.456884423645734,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "902681a2fe7cac48edf93ccc0889a364c8ebd734eb5668b6d265ac2998b34af2",
+          "bytes": 1245780
+        },
+        {
+          "fileName": "02-Pruefstelle-C-Transkun-V2-YDP.mp3",
+          "durationSeconds": 38.79183673469388,
+          "integratedLufs": -23.222349679980045,
+          "truePeakDbtp4x": -9.397346936993179,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "9a43809b1f11e5effd37a41d1be1198c2eb58dbe58ca7a0966af7e837d72456f",
+          "bytes": 1245752
+        },
+        {
+          "fileName": "00-02-Pruefstelle-Vergleich-A-B-C.mp3",
+          "durationSeconds": 117.89061224489797,
+          "integratedLufs": -23.225893156337644,
+          "truePeakDbtp4x": -7.458169009709797,
+          "final250msRmsDbfs": -240.0,
+          "sha256": "23eaaa233668bcda690aeca5ff07a11c16496594ad3c0dfb3f5bc5a1e99ad05c",
+          "bytes": 3779066
+        }
+      ],
+      "midi": [
+        {
+          "fileName": "piano-original.mid",
+          "sha256": "d2a959661830bebd557599231f1cbf7f53ae62854756040bbc3b8d81c42b83a7",
+          "notes": 595,
+          "speed": 1,
+          "durationSeconds": 57.0015625,
+          "relativePath": "02-Pruefstelle/Kong-A2/piano-original.mid"
+        },
+        {
+          "fileName": "piano-sleep.mid",
+          "sha256": "df544e1c8c8b6c2e179e42a50cf7379d60f31ddf77279097379e12bac7792870",
+          "notes": 595,
+          "speed": 0.833333,
+          "durationSeconds": 68.4015625,
+          "relativePath": "02-Pruefstelle/Kong-A2/piano-sleep.mid"
+        },
+        {
+          "fileName": "piano-original.mid",
+          "sha256": "a224227e506254faaa55346d493e10c12cfc35d31a59ac19fe42623f33fc63f5",
+          "notes": 309,
+          "speed": 1,
+          "durationSeconds": 57.0015625,
+          "relativePath": "02-Pruefstelle/Transkun-V2/piano-original.mid"
+        },
+        {
+          "fileName": "piano-sleep.mid",
+          "sha256": "36779151170777f26aa456c26700688aa9deaa0c23545eec9c8abfcb528dd6e2",
+          "notes": 309,
+          "speed": 0.833333,
+          "durationSeconds": 68.4015625,
+          "relativePath": "02-Pruefstelle/Transkun-V2/piano-sleep.mid"
+        }
+      ],
+      "wetDryDifferenceRelativeDb": {
+        "Kong-A2": -18.238127904120642,
+        "Transkun-V2": -18.33477201555698
+      },
+      "modelAgreement": {
+        "aNoteCount": 356,
+        "bNoteCount": 183,
+        "samePitchOnsetsWithin50ms": 171,
+        "medianMatchedOnsetDifferenceSeconds": 0.004166666666662877,
+        "interpretation": "Agreement between estimates only; neither model is ground truth and counts do not establish musical quality."
+      },
+      "rawKongCoreNoteCount": 372,
+      "sharedLoudnessTargetLufs": -23.21
+    }
+  ],
+  "limitations": [
+    "No musically verified ground truth; agreement/disagreement is not precision or recall.",
+    "Two contextual excerpts, not full-piece conversion or an accepted improvement.",
+    "Pedal positions and velocities are estimates; source-reference atempo can itself create artifacts.",
+    "Excerpt fades are deliberate, not an evaluation of natural full-work endings."
+  ],
+  "unchanged": "Published music/MIDI/PDF bytes, pinned URLs, app catalog, strings and previous auditions.",
+  "nextcloudRelativeDirectory": "Open Sleep Music/Probehören/2026-10-25-Faure-Transkun-Test",
+  "deliverySha256": {
+    "01-Anfang/Kong-A2/piano-original.mid": "404a015f1388fbc7bc67ff180f78753369f30680999e574a631b6c14e6662aa7",
+    "01-Anfang/Kong-A2/piano-sleep.mid": "95be95565b2ec162b25b94937773780d93640456e633b03d1dc68d9c4f776ec1",
+    "01-Anfang/Transkun-V2/piano-original.mid": "e5b243154e812ffc35f6be62e4591f0181d51532919820e8a659ad5e052b67ae",
+    "01-Anfang/Transkun-V2/piano-sleep.mid": "4cf9283918d55cff841aa97416ef3889a328b88a947bbcaea26081ddff234dab",
+    "01-Anfang-A-Originalaufnahme.mp3": "60621202fc30c52c8c72e1452ff5a81cb40060eda86a3d09c01923206b52b5b1",
+    "01-Anfang-B-Bisheriges-Kong-A2-YDP.mp3": "106fcd454f6bb9bbbdd2f481b3bfa1cbd40fc67ef31d129bbd7d98d236d95296",
+    "01-Anfang-C-Transkun-V2-YDP.mp3": "1660d9d799d9f991988b84055b3b81950722db69ae3d996b491ac3718da3e8ae",
+    "00-01-Anfang-Vergleich-A-B-C.mp3": "57755bf9a9418959ac971a315a394a10e1d3cc52a4382888994b3d2d43eef05d",
+    "02-Pruefstelle/Kong-A2/piano-original.mid": "d2a959661830bebd557599231f1cbf7f53ae62854756040bbc3b8d81c42b83a7",
+    "02-Pruefstelle/Kong-A2/piano-sleep.mid": "df544e1c8c8b6c2e179e42a50cf7379d60f31ddf77279097379e12bac7792870",
+    "02-Pruefstelle/Transkun-V2/piano-original.mid": "a224227e506254faaa55346d493e10c12cfc35d31a59ac19fe42623f33fc63f5",
+    "02-Pruefstelle/Transkun-V2/piano-sleep.mid": "36779151170777f26aa456c26700688aa9deaa0c23545eec9c8abfcb528dd6e2",
+    "02-Pruefstelle-A-Originalaufnahme.mp3": "1721320966267222208cb09fbb08ed388a6297fec1770fc503d6e965e6e1dee9",
+    "02-Pruefstelle-B-Bisheriges-Kong-A2-YDP.mp3": "902681a2fe7cac48edf93ccc0889a364c8ebd734eb5668b6d265ac2998b34af2",
+    "02-Pruefstelle-C-Transkun-V2-YDP.mp3": "9a43809b1f11e5effd37a41d1be1198c2eb58dbe58ca7a0966af7e837d72456f",
+    "00-02-Pruefstelle-Vergleich-A-B-C.mp3": "23eaaa233668bcda690aeca5ff07a11c16496594ad3c0dfb3f5bc5a1e99ad05c",
+    "test-report.json": "2a8dc0ec0a5423548b76a9a7e6b6520963c7d0f5ddc40dd2ad3a7db34e41e135",
+    "inference-report.json": "301c854728f279ac3f17692861a6f0acb11995f541ff8b03774d7516245f5fdd",
+    "01-Anfang/transkun-raw-events.json": "2ecb829efca8efa3acb784851f530d291dc7f9fc2fc09bac415fbaf8c987c776",
+    "02-Pruefstelle/transkun-raw-events.json": "390b2696d311121c773cab7b6765e8303103e08e533b39cb6cf02d72d7408f82",
+    "BITTE-LESEN.md": "7d95c0e54e7310ef48fdaf681c51a55f5701224b9720c1dcd2f8f2d12f670680",
+    "TRANSKUN-LICENSE.txt": "7662b6b4acfb7090612b946c1f427d8c7b591cda7d7a16139aed4eb66d20b066",
+    "CC-BY-3.0.txt": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76"
+  },
+  "validation": {
+    "completeMp3Decoding": true,
+    "midiNotePairingAndFinalPedalRelease": true,
+    "originalSleepEventAndVelocityEqualityWithTimingRatio": true,
+    "wetDryReverbDifferenceVerified": true,
+    "matchedLoudnessAndPeakHeadroom": true,
+    "excerptFadesAndQuietMargins": true,
+    "localNextcloudCopySha256Verified": true,
+    "authenticatedServerDownloadIndependentlyVerified": false,
+    "musicalListeningApproved": false
+  },
+  "preparationScriptSha256": {
+    "test_transkun_faure.py": "2621b27f62aa086d23f39ac3f1ae45eee1c6c45f67038f9e0f1274fed1f6abf4",
+    "render_transkun_faure_test.py": "c800b68a6a9b7506c24e381633f93f1ff3a56bce3ffe67f32a547031c52abca4",
+    "mazurka_audio_common_v2.py": "9a8ba6868b9335cd4042a797eebce60c4fb3ac6a75631219d08ea6ed5941dc67"
+  },
+  "comparisonLabels": {
+    "A": "Original recording, slowed using pitch-preserving FFmpeg atempo as reference",
+    "B": "Previous Kong A2 MIDI rendered with YDP B",
+    "C": "Independent Transkun V2 MIDI rendered with YDP B"
+  },
+  "modelAgreementFieldLabels": {
+    "aNoteCount": "Kong A2 notes in the audible original-time core interval",
+    "bNoteCount": "Transkun V2 notes in that same interval",
+    "caution": "These a/b field names are model-comparison arguments, not audio file labels A/B."
+  }
+}
