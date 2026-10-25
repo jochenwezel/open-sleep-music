@@ -187,7 +187,7 @@
     "ARIA-UTILS-APACHE-2.0.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
     "BITTE-LESEN.md": "54f2baedd47d064d8dc606742b3ae14929cecef16572739a578d3aa80f2751a9",
     "CC-BY-3.0.txt": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76",
-    "full-render-report.json": "85138166d54fe27b71ca6f0e70c6a8c0ba8c062bc025d976de1ce37c26a21d36",
+    "full-render-report.json": "94c379d9ca3bc1db926bd5ff1bb225abb6e11a4647caabec46bda9168fa2a5ac",
     "inference-report.json": "ad64b91102f55727bcac32379a91363a394f6f7d05da5b85e28faedbb678bf49",
     "piano-original.mid": "8ff61faf61fae95e091c753afab7410f148e0249accc6b2f0ff1ff605ff35562",
     "piano-sleep.mid": "f611a0a7628643addcb39303ed41c670cc5b6b8afd748a45572f26a3f080e5d7",
@@ -246,5 +246,14 @@
     "sha256": "1b1d34cf60d945b62fbb3d9cd2a0ea4bc11f9dbc54479e57e94d4a7500b422a3",
     "sha1": "aac570402e5867f5bb1c70841cb1eb18783c55fd",
     "signature": "ID3"
+  },
+  "cleanup": {
+    "date": "2026-10-25",
+    "nextcloudRetainedAudition": "2026-10-25-Faure-Aria-Komplett",
+    "otherFaureAuditionFoldersRemoved": true,
+    "alternativePreviewReferencesRetired": 5,
+    "supersededLocalGeneratedMediaRemoved": 106,
+    "removedLocalGeneratedMediaBytes": 1960409124,
+    "preserved": "Original Ogg, approved Aria MP3/MIDI, raw model estimates and useful MIDI/analysis/license inputs; historical Git media and append-only quality history."
   }
 }

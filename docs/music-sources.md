@@ -419,3 +419,14 @@ Rejected Fauré MP3/MIDI variants and their automatic v1 scores are removed from
 current publication and private audition folders. Previously pinned Git bytes,
 compact attempt evidence, original sources and useful local preparation inputs
 remain recoverable. Burgmüller publications and mazurka auditions are unchanged.
+
+## Additional Aria mazurka comparisons, 2026-10-25
+
+At the maintainer's request, all 57 existing mazurka folders now include one full
+Aria/YDP piano solo version C at the previous .666667 event speed, original/sleep
+MIDI and a matched old-Kong-piano/Aria-piano quick comparison. Existing A/B
+full MP3/MIDI and source/solo/string comparisons retain their exact bytes.
+[Preparation, rights boundaries and validation](mazurka-aria-auditions-2026-10-25.md)
+link the complete machine-readable settings/probes/hashes. Per-work listening
+and recording-rights reviews remain pending. These are private Nextcloud
+auditions; the runtime catalog and published music are unchanged by this addition.
