@@ -3952,7 +3952,7 @@
     ],
     "allTranskunNotesOnsetsKeyOffsPitchesVelocitiesAndOtherControlsUnchanged": true,
     "verifiedReverbWetDryDifferenceDb": -18.302259842404027,
-    "result": "Technically rendered and validated; musical outcome pending, not required from maintainer now. No quantization, missing-note restoration or whole-piece conversion.",
+    "result": "Maintainer-rejected D1 pedal substitution on 2026-10-25. Do not apply to full Transkun or Aria renders.",
     "actualWetWaveformDifferenceRelativeRmsDb": -13.77,
     "validation": {
       "allNonCc64NonMetaEventsExactlyPreserved": true,
@@ -3962,12 +3962,13 @@
       "actualWaveformEffectVerified": true,
       "independentlyVerifiedServerDownload": false,
       "musicalResultApproved": false
-    }
+    },
+    "reviewStatus": "rejected"
   },
   "nextcloudRelativeDirectory": "Open Sleep Music/Probehören/2026-10-25-Faure-Transkun-Pedalvergleich",
   "copiedFileSha256": {
-    "analysis.json": "a43029ed38c471b3acccf53f3c3d8223c25d2ca094af85fdd42d8be69e015456",
-    "BITTE-LESEN.md": "60f571a0a1fd2c44780bfa167413f52124cfb97485e267bb48163eab601a4cb5",
+    "analysis.json": "393cc5c81553c555b8808a129112b3a1bc3c9d1f00a7388298cae4ff4c748471",
+    "BITTE-LESEN.md": "2311041c42d6aedc20442820d75374c11f474b5e57adbaced4b2660b51e0e60e",
     "source-release-probes.png": "47bc4b8f7ab028b1c936c573f86610635533cc25018bb9a52d0f1436feac5e28",
     "00-Vergleich-Transkun-vorher-Pedalversuch.mp3": "466c81610810eb274c468a4e421b09a3efeedd17c013ca60bd043a4e88830081",
     "01-Pruefstelle-Transkun-D1-Pedalversuch.mp3": "a148106191af9ab984faec568142db2931f031590fc0f6455de6e3d1282eca16",
@@ -3989,5 +3990,13 @@
     "remainingIssue": "Melody seems uneven or off the beat: one note appears held longer and the following note shorter, unlike the source and prior conversion.",
     "availability": "Maintainer has little time for further listening now; do not require additional immediate auditioning.",
     "approval": "Partial positive feedback, not whole-piece or rhythm/articulation approval."
+  },
+  "subsequentMaintainerFeedback": {
+    "date": "2026-10-25",
+    "pedalDiagnosticD1": "Maintainer rejects the CC64-substitution variant. Do not use it in complete renders.",
+    "basicPitch": "Maintainer rejects Basic Pitch and asks to discard that engine for this workflow; no further Basic Pitch preparation.",
+    "aria": "Maintainer calls Aria the best variant in the problem-passage comparison and requests a complete conversion.",
+    "transkun": "Maintainer first requests the complete native Transkun variant; retain it as a comparison alongside the subsequently requested Aria rendition.",
+    "scope": "Aria preference applies to the listened problem-passage comparison. Complete renders are newly prepared auditions, not full-piece or catalog approval."
   }
 }

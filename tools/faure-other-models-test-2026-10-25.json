@@ -81,7 +81,8 @@
         "noteCount": 308,
         "sustainEvents": 56,
         "rawMidiSha256": "b24f0e19b979ab1858abed3e73b6b19fa3dcb7639d3ad2866dea0dc0743d93ea",
-        "musicalReview": "pending; private audition only"
+        "musicalReview": "maintainer-preferred problem-passage candidate; complete conversion requested; full-piece approval pending",
+        "maintainerFeedbackDate": "2026-10-25"
       },
       "midi": [
         {
@@ -133,7 +134,8 @@
         "pedalRecognition": false,
         "renderPolicy": "Retain recognized note intervals and amplitude-derived estimated velocities. Render fixed-pitch piano without pitch bends; do not invent or borrow pedal. Preserve raw output separately.",
         "rawMidiSha256": "69405f60e551d344065647705a4bd6fe8119abdb4056f83a43256c279531fe3a",
-        "musicalReview": "pending"
+        "musicalReview": "maintainer-rejected; do not pursue Basic Pitch in this workflow",
+        "maintainerFeedbackDate": "2026-10-25"
       },
       "midi": [
         {
@@ -281,7 +283,7 @@
     "Equal soundbank/loudness does not make different models equally accurate or equally expressive."
   ],
   "nextcloudRelativeDirectory": "Open Sleep Music/Probehören/2026-10-25-Faure-Weitere-Modelle",
-  "reviewStatus": "technically completed; maintainer listening pending, no immediate listening requested",
+  "reviewStatus": "Aria preferred in problem-passage comparison; Basic Pitch rejected; complete Aria conversion requested, full-piece approval pending",
   "unchanged": "Existing catalog, published music/MIDI/PDF, previous auditions and pinned downloads.",
   "validation": {
     "fullMp3Decoding": true,
@@ -293,17 +295,17 @@
   "copiedFileSha256": {
     "Aria-AMT/piano-original.mid": "c370d3187a497ac2474e74214676c8c7ea157f465f1484ac5b4c078b1bcb83d8",
     "Aria-AMT/piano-sleep.mid": "b9a027a2b2f88fe3af0ff3bfb34244a3712b3e680afa034ef38bf59d7f4c66bb",
-    "Aria-AMT/inference-report.json": "75ebf7795820430d6b8f64d1a79039a35348dde46e66f35bea3239c6127c6380",
+    "Aria-AMT/inference-report.json": "0f25268fc21a6b3955eac4d0fd0919a77f00f3ef15b7c35c9758ad47f0c7f683",
     "Aria-AMT/raw-context.mid": "b24f0e19b979ab1858abed3e73b6b19fa3dcb7639d3ad2866dea0dc0743d93ea",
     "Basic-Pitch/piano-original.mid": "92e17485203a14242340649270ae80254eee2c3ef4dd96298aaddd57891896c1",
     "Basic-Pitch/piano-sleep.mid": "5ecbea073673ed38add903a2718ebf4587c38c6de4d168d5b089fadc67ce6fb5",
-    "Basic-Pitch/inference-report.json": "01fecbc4481f81958fbd491903486839dd9a6e644d019e788bdc83c7ed1e5e12",
+    "Basic-Pitch/inference-report.json": "66d24a1c2a2d8f4a227e774f548d6df6ca384da59115bc00aa622a595231e281",
     "Basic-Pitch/raw-context.mid": "69405f60e551d344065647705a4bd6fe8119abdb4056f83a43256c279531fe3a",
     "01-Pruefstelle-Aria-AMT-YDP.mp3": "23f965299720c595c604df1ef0f1819a2effa01f025d7facb883164b8b7cdefa",
     "02-Pruefstelle-Basic-Pitch-YDP.mp3": "8c30d49c553bc7e277a56c11f9c21c541f443674c490441329068b4e5c9e733a",
     "00-Schnellvergleich-Original-Transkun-Aria-BasicPitch.mp3": "3bccf0305cb9cd4b082ab748a510fc4809ca681ae738e537d180ce17352cf911",
-    "test-report.json": "954297952cdd908180f964a997e4b1ac95f8436920ffe15ebf27a616ca82aaf0",
-    "BITTE-LESEN.md": "50e400b338cfc2aa58c0afe4b98a23c7b272276ed43178fff29d3f3426fc2ed2",
+    "test-report.json": "7aff072c4896c9e4d01a72e32f4eeacc49b028b1b7c87b2f17181cca661d235b",
+    "BITTE-LESEN.md": "c269e783145cadd2246550e804d8add90044cde85cf879a211442e40eed36f54",
     "ARIA-CODE-APACHE-2.0.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
     "ARIA-UTILS-APACHE-2.0.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
     "BASIC-PITCH-APACHE-2.0.txt": "929c910bae2152fa87199a5d0660e09263419b7eee6d4b301d05ee2aaf211c37",
@@ -317,5 +319,13 @@
     "render_other_faure_modules.py": "e35114827ba9945808218cceed2f23090f40a2faa617edbb9e7080ddf18d8ab0",
     "render_transkun_faure_test.py": "c800b68a6a9b7506c24e381633f93f1ff3a56bce3ffe67f32a547031c52abca4",
     "mazurka_audio_common_v2.py": "9a8ba6868b9335cd4042a797eebce60c4fb3ac6a75631219d08ea6ed5941dc67"
+  },
+  "maintainerFeedback": {
+    "date": "2026-10-25",
+    "pedalDiagnosticD1": "Maintainer rejects the CC64-substitution variant. Do not use it in complete renders.",
+    "basicPitch": "Maintainer rejects Basic Pitch and asks to discard that engine for this workflow; no further Basic Pitch preparation.",
+    "aria": "Maintainer calls Aria the best variant in the problem-passage comparison and requests a complete conversion.",
+    "transkun": "Maintainer first requests the complete native Transkun variant; retain it as a comparison alongside the subsequently requested Aria rendition.",
+    "scope": "Aria preference applies to the listened problem-passage comparison. Complete renders are newly prepared auditions, not full-piece or catalog approval."
   }
 }

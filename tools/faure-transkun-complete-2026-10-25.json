@@ -1,0 +1,210 @@
+{
+  "date": "2026-10-25",
+  "trackId": "faure-berceuse-op-56-no-1",
+  "status": "complete Transkun solo audition prepared; full-piece listening pending, no catalog replacement",
+  "maintainerDirection": "Reject the D1 pedal-substitution variant; prepare the entire original Transkun variant with its own pedal.",
+  "assistantSessionLabel": {
+    "value": "ChatGPT 6.1 Sol Hoch",
+    "source": "maintainer-supplied session label, not the transcription engine"
+  },
+  "source": {
+    "composer": "Gabriel Fauré",
+    "creator": "Brian M. Jones, solo piano transcription and performance, September 2010",
+    "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg",
+    "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg&oldid=1269037211",
+    "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg",
+    "sha1": "16f742aed631bbd30a78e3298fb77672655bf306",
+    "license": "CC BY 3.0",
+    "licenseUri": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceHistory": "Commons records a YouTube-derived Ogg from Brian M. Jones solo piano transcription; use the exact catalog original, not the separate NC four-hand performance."
+  },
+  "inference": {
+    "date": "2026-10-25",
+    "trackId": "faure-berceuse-op-56-no-1",
+    "model": "Transkun V2 bundled 2.0.pt",
+    "repository": "https://github.com/Yujia-Yan/Transkun",
+    "sourceCommit": "c5cb8370e17b4a1650b5971ba87ee4b0d208e5b6",
+    "sourceSha1": "16f742aed631bbd30a78e3298fb77672655bf306",
+    "sourceSha256": "0f03a7bcd856c01a4534ac8b82b9b512df6bea5b6679c089e9f20786fc240235",
+    "sourceDurationSeconds": 214.62204081632652,
+    "modelSha256": "50a80010effc2a59ffcd068a95cd2b29bd7f23a27a3515bc3ccd209c89a3d44c",
+    "configurationSha256": "d3d989214eb148230ee5df476d994dcde6af595904d3f968f1221d2e3bea5ac6",
+    "configuration": {
+      "f_min": 30,
+      "f_max": 8000,
+      "n_mels": 229,
+      "segmentHopSizeInSecond": 8,
+      "segmentSizeInSecond": 16,
+      "hopSize": 1024,
+      "windowSize": 4096,
+      "fs": 44100,
+      "nExtraWins": 5,
+      "baseSize": 64,
+      "downsampleF": true,
+      "posEmbedInitGamma": 1,
+      "nHead": 8,
+      "fourierSize": 64,
+      "nLayers": 6,
+      "enabledAttn": [
+        "F",
+        "T"
+      ],
+      "hiddenFactorAttn": 1,
+      "hiddenFactor": 4,
+      "velocityPredictorHiddenSize": 512,
+      "refinedOFPredictorHiddenSize": 512,
+      "scoringExpansionFactor": 4,
+      "useInnerProductScorer": true,
+      "scoreDropoutProb": 0.1,
+      "contextDropoutProb": 0.0,
+      "velocityDropoutProb": 0.1,
+      "refinedOFDropoutProb": 0.1
+    },
+    "torch": "2.11.0+cu128",
+    "device": "NVIDIA GeForce RTX 4060",
+    "peakAllocatedMB": 917.08837890625,
+    "tf32": false,
+    "inferenceSeconds": 10.39100000000326,
+    "noteCount": 1041,
+    "pedalCounts": {
+      "64": 97,
+      "66": 0,
+      "67": 0
+    },
+    "rawMidiSha256": "93cbe14d29a38e754e28f216d3d190d54db60ad9d37ef837950ed73b16c6e909",
+    "rawEventsSha256": "f78af3f025c1981a46359cddfdf50075dd809a2c8dbf62f5c7e52446e78299b4",
+    "renderPolicy": "Original Transkun estimated pitches, attacks, key-offs, velocities and own pedal. No substituted A2/Kong pedal, manual note edits, beat quantization or strings.",
+    "contextPolicy": "One full-source inference with the same default 8-second-hop/16-second-window model settings. Segment context/alignment differs from the earlier cropped test; do not claim byte-identical notes in its excerpt.",
+    "status": "full-source inference complete; full-piece musical listening pending"
+  },
+  "midi": [
+    {
+      "fileName": "piano-original.mid",
+      "sha256": "48f658afd1c3a4517d6d61b3fe1976624597274c19cabf65e18311972b0934b6",
+      "notes": 1041,
+      "speed": 1,
+      "durationSeconds": 214.6234375
+    },
+    {
+      "fileName": "piano-sleep.mid",
+      "sha256": "c38e02942ba3f0d5afeaf5e18638dafb9699f4a99b07e567b423d219adbc1444",
+      "notes": 1041,
+      "speed": 0.833333,
+      "durationSeconds": 257.5484375
+    }
+  ],
+  "mp3": {
+    "fileName": "01-Faure-Berceuse-Transkun-Komplett-YDP-Einschlaftempo-v1.mp3",
+    "durationSeconds": 256.130612244898,
+    "integratedLufs": -23.208836428637284,
+    "truePeakDbtp4x": -5.0195062617595525,
+    "final250msRmsDbfs": -240.0,
+    "sha256": "485998d2203e855f4e3964659904d775687a56888bf604144f967f2e05dee409",
+    "bytes": 8207838
+  },
+  "tempoFactor": 0.833333,
+  "pianoPreset": {
+    "id": "ydp-b-warm-room",
+    "status": "maintainer-preferred",
+    "appliesTo": "All Berceuse pieces when preparing MIDI-based replacement recordings",
+    "feedback": "The maintainer likes the new YDP variant B very much and selects it as the preferred piano voice for future Berceuse conversions.",
+    "approvedAuditionFile": "B-voller-Fluegel-mit-Raum-YDP.mp3",
+    "approvedAuditionSha256": "5eee3efcad5144bcc31f0f37428c8a46efb9587b63d4058cf89d412312993ddc",
+    "soundbank": "YDP Grand Piano, FreePats SF2 version 2016-08-04, Yamaha Disklavier Pro",
+    "soundbankSourcePageUri": "https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html",
+    "soundbankDownloadUri": "https://freepats.zenvoid.org/Piano/YDP-GrandPiano/YDP-GrandPiano-SF2-20160804.tar.bz2",
+    "soundbankLicense": "CC BY 3.0",
+    "soundbankLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
+    "soundbankCredits": "Zenph Studios, Dr. Mikhail Krishtal and team; OLPC sound sample library / Dr. Richard Boulanger; SF2 and sample modifications by Roberto (roberto@zenvoid.org), FreePats",
+    "synthesizer": "FluidSynth 2.6.1",
+    "renderSettings": {
+      "sampleRateHz": 44100,
+      "channels": 2,
+      "renderOnlyVelocityScale": 0.8,
+      "tempo": "Retain each recording's chosen audition tempo through MIDI-event timing; do not impose the Burgmuller tempo on other pieces or stretch rendered audio",
+      "reverbEnabled": true,
+      "reverbEngine": "free",
+      "reverbMidiController91": 90,
+      "reverbRoomSize": 0.43,
+      "reverbLevel": 0.38,
+      "reverbDamp": 0.65,
+      "reverbWidth": 0.9,
+      "chorusEnabled": false,
+      "highPassHz": 35,
+      "bodyEq": {
+        "frequencyHz": 210,
+        "gainDb": 2.4,
+        "q": 0.65
+      },
+      "presenceEq": {
+        "frequencyHz": 3100,
+        "gainDb": -1.6,
+        "q": 0.8
+      },
+      "lowPassHz": 9500,
+      "integratedLoudnessTargetLufs": -23.21,
+      "loudnessStrategy": "Constant gain only; retain safe peak headroom and note dynamics; no compressor or limiter",
+      "mp3BitrateKbps": 256,
+      "tailTrim": {
+        "significantPeakThresholdDbfs": -90,
+        "quietMarginSeconds": 0.35,
+        "finalInaudibleFadeMilliseconds": 80
+      }
+    },
+    "verification": "Confirm actual reverb in the output using a wet/dry comparison. Earlier Salamander A/B renders were effectively identical because no MIDI reverb send reached the effect. Check loudness matching, full decoding, headroom, quiet ending and retained credits before delivering an audition."
+  },
+  "verifiedReverbWetDryDifferenceDb": -18.14221532630452,
+  "tailTrim": {
+    "originalRenderedSeconds": 267.5519274376417,
+    "selectedEndSeconds": 256.1,
+    "removedSeconds": 11.451927437641723,
+    "peakThresholdDbfs": -90,
+    "lastPeakAboveThresholdSeconds": 255.72,
+    "quietMarginSeconds": 0.35,
+    "finalFadeMilliseconds": 80,
+    "startOffsetMilliseconds": 0
+  },
+  "problemPassageContextConsistency": {
+    "previousCroppedNoteCount": 183,
+    "fullInferenceCoreNoteCount": 182,
+    "matchingPitchOnsetsWithin50ms": 178,
+    "medianMatchedOnsetDifferenceMilliseconds": 2.6041666666571928,
+    "interpretation": "Same model, checkpoint and settings, but full-source versus cropped segment context. No splice, timing repair or guarantee of identical notes; musical review remains pending."
+  },
+  "nativeTranskunPedalRetained": true,
+  "rejectedD1SubstitutionApplied": false,
+  "manualNoteEdits": false,
+  "additionalBeatQuantization": false,
+  "strings": false,
+  "nextcloudRelativeDirectory": "Open Sleep Music/Probehören/2026-10-25-Faure-Transkun-Komplett",
+  "validation": {
+    "fullMp3Decoding": true,
+    "matchedLoudnessHeadroomAndQuietEnding": true,
+    "midiNotePairingAndFinalRelease": true,
+    "originalSleepTimingRatioAndUnsoftenedVelocitiesVerified": true,
+    "ownTranskunSustainCountVerified": true,
+    "authenticatedServerDownloadIndependentlyVerified": false
+  },
+  "unchanged": "Existing production recording/catalog, published song MIDI/MP3/PDF bytes, pinned download URLs and older audition audio/MIDI files.",
+  "copiedFileSha256": {
+    "01-Faure-Berceuse-Transkun-Komplett-YDP-Einschlaftempo-v1.mp3": "485998d2203e855f4e3964659904d775687a56888bf604144f967f2e05dee409",
+    "piano-original.mid": "48f658afd1c3a4517d6d61b3fe1976624597274c19cabf65e18311972b0934b6",
+    "piano-sleep.mid": "c38e02942ba3f0d5afeaf5e18638dafb9699f4a99b07e567b423d219adbc1444",
+    "transkun-raw-events.json": "f78af3f025c1981a46359cddfdf50075dd809a2c8dbf62f5c7e52446e78299b4",
+    "inference-report.json": "d47bf1350677da990b60e4b29b9b46643badbb4bc274f028af12656601b16bf4",
+    "full-render-report.json": "e050644b09af51675a3776f1fbffa66eb93caa76988cddb910146da9aee9d492",
+    "BITTE-LESEN.md": "5252c1de0dcd747b96b578604f6234c33aae817e883f7e8d080f2abe3f020292",
+    "source-provenance.json": "44cba40efb2d584967a9fb5085bca45c48c73c0bd821dd38bd1ee69ce273ae13",
+    "CC-BY-3.0.txt": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76",
+    "YDP-ORIGINAL-CREDITS.txt": "00b50312ada857d89c6e8690be059dcc50ee5a755fc1bbc607ec9070a7a05117",
+    "TRANSKUN-MIT-LICENSE.txt": "7662b6b4acfb7090612b946c1f427d8c7b591cda7d7a16139aed4eb66d20b066"
+  },
+  "preparationScriptSha256": {
+    "transcribe_faure_transkun_complete.py": "a7a8aa8402e9331f14d99ce58f18cde975a5f63b46bdb85bb0bc7f54bbaebe03",
+    "render_faure_transkun_complete.py": "14c3ee233931e77cb680915c0d978aed7d04739c6d7173f705ed3f864ee3521e",
+    "render_transkun_faure_test.py": "c800b68a6a9b7506c24e381633f93f1ff3a56bce3ffe67f32a547031c52abca4",
+    "mazurka_audio_common_v2.py": "9a8ba6868b9335cd4042a797eebce60c4fb3ac6a75631219d08ea6ed5941dc67",
+    "tail_tools.py": "29ba6d29f8fe4cc27e77dc6dc41ea163018e4de81e0cb2af24720ecc9f6de994"
+  },
+  "subsequentMaintainerPreference": "Aria subsequently preferred in the problem-passage comparison; this complete Transkun rendition remains an audition/comparison, not a full-piece approval."
+}

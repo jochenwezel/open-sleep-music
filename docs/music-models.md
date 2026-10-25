@@ -6,8 +6,8 @@ mobile app. The app continues to play the finished MP3s using its existing playe
 | Tool | Intended use | Cost and current licensing evidence | Practical decision |
 | --- | --- | --- | --- |
 | [Transkun](https://github.com/Yujia-Yan/Transkun) | Expressive solo-piano audio to MIDI; note intervals, velocities, timing and pedal estimates. | Local software under [MIT](https://github.com/Yujia-Yan/Transkun/blob/main/LICENSE); the default checkpoint is shipped in the project/package. No per-song API fee for running it locally. Inspect separate terms before using another externally linked checkpoint. | Independent Fauré excerpt test completed on RTX 4060 on 2026-10-25 with the bundled V2 checkpoint; positive feedback on the problem passage, uneven articulation still under review and opening unreviewed. [Exact test record](../tools/transkun-faure-test-2026-10-25.json). |
-| [Aria-AMT](https://github.com/EleutherAI/aria-amt) | Sequence-to-sequence piano transcription, designed for real recordings. | Code is Apache 2.0. The recommended checkpoint is hosted in the [Aria-MIDI repository](https://huggingface.co/datasets/loubb/aria-midi), whose dataset card declares CC BY-NC-SA 4.0; an explicit separate checkpoint grant has not been established in this review. Do not equate the code license with a cleared checkpoint license or the rights in dataset performances. | Private Fauré problem-passage audition completed on 2026-10-25; listening pending. A local Windows I/O adaptation is recorded, not claimed as an author benchmark. Checkpoint/publication terms remain unresolved; no production approval. [Exact test record](../tools/faure-other-models-test-2026-10-25.json). |
-| [Spotify Basic Pitch](https://github.com/spotify/basic-pitch) | Instrument-agnostic polyphonic note transcription; another independent estimate of pitches, timing and amplitude-derived velocities. | Code and bundled model distribution are Apache 2.0; retain Spotify credits separately from performance/sample rights. Local ONNX inference has no hosted API fee. | Previously used only as corroboration for A5; a complete problem-passage YDP audition is now prepared, without invented pedal. Raw pitch bends are preserved separately and omitted from the fixed-pitch piano render. [Exact test record](../tools/faure-other-models-test-2026-10-25.json). |
+| [Aria-AMT](https://github.com/EleutherAI/aria-amt) | Sequence-to-sequence piano transcription, designed for real recordings. | Code is Apache 2.0. The recommended checkpoint is hosted in the [Aria-MIDI repository](https://huggingface.co/datasets/loubb/aria-midi), whose dataset card declares CC BY-NC-SA 4.0; an explicit separate checkpoint grant has not been established in this review. Do not equate the code license with a cleared checkpoint license or the rights in dataset performances. | Maintainer-preferred Fauré problem-passage candidate. [Complete private audition](../tools/faure-aria-complete-2026-10-25.json) subsequently prepared; full-piece review and checkpoint/publication terms remain pending. Documented local Windows I/O compatibility run, not an author benchmark. |
+| [Spotify Basic Pitch](https://github.com/spotify/basic-pitch) | Instrument-agnostic polyphonic note transcription; another independent estimate of pitches, timing and amplitude-derived velocities. | Code and bundled model distribution are Apache 2.0; retain Spotify credits separately from performance/sample rights. Local ONNX inference has no hosted API fee. | Rejected by the maintainer after the Fauré problem-passage audition; do not pursue it in this workflow. Retain earlier A5 corroboration and the rejected audition as evidence. [Exact test record and feedback](../tools/faure-other-models-test-2026-10-25.json). |
 | [Music Flamingo](https://huggingface.co/nvidia/music-flamingo-2601-hf) | Audio-language analysis of harmony, timbre, structure and musical descriptions. | Downloadable model under the NVIDIA OneWay Noncommercial License; the model card explicitly limits it to noncommercial research. Hosting or rented hardware may cost extra. | A research lead, not a default production preparation tool or guaranteed note-accurate MIDI transcriber. No commercial permission or model deployment is inferred from the app's free price. |
 
 Local inference does not incur a hosted model's per-request fee. It still consumes
@@ -73,8 +73,21 @@ velocities remain in the MIDI, with raw pitch bends retained only in the raw
 output. These model differences can change articulation even with an identical
 soundbank. Music Flamingo is not executed here: its provided audio/text-to-text
 interface does not supply direct AMT MIDI for an equivalent piano render.
-Musical outcomes remain pending; the maintainer's limited listening time is
-respected by preparing one short overview for later.
+The maintainer subsequently rejects Basic Pitch and the D1 pedal-substitution
+diagnostic, and selects Aria as the best problem-passage variant. These listening
+judgments do not establish a general benchmark ranking or approve a whole piece.
+
+At the maintainer's request, complete native-pedal
+[Transkun](../tools/faure-transkun-complete-2026-10-25.json) and
+[Aria](../tools/faure-aria-complete-2026-10-25.json) solo auditions are now
+prepared, each about 4:16 at the same sleep tempo and YDP B settings. Each
+contains full-source inference, its own estimated pedal and original/sleep MIDI
+with unsoftened estimated velocities. D1 is not applied; no further Basic Pitch
+render is made. Full inference can differ from cropped inference because of
+segment context; the previous excerpt is not spliced into the new output.
+Complete listening remains pending. Aria's separate checkpoint-rights review
+is also unresolved, so this is private audition/research rather than production
+admission or public music publication.
 
 Keep recording, model/code and instrument-sample rights separate. Running a model
 does not remove source-performance rights, and a free code license does not
