@@ -34,9 +34,16 @@ at matched loudness. The source reference alone uses FFmpeg pitch-preserving
 `atempo`, as a diagnostic comparison rather than a new production recording.
 
 Technical delivery checks pass for eight MP3s and eight contextual MIDI files.
-This is not a listening approval, a full-piece conversion or an acceptance of
-the previously rejected repairs. Only extend the test if listening establishes
-that it addresses the actual note/timing defects. Outcomes remain in the central
+The maintainer subsequently finds the problematic passage substantially better,
+but reports uneven melody note lengths/apparent rhythm; the opening is unreviewed.
+This is partial feedback, not full-piece approval or acceptance of the earlier
+rejected repairs. An [articulation analysis and CC64-only diagnostic](../tools/transkun-faure-articulation-review-2026-10-25.json)
+finds close timing among matched attacks but substantially different key-offs
+and sustain-release patterns. The source-envelope probes remain inconclusive;
+the diagnostic is not an established pedal correction. One problem-passage
+comparison is prepared for later because the maintainer has limited listening
+time. Preserve expressive timing and establish the cause before quantizing
+beats or extending notes. Outcomes remain in the central
 [catalog quality register](catalog-quality-notes.md), including earlier failures.
 
 Keep recording, model/code and instrument-sample rights separate. Running a model

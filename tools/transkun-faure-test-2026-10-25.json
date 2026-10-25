@@ -1,7 +1,7 @@
 {
   "date": "2026-10-25",
   "trackId": "faure-berceuse-op-56-no-1",
-  "status": "private-Transkun-independent-test; maintainer-listening-pending",
+  "status": "partial-positive-problem-passage-feedback; uneven-articulation-under-review; no-full-piece-approval",
   "assistantSessionLabel": {
     "value": "ChatGPT 6.1 Sol Hoch",
     "source": "maintainer-supplied session label, not the transcription model"
@@ -376,7 +376,7 @@
     "02-Pruefstelle-B-Bisheriges-Kong-A2-YDP.mp3": "902681a2fe7cac48edf93ccc0889a364c8ebd734eb5668b6d265ac2998b34af2",
     "02-Pruefstelle-C-Transkun-V2-YDP.mp3": "9a43809b1f11e5effd37a41d1be1198c2eb58dbe58ca7a0966af7e837d72456f",
     "00-02-Pruefstelle-Vergleich-A-B-C.mp3": "23eaaa233668bcda690aeca5ff07a11c16496594ad3c0dfb3f5bc5a1e99ad05c",
-    "test-report.json": "2a8dc0ec0a5423548b76a9a7e6b6520963c7d0f5ddc40dd2ad3a7db34e41e135",
+    "test-report.json": "6fc11c6260fb0adf1eb82877a3f8f721a5f0adcb1db2574e885017e64d25ac0f",
     "inference-report.json": "301c854728f279ac3f17692861a6f0acb11995f541ff8b03774d7516245f5fdd",
     "01-Anfang/transkun-raw-events.json": "2ecb829efca8efa3acb784851f530d291dc7f9fc2fc09bac415fbaf8c987c776",
     "02-Pruefstelle/transkun-raw-events.json": "390b2696d311121c773cab7b6765e8303103e08e533b39cb6cf02d72d7408f82",
@@ -409,5 +409,13 @@
     "aNoteCount": "Kong A2 notes in the audible original-time core interval",
     "bNoteCount": "Transkun V2 notes in that same interval",
     "caution": "These a/b field names are model-comparison arguments, not audio file labels A/B."
+  },
+  "maintainerFeedback": {
+    "date": "2026-10-25",
+    "listenedScope": "Problematic-passage comparison only; opening not reviewed.",
+    "positive": "Maintainer finds the problematic passage substantially better with Transkun.",
+    "remainingIssue": "Melody seems uneven or off the beat: one note appears held longer and the following note shorter, unlike the source and prior conversion.",
+    "availability": "Maintainer has little time for further listening now; do not require additional immediate auditioning.",
+    "approval": "Partial positive feedback, not whole-piece or rhythm/articulation approval."
   }
 }
