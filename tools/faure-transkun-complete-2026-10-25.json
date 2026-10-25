@@ -206,5 +206,11 @@
     "mazurka_audio_common_v2.py": "9a8ba6868b9335cd4042a797eebce60c4fb3ac6a75631219d08ea6ed5941dc67",
     "tail_tools.py": "29ba6d29f8fe4cc27e77dc6dc41ea163018e4de81e0cb2af24720ecc9f6de994"
   },
-  "subsequentMaintainerPreference": "Aria subsequently preferred in the problem-passage comparison; this complete Transkun rendition remains an audition/comparison, not a full-piece approval."
+  "subsequentMaintainerPreference": "Aria subsequently preferred in the problem-passage comparison; this complete Transkun rendition remains an audition/comparison, not a full-piece approval.",
+  "deliveryRetirement": {
+    "date": "2026-10-25",
+    "status": "removed from current Nextcloud auditions at maintainer request after full Aria selection",
+    "historicalHashesRetained": true,
+    "sourceAndPreparationInputsRetainedLocally": true
+  }
 }

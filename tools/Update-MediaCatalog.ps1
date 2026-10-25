@@ -163,7 +163,34 @@ $schubertOctetAdagio.instrumentation = @('violin', 'viola', 'cello', 'double-bas
 $schubertOctetAdagio.ensembleType = 'octet'
 $worlds['quiet-classics'].tracks.Add($schubertOctetAdagio)
 $worlds.waves.tracks.Add((New-CommonsTrack 'lake-ontario-waves' 'Waves' 'Dsw4' 'Waves.ogg' 'https://commons.wikimedia.org/wiki/File:Waves.ogg' 'Public Domain' 'https://creativecommons.org/publicdomain/mark/1.0/' 'waves.ogg' 287))
-$worlds.lullabies.tracks.Add((New-CommonsTrack 'faure-berceuse-op-56-no-1' 'Gabriel Fauré – Berceuse op. 56 Nr. 1' 'Piano: Brian M. Jones' 'Berceuse by Gabriel Fauré op56 no1.ogg' 'https://commons.wikimedia.org/wiki/File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg' 'CC BY 3.0' 'https://creativecommons.org/licenses/by/3.0/' 'faure-berceuse-op-56-no-1.ogg' 214.622 '16f742aed631bbd30a78e3298fb77672655bf306'))
+# Maintainer approval 2026-10-25: the complete Aria/YDP solo is already rendered
+# at sleep tempo and matched loudness. Preserve the catalog identity and artwork.
+$faurePublication = Get-Content (Join-Path $PSScriptRoot '../music/faure-berceuse-op56-no1/song.json') -Raw -Encoding utf8 | ConvertFrom-Json
+$faureVersions = @($faurePublication.variants | Where-Object id -eq 'aria-piano-sleep-v2')
+$faureModelReview = Get-Content (Join-Path $PSScriptRoot '../music/faure-berceuse-op56-no1/licenses/aria-component-review.json') -Raw -Encoding utf8 | ConvertFrom-Json
+if ($faureVersions.Count -ne 1 -or $faureVersions[0].reviewStatus -ne 'maintainer-approved' -or
+    $faurePublication.license -ne 'CC BY 3.0' -or $faurePublication.audioCommit -notmatch '^[0-9a-f]{40}$' -or
+    $faureModelReview.status -ne 'verified-author-component-grant') {
+    throw 'Faure requires the approved, licensed, commit-pinned Aria piano publication.'
+}
+$faureVersion = $faureVersions[0]
+$worlds.lullabies.tracks.Add([ordered]@{
+    id = 'faure-berceuse-op-56-no-1'
+    title = 'Gabriel Fauré – Berceuse op. 56 Nr. 1'
+    creator = 'Open Sleep Music contributors (Aria-MIDI-Klavier, YDP); Klavier-Bearbeitung und Aufnahmevorlage: Brian M. Jones. YDP: Zenph Studios, Dr. Mikhail Krishtal und Team; OLPC/Dr. Richard Boulanger; Roberto/FreePats (CC BY 3.0).'
+    downloadUri = $faureVersion.downloadUri
+    sourcePageUri = "https://github.com/jochenwezel/open-sleep-music/blob/main/music/$($faurePublication.id)/README.md"
+    license = $faurePublication.license
+    licenseUri = $faurePublication.licenseUri
+    fileName = [IO.Path]::GetFileName($faureVersion.audioPath)
+    durationSeconds = $faureVersion.durationSeconds
+    sha1 = $faureVersion.audioSha1
+    instrumentation = @($faureVersion.instruments)
+    ensembleType = 'solo'
+    licenseReviewStatus = 'verified'
+    playbackSpeed = 1.0
+    volumeGain = 1.0
+})
 # Maintainer admission 2026-10-24: use the approved C2 strings at rendered sleep
 # tempo. Keep the catalog identity/order/artwork; a new filename invalidates the
 # old Ogg download without confusing its checksum with the published MP3 bytes.
@@ -202,12 +229,11 @@ $worlds.lullabies.tracks | ForEach-Object {
     else { $_.instrumentation = @('instrumental'); $_.ensembleType = 'solo' }
 }
 foreach ($track in $worlds.lullabies.tracks) {
-    if ($track.id -ne 'burgmuller-berceuse-op-109-no-7') { $track.playbackSpeed = [Math]::Round(1 / 1.2, 6) }
+    if ($track.id -notin @('burgmuller-berceuse-op-109-no-7', 'faure-berceuse-op-56-no-1')) { $track.playbackSpeed = [Math]::Round(1 / 1.2, 6) }
 }
 # The new Burgmuller MP3 already contains the chosen sleep timing and matched
 # loudness; do not apply the old recording's slowdown or 0.7 gain a second time.
-# Maintainer follow-up 2026-10-08: Fauré's Berceuse 25% quieter.
-($worlds.lullabies.tracks | Where-Object id -eq 'faure-berceuse-op-56-no-1').volumeGain = 0.75
+# Fauré's approved Aria render also replaces the original's slowdown and 0.75 gain.
 
 # Preview audition tracks are separate from production admission. Only stable,
 # header-checked delivery metadata may be materialized as a downloadable track.

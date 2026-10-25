@@ -417,5 +417,11 @@
     "remainingIssue": "Melody seems uneven or off the beat: one note appears held longer and the following note shorter, unlike the source and prior conversion.",
     "availability": "Maintainer has little time for further listening now; do not require additional immediate auditioning.",
     "approval": "Partial positive feedback, not whole-piece or rhythm/articulation approval."
+  },
+  "deliveryRetirement": {
+    "date": "2026-10-25",
+    "status": "removed from current Nextcloud auditions at maintainer request after full Aria selection",
+    "historicalHashesRetained": true,
+    "sourceAndPreparationInputsRetainedLocally": true
   }
 }

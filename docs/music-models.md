@@ -6,7 +6,7 @@ mobile app. The app continues to play the finished MP3s using its existing playe
 | Tool | Intended use | Cost and current licensing evidence | Practical decision |
 | --- | --- | --- | --- |
 | [Transkun](https://github.com/Yujia-Yan/Transkun) | Expressive solo-piano audio to MIDI; note intervals, velocities, timing and pedal estimates. | Local software under [MIT](https://github.com/Yujia-Yan/Transkun/blob/main/LICENSE); the default checkpoint is shipped in the project/package. No per-song API fee for running it locally. Inspect separate terms before using another externally linked checkpoint. | Independent Fauré excerpt test completed on RTX 4060 on 2026-10-25 with the bundled V2 checkpoint; positive feedback on the problem passage, uneven articulation still under review and opening unreviewed. [Exact test record](../tools/transkun-faure-test-2026-10-25.json). |
-| [Aria-AMT](https://github.com/EleutherAI/aria-amt) | Sequence-to-sequence piano transcription, designed for real recordings. | Code is Apache 2.0. The recommended checkpoint is hosted in the [Aria-MIDI repository](https://huggingface.co/datasets/loubb/aria-midi), whose dataset card declares CC BY-NC-SA 4.0; an explicit separate checkpoint grant has not been established in this review. Do not equate the code license with a cleared checkpoint license or the rights in dataset performances. | Maintainer-preferred Fauré problem-passage candidate. [Complete private audition](../tools/faure-aria-complete-2026-10-25.json) subsequently prepared; full-piece review and checkpoint/publication terms remain pending. Documented local Windows I/O compatibility run, not an author benchmark. |
+| [Aria-AMT](https://github.com/EleutherAI/aria-amt) | Sequence-to-sequence piano transcription, designed for real recordings. | Apache 2.0 component grant from the author, naming the transcription model; the official checkpoint identity and scope interpretation are documented in the [2026-10-25 review](aria-amt-license-review-2026-10-25.md). The separately published Aria-MIDI dataset remains CC BY-NC-SA 4.0 and is not used or redistributed. | Complete Fauré Aria/YDP solo explicitly approved and selected for Lullabies for little ones on 2026-10-25. Individual mazurka listening and source-rights reviews remain pending. Local Windows compatibility run, not an author benchmark. |
 | [Spotify Basic Pitch](https://github.com/spotify/basic-pitch) | Instrument-agnostic polyphonic note transcription; another independent estimate of pitches, timing and amplitude-derived velocities. | Code and bundled model distribution are Apache 2.0; retain Spotify credits separately from performance/sample rights. Local ONNX inference has no hosted API fee. | Rejected by the maintainer after the Fauré problem-passage audition; do not pursue it in this workflow. Retain earlier A5 corroboration and the rejected audition as evidence. [Exact test record and feedback](../tools/faure-other-models-test-2026-10-25.json). |
 | [Music Flamingo](https://huggingface.co/nvidia/music-flamingo-2601-hf) | Audio-language analysis of harmony, timbre, structure and musical descriptions. | Downloadable model under the NVIDIA OneWay Noncommercial License; the model card explicitly limits it to noncommercial research. Hosting or rented hardware may cost extra. | A research lead, not a default production preparation tool or guaranteed note-accurate MIDI transcriber. No commercial permission or model deployment is inferred from the app's free price. |
 
@@ -95,3 +95,15 @@ automatically license its weights, training dataset or generated audio.
 General chat-model rankings and reasoning effort are not evidence of reliable
 audio-to-MIDI recovery; [this music-perception evaluation](https://proceedings.mlr.press/v303/carone26a.html)
 finds substantially weaker audio performance than symbolic MIDI reasoning.
+
+## Complete Aria selection, 2026-10-25
+
+The maintainer subsequently approves the complete Fauré Aria rendition and its
+adoption in Lullabies for little ones. The earlier pending decisions above are
+historical. The [author component-grant review](aria-amt-license-review-2026-10-25.md)
+resolves this project's checkpoint classification with its exact source/scope
+interpretation; no dataset performances or model weights are distributed.
+The [selected publication](../music/faure-berceuse-op56-no1/README.md) retains the
+approved audio/MIDI bytes. Other Fauré audition folders and rejected current v1
+media/scores are retired; original sources and useful preparation inputs remain
+local and failed attempts remain in the central quality register.

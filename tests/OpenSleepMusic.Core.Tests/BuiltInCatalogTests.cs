@@ -52,10 +52,10 @@ public sealed class BuiltInCatalogTests
             Assert.Equal("pre-qualify", worlds[^1].Id);
             var preselection = Assert.Single(worlds, world => world.Id == "preselection");
             Assert.Equal("Vorauswahl", preselection.Name);
-            Assert.Equal(51, preselection.Tracks.Count);
+            Assert.Equal(50, preselection.Tracks.Count);
             var references = Assert.Single(worlds, world => world.Id == "pre-qualify");
             Assert.Empty(references.Tracks);
-            Assert.Equal(16, references.ExternalReferences!.Count);
+            Assert.Equal(12, references.ExternalReferences!.Count);
         }
         else
         {
@@ -140,7 +140,7 @@ public sealed class BuiltInCatalogTests
             originalTracks.Select(track => track.Id).Order(StringComparer.Ordinal));
         Assert.All(originalTracks, track =>
         {
-            Assert.Equal(track.Id == "burgmuller-berceuse-op-109-no-7" ? 1 : 1 / 1.2, track.PlaybackSpeed, 5);
+            Assert.Equal(track.Id is "burgmuller-berceuse-op-109-no-7" or "faure-berceuse-op-56-no-1" ? 1 : 1 / 1.2, track.PlaybackSpeed, 5);
             Assert.DoesNotContain("vocal", track.Title, StringComparison.OrdinalIgnoreCase);
             Assert.DoesNotContain("song", track.Title, StringComparison.OrdinalIgnoreCase);
             Assert.NotNull(track.SongMotifUri);
@@ -178,6 +178,27 @@ public sealed class BuiltInCatalogTests
         Assert.Contains("BastienM", track.Creator, StringComparison.Ordinal);
         Assert.Contains("Open Sleep Music contributors", track.Creator, StringComparison.Ordinal);
         Assert.Equal(new[] { "cello", "piano", "viola", "violin" }, track.Instrumentation!.Order(StringComparer.Ordinal));
+    }
+
+    [Fact]
+    public void ApprovedFaureAriaPianoPlaysAtItsRenderedSleepTempo()
+    {
+        var world = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "lullabies");
+        var track = Assert.Single(world.Tracks, track => track.Id == "faure-berceuse-op-56-no-1");
+        Assert.Equal(1d, track.PlaybackSpeed);
+        Assert.Equal(1d, track.VolumeGain);
+        Assert.Equal(0, track.StartOffsetMilliseconds);
+        Assert.Equal(0, track.EndOffsetMilliseconds);
+        Assert.InRange(track.PlaybackDurationSeconds, 256, 257);
+        Assert.Equal(track.DurationSeconds, track.PlaybackDurationSeconds, 3);
+        Assert.Equal("faure-berceuse-op56-no1-aria-ydp-sleep-v2.mp3", track.FileName);
+        Assert.Contains("/a929a1419af6383a9340f7f3279ef15b3ca27f04/music/faure-berceuse-op56-no1/audio/", track.DownloadUri.AbsoluteUri);
+        Assert.Equal("aac570402e5867f5bb1c70841cb1eb18783c55fd", track.Sha1);
+        Assert.Equal("CC BY 3.0", track.License);
+        Assert.Equal("verified", track.LicenseReviewStatus);
+        Assert.Contains("Brian M. Jones", track.Creator, StringComparison.Ordinal);
+        Assert.Contains("Open Sleep Music contributors", track.Creator, StringComparison.Ordinal);
+        Assert.Equal(new[] { "piano" }, track.Instrumentation);
     }
 
     [Fact]

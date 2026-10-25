@@ -327,5 +327,11 @@
     "aria": "Maintainer calls Aria the best variant in the problem-passage comparison and requests a complete conversion.",
     "transkun": "Maintainer first requests the complete native Transkun variant; retain it as a comparison alongside the subsequently requested Aria rendition.",
     "scope": "Aria preference applies to the listened problem-passage comparison. Complete renders are newly prepared auditions, not full-piece or catalog approval."
+  },
+  "deliveryRetirement": {
+    "date": "2026-10-25",
+    "status": "removed from current Nextcloud auditions at maintainer request after full Aria selection",
+    "historicalHashesRetained": true,
+    "sourceAndPreparationInputsRetainedLocally": true
   }
 }

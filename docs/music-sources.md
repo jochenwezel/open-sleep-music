@@ -5,9 +5,9 @@ priorities and the continuing history of attempted improvements are maintained
 centrally in [Catalog quality notes](catalog-quality-notes.md), keyed by stable
 catalog track ID. They are separate from recording-rights approval.
 
-The stable catalog contains 138 unique downloadable recordings in six sleep worlds, totaling about 18.38 hours. Three guitar recordings belong to both Quiet Classics and Lullabies for little ones: the resolved collections contain 93 and 7 titles respectively. Preview adds 51 downloadable audition candidates in Preselection and 16 external listening references in the separate Preview pre-qualify collection: 189 unique downloadable Preview tracks in total. Both collection lists are delivered through the runtime catalog. The exact per-file download URL, source page, creator, recording license, duration, instrumentation, ensemble type, file name, and SHA-1 (when supplied upstream) are stored in `src/OpenSleepMusic.Core/Catalog/media-catalog.json`.
+The stable catalog contains 138 unique downloadable recordings in six sleep worlds, totaling about 18.39 hours. Three guitar recordings belong to both Quiet Classics and Lullabies for little ones: the resolved collections contain 93 and 7 titles respectively. Preview adds 50 downloadable audition candidates in Preselection and 12 external listening references in the separate Preview pre-qualify collection: 188 unique downloadable Preview tracks in total. Both collection lists are delivered through the runtime catalog. The exact per-file download URL, source page, creator, recording license, duration, instrumentation, ensemble type, file name, and SHA-1 (when supplied upstream) are stored in `src/OpenSleepMusic.Core/Catalog/media-catalog.json`.
 
-A composition being in the public domain does **not** automatically make a modern recording public domain. Production currently uses recordings whose authoritative source pages declare compatible free recording licenses. Following the maintainer's policy change on 2026-10-15, a specifically reviewed CC BY-NC 4.0 recording may also be included for noncommercial app use; the first such entry is a Preview audition, described below. NC audio retains its separate restrictions, independently of the MIT-licensed application. Before monetizing an offering through app/store prices, advertising, paid features, subscriptions, commercial promotion or other commercial use, remove NC recordings from that offering and its associated download/catalog-update delivery, or document separate commercial permission. Free pricing alone is not proof of noncommercial use. This is a release/distribution requirement in `AGENTS.md`, not an implemented commercial-build filter. The catalog deliberately excludes tracks whose names indicate thunder or storms.
+A composition being in the public domain does **not** automatically make a modern recording public domain. Production currently uses recordings whose authoritative source pages declare compatible free recording licenses. Following the maintainer's policy change on 2026-10-15, a specifically reviewed CC BY-NC 4.0 recording may also be included for noncommercial app use; the first such entry was a Preview audition, subsequently retired after selection of the Aria/YDP Fauré recording. NC audio retains its separate restrictions, independently of the MIT-licensed application. Before monetizing an offering through app/store prices, advertising, paid features, subscriptions, commercial promotion or other commercial use, remove NC recordings from that offering and its associated download/catalog-update delivery, or document separate commercial permission. Free pricing alone is not proof of noncommercial use. This is a release/distribution requirement in `AGENTS.md`, not an implemented commercial-build filter. The catalog deliberately excludes tracks whose names indicate thunder or storms.
 
 ## Collection sources
 
@@ -24,7 +24,7 @@ A composition being in the public domain does **not** automatically make a moder
 | Water & Waves | 9 | 4.25 h | [Ocean and Sea Sounds](https://archive.org/details/ocean-sea-sounds) (only non-storm selections) | CC0 1.0 |
 | Fireplace | 1 | 4 min | [FireFavorite](https://archive.org/details/FireFavorite) / inchadney (Freesound); playback gain 6× compensates for the unusually quiet source without exceeding the player's full-volume ceiling | CC0 1.0 |
 | Water & Waves | 1 | 4.8 min | [Waves by Dsw4](https://commons.wikimedia.org/wiki/File:Waves.ogg) | Public Domain |
-| Lullabies for little ones | 4 | 7.2 min | [Fauré Berceuse](https://commons.wikimedia.org/wiki/File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg), [Burgmüller Berceuse](https://commons.wikimedia.org/wiki/File:Berceuse_Burgmuller.ogg), two [PDSounds music-box recordings](https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock.ogg) | Public Domain / CC BY-SA 3.0 / CC BY 3.0 |
+| Lullabies for little ones | 4 | 8.1 min | [Fauré Aria/YDP Berceuse](../music/faure-berceuse-op56-no1/README.md), [Burgmüller YDP/string Berceuse](../music/burgmuller-berceuse-op109-no7/README.md), two [PDSounds music-box recordings](https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock.ogg) | Public Domain / CC BY-SA 3.0 / CC BY 3.0 |
 
 The figures above reflect the generated catalog and are rounded. The update script fetches Internet Archive metadata, selects the approved files, and records upstream SHA-1 values. Instrument families and ensemble types are explicit catalog metadata so future curation can measure actual timbral diversity instead of inferring it from titles. The retained diversity selections include solo cello, cello with strings, and chamber-orchestra textures; expansion remains deliberately incremental because a nominally slow movement may still contain unsuitable dynamic peaks. The lullaby collection is an explicitly reviewed selection from Wikimedia Commons: each file page identifies the performer, recordist, or artist and the recording license. The two PDSounds files preserve the original record number and recordist in their Commons metadata. Their originals contain an Ogg Skeleton stream before the Vorbis stream, which Android's platform player rejects on some devices; the catalog therefore uses Wikimedia's stable MP3 transcodes of the same recordings. The selected files are instrumental and were checked for calm, uninterrupted playback without speech, advertising, applause, or abrupt high-impact passages. It does not download the audio during catalog generation.
 
@@ -219,7 +219,7 @@ Candidate source records retain dated exclusion notes and their original recordi
 
 The report also contains an older favorite for Alisa Gladyseva's Romanza. It does not override the maintainer's later explicit exclusion and selection of Ramón León Egea; the former remains blacklisted. Recuerdos, Julia Florida and Clair de lune retain their already approved shared production memberships. No further recording is promoted by this import.
 
-The persistent blacklist now contains 32 unique IDs. Stable remains at 138 unique recordings (about 18.38 hours), with 93 Quiet Classics memberships and 8 Lullabies memberships. Preview audition downloads decrease from 59 to 48; the 24 external references are unchanged. The generated candidate audit contains 76 records, of which 17 have verified recording grants, including the four promoted recordings. Minimum production catalog size and duration test thresholds are unchanged. The updated promoted Preview catalog continues to require an app update from 0.1.34 as documented above.
+The persistent blacklist now contains 32 unique IDs. Stable remains at 138 unique recordings (about 18.39 hours), with 93 Quiet Classics memberships and 8 Lullabies memberships. Preview audition downloads decrease from 59 to 48; the 24 external references are unchanged. The generated candidate audit contains 76 records, of which 17 have verified recording grants, including the four promoted recordings. Minimum production catalog size and duration test thresholds are unchanged. The updated promoted Preview catalog continues to require an app update from 0.1.34 as documented above.
 
 ## Background levels and little-ones ordering (2026-10-07)
 
@@ -387,3 +387,35 @@ Fauré correction audition or synthesized catalog replacement is approved at tha
 On 2026-10-25, the maintainer separately authorizes a short independent Transkun V2 test using the same Brian M. Jones CC BY 3.0 source. Two contextual excerpts compare source-reference audio, the prior Kong A2 MIDI and new Transkun estimates with the same YDP B piano, event speed 0.833333 and matched loudness. [The test record](../tools/transkun-faure-test-2026-10-25.json) retains checkpoint/code/source hashes, settings, limitations, measurements and copied-file hashes. Eight MP3 comparisons and eight contextual MIDI files are prepared privately in Nextcloud; original-performance notes and estimated velocities remain separate from render-only softening. Source and YDP sample attribution remain CC BY 3.0; Transkun's MIT code/model distribution does not replace recording rights. This is a new independent-model trial with musical feedback pending, not a full-piece conversion, catalog replacement or approval of the rejected A1–A5 path. Continue its outcome in the central [quality register](catalog-quality-notes.md).
 
 Subsequent listening favors Aria-AMT in the problematic passage and rejects the D1 pedal substitution and Basic Pitch. At the maintainer's request, complete private [native Transkun](../tools/faure-transkun-complete-2026-10-25.json) and [Aria-AMT](../tools/faure-aria-complete-2026-10-25.json) solo auditions are prepared, each about 4:16 with YDP B, event speed 0.833333, original/sleep MIDI and their own model-estimated pedal. Full MP3 decoding, dynamics/timing/control checks, headroom, natural endings and copied-byte hashes are verified. Source-performance and YDP rights remain CC BY 3.0; model/code rights remain separate. Aria's checkpoint grant is still unresolved despite Apache source code and an NC-SA dataset-card label, so its files remain private research/audition material. Neither complete rendition is approved for the catalog or public music publication; the existing production recording and published MIDI/MP3/PDF bytes remain unchanged.
+
+## Approved Fauré Aria replacement, 2026-10-25
+
+After listening to the complete Aria rendition, the maintainer explicitly approves
+it for Lullabies for little ones and asks to remove other Fauré variants. This
+supersedes the earlier pending/rejected decisions without erasing their history.
+The [v2 publication](../music/faure-berceuse-op56-no1/README.md) retains the exact
+approved MP3 and sleep MIDI bytes; original-timing MIDI remains a preparation input.
+Aria-AMT provides 1,078 estimated notes and 204 sustain events, with native timing,
+velocities and its own pedal. YDP B, softening only during rendering, warm EQ and
+verified room match the approved audition; no strings or added beat grid.
+
+The Brian M. Jones performance and YDP samples retain CC BY 3.0 attribution.
+The [component review](aria-amt-license-review-2026-10-25.md) documents the author's
+specific Apache-2.0 grant for Aria-AMT, distinguished from the NC-SA MIDI dataset,
+including the scope interpretation and exact checkpoint/code hashes. No weights
+or dataset MIDI are distributed. The full-commit raw MP3 download was verified
+with its ID3 signature, complete byte length, SHA-1 and SHA-256 after publication.
+
+The stable ID `faure-berceuse-op-56-no-1`, collection order, artwork and background
+assignment remain. The new 256.026-second MP3 already contains sleep timing and
+matched loudness, so playback speed and gain are both 1 with zero trims. It
+replaces the original Ogg, its checksum and former .833333/.75 player adjustments.
+Production remains 138 unique recordings; removing five alternative Fauré
+Preview references leaves 50 downloadable audition tracks, 12 external references
+and 188 unique downloadable Preview tracks. Recording-rights evidence remains
+in historical candidate metadata; retirement is a curation decision.
+
+Rejected Fauré MP3/MIDI variants and their automatic v1 scores are removed from the
+current publication and private audition folders. Previously pinned Git bytes,
+compact attempt evidence, original sources and useful local preparation inputs
+remain recoverable. Burgmüller publications and mazurka auditions are unchanged.

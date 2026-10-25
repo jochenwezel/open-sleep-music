@@ -1,8 +1,8 @@
 {
   "date": "2026-10-25",
   "trackId": "faure-berceuse-op-56-no-1",
-  "status": "complete Aria-AMT solo audition prepared; full-piece listening pending, no catalog replacement",
-  "maintainerDirection": "Aria is the maintainer-preferred problem-passage variant; prepare the complete work with its own model pedal.",
+  "status": "complete Aria solo approved by maintainer; published and selected for Lullabies for little ones",
+  "maintainerDirection": "2026-10-25: bravissimo; adopt the complete Aria solo in the app for little ones and remove other Faure variants.",
   "assistantSessionLabel": {
     "value": "ChatGPT 6.1 Sol Hoch",
     "source": "maintainer-supplied session label, not the transcription engine"
@@ -33,7 +33,7 @@
       "sha256": "089d3129dbe93246aeda55efe668c8a48af08afaf9dd15c64cef0a07c0fb30a4",
       "codeLicense": "Apache-2.0",
       "datasetCardLicense": "CC-BY-NC-SA-4.0",
-      "checkpointLicenseReview": "Explicit separate weight grant unresolved; private noncommercial audition/research only, no production admission/public audio publication. Do not equate code license with dataset or checkpoint terms."
+      "checkpointLicenseReview": "Historical unresolved snapshot superseded by the component-specific author grant review in modelLicenseReview."
     },
     "runtime": {
       "torch": "2.11.0+cu128",
@@ -175,22 +175,25 @@
     "ownAriaSustainCountVerified": true,
     "authenticatedServerDownloadIndependentlyVerified": false
   },
-  "unchanged": "Existing production recording/catalog, published song MIDI/MP3/PDF bytes, pinned download URLs and older audition audio/MIDI files.",
+  "unchanged": "Selected MP3 and original/sleep MIDI bytes are exactly those of the approved audition; earlier failed attempts remain historical evidence.",
   "copiedFileSha256": {
     "01-Faure-Berceuse-Aria-Komplett-YDP-Einschlaftempo-v1.mp3": "1b1d34cf60d945b62fbb3d9cd2a0ea4bc11f9dbc54479e57e94d4a7500b422a3",
+    "ARIA-AUTHOR-COMPONENT-GRANT-PROVENANCE.json": "c1bb5c41a66713b3cc5c4f17fb9b8f009b1aebb0043714077bd2e5aeca7f88a3",
+    "ARIA-AUTHOR-COMPONENT-GRANT.md": "4fb9b03c9f4a9cc650e26bb6d1096ca7dba1959d63132ec5f2bfe0036c1697e3",
+    "ARIA-CHECKPOINT-PROVENANCE.json": "974f45552e07c95d30688e5cbe2cc0bd9d6357353d5735a072c9c26c1e2e5a46",
+    "ARIA-CODE-APACHE-2.0.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "ARIA-COMPONENT-REVIEW.json": "a7804601a74a41a3cf26dbfe0c0d46e118722c35d0f567e02aa3aa13cafea179",
+    "ARIA-DATASET-CARD.md": "884d3877d3a0cf245c7f366b85aa05832b1774669531d3e3e11d2c9a6fb61f35",
+    "ARIA-UTILS-APACHE-2.0.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "BITTE-LESEN.md": "54f2baedd47d064d8dc606742b3ae14929cecef16572739a578d3aa80f2751a9",
+    "CC-BY-3.0.txt": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76",
+    "full-render-report.json": "85138166d54fe27b71ca6f0e70c6a8c0ba8c062bc025d976de1ce37c26a21d36",
+    "inference-report.json": "ad64b91102f55727bcac32379a91363a394f6f7d05da5b85e28faedbb678bf49",
     "piano-original.mid": "8ff61faf61fae95e091c753afab7410f148e0249accc6b2f0ff1ff605ff35562",
     "piano-sleep.mid": "f611a0a7628643addcb39303ed41c670cc5b6b8afd748a45572f26a3f080e5d7",
     "raw-tokens.json": "fa83b5ba42bbd79c7e17094f36c3b3f4355e887afab2f4f1df68d97845e8a7e9",
-    "inference-report.json": "ad64b91102f55727bcac32379a91363a394f6f7d05da5b85e28faedbb678bf49",
-    "full-render-report.json": "00a2e2591f3481b95c0f50ca513fa2c528fe5fbcaae61f9d17507aba8c00ded1",
-    "BITTE-LESEN.md": "81984a6bfa26e5298f94bc4c59963a8cdcbc83087ff589751b63cdc080e8cd39",
     "source-provenance.json": "44cba40efb2d584967a9fb5085bca45c48c73c0bd821dd38bd1ee69ce273ae13",
-    "CC-BY-3.0.txt": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76",
-    "YDP-ORIGINAL-CREDITS.txt": "00b50312ada857d89c6e8690be059dcc50ee5a755fc1bbc607ec9070a7a05117",
-    "ARIA-CODE-APACHE-2.0.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
-    "ARIA-UTILS-APACHE-2.0.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
-    "ARIA-DATASET-CARD.md": "884d3877d3a0cf245c7f366b85aa05832b1774669531d3e3e11d2c9a6fb61f35",
-    "ARIA-CHECKPOINT-PROVENANCE.json": "974f45552e07c95d30688e5cbe2cc0bd9d6357353d5735a072c9c26c1e2e5a46"
+    "YDP-ORIGINAL-CREDITS.txt": "00b50312ada857d89c6e8690be059dcc50ee5a755fc1bbc607ec9070a7a05117"
   },
   "preparationScriptSha256": {
     "transcribe_faure_aria_complete.py": "36feda7bb4750b993076fe265892c26cd9fdd6d7087580afc2fa6532489d38e8",
@@ -205,8 +208,43 @@
     "basicPitch": "Maintainer rejects Basic Pitch and asks to discard that engine for this workflow; no further Basic Pitch preparation.",
     "aria": "Maintainer calls Aria the best variant in the problem-passage comparison and requests a complete conversion.",
     "transkun": "Maintainer first requests the complete native Transkun variant; retain it as a comparison alongside the subsequently requested Aria rendition.",
-    "scope": "Aria preference applies to the listened problem-passage comparison. Complete renders are newly prepared auditions, not full-piece or catalog approval."
+    "scope": "Full-piece Aria acceptance and app adoption explicitly approved on 2026-10-25."
   },
-  "modelLicenseReview": "Code Apache-2.0; separately documented checkpoint grant remains unresolved, private audition/research only. No production admission or public audio publication.",
-  "metadataCorrectionScriptSha256": "cdb230ab9a655226871f8bf358878543e5b5b4ac3577c21027547c726ee6c1ca"
+  "modelLicenseReview": {
+    "date": "2026-10-25",
+    "status": "verified-author-component-grant",
+    "component": "Aria-AMT piano-medium-double-1.0",
+    "license": "Apache-2.0",
+    "licenseUri": "https://www.apache.org/licenses/LICENSE-2.0",
+    "authorComponentGrantUri": "https://github.com/loubbrad/aria-midi/blob/24cd6d37d0dff4d63d1818f4da7b86ac53497064/README.md#dataset",
+    "officialCheckpointListingUri": "https://github.com/EleutherAI/aria-amt/blob/a1ab73fc901d1759ec3bc173c146b3c6a3040261/README.md",
+    "checkpointSha256": "089d3129dbe93246aeda55efe668c8a48af08afaf9dd15c64cef0a07c0fb30a4",
+    "perFileLicenseTagFound": false,
+    "reviewBasis": "Interpret the author's explicit Apache-2.0 pipeline-component grant naming the Aria-AMT transcription model together with the official exact checkpoint listing. Dataset CC-BY-NC-SA terms remain scoped to Aria-MIDI; no dataset files or training recordings used or redistributed. Do not rely on third-party mirrors or claim independent copyright guarantee.",
+    "reviewDocument": "docs/aria-amt-license-review-2026-10-25.md"
+  },
+  "metadataCorrectionScriptSha256": "cdb230ab9a655226871f8bf358878543e5b5b4ac3577c21027547c726ee6c1ca",
+  "preAdoptionSnapshot": {
+    "status": "complete Aria-AMT solo audition prepared; full-piece listening pending, no catalog replacement",
+    "maintainerDirection": "Aria is the maintainer-preferred problem-passage variant; prepare the complete work with its own model pedal.",
+    "modelLicenseReview": "Code Apache-2.0; separately documented checkpoint grant remains unresolved, private audition/research only. No production admission or public audio publication.",
+    "unchanged": "Existing production recording/catalog, published song MIDI/MP3/PDF bytes, pinned download URLs and older audition audio/MIDI files.",
+    "maintainerFeedback": {
+      "date": "2026-10-25",
+      "pedalDiagnosticD1": "Maintainer rejects the CC64-substitution variant. Do not use it in complete renders.",
+      "basicPitch": "Maintainer rejects Basic Pitch and asks to discard that engine for this workflow; no further Basic Pitch preparation.",
+      "aria": "Maintainer calls Aria the best variant in the problem-passage comparison and requests a complete conversion.",
+      "transkun": "Maintainer first requests the complete native Transkun variant; retain it as a comparison alongside the subsequently requested Aria rendition.",
+      "scope": "Aria preference applies to the listened problem-passage comparison. Complete renders are newly prepared auditions, not full-piece or catalog approval."
+    }
+  },
+  "publicationManifest": "music/faure-berceuse-op56-no1/song.json",
+  "publishedDownloadVerification": {
+    "status": 200,
+    "url": "https://raw.githubusercontent.com/jochenwezel/open-sleep-music/a929a1419af6383a9340f7f3279ef15b3ca27f04/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-aria-ydp-sleep-v2.mp3",
+    "bytes": 8204532,
+    "sha256": "1b1d34cf60d945b62fbb3d9cd2a0ea4bc11f9dbc54479e57e94d4a7500b422a3",
+    "sha1": "aac570402e5867f5bb1c70841cb1eb18783c55fd",
+    "signature": "ID3"
+  }
 }
