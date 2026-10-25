@@ -1,0 +1,7 @@
+{
+  "authorRepository": "https://github.com/loubbrad/aria-midi",
+  "commit": "24cd6d37d0dff4d63d1818f4da7b86ac53497064",
+  "sourceUri": "https://raw.githubusercontent.com/loubbrad/aria-midi/24cd6d37d0dff4d63d1818f4da7b86ac53497064/README.md",
+  "sha256": "4fb9b03c9f4a9cc650e26bb6d1096ca7dba1959d63132ec5f2bfe0036c1697e3",
+  "componentScope": "The author explicitly releases pipeline tools under Apache-2.0 and identifies Aria-AMT as the transcription model in that paragraph; the dataset itself is separately CC-BY-NC-SA-4.0."
+}

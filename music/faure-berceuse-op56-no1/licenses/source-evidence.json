@@ -24,15 +24,20 @@
     "verifiedOn": "2026-10-23",
     "evidenceSummary": "The YDP Grand Piano section on FreePats identifies Zenph/OLPC sources and the CC BY 3.0 grant. The downloaded 2016-08-04 soundfont includes matching original credits and license declaration."
   },
-  "stringSamples": {
-    "sourceUri": "https://github.com/sgossner/VSCO-2-CE",
-    "licenseEvidenceUri": "https://github.com/sgossner/VSCO-2-CE/blob/master/LICENSE",
-    "license": "CC0 1.0",
-    "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "verifiedOn": "2026-10-23",
-    "credits": "Strings: VSCO 2 Community Edition, Versilian Studios/Sam Gossner, Ivy Audio/Simon Dalzell, sample cutting Elan Hickler/Soundemote. CC0 1.0 https://creativecommons.org/publicdomain/zero/1.0/.",
-    "files": "../sources/string-sample-provenance.json",
-    "verification": "Individual sample bytes checked against the Git blob SHA-1 from source tree metadata; SHA-256 values retained for exact local bytes."
+  "reviewBoundary": "Source-declared grants and provenance checks are documented; no endorsement or independent copyright guarantee is claimed.",
+  "transcriptionModelReview": {
+    "date": "2026-10-25",
+    "status": "verified-author-component-grant",
+    "component": "Aria-AMT piano-medium-double-1.0",
+    "license": "Apache-2.0",
+    "licenseUri": "https://www.apache.org/licenses/LICENSE-2.0",
+    "authorComponentGrantUri": "https://github.com/loubbrad/aria-midi/blob/24cd6d37d0dff4d63d1818f4da7b86ac53497064/README.md#dataset",
+    "officialCheckpointListingUri": "https://github.com/EleutherAI/aria-amt/blob/a1ab73fc901d1759ec3bc173c146b3c6a3040261/README.md",
+    "checkpointSha256": "089d3129dbe93246aeda55efe668c8a48af08afaf9dd15c64cef0a07c0fb30a4",
+    "perFileLicenseTagFound": false,
+    "reviewBasis": "Interpret the author's explicit Apache-2.0 pipeline-component grant naming the Aria-AMT transcription model together with the official exact checkpoint listing. Dataset CC-BY-NC-SA terms remain scoped to Aria-MIDI; no dataset files or training recordings used or redistributed. Do not rely on third-party mirrors or claim independent copyright guarantee.",
+    "reviewDocument": "docs/aria-amt-license-review-2026-10-25.md"
   },
-  "reviewBoundary": "Source-declared grants and provenance checks are documented; no endorsement or independent copyright guarantee is claimed."
+  "reviewDate": "2026-10-25",
+  "scope": "Selected Aria/YDP piano solo adaptation of independently licensed Brian M. Jones performance; no Aria-MIDI dataset or model weights redistributed."
 }

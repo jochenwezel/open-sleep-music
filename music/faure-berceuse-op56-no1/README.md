@@ -1,121 +1,64 @@
 # Gabriel Fauré — Berceuse op. 56 No. 1
 
-**Piano transcription review, 2026-10-23:** the maintainer reports wrong notes
-and attacks, including in the opening. Version 1 requires musical correction;
-the YDP instrument preference does not approve its automatically detected notes.
-On 2026-10-24 the maintainer rejects A5 and abandons the Fauré conversion.
-The original Brian M. Jones catalog recording remains in use. Existing MIDI, MP3
-and derived working-score bytes are preserved, and the app retains the source
-recording. [Review findings](sources/piano-review-2026-10-23.json).
+The maintainer selects the complete **Aria-AMT / YDP Grand Piano B** solo
+rendition on 25 October 2026 for **Lullabies for little ones**. It retains the
+Brian M. Jones performance's estimated timing, dynamics and own model-estimated
+sustain, with the chosen sleep event speed **0.833333**.
 
-A5 offers two short, matched-tempo/source-A4-A5 comparisons with 19 proposed
-octave/repeat artifact removals. Every surviving performance event, velocity,
-key-off and pedal control is unchanged from A4. The maintainer rejects these
-private excerpts; no whole-piece preparation or catalog replacement follows.
+- **Piano solo — sleep tempo, 4:16:** [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/a929a1419af6383a9340f7f3279ef15b3ca27f04/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-aria-ydp-sleep-v2.mp3) · [editable MIDI](midi/faure-berceuse-op56-no1-aria-piano-sleep-v2.mid).
+- [Original-performance timing MIDI input](sources/aria-original-timing-v2.mid).
 
-The maintainer still finds A4 unconvincing and, on 2026-10-24, rejected both
-score-based auditions as mechanical and unattractive.
-[Reference research and feedback](sources/score-basis-research-2026-10-23.json)
-retain the historical Hamelle score, CC0 community four-hands edition via PDMX,
-and public-domain Mutopia flute/guitar adaptation as notation references only.
-Use them to suggest specific melody/harmony checks against the Jones recording,
-while retaining the performance's timing, dynamics, overlaps and sustain.
-Arrangement or broad pitch-class differences alone do not prove transcription
-errors. The YDP B preference remains; no new rendition or replacement is approved.
+Only the selected sleep recording is a published audio variant. Original-tempo
+audio and strings are not selected for this edition. MIDI timing is changed
+before synthesis; the MP3 has not been time-stretched. The app plays this file
+at speed/gain 1, with no additional trims.
 
-These project recordings adapt **Brian M. Jones's solo piano arrangement and
-September 2010 performance** of the Berceuse from the Dolly Suite. They use the
-preferred warm **YDP Grand Piano variant B**, with a separate restrained string
-variation requested by the maintainer. The string variation is not pursued after
-the solo conversion is abandoned; publication does not replace the app recording.
+## Credits and reuse
 
-- **Piano - original tempo** (3:34): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-original.mp3) / [MIDI](midi/faure-berceuse-op56-no1-piano-original.mid).
-
-- **Piano - sleep tempo** (4:16): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-sleep.mp3) / [MIDI](midi/faure-berceuse-op56-no1-piano-sleep.mid).
-
-- **Piano with strings - original tempo** (3:34): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-strings-original.mp3) / [MIDI](midi/faure-berceuse-op56-no1-piano-strings-original.mid).
-
-- **Piano with strings - sleep tempo** (4:16): [MP3](https://raw.githubusercontent.com/jochenwezel/open-sleep-music/92af08a8a3851ec2894e94566bd38d34a6070f1e/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-piano-strings-sleep.mp3) / [MIDI](midi/faure-berceuse-op56-no1-piano-strings-sleep.mid).
-
-Sleep timing uses event speed **0.833333**. Original timing follows the source
-performance. MIDI event timing is changed before synthesis; the MP3s are not
-time-stretched. The prepared audio samples are retained exactly, with publication
-ID3 credits updated. All four exports were fully decoded, matched near -23.21 LUFS,
-checked for peak headroom and a quiet natural ending, and exported without
-dynamics compression or limiting. Original tempo has no separate listening feedback.
-
-## Attribution and license
-
-- Composition: **Gabriel Fauré**, Berceuse, Dolly Suite op. 56 No. 1.
-- Source solo arrangement and recording: **Brian M. Jones**, September 2010.
-  The [specific Commons file page](https://commons.wikimedia.org/wiki/File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg)
-  declares **CC BY 3.0** for the performance and identifies its YouTube origin.
-  This is a different source from the NC-licensed four-hand Dolly performance.
-- MIDI/audio adaptation and new string doubling: **Open Sleep Music contributors**,
-  2026, **CC BY 3.0 Unported**. Retain the credits, source and license links and
-  modification notice; no endorsement by the source performer is implied.
-  [Full license text](licenses/CC-BY-3.0.txt).
-- Piano: **YDP Grand Piano / Yamaha Disklavier Pro**, Zenph Studios,
-  Dr. Mikhail Krishtal and team; OLPC sample library / Dr. Richard Boulanger;
-  soundfont and sample modifications **Roberto (roberto@zenvoid.org), FreePats**,
-  **CC BY 3.0**. [Source and grant](https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html),
+- Composition: Gabriel Fauré, Berceuse, Dolly Suite op. 56 No. 1.
+- Source solo arrangement/performance: **Brian M. Jones**, September 2010,
+  [specific recording](https://commons.wikimedia.org/wiki/File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg),
+  **CC BY 3.0**. This is separate from the NC-licensed four-hand alternative.
+- MIDI/audio adaptation: **Open Sleep Music contributors**, 2026, **CC BY 3.0**.
+  Retain source, credits, license and changes; no performer endorsement implied.
+  [Exact license text](licenses/CC-BY-3.0.txt).
+- YDP piano samples: **Zenph Studios / Dr. Mikhail Krishtal and team**,
+  **OLPC / Dr. Richard Boulanger**, **Roberto / FreePats**, separately CC BY 3.0.
+  [Soundbank source](https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html) ·
   [original credits](licenses/YDP-Grand-Piano-original-credits.txt).
-- Strings: **VSCO 2 Community Edition**, Versilian Studios/Sam Gossner,
-  Ivy Audio/Simon Dalzell, sample cutting Elan Hickler/Soundemote, **CC0 1.0**.
-  [Source](https://github.com/sgossner/VSCO-2-CE),
-  [original credits](licenses/VSCO-original-credits.txt),
-  [CC0 text](licenses/VSCO-CC0-1.0.txt).
+- Transcription: **Aria-AMT**, Louis Bradshaw / EleutherAI. The author's
+  component-specific Apache-2.0 grant and exact checkpoint identity are retained
+  in [the review](licenses/aria-component-review.json),
+  [author statement](licenses/aria-author-component-grant.md) and
+  [exact Apache license](licenses/ARIA-APACHE-2.0.txt).
+  [Review rationale](../../docs/aria-amt-license-review-2026-10-25.md).
+  The separately NC-SA-licensed Aria-MIDI collection is not used or redistributed.
 
-These media licenses are independent of the application's MIT license.
-[source-evidence.json](licenses/source-evidence.json) records the recording grant,
-original upstream checksum and instrument provenance. Source-declared grants and
-provenance checks are documented; no independent copyright guarantee is claimed.
+Audio licenses remain independent of the app's MIT license. This documents
+publisher-declared grants and provenance, not an independent copyright guarantee.
 
-Changes: automatic audio-to-MIDI transcription; estimated note timings, velocities,
-overlaps and binary sustain; render-only velocity softening; selected MIDI tempo;
-YDP synthesis; optional new string doubling; EQ, generated room acoustics, constant
-loudness gain, removal of an inaudible tail, MP3 encoding and ID3 credits.
+## Preparation and verification
 
-## Arrangement and preparation inputs
+Aria uses native 10 ms time tokens and velocity steps of five; no additional
+musical grid or manual note changes are imposed. Estimated velocities remain
+in the MIDI; render-only velocities use factor 0.8. The YDP B preset uses warm
+EQ, verified room reverb, no chorus/compression/limiting, 44.1 kHz stereo and
+256 kbps MP3. Loudness is about −23.22 LUFS, true peak below −6.4 dBTP.
+The full ending is preserved and only an inaudible tail is trimmed.
 
-The new quiet cello, viola and violin voices double selected notes actually held
-in the piano transcription, with only octave shifts. No triads or extra chord
-tones are guessed. Weighted non-overlapping intervals select notes by register;
-long source holds are capped at 2.2 original seconds. All 392 complete wet/dry
-string-note releases stay inside the corresponding source piano key intervals.
-The reference string RMS is 11 dB below the piano. This is a newly prepared
-accompaniment, not a historical Fauré orchestration or a score-verified edition.
+The selected MP3/MIDI bytes are identical to the approved audition. Embedded
+pre-admission status notes describe the earlier export state; this manifest,
+source evidence and component review record the subsequent approval and grant
+scope. They do not add a private-use restriction to the CC BY 3.0 recording.
+Full decoding, note pairing, sustain release, timing ratios, dynamic preservation,
+headroom, ending and exact checksums are verified.
 
-[piano-transcription.json](sources/piano-transcription.json) preserves estimated
-original note velocities and pedal events. [The string arrangement](sources/string-arrangement-original-timing.json)
-preserves original-performance timing and source-note references; divide times and
-envelope durations by 0.833333 for sleep tempo. [Render settings](sources/render-settings.json)
-freeze the YDP effects and string preparation. [Sample provenance](sources/string-sample-provenance.json)
-records maps, tuning and hashes; obtain instrument banks separately outside Git.
+## Retired alternatives
 
-The four MIDIs already contain render velocity factor 0.8 and piano CC91 reverb
-send; do not soften them twice. Their 120 BPM grid preserves performance timing,
-not reliable score beats. Sustain is binary; half-pedal is not reliably recovered.
-Automatic note/velocity/pedal estimation can contain mistakes. General MIDI
-players use different string sounds and envelopes and will differ from these
-MP3s. FluidSynth 2.6.1 rendered the YDP piano; mapped VSCO samples were synthesized
-and release-gated separately before mixing.
-
-## Direct downloads
-
-The MP3 links above use commit-pinned Raw GitHub downloads. `song.json` retains the
-audio commit, direct HTTPS URLs, exact hashes, durations and measured loudness.
-No music release or release ZIP is needed. `checksums.sha256` covers every song
-file except itself. This publication is independent of app catalog promotion.
-
-## Printable working scores
-
-[Score notes and editable source](scores/README.md). These are rhythmically
-quantized MIDI working editions requiring musical proofreading, with approximate
-tempo references for both audio speeds.
-
-- [Piano solo](scores/faure-berceuse-op56-no1-piano-v1.pdf) - 4 page(s).
-- [Piano with strings - full score](scores/faure-berceuse-op56-no1-piano-strings-v1.pdf) - 7 page(s).
-- [Violin part](scores/faure-berceuse-op56-no1-violin-v1.pdf) - 2 page(s).
-- [Viola part](scores/faure-berceuse-op56-no1-viola-v1.pdf) - 2 page(s).
-- [Cello part](scores/faure-berceuse-op56-no1-cello-v1.pdf) - 2 page(s).
+Rejected Kong/score-based/Basic-Pitch/pedal-substitution and comparison editions
+are no longer offered as current versions. The source recordings and useful
+preparation inputs remain local. Compact failure history is preserved in the
+[central quality register](../../docs/catalog-quality-notes.md).
+[Historical publication files](https://github.com/jochenwezel/open-sleep-music/tree/7a7b98a8d8bf7cd1e452817f14276bd7967de0a0/music/faure-berceuse-op56-no1)
+and their old commit-pinned downloads remain reachable without overwriting bytes.
+Old working scores derive from rejected notes and are not an Aria score edition.

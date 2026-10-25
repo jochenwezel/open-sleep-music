@@ -8,7 +8,7 @@ relicense the music or instrument samples.
 | Work | Published versions | License |
 | --- | --- | --- |
 | [Friedrich Burgmüller — Berceuse op. 109 No. 7](burgmuller-berceuse-op109-no7/README.md) | YDP piano and corrected chamber strings in both tempos; strings at sleep tempo selected for the app catalog on 2026-10-24 | CC BY-SA 3.0 adaptations; YDP samples CC BY 3.0; VSCO strings CC0 1.0 |
-| [Gabriel Fauré — Berceuse op. 56 No. 1](faure-berceuse-op56-no1/README.md) | Version 1 retained for provenance; conversion abandoned after rejected correction auditions; original app recording retained | CC BY 3.0 adaptations and YDP samples; VSCO strings CC0 1.0 |
+| [Gabriel Fauré — Berceuse op. 56 No. 1](faure-berceuse-op56-no1/README.md) | Approved Aria/YDP solo piano at sleep tempo, selected for the app on 2026-10-25; rejected versions retired | CC BY 3.0 adaptation and YDP samples; Aria component provenance retained |
 
 Each directory contains `song.json`, `audio/`, `midi/`, `sources/` and `licenses/`.
 Publish selected versions here; retain existing immutable media if later feedback
@@ -34,14 +34,14 @@ Its general
 permits throttling and other restrictions. Raw delivery has no blanket unlimited
 bandwidth guarantee. The [repository-size guidance](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github)
 recommends staying ideally below 1 GB and strongly below 5 GB; ordinary Git files
-over 100 MiB are blocked. The two current songs including scores total approximately 44 MB. Watch
+over 100 MiB are blocked. The current song files including Burgmüller scores total approximately 21 MB. Watch
 repository growth as hundreds of works are added, and review storage/distribution
 if it becomes material. Checked 2026-10-23.
 
 ## Printable working scores
 
 - [Burgmüller: piano, full score and string parts](burgmuller-berceuse-op109-no7/scores/README.md).
-- [Fauré: piano, full score and string parts](faure-berceuse-op56-no1/scores/README.md).
+- [Fauré: retired v1 score history; no current Aria score](faure-berceuse-op56-no1/scores/README.md).
 
 The PDFs are automatic MIDI working editions with rhythmically quantized notes,
 two-staff piano notation, separate string staves/parts, approximate tempo

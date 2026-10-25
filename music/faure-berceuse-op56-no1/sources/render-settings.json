@@ -1,5 +1,7 @@
 {
-  "piano": {
+  "date": "2026-10-25",
+  "engine": "Aria-AMT piano-medium-double-1.0",
+  "preset": {
     "id": "ydp-b-warm-room",
     "status": "maintainer-preferred",
     "appliesTo": "All Berceuse pieces when preparing MIDI-based replacement recordings",
@@ -49,29 +51,31 @@
     },
     "verification": "Confirm actual reverb in the output using a wet/dry comparison. Earlier Salamander A/B renders were effectively identical because no MIDI reverb send reached the effect. Check loudness matching, full decoding, headroom, quiet ending and retained credits before delivering an audition."
   },
-  "strings": {
-    "sampleRateHz": 44100,
-    "stringToPianoRmsDb": -11,
-    "maximumBowPhraseSecondsAtSleepTempo": 2.640001056000423,
-    "appTimingFactor": 0.833333,
-    "envelope": "Per-note metadata in string-arrangement-original-timing.json; source key intervals bound the entire wet/dry gate. Divide all times and envelope durations by the chosen tempo factor.",
-    "room": "Deterministic RNG seed 1097; mono per-note IR, length 0.35s, T60 0.24s, 9ms predelay, second-order 4500Hz lowpass, energy-normalized; wet gain 0.18, before per-note release gate.",
-    "samplePreparation": "Decode 44100 Hz stereo; remove leading recording silence up to first 10ms RMS block >=1.5% of maximum block RMS, retain 35ms lead. Fold stereo to mono and normalize RMS over 0.5-2.5s to 0.08. Resample mapped pitch using source SFZ root/tune and polyphase conversion (rational denominator <=2048). No sample loops required.",
-    "pans": {
-      "cello": 0.22,
-      "viola": 0.04,
-      "violin": -0.23
-    },
-    "levels": {
-      "cello": 0.85,
-      "viola": 0.78,
-      "violin": 0.73
-    },
-    "filters": "Second-order highpass: cello 80Hz, viola 110Hz, violin 150Hz; second-order 6200Hz lowpass. Equal-power pan. Per-note velocity multiplier (velocity/48)^1.25; sustained bow swell 0.94+0.06*sin(0..pi).",
-    "note": "MIDI file notes already have the 0.8 render-velocity scale. Do not soften them a second time. General MIDI string voices and envelopes do not reproduce the sample-rendered MP3 exactly.",
-    "method": "New restrained three-part string doubling selected from actual sustained piano notes using non-overlapping weighted intervals per register. Only octave shifts are used, no guessed triads or added chord tones. Every complete wet/dry string release remains inside its source piano key interval. Source-note holds are capped at 2.2 original seconds; automatic transcription errors remain possible."
+  "tempoFactor": 0.833333,
+  "ownPedal": true,
+  "strings": false,
+  "manualNoteEdits": false,
+  "additionalBeatQuantization": false,
+  "nativeTimeStepMilliseconds": 10,
+  "nativeVelocityStep": 5,
+  "loudness": {
+    "fileName": "01-Faure-Berceuse-Aria-Komplett-YDP-Einschlaftempo-v1.mp3",
+    "durationSeconds": 256.0261224489796,
+    "integratedLufs": -23.222319911657518,
+    "truePeakDbtp4x": -6.404487443366631,
+    "final250msRmsDbfs": -240.0,
+    "sha256": "1b1d34cf60d945b62fbb3d9cd2a0ea4bc11f9dbc54479e57e94d4a7500b422a3",
+    "bytes": 8204532
   },
-  "synthesizer": "FluidSynth 2.6.1; render piano with gain 0.6, no chorus, reverb and explicit CC91=90; pad eight seconds for room decay before tail trim",
-  "encoders": "LAME via lameenc, 256 kbps stereo, quality 2",
-  "originalRecordingUnchanged": true
+  "tailTrim": {
+    "originalRenderedSeconds": 267.5519274376417,
+    "selectedEndSeconds": 256.0,
+    "removedSeconds": 11.551927437641723,
+    "peakThresholdDbfs": -90,
+    "lastPeakAboveThresholdSeconds": 255.62,
+    "quietMarginSeconds": 0.35,
+    "finalFadeMilliseconds": 80,
+    "startOffsetMilliseconds": 0
+  },
+  "inputRecordingSha256": "0f03a7bcd856c01a4534ac8b82b9b512df6bea5b6679c089e9f20786fc240235"
 }

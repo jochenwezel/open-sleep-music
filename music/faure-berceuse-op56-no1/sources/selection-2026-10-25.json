@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-25",
+  "status": "maintainer-approved",
+  "catalogTrackId": "faure-berceuse-op-56-no-1",
+  "decision": "Maintainer approves complete Aria rendition and requests adoption in Lullabies for little ones, removal of other Faure variants.",
+  "audioSamplesAndBytesUnchangedFromApprovedAudition": true,
+  "approvedAuditionSha256": "1b1d34cf60d945b62fbb3d9cd2a0ea4bc11f9dbc54479e57e94d4a7500b422a3",
+  "removedCurrentEditionPaths": [
+    "audio\\faure-berceuse-op56-no1-piano-original.mp3",
+    "audio\\faure-berceuse-op56-no1-piano-sleep.mp3",
+    "audio\\faure-berceuse-op56-no1-piano-strings-original.mp3",
+    "audio\\faure-berceuse-op56-no1-piano-strings-sleep.mp3",
+    "midi\\faure-berceuse-op56-no1-piano-original.mid",
+    "midi\\faure-berceuse-op56-no1-piano-sleep.mid",
+    "midi\\faure-berceuse-op56-no1-piano-strings-original.mid",
+    "midi\\faure-berceuse-op56-no1-piano-strings-sleep.mid",
+    "scores\\faure-berceuse-op56-no1-cello-v1.pdf",
+    "scores\\faure-berceuse-op56-no1-piano-strings-v1.pdf",
+    "scores\\faure-berceuse-op56-no1-piano-v1.pdf",
+    "scores\\faure-berceuse-op56-no1-viola-v1.pdf",
+    "scores\\faure-berceuse-op56-no1-violin-v1.pdf",
+    "scores\\faure-berceuse-op56-no1.ly",
+    "sources\\string-arrangement-original-timing.json",
+    "sources\\string-sample-provenance.json",
+    "licenses\\VSCO-CC0-1.0.txt",
+    "licenses\\VSCO-original-credits.txt"
+  ],
+  "legacyPublicationCommit": "7a7b98a8d8bf7cd1e452817f14276bd7967de0a0",
+  "legacyAudioCommit": "92af08a8a3851ec2894e94566bd38d34a6070f1e",
+  "legacyPolicy": "Removed from current file set at maintainer request; historical commit-pinned bytes remain reachable. Source recordings and preparation inputs retained locally."
+}

@@ -1,0 +1,212 @@
+{
+  "date": "2026-10-25",
+  "trackId": "faure-berceuse-op-56-no-1",
+  "status": "complete Aria-AMT solo audition prepared; full-piece listening pending, no catalog replacement",
+  "maintainerDirection": "Aria is the maintainer-preferred problem-passage variant; prepare the complete work with its own model pedal.",
+  "assistantSessionLabel": {
+    "value": "ChatGPT 6.1 Sol Hoch",
+    "source": "maintainer-supplied session label, not the transcription engine"
+  },
+  "source": {
+    "composer": "Gabriel Fauré",
+    "creator": "Brian M. Jones, solo piano transcription and performance, September 2010",
+    "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg",
+    "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg&oldid=1269037211",
+    "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Berceuse_by_Gabriel_Faur%C3%A9_op56_no1.ogg",
+    "sha1": "16f742aed631bbd30a78e3298fb77672655bf306",
+    "license": "CC BY 3.0",
+    "licenseUri": "https://creativecommons.org/licenses/by/3.0/",
+    "sourceHistory": "Commons records a YouTube-derived Ogg from Brian M. Jones solo piano transcription; use the exact catalog original, not the separate NC four-hand performance."
+  },
+  "inference": {
+    "name": "Aria-AMT",
+    "model": "piano-medium-double-1.0",
+    "sourceUri": "https://github.com/EleutherAI/aria-amt",
+    "codeCommit": "a1ab73fc901d1759ec3bc173c146b3c6a3040261",
+    "utilsCommit": "7c815755c6889a784b6a1b3343e9e8daa3e7d128",
+    "checkpoint": {
+      "repository": "https://huggingface.co/datasets/loubb/aria-midi",
+      "revision": "8cc4cf5c83b47f2689ac256a947b2a57c17a4c8b",
+      "fileName": "piano-medium-double-1.0.safetensors",
+      "downloadUri": "https://huggingface.co/datasets/loubb/aria-midi/resolve/8cc4cf5c83b47f2689ac256a947b2a57c17a4c8b/piano-medium-double-1.0.safetensors",
+      "bytes": 446577344,
+      "sha256": "089d3129dbe93246aeda55efe668c8a48af08afaf9dd15c64cef0a07c0fb30a4",
+      "codeLicense": "Apache-2.0",
+      "datasetCardLicense": "CC-BY-NC-SA-4.0",
+      "checkpointLicenseReview": "Explicit separate weight grant unresolved; private noncommercial audition/research only, no production admission/public audio publication. Do not equate code license with dataset or checkpoint terms."
+    },
+    "runtime": {
+      "torch": "2.11.0+cu128",
+      "device": "NVIDIA GeForce RTX 4060",
+      "autocast": "bfloat16 (upstream default on supported CUDA GPUs)",
+      "compile": false,
+      "tf32": false,
+      "peakAllocatedMB": 639.91455078125
+    },
+    "sourceDurationSeconds": 214.6220625,
+    "sourceSha1": "16f742aed631bbd30a78e3298fb77672655bf306",
+    "sourceSha256": "0f03a7bcd856c01a4534ac8b82b9b512df6bea5b6679c089e9f20786fc240235",
+    "contextOriginalSeconds": [
+      0,
+      214.6220625
+    ],
+    "scope": "One full-source Aria-AMT inference with its own note/velocity/pedal estimates; no Transkun/Kong substitution or strings",
+    "settings": {
+      "windowSeconds": 30,
+      "strideSeconds": 10,
+      "batchSize": 1,
+      "model": "medium-double",
+      "tokenizerVocabulary": 3419,
+      "inherentTimeTokenStepMilliseconds": 10,
+      "inherentVelocityTokenStep": 5
+    },
+    "runtimeAdaptation": "Use current Windows Python 3.12 / torch and torchaudio 2.11; author declares Python >=3.11 but pins torchaudio <=2.5. Replace legacy stream/file I/O and multiprocessing queues with miniaudio-decoded CPU arrays and a synchronous caller. Preserve upstream 30/10-second window/padding, mel transform, unmodified model, token generation, prefix reconciliation and MIDI detokenization. No compiler or int8 quantization. This is a local compatibility run, not a certified author benchmark.",
+    "inferenceSeconds": 41.26600000000326,
+    "noteCount": 1078,
+    "sustainEvents": 204,
+    "rawMidiSha256": "4817e59fdb682b72a25657abf5d33364c455aa85bdbec210b2832b8a970061fc",
+    "musicalReview": "Excerpt preferred by maintainer; complete rendition pending listening, private audition only"
+  },
+  "midi": [
+    {
+      "fileName": "piano-original.mid",
+      "sha256": "8ff61faf61fae95e091c753afab7410f148e0249accc6b2f0ff1ff605ff35562",
+      "notes": 1078,
+      "speed": 1,
+      "durationSeconds": 214.6234375
+    },
+    {
+      "fileName": "piano-sleep.mid",
+      "sha256": "f611a0a7628643addcb39303ed41c670cc5b6b8afd748a45572f26a3f080e5d7",
+      "notes": 1078,
+      "speed": 0.833333,
+      "durationSeconds": 257.5484375
+    }
+  ],
+  "mp3": {
+    "fileName": "01-Faure-Berceuse-Aria-Komplett-YDP-Einschlaftempo-v1.mp3",
+    "durationSeconds": 256.0261224489796,
+    "integratedLufs": -23.222319911657518,
+    "truePeakDbtp4x": -6.404487443366631,
+    "final250msRmsDbfs": -240.0,
+    "sha256": "1b1d34cf60d945b62fbb3d9cd2a0ea4bc11f9dbc54479e57e94d4a7500b422a3",
+    "bytes": 8204532
+  },
+  "tempoFactor": 0.833333,
+  "pianoPreset": {
+    "id": "ydp-b-warm-room",
+    "status": "maintainer-preferred",
+    "appliesTo": "All Berceuse pieces when preparing MIDI-based replacement recordings",
+    "feedback": "The maintainer likes the new YDP variant B very much and selects it as the preferred piano voice for future Berceuse conversions.",
+    "approvedAuditionFile": "B-voller-Fluegel-mit-Raum-YDP.mp3",
+    "approvedAuditionSha256": "5eee3efcad5144bcc31f0f37428c8a46efb9587b63d4058cf89d412312993ddc",
+    "soundbank": "YDP Grand Piano, FreePats SF2 version 2016-08-04, Yamaha Disklavier Pro",
+    "soundbankSourcePageUri": "https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html",
+    "soundbankDownloadUri": "https://freepats.zenvoid.org/Piano/YDP-GrandPiano/YDP-GrandPiano-SF2-20160804.tar.bz2",
+    "soundbankLicense": "CC BY 3.0",
+    "soundbankLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
+    "soundbankCredits": "Zenph Studios, Dr. Mikhail Krishtal and team; OLPC sound sample library / Dr. Richard Boulanger; SF2 and sample modifications by Roberto (roberto@zenvoid.org), FreePats",
+    "synthesizer": "FluidSynth 2.6.1",
+    "renderSettings": {
+      "sampleRateHz": 44100,
+      "channels": 2,
+      "renderOnlyVelocityScale": 0.8,
+      "tempo": "Retain each recording's chosen audition tempo through MIDI-event timing; do not impose the Burgmuller tempo on other pieces or stretch rendered audio",
+      "reverbEnabled": true,
+      "reverbEngine": "free",
+      "reverbMidiController91": 90,
+      "reverbRoomSize": 0.43,
+      "reverbLevel": 0.38,
+      "reverbDamp": 0.65,
+      "reverbWidth": 0.9,
+      "chorusEnabled": false,
+      "highPassHz": 35,
+      "bodyEq": {
+        "frequencyHz": 210,
+        "gainDb": 2.4,
+        "q": 0.65
+      },
+      "presenceEq": {
+        "frequencyHz": 3100,
+        "gainDb": -1.6,
+        "q": 0.8
+      },
+      "lowPassHz": 9500,
+      "integratedLoudnessTargetLufs": -23.21,
+      "loudnessStrategy": "Constant gain only; retain safe peak headroom and note dynamics; no compressor or limiter",
+      "mp3BitrateKbps": 256,
+      "tailTrim": {
+        "significantPeakThresholdDbfs": -90,
+        "quietMarginSeconds": 0.35,
+        "finalInaudibleFadeMilliseconds": 80
+      }
+    },
+    "verification": "Confirm actual reverb in the output using a wet/dry comparison. Earlier Salamander A/B renders were effectively identical because no MIDI reverb send reached the effect. Check loudness matching, full decoding, headroom, quiet ending and retained credits before delivering an audition."
+  },
+  "verifiedReverbWetDryDifferenceDb": -18.236207446710026,
+  "tailTrim": {
+    "originalRenderedSeconds": 267.5519274376417,
+    "selectedEndSeconds": 256.0,
+    "removedSeconds": 11.551927437641723,
+    "peakThresholdDbfs": -90,
+    "lastPeakAboveThresholdSeconds": 255.62,
+    "quietMarginSeconds": 0.35,
+    "finalFadeMilliseconds": 80,
+    "startOffsetMilliseconds": 0
+  },
+  "problemPassageContextConsistency": {
+    "previousCroppedNoteCount": 182,
+    "fullInferenceCoreNoteCount": 183,
+    "matchingPitchOnsetsWithin50ms": 182,
+    "medianMatchedOnsetDifferenceMilliseconds": 0.10416666668788821,
+    "interpretation": "Same model, checkpoint and settings, but full-source versus cropped segment context. No splice, timing repair or guarantee of identical notes; musical review remains pending."
+  },
+  "nativeAriaPedalRetained": true,
+  "rejectedD1SubstitutionApplied": false,
+  "manualNoteEdits": false,
+  "additionalBeatQuantization": false,
+  "strings": false,
+  "nextcloudRelativeDirectory": "Open Sleep Music/Probehören/2026-10-25-Faure-Aria-Komplett",
+  "validation": {
+    "fullMp3Decoding": true,
+    "matchedLoudnessHeadroomAndQuietEnding": true,
+    "midiNotePairingAndFinalRelease": true,
+    "originalSleepTimingRatioAndUnsoftenedVelocitiesVerified": true,
+    "ownAriaSustainCountVerified": true,
+    "authenticatedServerDownloadIndependentlyVerified": false
+  },
+  "unchanged": "Existing production recording/catalog, published song MIDI/MP3/PDF bytes, pinned download URLs and older audition audio/MIDI files.",
+  "copiedFileSha256": {
+    "01-Faure-Berceuse-Aria-Komplett-YDP-Einschlaftempo-v1.mp3": "1b1d34cf60d945b62fbb3d9cd2a0ea4bc11f9dbc54479e57e94d4a7500b422a3",
+    "piano-original.mid": "8ff61faf61fae95e091c753afab7410f148e0249accc6b2f0ff1ff605ff35562",
+    "piano-sleep.mid": "f611a0a7628643addcb39303ed41c670cc5b6b8afd748a45572f26a3f080e5d7",
+    "raw-tokens.json": "fa83b5ba42bbd79c7e17094f36c3b3f4355e887afab2f4f1df68d97845e8a7e9",
+    "inference-report.json": "ad64b91102f55727bcac32379a91363a394f6f7d05da5b85e28faedbb678bf49",
+    "full-render-report.json": "00a2e2591f3481b95c0f50ca513fa2c528fe5fbcaae61f9d17507aba8c00ded1",
+    "BITTE-LESEN.md": "81984a6bfa26e5298f94bc4c59963a8cdcbc83087ff589751b63cdc080e8cd39",
+    "source-provenance.json": "44cba40efb2d584967a9fb5085bca45c48c73c0bd821dd38bd1ee69ce273ae13",
+    "CC-BY-3.0.txt": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76",
+    "YDP-ORIGINAL-CREDITS.txt": "00b50312ada857d89c6e8690be059dcc50ee5a755fc1bbc607ec9070a7a05117",
+    "ARIA-CODE-APACHE-2.0.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "ARIA-UTILS-APACHE-2.0.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "ARIA-DATASET-CARD.md": "884d3877d3a0cf245c7f366b85aa05832b1774669531d3e3e11d2c9a6fb61f35",
+    "ARIA-CHECKPOINT-PROVENANCE.json": "974f45552e07c95d30688e5cbe2cc0bd9d6357353d5735a072c9c26c1e2e5a46"
+  },
+  "preparationScriptSha256": {
+    "transcribe_faure_aria_complete.py": "36feda7bb4750b993076fe265892c26cd9fdd6d7087580afc2fa6532489d38e8",
+    "render_faure_aria_complete.py": "af6e1fe1803ba5d360818294472d05d2d70d582c2d165602169214c79c5d885a",
+    "render_transkun_faure_test.py": "c800b68a6a9b7506c24e381633f93f1ff3a56bce3ffe67f32a547031c52abca4",
+    "mazurka_audio_common_v2.py": "9a8ba6868b9335cd4042a797eebce60c4fb3ac6a75631219d08ea6ed5941dc67",
+    "tail_tools.py": "29ba6d29f8fe4cc27e77dc6dc41ea163018e4de81e0cb2af24720ecc9f6de994"
+  },
+  "maintainerFeedback": {
+    "date": "2026-10-25",
+    "pedalDiagnosticD1": "Maintainer rejects the CC64-substitution variant. Do not use it in complete renders.",
+    "basicPitch": "Maintainer rejects Basic Pitch and asks to discard that engine for this workflow; no further Basic Pitch preparation.",
+    "aria": "Maintainer calls Aria the best variant in the problem-passage comparison and requests a complete conversion.",
+    "transkun": "Maintainer first requests the complete native Transkun variant; retain it as a comparison alongside the subsequently requested Aria rendition.",
+    "scope": "Aria preference applies to the listened problem-passage comparison. Complete renders are newly prepared auditions, not full-piece or catalog approval."
+  },
+  "modelLicenseReview": "Code Apache-2.0; separately documented checkpoint grant remains unresolved, private audition/research only. No production admission or public audio publication.",
+  "metadataCorrectionScriptSha256": "cdb230ab9a655226871f8bf358878543e5b5b4ac3577c21027547c726ee6c1ca"
+}
