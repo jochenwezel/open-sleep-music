@@ -164,6 +164,32 @@ A broken media source must never make an entire sleep-world download fail.
 
 Do not weaken these behaviors when refactoring networking, validation, logging, or UI progress reporting.
 
+## Privacy commitments
+
+Maintain `docs/privacy-policy.md` as the engineering and operational reference
+for the app's published privacy promises. Review it together with
+`docs/google-play/data-safety.md` before changing networking, download sources,
+dependencies, identifiers, logging, feedback, local storage or platform backups.
+
+- All app-managed audio, background, artwork and catalog/manifest requests must
+  use HTTPS with normal certificate and hostname validation. Redirects must
+  remain HTTPS; never introduce an HTTP retry/fallback or disable TLS validation.
+  Treat transport-policy failures like other unavailable individual resources,
+  preserving partial-file cleanup, collection continuation and offline fallbacks.
+- Keep preferences and playback state local to the app's own processing. Do not
+  add automatic telemetry, advertising IDs, persistent installation identifiers,
+  profiling or automatic feedback uploads. Platform backup/device transfer must
+  be documented separately; do not describe it as developer-operated syncing.
+- Keep feedback explicitly user-initiated and limited to its documented fields.
+  Raw personal feedback stays outside Git. Claims about retention/deletion of
+  reports received by the operator require an actual adopted deletion process;
+  do not invent retention periods for third-party servers.
+- Before publication, check privacy promises against each delivered platform's
+  manifest, dependencies and behavior, including redirect/certificate failures
+  and backup scope. Documentation alone is not proof that a runtime control or
+  organizational deletion process has been implemented. Update the notice and
+  store disclosures whenever actual behavior changes.
+
 ## Code and repository quality
 
 - Keep catalog parsing and download policy in `OpenSleepMusic.Core`; keep platform/UI concerns in `OpenSleepMusic.App`.

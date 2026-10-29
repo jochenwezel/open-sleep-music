@@ -31,11 +31,11 @@ also describes marketing, profiling and web analytics. It does not explain this
 app's download providers, local playback settings, catalog updates or feedback
 export. A link to that generic text alone would leave those practices unclear.
 
-Publish a dedicated **Open Sleep Music privacy notice**, linked from the company
-notice, Play Console and the app. A clearly identified app section within the
-company notice is an alternative if its scope is equally explicit. A separate
-policy for every future app is not inherently required; shared text must still
-describe each app accurately. Do not imply that website analytics operate inside
+Publish a dedicated **Open Sleep Music privacy notice**, linked directly from
+Play Console and the app. Keep it separate from the general website notice and
+site index according to the website project's established app-page rules.
+Shared text for future apps must still describe each app accurately. Do not
+imply that website analytics operate inside
 the app, or that clicking a website link inherits the app's lack of tracking.
 
 Proposed destination, not yet published:
@@ -76,6 +76,9 @@ release authorization.
 
 ## Launch checklist
 
+- [ ] Verify the [privacy commitments](../privacy-policy.md), including HTTPS
+  redirects/certificate failures on supported platforms and the real operator
+  process for deleting received feedback before publishing that promise.
 - [ ] Organization verification completed; public legal identity and contacts checked.
 - [ ] Final app privacy notice reviewed, published and accessible inside the app.
 - [ ] Provider roles, redirect destinations, retention and international transfers

@@ -51,8 +51,9 @@ Geräteeinstellungen und der endgültigen Backup-Konfiguration der App ab.
 
 Beim Laden des Katalogs prüft die App über das Internet, ob ein aktualisierter
 Katalog verfügbar ist. Auch „Bibliothek aktualisieren“ ruft den Katalog ab.
-Bilder und ausgewählte Aufnahmen werden von den jeweils hinterlegten Quellen
-heruntergeladen. Nach erfolgreichem Download können Sie die Aufnahmen offline
+Bilder und ausgewählte Aufnahmen werden über verschlüsselte HTTPS-Verbindungen
+von den jeweils hinterlegten Quellen heruntergeladen. Nach erfolgreichem Download
+können Sie die Aufnahmen offline
 abspielen; Netzwerkfunktionen können bei bestehender Verbindung dennoch Anfragen
 auslösen.
 
@@ -60,8 +61,8 @@ Bei diesen HTTPS-Verbindungen erhält die ausliefernde Infrastruktur insbesonder
 Ihre IP-Adresse, die angeforderte Datei, den Zeitpunkt und technische
 Anfrageinformationen. Die App sendet dabei keine eigene dauerhafte
 Installationskennung. Für Kataloge und Bilder werden GitHub-Dienste genutzt.
-Die gegenwärtigen Aufnahmequellen umfassen außerdem Wikimedia, Internet Archive
-und einen IMSLP-Downloadserver. In den Titelinformationen finden Sie die konkrete
+Die Aufnahmequellen im regulären Katalog umfassen außerdem Wikimedia,
+Internet Archive und einen IMSLP-Downloadserver. In den Titelinformationen finden Sie die konkrete
 Quelle der Aufnahme. Weiterleitungen können zusätzliche Auslieferungsdienste
 einbeziehen.
 
@@ -88,6 +89,11 @@ Gesundheitsdaten oder personenbezogenen Angaben über Kinder im Kommentar.
 
 **Vor Veröffentlichung ergänzen:** konkrete Rechtsgrundlagen und Löschfristen
 für eingegangene Anfragen und Feedback sowie die Behandlung lokaler Berichtdateien.
+Als Löschregel ist vorgeschlagen: „Personenbezogene Rückmeldungen löschen wir,
+sobald ihre Bearbeitung abgeschlossen ist und kein weiterer Aufbewahrungsgrund
+besteht. Gesetzliche Aufbewahrungspflichten bleiben unberührt.“ Dies darf erst
+als geltende Zusage veröffentlicht werden, wenn CompuMaster den tatsächlichen
+Löschprozess festgelegt und umgesetzt hat.
 Die endgültige Store-Version und diese Beschreibung müssen hinsichtlich der
 Zugänglichkeit dieser Funktion für Kinder übereinstimmen.
 
