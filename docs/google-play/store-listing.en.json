@@ -1,0 +1,17 @@
+{
+  "status": "draft",
+  "locale": "en-US",
+  "developerDisplayName": "CompuMaster",
+  "applicationId": "org.opensleepmusic.app",
+  "title": "Open Sleep Music",
+  "shortDescription": "Calm music and nature sounds to enjoy offline, without ads or an app account.",
+  "fullDescription": "Calm sounds for the evening and night: Open Sleep Music brings gentle instrumental music, lullabies for little ones and nature sounds together in clearly arranged collections. For adults and for parents who want to create a calm listening environment for their child.\n\nDownload once, then listen offline\nChoose a collection and download the available recordings to your device. You can then play them without a permanent internet connection. Downloads, new images and catalog updates need an internet connection. Individual recordings may sometimes be unavailable.\n\nListen your way\n• Discover calm classical music, lullabies and nature sounds\n• Mark favorites and hide unwanted tracks\n• Play tracks in sequence or shuffle them\n• Repeat a single track or a collection\n• Adjust the volume and sleep timer\n• Listen in the background with the screen locked\n• Use the English or German interface\n\nNo ads and no app account\nOpen Sleep Music contains no ads and requires no registration or subscription. The app does not include automatic usage analytics. Settings and playback position are stored locally. Information about downloads and the services involved is available in the privacy notice.\n\nSources and licenses remain visible\nTrack information identifies the creators, sources and recording licenses. Each recording retains its own license.\n\nOpen Sleep Music offers music and sounds for relaxation. The app does not diagnose or promise to treat sleep disorders.",
+  "suggestedCategory": "Music & Audio",
+  "priceModel": "free",
+  "containsAds": false,
+  "requiresAppAccount": false,
+  "supportEmail": "appsupport@compumaster.de",
+  "supportWebsite": "https://github.com/jochenwezel/open-sleep-music/issues",
+  "privacyPolicyUrl": null,
+  "audienceDecision": "Mixed adults and children; exact age groups and Families declarations require review before submission."
+}

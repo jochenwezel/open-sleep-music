@@ -2,8 +2,14 @@
 
 Open Sleep Music is being prepared for publication by **CompuMaster** using an
 organization account. Account verification is pending, as reported by the
-maintainer on 29 October 2026. No Play Console submission has been made by this
-preparation work.
+maintainer on 29 October 2026. The app record was created in Play Console on
+29 October 2026 after the maintainer explicitly authorized the three creation
+declarations. It remains a draft; no release or review submission was made.
+English (United States, `en-US`) is the default store language, with German
+(`de-DE`) as an additional translation. Both text drafts are saved in the
+Console. The app itself supports English and German; the default store language
+does not restrict the app interface languages. English is the intended fallback
+where no matching translation exists; Play may also offer machine translation.
 
 Tracking issue: [Google Play publication under CompuMaster, issue 22](https://github.com/jochenwezel/open-sleep-music/issues/22).
 
@@ -38,7 +44,8 @@ not publish a fixed maximum offline interval:
 
 ## Publication materials
 
-- [German store listing](store-listing.de.json): copyable text, without fixed
+- [English store listing](store-listing.en.json): default-language text draft.
+- [German store listing](store-listing.de.json): translation, without fixed
   catalog totals or promises of medical benefits.
 - [German app privacy notice draft](privacy-notice.de.md): app-specific text for
   review and publication on the company website.
@@ -113,6 +120,10 @@ release authorization.
 
 ## Launch checklist
 
+- [x] Create the Play Console app record with authorized creation declarations.
+- [x] Save English and German store text drafts with English as the default.
+- [ ] Reconcile the [preliminary export assessment](export-assessment.md) with
+  the final delivered Stable bundle and intended distribution.
 - [ ] Verify the [privacy commitments](../privacy-policy.md), including HTTPS
   redirects/certificate failures on supported platforms and the real operator
   process for deleting received feedback before publishing that promise.
