@@ -1,0 +1,62 @@
+# Google Play data safety assessment
+
+This is the submission worksheet for the Stable Android app, based on source
+inspection on 29 October 2026. It contains provisional classifications, not a
+submitted Data safety declaration. Do not select "no data collected" solely
+because the project has no analytics SDK.
+
+## Data flows and evidence
+
+| Flow | Source evidence | Assessment and remaining work |
+| --- | --- | --- |
+| Player settings, favorites, blocks and saved position | `AppStateStore.cs`, `AndroidPlaybackService.cs` | Locally persisted; no automatic developer upload identified. Check Android backup and device-transfer behavior. |
+| Catalog update at initial page loading and manual library refresh | `MainPage.xaml.cs`, `CatalogUpdateClient.cs` | HTTPS request to GitHub release assets, including server-visible connection metadata. Review redirects, recipient roles and server processing. |
+| Artwork manifest and PNG downloads | `ArtworkManifestClient.cs`, `ArtworkCache.cs` | HTTPS GitHub requests; cache remains on the device. Check final catalog endpoints and provider handling. |
+| Selected audio and background dependencies | `SleepWorldDownloader.cs` and production catalog | Requests reveal IP address and requested file to serving infrastructure. Review recipients and exact purpose; audio content itself is downloaded, not microphone data uploaded. |
+| Optional catalog feedback | `MainPage.ShareCatalogFeedbackAsync`, `CatalogFeedbackReport.cs`, `docs/catalog-feedback.md` | User-triggered JSON export with timestamp, app version, platform, catalog count, favorite/blocked titles and optional free text. No direct developer upload endpoint. Review user-initiated sharing exemptions and selected recipient behavior; free text can contain personal data. |
+| Source/license/project links | `TrackDetailsPage.xaml.cs`, `AboutPage.xaml.cs` | Opens an external browser. External website behavior is distinct from in-app behavior; review child-facing access. |
+| Installation and store operations | Google Play and the operating system | Do not misdescribe Google Play's own processing as an app analytics implementation. Explain platform processing separately. |
+
+The first-party HTTP client sends a generic application User-Agent; it is not an
+installation identifier. The inspected built-in production audio hosts are
+`archive.org`, `commons.wikimedia.org`, `upload.wikimedia.org`, `ks15.imslp.org`
+and `raw.githubusercontent.com`. Catalog/artwork assets also use `github.com`.
+Redirects and later catalog updates can add serving hosts. This list describes
+endpoints, not verified legal entities or contracted processors.
+
+## Answers supported by the inspected source
+
+- No app account or login is required. An account-deletion workflow is therefore
+  not applicable unless accounts are introduced later.
+- No ads implementation is configured. The listing's ads answer can reflect this
+  after final bundle/dependency inspection.
+- No camera, microphone, contacts, location or advertising-ID permission is
+  declared in the source manifest. Verify the merged bundle manifest too.
+- Downloads and manifest requests use HTTPS. This is not, on its own, a completed
+  answer about all possible support/share destinations or all data encryption.
+- Local preferences and playback state must not be described as automatically
+  uploaded playback history. Conversely, optional exported ratings must not be
+  described as impossible to share.
+
+## Required decisions before submission
+
+1. Identify the legal entities serving each download path and their actual
+   processing, including logs, cookies, onward use, retention and transfer basis.
+   Do not assume every public download host is our processor or that all requests
+   are anonymous, ephemeral, or exempt from disclosure.
+2. Map each actual off-device data use to Google's categories and collection/
+   sharing exceptions. An IP address is not automatically a location declaration;
+   using it to derive location would affect the classification.
+3. Decide feedback availability in the child experience. A confirmation asking
+   whether to share is not evidence of verified adult action. Retained feedback
+   received by CompuMaster also needs a retention/deletion policy.
+4. Review `allowBackup`, platform backups, cached report files, app preferences,
+   music-folder deletion and downloaded files surviving uninstallation. Confirm
+   what deletion controls actually remove rather than promising total erasure.
+5. Reconcile the final worksheet, hosted notice, app UI and complete dependencies
+   with the exact Stable bundle and catalog-update delivery used for launch.
+
+Use Google's [Data safety definitions](https://support.google.com/googleplay/android-developer/answer/10787469?hl=en)
+and [User Data policy](https://support.google.com/googleplay/android-developer/answer/10144311?hl=en).
+Have the company's data protection contact review unresolved legal bases,
+provider relationships and international transfers before publication.

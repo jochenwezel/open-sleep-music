@@ -27,6 +27,10 @@ Background playback and Android/Windows system media controls are included in th
 
 The manual, opt-in field-test feedback format and its privacy boundaries are documented in [docs/catalog-feedback.md](docs/catalog-feedback.md).
 
+Preparation for the CompuMaster organization account's Google Play publication,
+including store copy, the app privacy notice draft and launch requirements, is
+tracked in [docs/google-play/README.md](docs/google-play/README.md).
+
 ## Install the Android test app
 
 Download the APK from the latest GitHub prerelease on the Android phone. Android may ask for permission to install apps from the browser or file manager used for the download. Allow it for this installation, open the APK, choose **Installieren**, and disable that source permission again afterwards. Existing downloaded music remains in the app's music folder when updating the APK.
