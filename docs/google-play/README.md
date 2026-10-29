@@ -23,7 +23,8 @@ Im Vogelsang 3, 56154 Boppard, Germany; `info@compumaster.de`.
 The [company privacy notice](https://www.compumaster.de/datenschutzhinweis/)
 also names the data protection contact `dsb@keydata.gmbh`.
 App-related support email and feedback addressed to CompuMaster must be processed
-through **appsupport@compumaster.de**, as directed by the maintainer and adopted
+through **appsupport@compumaster.de**. The app support phone number is
+**+49 6742 9799111** (+4967429799111), as directed by the maintainer and adopted
 by this project on 29 October 2026. General company and data protection contacts
 remain separate. This adoption is not verification that the mailbox is configured,
 reachable or covered by an implemented deletion process.
@@ -75,8 +76,10 @@ release authorization.
 - No advertising or analytics SDK is configured in the inspected app startup
   and direct package references. Verify transitive dependencies and the final
   merged manifest rather than treating this as a completed SDK audit.
-- `android:allowBackup="true"` requires a review of backup and device-transfer
-  behavior before making claims that settings can never leave the device.
+- `android:allowBackup="true"` retains backup eligibility for settings. The
+  manifest's legacy and modern XML rules exclude downloaded `Audio/` from cloud
+  backup and device transfer. Verify the merged bundle and real restore behavior;
+  this does not establish that settings can never leave the device.
 
 ## Launch checklist
 

@@ -11,7 +11,7 @@ E-Mail: info@compumaster.de.
 Der Entwicklername im Google Play Store lautet „CompuMaster“.
 
 Für App-Support und an CompuMaster gerichtetes App-Feedback verwenden Sie bitte
-appsupport@compumaster.de. Der allgemeine Unternehmenskontakt und der Kontakt
+appsupport@compumaster.de, Telefon: +49 6742 9799111. Der allgemeine Unternehmenskontakt und der Kontakt
 unseres Datenschutzbeauftragten bleiben davon getrennt.
 
 Datenschutzbeauftragter laut unseren Unternehmens-Datenschutzhinweisen:
@@ -45,11 +45,20 @@ Wiedergabestand auf Ihrem Gerät. Das ermöglicht Offline-Wiedergabe und das
 Fortsetzen der Bedienung. Diese Informationen werden nicht automatisch als
 Nutzungsbericht an CompuMaster gesendet.
 
-Sammlungen lassen sich über die Bibliotheksverwaltung entfernen. Musikdateien
-können je nach Plattform im Musikordner liegen. Das Entfernen der App löscht
-deshalb nicht zwangsläufig sämtliche Musikdateien oder zuvor geteilte Berichte.
-Zusätzliche Betriebssystem-Sicherungen und Geräteübertragungen hängen von den
-Geräteeinstellungen und der endgültigen Backup-Konfiguration der App ab.
+Sammlungen lassen sich über die Bibliotheksverwaltung entfernen. Neue Downloads
+liegen dauerhaft im eigenen Datenbereich der App. Dafür benötigt die App keinen
+Zugriff auf Ihre persönliche Musikbibliothek. Versionen mit Veröffentlichungsdatum
+in 2026 versuchen, frühere Downloads aus dem Unterordner „Open Sleep Music“ des
+Musikordners in diesen Datenbereich zu verschieben. Ab 2027 veröffentlichte
+Versionen greifen auf den bisherigen Musikordner nicht mehr zu. Bei der Übernahme
+wird eine alte Datei erst nach erfolgreicher Prüfung der Kopie gelöscht.
+
+Unter Android werden die app-eigenen Audiodateien beim Deinstallieren oder beim
+Löschen der App-Daten entfernt. Nicht übernommene Dateien im alten Musikordner und
+zuvor geteilte Berichte können erhalten bleiben. Die Android-Sicherungsregeln
+schließen heruntergeladene Audiodateien von automatischen Cloud-Sicherungen und
+Geräteübertragungen aus. Andere App-Daten, etwa Einstellungen, können abhängig
+von den Geräteeinstellungen weiterhin vom Betriebssystem gesichert werden.
 
 ## Verbindungen für Kataloge, Bilder und Musik
 
@@ -132,9 +141,10 @@ durch diese Datenschutzhinweise ersetzt.
 
 Google und der Geräteanbieter verarbeiten im Zusammenhang mit Google Play,
 Installationen und Betriebssystemfunktionen Daten nach ihren eigenen
-Bedingungen. Die aktuelle Android-Konfiguration erlaubt Betriebssystem-Backups.
-Welche App-Daten gesichert oder auf ein neues Gerät übertragen werden, ist vor
-Veröffentlichung anhand der endgültigen Konfiguration zu dokumentieren.
+Bedingungen. Die Android-Konfiguration erlaubt Betriebssystem-Backups für dafür
+vorgesehene App-Daten; der Audio-Downloadbereich ist in den Sicherungsregeln
+ausgeschlossen. Die endgültige Konfiguration sowie tatsächliche Sicherungen und
+Geräteübertragungen müssen vor Store-Veröffentlichung geprüft werden.
 
 ## iOS und Apple App Store
 
