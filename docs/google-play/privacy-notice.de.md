@@ -53,13 +53,11 @@ Geräteeinstellungen und der endgültigen Backup-Konfiguration der App ab.
 
 ## Verbindungen für Kataloge, Bilder und Musik
 
-Beim Laden des Katalogs prüft die App über das Internet, ob ein aktualisierter
-Katalog verfügbar ist. Auch „Bibliothek aktualisieren“ ruft den Katalog ab.
-Bilder und ausgewählte Aufnahmen werden über verschlüsselte HTTPS-Verbindungen
-von den jeweils hinterlegten Quellen heruntergeladen. Nach erfolgreichem Download
-können Sie die Aufnahmen offline
-abspielen; Netzwerkfunktionen können bei bestehender Verbindung dennoch Anfragen
-auslösen.
+Sie entscheiden, welche Musikaufnahmen und Sammlungen Sie herunterladen.
+Bereits heruntergeladene Aufnahmen können Sie offline abspielen. Beim Laden
+prüft die App den Katalog jedoch automatisch auf Aktualisierungen; Bilder werden
+bei Bedarf nachgeladen. Diese Abrufe können auch ohne einen neuen Musikdownload
+stattfinden. „Bibliothek aktualisieren“ löst ebenfalls einen Katalogabruf aus.
 
 Bei diesen HTTPS-Verbindungen erhält die ausliefernde Infrastruktur insbesondere
 Ihre IP-Adresse, die angeforderte Datei, den Zeitpunkt und technische
@@ -69,6 +67,15 @@ Die Aufnahmequellen im regulären Katalog umfassen außerdem Wikimedia,
 Internet Archive und einen IMSLP-Downloadserver. In den Titelinformationen finden Sie die konkrete
 Quelle der Aufnahme. Weiterleitungen können zusätzliche Auslieferungsdienste
 einbeziehen.
+
+Eigenverantwortliche Auslieferungsanbieter können Abrufe nach ihren eigenen Datenschutzregeln
+protokollieren. Auf diese Serverprotokolle haben wir keinen direkten Zugriff;
+wir können sie weder einsehen noch selbst löschen. Für ihre Aufbewahrung und
+Löschung gelten die Regeln des jeweiligen Anbieters. Angaben zur aktuellen
+Quelle finden Sie in den Titelinformationen. Maßgeblich sind die Datenschutzhinweise
+des jeweiligen Anbieters. Katalogquellen und Anbieterhinweise
+können sich ändern. Wir versprechen keine festen Speicherfristen oder
+Löschbestätigungen für fremde Serverprotokolle.
 
 **Vor Veröffentlichung ergänzen:** rechtliche Empfänger und ihre Rollen,
 Datenschutzhinweise, Verarbeitungszwecke und Rechtsgrundlagen, Speicherfristen

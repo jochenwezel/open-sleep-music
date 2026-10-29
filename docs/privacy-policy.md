@@ -77,6 +77,24 @@ track-quality improvement history without importing personal report contents.
 
 ## Providers and publication review
 
+Distinguish developer-held records from access logs held by independent content
+providers. Do not promise to inspect or delete provider logs that we cannot
+access, or generate purported deletion evidence for them. Our own records and
+any processing performed on our behalf remain subject to our actual duties;
+calling a service a third party does not change its role.
+
+Users choose audio downloads. Catalog checks and some artwork requests are
+automatic in the current app. Describe both; never claim that all off-device
+requests occur only after a download click or that a download click grants
+blanket permission for provider tracking.
+
+When admitting or changing a source, retain its canonical source link and review
+the applicable provider information, noting provider and review date in the
+publication assessment. Reassess relevant changes when they become known. Do not
+promise continuous detection of undisclosed provider-policy changes. Keep current
+source information accessible per track rather than hard-coding a supposedly
+permanent provider list into the notice.
+
 Keep the serving-provider inventory current when adding a new download source
 or materially changing redirects. Explain server-visible IP addresses and
 requested files without calling them anonymous. Do not assume every hosting
