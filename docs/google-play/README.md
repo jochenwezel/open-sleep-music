@@ -29,8 +29,10 @@ has chosen to retain the default automatic installation protection for the
 planned Play version. This is a distribution setting, separate from app signing;
 it does not add a developer-operated music licence check. Review the delivered
 build's actual behavior, network/data implications and offline operation before
-release. Qualify offline claims in the full store description and app help;
-document the relevant Play processing in the app privacy notice. Google does
+release. The maintainer does not want an explicit online-check notice in the
+store description, app help or privacy draft. Describe local playback factually
+and assess the final bundle's actual data processing for required disclosures.
+Google does
 not publish a fixed maximum offline interval:
 [automatic protection](https://support.google.com/googleplay/android-developer/answer/10183279?hl=en).
 
@@ -139,7 +141,7 @@ release authorization.
   in issues, repository files or public artifacts. See [Android signing](https://developer.android.com/studio/publish/app-signing)
   and [existing release signing](../android-signing.md).
 - [ ] Verify the chosen Play automatic installation protection setting; test the
-  delivered build and reflect relevant data flows and online checks in disclosures.
+  delivered build and reflect relevant data flows in required privacy disclosures.
 - [ ] Verify target API 36 or later in the final manifest for current phone-app
   submissions, supported ABIs, native-library compatibility and increasing version
   code. See the [current target API requirement](https://developer.android.com/google/play/requirements/target-sdk).

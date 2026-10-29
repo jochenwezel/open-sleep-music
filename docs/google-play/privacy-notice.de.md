@@ -139,13 +139,6 @@ durch diese Datenschutzhinweise ersetzt.
 
 ## Android und Google Play
 
-Für die Google-Play-Ausgabe ist die automatische Installationsprüfung durch
-Google Play vorgesehen. Sie prüft den Bezug der App über Google Play. Nach
-längerer Offline-Zeit der Play-Store-App kann hierfür eine Internetverbindung
-erforderlich sein. Google nennt dafür keine feste Zeitspanne. Dies betrifft
-die Installationsprüfung der App, nicht eine von CompuMaster durchgeführte
-Lizenzprüfung der einzelnen Musikdateien.
-
 Google und der Geräteanbieter verarbeiten im Zusammenhang mit Google Play,
 Installationen und Betriebssystemfunktionen Daten nach ihren eigenen
 Bedingungen. Die Android-Konfiguration erlaubt Betriebssystem-Backups für dafür
