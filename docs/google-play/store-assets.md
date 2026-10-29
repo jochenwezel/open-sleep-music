@@ -1,22 +1,26 @@
 # Google Play assets and reviewer instructions
 
-These deliverables remain to be captured or exported from the approved Stable
-app. App artwork files and generated illustrations are not substitutes for
-screenshots of the actual user interface.
+The [29 October 2026 asset set](../../design/google-play/2026-10-29/README.md)
+contains the exported launcher icon, a generated feature graphic and real
+Android 0.1.38 screenshots. They are saved in the Play Console draft: six
+English phone screenshots and four German ones. The language-neutral icon and
+feature graphic are shared. App artwork and generated illustrations are not
+substitutes for actual interface screenshots. Review this snapshot against the
+final delivered Play build before publication.
 
 ## Graphics checklist
 
-- [ ] Store icon: 512 by 512 pixels, 32-bit PNG, at most 1024 KB. Export the
+- [x] Store icon: 512 by 512 pixels, 32-bit PNG, at most 1024 KB. Export the
   approved launcher artwork as a store asset; do not substitute a stock icon.
-- [ ] Feature graphic: 1024 by 500 pixels, JPEG or 24-bit PNG without alpha.
-- [ ] At least two screenshots meeting Google's current requirements: JPEG or
+- [x] Feature graphic: 1024 by 500 pixels, JPEG or 24-bit PNG without alpha.
+- [x] At least two screenshots meeting Google's current requirements: JPEG or
   24-bit PNG without alpha, dimensions 320 to 3840 pixels, with the longer side
   no more than twice the shorter side. Recheck the current Console specifications
   when capturing; an unusually tall native phone screenshot may need cropping.
-- [ ] Phone portrait overview showing actual Stable collections.
-- [ ] Lullaby player with its selected motif and visible controls.
+- [x] Phone portrait overview showing actual Stable collections.
+- [x] Lullaby player with its selected motif and visible controls.
 - [ ] Quiet Classics player showing the collection-specific artwork difference.
-- [ ] Track list with favorites and the sleep-timer controls.
+- [x] Track list with favorite controls and the sleep-timer dialog.
 - [ ] Optional landscape/tablet screenshots after actual layout validation.
 
 Use the German interface for the German listing. Do not show unchecked audition

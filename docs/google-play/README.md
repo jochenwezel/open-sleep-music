@@ -122,6 +122,8 @@ release authorization.
 
 - [x] Create the Play Console app record with authorized creation declarations.
 - [x] Save English and German store text drafts with English as the default.
+- [x] Add the store icon, feature graphic and localized phone screenshots to
+  the Console draft; retain source files and hashes in the repository.
 - [ ] Reconcile the [preliminary export assessment](export-assessment.md) with
   the final delivered Stable bundle and intended distribution.
 - [ ] Verify the [privacy commitments](../privacy-policy.md), including HTTPS

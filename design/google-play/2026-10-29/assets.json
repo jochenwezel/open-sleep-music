@@ -1,0 +1,157 @@
+{
+  "preparedDate": "2026-10-29",
+  "appVersion": "0.1.38",
+  "packageName": "org.opensleepmusic.app",
+  "purpose": "Google Play draft store listing",
+  "generation": {
+    "tool": "built-in OpenAI image_gen",
+    "asset": "feature-graphic.png",
+    "reference": "src/OpenSleepMusic.App/Resources/AppIcon/appicon.png",
+    "prompt": "Use case: ads-marketing. Create a polished Google Play feature graphic for the existing app Open Sleep Music. Use the supplied launcher icon ONLY as a reference for its soft luminous rendering and navy, lavender, indigo and warm gold palette; do not copy the icon composition, bear, rounded square or logo. Create a new sophisticated very wide landscape illustration suitable for adults and families: tranquil moonlit lake, soft distant woodland silhouettes, gently glowing crescent moon and sparse tiny stars, subtle lavender-blue haze and calm water. Restful, softly textured watercolor and light, no dramatic contrast or busy detail. Title, verbatim: \"Open Sleep Music\", elegantly readable warm off-white sans-serif, centered in the safe middle region, clean letterforms, no other text. The art must look like real finished promotional artwork, not a screenshot or phone mockup. NO devices, badges, shop logos, UI, ratings, price, medical claims, slogans or border. Avoid repeating the bear from the app icon. All important title and moon/lake elements inside the central 80% width and 70% height, generous breathing room. Target final composition aspect ratio 1024:500 (2.048:1), ideally render 2048 by 1000 so it can be downsampled to the exact store size. Fully opaque image with complete edge-to-edge illustrated background.",
+    "export": "High-quality downsampling of the generated composition to 1024x500 RGB PNG; existing launcher artwork exported to 512x512 RGBA PNG."
+  },
+  "screenshots": {
+    "method": "Direct adb device screencap, lossless RGB PNG export; no synthetic UI, cropping or retouching.",
+    "emulator": "OpenSleepMusic_API36",
+    "captureSize": [
+      1080,
+      1920
+    ],
+    "originalDeviceSize": [
+      1080,
+      2340
+    ],
+    "stableCatalogResourceCheck": true,
+    "maintainerPreparedDownloadedCollections": [
+      "lullabies",
+      "quiet-classics"
+    ]
+  },
+  "storeOrder": {
+    "en-US": [
+      "01-collections.png",
+      "02-lullaby-player.png",
+      "06-playback-settings.png",
+      "04-track-list.png",
+      "03-sleep-timer.png",
+      "05-guitar-lullaby.png"
+    ],
+    "de-DE": [
+      "01-sammlungen.png",
+      "02-schlaflied-player.png",
+      "04-schlaftimer.png",
+      "03-titelliste.png"
+    ]
+  },
+  "assets": [
+    {
+      "file": "app-icon.png",
+      "width": 512,
+      "height": 512,
+      "bitDepth": 8,
+      "colorType": 6,
+      "bytes": 415042,
+      "sha256": "620262a653db4880088d41edfffaccd4e0b76b402e6ce86b6b6124de16673f09"
+    },
+    {
+      "file": "de-DE/01-sammlungen.png",
+      "width": 1080,
+      "height": 1920,
+      "bitDepth": 8,
+      "colorType": 2,
+      "bytes": 125552,
+      "sha256": "4255f9af570399cc4194698bd9434106ba5de888a606c77fd988dff0eaf85db8"
+    },
+    {
+      "file": "de-DE/02-schlaflied-player.png",
+      "width": 1080,
+      "height": 1920,
+      "bitDepth": 8,
+      "colorType": 2,
+      "bytes": 1223272,
+      "sha256": "1086c0b6fc9511d7ca1a3f2eda70295e69171504400da970d37651ba9e92b217"
+    },
+    {
+      "file": "de-DE/03-titelliste.png",
+      "width": 1080,
+      "height": 1920,
+      "bitDepth": 8,
+      "colorType": 2,
+      "bytes": 142648,
+      "sha256": "2155e7dab155636238b8f07bbc3d2fcd92ecdf371dddd4250a3676cc9100676b"
+    },
+    {
+      "file": "de-DE/04-schlaftimer.png",
+      "width": 1080,
+      "height": 1920,
+      "bitDepth": 8,
+      "colorType": 2,
+      "bytes": 184491,
+      "sha256": "d0b3fb460bb13ed65505153024c311a9917a893314053f9be252b847aa0ec6e4"
+    },
+    {
+      "file": "en-US/01-collections.png",
+      "width": 1080,
+      "height": 1920,
+      "bitDepth": 8,
+      "colorType": 2,
+      "bytes": 114107,
+      "sha256": "252201d517bce0b5d52e5ebcb971c695516bb95deffbbbe99266dfd871104a83"
+    },
+    {
+      "file": "en-US/02-lullaby-player.png",
+      "width": 1080,
+      "height": 1920,
+      "bitDepth": 8,
+      "colorType": 2,
+      "bytes": 1212519,
+      "sha256": "ed2091d9b85860b62350e5e03b0ba27616c5f73549254f1c319e7bcb52183de4"
+    },
+    {
+      "file": "en-US/03-sleep-timer.png",
+      "width": 1080,
+      "height": 1920,
+      "bitDepth": 8,
+      "colorType": 2,
+      "bytes": 187753,
+      "sha256": "97df4e21719110e171025239c540101953c333bb6ca57292b55c6b1c55566266"
+    },
+    {
+      "file": "en-US/04-track-list.png",
+      "width": 1080,
+      "height": 1920,
+      "bitDepth": 8,
+      "colorType": 2,
+      "bytes": 140029,
+      "sha256": "88e7e871f5d49c276c1d503e090b55f38e4b7fcd50f1b304373bb679c0a5ebf2"
+    },
+    {
+      "file": "en-US/05-guitar-lullaby.png",
+      "width": 1080,
+      "height": 1920,
+      "bitDepth": 8,
+      "colorType": 2,
+      "bytes": 1208758,
+      "sha256": "7f37b9954e80471fa4ad307a148f5988fb39e5a322dfe8a5bbcd228377bb709e"
+    },
+    {
+      "file": "en-US/06-playback-settings.png",
+      "width": 1080,
+      "height": 1920,
+      "bitDepth": 8,
+      "colorType": 2,
+      "bytes": 85142,
+      "sha256": "0f48bbe8bafe80f40aca37f0fcaef6665d048efd8e5b35670872b99f1d971bc3"
+    },
+    {
+      "file": "feature-graphic.png",
+      "width": 1024,
+      "height": 500,
+      "bitDepth": 8,
+      "colorType": 2,
+      "bytes": 1065418,
+      "sha256": "9edbfe0e715224f6d1a722d76b3ed8b834005e7b7a63ec77b1e42d8365857ec4"
+    }
+  ],
+  "sourceApkSha256": "d8c063e7a85fdc8ba539621a8508bad9bd9208a0f8f309c891451e342ac2c28b"
+}
