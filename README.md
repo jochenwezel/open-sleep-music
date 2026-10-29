@@ -48,7 +48,7 @@ Requirements:
 
 The main interface supports portrait and landscape orientation. On narrow portrait screens the sleep-world and library lists are stacked; short landscape screens use a compact player so that the lists remain usable.
 
-Open `OpenSleepMusic.sln`, select `OpenSleepMusic.App`, choose the Windows target, and run it. The downloaded files are stored below the current user's Music folder in `Open Sleep Music/<sleep-world>`.
+Open `OpenSleepMusic.sln`, select `OpenSleepMusic.App`, choose the Windows target, and run it. Downloads use persistent app-owned storage under `FileSystem.AppDataDirectory/Audio/<sleep-world>`. Packaged Windows builds use the persistent, backup-excluded `LocalCacheFolder/Audio` instead. Releases published through 2026 migrate existing downloads from `Music/Open Sleep Music`; 2027 and later releases contain no access to that old location. See [audio storage](docs/audio-storage.md) for migration and backup behavior.
 
 Command-line validation:
 

@@ -171,6 +171,15 @@ for the app's published privacy promises. Review it together with
 `docs/google-play/data-safety.md` before changing networking, download sources,
 dependencies, identifiers, logging, feedback, local storage or platform backups.
 
+Downloaded audio belongs in persistent app-owned `Audio/` storage, with native
+backup exclusions; do not require access to the user's music library or add a
+music export feature. Preserve the verified, failure-tolerant legacy migration
+in releases published through 2026. Releases published in 2027 or later must
+compile out the old Music-folder lookup and migration call, independently of the
+device's runtime date. Keep the release publication date pinned in automation
+and test both sides of the cutoff. See `docs/audio-storage.md` for platform paths,
+the packaged-Windows persistent-storage exception, and backup verification.
+
 - All app-managed audio, background, artwork and catalog/manifest requests must
   use HTTPS with normal certificate and hostname validation. Redirects must
   remain HTTPS; never introduce an HTTP retry/fallback or disable TLS validation.

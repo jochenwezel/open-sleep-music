@@ -40,10 +40,16 @@ tested. See [Microsoft's redirect documentation](https://learn.microsoft.com/en-
   before making free-text sharing available in the final Store child experience.
 
 Operating-system backups and device transfers are distinct from app-operated
-uploading. Android currently sets `allowBackup="true"`. Do not promise that all
-app state always remains on one device or that uninstalling removes external
-music files and already shared reports. Describe the actual backup configuration
-of the final Android bundle. Review iOS separately before publishing iOS claims.
+uploading. Audio uses persistent app-owned storage; 2026 releases migrate the old
+app-specific Music subfolder, and 2027+ releases compile out that access. Android
+keeps `allowBackup="true"` for eligible app state but excludes `file:Audio/` from
+legacy backups and modern cloud backup/device transfer. Apple targets mark the
+Audio directory as excluded from backup; packaged Windows uses persistent
+`LocalCacheFolder/Audio`. See [audio-storage.md](audio-storage.md) for exact paths,
+failure handling, cutoff and platform limits. Do not promise that all app state
+always remains on one device or that uninstalling removes unmigrated legacy files,
+already shared reports or user-controlled full-device backups. Verify backup and
+restore behavior in the final bundles; source configuration is not a device test.
 See [Android backup behavior](https://developer.android.com/identity/data/autobackup).
 
 ## Feedback received by the operator
