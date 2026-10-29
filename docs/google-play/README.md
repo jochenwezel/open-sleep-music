@@ -22,7 +22,11 @@ Public operator details come from the
 Im Vogelsang 3, 56154 Boppard, Germany; `info@compumaster.de`.
 The [company privacy notice](https://www.compumaster.de/datenschutzhinweis/)
 also names the data protection contact `dsb@keydata.gmbh`.
-Confirm that these existing public contacts will handle app enquiries.
+App-related support email and feedback addressed to CompuMaster must be processed
+through **appsupport@compumaster.de**, as directed by the maintainer and adopted
+by this project on 29 October 2026. General company and data protection contacts
+remain separate. This adoption is not verification that the mailbox is configured,
+reachable or covered by an implemented deletion process.
 
 ## Privacy publication decision
 
@@ -80,6 +84,8 @@ release authorization.
   redirects/certificate failures on supported platforms and the real operator
   process for deleting received feedback before publishing that promise.
 - [ ] Organization verification completed; public legal identity and contacts checked.
+- [ ] Verify `appsupport@compumaster.de` is provisioned, reachable and assigned to
+  the people handling app support/feedback; implement the actual deletion process.
 - [ ] Final app privacy notice reviewed, published and accessible inside the app.
 - [ ] Provider roles, redirect destinations, retention and international transfers
   assessed; Data safety answers reconciled with the actual distributed bundle.

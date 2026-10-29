@@ -14,7 +14,14 @@ It does not contain a device identifier, account, playback history, local file p
 
 ## Receiving test reports
 
-During the preview phase, testers should send the generated `.json` file through the agreed private channel. Store received reports outside the repository because comments may contain personal information. Never commit raw field reports.
+App-related support email and feedback addressed to CompuMaster must be processed
+through **appsupport@compumaster.de**, including reports from preview testing.
+Testers can deliberately share the generated `.json` file to that address using
+their selected mail application. The app does not automatically send the report
+or force a recipient. General company and data protection contacts remain
+separate. Verify mailbox operation and the actual deletion process before launch.
+Store received reports outside the repository because comments may contain
+personal information. Never commit raw field reports.
 
 For a quick aggregate, group `ratings` by `trackId` and `state`. Repeated reports are not linked to an installation and therefore must not be interpreted as unique-user counts. A block is a strong signal for manual listening review, not an automatic deletion instruction. Verify the recording, transition behavior, and source before changing the catalog generator.
 

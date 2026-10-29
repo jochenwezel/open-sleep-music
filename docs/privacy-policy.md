@@ -48,6 +48,17 @@ See [Android backup behavior](https://developer.android.com/identity/data/autoba
 
 ## Feedback received by the operator
 
+Open Sleep Music confirms the operator's routing rule from 29 October 2026:
+app-related support email and feedback sent to CompuMaster must be processed
+through **appsupport@compumaster.de**. Use that address in app support information
+and Store metadata. The general company address and data protection officer's
+address retain their separate roles. Users may still choose whether and through
+which application to share a report; this rule does not cause automatic sending.
+
+This project-level adoption does not confirm that the mailbox has been
+provisioned, is reachable or is being processed. Verify those operational facts
+and the deletion process before publishing corresponding assurances.
+
 The website task proposed deleting personal feedback after processing once no
 further retention reason exists, with statutory obligations preserved. This is
 a suitable purpose-based drafting approach, but its operational adoption and

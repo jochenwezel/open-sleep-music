@@ -49,7 +49,11 @@ endpoints, not verified legal entities or contracted processors.
    using it to derive location would affect the classification.
 3. Decide feedback availability in the child experience. A confirmation asking
    whether to share is not evidence of verified adult action. Retained feedback
-   received by CompuMaster also needs a retention/deletion policy.
+   received by CompuMaster also needs a retention/deletion policy. App support
+   email and feedback addressed to the operator must be processed through
+   `appsupport@compumaster.de`; verify mailbox operation and actual handling
+   separately from this adopted routing rule. General company and data protection
+   contacts remain separate. Sharing remains explicitly user-initiated.
 4. Review `allowBackup`, platform backups, cached report files, app preferences,
    music-folder deletion and downloaded files surviving uninstallation. Confirm
    what deletion controls actually remove rather than promising total erasure.

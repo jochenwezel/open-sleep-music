@@ -184,6 +184,11 @@ dependencies, identifiers, logging, feedback, local storage or platform backups.
   Raw personal feedback stays outside Git. Claims about retention/deletion of
   reports received by the operator require an actual adopted deletion process;
   do not invent retention periods for third-party servers.
+- Route app-related support email and feedback addressed to CompuMaster through
+  `appsupport@compumaster.de`. This is the project's adopted support-routing rule.
+  Keep the general company contact and data protection officer contact separate.
+  This rule does not authorize automatic sending and does not establish mailbox
+  provisioning, availability or an implemented deletion process.
 - Before publication, check privacy promises against each delivered platform's
   manifest, dependencies and behavior, including redirect/certificate failures
   and backup scope. Documentation alone is not proof that a runtime control or

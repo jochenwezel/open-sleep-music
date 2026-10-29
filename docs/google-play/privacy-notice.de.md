@@ -10,6 +10,10 @@ CompuMaster GmbH, Im Vogelsang 3, 56154 Boppard, Deutschland,
 E-Mail: info@compumaster.de.
 Der Entwicklername im Google Play Store lautet „CompuMaster“.
 
+Für App-Support und an CompuMaster gerichtetes App-Feedback verwenden Sie bitte
+appsupport@compumaster.de. Der allgemeine Unternehmenskontakt und der Kontakt
+unseres Datenschutzbeauftragten bleiben davon getrennt.
+
 Datenschutzbeauftragter laut unseren Unternehmens-Datenschutzhinweisen:
 keydata GmbH, Dirk Treibich, Rheinstraße 30, 56355 Nastätten,
 E-Mail: dsb@keydata.gmbh.
@@ -82,6 +86,8 @@ Gerätekennung, Abspielhistorie oder lokalen Dateipfade.
 
 Der Bericht wird nicht automatisch an uns gesendet. Der gewählte Empfänger und
 die zum Teilen verwendete Anwendung können zusätzliche Daten verarbeiten.
+An CompuMaster gerichtete App-Support-E-Mails und Feedback-Eingänge werden über
+appsupport@compumaster.de verarbeitet. Die App sendet dadurch nichts automatisch.
 Wenn Sie uns Feedback oder eine Supportanfrage schicken, verarbeiten wir auch
 die dabei übermittelten Kontakt- und Inhaltsdaten zur Bearbeitung Ihrer Anfrage
 und gegebenenfalls zur Verbesserung der Titelauswahl. Bitte übermitteln Sie keine
@@ -89,6 +95,8 @@ Gesundheitsdaten oder personenbezogenen Angaben über Kinder im Kommentar.
 
 **Vor Veröffentlichung ergänzen:** konkrete Rechtsgrundlagen und Löschfristen
 für eingegangene Anfragen und Feedback sowie die Behandlung lokaler Berichtdateien.
+Die Einrichtung und Erreichbarkeit der App-Support-Mailbox sowie die tatsächliche
+Bearbeitung sind vor Veröffentlichung organisatorisch zu bestätigen.
 Als Löschregel ist vorgeschlagen: „Personenbezogene Rückmeldungen löschen wir,
 sobald ihre Bearbeitung abgeschlossen ist und kein weiterer Aufbewahrungsgrund
 besteht. Gesetzliche Aufbewahrungspflichten bleiben unberührt.“ Dies darf erst
