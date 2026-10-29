@@ -1,6 +1,12 @@
 # Catalog feedback during field testing
 
-Open Sleep Music does not transmit telemetry automatically. A tester can explicitly choose **Katalog-Feedback teilen** from the main menu, optionally add a comment, review a summary, and select a destination in the operating system's share dialog.
+Open Sleep Music does not transmit telemetry automatically. A tester can explicitly
+choose **Katalog-Feedback teilen** from the main menu, optionally add a comment,
+and review a summary that names **appsupport@compumaster.de**. After confirmation,
+the app opens an email draft addressed to that mailbox with the JSON report
+attached. The user reviews and sends it in the mail client. Returning from the
+composer is not proof of delivery. Without a supported mail client, the app
+shows the support address and does not fall back to an unrestricted share sheet.
 
 The JSON report contains:
 
@@ -10,15 +16,19 @@ The JSON report contains:
 - only tracks deliberately marked as `favorite` or `blocked`;
 - an optional free-text comment.
 
-It does not contain a device identifier, account, playback history, local file path, or download URL. The selected share destination may apply its own privacy policy; the app shows the report scope before opening that destination.
+It does not contain a device identifier, account, playback history, local file
+path, or download URL. The user's email provider may add sender information and
+process the message under its own privacy policy. The app shows the report scope
+before opening the email draft; it cannot control later edits in the mail client.
+Reports are written below the app's `sharing-root` cache directory; Android's
+FileProvider exposes only that cache subtree for attachments.
 
 ## Receiving test reports
 
 App-related support email and feedback addressed to CompuMaster must be processed
 through **appsupport@compumaster.de**, including reports from preview testing.
-Testers can deliberately share the generated `.json` file to that address using
-their selected mail application. The app does not automatically send the report
-or force a recipient. General company and data protection contacts remain
+The app prepopulates that address in the email composer. It does not automatically
+send the report. General company and data protection contacts remain
 separate. Verify mailbox operation and the actual deletion process before launch.
 Store received reports outside the repository because comments may contain
 personal information. Never commit raw field reports.

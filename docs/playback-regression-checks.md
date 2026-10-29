@@ -2,6 +2,24 @@
 
 These device checks complement the automated Core tests. Run them on Windows and Android.
 
+## App feedback email
+
+1. Mark a title and open **Katalog-Feedback teilen**. Verify the summary names
+   `appsupport@compumaster.de` and lists the report scope. Cancel: no composer or
+   automatic network upload should occur.
+2. Confirm with a supported mail client. Verify the To address is exactly
+   `appsupport@compumaster.de`, subject and body are present, and the JSON
+   attachment opens with the expected fields. The app must not claim delivery.
+3. Discard the draft. The app must remain usable and must not retry or send it.
+4. Repeat without a supported mail client and with a failing composer. Verify a
+   clear message and no fallback to a general share destination.
+5. On Android, confirm the attachment URI exposes only the `sharing-root` cache
+   subtree. Unrelated app files must not become shareable through this provider.
+6. Before sending an actual test email, use the maintainer's authorized test
+   procedure. Mailbox reachability and retention are operational checks separate
+   from opening the composer. iOS/Mac Catalyst need their own physical-device
+   validation before their releases.
+
 ## Download cancellation and stalled sources
 
 1. Start a collection download and use its **Download abbrechen** action while a file

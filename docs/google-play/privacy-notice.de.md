@@ -78,14 +78,18 @@ Die technische Domainliste und der Prüfbedarf stehen in `data-safety.md`.
 ## Freiwilliges Feedback und Support
 
 Über „Katalog-Feedback teilen“ können Sie ausdrücklich einen Bericht erzeugen,
-vor dem Teilen eine Zusammenfassung ansehen und im Teilen-Dialog des Geräts
-selbst eine Empfänger-App auswählen. Der Bericht enthält Erstellungszeitpunkt,
+vor dem Teilen eine Zusammenfassung ansehen und anschließend einen E-Mail-Entwurf
+an appsupport@compumaster.de mit dem Bericht als Anlage öffnen. Sie prüfen und
+senden die Nachricht selbst in Ihrer E-Mail-Anwendung. Ohne geeignete
+E-Mail-Anwendung wird kein Entwurf geöffnet und kein Bericht gesendet.
+Der Bericht enthält Erstellungszeitpunkt,
 App-Version, Plattform, Katalogumfang, die bewusst als Favorit oder blockiert
 markierten Titel und einen optionalen Kommentar. Die App ergänzt keine
 Gerätekennung, Abspielhistorie oder lokalen Dateipfade.
 
-Der Bericht wird nicht automatisch an uns gesendet. Der gewählte Empfänger und
-die zum Teilen verwendete Anwendung können zusätzliche Daten verarbeiten.
+Der Bericht wird nicht automatisch an uns gesendet. Ihr E-Mail-Anbieter und
+Ihre E-Mail-Anwendung können zusätzliche Daten verarbeiten und insbesondere
+Absenderdaten ergänzen. Nachträgliche Änderungen im Mailprogramm liegen bei Ihnen.
 An CompuMaster gerichtete App-Support-E-Mails und Feedback-Eingänge werden über
 appsupport@compumaster.de verarbeitet. Die App sendet dadurch nichts automatisch.
 Wenn Sie uns Feedback oder eine Supportanfrage schicken, verarbeiten wir auch

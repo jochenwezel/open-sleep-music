@@ -1531,12 +1531,21 @@ public partial class MainPage : ContentPage
         var favoriteCount = ratings.Count(item => item.State == "favorite");
         var blockedCount = ratings.Count(item => item.State == "blocked");
         var confirmed = await DisplayAlertAsync(
-            "Feedback jetzt teilen?",
-            $"Enthalten sind {favoriteCount} Favorit(en), {blockedCount} Blockierung(en), App-Version und Plattform{(string.IsNullOrWhiteSpace(comment) ? "." : " sowie dein Kommentar.")} Keine Gerätekennung, Abspielhistorie oder Dateipfade werden aufgenommen.",
-            "Teilen",
+            "Feedback per E-Mail vorbereiten?",
+            $"Empfänger: {AppSupport.EmailAddress}\n\nEnthalten sind {favoriteCount} Favorit(en), {blockedCount} Blockierung(en), App-Version und Plattform{(string.IsNullOrWhiteSpace(comment) ? "." : " sowie dein Kommentar.")} Keine Gerätekennung, Abspielhistorie oder Dateipfade werden aufgenommen. Du prüfst und sendest die Nachricht anschließend selbst in deiner E-Mail-App.",
+            "E-Mail öffnen",
             "Abbrechen");
         if (!confirmed)
         {
+            return;
+        }
+
+        if (!Email.Default.IsComposeSupported)
+        {
+            await DisplayAlertAsync(
+                "Keine E-Mail-App verfügbar",
+                $"Bitte richte eine E-Mail-App ein und versuche es erneut. App-Support: {AppSupport.EmailAddress}. Es wurde kein Feedback gesendet.",
+                "OK");
             return;
         }
 
@@ -1549,14 +1558,30 @@ public partial class MainPage : ContentPage
             ratings,
             string.IsNullOrWhiteSpace(comment) ? null : comment.Trim());
         var json = JsonSerializer.Serialize(report, FeedbackJsonContext.Default.CatalogFeedbackReport);
-        var path = Path.Combine(FileSystem.CacheDirectory, $"open-sleep-music-feedback-{DateTime.UtcNow:yyyyMMdd-HHmmss}.json");
-        await File.WriteAllTextAsync(path, json);
-        await Share.Default.RequestAsync(new ShareFileRequest
+        try
         {
-            Title = "Open Sleep Music – Katalog-Feedback",
-            File = new ShareFile(path, "application/json")
-        });
-        StatusLabel.Text = "Der Feedback-Bericht wurde zum Teilen bereitgestellt.";
+            var sharingRoot = Path.Combine(FileSystem.CacheDirectory, "sharing-root");
+            Directory.CreateDirectory(sharingRoot);
+            var path = Path.Combine(sharingRoot, $"open-sleep-music-feedback-{DateTime.UtcNow:yyyyMMdd-HHmmss}.json");
+            await File.WriteAllTextAsync(path, json);
+            var message = new EmailMessage
+            {
+                To = [AppSupport.EmailAddress],
+                Subject = "Open Sleep Music – Katalog-Feedback",
+                Body = "Mein Katalog-Feedback befindet sich in der angehängten JSON-Datei.",
+                BodyFormat = EmailBodyFormat.PlainText,
+                Attachments = [new EmailAttachment(path)]
+            };
+            await Email.Default.ComposeAsync(message);
+            StatusLabel.Text = "Der E-Mail-Entwurf wurde geöffnet. Bitte prüfe und sende ihn in deiner E-Mail-App.";
+        }
+        catch (Exception)
+        {
+            await DisplayAlertAsync(
+                "E-Mail-Entwurf konnte nicht geöffnet werden",
+                $"Bitte prüfe deine E-Mail-App und versuche es erneut. App-Support: {AppSupport.EmailAddress}. Die App hat kein Feedback automatisch gesendet.",
+                "OK");
+        }
     }
 
     private void UpdateNowPlayingDetails(bool isRestored = false)

@@ -52,8 +52,10 @@ Open Sleep Music confirms the operator's routing rule from 29 October 2026:
 app-related support email and feedback sent to CompuMaster must be processed
 through **appsupport@compumaster.de**. Use that address in app support information
 and Store metadata. The general company address and data protection officer's
-address retain their separate roles. Users may still choose whether and through
-which application to share a report; this rule does not cause automatic sending.
+address retain their separate roles. The app prepares a mail draft addressed to
+the support mailbox, with the report attached. The user decides whether to send
+it in the mail client; this is not automatic sending or proof of delivery. Later
+changes made by the user in that external client are outside the app's control.
 
 This project-level adoption does not confirm that the mailbox has been
 provisioned, is reachable or is being processed. Verify those operational facts
