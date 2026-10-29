@@ -24,10 +24,15 @@ with the same application ID and an incompatible signature may need to be
 uninstalled before installing the Play version. A distinct development
 application ID can be considered separately for side-by-side installation.
 
-Play's optional automatic installation protection is a separate decision from
-app signing. Development APK delivery alone does not require disabling it for
-the Play build. Review its actual behavior, network/data implications and
-offline operation before enabling it for a release.
+The maintainer accepts occasional Google Play online installation checks and
+has chosen to retain the default automatic installation protection for the
+planned Play version. This is a distribution setting, separate from app signing;
+it does not add a developer-operated music licence check. Review the delivered
+build's actual behavior, network/data implications and offline operation before
+release. Qualify offline claims in the full store description and app help;
+document the relevant Play processing in the app privacy notice. Google does
+not publish a fixed maximum offline interval:
+[automatic protection](https://support.google.com/googleplay/android-developer/answer/10183279?hl=en).
 
 ## Publication materials
 
@@ -133,8 +138,8 @@ release authorization.
   Separate upload and app-signing keys where appropriate; never put private keys
   in issues, repository files or public artifacts. See [Android signing](https://developer.android.com/studio/publish/app-signing)
   and [existing release signing](../android-signing.md).
-- [ ] Decide on Play automatic installation protection separately; test the
-  resulting delivered build and reflect any relevant data flows in disclosures.
+- [ ] Verify the chosen Play automatic installation protection setting; test the
+  delivered build and reflect relevant data flows and online checks in disclosures.
 - [ ] Verify target API 36 or later in the final manifest for current phone-app
   submissions, supported ABIs, native-library compatibility and increasing version
   code. See the [current target API requirement](https://developer.android.com/google/play/requirements/target-sdk).
