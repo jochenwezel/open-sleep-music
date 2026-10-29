@@ -9,6 +9,7 @@ permissions:
 
 env:
   OpenSleepMusicPreview: ${{ github.event.release.prerelease }}
+  OpenSleepMusicReleaseDate: ${{ github.event.release.published_at }}
 
 jobs:
   publish-android:

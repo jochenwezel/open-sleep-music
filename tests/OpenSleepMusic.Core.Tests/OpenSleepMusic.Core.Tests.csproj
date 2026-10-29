@@ -30,5 +30,8 @@
 
   <ItemGroup>
     <EmbeddedResource Include="../../tools/media-catalog-blacklist.json" LogicalName="OpenSleepMusic.Core.Tests.media-catalog-blacklist.json" />
+    <EmbeddedResource Include="../../src/OpenSleepMusic.App/Platforms/Android/AndroidManifest.xml" LogicalName="AudioStorage.AndroidManifest.xml" />
+    <EmbeddedResource Include="../../src/OpenSleepMusic.App/Platforms/Android/Resources/xml/backup_rules.xml" LogicalName="AudioStorage.backup_rules.xml" />
+    <EmbeddedResource Include="../../src/OpenSleepMusic.App/Platforms/Android/Resources/xml/data_extraction_rules.xml" LogicalName="AudioStorage.data_extraction_rules.xml" />
   </ItemGroup>
 </Project>

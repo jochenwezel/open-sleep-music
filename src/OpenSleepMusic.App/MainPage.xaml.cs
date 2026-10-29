@@ -38,9 +38,8 @@ public partial class MainPage : ContentPage
 #endif
     private IReadOnlyList<SleepWorld> _catalogWorlds = BuiltInCatalog.SleepWorlds;
     private IReadOnlyList<SleepWorldCard> _worldCards;
-    private readonly string _downloadRoot = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.MyMusic),
-        "Open Sleep Music");
+    private readonly AudioLibraryStorage _audioStorage = new();
+    private string _downloadRoot => _audioStorage.Root;
     private readonly PersistedAppState _initialState;
     private IReadOnlyList<LocalLibraryTrack> _library = [];
     private IReadOnlyList<LocalLibraryTrack> _displayedLibrary = [];
@@ -419,6 +418,7 @@ public partial class MainPage : ContentPage
 
         try
         {
+            await _audioStorage.InitializeAsync();
             var result = await downloader.DownloadAsync(BackgroundAudioCatalog.IncludeDownloads(card.World, _catalogWorlds), _downloadRoot, progress, cancellation.Token);
             await RefreshLibraryAsync(preserveStatus: true);
             var localTracks = _library
@@ -481,12 +481,14 @@ public partial class MainPage : ContentPage
 
         try
         {
+            await _audioStorage.InitializeAsync();
             if (_currentTrack?.SleepWorld.Id == card.World.Id)
             {
                 StopAndClearPlayback();
             }
 
             await _libraryManager.DeleteWorldAsync(_downloadRoot, card.World);
+            _audioStorage.RememberDeletedWorld(card.World.Id);
             await RefreshLibraryAsync(preserveStatus: true);
             StatusLabel.Text = AppText.Pick($"{card.DisplayName} wurde aus der lokalen Bibliothek gelöscht.", $"{card.DisplayName} was deleted from the local library.");
         }
@@ -559,6 +561,7 @@ public partial class MainPage : ContentPage
     {
         try
         {
+            await _audioStorage.InitializeAsync();
             _library = await _libraryScanner.ScanAsync(_downloadRoot, _catalogWorlds);
 #if ANDROID
             if (AndroidPlaybackBridge.Snapshot.TrackId is { } androidTrackId

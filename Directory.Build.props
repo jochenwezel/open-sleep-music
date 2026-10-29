@@ -7,5 +7,10 @@
     <!-- Stable builds are the default. Preview release jobs opt in explicitly. -->
     <OpenSleepMusicPreview Condition="'$(OpenSleepMusicPreview)' == ''">false</OpenSleepMusicPreview>
     <DefineConstants Condition="'$(OpenSleepMusicPreview)' == 'true'">$(DefineConstants);OPEN_SLEEP_MUSIC_PREVIEW</DefineConstants>
+    <!-- Release automation pins the publication date. New 2027+ builds contain
+         no caller of the legacy Music-folder migration, regardless of run date. -->
+    <OpenSleepMusicReleaseDate Condition="'$(OpenSleepMusicReleaseDate)' == ''">$([System.DateTime]::UtcNow.ToString('yyyy-MM-dd'))</OpenSleepMusicReleaseDate>
+    <!-- Both inputs are ISO dates; use their year without local-time conversion. -->
+    <DefineConstants Condition="$(OpenSleepMusicReleaseDate.Substring(0, 4)) &lt; 2027">$(DefineConstants);OPEN_SLEEP_MUSIC_LEGACY_AUDIO_MIGRATION</DefineConstants>
   </PropertyGroup>
 </Project>

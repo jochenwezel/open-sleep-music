@@ -17,6 +17,7 @@ jobs:
         preview: [false, true]
     env:
       OpenSleepMusicPreview: ${{ matrix.preview }}
+      OpenSleepMusicReleaseDate: '2026-12-31'
     steps:
       - uses: actions/checkout@v5
       - name: Restore
@@ -27,3 +28,10 @@ jobs:
         run: dotnet build src/OpenSleepMusic.App/OpenSleepMusic.App.csproj --framework net10.0-windows10.0.19041.0 --configuration Release --no-restore -p:RuntimeIdentifier=win-x64 -p:SelfContained=true
       - name: Test
         run: dotnet test tests/OpenSleepMusic.Core.Tests/OpenSleepMusic.Core.Tests.csproj --configuration Release
+      - name: Verify compiled audio storage migration cutoff
+        shell: pwsh
+        run: |
+          ./tools/Test-AudioStorageBuild.ps1 -AssemblyPath src/OpenSleepMusic.App/bin/Release/net10.0-windows10.0.19041.0/win-x64/OpenSleepMusic.App.dll -ExpectLegacyMigration
+          dotnet build src/OpenSleepMusic.App/OpenSleepMusic.App.csproj --framework net10.0-windows10.0.19041.0 --configuration Release --no-restore -p:RuntimeIdentifier=win-x64 -p:SelfContained=true -p:OpenSleepMusicReleaseDate=2027-01-01
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          ./tools/Test-AudioStorageBuild.ps1 -AssemblyPath src/OpenSleepMusic.App/bin/Release/net10.0-windows10.0.19041.0/win-x64/OpenSleepMusic.App.dll

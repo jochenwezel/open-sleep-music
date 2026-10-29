@@ -12,7 +12,7 @@ because the project has no analytics SDK.
 | Player settings, favorites, blocks and saved position | `AppStateStore.cs`, `AndroidPlaybackService.cs` | Locally persisted; no automatic developer upload identified. Check Android backup and device-transfer behavior. |
 | Catalog update at initial page loading and manual library refresh | `MainPage.xaml.cs`, `CatalogUpdateClient.cs` | HTTPS request to GitHub release assets, including server-visible connection metadata. Review redirects, recipient roles and server processing. |
 | Artwork manifest and PNG downloads | `ArtworkManifestClient.cs`, `ArtworkCache.cs` | HTTPS GitHub requests; cache remains on the device. Check final catalog endpoints and provider handling. |
-| Selected audio and background dependencies | `SleepWorldDownloader.cs` and production catalog | Requests reveal IP address and requested file to serving infrastructure. Review recipients and exact purpose; audio content itself is downloaded, not microphone data uploaded. |
+| Selected audio and background dependencies | `SleepWorldDownloader.cs`, `AudioLibraryStorage.cs`, Android backup XML and production catalog | Persistent app-owned `Audio/` storage without music-library permissions. Audio is excluded from configured Android cloud backups/device transfers. Requests reveal IP address and requested file to serving infrastructure. Review recipients and exact purpose; audio content itself is downloaded, not microphone data uploaded. Verify final bundle and real backup/restore. |
 | Optional catalog feedback | `MainPage.ShareCatalogFeedbackAsync`, `AppSupport.cs`, `CatalogFeedbackReport.cs`, `docs/catalog-feedback.md` | User-triggered email draft to appsupport@compumaster.de with JSON attachment: timestamp, app version, platform, catalog count, favorite/blocked titles and optional free text. No automatic developer upload. Review user-initiated sharing exemptions and mail-provider behavior; free text and email sender details can contain personal data. |
 | Source/license/project links | `TrackDetailsPage.xaml.cs`, `AboutPage.xaml.cs` | Opens an external browser. External website behavior is distinct from in-app behavior; review child-facing access. |
 | Installation and store operations | Google Play and the operating system | Do not misdescribe Google Play's own processing as an app analytics implementation. Explain platform processing separately. |
@@ -54,9 +54,11 @@ endpoints, not verified legal entities or contracted processors.
    `appsupport@compumaster.de`; verify mailbox operation and actual handling
    separately from this adopted routing rule. General company and data protection
    contacts remain separate. Sharing remains explicitly user-initiated.
-4. Review `allowBackup`, platform backups, cached report files, app preferences,
-   music-folder deletion and downloaded files surviving uninstallation. Confirm
-   what deletion controls actually remove rather than promising total erasure.
+4. Review `allowBackup`, the merged manifest and both audio-exclusion XML files,
+   platform backups, cached report files and app preferences. Test cloud restore
+   and device transfer with settings restored and `Audio/` absent. Check legacy
+   migration failures and files retained in the old Music subfolder; 2027+ builds
+   do not access it. Confirm actual deletion scope rather than total erasure.
 5. Reconcile the final worksheet, hosted notice, app UI and complete dependencies
    with the exact Stable bundle and catalog-update delivery used for launch.
 
