@@ -17,8 +17,8 @@ public partial class MainPage : ContentPage
 {
     private const int MaximumAutomaticFailureSkips = 3;
     private static readonly int[] SleepTimerMinutes = [0, 15, 30, 45, 60, 90];
-    private static readonly string[] SleepTimerLabels = ["Aus", "15 Minuten", "30 Minuten", "45 Minuten", "60 Minuten", "90 Minuten"];
-    private static readonly string[] RepeatModeLabels = ["Themensammlung", "Einzeltitel"];
+    private static string[] SleepTimerLabels => SleepTimerMinutes.Select(minutes => minutes == 0 ? AppText.Get("Off") : AppText.Format("MinutesLong", minutes)).ToArray();
+    private static string[] RepeatModeLabels => [AppText.Get("Collection"), AppText.Get("Track")];
     private readonly HttpClient _httpClient;
     private readonly ArtworkCache _artworkCache;
     private readonly ArtworkManifestClient _artworkManifest;
@@ -76,9 +76,6 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-        HeaderSubtitle.Text = AppText.Get("Subtitle");
-        WorldsTitleLabel.Text = AppText.Get("Collections");
-        NowPlayingLabel.Text = AppText.Get("NoTrack");
         StatusLabel.PropertyChanged += (_, e) =>
         {
             if (e.PropertyName != nameof(Label.Text)) return;
@@ -662,7 +659,7 @@ public partial class MainPage : ContentPage
         SelectWorld(_worldCards.First(card => card.World.Id == track.SleepWorld.Id));
         UpdateNowPlayingDetails(isRestored: true);
         UpdateNextTrack();
-        StatusLabel.Text = $"„{track.Track.Title}“ kann bei {FormatTime(TimeSpan.FromSeconds(_resumePositionSeconds))} fortgesetzt werden.";
+        StatusLabel.Text = AppText.Format("CanResume", track.Track.Title, FormatTime(TimeSpan.FromSeconds(_resumePositionSeconds)));
     }
 
     private void ApplyLibraryFilter()
@@ -1147,7 +1144,7 @@ public partial class MainPage : ContentPage
         {
             _sleepTimer.Cancel();
             _sleepTimerEndUtc = null;
-            SleepTimerLabel.Text = "Aus";
+            SleepTimerLabel.Text = AppText.Get("Off");
         }
         else
         {
@@ -1155,13 +1152,13 @@ public partial class MainPage : ContentPage
             {
                 _sleepTimer.Start(TimeSpan.FromMinutes(minutes));
                 _sleepTimerEndUtc = DateTimeOffset.UtcNow.AddMinutes(minutes);
-                SleepTimerLabel.Text = $"noch {minutes} Min.";
+                SleepTimerLabel.Text = AppText.Format("MinutesRemaining", minutes);
             }
             else
             {
                 _sleepTimer.Cancel();
                 _sleepTimerEndUtc = null;
-                SleepTimerLabel.Text = $"{minutes} Min.";
+                SleepTimerLabel.Text = AppText.Format("Minutes", minutes);
             }
         }
         _stateStore.SaveSleepTimer(minutes, _sleepTimerEndUtc);
@@ -1187,20 +1184,20 @@ public partial class MainPage : ContentPage
         {
             _sleepTimer.Cancel();
             _sleepTimerEndUtc = null;
-            SleepTimerLabel.Text = "Aus";
+            SleepTimerLabel.Text = AppText.Get("Off");
             return;
         }
         if (state.SleepTimerEndUtc is not { } timerEnd || timerEnd <= DateTimeOffset.UtcNow)
         {
             _sleepTimer.Cancel();
             _sleepTimerEndUtc = null;
-            SleepTimerLabel.Text = $"{_sleepTimerMinutes} Min.";
+            SleepTimerLabel.Text = AppText.Format("Minutes", _sleepTimerMinutes);
             _stateStore.SaveSleepTimer(_sleepTimerMinutes, null);
             return;
         }
         _sleepTimerEndUtc = timerEnd;
         _sleepTimer.Start(timerEnd - DateTimeOffset.UtcNow);
-        SleepTimerLabel.Text = SleepTimerDisplay.FormatRemaining(_sleepTimer.Remaining);
+        SleepTimerLabel.Text = AppText.TimerRemaining(_sleepTimer.Remaining);
     }
 
     private void OnRepeatModeChanged(object? sender, EventArgs e)
@@ -1384,7 +1381,7 @@ public partial class MainPage : ContentPage
             worldId is not null && trackId is not null && _stateStore.IsBlocked(worldId, trackId),
             _repeatMode == PlaybackRepeatMode.Track,
             _sleepTimer.IsActive,
-            _sleepTimer.IsActive ? SleepTimerDisplay.FormatRemaining(_sleepTimer.Remaining) : AppText.Get("Off"),
+            _sleepTimer.IsActive ? AppText.TimerRemaining(_sleepTimer.Remaining) : AppText.Get("Off"),
             selectedTrack is null ? TimeSpan.Zero : position,
             selectedTrack is null ? TimeSpan.Zero : duration,
             artworkTrack);
@@ -1482,18 +1479,18 @@ public partial class MainPage : ContentPage
         }
         _sleepTimer.Start(TimeSpan.FromMinutes(_sleepTimerMinutes));
         _sleepTimerEndUtc = DateTimeOffset.UtcNow.AddMinutes(_sleepTimerMinutes);
-        SleepTimerLabel.Text = $"noch {_sleepTimerMinutes} Min.";
+        SleepTimerLabel.Text = AppText.Format("MinutesRemaining", _sleepTimerMinutes);
         _stateStore.SaveSleepTimer(_sleepTimerMinutes, _sleepTimerEndUtc);
     }
 
     private async Task ShareCatalogFeedbackAsync()
     {
         var comment = await DisplayPromptAsync(
-            "Katalog-Feedback",
-            "Optional kannst du ergänzen, warum ein Titel besonders gut oder ungeeignet ist. Im nächsten Schritt siehst du vor dem Teilen eine Zusammenfassung.",
-            "Weiter",
-            "Abbrechen",
-            "Optionaler Kommentar",
+            AppText.Get("FeedbackTitle"),
+            AppText.Get("FeedbackHelp"),
+            AppText.Get("Continue"),
+            AppText.Get("Cancel"),
+            AppText.Get("OptionalComment"),
             maxLength: 500,
             keyboard: Keyboard.Text);
         if (comment is null)
@@ -1525,8 +1522,8 @@ public partial class MainPage : ContentPage
         if (ratings.Length == 0 && string.IsNullOrWhiteSpace(comment))
         {
             await DisplayAlertAsync(
-                "Kein Feedback vorhanden",
-                "Es wurden noch keine Favoriten oder Blockierungen gesetzt und kein Kommentar eingegeben.",
+                AppText.Get("NoFeedback"),
+                AppText.Get("NoFeedbackHelp"),
                 "OK");
             return;
         }
@@ -1534,10 +1531,11 @@ public partial class MainPage : ContentPage
         var favoriteCount = ratings.Count(item => item.State == "favorite");
         var blockedCount = ratings.Count(item => item.State == "blocked");
         var confirmed = await DisplayAlertAsync(
-            "Feedback per E-Mail vorbereiten?",
-            $"Empfänger: {AppSupport.EmailAddress}\n\nEnthalten sind {favoriteCount} Favorit(en), {blockedCount} Blockierung(en), App-Version und Plattform{(string.IsNullOrWhiteSpace(comment) ? "." : " sowie dein Kommentar.")} Keine Gerätekennung, Abspielhistorie oder Dateipfade werden aufgenommen. Du prüfst und sendest die Nachricht anschließend selbst in deiner E-Mail-App.",
-            "E-Mail öffnen",
-            "Abbrechen");
+            AppText.Get("PrepareEmail"),
+            AppText.Format("FeedbackSummary", AppSupport.EmailAddress, favoriteCount, blockedCount,
+                string.IsNullOrWhiteSpace(comment) ? "." : AppText.Get("WithComment")),
+            AppText.Get("OpenEmail"),
+            AppText.Get("Cancel"));
         if (!confirmed)
         {
             return;
@@ -1546,8 +1544,8 @@ public partial class MainPage : ContentPage
         if (!Email.Default.IsComposeSupported)
         {
             await DisplayAlertAsync(
-                "Keine E-Mail-App verfügbar",
-                $"Bitte richte eine E-Mail-App ein und versuche es erneut. App-Support: {AppSupport.EmailAddress}. Es wurde kein Feedback gesendet.",
+                AppText.Get("NoEmailApp"),
+                AppText.Format("NoEmailAppHelp", AppSupport.EmailAddress),
                 "OK");
             return;
         }
@@ -1570,19 +1568,19 @@ public partial class MainPage : ContentPage
             var message = new EmailMessage
             {
                 To = [AppSupport.EmailAddress],
-                Subject = "Open Sleep Music – Katalog-Feedback",
-                Body = "Mein Katalog-Feedback befindet sich in der angehängten JSON-Datei.",
+                Subject = AppText.Get("FeedbackSubject"),
+                Body = AppText.Get("FeedbackBody"),
                 BodyFormat = EmailBodyFormat.PlainText,
                 Attachments = [new EmailAttachment(path)]
             };
             await Email.Default.ComposeAsync(message);
-            StatusLabel.Text = "Der E-Mail-Entwurf wurde geöffnet. Bitte prüfe und sende ihn in deiner E-Mail-App.";
+            StatusLabel.Text = AppText.Get("EmailOpened");
         }
         catch (Exception)
         {
             await DisplayAlertAsync(
-                "E-Mail-Entwurf konnte nicht geöffnet werden",
-                $"Bitte prüfe deine E-Mail-App und versuche es erneut. App-Support: {AppSupport.EmailAddress}. Die App hat kein Feedback automatisch gesendet.",
+                AppText.Get("EmailFailed"),
+                AppText.Format("EmailFailedHelp", AppSupport.EmailAddress),
                 "OK");
         }
     }
@@ -1594,10 +1592,10 @@ public partial class MainPage : ContentPage
             return;
         }
 
-        var order = _shuffleEnabled ? "Zufällig" : "Reihenfolge";
-        var repeat = _repeatMode == PlaybackRepeatMode.Track ? "Titel wiederholen" : "Themensammlung wiederholen";
+        var order = _shuffleEnabled ? AppText.Get("Shuffle") : AppText.Get("InOrder");
+        var repeat = _repeatMode == PlaybackRepeatMode.Track ? AppText.Get("RepeatTrack") : AppText.Get("RepeatCollection");
         var resume = isRestored && _resumePositionSeconds > 0
-            ? $" · pausiert bei {FormatTime(TimeSpan.FromSeconds(_resumePositionSeconds))}"
+            ? AppText.Format("PausedAt", FormatTime(TimeSpan.FromSeconds(_resumePositionSeconds)))
             : string.Empty;
         NowPlayingDetailLabel.Text = $"{_currentTrack.Track.Creator} · {order} · {repeat}{resume}";
     }
@@ -1607,7 +1605,7 @@ public partial class MainPage : ContentPage
         _nextTrack = null;
         if (_currentTrack is null || _activeLibrary.Count == 0)
         {
-            NextTrackLabel.Text = "Nächster Titel: –";
+            NextTrackLabel.Text = AppText.Get("NextTrackEmpty");
             return;
         }
 
@@ -1633,7 +1631,7 @@ public partial class MainPage : ContentPage
             _nextTrack = _activeLibrary[nextIndex];
         }
 
-        NextTrackLabel.Text = $"Nächster Titel: {_nextTrack.Track.Title}";
+        NextTrackLabel.Text = AppText.Format("NextTrack", _nextTrack.Track.Title);
     }
 
     private async Task OpenDownloadFolderAsync()
@@ -1655,12 +1653,12 @@ public partial class MainPage : ContentPage
             var opened = await Launcher.Default.OpenAsync(new Uri(_downloadRoot));
             if (!opened)
             {
-                StatusLabel.Text = $"Download-Ordner: {_downloadRoot}";
+                StatusLabel.Text = AppText.Format("DownloadFolder", _downloadRoot);
             }
         }
         catch (Exception)
         {
-            StatusLabel.Text = $"Download-Ordner: {_downloadRoot}";
+            StatusLabel.Text = AppText.Format("DownloadFolder", _downloadRoot);
         }
     }
 
@@ -1723,13 +1721,13 @@ public partial class MainPage : ContentPage
 #endif
             PlayPauseButton.Text = "▶";
             _sleepTimerEndUtc = null;
-            SleepTimerLabel.Text = _sleepTimerMinutes <= 0 ? "Aus" : $"{_sleepTimerMinutes} Min.";
+            SleepTimerLabel.Text = _sleepTimerMinutes <= 0 ? AppText.Get("Off") : AppText.Format("Minutes", _sleepTimerMinutes);
             _stateStore.SaveSleepTimer(_sleepTimerMinutes, null);
             PersistPlaybackSnapshot(force: true);
         }
         else if (_sleepTimer.IsActive)
         {
-            SleepTimerLabel.Text = SleepTimerDisplay.FormatRemaining(_sleepTimer.Remaining);
+            SleepTimerLabel.Text = AppText.TimerRemaining(_sleepTimer.Remaining);
         }
         return true;
     }
@@ -1776,7 +1774,7 @@ public partial class MainPage : ContentPage
         _resumePositionSeconds = 0;
         NowPlayingLabel.Text = AppText.Get("NoTrack");
         NowPlayingDetailLabel.Text = AppText.Pick("Themensammlung auswählen oder einen Titel anklicken.", "Select a collection or tap a track.");
-        NextTrackLabel.Text = "Nächster Titel: –";
+        NextTrackLabel.Text = AppText.Get("NextTrackEmpty");
         PositionSlider.Maximum = 1;
         PositionSlider.Value = 0;
         TimeLabel.Text = "0:00 / 0:00";

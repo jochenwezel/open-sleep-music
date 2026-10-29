@@ -782,14 +782,14 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             .SetVisibility(NotificationVisibility.Public)!;
         builder.AddAction(new Notification.Action.Builder(
             Android.Graphics.Drawables.Icon.CreateWithResource(this, Android.Resource.Drawable.IcMediaPrevious),
-            "Zurück", ActionIntent(AndroidPlaybackBridge.ActionPrevious, 1))!.Build());
+            AppText.Get("PreviousTrack"), ActionIntent(AndroidPlaybackBridge.ActionPrevious, 1))!.Build());
         builder.AddAction(new Notification.Action.Builder(
             Android.Graphics.Drawables.Icon.CreateWithResource(this,
                 playing ? Android.Resource.Drawable.IcMediaPause : Android.Resource.Drawable.IcMediaPlay),
-            playing ? "Pause" : AppText.Pick("Wiedergabe", "Play"), ActionIntent(AndroidPlaybackBridge.ActionToggle, 2))!.Build());
+            playing ? AppText.Get("Pause") : AppText.Get("Play"), ActionIntent(AndroidPlaybackBridge.ActionToggle, 2))!.Build());
         builder.AddAction(new Notification.Action.Builder(
             Android.Graphics.Drawables.Icon.CreateWithResource(this, Android.Resource.Drawable.IcMediaNext),
-            "Weiter", ActionIntent(AndroidPlaybackBridge.ActionNext, 3))!.Build());
+            AppText.Get("NextTrackAction"), ActionIntent(AndroidPlaybackBridge.ActionNext, 3))!.Build());
         if (_session is not null)
         {
             var style = new Notification.MediaStyle()!;
