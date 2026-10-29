@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:OpenSleepMusic.App.Localization"
              x:Class="OpenSleepMusic.App.ImmersivePlayerPage"
              BackgroundColor="#07142D" Shell.NavBarIsVisible="False">
     <Grid x:Name="Scene" IsClippedToBounds="True">
@@ -21,10 +22,10 @@
             </VerticalStackLayout>
             <Grid x:Name="TopBar" RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,Auto,*,Auto,Auto,Auto"
                   ColumnSpacing="8" RowSpacing="8">
-                <Button Text="‹" Clicked="OnBackClicked" BackgroundColor="#99252C45" TextColor="White" AutomationId="ImmersiveBackButton" />
-                <Button Grid.Column="1" x:Name="FavoriteButton" Text="☆" FontSize="22" Clicked="OnFavoriteClicked" BackgroundColor="#99252C45" TextColor="#F4C95D" />
+                <Button Text="‹" Clicked="OnBackClicked" BackgroundColor="#99252C45" TextColor="White" AutomationId="ImmersiveBackButton" SemanticProperties.Description="{loc:Text Back}" />
+                <Button Grid.Column="1" x:Name="FavoriteButton" Text="☆" FontSize="22" Clicked="OnFavoriteClicked" BackgroundColor="#99252C45" TextColor="#F4C95D" SemanticProperties.Description="{loc:Text Favorite}" />
                 <Button Grid.Column="3" x:Name="BlockButton" Text="⊘" Clicked="OnBlockClicked" BackgroundColor="#99502B43" TextColor="White" />
-                <Button Grid.Column="4" Text="🔊" Clicked="OnVolumeClicked" BackgroundColor="#99252C45" TextColor="White" />
+                <Button Grid.Column="4" Text="🔊" Clicked="OnVolumeClicked" BackgroundColor="#99252C45" TextColor="White" SemanticProperties.Description="{loc:Text Volume}" />
                 <Button Grid.Column="5" x:Name="TrackListButton" Text="☷" Clicked="OnTrackListClicked"
                         BackgroundColor="#99252C45" TextColor="White" />
                 <Label Grid.Row="1" Grid.ColumnSpan="6" x:Name="TitleLabel" Text="–" FontSize="18"
@@ -41,17 +42,17 @@
                     <Label Grid.Column="2" x:Name="DurationLabel" Text="0:00" TextColor="White" VerticalOptions="Center" />
                 </Grid>
                 <Grid Grid.Row="1" ColumnDefinitions="*,*,1.35*,*,*" ColumnSpacing="8">
-                    <Button Text="|◀" Clicked="OnPreviousClicked" BackgroundColor="Transparent" TextColor="White" />
+                    <Button Text="|◀" Clicked="OnPreviousClicked" BackgroundColor="Transparent" TextColor="White" SemanticProperties.Description="{loc:Text PreviousTrack}" />
                     <Button Grid.Column="1" x:Name="RepeatButton" Text="↻" Clicked="OnRepeatClicked" BackgroundColor="Transparent" TextColor="#C9C5D8" />
-                    <Button Grid.Column="2" x:Name="PlayButton" Text="▶︎" FontSize="32" Clicked="OnPlayClicked" BackgroundColor="Transparent" TextColor="#AFA7FF" HeightRequest="58" />
+                    <Button Grid.Column="2" x:Name="PlayButton" Text="▶︎" FontSize="32" Clicked="OnPlayClicked" BackgroundColor="Transparent" TextColor="#AFA7FF" HeightRequest="58" SemanticProperties.Description="{loc:Text PlayPause}" />
                     <Button Grid.Column="3" x:Name="TimerButton" Text="Zzz" Clicked="OnTimerClicked" BackgroundColor="Transparent" TextColor="#C9C5D8" />
-                    <Button Grid.Column="4" Text="▶|" Clicked="OnNextClicked" BackgroundColor="Transparent" TextColor="White" />
+                    <Button Grid.Column="4" Text="▶|" Clicked="OnNextClicked" BackgroundColor="Transparent" TextColor="White" SemanticProperties.Description="{loc:Text NextTrackAction}" />
                 </Grid>
             </Grid>
         </Grid>
 
         <Button x:Name="FloatingPlayButton" IsVisible="False" Text="▶︎" FontSize="34" WidthRequest="68" HeightRequest="68"
                 HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,26" Clicked="OnPlayClicked"
-                BackgroundColor="Transparent" TextColor="#AFA7FF" ZIndex="10" />
+                BackgroundColor="Transparent" TextColor="#AFA7FF" ZIndex="10" SemanticProperties.Description="{loc:Text PlayPause}" />
     </Grid>
 </ContentPage>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:OpenSleepMusic.App.Localization"
              x:Class="OpenSleepMusic.App.MainPage"
              BackgroundColor="#0B1020"
              Title="Open Sleep Music">
@@ -8,16 +9,16 @@
         <Grid x:Name="HeaderGrid" ColumnDefinitions="*,Auto">
             <VerticalStackLayout Spacing="4">
                 <Label x:Name="HeaderTitle" Text="open sleep music" FontSize="30" FontAttributes="Bold" TextColor="#F7F3FF" />
-                <Label x:Name="HeaderSubtitle" Text="Kostenlose Klänge für eine ruhige Nacht" TextColor="#B8B5C8" />
+                <Label x:Name="HeaderSubtitle" Text="{loc:Text Subtitle}" TextColor="#B8B5C8" />
             </VerticalStackLayout>
             <Button x:Name="MenuButton" Grid.Column="1" Text="☰" FontSize="22" WidthRequest="48" HeightRequest="44"
                     Clicked="OnMenuClicked" BackgroundColor="#252C45" TextColor="#F7F3FF"
-                    CornerRadius="12" AutomationId="MainMenuButton" />
+                    CornerRadius="12" AutomationId="MainMenuButton" SemanticProperties.Description="{loc:Text Menu}" />
         </Grid>
 
         <Grid x:Name="ContentGrid" Grid.Row="1" RowDefinitions="*" ColumnDefinitions="3*,2*" ColumnSpacing="18">
             <Grid x:Name="WorldsPanel" RowDefinitions="Auto,*" RowSpacing="10">
-                <Label x:Name="WorldsTitleLabel" Text="Themensammlungen" FontSize="19" FontAttributes="Bold" TextColor="#F7F3FF" />
+                <Label x:Name="WorldsTitleLabel" Text="{loc:Text Collections}" FontSize="19" FontAttributes="Bold" TextColor="#F7F3FF" />
                 <CollectionView Grid.Row="1" x:Name="WorldsView" SelectionMode="None">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout x:Name="WorldsItemsLayout" Orientation="Vertical" Span="2" HorizontalItemSpacing="12" VerticalItemSpacing="12" />
@@ -52,7 +53,7 @@
                                                 CommandParameter="{Binding .}" Clicked="OnWorldActionClicked"
                                                 BackgroundColor="#7367F0" TextColor="White" CornerRadius="10" />
                                         <Button Grid.Column="1" Text="⋯" WidthRequest="44" IsEnabled="{Binding HasDownloads}"
-                                                CommandParameter="{Binding .}" Clicked="OnWorldManageClicked"
+                                                CommandParameter="{Binding .}" Clicked="OnWorldManageClicked" SemanticProperties.Description="{loc:Text ManageCollection}"
                                                 BackgroundColor="#252C45" TextColor="White" CornerRadius="10"
                                                 AutomationId="ManageWorldButton" />
                                     </Grid>
@@ -67,9 +68,9 @@
             </Grid>
 
             <Grid x:Name="LibraryPanel" IsVisible="False" Grid.Column="1" RowDefinitions="Auto,*" RowSpacing="10">
-                <Label x:Name="LibraryTitleLabel" Text="Meine Musik" FontSize="19" FontAttributes="Bold" TextColor="#F7F3FF" />
+                <Label x:Name="LibraryTitleLabel" Text="{loc:Text MyMusic}" FontSize="19" FontAttributes="Bold" TextColor="#F7F3FF" />
                 <Grid Grid.Row="1">
-                    <Label x:Name="LibraryEmptyLabel" Text="Für diese Themensammlung ist noch keine Musik heruntergeladen."
+                    <Label x:Name="LibraryEmptyLabel" Text="{loc:Text EmptyLibrary}"
                            TextColor="#9E9AAF" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="24" />
                     <CollectionView x:Name="LibraryView" SelectionMode="Single" SelectionChanged="OnLibrarySelectionChanged">
                         <CollectionView.ItemTemplate>
@@ -79,10 +80,10 @@
                                     <Label Grid.Row="1" Text="{Binding LocalTrack.Track.Creator}" FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
                                     <Button Grid.Column="1" Grid.RowSpan="2" Text="{Binding FavoriteGlyph}" FontSize="20" WidthRequest="38" HeightRequest="36" Padding="0"
                                             CommandParameter="{Binding .}" Clicked="OnFavoriteClicked"
-                                            BackgroundColor="Transparent" TextColor="{Binding FavoriteColor}" AutomationId="FavoriteButton" />
+                                            BackgroundColor="Transparent" TextColor="{Binding FavoriteColor}" AutomationId="FavoriteButton" SemanticProperties.Description="{loc:Text Favorite}" />
                                     <Button Grid.Column="2" Grid.RowSpan="2" Text="ⓘ" FontSize="16" WidthRequest="38" HeightRequest="36" Padding="0"
                                             CommandParameter="{Binding .}" Clicked="OnTrackDetailsClicked"
-                                            BackgroundColor="Transparent" TextColor="#9E9AAF" AutomationId="TrackDetailsButton" />
+                                            BackgroundColor="Transparent" TextColor="#9E9AAF" AutomationId="TrackDetailsButton" SemanticProperties.Description="{loc:Text TrackInfo}" />
                                     <Label Grid.Column="3" Grid.RowSpan="2" Text="▶" TextColor="#8A7FFF" VerticalOptions="Center" Margin="3,0,0,0" />
                                 </Grid>
                             </DataTemplate>
@@ -95,46 +96,46 @@
         <Border x:Name="PlayerBorder" IsVisible="False" Grid.Row="2" BackgroundColor="#171D31" Stroke="#29304B" Padding="12">
             <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
             <Grid x:Name="PlayerGrid" RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12" RowSpacing="6">
-                <Button x:Name="PreviousButton" Text="⏮" Clicked="OnPreviousClicked" BackgroundColor="#252C45" TextColor="White" />
+                <Button x:Name="PreviousButton" Text="⏮" Clicked="OnPreviousClicked" BackgroundColor="#252C45" TextColor="White" SemanticProperties.Description="{loc:Text PreviousTrack}" />
                 <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" AutomationId="NowPlayingDetails">
                     <VerticalStackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnNowPlayingTapped" />
                     </VerticalStackLayout.GestureRecognizers>
-                    <Label x:Name="NowPlayingLabel" Text="Noch kein Titel ausgewählt" FontAttributes="Bold" TextColor="#F7F3FF" LineBreakMode="TailTruncation" />
-                    <Label x:Name="NowPlayingDetailLabel" IsVisible="False" Text="Themensammlung auswählen oder einen Titel anklicken." FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
+                    <Label x:Name="NowPlayingLabel" Text="{loc:Text NoTrack}" FontAttributes="Bold" TextColor="#F7F3FF" LineBreakMode="TailTruncation" />
+                    <Label x:Name="NowPlayingDetailLabel" IsVisible="False" Text="{loc:Text SelectTrack}" FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
                 </VerticalStackLayout>
-                <Button x:Name="NextButton" Grid.Column="2" Text="⏭" Clicked="OnNextClicked" BackgroundColor="#252C45" TextColor="White" />
+                <Button x:Name="NextButton" Grid.Column="2" Text="⏭" Clicked="OnNextClicked" BackgroundColor="#252C45" TextColor="White" SemanticProperties.Description="{loc:Text NextTrackAction}" />
 
-                <Button Grid.Row="1" x:Name="PlayPauseButton" Text="▶" Clicked="OnPlayPauseClicked" BackgroundColor="#7367F0" TextColor="White" />
+                <Button Grid.Row="1" x:Name="PlayPauseButton" Text="▶" Clicked="OnPlayPauseClicked" BackgroundColor="#7367F0" TextColor="White" SemanticProperties.Description="{loc:Text PlayPause}" />
                 <Slider Grid.Row="1" Grid.Column="1" x:Name="PositionSlider" Minimum="0" Maximum="1"
                         DragStarted="OnPositionDragStarted" DragCompleted="OnPositionDragCompleted" />
                 <Label Grid.Row="1" Grid.Column="2" x:Name="TimeLabel" Text="0:00 / 0:00" TextColor="#DAD6E8" VerticalOptions="Center" />
 
                 <Grid x:Name="PlayerOptionsGrid" IsVisible="False" Grid.Row="2" Grid.ColumnSpan="3" RowDefinitions="Auto" ColumnDefinitions="*,*" ColumnSpacing="18">
                     <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
-                        <Label Text="Schlaf-Timer" TextColor="#B8B5C8" VerticalOptions="Center" />
-                        <Picker Grid.Column="1" x:Name="SleepTimerPicker" Title="Aus" SelectedIndexChanged="OnSleepTimerChanged" TextColor="#F7F3FF" />
-                        <Label Grid.Column="2" x:Name="SleepTimerLabel" Text="Aus" TextColor="#9E9AAF" VerticalOptions="Center" />
+                        <Label Text="{loc:Text SleepTimer}" TextColor="#B8B5C8" VerticalOptions="Center" />
+                        <Picker Grid.Column="1" x:Name="SleepTimerPicker" Title="{loc:Text Off}" SelectedIndexChanged="OnSleepTimerChanged" TextColor="#F7F3FF" />
+                        <Label Grid.Column="2" x:Name="SleepTimerLabel" Text="{loc:Text Off}" TextColor="#9E9AAF" VerticalOptions="Center" />
                     </Grid>
                     <Grid x:Name="RepeatOptionsPanel" Grid.Column="1" ColumnDefinitions="Auto,*" ColumnSpacing="8">
-                        <Label Text="Wiederholen" TextColor="#B8B5C8" VerticalOptions="Center" />
+                        <Label Text="{loc:Text Repeat}" TextColor="#B8B5C8" VerticalOptions="Center" />
                         <Picker Grid.Column="1" x:Name="RepeatModePicker" SelectedIndexChanged="OnRepeatModeChanged" TextColor="#F7F3FF" />
                     </Grid>
                 </Grid>
 
                 <Grid x:Name="VolumePanel" IsVisible="False" Grid.Row="3" Grid.ColumnSpan="3" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
-                    <Label Text="Lautstärke" TextColor="#B8B5C8" VerticalOptions="Center" />
+                    <Label Text="{loc:Text Volume}" TextColor="#B8B5C8" VerticalOptions="Center" />
                     <Slider Grid.Column="1" x:Name="VolumeSlider" Minimum="0" Maximum="1" ValueChanged="OnVolumeChanged" />
                     <Label Grid.Column="2" x:Name="VolumeLabel" Text="70 %" TextColor="#9E9AAF" VerticalOptions="Center" />
                 </Grid>
 
-                <Label Grid.Row="4" Grid.ColumnSpan="3" x:Name="NextTrackLabel" IsVisible="False" Text="Nächster Titel: –"
+                <Label Grid.Row="4" Grid.ColumnSpan="3" x:Name="NextTrackLabel" IsVisible="False" Text="{loc:Text NextTrackEmpty}"
                        FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
             </Grid>
         </Border>
 
         <Grid Grid.Row="3" RowDefinitions="Auto,Auto" RowSpacing="3">
-            <Label x:Name="StatusLabel" Text="Bereit" TextColor="#DAD6E8" />
+            <Label x:Name="StatusLabel" Text="{loc:Text Ready}" TextColor="#DAD6E8" />
             <ProgressBar Grid.Row="1" x:Name="DownloadProgress" IsVisible="False" Progress="0" ProgressColor="#8A7FFF" />
         </Grid>
     </Grid>

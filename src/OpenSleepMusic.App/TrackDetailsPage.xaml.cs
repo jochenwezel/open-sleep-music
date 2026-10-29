@@ -16,17 +16,6 @@ public partial class TrackDetailsPage : ContentPage
         IReadOnlyList<SleepWorld> catalog)
     {
         InitializeComponent();
-        PageTitleLabel.Text = AppText.Get("TrackInfo");
-        PageSubtitleLabel.Text = AppText.IsGerman ? "Quelle, Lizenz und lokale Datei" : "Source, license and local file";
-        CreatorTitleLabel.Text = AppText.Get("Creator");
-        WorldTitleLabel.Text = AppText.Get("Collection");
-        DurationTitleLabel.Text = AppText.Get("Duration");
-        InstrumentationTitleLabel.Text = AppText.Pick("Instrumentierung", "Instrumentation");
-        LicenseTitleLabel.Text = AppText.IsGerman ? "Lizenz" : "License";
-        FileTitleLabel.Text = AppText.Get("LocalFile");
-        SourceButton.Text = AppText.Get("Source");
-        LicenseButton.Text = AppText.Get("License");
-        LicenseHelpLabel.Text = AppText.IsGerman ? "Die Lizenzangabe stammt von der dokumentierten Quellseite der konkreten Aufnahme." : "The license information comes from the documented source page for this specific recording.";
         _localTrack = localTrack;
         _stateStore = stateStore;
         _backgroundTrack = BackgroundAudioCatalog.Resolve(localTrack.Track, catalog);
@@ -36,7 +25,7 @@ public partial class TrackDetailsPage : ContentPage
         WorldLabel.Text = AppText.WorldName(localTrack.SleepWorld.Id, localTrack.SleepWorld.Name);
         DurationLabel.Text = FormatDuration(TimeSpan.FromSeconds(track.PlaybackDurationSeconds));
         InstrumentationLabel.Text = track.Instrumentation is { Count: > 0 }
-            ? string.Join(", ", track.Instrumentation.Select(TranslateInstrument))
+            ? string.Join(", ", track.Instrumentation.Select(AppText.InstrumentName))
             : AppText.Pick("Nicht angegeben", "Not specified");
         LicenseLabel.Text = track.License;
         if (localTrack.SleepWorld.Id == "preselection")
@@ -158,16 +147,4 @@ public partial class TrackDetailsPage : ContentPage
     private static string FormatDuration(TimeSpan value) =>
         value.TotalHours >= 1 ? value.ToString(@"h\:mm\:ss") : value.ToString(@"m\:ss");
 
-    private static string TranslateInstrument(string value) => value switch
-    {
-        "piano" => AppText.Pick("Klavier", "Piano"),
-        "harp" => AppText.Pick("Harfe", "Harp"),
-        "recorder" => AppText.Pick("Blockflöte", "Recorder"),
-        "cello" => AppText.Pick("Cello", "Cello"),
-        "strings" => AppText.Pick("Streicher", "Strings"),
-        "continuo" => "Continuo",
-        "music-box" => AppText.Pick("Spieluhr", "Music box"),
-        "instrumental" => AppText.Pick("Instrumental", "Instrumental"),
-        _ => value
-    };
 }

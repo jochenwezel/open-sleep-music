@@ -17,14 +17,6 @@ public partial class PlayerSettingsPage : ContentPage
         LanguagePicker.ItemsSource = new[] { AppText.Get("SystemLanguage"), AppText.Get("German"), AppText.Get("English") };
         LanguagePicker.SelectedIndex = (int)settings.Language;
         ReducedMotionSwitch.IsToggled = settings.ReducedMotion;
-        LanguageLabel.Text = AppText.Get("Language");
-        ReducedMotionLabel.Text = AppText.Get("ReducedMotion");
-        PageTitleLabel.Text = AppText.IsGerman ? "Wiedergabe-Einstellungen" : "Playback settings";
-        TimerTitleLabel.Text = AppText.Get("SleepTimer");
-        TimerHelpLabel.Text = AppText.IsGerman ? "Die gewählte Dauer beginnt beim Start einer Wiedergabe. Eine Änderung während der Wiedergabe startet den Timer neu." : "The selected duration starts with playback. Changing it while playing restarts the timer.";
-        RepeatTitleLabel.Text = AppText.Get("Repeat");
-        VolumeTitleLabel.Text = AppText.Get("AppVolume");
-        VolumeHelpLabel.Text = AppText.IsGerman ? "Die Hardwaretasten des Handys regeln zusätzlich die Android-Medienlautstärke." : "The phone's hardware buttons additionally control Android media volume.";
         TimerPicker.ItemsSource = new[] { AppText.Get("Off"), "15 min", "30 min", "45 min", "60 min", "90 min" };
         RepeatPicker.ItemsSource = new[] { AppText.Get("Collection"), AppText.Get("Track") };
         TimerPicker.SelectedIndex = Math.Max(0, Array.IndexOf(TimerMinutes, settings.SleepTimerMinutes));

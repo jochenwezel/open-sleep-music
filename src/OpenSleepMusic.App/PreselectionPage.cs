@@ -36,7 +36,7 @@ internal sealed class PreselectionPage : ContentPage
                     if (row.BindingContext is not ReviewCandidate candidate) return;
                     favorite.Text = stateStore.IsFavorite("preselection", candidate.Id) ? "★" : "☆";
                     block.Text = stateStore.IsBlocked("preselection", candidate.Id) ? AppText.Get("Unblock") : AppText.Get("Block");
-                    metadata.Text = string.Join(", ", candidate.Instrumentation.Select(InstrumentName)) + " · " +
+                    metadata.Text = string.Join(", ", candidate.Instrumentation.Select(AppText.InstrumentName)) + " · " +
                         (candidate.LicenseReviewStatus == "verified" ? AppText.Pick("Lizenz geprüft", "License reviewed") :
                         candidate.LicenseReviewStatus == "rejected" ? AppText.Pick("Lizenz ausgeschlossen", "License rejected") :
                         AppText.Pick("Lizenz ungeprüft", "License unreviewed"));
@@ -102,17 +102,4 @@ internal sealed class PreselectionPage : ContentPage
         Content = layout;
     }
 
-    private static string InstrumentName(string tag) => tag switch
-    {
-        "piano" => AppText.Pick("Klavier", "Piano"),
-        "music-box" => AppText.Pick("Spieluhr", "Music box"),
-        "guitar" => AppText.Pick("Gitarre", "Guitar"),
-        "harp" => AppText.Pick("Harfe", "Harp"),
-        "pan-flute" => AppText.Pick("Panflöte", "Pan flute"),
-        "flute" => AppText.Pick("Flöte", "Flute"),
-        "strings" => AppText.Pick("Streicher", "Strings"),
-        "orchestra" => AppText.Pick("Orchester", "Orchestra"),
-        "saxophone" => AppText.Pick("Saxofon", "Saxophone"),
-        _ => tag
-    };
 }

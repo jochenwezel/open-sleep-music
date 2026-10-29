@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="../../src/OpenSleepMusic.App/*.xaml" LogicalName="Localization.%(Filename)%(Extension)" />
     <EmbeddedResource Include="../../tools/media-catalog-blacklist.json" LogicalName="OpenSleepMusic.Core.Tests.media-catalog-blacklist.json" />
     <EmbeddedResource Include="../../src/OpenSleepMusic.App/Platforms/Android/AndroidManifest.xml" LogicalName="AudioStorage.AndroidManifest.xml" />
     <EmbeddedResource Include="../../src/OpenSleepMusic.App/Platforms/Android/Resources/xml/backup_rules.xml" LogicalName="AudioStorage.backup_rules.xml" />

@@ -1,39 +1,40 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:OpenSleepMusic.App.Localization"
              x:Class="OpenSleepMusic.App.PlayerSettingsPage"
              BackgroundColor="#0B1020"
-             Title="Wiedergabe-Einstellungen">
+             Title="{loc:Text PlaybackSettings}">
     <Grid RowDefinitions="Auto,*" Padding="24" RowSpacing="22">
         <Grid ColumnDefinitions="*,Auto">
-            <Label x:Name="PageTitleLabel" Text="Wiedergabe-Einstellungen" FontSize="24" FontAttributes="Bold" TextColor="#F7F3FF" />
-            <Button Grid.Column="1" Text="✕" Clicked="OnCloseClicked" BackgroundColor="#252C45" TextColor="White" />
+            <Label x:Name="PageTitleLabel" Text="{loc:Text PlaybackSettings}" FontSize="24" FontAttributes="Bold" TextColor="#F7F3FF" />
+            <Button Grid.Column="1" Text="✕" Clicked="OnCloseClicked" BackgroundColor="#252C45" TextColor="White" SemanticProperties.Description="{loc:Text Close}" />
         </Grid>
         <VerticalStackLayout Grid.Row="1" Spacing="22">
             <VerticalStackLayout Spacing="6">
-                <Label x:Name="LanguageLabel" Text="Sprache" FontAttributes="Bold" TextColor="#F7F3FF" />
+                <Label x:Name="LanguageLabel" Text="{loc:Text Language}" FontAttributes="Bold" TextColor="#F7F3FF" />
                 <Picker x:Name="LanguagePicker" SelectedIndexChanged="OnSettingChanged" TextColor="#F7F3FF" />
             </VerticalStackLayout>
             <Grid ColumnDefinitions="*,Auto">
-                <Label x:Name="ReducedMotionLabel" Text="Bewegung reduzieren" FontAttributes="Bold" TextColor="#F7F3FF" VerticalOptions="Center" />
+                <Label x:Name="ReducedMotionLabel" Text="{loc:Text ReducedMotion}" FontAttributes="Bold" TextColor="#F7F3FF" VerticalOptions="Center" />
                 <Switch Grid.Column="1" x:Name="ReducedMotionSwitch" Toggled="OnSettingChanged" />
             </Grid>
             <VerticalStackLayout Spacing="6">
-                <Label x:Name="TimerTitleLabel" Text="Schlaf-Timer" FontAttributes="Bold" TextColor="#F7F3FF" />
+                <Label x:Name="TimerTitleLabel" Text="{loc:Text SleepTimer}" FontAttributes="Bold" TextColor="#F7F3FF" />
                 <Picker x:Name="TimerPicker" SelectedIndexChanged="OnSettingChanged" TextColor="#F7F3FF" />
-                <Label x:Name="TimerHelpLabel" Text="Die gewählte Dauer beginnt beim Start einer Wiedergabe. Eine Änderung während der Wiedergabe startet den Timer neu." FontSize="12" TextColor="#9E9AAF" />
+                <Label x:Name="TimerHelpLabel" Text="{loc:Text TimerHelp}" FontSize="12" TextColor="#9E9AAF" />
             </VerticalStackLayout>
             <VerticalStackLayout Spacing="6">
-                <Label x:Name="RepeatTitleLabel" Text="Wiederholen" FontAttributes="Bold" TextColor="#F7F3FF" />
+                <Label x:Name="RepeatTitleLabel" Text="{loc:Text Repeat}" FontAttributes="Bold" TextColor="#F7F3FF" />
                 <Picker x:Name="RepeatPicker" SelectedIndexChanged="OnSettingChanged" TextColor="#F7F3FF" />
             </VerticalStackLayout>
             <VerticalStackLayout Spacing="6">
                 <Grid ColumnDefinitions="*,Auto">
-                    <Label x:Name="VolumeTitleLabel" Text="App-Lautstärke" FontAttributes="Bold" TextColor="#F7F3FF" />
+                    <Label x:Name="VolumeTitleLabel" Text="{loc:Text AppVolume}" FontAttributes="Bold" TextColor="#F7F3FF" />
                     <Label Grid.Column="1" x:Name="VolumeValueLabel" TextColor="#B8B5C8" />
                 </Grid>
                 <Slider x:Name="VolumeSlider" Minimum="0" Maximum="1" ValueChanged="OnVolumeChanged" />
-                <Label x:Name="VolumeHelpLabel" Text="Die Hardwaretasten des Handys regeln zusätzlich die Android-Medienlautstärke." FontSize="12" TextColor="#9E9AAF" />
+                <Label x:Name="VolumeHelpLabel" Text="{loc:Text VolumeHelp}" FontSize="12" TextColor="#9E9AAF" />
             </VerticalStackLayout>
         </VerticalStackLayout>
     </Grid>

@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:OpenSleepMusic.App.Localization"
              x:Class="OpenSleepMusic.App.AboutPage"
              BackgroundColor="#0B1020"
-             Title="Über Open Sleep Music">
+             Title="{loc:Text About}">
     <Grid RowDefinitions="Auto,*,Auto" Padding="24" RowSpacing="18">
         <Grid ColumnDefinitions="*,Auto">
             <VerticalStackLayout Spacing="4">
                 <Label Text="open sleep music" FontSize="27" FontAttributes="Bold" TextColor="#F7F3FF" />
                 <Label x:Name="VersionLabel" TextColor="#B8B5C8" />
             </VerticalStackLayout>
-            <Button Grid.Column="1" Text="✕" Clicked="OnCloseClicked" BackgroundColor="#252C45" TextColor="White" />
+            <Button Grid.Column="1" Text="✕" Clicked="OnCloseClicked" BackgroundColor="#252C45" TextColor="White" SemanticProperties.Description="{loc:Text Close}" />
         </Grid>
 
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Spacing="14">
-                <Label x:Name="IntroLabel" Text="Kostenlose Klänge für eine ruhige Nacht – ohne Werbung, Tracking, Benutzerkonto oder Cloud-Zwang." FontSize="18" TextColor="#F7F3FF" />
+                <Label x:Name="IntroLabel" Text="{loc:Text AboutIntro}" FontSize="18" TextColor="#F7F3FF" />
                 <Label x:Name="CatalogLabel" TextColor="#DAD6E8" />
-                <Label x:Name="OfflineLabel" Text="Nach dem Herunterladen funktioniert die Musikbibliothek offline. Nicht mehr erreichbare oder ungültige Quelldateien werden übersprungen, ohne eine ganze Sammlung zu blockieren." TextColor="#B8B5C8" />
-                <Label x:Name="LicenseInfoLabel" Text="Die App steht unter der MIT-Lizenz. Jede Aufnahme behält ihre eigene, in den Titelinformationen ausgewiesene Lizenz. Die Angaben dokumentieren die Lizenz und Herkunft der jeweiligen Quelle; sie sind keine unabhängige Rechtsgarantie des Projekts." TextColor="#B8B5C8" />
-                <Label x:Name="BackgroundInfoLabel" Text="Hintergrundwiedergabe und System-Mediensteuerung sind als priorisierte Anschlussarbeit für Mobilgeräte festgehalten." TextColor="#B8B5C8" />
-                <Button x:Name="RepositoryButton" Text="Projekt auf GitHub öffnen" Clicked="OnRepositoryClicked" BackgroundColor="#7367F0" TextColor="White" HorizontalOptions="Start" />
+                <Label x:Name="OfflineLabel" Text="{loc:Text AboutOffline}" TextColor="#B8B5C8" />
+                <Label x:Name="LicenseInfoLabel" Text="{loc:Text AboutLicenses}" TextColor="#B8B5C8" />
+                <Label x:Name="BackgroundInfoLabel" Text="{loc:Text AboutBackground}" TextColor="#B8B5C8" />
+                <Button x:Name="RepositoryButton" Text="{loc:Text Repository}" Clicked="OnRepositoryClicked" BackgroundColor="#7367F0" TextColor="White" HorizontalOptions="Start" />
             </VerticalStackLayout>
         </ScrollView>
 

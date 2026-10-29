@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:OpenSleepMusic.App.Localization"
              x:Class="OpenSleepMusic.App.CollectionTracksPage"
              BackgroundColor="#0B1020">
     <Grid RowDefinitions="Auto,Auto,*" Padding="18" RowSpacing="10">
@@ -10,7 +11,7 @@
                 <Label x:Name="SummaryLabel" FontSize="12" TextColor="#9E9AAF" />
             </VerticalStackLayout>
             <Button Grid.Column="2" x:Name="CloseButton" Text="✕" FontSize="20" Clicked="OnCloseClicked" BackgroundColor="#252C45" TextColor="White"
-                    AutomationId="CloseTrackListButton" SemanticProperties.Description="Titelliste schließen" />
+                    AutomationId="CloseTrackListButton" SemanticProperties.Description="{loc:Text CloseTrackList}" />
         </Grid>
         <Button Grid.Row="1" x:Name="FavoritesModeButton" Clicked="OnFavoritesModeClicked"
                 BackgroundColor="Transparent" BorderColor="#39415F" BorderWidth="1" TextColor="#D7D3E8" />
@@ -21,9 +22,9 @@
                         <Label Text="{Binding LocalTrack.Track.Title}" TextColor="#F7F3FF" LineBreakMode="TailTruncation" />
                         <Label Grid.Row="1" Text="{Binding LocalTrack.Track.Creator}" FontSize="11" TextColor="#9E9AAF" LineBreakMode="TailTruncation" />
                         <Button Grid.Column="1" Grid.RowSpan="2" Text="{Binding FavoriteGlyph}" FontSize="20" WidthRequest="40" HeightRequest="38" Padding="0"
-                                CommandParameter="{Binding .}" Clicked="OnFavoriteClicked" BackgroundColor="Transparent" TextColor="{Binding FavoriteColor}" />
+                                CommandParameter="{Binding .}" Clicked="OnFavoriteClicked" BackgroundColor="Transparent" TextColor="{Binding FavoriteColor}" SemanticProperties.Description="{loc:Text Favorite}" />
                         <Button Grid.Column="2" Grid.RowSpan="2" Text="ⓘ" FontSize="16" WidthRequest="40" HeightRequest="38" Padding="0"
-                                CommandParameter="{Binding .}" Clicked="OnDetailsClicked" BackgroundColor="Transparent" TextColor="#9E9AAF" />
+                                CommandParameter="{Binding .}" Clicked="OnDetailsClicked" BackgroundColor="Transparent" TextColor="#9E9AAF" SemanticProperties.Description="{loc:Text TrackInfo}" />
                         <Label Grid.Column="3" Grid.RowSpan="2" Text="▶" TextColor="#8A7FFF" VerticalOptions="Center" Margin="3,0,0,0" />
                     </Grid>
                 </DataTemplate>

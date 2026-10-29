@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:OpenSleepMusic.App.Localization"
              x:Class="OpenSleepMusic.App.TrackDetailsPage"
              BackgroundColor="#0B1020"
-             Title="Titelinformationen">
+             Title="{loc:Text TrackInfo}">
     <Grid RowDefinitions="Auto,*,Auto" Padding="24" RowSpacing="18">
         <Grid ColumnDefinitions="*,Auto">
             <VerticalStackLayout Spacing="4">
-                <Label x:Name="PageTitleLabel" Text="Titelinformationen" FontSize="26" FontAttributes="Bold" TextColor="#F7F3FF" />
-                <Label x:Name="PageSubtitleLabel" Text="Quelle, Lizenz und lokale Datei" TextColor="#B8B5C8" />
+                <Label x:Name="PageTitleLabel" Text="{loc:Text TrackInfo}" FontSize="26" FontAttributes="Bold" TextColor="#F7F3FF" />
+                <Label x:Name="PageSubtitleLabel" Text="{loc:Text TrackInfoSubtitle}" TextColor="#B8B5C8" />
             </VerticalStackLayout>
-            <Button Grid.Column="1" Text="✕" Clicked="OnCloseClicked" BackgroundColor="#252C45" TextColor="White" />
+            <Button Grid.Column="1" Text="✕" Clicked="OnCloseClicked" BackgroundColor="#252C45" TextColor="White" SemanticProperties.Description="{loc:Text Close}" />
         </Grid>
 
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Spacing="15">
                 <Label x:Name="TitleLabel" FontSize="22" FontAttributes="Bold" TextColor="#F7F3FF" />
                 <Grid ColumnDefinitions="130,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
-                    <Label x:Name="CreatorTitleLabel" Text="Urheber/Interpret" TextColor="#9E9AAF" />
+                    <Label x:Name="CreatorTitleLabel" Text="{loc:Text Creator}" TextColor="#9E9AAF" />
                     <Label Grid.Column="1" x:Name="CreatorLabel" TextColor="#F7F3FF" />
-                    <Label x:Name="WorldTitleLabel" Grid.Row="1" Text="Themensammlung" TextColor="#9E9AAF" />
+                    <Label x:Name="WorldTitleLabel" Grid.Row="1" Text="{loc:Text Collection}" TextColor="#9E9AAF" />
                     <Label Grid.Row="1" Grid.Column="1" x:Name="WorldLabel" TextColor="#F7F3FF" />
-                    <Label x:Name="DurationTitleLabel" Grid.Row="2" Text="Dauer" TextColor="#9E9AAF" />
+                    <Label x:Name="DurationTitleLabel" Grid.Row="2" Text="{loc:Text Duration}" TextColor="#9E9AAF" />
                     <Label Grid.Row="2" Grid.Column="1" x:Name="DurationLabel" TextColor="#F7F3FF" />
-                    <Label x:Name="InstrumentationTitleLabel" Grid.Row="3" Text="Instrumentierung" TextColor="#9E9AAF" />
+                    <Label x:Name="InstrumentationTitleLabel" Grid.Row="3" Text="{loc:Text Instrumentation}" TextColor="#9E9AAF" />
                     <Label Grid.Row="3" Grid.Column="1" x:Name="InstrumentationLabel" TextColor="#F7F3FF" />
-                    <Label x:Name="LicenseTitleLabel" Grid.Row="4" Text="Lizenz" TextColor="#9E9AAF" />
+                    <Label x:Name="LicenseTitleLabel" Grid.Row="4" Text="{loc:Text LicenseName}" TextColor="#9E9AAF" />
                     <Label Grid.Row="4" Grid.Column="1" x:Name="LicenseLabel" TextColor="#F7F3FF" />
-                    <Label x:Name="FileTitleLabel" Grid.Row="5" Text="Lokale Datei" TextColor="#9E9AAF" />
+                    <Label x:Name="FileTitleLabel" Grid.Row="5" Text="{loc:Text LocalFile}" TextColor="#9E9AAF" />
                     <Label Grid.Row="5" Grid.Column="1" x:Name="FileLabel" TextColor="#F7F3FF" LineBreakMode="CharacterWrap" />
                 </Grid>
 
-                <Label x:Name="LicenseHelpLabel" Text="Die Lizenzangabe stammt von der dokumentierten Quellseite der konkreten Aufnahme." TextColor="#B8B5C8" />
+                <Label x:Name="LicenseHelpLabel" Text="{loc:Text LicenseHelp}" TextColor="#B8B5C8" />
                 <VerticalStackLayout Spacing="10">
-                    <Button x:Name="SourceButton" Text="Quellseite öffnen" Clicked="OnSourceClicked" BackgroundColor="#7367F0" TextColor="White" />
-                    <Button x:Name="LicenseButton" Text="Lizenz öffnen" Clicked="OnLicenseClicked" BackgroundColor="#252C45" TextColor="White" />
+                    <Button x:Name="SourceButton" Text="{loc:Text Source}" Clicked="OnSourceClicked" BackgroundColor="#7367F0" TextColor="White" />
+                    <Button x:Name="LicenseButton" Text="{loc:Text License}" Clicked="OnLicenseClicked" BackgroundColor="#252C45" TextColor="White" />
                 </VerticalStackLayout>
                 <VerticalStackLayout x:Name="BackgroundSection" IsVisible="False" Spacing="10">
                     <BoxView HeightRequest="1" Color="#252C45" Margin="0,5" />
@@ -52,9 +53,9 @@
                     <Button x:Name="BackgroundLicenseButton" Clicked="OnBackgroundLicenseClicked" BackgroundColor="#252C45" TextColor="White" />
                 </VerticalStackLayout>
                 <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
-                    <Button x:Name="FavoriteButton" Text="☆ Favorisieren" Clicked="OnFavoriteClicked"
-                            BackgroundColor="#252C45" TextColor="#F7F3FF" AutomationId="FavoriteTrackButton" />
-                    <Button Grid.Column="1" x:Name="BlockButton" Text="Titel blockieren" Clicked="OnBlockClicked"
+                    <Button x:Name="FavoriteButton" Text="{loc:Text AddFavorite}" Clicked="OnFavoriteClicked"
+                            BackgroundColor="#252C45" TextColor="#F7F3FF" AutomationId="FavoriteTrackButton" SemanticProperties.Description="{loc:Text Favorite}" />
+                    <Button Grid.Column="1" x:Name="BlockButton" Text="{loc:Text BlockTrack}" Clicked="OnBlockClicked"
                             BackgroundColor="#502B43" TextColor="#F7F3FF" AutomationId="BlockTrackButton" />
                 </Grid>
             </VerticalStackLayout>
