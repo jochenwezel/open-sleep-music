@@ -7,6 +7,28 @@ preparation work.
 
 Tracking issue: [Google Play publication under CompuMaster, issue 22](https://github.com/jochenwezel/open-sleep-music/issues/22).
 
+## Android distribution decision
+
+As directed by the maintainer on 29 October 2026, official Android Stable
+releases are distributed through Google Play. GitHub APKs remain available for
+development and Preview testing, not as an official Stable distribution channel.
+The GitHub release workflow runs its APK publication job only for prereleases;
+Windows distribution is unaffected. Existing historical release assets remain
+unchanged.
+
+There is no requirement for Play releases to update GitHub development APKs in
+place. A Google-managed app-signing key is therefore acceptable; keep the
+development signing key separate and preserve it for developer APK updates.
+Select the Play upload key deliberately. An existing development installation
+with the same application ID and an incompatible signature may need to be
+uninstalled before installing the Play version. A distinct development
+application ID can be considered separately for side-by-side installation.
+
+Play's optional automatic installation protection is a separate decision from
+app signing. Development APK delivery alone does not require disabling it for
+the Play build. Review its actual behavior, network/data implications and
+offline operation before enabling it for a release.
+
 ## Publication materials
 
 - [German store listing](store-listing.de.json): copyable text, without fixed
@@ -69,7 +91,8 @@ release authorization.
   catalog; Preview candidates and `PreselectionPage` are excluded from Stable.
 - The production manifest contains six collection definitions and 138 unique
   recordings. Counts are an inspection snapshot, not store-description promises.
-- `.github/workflows/publish-release.yml` publishes signed APKs and Windows ZIPs,
+- `.github/workflows/publish-release.yml` publishes signed development APKs for
+  prereleases and Windows ZIPs,
   but does not yet produce a Google Play Android App Bundle.
 - The source Android manifest declares network access, media foreground service
   and wake-lock permissions. The playback service declares `mediaPlayback`.
@@ -104,13 +127,14 @@ release authorization.
   commercial/noncommercial use before including any NC recording.
 - [ ] Fix and physically validate [Android task-close cleanup, issue 19](https://github.com/jochenwezel/open-sleep-music/issues/19).
 - [ ] Build a signed Stable `.aab` and SHA-256 from a tested release commit.
-  Keep the current APK distribution and its signing identity usable.
-- [ ] Configure Play App Signing deliberately. To preserve updates from current
-  GitHub APKs, arrange use of the existing app-signing identity; a new unrelated
-  Google-generated app-signing key would not provide the same update identity.
+  Keep GitHub APKs for development/Preview only; no official Stable APK assets.
+- [ ] Configure Play App Signing deliberately. A new Google-managed app-signing
+  identity is acceptable; migration from GitHub development APKs is not required.
   Separate upload and app-signing keys where appropriate; never put private keys
   in issues, repository files or public artifacts. See [Android signing](https://developer.android.com/studio/publish/app-signing)
   and [existing release signing](../android-signing.md).
+- [ ] Decide on Play automatic installation protection separately; test the
+  resulting delivered build and reflect any relevant data flows in disclosures.
 - [ ] Verify target API 36 or later in the final manifest for current phone-app
   submissions, supported ABIs, native-library compatibility and increasing version
   code. See the [current target API requirement](https://developer.android.com/google/play/requirements/target-sdk).
