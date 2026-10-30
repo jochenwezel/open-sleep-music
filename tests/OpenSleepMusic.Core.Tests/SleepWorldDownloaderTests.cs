@@ -227,14 +227,16 @@ public sealed class SleepWorldDownloaderTests
     }
 
     [Theory]
-    [InlineData(false)]
-    [InlineData(true)]
-    public async Task InvalidLocalSharedCopyFallsBackToDownloadWithoutTrustingItsName(bool wrongChecksum)
+    [InlineData(false, true)]
+    [InlineData(true, true)]
+    [InlineData(false, false)]
+    [InlineData(true, false)]
+    public async Task InvalidLocalSharedCopyFallsBackToDownloadWithoutTrustingItsName(bool wrongChecksum, bool shared)
     {
         byte[] audio = [.. "ID3"u8, .. new byte[256]];
         var track = Track("shared", "shared.mp3", "https://example.test/audio") with
         {
-            AdditionalWorldIds = ["second"],
+            AdditionalWorldIds = shared ? ["second"] : null,
             Sha1 = Convert.ToHexString(System.Security.Cryptography.SHA1.HashData(audio)).ToLowerInvariant()
         };
         var world = new SleepWorld("second", "Second", "Description", "T", [track]);
@@ -253,6 +255,34 @@ public sealed class SleepWorldDownloaderTests
             Assert.Equal(1, (await new SleepWorldDownloader(client).DownloadAsync(world, root)).DownloadedCount);
             Assert.Equal(1, requests);
             Assert.Equal(audio, await File.ReadAllBytesAsync(Path.Combine(root, world.Id, track.FileName)));
+            Assert.Empty(Directory.EnumerateFiles(root, "*.part", SearchOption.AllDirectories));
+        }
+        finally { if (Directory.Exists(root)) Directory.Delete(root, true); }
+    }
+
+    [Fact]
+    public async Task PromotedSoloCanReuseItsValidatedPreviewFileWhileOffline()
+    {
+        byte[] audio = [.. "ID3"u8, .. new byte[256]];
+        var track = Track("promoted", "promoted.mp3", "https://example.test/audio") with
+        {
+            Sha1 = Convert.ToHexString(System.Security.Cryptography.SHA1.HashData(audio)).ToLowerInvariant(),
+            LicenseReviewStatus = "verified"
+        };
+        var world = new SleepWorld("lullabies", "Lullabies", "Description", "T", [track]);
+        using var client = new HttpClient(new StubHandler(_ => throw new HttpRequestException("Offline")));
+        var root = Path.Combine(Path.GetTempPath(), $"open-sleep-promoted-{Guid.NewGuid():N}");
+        try
+        {
+            Directory.CreateDirectory(Path.Combine(root, "preselection"));
+            await File.WriteAllBytesAsync(Path.Combine(root, "preselection", track.FileName), audio);
+            var result = await new SleepWorldDownloader(client).DownloadAsync(world, root);
+            Assert.Equal(1, result.ExistingCount);
+            Assert.Equal(0, result.DownloadedCount);
+            Assert.Equal(0, result.SkippedCount);
+            await new LocalLibraryManager(new LocalLibraryScanner()).DeleteWorldAsync(root,
+                new SleepWorld("preselection", "Preview", "Description", "T", [track]));
+            Assert.Single(await new LocalLibraryScanner().ScanAsync(root, [world], verifyChecksums: true));
             Assert.Empty(Directory.EnumerateFiles(root, "*.part", SearchOption.AllDirectories));
         }
         finally { if (Directory.Exists(root)) Directory.Delete(root, true); }

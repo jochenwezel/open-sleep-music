@@ -117,7 +117,7 @@ public sealed partial class CatalogUpdateClient(
             throw new InvalidDataException("Media catalog generation timestamp is invalid.");
         if (manifest.SleepWorlds is null || manifest.SleepWorlds.Count is < 1 or > 100)
             throw new InvalidDataException("Media catalog collection count is invalid.");
-        if (!BuildChannel.IsPreview && manifest.SleepWorlds.Any(world => world.Id is "preselection" or "pre-qualify"
+        if (!BuildChannel.IsPreview && manifest.SleepWorlds.Any(world => BuildChannel.IsPreviewOnlyWorld(world.Id)
                 || world.ExternalReferences is { Count: > 0 }))
             throw new InvalidDataException("A stable app cannot load the preview preselection collection.");
 
@@ -131,6 +131,8 @@ public sealed partial class CatalogUpdateClient(
                 || string.IsNullOrWhiteSpace(world.Description) || world.Tracks is null
                 || !worldIds.Add(world.Id))
                 throw new InvalidDataException($"Invalid or duplicate collection '{world?.Id}'.");
+            if (BuildChannel.IsReferenceWorld(world.Id) && world.Tracks.Count != 0)
+                throw new InvalidDataException("External reference lists cannot contain downloadable audio.");
 
             foreach (var track in world.Tracks)
             {
@@ -161,7 +163,7 @@ public sealed partial class CatalogUpdateClient(
             }
             if (world.ExternalReferences is { Count: > 0 } references)
             {
-                if (!BuildChannel.IsPreview || world.Id != "pre-qualify" || references.Count > 1000)
+                if (!BuildChannel.IsPreview || !BuildChannel.IsReferenceWorld(world.Id) || references.Count > 1000)
                     throw new InvalidDataException("External audition references are preview-only.");
                 foreach (var reference in references)
                 {
@@ -170,7 +172,12 @@ public sealed partial class CatalogUpdateClient(
                         || string.IsNullOrWhiteSpace(reference.Creator) || !IsHttps(reference.SourcePageUri)
                         || reference.Instrumentation is not { Count: > 0 }
                         || reference.LicenseReviewStatus is not ("unchecked" or "verified" or "rejected")
-                        || reference.DownloadUri is not null)
+                        || reference.DownloadUri is not null
+                        || world.Id != "pre-qualify-licenses" && !string.IsNullOrWhiteSpace(reference.LicenseHoldReason)
+                        || world.Id != "pre-qualify-licenses" && reference.LicenseReviewStatus == "rejected"
+                        || world.Id == "pre-qualify-licenses"
+                            && (string.IsNullOrWhiteSpace(reference.LicenseHoldReason)
+                                || reference.PromotedWorldIds is { Count: > 0 }))
                         throw new InvalidDataException("Invalid external audition reference.");
                 }
             }

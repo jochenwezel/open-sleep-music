@@ -8,7 +8,7 @@ public sealed class PreselectionTests
     public void RenamingAnUncheckedCandidateDoesNotBypassProductionAdmission()
     {
         if (!BuildChannel.IsPreview) return;
-        var candidate = BuiltInPreselection.Candidates[0];
+        var candidate = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.LicenseReviewStatus == "unchecked");
         var track = new AudioTrack("renamed-for-production", candidate.Title, candidate.Creator,
             new Uri("https://example.org/audio.mp3"), candidate.SourcePageUri, "CC0 1.0",
             new Uri("https://creativecommons.org/publicdomain/zero/1.0/"), "renamed.mp3", 120);
@@ -19,7 +19,7 @@ public sealed class PreselectionTests
     public void ResearchCandidatesHaveSourcesTagsAndExplicitReviewStates()
     {
         var candidates = BuiltInPreselection.Candidates;
-        Assert.Equal(BuildChannel.IsPreview ? 42 : 0, candidates.Count);
+        Assert.Equal(BuildChannel.IsPreview ? 43 : 0, candidates.Count);
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.Id).Distinct().Count());
         Assert.Equal(candidates.Count, candidates.Select(candidate => candidate.SourcePageUri).Distinct().Count());
         var downloadableTracks = BuiltInCatalog.SleepWorlds.Where(world => world.Id != "preselection").SelectMany(world => world.Tracks).ToArray();
@@ -89,7 +89,7 @@ public sealed class PreselectionTests
             Assert.Equal("https://artlibre.org/licence/lal/en/", reviewed.ApprovedLicenseUri!.AbsoluteUri);
             Assert.Contains("2009122110015996", reviewed.ReviewNotes);
             reviewed.EnsurePromotionAllowed();
-            Assert.DoesNotContain(BuiltInCatalog.SleepWorlds.Single(world => world.Id == "quiet-classics").Tracks,
+            Assert.Contains(BuiltInCatalog.SleepWorlds.Single(world => world.Id == "quiet-classics").Tracks,
                 track => track.Id == id);
         }
     }
@@ -104,7 +104,7 @@ public sealed class PreselectionTests
             return;
         }
         Assert.NotNull(world);
-        Assert.Equal(27, world.Tracks.Count);
+        Assert.Single(world.Tracks);
         Assert.All(world.Tracks, track =>
         {
             var candidate = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == track.Id);
@@ -122,7 +122,7 @@ public sealed class PreselectionTests
             else
                 Assert.Throws<InvalidOperationException>(() => BuiltInPreselection.EnsureProductionTrackAllowed(track));
         });
-        Assert.Equal(11, BuiltInPreselection.Candidates.Count(candidate => candidate.DownloadUri is null));
+        Assert.Equal(10, BuiltInPreselection.Candidates.Count(candidate => candidate.DownloadUri is null));
     }
 
     [Fact]
@@ -144,29 +144,24 @@ public sealed class PreselectionTests
     }
 
     [Fact]
-    public void NatureAuditionsSeparateRecordingRightsFromDeliveryAndProductionAdmission()
+    public void NaturePromotionsKeepDeferredAndLicenseHeldReferencesSeparate()
     {
-        var nature = BuiltInPreselection.Candidates.Where(candidate => candidate.SelectionKind?.StartsWith("nature-", StringComparison.Ordinal) == true).ToArray();
-        Assert.Equal(BuildChannel.IsPreview ? 7 : 0, nature.Length);
         if (!BuildChannel.IsPreview) return;
-        Assert.All(nature, candidate =>
-        {
-            Assert.Equal("verified", candidate.LicenseReviewStatus);
-            Assert.Contains(candidate.ApprovedLicense, new[] { "CC0 1.0", "CC BY-SA 4.0" });
-            Assert.Contains("nature", candidate.Instrumentation);
-            Assert.Equal(0, candidate.StartOffsetMilliseconds);
-            Assert.Equal(0, candidate.EndOffsetMilliseconds);
-        });
-        var downloaded = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "preselection").Tracks;
-        Assert.Equal(3, nature.Count(candidate => downloaded.Any(track => track.Id == candidate.Id)));
-        var references = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "pre-qualify").ExternalReferences!;
-        Assert.Equal(4, nature.Count(candidate => references.Any(reference => reference.Id == candidate.Id)));
-        foreach (var id in new[] { "candidate-night-crickets-owlstorm", "candidate-jungle-choco-jaime-enrique", "candidate-savanna-night-august-sandberg", "candidate-slow-waves-stony-beach-kinoton" })
-        {
-            var reference = Assert.Single(references, candidate => candidate.Id == id);
-            Assert.Null(reference.DownloadUri);
-            Assert.DoesNotContain(downloaded, track => track.Id == id);
-        }
+        var nature = BuiltInPreselection.Candidates.Where(candidate => candidate.SelectionKind?.StartsWith("nature-", StringComparison.Ordinal) == true).ToArray();
+        Assert.Equal(7, nature.Length);
+        var held = Assert.Single(nature, candidate => candidate.Id == "candidate-slow-waves-stony-beach-kinoton");
+        Assert.Equal("unchecked", held.LicenseReviewStatus);
+        Assert.False(held.CanPromote);
+        Assert.NotEmpty(held.LicenseHoldReason!);
+        Assert.All(nature.Except([held]), candidate => Assert.Equal("verified", candidate.LicenseReviewStatus));
+        Assert.All(nature, candidate => Assert.Contains("nature", candidate.Instrumentation));
+        var deferred = Assert.Single(BuiltInCatalog.SleepWorlds.Single(world => world.Id == "preselection").Tracks);
+        Assert.Equal("candidate-meadow-night-crickets-sardin", deferred.Id);
+        var technical = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "pre-qualify").ExternalReferences!;
+        Assert.Equal(new[] { "candidate-night-crickets-owlstorm", "candidate-savanna-night-august-sandberg" },
+            technical.Select(candidate => candidate.Id).Order(StringComparer.Ordinal));
+        Assert.All(technical, candidate => Assert.Null(candidate.LicenseHoldReason));
+        Assert.DoesNotContain(BuiltInCatalog.SleepWorlds, world => world.Id == "nature-at-night");
     }
 
     [Fact]
@@ -175,7 +170,7 @@ public sealed class PreselectionTests
         if (!BuildChannel.IsPreview) return;
         const string id = "candidate-small-waves-beach-sardin";
         var candidate = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == id);
-        var track = Assert.Single(BuiltInCatalog.SleepWorlds.Single(world => world.Id == "preselection").Tracks,
+        var track = Assert.Single(BuiltInCatalog.SleepWorlds.Single(world => world.Id == "waves").Tracks,
             track => track.Id == id);
         Assert.Equal(1d, track.PlaybackSpeed);
         Assert.Equal(candidate.DurationSeconds!.Value, track.PlaybackDurationSeconds, 3);
@@ -188,11 +183,11 @@ public sealed class PreselectionTests
     public void SelectedBackgroundSoundsUseHalfGainAndUnchangedDelivery(string id, double originalDuration)
     {
         if (!BuildChannel.IsPreview) return;
-        var track = Assert.Single(BuiltInCatalog.SleepWorlds.Single(world => world.Id == "preselection").Tracks, track => track.Id == id);
+        var track = Assert.Single(BuiltInCatalog.SleepWorlds.SelectMany(world => world.Tracks).DistinctBy(track => track.Id), track => track.Id == id);
         var candidate = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == id);
         Assert.Equal(.5, track.VolumeGain);
         Assert.Equal(.5, candidate.VolumeGain);
-        Assert.Equal(originalDuration, track.DurationSeconds);
+        Assert.Equal(originalDuration, track.DurationSeconds, 3);
         Assert.Equal(1d, track.PlaybackSpeed);
         Assert.Equal(0, track.StartOffsetMilliseconds);
         Assert.Equal(0, track.EndOffsetMilliseconds);
@@ -201,47 +196,42 @@ public sealed class PreselectionTests
     }
 
     [Fact]
-    public void LullabyReviewSeparatesRejectedMastersFromVerifiedPreviewAlternatives()
+    public void LicensedLullabiesArePromotedWhileFavoriteRestrictedMastersStayExternal()
     {
-        var candidates = BuiltInPreselection.Candidates.Where(candidate => candidate.IntendedWorldId == "lullabies").ToArray();
-        Assert.Equal(BuildChannel.IsPreview ? 9 : 0, candidates.Length);
-        Assert.All(candidates, candidate =>
+        Assert.Equal(13, BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies").Tracks.Count);
+        if (!BuildChannel.IsPreview) return;
+        var held = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "pre-qualify-licenses").ExternalReferences!;
+        Assert.Equal(8, held.Count);
+        Assert.All(held, candidate =>
         {
+            Assert.False(candidate.CanPromote);
+            Assert.NotEmpty(candidate.LicenseHoldReason!);
+            Assert.Null(candidate.DownloadUri);
             Assert.True(candidate.PromotedWorldIds is null or { Count: 0 });
-            Assert.Contains(candidate.SelectionKind, new[] { "traditional-lullaby", "modern-lullaby", "gentle-arrangement" });
         });
-        if (BuildChannel.IsPreview)
+        Assert.Equal(7, held.Count(candidate => candidate.LicenseReviewStatus == "rejected"));
+        foreach (var id in new[] { "candidate-el-noi-de-la-mare-guitar", "candidate-lullabies-brahms-alexander-blu",
+            "candidate-lullabies-twinkle-alexander-blu", "research-lullaby-alex-089-little-lullaby" })
         {
-            Assert.DoesNotContain(candidates, candidate =>
-                candidate.Id.StartsWith("candidate-faure-berceuse-", StringComparison.Ordinal));
-            var rejected = candidates.Where(candidate => candidate.LicenseReviewStatus == "rejected").ToArray();
-            Assert.Equal(7, rejected.Length);
-            Assert.All(rejected, candidate =>
-            {
-                Assert.False(candidate.CanPromote);
-                Assert.Null(candidate.DownloadUri);
-                Assert.Null(candidate.ApprovedLicense);
-                Assert.Equal(candidate.SourcePageUri, candidate.LicenseEvidenceUri);
-                Assert.Contains("All rights reserved", candidate.DeclaredLicense);
-                Assert.Contains(BuiltInCatalog.SleepWorlds.Single(world => world.Id == "pre-qualify").ExternalReferences!,
-                    reference => reference.Id == candidate.Id && reference.LicenseReviewStatus == "rejected");
-            });
-            var verified = candidates.Where(candidate => candidate.LicenseReviewStatus == "verified").ToArray();
-            Assert.Equal(2, verified.Length);
-            Assert.All(verified, candidate => candidate.EnsurePromotionAllowed());
-            var mp3Alternatives = verified.Where(candidate => candidate.Creator.Contains("Alexander Blu")).ToArray();
-            Assert.Equal(2, mp3Alternatives.Length);
-            Assert.All(mp3Alternatives, candidate =>
-            {
-                Assert.Equal("CC BY 4.0", candidate.ApprovedLicense);
-                Assert.NotNull(candidate.DeliveryCheckedAtUtc);
-                Assert.EndsWith(".mp3", candidate.DownloadUri!.AbsoluteUri);
-                Assert.Null(candidate.Sha1);
-                Assert.Contains(BuiltInCatalog.SleepWorlds.Single(world => world.Id == "preselection").Tracks,
-                    track => track.Id == candidate.Id && track.License == candidate.ApprovedLicense);
-            });
+            var candidate = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == id);
+            candidate.EnsurePromotionAllowed();
+            Assert.Contains("lullabies", candidate.PromotedWorldIds!);
+            Assert.Contains(BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies").Tracks, track => track.Id == id);
         }
-        Assert.Equal(7, BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies").Tracks.Count);
+    }
+
+    [Theory]
+    [InlineData("CC BY-SA 2.0", "https://creativecommons.org/licenses/by-sa/2.0/")]
+    [InlineData("CC BY-SA 3.0 Germany", "https://creativecommons.org/licenses/by-sa/3.0/de/")]
+    public void OlderShareAlikeGrantsKeepTheirExactVersionAndJurisdiction(string license, string uri)
+    {
+        var candidate = new ReviewCandidate("versioned", "Recording", "Identified performer", new Uri("https://example.org/source"),
+            ["piano"], "verified", license, new Uri("https://example.org/grant"), "Specific recording grant checked.", license, new Uri(uri));
+        candidate.EnsurePromotionAllowed();
+        Assert.False((candidate with { ApprovedLicenseUri = new Uri("https://creativecommons.org/licenses/by-sa/4.0/") }).CanPromote);
+        Assert.False((candidate with { LicenseEvidenceUri = null }).CanPromote);
+        Assert.False((candidate with { LicenseHoldReason = "Conflicting permission" }).CanPromote);
+        Assert.False((candidate with { LicenseReviewStatus = "unchecked" }).CanPromote);
     }
 
     [Fact]

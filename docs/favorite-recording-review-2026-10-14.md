@@ -1,6 +1,6 @@
 # Favorite recording rights and collection proposals
 
-The review covers the 38 favorites in the latest feedback export and Little Lullaby, separately confirmed in chat. Thirty have a recording-specific CC or public-domain grant supported by their source provenance. Two Debussy recordings use Free Art License 1.3, accepted by the maintainer on 14 October and now supported by the production recording-rights guard. Seven Bandcamp recordings retain all rights reserved and cannot enter the freely licensed catalog.
+The initial 14 October review covers the 38 favorites in the latest feedback export and Little Lullaby, separately confirmed in chat. Thirty have a recording-specific CC or public-domain grant supported by their source provenance. Two Debussy recordings use Free Art License 1.3, accepted by the maintainer on 14 October and now supported by the production recording-rights guard. Seven Bandcamp recordings retain all rights reserved and cannot enter the freely licensed catalog.
 
 The proposed split keeps recognizable lullabies in Lullabies for little ones, longer classical movements and adult miniatures in Quiet Classics, and environmental recordings in the appropriate nature collection. Träumerei and Lágrima are proposed for both music collections. Following explicit maintainer feedback, Grieg's Folkevise is proposed for Quiet Classics only. Assignments reflect source instrumentation/context and the maintainer's favorites; full dynamics, endpoints and transitions still need admission checks. No recording is promoted by this proposal.
 
@@ -105,3 +105,27 @@ For [CC BY](https://creativecommons.org/licenses/by/4.0/) and [CC BY-SA](https:/
 Initial-byte probes succeeded for the existing Chopin MP3, both Pachelbel Ogg files, Lágrima's original MP3, both BigSoundBank MP3s and both Alexander Blu MP3s. Several other Wikimedia download requests returned HTTP 429; their earlier delivery metadata is retained, with current revalidation pending. License-page availability and audio-delivery availability are separate findings. The three Freesound originals still require login and have no admitted stable app download. Full decoding, checksum verification where supplied, positive duration, portable unique filenames, vocal/noise absence, peaks, endings and repeat seams remain admission requirements.
 
 The existing Andantino stays in Quiet Classics. After the maintainer's FAL approval, the two Debussy candidate grants and Preview metadata are updated, and the recording-rights guard accepts FAL 1.3. No production membership changes are made. Older application versions retain their existing promotion allowlist; production FAL tracks need an application update before admission.
+
+## Subsequent admission and rights hold, 2026-10-30
+
+The maintainer approves the proposed destinations in existing collections while
+deferring Natur bei Nacht. [The current admission record](../tools/favorite-promotions-2026-10-30.json)
+documents 28 actual promotions and fresh full-file/recording-specific checks.
+The historical proposals and initial limitations above remain as the review history.
+The four Mozart sonatas' 3.0 Germany grant and the flute/harp concerto's 2.0 grant
+now have exact-version support in Core and the generator. Original playback
+settings and source credits remain; no MIDI resynthesis or new mix is created.
+
+Kinoton's item explicitly links author terms that prohibit making raw files
+available to third parties, conflicting with its CC0 label. This supersedes this
+review's initial compatible-grant classification for **Slow Waves, Stony Beach**.
+It is now unchecked and externally referenced in **Pre-Qualify – Nicht verwenden**,
+alongside the seven favorite masters lacking recording redistribution permission.
+Neither the favorite nor the CC0 badge resolves that contradictory evidence.
+This is a provenance hold, not a claim that the project has decided enforceability.
+
+The Chocó recording has an official public full-duration HQ MP3 on the source
+page; exact duration and full decoding are checked. Its original WAV still requires
+login, which is not bypassed. The ordinary Pre-Qualify list retains the deferred
+savanna and unreviewed Australian cricket references. Meadow crickets remain the
+existing 30% Preview background and audition, without a new nature collection.

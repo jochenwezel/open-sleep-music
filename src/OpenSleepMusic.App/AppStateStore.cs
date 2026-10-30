@@ -1,5 +1,6 @@
 using Microsoft.Maui.Storage;
 using OpenSleepMusic.App.Localization;
+using OpenSleepMusic.Core.Catalog;
 
 namespace OpenSleepMusic.App;
 
@@ -117,6 +118,26 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
 
     public bool IsBlocked(string worldId, string trackId) =>
         _preferences.Get(PreferenceKey(BlockedPrefix, worldId, trackId), false);
+
+    public void MigratePreselectionRatings(IEnumerable<SleepWorld> worlds)
+    {
+        foreach (var world in worlds.Where(world => !BuildChannel.IsPreviewOnlyWorld(world.Id)))
+        foreach (var track in world.Tracks)
+        {
+            var favorite = PreferenceKey(FavoritePrefix, world.Id, track.Id);
+            var blocked = PreferenceKey(BlockedPrefix, world.Id, track.Id);
+            if (_preferences.ContainsKey(favorite) || _preferences.ContainsKey(blocked)) continue;
+
+            var sourceFavorite = PreferenceKey(FavoritePrefix, "preselection", track.Id);
+            var sourceBlocked = PreferenceKey(BlockedPrefix, "preselection", track.Id);
+            if (!_preferences.ContainsKey(sourceFavorite) && !_preferences.ContainsKey(sourceBlocked)) continue;
+
+            // Copy once per destination, including explicit false choices. Keep
+            // the source state and never replace a destination's later decision.
+            _preferences.Set(favorite, _preferences.Get(sourceFavorite, false));
+            _preferences.Set(blocked, _preferences.Get(sourceBlocked, false));
+        }
+    }
 
     public bool IsFavoritesOnly(string worldId) =>
         _preferences.Get(FavoritesOnlyPrefix + worldId, false);

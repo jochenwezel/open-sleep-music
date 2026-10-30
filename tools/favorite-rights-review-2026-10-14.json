@@ -1248,7 +1248,13 @@
         "startOffsetMilliseconds": 0,
         "endOffsetMilliseconds": 0
       },
-      "runtimeChange": false
+      "runtimeChange": false,
+      "subsequentReview": {
+        "date": "2026-10-30",
+        "status": "license-held; prior admission clearance superseded",
+        "evidenceUri": "https://freesound.org/people/Kinoton/",
+        "reason": "Item explicitly links author terms prohibiting redistribution of raw files, conflicting with its CC0 label. No production admission until clarified."
+      }
     },
     {
       "id": "research-lullaby-alex-089-little-lullaby",
@@ -1300,5 +1306,6 @@
     "date": "2026-10-14",
     "acceptedRecordingLicense": "Free Art License 1.3",
     "notes": "Maintainer accepts adding FAL 1.3. Full audio and sleep-admission checks still precede production promotion."
-  }
+  },
+  "subsequentAdmissionReview": "tools/favorite-promotions-2026-10-30.json"
 }

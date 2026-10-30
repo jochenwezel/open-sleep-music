@@ -5,26 +5,22 @@ priorities and the continuing history of attempted improvements are maintained
 centrally in [Catalog quality notes](catalog-quality-notes.md), keyed by stable
 catalog track ID. They are separate from recording-rights approval.
 
-The stable catalog contains 138 unique downloadable recordings in six sleep worlds, totaling about 18.39 hours. Three guitar recordings belong to both Quiet Classics and Lullabies for little ones: the resolved collections contain 93 and 7 titles respectively. Preview adds 27 downloadable audition candidates in Preselection and 11 external listening references in the separate Preview pre-qualify collection: 165 unique downloadable Preview tracks in total. Both collection lists are delivered through the runtime catalog. The exact per-file download URL, source page, creator, recording license, duration, instrumentation, ensemble type, file name, and SHA-1 (when supplied upstream) are stored in `src/OpenSleepMusic.Core/Catalog/media-catalog.json`.
+The stable catalog contains 166 unique downloadable recordings in six sleep worlds, totaling about 20.17 hours of original delivered audio. Five recordings belong to both Quiet Classics and Lullabies for little ones: the resolved collections contain 114 and 13 titles respectively. Preview adds one downloadable audition (the deferred meadow crickets), two external sources for further selection, and eight external-only recordings in **Pre-Qualify – Nicht verwenden** because their recording permission is missing or conflicting. Preview therefore has 167 unique downloadable tracks. The exact delivery, source, creator, recording license, instrumentation, duration and optional upstream SHA-1 are retained in the generated catalog.
 
 A composition being in the public domain does **not** automatically make a modern recording public domain. Production currently uses recordings whose authoritative source pages declare compatible free recording licenses. Following the maintainer's policy change on 2026-10-15, a specifically reviewed CC BY-NC 4.0 recording may also be included for noncommercial app use; the first such entry was a Preview audition, subsequently retired after selection of the Aria/YDP Fauré recording. NC audio retains its separate restrictions, independently of the MIT-licensed application. Before monetizing an offering through app/store prices, advertising, paid features, subscriptions, commercial promotion or other commercial use, remove NC recordings from that offering and its associated download/catalog-update delivery, or document separate commercial permission. Free pricing alone is not proof of noncommercial use. This is a release/distribution requirement in `AGENTS.md`, not an implemented commercial-build filter. The catalog deliberately excludes tracks whose names indicate thunder or storms.
 
 ## Collection sources
 
-| Sleep world | Entries | Approx. duration | Source collection | Declared license |
+| Sleep world | Current memberships | Original delivered duration | Source collections and recordings | Declared recording licenses |
 | --- | ---: | ---: | --- | --- |
-| Quiet Classics | 83 | 4.62 h | [Musopen – Complete Works of Frédéric Chopin](https://archive.org/details/musopen-chopin-complete-works-flac) | CC0 1.0 |
-| Quiet Classics | 3 | 10.6 min | [Liszt audio files on Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Audio_files_of_music_by_Franz_Liszt): Consolations 3 and 5, Romance S.169 | CC BY-SA 4.0 |
-| Quiet Classics | 1 | 8.3 min | [Haydn Cello Concerto No. 1 – II. Adagio](https://commons.wikimedia.org/wiki/File:The_Metropolitan_Chamber_Orchestra_-_Haydn%27s_Cello_Concerto_No._1_in_C_major,_Hob.VIIb-1_-_II._Adagio.ogg): Metropolitan Chamber Orchestra | Public Domain Dedication |
-| Quiet Classics | 1 | 2.1 min | [Bach Cello Suite No. 1 – Sarabande](https://commons.wikimedia.org/wiki/File:JOHN_MICHEL_CELLO-J_S_BACH_CELLO_SUITE_1_in_G_Sarabande.ogg): John Michel, cello | CC BY-SA 3.0 |
-| Quiet Classics | 1 | 11.0 min | [Schubert Octet D 803 – II. Adagio](https://commons.wikimedia.org/wiki/File:Franz_Schubert_-_Octet_-_2._Adagio.ogg): Monica Huggett ensemble; Wikipedia Featured Sound | CC BY-SA 2.0 |
-| Gentle Rain / Forest | 12 | 4.99 h | [Relaxing Rain Sounds](https://archive.org/details/relaxingrainsounds) | CC0 1.0 |
-| Rain / Forest / Waves | 4 | 1.66 h | [Nature Sounds (Birds, Rain, Water)](https://archive.org/details/naturesounds-soundtheraphy) | CC0 1.0 |
-| Gentle Rain | 14 | 1.78 h | [Rain Sounds, Gentle Rain, Thunderstorms](https://archive.org/details/rain-sounds-gentle-rain-thunderstorms) (only non-storm selections) | CC0 1.0 |
-| Water & Waves | 9 | 4.25 h | [Ocean and Sea Sounds](https://archive.org/details/ocean-sea-sounds) (only non-storm selections) | CC0 1.0 |
-| Fireplace | 1 | 4 min | [FireFavorite](https://archive.org/details/FireFavorite) / inchadney (Freesound); playback gain 6× compensates for the unusually quiet source without exceeding the player's full-volume ceiling | CC0 1.0 |
-| Water & Waves | 1 | 4.8 min | [Waves by Dsw4](https://commons.wikimedia.org/wiki/File:Waves.ogg) | Public Domain |
-| Lullabies for little ones | 4 | 8.1 min | [Fauré Aria/YDP Berceuse](../music/faure-berceuse-op56-no1/README.md), [Burgmüller YDP/string Berceuse](../music/burgmuller-berceuse-op109-no7/README.md), two [PDSounds music-box recordings](https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock.ogg) | Public Domain / CC BY-SA 3.0 / CC BY 3.0 |
+| Quiet Classics | 114 | 6.77 h | Musopen Chopin release, reviewed Wikimedia performances, IMSLP guitar recordings; exact item credits/links in the catalog and the recording reviews below | CC0, Public Domain Dedication, CC BY, exact CC BY-SA 2.0 / 3.0 / 3.0 Germany / 4.0, Free Art License 1.3 |
+| Lullabies for little ones | 13 | 33.2 min | Published Burgmüller and Fauré adaptations, PDSounds music boxes, reviewed guitar/piano recordings, Alexander Blu, Alex_089 | Public Domain, Public Domain Dedication, CC BY 3.0 / 4.0, CC BY-SA 3.0 / 4.0 |
+| Gentle Rain | 20 | 4.56 h | Selected non-storm Archive recordings from Relaxing Rain Sounds, Nature Sounds and Rain Sounds | CC0 1.0 |
+| Forest | 10 | 3.16 h | Archive forest/rain soundscapes, Serg Childed's night birds/insects, jaime_enrique's Chocó recording | CC0 1.0, CC BY-SA 4.0 |
+| Water & Waves | 13 | 5.33 h | Archive Ocean and Sea Sounds / Nature Sounds, Dsw4, Joseph Sardin | CC0 1.0, Public Domain |
+| Fireplace | 1 | 4.4 min | FireFavorite / inchadney | CC0 1.0 |
+
+Membership totals include the five shared music recordings; unique-download totals count each once. Durations describe delivered files before existing player speed, gain and trim settings.
 
 The figures above reflect the generated catalog and are rounded. The update script fetches Internet Archive metadata, selects the approved files, and records upstream SHA-1 values. Instrument families and ensemble types are explicit catalog metadata so future curation can measure actual timbral diversity instead of inferring it from titles. The retained diversity selections include solo cello, cello with strings, and chamber-orchestra textures; expansion remains deliberately incremental because a nominally slow movement may still contain unsuitable dynamic peaks. The lullaby collection is an explicitly reviewed selection from Wikimedia Commons: each file page identifies the performer, recordist, or artist and the recording license. The two PDSounds files preserve the original record number and recordist in their Commons metadata. Their originals contain an Ogg Skeleton stream before the Vorbis stream, which Android's platform player rejects on some devices; the catalog therefore uses Wikimedia's stable MP3 transcodes of the same recordings. The selected files are instrumental and were checked for calm, uninterrupted playback without speech, advertising, applause, or abrupt high-impact passages. It does not download the audio during catalog generation.
 
@@ -472,3 +468,62 @@ Production catalog size/duration test floors are unchanged.
 The [favorite collection proposal](favorite-recording-review-2026-10-14.md) remains
 the recorded destination plan. This exclusion change does not promote favorites,
 create Natur bei Nacht or waive remaining rights/delivery/admission checks.
+
+## Approved favorite destinations and separate rights holds, 2026-10-30
+
+Following explicit maintainer approval, 28 recordings enter the agreed existing
+collections: 21 new Quiet Classics memberships, six little-ones memberships,
+two Forest recordings and one Water & Waves recording. Träumerei and Lágrima
+are shared once between the two music collections; this is 28 unique recordings,
+not 30 separate files. Little Lullaby by Alex_089 is included from the separately
+confirmed favorite. Grieg's Folkevise enters Quiet Classics only.
+
+[The exact source/recording decisions and full delivery measurements](../tools/favorite-promotions-2026-10-30.json)
+retain recording-specific grants, identified credits, fresh authoritative-page
+checks, complete-file SHA-256, available upstream SHA-1, complete decoding,
+measured loudness/headroom and ending measurements. These measurements supplement
+the maintainer's listening/destination approvals; they are not an invented
+independent listening judgment. Existing gains, speeds and trims remain. Sources
+and declared rights remain separate from the application's MIT license.
+
+The four Bernd Krueger Mozart sonatas keep **CC BY-SA 3.0 Germany**, its exact
+jurisdiction URL and their MIDI/digital recording provenance. The flute/harp
+concerto keeps **CC BY-SA 2.0**. Core and generator now accept those exact grants
+with recording-specific evidence and version/jurisdiction checks; mismatched
+license URLs, unchecked recordings and explicit license holds remain rejected.
+Bruyères and Canope retain the previously accepted FAL 1.3 and Giorgi Latsabidze
+credits, source access and copyleft notices.
+
+Jungle_Choco 01 uses the official source page's public, stable **HQ MP3** URL,
+fully decoded to the original 60.446-second interval. This is an upstream
+transcode, not the login-protected WAV or a temporary streaming-token URL; no
+access controls are bypassed. Encoding provenance is disclosed; no original-WAV
+checksum is assigned to the MP3. Little Lullaby uses the author's supplied MP3.
+Lágrima's previously rounded 126-second duration is replaced by its completely
+decoded 125.52 seconds, without trimming or changing the audio.
+
+**Natur bei Nacht is deferred.** Meadow crickets stay as the one Preview audition
+and as the existing 30% background for the two approved guitar pieces. Savanna
+night and the unrated Australian crickets remain external references in the
+ordinary technical/selection Pre-Qualify list. No new nature sleep world exists.
+
+**Pre-Qualify – Nicht verwenden** is a separate Preview-only source list. It
+contains the seven favorite Wonderful Lullabies / Background Musicians masters
+without a recording redistribution grant, plus Kinoton's Slow Waves, Stony Beach.
+The latter's item declares CC0 but explicitly links author terms prohibiting raw
+file redistribution. Its earlier verified admission classification is superseded
+by an **unchecked, conflicting-permission hold** until clarified; no claim about
+legal enforceability is invented. Every held record has `licenseHoldReason`,
+no audio delivery and no promoted membership. Favorites remain curation judgments,
+not recording permission. Unreviewed future nature choices are not mixed into
+this rights-only list.
+
+The three Preview list IDs are excluded from Stable packaging, runtime updates
+and shared memberships, including empty lists. New source-list validation rejects
+held audio, missing hold reasons and held records put in the ordinary reference
+list. Older app versions reject unsupported new catalog data and retain their
+valid offline fallback; this change requires an updated app. Local ratings copy
+once from Preselection into newly promoted memberships without replacing existing
+choices or deleting the source state. Validated app-owned audio can be reused
+across moved solo collections, with the existing signature/checksum, partial-file,
+symlink and failure-continuation protections.

@@ -1,0 +1,2078 @@
+{
+  "date": "2026-10-30",
+  "status": "maintainer-approved promotions into existing collections only; no new nature collection",
+  "sourceReview": "tools/favorite-rights-review-2026-10-14.json",
+  "approval": "Maintainer approves existing-collection destinations, defers Natur bei Nacht, and requires an external-only do-not-use list for recordings lacking cleared recording rights.",
+  "promotions": [
+    {
+      "id": "candidate-el-noi-de-la-mare-guitar",
+      "title": "El Noi de la Mare",
+      "creator": "Traditional Catalan melody; guitar and recording: Jujutacular",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:El_Noi_de_la_Mare_(guitar).ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:El_Noi_de_la_Mare_(guitar).ogg&oldid=1152313400",
+      "recordingLicense": "CC BY-SA 3.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "instrumentation": [
+        "guitar"
+      ],
+      "provenance": "Own-work upload by Jujutacular; separate recording/performance CC BY-SA grant. The public-domain block applies to the composition.",
+      "proposedWorldIds": [
+        "lullabies"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:El_Noi_de_la_Mare_(guitar).ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "98613f085d428fe553fee539a3c37f58df7a1b9fc8bb4dab57b80329f3a2ade2",
+      "licenseMarkerObserved": "3.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e0/El_Noi_de_la_Mare_%28guitar%29.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/e/e0/El_Noi_de_la_Mare_%28guitar%29.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 3756409,
+      "sha256": "71d69f132846a8470db88554b7a6e6665b8f53675911d0c5264e56cfc6a73b07",
+      "computedSha1": "331640f4330cca46aa482ac7fd5d8bde17ee3102",
+      "upstreamSha1": "331640f4330cca46aa482ac7fd5d8bde17ee3102",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 132.65560090702948,
+      "measuredLoudness": {
+        "input_i": "-21.44",
+        "input_tp": "-0.46",
+        "input_lra": "5.70",
+        "input_thresh": "-32.04",
+        "output_i": "-22.84",
+        "output_tp": "-2.18",
+        "output_lra": "5.70",
+        "output_thresh": "-33.34",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.16"
+      },
+      "first100msRmsDbfs": -52.17830844106046,
+      "last100msRmsDbfs": -46.18256527009467,
+      "lastSecondRmsDbfs": -44.70003400312419,
+      "max100msRmsStepDb": 37.08271529430104,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e0/El_Noi_de_la_Mare_%28guitar%29.ogg",
+        "durationSeconds": 132.656,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Traditional Catalan melody; guitar and recording: Jujutacular",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-pachelbel-canon-in-d-major-p-37-guitar",
+      "title": "Canon in D major, P. 37 — guitar",
+      "creator": "Johann Pachelbel; guitar/arrangement: Aitua",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Pachelbel_-_Canon_in_D_major,_P._37_(Guitar).ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Pachelbel_-_Canon_in_D_major,_P._37_(Guitar).ogg&oldid=710319077",
+      "recordingLicense": "CC BY-SA 4.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "instrumentation": [
+        "guitar"
+      ],
+      "provenance": "Commons identifies the exact Aitua FMA recording and CC BY-SA 4.0; embedded audio metadata also names the artist and license. Direct FMA re-read returned 403.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Pachelbel_-_Canon_in_D_major,_P._37_(Guitar).ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "dbe71dbd0dc0ef1a1a00a59af970085d858f59bd2e70a7bbb35cb6d02d69485a",
+      "licenseMarkerObserved": "4.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pachelbel_-_Canon_in_D_major%2C_P._37_%28Guitar%29.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pachelbel_-_Canon_in_D_major%2C_P._37_%28Guitar%29.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 2264836,
+      "sha256": "a0898ca3ab01f54e4ea7f798adee48ca88fad34dcd2d4d577e65868a050e3ae4",
+      "computedSha1": "0e460d2fff2daf2c434200b589bee292d7c2eabe",
+      "upstreamSha1": "0e460d2fff2daf2c434200b589bee292d7c2eabe",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 201.06448979591838,
+      "measuredLoudness": {
+        "input_i": "-16.72",
+        "input_tp": "-0.02",
+        "input_lra": "6.00",
+        "input_thresh": "-27.09",
+        "output_i": "-22.31",
+        "output_tp": "-4.41",
+        "output_lra": "6.00",
+        "output_thresh": "-32.55",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.69"
+      },
+      "first100msRmsDbfs": -240.0,
+      "last100msRmsDbfs": -240.0,
+      "lastSecondRmsDbfs": -89.60835288077675,
+      "max100msRmsStepDb": 106.7497332519429,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pachelbel_-_Canon_in_D_major%2C_P._37_%28Guitar%29.ogg",
+        "durationSeconds": 201.064,
+        "volumeGain": 1,
+        "playbackSpeed": 0.8
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 0.8,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Johann Pachelbel; guitar/arrangement: Aitua",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-schubert-s-daphne-am-bach-d-411-guitar-bert-alink",
+      "title": "Daphne am Bach, D. 411 — guitar",
+      "creator": "Franz Schubert; arrangement, guitar and recording: Bert Alink",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schubert%27s_Daphne_am_Bach,_D.411_(guitar)_-_Bert_Alink.ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Schubert%27s_Daphne_am_Bach,_D.411_(guitar)_-_Bert_Alink.ogg&oldid=723444584",
+      "recordingLicense": "CC BY 4.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "instrumentation": [
+        "guitar"
+      ],
+      "provenance": "Commons file grant corroborated by performer-uploaded IMSLP recording #683344 and the separately credited Alink arrangement.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Schubert%27s_Daphne_am_Bach,_D.411_(guitar)_-_Bert_Alink.ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "359aed5be37af9cc09d866a272d50c72bb874453f18e6a12dc420b562d689616",
+      "licenseMarkerObserved": "4.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Schubert%27s_Daphne_am_Bach%2C_D.411_%28guitar%29_-_Bert_Alink.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Schubert%27s_Daphne_am_Bach%2C_D.411_%28guitar%29_-_Bert_Alink.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 1249918,
+      "sha256": "4f3182d31564ddeeebe048de7dd96074f53de7e3b075c9644fe4690217198c81",
+      "computedSha1": "df3439838aa9d72a9361709b18f7b0bbf466437f",
+      "upstreamSha1": "df3439838aa9d72a9361709b18f7b0bbf466437f",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 96.98335600907029,
+      "measuredLoudness": {
+        "input_i": "-13.15",
+        "input_tp": "-0.65",
+        "input_lra": "2.90",
+        "input_thresh": "-23.50",
+        "output_i": "-22.93",
+        "output_tp": "-10.40",
+        "output_lra": "2.80",
+        "output_thresh": "-33.15",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.07"
+      },
+      "first100msRmsDbfs": -19.216470861592462,
+      "last100msRmsDbfs": -64.0746214247882,
+      "lastSecondRmsDbfs": -62.725833111676074,
+      "max100msRmsStepDb": 14.74659184506875,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Schubert%27s_Daphne_am_Bach%2C_D.411_%28guitar%29_-_Bert_Alink.ogg",
+        "durationSeconds": 96.983,
+        "volumeGain": 1,
+        "playbackSpeed": 0.85
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 0.85,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Franz Schubert; arrangement, guitar and recording: Bert Alink",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-pachelbel-suite-in-f-sharp-minor-p-439-iv-sarabande-guitar",
+      "title": "Suite P. 439 — IV. Sarabande — guitar",
+      "creator": "Johann Pachelbel; arrangement, guitar and recording: Bert Alink",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Pachelbel_-_Suite_in_F-sharp_minor,_P._439_-_IV._Sarabande_(Guitar).ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Pachelbel_-_Suite_in_F-sharp_minor,_P._439_-_IV._Sarabande_(Guitar).ogg&oldid=710319159",
+      "recordingLicense": "CC BY 4.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "instrumentation": [
+        "guitar"
+      ],
+      "provenance": "Commons and performer-uploaded IMSLP recording #463136 carry the recording-specific CC BY 4.0 grant.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Pachelbel_-_Suite_in_F-sharp_minor,_P._439_-_IV._Sarabande_(Guitar).ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "cae2034cc2367b112b60038ee620cf2ae3f7573987b85400426f5b0d7cc7f1ea",
+      "licenseMarkerObserved": "4.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pachelbel_-_Suite_in_F-sharp_minor%2C_P._439_-_IV._Sarabande_%28Guitar%29.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pachelbel_-_Suite_in_F-sharp_minor%2C_P._439_-_IV._Sarabande_%28Guitar%29.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 822175,
+      "sha256": "633ff12a1c19d5ee03800d5838d198acedf5b41ad56436911d9e668705177ffd",
+      "computedSha1": "d18e8a3d86f000533904e700ab455ee83866da8e",
+      "upstreamSha1": "d18e8a3d86f000533904e700ab455ee83866da8e",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 74.58952380952381,
+      "measuredLoudness": {
+        "input_i": "-19.77",
+        "input_tp": "-5.53",
+        "input_lra": "5.60",
+        "input_thresh": "-30.34",
+        "output_i": "-23.20",
+        "output_tp": "-8.83",
+        "output_lra": "5.20",
+        "output_thresh": "-33.59",
+        "normalization_type": "dynamic",
+        "target_offset": "0.20"
+      },
+      "first100msRmsDbfs": -69.11528231552444,
+      "last100msRmsDbfs": -69.9088747752399,
+      "lastSecondRmsDbfs": -56.06930835346607,
+      "max100msRmsStepDb": 28.070949622319283,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pachelbel_-_Suite_in_F-sharp_minor%2C_P._439_-_IV._Sarabande_%28Guitar%29.ogg",
+        "durationSeconds": 74.589,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Johann Pachelbel; arrangement, guitar and recording: Bert Alink",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-satie-gymnopedie-no-1-performed-by-michael-laucke",
+      "title": "Gymnopédie No. 1 — guitar",
+      "creator": "Erik Satie; arrangement, guitar and recording: Michael Laucke (Mlaucke)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac&oldid=1084734447",
+      "recordingLicense": "CC BY-SA 4.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "instrumentation": [
+        "guitar"
+      ],
+      "provenance": "Own-work performer upload with public VRT permission confirmation 2016052310032124. Recording/arrangement grant is CC BY-SA 4.0; composition PD does not replace it.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "b43a20256ef6412d7214a301bacb2cf531e33467b4d90269d8a1e5345ae3b164",
+      "licenseMarkerObserved": "4.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac",
+        "contentType": "audio/x-flac"
+      },
+      "format": "FLAC",
+      "bytes": 10232304,
+      "sha256": "b284038a8bc0d7c6faf36f430cfbca965da3334f0cd2532560d864b0859c85a0",
+      "computedSha1": "090f87e4f5eea9491188eecf003b62ea2a93a36e",
+      "upstreamSha1": "090f87e4f5eea9491188eecf003b62ea2a93a36e",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 171.91183673469388,
+      "measuredLoudness": {
+        "input_i": "-20.54",
+        "input_tp": "-3.68",
+        "input_lra": "7.00",
+        "input_thresh": "-31.23",
+        "output_i": "-22.78",
+        "output_tp": "-4.98",
+        "output_lra": "6.80",
+        "output_thresh": "-33.39",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.22"
+      },
+      "first100msRmsDbfs": -38.421224681843,
+      "last100msRmsDbfs": -240.0,
+      "lastSecondRmsDbfs": -76.08160382019899,
+      "max100msRmsStepDb": 32.95093127601744,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac",
+        "durationSeconds": 171.912,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Erik Satie; arrangement, guitar and recording: Michael Laucke (Mlaucke)",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-satie-gymnopedie-no-2-performed-by-michael-laucke",
+      "title": "Gymnopédie No. 2 — guitar",
+      "creator": "Erik Satie; arrangement, guitar and recording: Michael Laucke (Mlaucke)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac&oldid=775026689",
+      "recordingLicense": "CC BY-SA 4.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "instrumentation": [
+        "guitar"
+      ],
+      "provenance": "Own-work performer upload with public VRT permission confirmation 2016052310032124. Recording/arrangement grant is CC BY-SA 4.0; composition PD does not replace it.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "7bcfe9a346c43e4822a143a67717779b552c0c26bdcb3385aebbbb03bd77eb54",
+      "licenseMarkerObserved": "4.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac",
+        "contentType": "audio/x-flac"
+      },
+      "format": "FLAC",
+      "bytes": 8136884,
+      "sha256": "8c66ed6c6b811888d9e64549b3356947c2f1663dada0b29e2a74a1b68ab16637",
+      "computedSha1": "6a03288f061dda2e76fe348c71756558fba5cffd",
+      "upstreamSha1": "6a03288f061dda2e76fe348c71756558fba5cffd",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 147.2261224489796,
+      "measuredLoudness": {
+        "input_i": "-21.39",
+        "input_tp": "-3.72",
+        "input_lra": "7.80",
+        "input_thresh": "-32.10",
+        "output_i": "-23.72",
+        "output_tp": "-5.92",
+        "output_lra": "7.50",
+        "output_thresh": "-34.39",
+        "normalization_type": "dynamic",
+        "target_offset": "0.72"
+      },
+      "first100msRmsDbfs": -39.076961357161224,
+      "last100msRmsDbfs": -240.0,
+      "lastSecondRmsDbfs": -240.0,
+      "max100msRmsStepDb": 32.55092350356436,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac",
+        "durationSeconds": 147.226,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Erik Satie; arrangement, guitar and recording: Michael Laucke (Mlaucke)",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-satie-gymnopedie-no-3-performed-by-michael-laucke",
+      "title": "Gymnopédie No. 3 — guitar",
+      "creator": "Erik Satie; arrangement, guitar and recording: Michael Laucke (Mlaucke)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Satie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Satie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac&oldid=921691578",
+      "recordingLicense": "CC BY-SA 4.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "instrumentation": [
+        "guitar"
+      ],
+      "provenance": "Own-work performer upload with public VRT permission confirmation 2016052310032124. Recording/arrangement grant is CC BY-SA 4.0; composition PD does not replace it.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Satie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "9408acce33136f430b6c95f605991795ca32623724bece0df7fa0daa6a7802c9",
+      "licenseMarkerObserved": "4.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/db/Satie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/d/db/Satie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac",
+        "contentType": "audio/x-flac"
+      },
+      "format": "FLAC",
+      "bytes": 6941233,
+      "sha256": "7c2a5de4a9e6dd7b531552723541fcd84abbe545bee929a672cffc3cc5d62e3f",
+      "computedSha1": "8c2b9edde40215a62cd798e621aacd9f27437052",
+      "upstreamSha1": "8c2b9edde40215a62cd798e621aacd9f27437052",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 123.11510204081632,
+      "measuredLoudness": {
+        "input_i": "-21.77",
+        "input_tp": "-3.76",
+        "input_lra": "7.80",
+        "input_thresh": "-32.43",
+        "output_i": "-22.85",
+        "output_tp": "-5.13",
+        "output_lra": "7.80",
+        "output_thresh": "-33.46",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.15"
+      },
+      "first100msRmsDbfs": -44.543934165942986,
+      "last100msRmsDbfs": -240.0,
+      "lastSecondRmsDbfs": -124.95837905423558,
+      "max100msRmsStepDb": 123.66975653367022,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/db/Satie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac",
+        "durationSeconds": 123.115,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Erik Satie; arrangement, guitar and recording: Michael Laucke (Mlaucke)",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-gnossienne-5-satie",
+      "title": "Gnossienne No. 5",
+      "creator": "Erik Satie; piano and recording: La Pianista",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Gnossienne_5_(Satie).ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Gnossienne_5_(Satie).ogg&oldid=1257374498",
+      "recordingLicense": "CC BY-SA 3.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "instrumentation": [
+        "piano"
+      ],
+      "provenance": "Own-work performance with a separate CC BY-SA 3.0 recording grant; GFDL alternative is not selected.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Gnossienne_5_(Satie).ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "ca69ff7635c7f7d9d52c875d30df0fe059e34aa95f9e881b3a67f750039ee3db",
+      "licenseMarkerObserved": "3.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/07/Gnossienne_5_%28Satie%29.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/0/07/Gnossienne_5_%28Satie%29.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 3012321,
+      "sha256": "dcbd1e1db9510bc36efb720221c327453bdfe1fb0180491db1ea998ec6b79e4b",
+      "computedSha1": "9eecd78bb5a2781f2caf874101c202c07c210d61",
+      "upstreamSha1": "9eecd78bb5a2781f2caf874101c202c07c210d61",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 172.27278911564625,
+      "measuredLoudness": {
+        "input_i": "-20.57",
+        "input_tp": "0.09",
+        "input_lra": "15.10",
+        "input_thresh": "-31.44",
+        "output_i": "-24.02",
+        "output_tp": "-2.84",
+        "output_lra": "14.90",
+        "output_thresh": "-34.70",
+        "normalization_type": "dynamic",
+        "target_offset": "1.02"
+      },
+      "first100msRmsDbfs": -41.70254420625086,
+      "last100msRmsDbfs": -42.86808317582687,
+      "lastSecondRmsDbfs": -42.963804382460964,
+      "max100msRmsStepDb": 16.227926312719678,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/07/Gnossienne_5_%28Satie%29.ogg",
+        "durationSeconds": 172.273,
+        "volumeGain": 0.7,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 0.7,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Erik Satie; piano and recording: La Pianista",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-robert-schumann-scenes-from-childhood-op-15-i-of-foreign-lands-and-peoples",
+      "title": "Kinderszenen, Op. 15 — I. Von fremden Ländern und Menschen",
+      "creator": "Robert Schumann; piano: Donald Betts; recording supplied by Musopen",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_i._of_foreign_lands_and_peoples.ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_i._of_foreign_lands_and_peoples.ogg&oldid=1227004629",
+      "recordingLicense": "Public Domain Dedication",
+      "recordingLicenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "instrumentation": [
+        "piano"
+      ],
+      "provenance": "The exact file expressly dedicates the recording worldwide via Musopen, backed by public VRT ticket 2008012110017088; embedded performer metadata identifies Donald Betts. The Public Domain Mark URL identifies status, not a standalone dedication instrument.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_i._of_foreign_lands_and_peoples.ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "284bbc0c5027de1119a3af95a0dd1fdf4e9a0bca5e5108e311ef2b5b0dd5247d",
+      "licenseMarkerObserved": "public domain",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_i._of_foreign_lands_and_peoples.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_i._of_foreign_lands_and_peoples.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 1688427,
+      "sha256": "c8eab1bc240b5ec5cd5c338c2e628c7849775963aa0986d9fa01fc4a6b18d469",
+      "computedSha1": "dec46d15e86ae0214eb67e28241d8b7cdbd9d045",
+      "upstreamSha1": "dec46d15e86ae0214eb67e28241d8b7cdbd9d045",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 111.88244897959184,
+      "measuredLoudness": {
+        "input_i": "-25.36",
+        "input_tp": "-8.81",
+        "input_lra": "6.60",
+        "input_thresh": "-35.67",
+        "output_i": "-23.35",
+        "output_tp": "-6.80",
+        "output_lra": "6.20",
+        "output_thresh": "-33.57",
+        "normalization_type": "dynamic",
+        "target_offset": "0.35"
+      },
+      "first100msRmsDbfs": -240.0,
+      "last100msRmsDbfs": -69.912285483126,
+      "lastSecondRmsDbfs": -59.0669615450235,
+      "max100msRmsStepDb": 140.05195350545034,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_i._of_foreign_lands_and_peoples.ogg",
+        "durationSeconds": 111.882,
+        "volumeGain": 0.9,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 0.9,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Robert Schumann; piano: Donald Betts; recording supplied by Musopen",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming",
+      "title": "Kinderszenen, Op. 15 — VII. Träumerei",
+      "creator": "Robert Schumann; piano: Donald Betts; recording supplied by Musopen",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_vii._dreaming.ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_vii._dreaming.ogg&oldid=1227004716",
+      "recordingLicense": "Public Domain Dedication",
+      "recordingLicenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "instrumentation": [
+        "piano"
+      ],
+      "provenance": "The exact file expressly dedicates the recording worldwide via Musopen, backed by public VRT ticket 2008012110017088; embedded performer metadata identifies Donald Betts. The Public Domain Mark URL identifies status, not a standalone dedication instrument.",
+      "proposedWorldIds": [
+        "quiet-classics",
+        "lullabies"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_vii._dreaming.ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "2b84cfa0fb541384981f5b7e8ba33dfef6d58d244f9493dbde85e7b30f6b03af",
+      "licenseMarkerObserved": "public domain",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/06/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vii._dreaming.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/0/06/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vii._dreaming.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 2892811,
+      "sha256": "bf04d6906d50f399ec62b7cf8650fe0414d684446d6a0ae2053a416d6515deb5",
+      "computedSha1": "435250ff46d4632eb5d6c5f4af9e3b26154406fc",
+      "upstreamSha1": "435250ff46d4632eb5d6c5f4af9e3b26154406fc",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 202.99755102040817,
+      "measuredLoudness": {
+        "input_i": "-29.56",
+        "input_tp": "-12.84",
+        "input_lra": "10.30",
+        "input_thresh": "-40.33",
+        "output_i": "-23.25",
+        "output_tp": "-6.48",
+        "output_lra": "10.30",
+        "output_thresh": "-34.00",
+        "normalization_type": "dynamic",
+        "target_offset": "0.25"
+      },
+      "first100msRmsDbfs": -61.33654368386286,
+      "last100msRmsDbfs": -76.97418168493346,
+      "lastSecondRmsDbfs": -80.22104778544077,
+      "max100msRmsStepDb": 29.254981149515803,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/06/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vii._dreaming.ogg",
+        "durationSeconds": 202.998,
+        "volumeGain": 0.9,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 0.9,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Robert Schumann; piano: Donald Betts; recording supplied by Musopen",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-mozart-piano-sonata-no-10-c-major-ii-andante-cantabile",
+      "title": "Piano Sonata No. 10 — II. Andante cantabile",
+      "creator": "Wolfgang Amadeus Mozart; audio: Bernd Krueger (piano-midi.de)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._10_C_major_-_II._Andante_cantabile.ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Mozart_-_Piano_Sonata_No._10_C_major_-_II._Andante_cantabile.ogg&oldid=1032258751",
+      "recordingLicense": "CC BY-SA 3.0 Germany",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+      "instrumentation": [
+        "piano"
+      ],
+      "provenance": "The exact Commons audio page identifies Bernd Krueger, piano-midi.de and CC BY-SA 3.0 Germany for this file. The current upstream HTTPS copyright page could not be retrieved.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._10_C_major_-_II._Andante_cantabile.ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "1474fbf020a4a430218140de0d56ca69beafdefd47c481ac5c06b0dbe29658f4",
+      "licenseMarkerObserved": "3.0 Germany",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Mozart_-_Piano_Sonata_No._10_C_major_-_II._Andante_cantabile.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Mozart_-_Piano_Sonata_No._10_C_major_-_II._Andante_cantabile.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 7448886,
+      "sha256": "4471cbfadbb279ee81b3b3465da8a3b356bbbc7107e5d2e884e4039cdb4f2d90",
+      "computedSha1": "2481042d97a629193c5379836737eec445346c16",
+      "upstreamSha1": "2481042d97a629193c5379836737eec445346c16",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 395.80734693877554,
+      "measuredLoudness": {
+        "input_i": "-21.87",
+        "input_tp": "-4.44",
+        "input_lra": "7.20",
+        "input_thresh": "-32.11",
+        "output_i": "-23.10",
+        "output_tp": "-5.59",
+        "output_lra": "7.00",
+        "output_thresh": "-33.31",
+        "normalization_type": "dynamic",
+        "target_offset": "0.10"
+      },
+      "first100msRmsDbfs": -94.21996208962655,
+      "last100msRmsDbfs": -94.34151091722869,
+      "lastSecondRmsDbfs": -84.55425173773153,
+      "max100msRmsStepDb": 182.168959997331,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Mozart_-_Piano_Sonata_No._10_C_major_-_II._Andante_cantabile.ogg",
+        "durationSeconds": 395.807,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Wolfgang Amadeus Mozart; MIDI-basierte Klavieraufnahme: Bernd Krueger (piano-midi.de)",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-mozart-piano-sonata-no-13-in-b-flat-major-ii-andante-cantabile",
+      "title": "Piano Sonata No. 13 — II. Andante cantabile",
+      "creator": "Wolfgang Amadeus Mozart; audio: Bernd Krueger (piano-midi.de)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._13_in_B-flat_major_-_II._Andante_cantabile.ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Mozart_-_Piano_Sonata_No._13_in_B-flat_major_-_II._Andante_cantabile.ogg&oldid=1139237784",
+      "recordingLicense": "CC BY-SA 3.0 Germany",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+      "instrumentation": [
+        "piano"
+      ],
+      "provenance": "The exact Commons audio page identifies Bernd Krueger, piano-midi.de and CC BY-SA 3.0 Germany for this file. The current upstream HTTPS copyright page could not be retrieved.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._13_in_B-flat_major_-_II._Andante_cantabile.ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "dccfd2f756d01234a3bd19d774a86b884509c6d7ac84cebd77866e6680042cb9",
+      "licenseMarkerObserved": "3.0 Germany",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Mozart_-_Piano_Sonata_No._13_in_B-flat_major_-_II._Andante_cantabile.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Mozart_-_Piano_Sonata_No._13_in_B-flat_major_-_II._Andante_cantabile.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 9636422,
+      "sha256": "e3c915fd848b71cf6444bc2823a01cd183b4fe19045d341ba2ff36fffb4aa9ea",
+      "computedSha1": "6340d119c013593190e6de50dca633ba37238fa0",
+      "upstreamSha1": "6340d119c013593190e6de50dca633ba37238fa0",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 524.7245351473923,
+      "measuredLoudness": {
+        "input_i": "-20.36",
+        "input_tp": "-5.38",
+        "input_lra": "6.10",
+        "input_thresh": "-30.43",
+        "output_i": "-22.98",
+        "output_tp": "-8.10",
+        "output_lra": "6.10",
+        "output_thresh": "-33.03",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.02"
+      },
+      "first100msRmsDbfs": -22.219872901664942,
+      "last100msRmsDbfs": -94.01106178632776,
+      "lastSecondRmsDbfs": -86.7425327291256,
+      "max100msRmsStepDb": 27.260048171784124,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Mozart_-_Piano_Sonata_No._13_in_B-flat_major_-_II._Andante_cantabile.ogg",
+        "durationSeconds": 524.725,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Wolfgang Amadeus Mozart; MIDI-basierte Klavieraufnahme: Bernd Krueger (piano-midi.de)",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-mozart-piano-sonata-no-16-in-c-major-ii-andante",
+      "title": "Piano Sonata No. 16 — II. Andante",
+      "creator": "Wolfgang Amadeus Mozart; audio: Bernd Krueger (piano-midi.de)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._16_in_C_major_-_II._Andante.ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Mozart_-_Piano_Sonata_No._16_in_C_major_-_II._Andante.ogg&oldid=1032258806",
+      "recordingLicense": "CC BY-SA 3.0 Germany",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+      "instrumentation": [
+        "piano"
+      ],
+      "provenance": "The exact Commons audio page identifies Bernd Krueger, piano-midi.de and CC BY-SA 3.0 Germany for this file. The current upstream HTTPS copyright page could not be retrieved.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._16_in_C_major_-_II._Andante.ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "9c205c82d446df2beaaeac774d092206b9c78e6cb4848f56c61328a2669da524",
+      "licenseMarkerObserved": "3.0 Germany",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Mozart_-_Piano_Sonata_No._16_in_C_major_-_II._Andante.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Mozart_-_Piano_Sonata_No._16_in_C_major_-_II._Andante.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 6329001,
+      "sha256": "b4879452feabe36bcde1c03ffa8eb5b6cf9ab3125121def2b6d0a99c900485ab",
+      "computedSha1": "8da001d8f135d32bbfcacad731232b3cc0a1b0a5",
+      "upstreamSha1": "8da001d8f135d32bbfcacad731232b3cc0a1b0a5",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 346.30240362811793,
+      "measuredLoudness": {
+        "input_i": "-21.69",
+        "input_tp": "-7.29",
+        "input_lra": "2.80",
+        "input_thresh": "-31.78",
+        "output_i": "-22.86",
+        "output_tp": "-8.62",
+        "output_lra": "2.80",
+        "output_thresh": "-32.93",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.14"
+      },
+      "first100msRmsDbfs": -27.12351712588695,
+      "last100msRmsDbfs": -94.24166633166335,
+      "lastSecondRmsDbfs": -80.98791830936403,
+      "max100msRmsStepDb": 51.579743515356604,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Mozart_-_Piano_Sonata_No._16_in_C_major_-_II._Andante.ogg",
+        "durationSeconds": 346.302,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Wolfgang Amadeus Mozart; MIDI-basierte Klavieraufnahme: Bernd Krueger (piano-midi.de)",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-mozart-piano-sonata-no-12-in-f-major-ii-adagio",
+      "title": "Piano Sonata No. 12 — II. Adagio",
+      "creator": "Wolfgang Amadeus Mozart; audio: Bernd Krueger (piano-midi.de)",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._12_in_F_major_-_II._Adagio.ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Mozart_-_Piano_Sonata_No._12_in_F_major_-_II._Adagio.ogg&oldid=1207326702",
+      "recordingLicense": "CC BY-SA 3.0 Germany",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/",
+      "instrumentation": [
+        "piano"
+      ],
+      "provenance": "The exact Commons audio page identifies Bernd Krueger, piano-midi.de and CC BY-SA 3.0 Germany for this file. The current upstream HTTPS copyright page could not be retrieved.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._12_in_F_major_-_II._Adagio.ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "f5c9034b160aaa08b5ccc366176b1a0ffc046861aef6805519b9c7a16b86f90a",
+      "licenseMarkerObserved": "3.0 Germany",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mozart_-_Piano_Sonata_No._12_in_F_major_-_II._Adagio.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mozart_-_Piano_Sonata_No._12_in_F_major_-_II._Adagio.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 5078609,
+      "sha256": "b3757b62763c147aba0eccc285fbf640fa9278b448bd107b581b36ad1962cc32",
+      "computedSha1": "a32db13e34a7b7b5fe5104f8dedce353bfc3abbe",
+      "upstreamSha1": "a32db13e34a7b7b5fe5104f8dedce353bfc3abbe",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 266.8901587301587,
+      "measuredLoudness": {
+        "input_i": "-21.79",
+        "input_tp": "-6.25",
+        "input_lra": "6.00",
+        "input_thresh": "-31.90",
+        "output_i": "-22.36",
+        "output_tp": "-7.23",
+        "output_lra": "5.70",
+        "output_thresh": "-32.44",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.64"
+      },
+      "first100msRmsDbfs": -25.594449776108572,
+      "last100msRmsDbfs": -93.79148990844712,
+      "lastSecondRmsDbfs": -85.49266810060887,
+      "max100msRmsStepDb": 18.79449196766047,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mozart_-_Piano_Sonata_No._12_in_F_major_-_II._Adagio.ogg",
+        "durationSeconds": 266.89,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Wolfgang Amadeus Mozart; MIDI-basierte Klavieraufnahme: Bernd Krueger (piano-midi.de)",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-mozart-concerto-for-flute-and-harp-2-andantino",
+      "title": "Concerto for Flute and Harp, K. 299 — II. Andantino",
+      "creator": "Wolfgang Amadeus Mozart; flute: Alexander Murray; harp: Ann Yeung; Sinfonia da Camera; conductor: Ian Hobson",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Concerto_for_Flute_and_Harp_-_2._Andantino.ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Mozart_-_Concerto_for_Flute_and_Harp_-_2._Andantino.ogg&oldid=1093645504",
+      "recordingLicense": "CC BY-SA 2.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "instrumentation": [
+        "flute",
+        "harp",
+        "orchestra"
+      ],
+      "provenance": "The specific Commons file credits the complete ensemble and traces the recording to the Al Goldstein/Pandora collection under the EFF Open Audio License and CC BY-SA 2.0.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Concerto_for_Flute_and_Harp_-_2._Andantino.ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "92853ae3d9431efbb190b384f357510e9cb98c3eb507d8132a56560b51b05029",
+      "licenseMarkerObserved": "2.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Mozart_-_Concerto_for_Flute_and_Harp_-_2._Andantino.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Mozart_-_Concerto_for_Flute_and_Harp_-_2._Andantino.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 28988135,
+      "sha256": "e3c224db6682ba2329aa8bbfc362887b2f7d68bdb44749ed82d1fb1854891c48",
+      "computedSha1": "8a0d941ead626d54ace85b644cb0e0696c8c691d",
+      "upstreamSha1": "8a0d941ead626d54ace85b644cb0e0696c8c691d",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 579.2533333333333,
+      "measuredLoudness": {
+        "input_i": "-21.19",
+        "input_tp": "-2.97",
+        "input_lra": "12.60",
+        "input_thresh": "-31.85",
+        "output_i": "-22.06",
+        "output_tp": "-3.48",
+        "output_lra": "11.40",
+        "output_thresh": "-32.62",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.94"
+      },
+      "first100msRmsDbfs": -57.48850272520955,
+      "last100msRmsDbfs": -51.246486164742365,
+      "lastSecondRmsDbfs": -52.11504184340858,
+      "max100msRmsStepDb": 22.048038962860257,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Mozart_-_Concerto_for_Flute_and_Harp_-_2._Andantino.ogg",
+        "durationSeconds": 579.253,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "chamber-orchestra",
+      "finalCreator": "Wolfgang Amadeus Mozart; flute: Alexander Murray; harp: Ann Yeung; Sinfonia da Camera; conductor: Ian Hobson",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-debussy-preludes-book-2-v-bruyeres-giorgi-latsabidze",
+      "title": "Préludes, Book II — V. Bruyères",
+      "creator": "Claude Debussy; piano and recording: Giorgi Latsabidze",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Debussy-_Preludes,_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Debussy-_Preludes,_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga&oldid=1030346924",
+      "recordingLicense": "Free Art License 1.3",
+      "recordingLicenseUri": "https://artlibre.org/licence/lal/en/",
+      "instrumentation": [
+        "piano"
+      ],
+      "provenance": "Own-work files with public VRT confirmation 2009122110015996 and an explicit Free Art License grant. This is a free copyleft license, not a non-commercial license.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Debussy-_Preludes,_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "068d0c17aec9c29ca27a71d6b986d9d703ebadcf80f3af2d1d48f9c54a1457ea",
+      "licenseMarkerObserved": "Free Art",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/25/Debussy-_Preludes%2C_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/2/25/Debussy-_Preludes%2C_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 2822878,
+      "sha256": "25ff95c45707e1850a2ed04cbc4b6e7e9458f0f4ff5b94755da30c007088d6d6",
+      "computedSha1": "9115928d266825aeb00bb613f454b43645184fcb",
+      "upstreamSha1": "9115928d266825aeb00bb613f454b43645184fcb",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 139.67238095238096,
+      "measuredLoudness": {
+        "input_i": "-27.94",
+        "input_tp": "-10.47",
+        "input_lra": "11.40",
+        "input_thresh": "-38.47",
+        "output_i": "-23.17",
+        "output_tp": "-5.90",
+        "output_lra": "10.40",
+        "output_thresh": "-33.67",
+        "normalization_type": "dynamic",
+        "target_offset": "0.17"
+      },
+      "first100msRmsDbfs": -68.37990590913194,
+      "last100msRmsDbfs": -44.751740666849,
+      "lastSecondRmsDbfs": -40.55746176264868,
+      "max100msRmsStepDb": 28.5438983760908,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/25/Debussy-_Preludes%2C_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga",
+        "durationSeconds": 139.672,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Claude Debussy; piano and recording: Giorgi Latsabidze",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-debussy-preludes-book-2-x-canope",
+      "title": "Préludes, Book II — X. Canope",
+      "creator": "Claude Debussy; piano and recording: Giorgi Latsabidze",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Debussy-_Preludes,_Book_2-_X._Canope.oga",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Debussy-_Preludes,_Book_2-_X._Canope.oga&oldid=910040686",
+      "recordingLicense": "Free Art License 1.3",
+      "recordingLicenseUri": "https://artlibre.org/licence/lal/en/",
+      "instrumentation": [
+        "piano"
+      ],
+      "provenance": "Own-work files with public VRT confirmation 2009122110015996 and an explicit Free Art License grant. This is a free copyleft license, not a non-commercial license.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Debussy-_Preludes,_Book_2-_X._Canope.oga",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "76de26f8672a4fd88dafe798b825948e6dd70468c73844c1661e026b682c8b77",
+      "licenseMarkerObserved": "Free Art",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Debussy-_Preludes%2C_Book_2-_X._Canope.oga",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Debussy-_Preludes%2C_Book_2-_X._Canope.oga",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 3370137,
+      "sha256": "13af5b44a7364ae4d0d62965300d3c904840d5742ae8f29a892a825ccbcdb723",
+      "computedSha1": "e4e2cafe476274ad31b74764c603b4a233f689f1",
+      "upstreamSha1": "e4e2cafe476274ad31b74764c603b4a233f689f1",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 166.819410430839,
+      "measuredLoudness": {
+        "input_i": "-36.40",
+        "input_tp": "-17.07",
+        "input_lra": "15.40",
+        "input_thresh": "-48.02",
+        "output_i": "-22.74",
+        "output_tp": "-4.32",
+        "output_lra": "14.90",
+        "output_thresh": "-34.31",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.26"
+      },
+      "first100msRmsDbfs": -69.50736524038626,
+      "last100msRmsDbfs": -67.49662616678648,
+      "lastSecondRmsDbfs": -63.19898620946944,
+      "max100msRmsStepDb": 24.986159774194714,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Debussy-_Preludes%2C_Book_2-_X._Canope.oga",
+        "durationSeconds": 166.819,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Claude Debussy; piano and recording: Giorgi Latsabidze",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-claude-debussy-reverie-arr-for-soprano-saxophone-and-piano-david-hernando-vitores",
+      "title": "Rêverie — soprano saxophone and piano",
+      "creator": "Claude Debussy; soprano saxophone/recording: David Hernando Vitores; pianist not identified on the file page",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg&oldid=1044296766",
+      "recordingLicense": "CC BY-SA 4.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "instrumentation": [
+        "saxophone",
+        "piano"
+      ],
+      "provenance": "Recording supplied by David Hernando Vitores through Wikimedia Spain, with public VRT confirmation 2015112110000385 and explicit CC BY-SA 4.0.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "b75d045533bece1aa8f18143a6fec561eb13fe0642c8e4a24d35f147578707c7",
+      "licenseMarkerObserved": "4.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg.mp3",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg.mp3",
+        "contentType": "audio/mpeg"
+      },
+      "format": "MP3",
+      "bytes": 6224226,
+      "sha256": "351345e101460e3888fe440d5f068d6ac922071cb61a115d78f401b6fcfac2b9",
+      "computedSha1": "542fb8210154a98ead2b318a2925a759f7660ad3",
+      "upstreamSha1": null,
+      "upstreamEncodingChange": null,
+      "durationSeconds": 280.7912925170068,
+      "measuredLoudness": {
+        "input_i": "-33.31",
+        "input_tp": "-17.02",
+        "input_lra": "13.20",
+        "input_thresh": "-43.84",
+        "output_i": "-22.02",
+        "output_tp": "-6.59",
+        "output_lra": "12.60",
+        "output_thresh": "-32.56",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.98"
+      },
+      "first100msRmsDbfs": -240.0,
+      "last100msRmsDbfs": -240.0,
+      "lastSecondRmsDbfs": -240.0,
+      "max100msRmsStepDb": 197.19271687131203,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg.mp3",
+        "durationSeconds": 280.764,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "duo",
+      "finalCreator": "Claude Debussy; soprano saxophone/recording: David Hernando Vitores; pianist not identified on the file page",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-grieg-folkevise-op-12-no-5",
+      "title": "Folkevise, Op. 12 No. 5",
+      "creator": "Edvard Grieg; piano and recording: Constantin Stephan",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Grieg,_Folkevise_Op_12_No_5.ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Grieg,_Folkevise_Op_12_No_5.ogg&oldid=1285264394",
+      "recordingLicense": "CC BY-SA 4.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "instrumentation": [
+        "piano"
+      ],
+      "provenance": "Own-work upload with an explicit copyright-holder recording grant; source and caption name Constantin Stephan.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Grieg,_Folkevise_Op_12_No_5.ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "60a6a6c4a816b0092022bc56df4780f28b99c782cf6a2e279393cdb79b6a1f0b",
+      "licenseMarkerObserved": "4.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Grieg%2C_Folkevise_Op_12_No_5.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Grieg%2C_Folkevise_Op_12_No_5.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 2076036,
+      "sha256": "2bf01481969210ee6fb9f005a272f78d4fbe7d56c2e7420cf1855db15caa9026",
+      "computedSha1": "ed4f3404bbd3cedbf8ebc01aa2e539f008169ff7",
+      "upstreamSha1": "ed4f3404bbd3cedbf8ebc01aa2e539f008169ff7",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 117.73387755102041,
+      "measuredLoudness": {
+        "input_i": "-23.29",
+        "input_tp": "-6.09",
+        "input_lra": "9.90",
+        "input_thresh": "-33.89",
+        "output_i": "-23.10",
+        "output_tp": "-5.63",
+        "output_lra": "9.70",
+        "output_thresh": "-33.71",
+        "normalization_type": "dynamic",
+        "target_offset": "0.10"
+      },
+      "first100msRmsDbfs": -110.1281394331672,
+      "last100msRmsDbfs": -104.80114077860024,
+      "lastSecondRmsDbfs": -103.85422200187597,
+      "max100msRmsStepDb": 48.20494315996608,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Grieg%2C_Folkevise_Op_12_No_5.ogg",
+        "durationSeconds": 117.734,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Edvard Grieg; piano and recording: Constantin Stephan",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-mozart-string-quartet-no-19-in-c-major-k465-dissonance-ii-andante-cantabile-musopen-string-quartet",
+      "title": "String Quartet No. 19, K. 465 — II. Andante cantabile",
+      "creator": "Wolfgang Amadeus Mozart; Musopen String Quartet; recording released by Musopen",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_String_Quartet_No._19_in_C_major,_K465_%27Dissonance%27_-_II._Andante_cantabile_(Musopen_String_Quartet).flac",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Mozart_-_String_Quartet_No._19_in_C_major,_K465_%27Dissonance%27_-_II._Andante_cantabile_(Musopen_String_Quartet).flac&oldid=956864894",
+      "recordingLicense": "Public Domain Dedication",
+      "recordingLicenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
+      "instrumentation": [
+        "strings"
+      ],
+      "provenance": "The exact file separates recording rights and dedicates the recording worldwide by Musopen. It identifies the Musopen String Quartet and the MusopenCollectionAsFlac release, not just a portal-wide policy.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_String_Quartet_No._19_in_C_major,_K465_%27Dissonance%27_-_II._Andante_cantabile_(Musopen_String_Quartet).flac",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "f69be9ce82b65bd799f480d3cacb473fce05eb672f5d6c85b725cb6ba44a0903",
+      "licenseMarkerObserved": "public domain",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Mozart_-_String_Quartet_No._19_in_C_major%2C_K465_%27Dissonance%27_-_II._Andante_cantabile_%28Musopen_String_Quartet%29.flac",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Mozart_-_String_Quartet_No._19_in_C_major%2C_K465_%27Dissonance%27_-_II._Andante_cantabile_%28Musopen_String_Quartet%29.flac",
+        "contentType": "audio/x-flac"
+      },
+      "format": "FLAC",
+      "bytes": 72104295,
+      "sha256": "6cad13a5c312515d135b76d8faa85b48fdb737f4f954dafdd93bbc1eefcaf643",
+      "computedSha1": "ea1dc5c099c861c869244c31847f2d073c5333c4",
+      "upstreamSha1": "ea1dc5c099c861c869244c31847f2d073c5333c4",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 461.29133786848075,
+      "measuredLoudness": {
+        "input_i": "-21.18",
+        "input_tp": "-1.86",
+        "input_lra": "12.30",
+        "input_thresh": "-31.61",
+        "output_i": "-22.55",
+        "output_tp": "-3.43",
+        "output_lra": "12.00",
+        "output_thresh": "-32.97",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.45"
+      },
+      "first100msRmsDbfs": -161.26732712421233,
+      "last100msRmsDbfs": -85.04132746569957,
+      "lastSecondRmsDbfs": -78.5976762303237,
+      "max100msRmsStepDb": 57.19966441474244,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Mozart_-_String_Quartet_No._19_in_C_major%2C_K465_%27Dissonance%27_-_II._Andante_cantabile_%28Musopen_String_Quartet%29.flac",
+        "durationSeconds": 461.291,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "quartet",
+      "finalCreator": "Wolfgang Amadeus Mozart; Musopen String Quartet; recording released by Musopen",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-tarrega-lagrima-leon-egea",
+      "title": "Lágrima — 10-string guitar",
+      "creator": "Francisco Tárrega; guitar and recording: Ramón León Egea",
+      "sourcePageUri": "https://imslp.org/wiki/L%C3%A1grima_(T%C3%A1rrega,_Francisco)",
+      "licenseEvidenceUri": "https://imslp.org/wiki/L%C3%A1grima_(T%C3%A1rrega,_Francisco)",
+      "recordingLicense": "CC BY-SA 4.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "instrumentation": [
+        "guitar"
+      ],
+      "provenance": "Performer-uploaded IMSLP recording #964947 explicitly names León Egea and the recording-specific grant, separate from score licenses.",
+      "proposedWorldIds": [
+        "quiet-classics",
+        "lullabies"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://imslp.org/wiki/L%C3%A1grima_%28T%C3%A1rrega%2C_Francisco%29",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "be0930c2fbfd8eb0cd0f61fee58e0b91cd9916d274da7cb9f6439f0191349f80",
+      "licenseMarkerObserved": "4.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://s9.imslp.org/files/imglnks/usimg/1/16/IMSLP964947-PMLP340750-Lágrima_de_Tárrega_en_Guitarra_de_10_Cuerdas_-_Ramón_León_Egea.mp3",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://s9.imslp.org/files/imglnks/usimg/1/16/IMSLP964947-PMLP340750-L%C3%A1grima_de_T%C3%A1rrega_en_Guitarra_de_10_Cuerdas_-_Ram%C3%B3n_Le%C3%B3n_Egea.mp3",
+        "contentType": "audio/mpeg"
+      },
+      "format": "MP3",
+      "bytes": 3539616,
+      "sha256": "1600b9bbf8c1aa7e1d9f2d052d4b51694298e651c72923ea3c41af9fecdafa8f",
+      "computedSha1": "02f2e81737692bf6f3daed91ab0c903cb8c2003e",
+      "upstreamSha1": null,
+      "upstreamEncodingChange": null,
+      "durationSeconds": 125.52,
+      "measuredLoudness": {
+        "input_i": "-15.99",
+        "input_tp": "-0.24",
+        "input_lra": "6.00",
+        "input_thresh": "-26.52",
+        "output_i": "-22.87",
+        "output_tp": "-7.15",
+        "output_lra": "5.70",
+        "output_thresh": "-33.31",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.13"
+      },
+      "first100msRmsDbfs": -240.0,
+      "last100msRmsDbfs": -52.03790796049256,
+      "lastSecondRmsDbfs": -52.64619209172733,
+      "max100msRmsStepDb": 163.61226895764798,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://s9.imslp.org/files/imglnks/usimg/1/16/IMSLP964947-PMLP340750-Lágrima_de_Tárrega_en_Guitarra_de_10_Cuerdas_-_Ramón_León_Egea.mp3",
+        "durationSeconds": 126,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Francisco Tárrega; guitar and recording: Ramón León Egea",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-sor-op-35-no-17-guitar",
+      "title": "Op. 35 No. 17 — guitar",
+      "creator": "Fernando Sor; guitar and recording: Jujutacular",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Sor_Op_35_No._17.ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Sor_Op_35_No._17.ogg&oldid=1270749460",
+      "recordingLicense": "CC BY-SA 3.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "instrumentation": [
+        "guitar"
+      ],
+      "provenance": "Own-work audio upload by Jujutacular with explicit recording grant; GFDL alternative is not selected.",
+      "proposedWorldIds": [
+        "quiet-classics"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Sor_Op_35_No._17.ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "a175a557127d12346566a512040d1ca9d2c9a5f50c4e0bab096e4dd4e512423a",
+      "licenseMarkerObserved": "3.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Sor_Op_35_No._17.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Sor_Op_35_No._17.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 1334534,
+      "sha256": "fadfaf6ba44866d2ebc9e503d2c771e5230956a107b5c4de3200492d2dbd7fa9",
+      "computedSha1": "503af163129c43d46e03d36ff012f819fee8e7f2",
+      "upstreamSha1": "503af163129c43d46e03d36ff012f819fee8e7f2",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 126.31655328798186,
+      "measuredLoudness": {
+        "input_i": "-19.68",
+        "input_tp": "0.19",
+        "input_lra": "6.90",
+        "input_thresh": "-30.03",
+        "output_i": "-23.96",
+        "output_tp": "-3.64",
+        "output_lra": "5.60",
+        "output_thresh": "-34.19",
+        "normalization_type": "dynamic",
+        "target_offset": "0.96"
+      },
+      "first100msRmsDbfs": -55.04587663363506,
+      "last100msRmsDbfs": -78.83871252315332,
+      "lastSecondRmsDbfs": -62.22212497671707,
+      "max100msRmsStepDb": 39.81528586567615,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Sor_Op_35_No._17.ogg",
+        "durationSeconds": 126.317,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Fernando Sor; guitar and recording: Jujutacular",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-small-waves-beach-sardin",
+      "title": "Leise Strandwellen — Small waves and beach #2",
+      "creator": "Joseph Sardin / BigSoundBank",
+      "sourcePageUri": "https://bigsoundbank.com/small-waves-and-beach-2-s1448.html",
+      "licenseEvidenceUri": "https://bigsoundbank.com/small-waves-and-beach-2-s1448.html",
+      "recordingLicense": "CC0 1.0",
+      "recordingLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "instrumentation": [
+        "nature",
+        "waves"
+      ],
+      "provenance": "Item-specific CC0 field recording from ten meters away; credited recordist.",
+      "proposedWorldIds": [
+        "waves"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://bigsoundbank.com/small-waves-and-beach-2-s1448.html",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "6dbd71231f1f912fa2ad18f6569c0b543bccbec41f985d2dc1c2746873c8d9b7",
+      "licenseMarkerObserved": "CC0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://bigsoundbank.com/UPLOAD/mp3/1448.mp3",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://bigsoundbank.com/UPLOAD/mp3/1448.mp3",
+        "contentType": "audio/mpeg"
+      },
+      "format": "MP3",
+      "bytes": 14948388,
+      "sha256": "7c81e051f39db09c009e7ff624e4bbbf3ebe625bef02eeddd3973f97f8f6f014",
+      "computedSha1": "60393acc8c929ccebaeb84553ff3c0b9f3cff8d9",
+      "upstreamSha1": null,
+      "upstreamEncodingChange": null,
+      "durationSeconds": 373.63473922902494,
+      "measuredLoudness": {
+        "input_i": "-16.38",
+        "input_tp": "0.47",
+        "input_lra": "5.70",
+        "input_thresh": "-26.43",
+        "output_i": "-23.18",
+        "output_tp": "-6.44",
+        "output_lra": "5.60",
+        "output_thresh": "-33.23",
+        "normalization_type": "dynamic",
+        "target_offset": "0.18"
+      },
+      "first100msRmsDbfs": -34.782830703655165,
+      "last100msRmsDbfs": -27.55881277504296,
+      "lastSecondRmsDbfs": -27.683442531572872,
+      "max100msRmsStepDb": 5.819529059530211,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://bigsoundbank.com/UPLOAD/mp3/1448.mp3",
+        "durationSeconds": 373.635,
+        "volumeGain": 0.5,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 0.5,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "field-recording",
+      "finalCreator": "Joseph Sardin / BigSoundBank",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-nightingale-wind-crickets-childed",
+      "title": "Nachtigall und Grillen — Nightingale wind crickets",
+      "creator": "Serg Childed",
+      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Nightingale_wind_crickets_-_cut.ogg",
+      "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Nightingale_wind_crickets_-_cut.ogg&oldid=901668831",
+      "recordingLicense": "CC BY-SA 4.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "instrumentation": [
+        "nature",
+        "birds",
+        "crickets",
+        "night"
+      ],
+      "provenance": "Exact file records the author, license and public VRT ticket 2020080210004823; retain the upstream cut disclosure.",
+      "proposedWorldIds": [
+        "forest"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://commons.wikimedia.org/wiki/File:Nightingale_wind_crickets_-_cut.ogg",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "6c9000426c0ffe631808dc7d2602a01e6fe3ce09839761bc9619f0e8f92ddd28",
+      "licenseMarkerObserved": "4.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Nightingale_wind_crickets_-_cut.ogg",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Nightingale_wind_crickets_-_cut.ogg",
+        "contentType": "application/ogg"
+      },
+      "format": "Ogg",
+      "bytes": 20669338,
+      "sha256": "e14086400e5c7b11130dc5150923b2ddead93e9c2f1455b89a5e6fd34d577866",
+      "computedSha1": "a3f012a7bdaa48d690a621218cf0f2d89229a016",
+      "upstreamSha1": "a3f012a7bdaa48d690a621218cf0f2d89229a016",
+      "upstreamEncodingChange": null,
+      "durationSeconds": 627.2406349206349,
+      "measuredLoudness": {
+        "input_i": "-39.41",
+        "input_tp": "-19.60",
+        "input_lra": "7.30",
+        "input_thresh": "-49.67",
+        "output_i": "-22.95",
+        "output_tp": "-3.19",
+        "output_lra": "7.20",
+        "output_thresh": "-33.21",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.05"
+      },
+      "first100msRmsDbfs": -83.68477223173787,
+      "last100msRmsDbfs": -60.237271366618195,
+      "lastSecondRmsDbfs": -55.980263146649094,
+      "max100msRmsStepDb": 22.675692499338503,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Nightingale_wind_crickets_-_cut.ogg",
+        "durationSeconds": 627.241,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "field-recording",
+      "finalCreator": "Serg Childed",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-lullabies-brahms-alexander-blu",
+      "title": "Guten Abend, gut' Nacht — Brahms Lullaby",
+      "creator": "Johannes Brahms; performance/production: Alexander Blu",
+      "sourcePageUri": "https://orangefreesounds.com/brahms-lullaby/",
+      "licenseEvidenceUri": "https://orangefreesounds.com/brahms-lullaby/",
+      "recordingLicense": "CC BY 4.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "instrumentation": [
+        "instrumental"
+      ],
+      "provenance": "Artist-specific item names Alexander Blu and grants CC BY 4.0 including commercial use; publisher About page identifies Blu as the musician behind the site.",
+      "proposedWorldIds": [
+        "lullabies"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://orangefreesounds.com/brahms-lullaby/",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "e9a93548a57b678749178edadce38ff83cae77efc7cffe2611661043682ed576",
+      "licenseMarkerObserved": "4.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/02/Brahms-lullaby.mp3",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/02/Brahms-lullaby.mp3",
+        "contentType": "audio/mpeg"
+      },
+      "format": "MP3",
+      "bytes": 2172133,
+      "sha256": "2163f4b389a185f637207c3b31b7d6348712e2b705863a798fb7f14a1c151aea",
+      "computedSha1": "7fb51063c6bdd78e2e6ec92c4540907cba300d2d",
+      "upstreamSha1": null,
+      "upstreamEncodingChange": null,
+      "durationSeconds": 135.75836734693877,
+      "measuredLoudness": {
+        "input_i": "-18.13",
+        "input_tp": "-2.49",
+        "input_lra": "6.10",
+        "input_thresh": "-28.42",
+        "output_i": "-21.87",
+        "output_tp": "-4.26",
+        "output_lra": "3.80",
+        "output_thresh": "-32.03",
+        "normalization_type": "dynamic",
+        "target_offset": "-1.13"
+      },
+      "first100msRmsDbfs": -240.0,
+      "last100msRmsDbfs": -107.34089976613336,
+      "lastSecondRmsDbfs": -74.74824502023253,
+      "max100msRmsStepDb": 218.1371045795994,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/02/Brahms-lullaby.mp3",
+        "durationSeconds": 135.758,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "instrumental-arrangement",
+      "finalCreator": "Johannes Brahms; performance/production: Alexander Blu",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-lullabies-twinkle-alexander-blu",
+      "title": "Twinkle Twinkle Little Star — piano",
+      "creator": "Traditional melody, Ah! vous dirai-je, maman; performance/production: Alexander Blu",
+      "sourcePageUri": "https://orangefreesounds.com/twinkle-twinkle-little-star-song/",
+      "licenseEvidenceUri": "https://orangefreesounds.com/twinkle-twinkle-little-star-song/",
+      "recordingLicense": "CC BY 4.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "instrumentation": [
+        "piano"
+      ],
+      "provenance": "Specific artist item identifies piano, Alexander Blu and a CC BY 4.0 commercial-use grant; publisher identity corroborates provenance.",
+      "proposedWorldIds": [
+        "lullabies"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://orangefreesounds.com/twinkle-twinkle-little-star-song/",
+        "contentType": "text/html; charset=UTF-8"
+      },
+      "sourcePageSha256": "46edd8bbdaeb2bba8f1c88a7883764bc9367012db8772ca01f5ca39b10c1ba82",
+      "licenseMarkerObserved": "4.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/10/Twinkle-twinkle-little-star-piano.mp3",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/10/Twinkle-twinkle-little-star-piano.mp3",
+        "contentType": "audio/mpeg"
+      },
+      "format": "MP3",
+      "bytes": 2480796,
+      "sha256": "47ebba49be8b7bc776db49c7918b88f0dedfd52f8ccb21e35f6a16e7cb9cbfd6",
+      "computedSha1": "8e83f13cd11428908a024ce5ddd386eea3d75e41",
+      "upstreamSha1": null,
+      "upstreamEncodingChange": null,
+      "durationSeconds": 103.3665306122449,
+      "measuredLoudness": {
+        "input_i": "-17.11",
+        "input_tp": "-2.24",
+        "input_lra": "4.90",
+        "input_thresh": "-27.54",
+        "output_i": "-22.16",
+        "output_tp": "-7.25",
+        "output_lra": "2.70",
+        "output_thresh": "-32.45",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.84"
+      },
+      "first100msRmsDbfs": -77.47425269114083,
+      "last100msRmsDbfs": -65.28477603368633,
+      "lastSecondRmsDbfs": -69.5245395990385,
+      "max100msRmsStepDb": 51.77361703773662,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/10/Twinkle-twinkle-little-star-piano.mp3",
+        "durationSeconds": 103.367,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "solo",
+      "finalCreator": "Traditional melody, Ah! vous dirai-je, maman; performance/production: Alexander Blu",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "candidate-jungle-choco-jaime-enrique",
+      "title": "Dschungelnacht in Kolumbien — Jungle_Choco 01",
+      "creator": "Field recording: jaime_enrique",
+      "sourcePageUri": "https://freesound.org/people/jaime_enrique/sounds/424763/",
+      "licenseEvidenceUri": "https://freesound.org/people/jaime_enrique/sounds/424763/",
+      "recordingLicense": "CC0 1.0",
+      "recordingLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "instrumentation": [
+        "nature",
+        "jungle",
+        "night"
+      ],
+      "provenance": "Exact uploader-owned Freesound field recording in Choco, Colombia, explicitly under CC0.",
+      "proposedWorldIds": [
+        "forest"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://freesound.org/people/jaime_enrique/sounds/424763/",
+        "contentType": "text/html; charset=utf-8"
+      },
+      "sourcePageSha256": "8ceb60432d6f6b8910c7a8122ac6dad53cf4656bbe76b0b178db557fe4ffd69a",
+      "licenseMarkerObserved": "Creative Commons 0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://cdn.freesound.org/previews/424/424763_3158178-hq.mp3",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://cdn.freesound.org/previews/424/424763_3158178-hq.mp3",
+        "contentType": "audio/mpeg"
+      },
+      "format": "MP3",
+      "bytes": 1384516,
+      "sha256": "47018a1747b479aa7607cfc9426ffd117ade4e4057a6f433f6f5d13680b2ff6c",
+      "computedSha1": "994e80fb440e5592a59f1518ef3b517c281fa62a",
+      "upstreamSha1": null,
+      "upstreamEncodingChange": "Source-page-provided public stable HQ MP3 of the same 60.446-second recording; upstream transcode, not original login-protected WAV. No temporary URL/access-control bypass; exact complete duration checked.",
+      "durationSeconds": 60.446666666666665,
+      "measuredLoudness": {
+        "input_i": "-24.94",
+        "input_tp": "-7.18",
+        "input_lra": "6.90",
+        "input_thresh": "-34.94",
+        "output_i": "-22.12",
+        "output_tp": "-6.08",
+        "output_lra": "7.50",
+        "output_thresh": "-32.12",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.88"
+      },
+      "first100msRmsDbfs": -37.86395734317295,
+      "last100msRmsDbfs": -36.86512009695544,
+      "lastSecondRmsDbfs": -37.541225757354404,
+      "max100msRmsStepDb": 5.864237328489693,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": null,
+        "durationSeconds": 60.446,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "field-recording",
+      "finalCreator": "Field recording: jaime_enrique",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    },
+    {
+      "id": "research-lullaby-alex-089-little-lullaby",
+      "title": "Little Lullaby",
+      "creator": "Composition/recording: Alex_089",
+      "sourcePageUri": "https://opengameart.org/content/little-lullaby",
+      "licenseEvidenceUri": "https://opengameart.org/content/little-lullaby",
+      "recordingLicense": "CC BY 4.0",
+      "recordingLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "instrumentation": [
+        "piano",
+        "strings"
+      ],
+      "provenance": "The credited creator account supplies this exact MP3 and WAV on OpenGameArt with a CC BY 4.0 grant; the profile lists this work among its own music.",
+      "proposedWorldIds": [
+        "lullabies"
+      ],
+      "checkedDate": "2026-10-30",
+      "sourcePage": {
+        "status": 200,
+        "finalUri": "https://opengameart.org/content/little-lullaby",
+        "contentType": "text/html; charset=utf-8"
+      },
+      "sourcePageSha256": "610a63950aada163e634749e40f5f71ee60098bda93089e31b75cb0052e6a816",
+      "licenseMarkerObserved": "4.0",
+      "sourceGrantReview": "Recording-specific source grant and provenance retained from the 2026-10-14 review; authoritative source page rechecked for this admission.",
+      "downloadUri": "https://opengameart.org/sites/default/files/little_lullaby_0.mp3",
+      "delivery": {
+        "status": 200,
+        "finalUri": "https://opengameart.org/sites/default/files/little_lullaby_0.mp3",
+        "contentType": "audio/mpeg"
+      },
+      "format": "MP3",
+      "bytes": 4081920,
+      "sha256": "257880dd24bc3416e6d4a00bcb438e1cbe00ddb865a6d5c7fb8c9d9ffd822eb7",
+      "computedSha1": "f723c5910cde235ed3eee3d0c808a82260ec762a",
+      "upstreamSha1": null,
+      "upstreamEncodingChange": null,
+      "durationSeconds": 127.5,
+      "measuredLoudness": {
+        "input_i": "-24.28",
+        "input_tp": "-9.08",
+        "input_lra": "2.10",
+        "input_thresh": "-34.37",
+        "output_i": "-22.97",
+        "output_tp": "-7.44",
+        "output_lra": "2.00",
+        "output_thresh": "-33.01",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.03"
+      },
+      "first100msRmsDbfs": -240.0,
+      "last100msRmsDbfs": -47.8497283184144,
+      "lastSecondRmsDbfs": -45.779369910555815,
+      "max100msRmsStepDb": 207.84722040502447,
+      "oggSkeleton": false,
+      "fullDecode": true,
+      "maintainerListening": "Favorite selection and destination approval; no invented independent full-piece listening approval by the assistant. Technical measurements supplement the maintainer judgment.",
+      "previousPlaybackAndDelivery": {
+        "downloadUri": null,
+        "durationSeconds": null,
+        "volumeGain": 1,
+        "playbackSpeed": 1
+      },
+      "admittedPlayback": {
+        "volumeGain": 1,
+        "playbackSpeed": 1,
+        "startOffsetMilliseconds": 0,
+        "endOffsetMilliseconds": 0
+      },
+      "ensembleType": "piano-with-strings",
+      "finalCreator": "Composition/recording: Alex_089",
+      "admissionDecision": "approved for the specified existing collection(s); maintainer favorite/destination approval plus documented recording grant and full technical checks"
+    }
+  ],
+  "licenseHold": {
+    "worldId": "pre-qualify-licenses",
+    "ids": [
+      "candidate-lullabies-wonderful-guter-mond",
+      "candidate-lullabies-wonderful-brahms-lullaby",
+      "candidate-lullabies-wonderful-mozart-lullaby",
+      "candidate-lullabies-wonderful-noahs-lullaby",
+      "candidate-lullabies-wonderful-claires-lullaby",
+      "candidate-lullabies-wonderful-williams-lullaby",
+      "candidate-lullabies-background-shooting-star",
+      "candidate-slow-waves-stony-beach-kinoton"
+    ],
+    "evidence": [
+      {
+        "sourceUri": "https://freesound.org/people/Kinoton/sounds/635917/",
+        "htmlSha256": "f4213017a533dbfe2e1d93e3de2e6b991c6356e256fb37dd2a52ec97f3f889d1",
+        "reviewDate": "2026-10-30"
+      },
+      {
+        "sourceUri": "https://freesound.org/people/Kinoton/",
+        "htmlSha256": "d0e63fcd2bce2356e49e7f1030fddbc202ba83d0a01a05d4538f7476dcde2b94",
+        "reviewDate": "2026-10-30"
+      }
+    ],
+    "policy": "No audio downloads or production membership; explicit source-specific reason. Historical CC0 badge alone does not resolve conflicting author terms."
+  },
+  "deferred": {
+    "newNatureCollectionCreated": false,
+    "ids": [
+      "candidate-meadow-night-crickets-sardin",
+      "candidate-savanna-night-august-sandberg"
+    ],
+    "unratedReferenceRetained": "candidate-night-crickets-owlstorm"
+  },
+  "validation": {
+    "fullDecodeAll": 28,
+    "originalUpstreamSha1CheckedWhereAvailable": true,
+    "measuredFullFileSha256": true,
+    "existingPlaybackChoicesPreserved": true,
+    "maintainerListeningApprovalSeparateFromMeasurements": true
+  },
+  "rightsBoundary": "Source-declared recording grants and provenance are documented; no independent copyright warranty. Original music, model weights and working audio remain outside tracked files."
+}

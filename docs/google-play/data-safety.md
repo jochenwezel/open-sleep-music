@@ -1,7 +1,7 @@
 # Google Play data safety assessment
 
 This is the submission worksheet for the Stable Android app, based on source
-inspection on 29 October 2026. It contains provisional classifications, not a
+inspection through 30 October 2026. It contains provisional classifications, not a
 submitted Data safety declaration. Do not select "no data collected" solely
 because the project has no analytics SDK.
 
@@ -19,8 +19,8 @@ because the project has no analytics SDK.
 
 The first-party HTTP client sends a generic application User-Agent; it is not an
 installation identifier. The inspected built-in production audio hosts are
-`archive.org`, `commons.wikimedia.org`, `upload.wikimedia.org`, `ks15.imslp.org`
-and `raw.githubusercontent.com`. Catalog/artwork assets also use `github.com`.
+`archive.org`, `commons.wikimedia.org`, `upload.wikimedia.org`, `ks15.imslp.org`,
+`raw.githubusercontent.com`, `opengameart.org` and `cdn.freesound.org`. Catalog/artwork assets also use `github.com`.
 Redirects and later catalog updates can add serving hosts. This list describes
 endpoints, not verified legal entities or contracted processors.
 

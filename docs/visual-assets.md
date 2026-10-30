@@ -10,7 +10,7 @@ The mutable [artwork-catalog release](https://github.com/jochenwezel/open-sleep-
 
 Shared tracks may carry `collectionArtwork`, a dictionary keyed by collection ID. Each value supplies a complete background layer, an optional title motif and an optional fallback motif; every present layer requires an HTTPS URI, portable PNG filename and SHA-256 checksum. The collection must be one of the track's memberships. The player's active collection and the collection download select these layers after resolving the remote manifest. Other collections use the canonical track's default layers. Audio IDs, recording metadata and downloads remain shared. Cached manifests retain these assignments offline; older manifests without collection metadata cannot overwrite embedded collection assignments. Older app versions ignore the new dictionary and use the default layers; using the distinct child motifs requires an app update with collection-artwork support.
 
-All seven current toddler lullabies and all eight forest tracks have separately published song motifs. Forest motifs follow the recording context: tropical-rainforest titles use tropical vegetation and animals, never the temperate fox, conifers, or fly agarics from the earlier concept. Collections without a reviewed title motif display their own collection fallback instead. Only `sleepy_lamb_star.png` is packaged; it remains the guaranteed emergency fallback when no downloaded artwork layer is available.
+The original seven toddler lullabies and eight original forest tracks have separately published song motifs. Forest motifs follow the recording context: tropical-rainforest titles use tropical vegetation and animals, never the temperate fox, conifers, or fly agarics from the earlier concept. Collections without a reviewed title motif display their own collection fallback instead. Only `sleepy_lamb_star.png` is packaged; it remains the guaranteed emergency fallback when no downloaded artwork layer is available.
 
 The animated collection color transitions over 15 seconds per phase and remains visible through the transparent ambient overlay. Landscape ambient overlays are rotated by 90 degrees in portrait mode and always preserve their aspect ratio; this keeps circular particles round while covering the complete player surface. The fireplace overlay keeps its subtle three-second opacity crossfade. A visible song motif is centered in the free stage between the title and playback controls and drifts vertically by only six device-independent pixels over 12 seconds. It uses the full available stage width or height while preserving its aspect ratio. Animation callbacks run at 20 frames per second to limit battery and rendering load, and all ambient animation is stopped with the page and disabled when **Reduce motion** is enabled. Motifs use a strong silhouette, no flashes, and no rapid movement. New artwork should remain readable at phone size in portrait and landscape, use transparent backgrounds, avoid text, and document its source and license here.
 
@@ -30,3 +30,15 @@ Four title-related watercolor options were generated for this project using the 
 After reviewing the generated options on 2026-10-08, the maintainer selected A for Romanza, Alhambra and Julia Florida. The selected PNGs are published in [artwork-v4](https://github.com/jochenwezel/open-sleep-music/releases/tag/artwork-v4), assigned by the catalog generator and included in the mutable artwork manifest. They are assigned only to Lullabies for little ones through `collectionArtwork.lullabies`, alongside that collection's background and fallback layers. Quiet Classics retains its existing collection fallback until separate title motifs are selected. Original PNG bytes and checksums are preserved. No audio files or packaged image resources are changed.
 
 Julia B (the duckling in a flower-decorated boat) is retained as an unassigned design option for a possible future song. The maintainer found it unsuitable for Julia Florida; it is not published or included in either runtime catalog or artwork manifest.
+
+## Favorite promotions, 2026-10-30
+
+The promoted little-ones recordings use the existing transparent collection
+fallback (sleeping young rabbit holding a star) until separate title motifs are
+selected. No collection fallback is assigned as a song motif. Shared Träumerei
+and Lágrima receive explicit child-collection background/fallback layers while
+retaining the adult collection's layers. Existing selected guitar motifs remain.
+Jungle_Choco 01 reuses the existing tropical `forest_rainforest_2.png` motif;
+no temperate forest motif is assigned to this rainforest recording. The existing
+PNG bytes, project provenance and MIT artwork terms remain; no new image was
+generated. The artwork manifest is regenerated for the promoted memberships.

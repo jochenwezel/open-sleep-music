@@ -10,7 +10,7 @@ public sealed class SharedCatalogTests
         var world = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies");
         Assert.NotNull(world.TrackOrder);
         Assert.Equal(world.Tracks.Select(track => track.Id), world.TrackOrder);
-        Assert.Equal(7, world.TrackOrder.Count);
+        Assert.Equal(13, world.TrackOrder.Count);
         var titles = world.Tracks.Select(track => track.Title).ToArray();
         Assert.False(titles.SequenceEqual(titles.Order(StringComparer.OrdinalIgnoreCase)));
 
@@ -51,6 +51,22 @@ public sealed class SharedCatalogTests
         Assert.Equal(canonical.Length, canonical.Select(entry => entry.GetProperty("id").GetString()).Distinct().Count());
         Assert.Equal(canonical.Length, canonical.Select(entry => entry.GetProperty("fileName").GetString()).Distinct(StringComparer.OrdinalIgnoreCase).Count());
         Assert.Equal(canonical.Length, canonical.Select(entry => entry.GetProperty("downloadUri").GetString()).Distinct().Count());
+    }
+
+    [Theory]
+    [InlineData("candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming")]
+    [InlineData("candidate-tarrega-lagrima-leon-egea")]
+    public void NewSharedFavoritesKeepOneRecordingWithSeparateChildArtwork(string id)
+    {
+        var adults = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "quiet-classics");
+        var children = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies");
+        var recording = Assert.Single(adults.Tracks, track => track.Id == id);
+        Assert.Same(recording, Assert.Single(children.Tracks, track => track.Id == id));
+        var child = recording.CollectionArtwork!["lullabies"];
+        Assert.Equal("background_lullabies_v3.png", child.ArtworkFileName);
+        Assert.Equal("fallback_lullabies.png", child.FallbackMotifFileName);
+        Assert.NotEqual(recording.ArtworkFileName, child.ArtworkFileName);
+        Assert.Equal("verified", recording.LicenseReviewStatus);
     }
 
     [Fact]

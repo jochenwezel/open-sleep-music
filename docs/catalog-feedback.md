@@ -39,4 +39,15 @@ If a central endpoint is introduced later, retain explicit consent and the same 
 
 ## Preselection ratings
 
-Favorites and blocks from source-page audition candidates are exported with world ID preselection and the stable candidate ID. These candidates are outside the downloadable catalog; catalogTrackCount continues to count only downloadable tracks. License review state is kept in tools/preselection-candidates.json, separately from personal ratings. Favoriting a candidate does not approve its recording rights or promote it into a production collection.
+Downloadable Preview auditions use world ID `preselection`. External references
+retain their actual list ID (`pre-qualify` for further selection/technical work,
+`pre-qualify-licenses` for missing or conflicting recording permission) in feedback.
+Both reference lists store personal choices locally under the existing Preselection
+rating keys, so moving a source between lists does not lose its favorite/block.
+`catalogTrackCount` counts unique downloadable recordings, not external references.
+
+When a recording moves into a production collection, existing local Preselection
+choices copy once into each new membership. Existing destination choices, including
+explicit false choices, take precedence; source choices are retained. This is
+local preference migration, with no automatic feedback transmission or identifier.
+Favorites never approve recording rights. Raw reports/comments remain outside Git.

@@ -239,6 +239,9 @@ foreach ($track in $worlds.lullabies.tracks) {
 # header-checked delivery metadata may be materialized as a downloadable track.
 $candidateManifest = Get-Content (Join-Path $PSScriptRoot 'preselection-candidates.json') -Raw | ConvertFrom-Json
 foreach ($candidate in $candidateManifest.candidates) {
+    if ($candidate.licenseHoldReason -and ($candidate.downloadUri -or $candidate.promotedWorldIds)) {
+        throw "License-held candidate cannot have app audio or production membership: $($candidate.id)"
+    }
     if (!$candidate.downloadUri) { continue }
     $volumeGain = if ($null -ne $candidate.volumeGain) { [double]$candidate.volumeGain } else { 1.0 }
     $playbackSpeed = if ($null -ne $candidate.playbackSpeed) { [double]$candidate.playbackSpeed } else { 1.0 }
@@ -274,10 +277,10 @@ foreach ($candidate in $candidateManifest.candidates) {
         $destinations = @($candidate.promotedWorldIds)
         if ($candidate.licenseReviewStatus -ne 'verified' -or
             @($destinations | Sort-Object -Unique).Count -ne $destinations.Count -or
-            @($destinations | Where-Object { !$worlds.Contains($_) -or $_ -in @('preselection', 'pre-qualify') }).Count) {
+            @($destinations | Where-Object { !$worlds.Contains($_) -or $_ -in @('preselection', 'pre-qualify', 'pre-qualify-licenses') }).Count) {
             throw "Invalid promotion destinations or recording review: $($candidate.id)"
         }
-        $auditionTrack.ensembleType = 'solo'
+        $auditionTrack.ensembleType = if ($candidate.ensembleType) { $candidate.ensembleType } else { 'solo' }
         $auditionTrack.additionalWorldIds = @($destinations | Select-Object -Skip 1)
         $worlds[$destinations[0]].tracks.Add($auditionTrack)
     } else {
@@ -314,6 +317,7 @@ $forestArtwork = @{
     'relaxingrainsounds-rainforest-part-2-mp3' = @{ file = 'forest_rainforest_2.png'; sha256 = 'f8d54346e253688484bb8aa08554baa25758c52469e68967c20a168fd520433b' }
     'relaxingrainsounds-tropical-rain-mp3' = @{ file = 'forest_tropical_rain.png'; sha256 = 'bc651f9b18aae7bdf0836fc8b1c49253c133a613843581a70f6d5c47284a65cf' }
     'naturesounds-soundtheraphy-relaxing-nature-sounds-birdsong-sound-mp3' = @{ file = 'forest_birdsong.png'; sha256 = 'f1a6a78271a643c763fe98506ef2d7ceebe2e0b1bb8b7617baf7eb5923ebabaa' }
+    'candidate-jungle-choco-jaime-enrique' = @{ file = 'forest_rainforest_2.png'; sha256 = 'f8d54346e253688484bb8aa08554baa25758c52469e68967c20a168fd520433b' }
 }
 $lullabyArtwork = @{
     'faure-berceuse-op-56-no-1' = @{ file = 'motif_lullaby_sleepy_child.png'; sha256 = '19b304a437287e6ce4cfab313225237bd2623438777cf905f311a0c27cf5aa55' }
@@ -349,6 +353,20 @@ foreach ($worldEntry in $worlds.GetEnumerator()) {
             $track['songMotifUri'] = "$legacyArtworkReleaseBase/$($songMotif.file)"
             $track['songMotifFileName'] = $songMotif.file
             $track['songMotifSha256'] = $songMotif.sha256
+        }
+        # Shared recordings use distinct child layers, with the existing sleeping
+        # young-animal fallback until a title-specific child motif is selected.
+        if ($track.additionalWorldIds -contains 'lullabies') {
+            $track['collectionArtwork'] = [ordered]@{
+                lullabies = [ordered]@{
+                    artworkUri = "$backgroundArtworkReleaseBase/$($artwork.lullabies.file)"
+                    artworkFileName = $artwork.lullabies.file
+                    artworkSha256 = $artwork.lullabies.sha256
+                    fallbackMotifUri = "$artworkReleaseBase/$($fallbackArtwork.lullabies.file)"
+                    fallbackMotifFileName = $fallbackArtwork.lullabies.file
+                    fallbackMotifSha256 = $fallbackArtwork.lullabies.sha256
+                }
+            }
         }
         # Child-centered guitar motifs belong only to the little-ones collection.
         if ($guitarLullabyArtwork.ContainsKey($track.id)) {
@@ -425,10 +443,17 @@ function Assert-ReviewedCatalogTrack($track) {
         !$candidate.licenseEvidenceUri -or ([Uri]$candidate.licenseEvidenceUri).Scheme -ne 'https' -or
         [string]::IsNullOrWhiteSpace($candidate.creator) -or
         [string]::IsNullOrWhiteSpace($candidate.declaredLicense) -or
-        $candidate.approvedLicense -notin @('CC0 1.0', 'CC BY 3.0', 'CC BY 4.0', 'CC BY-SA 3.0', 'CC BY-SA 4.0', 'Public Domain', 'Public Domain Dedication', 'Free Art License 1.3', 'CC BY-NC 4.0') -or
+        $candidate.licenseHoldReason -or
+        $candidate.approvedLicense -notin @('CC0 1.0', 'CC BY 3.0', 'CC BY 4.0', 'CC BY-SA 2.0', 'CC BY-SA 3.0', 'CC BY-SA 3.0 Germany', 'CC BY-SA 4.0', 'Public Domain', 'Public Domain Dedication', 'Free Art License 1.3', 'CC BY-NC 4.0') -or
         !$candidate.approvedLicenseUri -or ([Uri]$candidate.approvedLicenseUri).Scheme -ne 'https' -or
         [string]::IsNullOrWhiteSpace($candidate.reviewNotes))) {
         throw "Candidate '$($track.id)' cannot enter the production catalog without a documented recording-rights review."
+    }
+    if ($candidate -and (($candidate.approvedLicense -eq 'CC BY-SA 2.0' -and
+            $candidate.approvedLicenseUri -ne 'https://creativecommons.org/licenses/by-sa/2.0/') -or
+        ($candidate.approvedLicense -eq 'CC BY-SA 3.0 Germany' -and
+            $candidate.approvedLicenseUri -ne 'https://creativecommons.org/licenses/by-sa/3.0/de/'))) {
+        throw "Candidate '$($track.id)' must retain its exact recording-license version and jurisdiction."
     }
     if ($candidate -and ($track.license -ne $candidate.approvedLicense -or
         [Uri]$track.licenseUri -ne [Uri]$candidate.approvedLicenseUri)) {
@@ -500,10 +525,17 @@ $candidateOutputPath = Join-Path (Split-Path $OutputPath) 'preselection-candidat
 $manifestWorlds = @($manifestWorlds) + @([ordered]@{
     id = 'pre-qualify'
     name = 'Vorschau pre-qualify'
-    description = 'Externe Quellen zum Probehören. Lizenz und Schlaf-Eignung noch ungeprüft. Nur in Preview-Versionen.'
+    description = 'Externe Quellen für weitere Auswahl oder technische Prüfung. Lizenzstand siehe jeweiliger Titel. Nur in Preview-Versionen.'
     icon = '🔎'
     tracks = @()
-    externalReferences = @($candidateManifest.candidates | Where-Object { !$_.downloadUri })
+    externalReferences = @($candidateManifest.candidates | Where-Object { !$_.downloadUri -and !$_.licenseHoldReason -and !$_.promotedWorldIds })
+}, [ordered]@{
+    id = 'pre-qualify-licenses'
+    name = 'Pre-Qualify – Nicht verwenden'
+    description = 'Gute Hörkandidaten ohne geklärte Aufnahmefreigabe. Nicht verwenden: nur Quellenverweise, keine Audio-Downloads. Nur in Preview-Versionen.'
+    icon = '🔒'
+    tracks = @()
+    externalReferences = @($candidateManifest.candidates | Where-Object { $_.licenseHoldReason })
 })
 $manifest.sleepWorlds = @($manifestWorlds)
 
@@ -514,7 +546,7 @@ $json = $manifest | ConvertTo-Json -Depth 8
 $productionManifest = [ordered]@{
     schemaVersion = $manifest.schemaVersion
     generatedAtUtc = $manifest.generatedAtUtc
-    sleepWorlds = @($manifestWorlds | Where-Object { $_.id -notin @('preselection', 'pre-qualify') })
+    sleepWorlds = @($manifestWorlds | Where-Object { $_.id -notin @('preselection', 'pre-qualify', 'pre-qualify-licenses') })
 }
 # Clone before removing audition assignments so Preview retains its pairings.
 $productionManifest = $productionManifest | ConvertTo-Json -Depth 8 | ConvertFrom-Json -AsHashtable -DateKind String

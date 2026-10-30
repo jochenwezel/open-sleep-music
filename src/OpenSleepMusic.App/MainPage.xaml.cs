@@ -617,6 +617,7 @@ public partial class MainPage : ContentPage
             new CatalogSnapshot(BuiltInCatalog.GeneratedAtUtc, BuiltInCatalog.SleepWorlds),
             Path.Combine(FileSystem.AppDataDirectory, "catalog", BuildChannel.IsPreview ? "preview" : "stable"));
         _catalogWorlds = snapshot.SleepWorlds;
+        _stateStore.MigratePreselectionRatings(_catalogWorlds);
         _worldCards = _catalogWorlds.Select(world => new SleepWorldCard(world)).ToArray();
         WorldsView.ItemsSource = _worldCards;
         _selectedWorldCard = _worldCards.FirstOrDefault(card => card.World.Id == selectedWorldId);
@@ -1511,12 +1512,12 @@ public partial class MainPage : ContentPage
                     ? []
                     : new[] { new CatalogFeedbackEntry(item.World.Id, item.World.Name, item.Track.Id, item.Track.Title, state) };
             })
-            .Concat(_catalogWorlds.SelectMany(world => world.ExternalReferences ?? []).SelectMany(candidate =>
+            .Concat(_catalogWorlds.SelectMany(world => (world.ExternalReferences ?? []).SelectMany(candidate =>
             {
                 var state = _stateStore.IsBlocked("preselection", candidate.Id) ? "blocked"
                     : _stateStore.IsFavorite("preselection", candidate.Id) ? "favorite" : null;
-                return state is null ? [] : new[] { new CatalogFeedbackEntry("pre-qualify", "Vorschau pre-qualify", candidate.Id, candidate.Title, state) };
-            }))
+                return state is null ? [] : new[] { new CatalogFeedbackEntry(world.Id, world.Name, candidate.Id, candidate.Title, state) };
+            })))
             .ToArray();
 
         if (ratings.Length == 0 && string.IsNullOrWhiteSpace(comment))

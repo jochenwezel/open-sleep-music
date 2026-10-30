@@ -122,14 +122,18 @@ public sealed class CatalogUpdateClientTests
     }
 
     [Theory]
-    [InlineData("https://example.test/source", true)]
-    [InlineData("http://example.test/source", false)]
-    public async Task ExternalReferencesLoadOnlyInPreviewWithSecureSource(string source, bool valid)
+    [InlineData("pre-qualify", "https://example.test/source", null, true)]
+    [InlineData("pre-qualify", "http://example.test/source", null, false)]
+    [InlineData("pre-qualify-licenses", "https://example.test/source", "Missing recording permission", true)]
+    [InlineData("pre-qualify-licenses", "http://example.test/source", "Missing recording permission", false)]
+    [InlineData("pre-qualify-licenses", "https://example.test/source", null, false)]
+    [InlineData("pre-qualify", "https://example.test/source", "Missing recording permission", false)]
+    public async Task ExternalReferencesLoadOnlyInPreviewWithSecureSource(string worldId, string source, string? holdReason, bool valid)
     {
         var root = TemporaryRoot();
         try
         {
-            var json = System.Text.Json.Nodes.JsonNode.Parse(CatalogJson("pre-qualify"))!;
+            var json = System.Text.Json.Nodes.JsonNode.Parse(CatalogJson(worldId))!;
             var world = json["sleepWorlds"]![0]!;
             world["tracks"] = new System.Text.Json.Nodes.JsonArray();
             world["externalReferences"] = System.Text.Json.Nodes.JsonNode.Parse($$"""
@@ -138,12 +142,30 @@ public sealed class CatalogUpdateClientTests
                   "licenseReviewStatus":"unchecked","declaredLicense":"Unknown",
                   "reviewNotes":"Pending review"}]
                 """);
+            if (holdReason is not null) world["externalReferences"]![0]!["licenseHoldReason"] = holdReason;
             using var client = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.OK, json.ToJsonString())));
             var result = await new CatalogUpdateClient(client, CatalogUri).ResolveAsync(
                 Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero)), root);
-            Assert.Equal(BuildChannel.IsPreview && valid ? "pre-qualify" : "embedded", Assert.Single(result.SleepWorlds).Id);
+            Assert.Equal(BuildChannel.IsPreview && valid ? worldId : "embedded", Assert.Single(result.SleepWorlds).Id);
             if (BuildChannel.IsPreview && valid)
                 Assert.Equal(source, Assert.Single(result.SleepWorlds[0].ExternalReferences!).SourcePageUri.AbsoluteUri);
+        }
+        finally { Directory.Delete(root, true); }
+    }
+
+    [Theory]
+    [InlineData("pre-qualify")]
+    [InlineData("pre-qualify-licenses")]
+    public async Task ReferenceListsCannotContainDownloadableAudio(string worldId)
+    {
+        var root = TemporaryRoot();
+        try
+        {
+            using var client = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.OK, CatalogJson(worldId))));
+            var result = await new CatalogUpdateClient(client, CatalogUri).ResolveAsync(
+                Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero)), root);
+            Assert.Equal("embedded", Assert.Single(result.SleepWorlds).Id);
+            Assert.False(File.Exists(Path.Combine(root, "media-catalog.json")));
         }
         finally { Directory.Delete(root, true); }
     }
@@ -274,6 +296,7 @@ public sealed class CatalogUpdateClientTests
     [InlineData("other,other")]
     [InlineData("preselection")]
     [InlineData("pre-qualify")]
+    [InlineData("pre-qualify-licenses")]
     public async Task InvalidSharedMembershipKeepsThePreviousCatalog(string targets)
     {
         var root = TemporaryRoot();
@@ -371,7 +394,7 @@ public sealed class CatalogUpdateClientTests
         worlds[0]!["tracks"]![0]!["additionalWorldIds"] = new System.Text.Json.Nodes.JsonArray(
             targets.Split(',').Select(value => (System.Text.Json.Nodes.JsonNode?)System.Text.Json.Nodes.JsonValue.Create(value)).ToArray());
         var other = worlds[0]!.DeepClone();
-        other["id"] = targets is "preselection" or "pre-qualify" ? targets : "other";
+        other["id"] = BuildChannel.IsPreviewOnlyWorld(targets) ? targets : "other";
         other["tracks"] = new System.Text.Json.Nodes.JsonArray();
         worlds.Add(other);
         return json.ToJsonString();

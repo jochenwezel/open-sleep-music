@@ -57,8 +57,7 @@ public sealed class SleepWorldDownloader(HttpClient httpClient, IDownloadLogSink
                 }
             }
 
-            if (track.AdditionalWorldIds is { Count: > 0 }
-                && await TryReuseAsync(track, destinationRoot, targetPath, cancellationToken))
+            if (await TryReuseAsync(track, destinationRoot, targetPath, cancellationToken))
             {
                 existing++;
             }

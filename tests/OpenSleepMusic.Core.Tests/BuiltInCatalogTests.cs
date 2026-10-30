@@ -15,7 +15,12 @@ public sealed class BuiltInCatalogTests
             Assert.Equal(1 / 1.5, track.PlaybackSpeed, 6);
             Assert.InRange(track.PlaybackDurationSeconds / track.DurationSeconds, 1.49999, 1.50001);
         });
-        Assert.All(world.Tracks.Except(mazurkas), track => Assert.Equal(1d, track.PlaybackSpeed));
+        Assert.All(world.Tracks.Except(mazurkas), track => Assert.Equal(track.Id switch
+        {
+            "candidate-pachelbel-canon-in-d-major-p-37-guitar" => .8,
+            "candidate-schubert-s-daphne-am-bach-d-411-guitar-bert-alink" => .85,
+            _ => 1d
+        }, track.PlaybackSpeed));
     }
 
     [Fact]
@@ -41,21 +46,22 @@ public sealed class BuiltInCatalogTests
         var tracks = memberships.DistinctBy(track => track.Id).ToArray();
         Assert.All(memberships, track => Assert.Same(tracks.Single(asset => asset.Id == track.Id), track));
 
-        Assert.Equal(BuildChannel.IsPreview ? 8 : 6, worlds.Count);
+        Assert.Equal(BuildChannel.IsPreview ? 9 : 6, worlds.Count);
         Assert.Equal("lullabies", worlds[0].Id);
         Assert.True(tracks.Length >= 134, $"Expected at least 134 tracks, found {tracks.Length}.");
         Assert.True(BuiltInCatalog.TotalDuration >= TimeSpan.FromHours(15));
-        Assert.All(worlds.Where(world => world.Id is not ("preselection" or "pre-qualify")), world => Assert.NotEmpty(world.Tracks));
+        Assert.All(worlds.Where(world => !BuildChannel.IsPreviewOnlyWorld(world.Id)), world => Assert.NotEmpty(world.Tracks));
         if (BuildChannel.IsPreview)
         {
-            Assert.Equal("preselection", worlds[^2].Id);
-            Assert.Equal("pre-qualify", worlds[^1].Id);
+            Assert.Equal("preselection", worlds[^3].Id);
+            Assert.Equal("pre-qualify", worlds[^2].Id);
+            Assert.Equal("pre-qualify-licenses", worlds[^1].Id);
             var preselection = Assert.Single(worlds, world => world.Id == "preselection");
             Assert.Equal("Vorauswahl", preselection.Name);
-            Assert.Equal(27, preselection.Tracks.Count);
+            Assert.Single(preselection.Tracks);
             var references = Assert.Single(worlds, world => world.Id == "pre-qualify");
             Assert.Empty(references.Tracks);
-            Assert.Equal(11, references.ExternalReferences!.Count);
+            Assert.Equal(2, references.ExternalReferences!.Count);
         }
         else
         {
@@ -128,8 +134,8 @@ public sealed class BuiltInCatalogTests
         var world = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "lullabies");
 
         Assert.Equal("Schlaflieder für Kleine", world.Name);
-        Assert.Equal(7, world.Tracks.Count);
-        var originalTracks = world.Tracks.Where(track => track.AdditionalWorldIds is not { Count: > 0 }).ToArray();
+        Assert.Equal(13, world.Tracks.Count);
+        var originalTracks = world.Tracks.Where(track => track.Id is "burgmuller-berceuse-op-109-no-7" or "faure-berceuse-op-56-no-1" or "music-box-guten-abend-gute-nacht" or "music-box-schlafe-mein-prinzchen").ToArray();
         Assert.Equal(
             [
                 "burgmuller-berceuse-op-109-no-7",
@@ -204,7 +210,7 @@ public sealed class BuiltInCatalogTests
     [Fact]
     public void ForestTracksHaveUniqueTitleSpecificTropicalMotifs()
     {
-        var tracks = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "forest").Tracks;
+        var tracks = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "forest").Tracks.Where(track => !track.Id.StartsWith("candidate-", StringComparison.Ordinal)).ToArray();
 
         Assert.All(tracks, track =>
         {
@@ -215,7 +221,7 @@ public sealed class BuiltInCatalogTests
             Assert.NotEqual(track.ArtworkFileName, track.SongMotifFileName);
             Assert.NotEqual(track.FallbackMotifFileName, track.SongMotifFileName);
         });
-        Assert.Equal(tracks.Count, tracks.Select(track => track.SongMotifFileName).Distinct(StringComparer.Ordinal).Count());
+        Assert.Equal(tracks.Length, tracks.Select(track => track.SongMotifFileName).Distinct(StringComparer.Ordinal).Count());
     }
 
     [Fact]

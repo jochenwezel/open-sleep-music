@@ -13,9 +13,13 @@ internal sealed class PreselectionPage : ContentPage
         close.Clicked += async (_, _) => await Navigation.PopModalAsync();
         var introduction = new Label
         {
-            Text = AppText.Pick(
-                $"{world.ExternalReferences?.Count ?? 0} externe Hörreferenzen. Die Aufnahme öffnet sich auf ihrer Originalseite im Browser. Lizenz und Schlaf-Eignung sind noch ungeprüft.",
-                $"{world.ExternalReferences?.Count ?? 0} external listening references. Recordings open on their original pages in your browser. Recording rights and sleep suitability are unreviewed."),
+            Text = world.Id == "pre-qualify-licenses"
+                ? AppText.Pick(
+                    $"{world.ExternalReferences?.Count ?? 0} gute Hörkandidaten – derzeit NICHT VERWENDEN. Die Aufnahmefreigabe fehlt oder ist widersprüchlich. Hier werden ausschließlich Quellseiten geöffnet; keine Aufnahme wird heruntergeladen.",
+                    $"{world.ExternalReferences?.Count ?? 0} promising recordings – DO NOT USE yet. Recording permission is missing or conflicting. Source-page references only; no audio downloads.")
+                : AppText.Pick(
+                    $"{world.ExternalReferences?.Count ?? 0} externe Hörreferenzen für weitere Auswahl oder technische Prüfung. Lizenzstand siehe jeweiliger Titel. Die Aufnahme öffnet sich auf ihrer Originalseite im Browser.",
+                    $"{world.ExternalReferences?.Count ?? 0} external listening references for further selection or technical review. Each title shows its recording-rights status. Recordings open on their original pages in your browser."),
             TextColor = Colors.White
         };
         var list = new CollectionView
@@ -40,6 +44,8 @@ internal sealed class PreselectionPage : ContentPage
                         (candidate.LicenseReviewStatus == "verified" ? AppText.Pick("Lizenz geprüft", "License reviewed") :
                         candidate.LicenseReviewStatus == "rejected" ? AppText.Pick("Lizenz ausgeschlossen", "License rejected") :
                         AppText.Pick("Lizenz ungeprüft", "License unreviewed"));
+                    if (!string.IsNullOrWhiteSpace(candidate.LicenseHoldReason))
+                        metadata.Text += "\n" + AppText.Pick("Nicht verwenden: ", "Do not use: ") + candidate.LicenseHoldReason;
                     if (candidate.IntendedWorldId == "lullabies")
                         metadata.Text += " · " + AppText.Pick("Für die Kleinen", "For little ones") + " · " +
                             (candidate.SelectionKind == "modern-lullaby" ? AppText.Pick("Modernes Wiegenlied", "Modern lullaby") :

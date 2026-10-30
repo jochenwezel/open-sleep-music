@@ -15,7 +15,7 @@ internal static class CatalogMembership
                     id != world.Id && track.AdditionalWorldIds?.Contains(id) != true))
                 throw new InvalidDataException($"Collection artwork must target a membership of '{track.Id}'.");
             if (track.AdditionalWorldIds is not { Count: > 0 } targets) continue;
-            if (targets.Count >= worlds.Count || world.Id is "preselection" or "pre-qualify"
+            if (targets.Count >= worlds.Count || BuildChannel.IsPreviewOnlyWorld(world.Id)
                 || track.LicenseReviewStatus != "verified")
                 throw new InvalidDataException($"Invalid shared collection membership for '{track.Id}'.");
 
@@ -23,7 +23,7 @@ internal static class CatalogMembership
             foreach (var target in targets)
             {
                 if (string.IsNullOrWhiteSpace(target) || !seen.Add(target)
-                    || target is "preselection" or "pre-qualify"
+                    || BuildChannel.IsPreviewOnlyWorld(target)
                     || !tracksByWorld.TryGetValue(target, out var targetTracks)
                     || targetTracks.Any(existing => existing.Id == track.Id))
                     throw new InvalidDataException($"Invalid shared collection '{target}' for '{track.Id}'.");

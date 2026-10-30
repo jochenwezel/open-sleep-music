@@ -95,6 +95,15 @@ not from the tag name or the MSBuild `Release` configuration. Stable packages us
 `media-catalog.production.json` and must not embed the candidate resource or compile
 the Preselection page. Test both channel variants before changing these gates.
 
+`pre-qualify-licenses` is a separate Preview-only **Nicht verwenden** source list
+for good listening candidates with missing or conflicting recording permission.
+Every entry requires `licenseHoldReason`; no audio download or promoted membership
+is allowed. Keep technical-delivery and deferred-curation references in ordinary
+`pre-qualify`. Exclude all three Preview IDs from Stable manifests, runtime updates
+and shared memberships, even when a reference list is empty. Favorites are not
+rights clearance. Preserve exact CC BY-SA 2.0 and CC BY-SA 3.0 Germany names and
+canonical version/jurisdiction URLs when admitting their reviewed recordings.
+
 `tools/Update-MediaCatalog.ps1` is the reproducible catalog generator. Make selection changes in that script and regenerate the JSON instead of hand-editing generated entries.
 
 For MIDI-based Berceuse recording preparation, consult `tools/berceuse-rendering-preferences.json`. The maintainer prefers the YDP variant B piano voice for future conversions and approves the corrected full-piece C2 string accompaniment for Burgmuller's Berceuse op. 109 No. 7. This does not approve another piece's newly arranged strings or authorize automatic catalog replacement or promotion.
