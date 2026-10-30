@@ -182,26 +182,6 @@
       "volumeGain": 0.7
     },
     {
-      "id": "candidate-gnossienne-6-satie",
-      "title": "Gnossienne 6 (Satie)",
-      "creator": "Composer: Erik Satie Performer: La Pianista",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Gnossienne_6_(Satie).ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Gnossienne_6_%28Satie%29.ogg",
-      "fileName": "candidate-gnossienne-6-satie.ogg",
-      "durationSeconds": 122.627,
-      "sha1": "3b59823c4cc9f96bc01196602f8c9947cf54d811",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:29.8611855+02:00",
-      "volumeGain": 0.7
-    },
-    {
       "id": "candidate-robert-schumann-scenes-from-childhood-op-15-i-of-foreign-lands-and-peoples",
       "title": "Robert Schumann - scenes from childhood, op. 15 - i. of foreign lands and peoples",
       "creator": "Robert Schumann (1810-1856) (see Musopen for performance author information)",
@@ -219,26 +199,6 @@
       "sha1": "dec46d15e86ae0214eb67e28241d8b7cdbd9d045",
       "declaredLicenseUri": null,
       "deliveryCheckedAtUtc": "2026-10-02T23:49:34.0029277+02:00",
-      "volumeGain": 0.9
-    },
-    {
-      "id": "candidate-robert-schumann-scenes-from-childhood-op-15-iv-pleading-child",
-      "title": "Robert Schumann - scenes from childhood, op. 15 - iv. pleading child",
-      "creator": "Robert Schumann (1810-1856) (see Musopen for performance author information)",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_iv._pleading_child.ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Scenes from Childhood performances to play 10 percent quieter. Apply volumeGain 0.9 as playback metadata; original recording, duration and checksum are preserved.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/4/49/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_iv._pleading_child.ogg",
-      "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-iv-pleading-child.ogg",
-      "durationSeconds": 82.86,
-      "sha1": "9e5f999438c3ae5d0da4decf0aeb6b32a58dca87",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:36.1383923+02:00",
       "volumeGain": 0.9
     },
     {
@@ -262,200 +222,6 @@
       "volumeGain": 0.9
     },
     {
-      "id": "candidate-robert-schumann-scenes-from-childhood-op-15-viii-at-the-fireside",
-      "title": "Robert Schumann - scenes from childhood, op. 15 - viii. at the fireside",
-      "creator": "Robert Schumann (1810-1856) (see Musopen for performance author information)",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_viii._at_the_fireside.ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Scenes from Childhood performances to play 10 percent quieter. Apply volumeGain 0.9 as playback metadata; original recording, duration and checksum are preserved.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_viii._at_the_fireside.ogg",
-      "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-viii-at-the-fireside.ogg",
-      "durationSeconds": 72.594,
-      "sha1": "80420579c3a2e184dbfab5eb53667a0716df5a75",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:40.4023392+02:00",
-      "volumeGain": 0.9
-    },
-    {
-      "id": "candidate-robert-schumann-scenes-from-childhood-op-15-xii-child-falling-asleep",
-      "title": "Robert Schumann - scenes from childhood, op. 15 - xii. child falling asleep",
-      "creator": "Robert Schumann (1810-1856) (see Musopen for performance author information)",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_xii._child_falling_asleep.ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Scenes from Childhood performances to play 10 percent quieter. Apply volumeGain 0.9 as playback metadata; original recording, duration and checksum are preserved.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_xii._child_falling_asleep.ogg",
-      "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-xii-child-falling-asleep.ogg",
-      "durationSeconds": 121.469,
-      "sha1": "0a4443d811a70596b1cb16f8a081cae60de34366",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:42.4337807+02:00",
-      "volumeGain": 0.9
-    },
-    {
-      "id": "candidate-robert-schumann-scenes-from-childhood-op-15-xiii-the-poet-speaks",
-      "title": "Robert Schumann - scenes from childhood, op. 15 - xiii. the poet speaks",
-      "creator": "Robert Schumann (1810-1856) (see Musopen for performance author information)",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_xiii._the_poet_speaks.ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Scenes from Childhood performances to play 10 percent quieter. Apply volumeGain 0.9 as playback metadata; original recording, duration and checksum are preserved.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/4/42/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_xiii._the_poet_speaks.ogg",
-      "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-xiii-the-poet-speaks.ogg",
-      "durationSeconds": 164.78,
-      "sha1": "44f5299a63c2595ff16d0a7dba91903aca37996c",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:44.5594122+02:00",
-      "volumeGain": 0.9
-    },
-    {
-      "id": "candidate-robert-schumann-fantasie-lento-sostenuto-sempre-piano",
-      "title": "Robert Schumann - Fantasie - Lento sostenuto Sempre piano",
-      "creator": "Neal and Nancy O'Doan",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_Fantasie_-_Lento_sostenuto_Sempre_piano.ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "CC BY-SA 2.0",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Robert_Schumann_-_Fantasie_-_Lento_sostenuto_Sempre_piano.ogg",
-      "fileName": "candidate-robert-schumann-fantasie-lento-sostenuto-sempre-piano.ogg",
-      "durationSeconds": 656.053,
-      "sha1": "ac986ab4e444bbe746cf64d94665168fed5ca0d5",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/2.0",
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:46.6849272+02:00"
-    },
-    {
-      "id": "candidate-schumann-arabeske-andrea-valori",
-      "title": "Schumann-arabeske-andrea-valori",
-      "creator": "Mario Andrea Valori",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schumann-arabeske-andrea-valori.ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "CC BY-SA 4.0",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests Arabeske (Mario Andrea Valori) to play 50 percent louder. Apply volumeGain 1.5 as playback metadata, subject to the existing player volume ceiling; original recording, duration and checksum are preserved.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Schumann-arabeske-andrea-valori.ogg",
-      "fileName": "candidate-schumann-arabeske-andrea-valori.ogg",
-      "durationSeconds": 379.646,
-      "sha1": "c7519af6b4b54bafdfe71b428eec66b4cb34dcf6",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0",
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:48.7977869+02:00",
-      "volumeGain": 1.5
-    },
-    {
-      "id": "candidate-schubert-piano-sonata-no-13-in-a-major-d664-ii-andante-paul-pitman",
-      "title": "Schubert - Piano Sonata No. 13 in A major, D664 - II. Andante (Paul Pitman)",
-      "creator": "Franz Schubert",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schubert_-_Piano_Sonata_No._13_in_A_major,_D664_-_II._Andante_(Paul_Pitman).flac",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/df/Schubert_-_Piano_Sonata_No._13_in_A_major%2C_D664_-_II._Andante_%28Paul_Pitman%29.flac",
-      "fileName": "candidate-schubert-piano-sonata-no-13-in-a-major-d664-ii-andante-paul-pitman.flac",
-      "durationSeconds": 290.84,
-      "sha1": "5a82bf23b027d933abd95b21f39ddf7e303bec43",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:50.9525835+02:00"
-    },
-    {
-      "id": "candidate-schubert-piano-sonata-no-14-in-a-minor-d784-ii-andante-paul-pitman",
-      "title": "Schubert - Piano Sonata No. 14 in A minor, D784 - II. Andante (Paul Pitman)",
-      "creator": "Franz Schubert",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schubert_-_Piano_Sonata_No._14_in_A_minor,_D784_-_II._Andante_(Paul_Pitman).flac",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/4/41/Schubert_-_Piano_Sonata_No._14_in_A_minor%2C_D784_-_II._Andante_%28Paul_Pitman%29.flac",
-      "fileName": "candidate-schubert-piano-sonata-no-14-in-a-minor-d784-ii-andante-paul-pitman.flac",
-      "durationSeconds": 229.76,
-      "sha1": "28e6602c3a9670b40b2d3fa8bd418b1cccfa2251",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:53.0753547+02:00"
-    },
-    {
-      "id": "candidate-schubert-piano-sonata-no-16-in-a-minor-d845-ii-andante-poco-mosso-paul-pitman",
-      "title": "Schubert - Piano Sonata No. 16 in A minor, D845 - II. Andante, poco mosso (Paul Pitman)",
-      "creator": "Franz Schubert",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schubert_-_Piano_Sonata_No._16_in_A_minor,_D845_-_II._Andante,_poco_mosso_(Paul_Pitman).flac",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/6/60/Schubert_-_Piano_Sonata_No._16_in_A_minor%2C_D845_-_II._Andante%2C_poco_mosso_%28Paul_Pitman%29.flac",
-      "fileName": "candidate-schubert-piano-sonata-no-16-in-a-minor-d845-ii-andante-poco-mosso-paul-pitman.flac",
-      "durationSeconds": 784.133,
-      "sha1": "4bb084edd38bd75c2659f7f144f3a61d9d4a07fc",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:55.2212405+02:00"
-    },
-    {
-      "id": "candidate-schubert-piano-sonata-no-19-in-c-minor-d958-ii-adagio-paul-pitman",
-      "title": "Schubert - Piano Sonata No. 19 in C minor, D958 - II. Adagio (Paul Pitman)",
-      "creator": "Franz Schubert",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schubert_-_Piano_Sonata_No._19_in_C_minor,_D958_-_II._Adagio_(Paul_Pitman).flac",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/7/70/Schubert_-_Piano_Sonata_No._19_in_C_minor%2C_D958_-_II._Adagio_%28Paul_Pitman%29.flac",
-      "fileName": "candidate-schubert-piano-sonata-no-19-in-c-minor-d958-ii-adagio-paul-pitman.flac",
-      "durationSeconds": 468.373,
-      "sha1": "7ff236a5327ca2df0ac49bf3afae353074db8804",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:57.3719918+02:00"
-    },
-    {
-      "id": "candidate-schubert-piano-sonata-no-8-in-e-flat-major-d568-ii-andante-molto-paul-pitman",
-      "title": "Schubert - Piano Sonata No. 8 in E flat major, D568 - II. Andante molto (Paul Pitman)",
-      "creator": "Franz Schubert",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Schubert_-_Piano_Sonata_No._8_in_E_flat_major,_D568_-_II._Andante_molto_(Paul_Pitman).flac",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "Public domain",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/5/54/Schubert_-_Piano_Sonata_No._8_in_E_flat_major%2C_D568_-_II._Andante_molto_%28Paul_Pitman%29.flac",
-      "fileName": "candidate-schubert-piano-sonata-no-8-in-e-flat-major-d568-ii-andante-molto-paul-pitman.flac",
-      "durationSeconds": 417.413,
-      "sha1": "54a5c0935c9ccd78f4c022ff8cd1faa0a380fd20",
-      "declaredLicenseUri": null,
-      "deliveryCheckedAtUtc": "2026-10-02T23:49:59.5242185+02:00"
-    },
-    {
       "id": "candidate-mozart-piano-sonata-no-10-c-major-ii-andante-cantabile",
       "title": "Mozart - Piano Sonata No. 10 C major - II. Andante cantabile",
       "creator": "Bernd Krueger",
@@ -473,25 +239,6 @@
       "sha1": "2481042d97a629193c5379836737eec445346c16",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
       "deliveryCheckedAtUtc": "2026-10-02T23:50:01.6768413+02:00"
-    },
-    {
-      "id": "candidate-mozart-piano-sonata-no-11-in-a-major-i-andante-grazioso",
-      "title": "Mozart - Piano Sonata No. 11 in A major - I. Andante grazioso",
-      "creator": "Bernd Krueger",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._11_in_A_major_-_I._Andante_grazioso.ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "CC BY-SA 3.0 de",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Mozart_-_Piano_Sonata_No._11_in_A_major_-_I._Andante_grazioso.ogg",
-      "fileName": "candidate-mozart-piano-sonata-no-11-in-a-major-i-andante-grazioso.ogg",
-      "durationSeconds": 835.082,
-      "sha1": "6ff8a0d34f5b3c5646ed92160e8471fdad142249",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
-      "deliveryCheckedAtUtc": "2026-10-02T23:50:03.7033958+02:00"
     },
     {
       "id": "candidate-mozart-piano-sonata-no-13-in-b-flat-major-ii-andante-cantabile",
@@ -551,44 +298,6 @@
       "deliveryCheckedAtUtc": "2026-10-02T23:50:10.0431024+02:00"
     },
     {
-      "id": "candidate-mozart-piano-sonata-no-17-in-b-flat-major-ii-adagio",
-      "title": "Mozart - Piano Sonata No. 17 in B-flat major - II. Adagio",
-      "creator": "Bernd Krueger",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._17_in_B-flat_major_-_II._Adagio.ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "CC BY-SA 3.0 de",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Mozart_-_Piano_Sonata_No._17_in_B-flat_major_-_II._Adagio.ogg",
-      "fileName": "candidate-mozart-piano-sonata-no-17-in-b-flat-major-ii-adagio.ogg",
-      "durationSeconds": 457.387,
-      "sha1": "170b1842283a5135c98e6c9854b7815fac715cab",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
-      "deliveryCheckedAtUtc": "2026-10-02T23:50:12.1985768+02:00"
-    },
-    {
-      "id": "candidate-mozart-piano-sonata-no-9-in-d-major-ii-andantino-con-espressione",
-      "title": "Mozart - Piano Sonata No. 9 in D major - II. Andantino con espressione",
-      "creator": "Bernd Krueger",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Mozart_-_Piano_Sonata_No._9_in_D_major_-_II._Andantino_con_espressione.ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "CC BY-SA 3.0 de",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Mozart_-_Piano_Sonata_No._9_in_D_major_-_II._Andantino_con_espressione.ogg",
-      "fileName": "candidate-mozart-piano-sonata-no-9-in-d-major-ii-andantino-con-espressione.ogg",
-      "durationSeconds": 281.379,
-      "sha1": "058ae0d0048c12108c08393103711eb0001b213b",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
-      "deliveryCheckedAtUtc": "2026-10-02T23:50:14.3604835+02:00"
-    },
-    {
       "id": "candidate-mozart-concerto-for-flute-and-harp-2-andantino",
       "title": "Mozart - Concerto for Flute and Harp - 2. Andantino",
       "creator": "Wolfgang Amadeus Mozart (composer)",
@@ -608,63 +317,6 @@
       "sha1": "8a0d941ead626d54ace85b644cb0e0696c8c691d",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/2.0",
       "deliveryCheckedAtUtc": "2026-10-02T23:50:16.5169758+02:00"
-    },
-    {
-      "id": "candidate-sonatina-harp-antti-luode",
-      "title": "Sonatina Harp (Antti Luode)",
-      "creator": "Antti Luode",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Sonatina_Harp_(Antti_Luode).mp3",
-      "instrumentation": [
-        "harp"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "CC BY 3.0",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/7/72/Sonatina_Harp_%28Antti_Luode%29.mp3",
-      "fileName": "candidate-sonatina-harp-antti-luode.mp3",
-      "durationSeconds": 222.563,
-      "sha1": "5e38ebec57e1ce22966ada0cb5e6e8e104e900ba",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by/3.0",
-      "deliveryCheckedAtUtc": "2026-10-02T23:50:18.7237957+02:00"
-    },
-    {
-      "id": "candidate-evening-fall-harp-isrc-usuan1100236",
-      "title": "Evening Fall (Harp) (ISRC USUAN1100236)",
-      "creator": "Evening Fall (Harp) Kevin MacLeod",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Evening_Fall_(Harp)_(ISRC_USUAN1100236).mp3",
-      "instrumentation": [
-        "harp"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "CC BY 3.0",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Evening_Fall_%28Harp%29_%28ISRC_USUAN1100236%29.mp3",
-      "fileName": "candidate-evening-fall-harp-isrc-usuan1100236.mp3",
-      "durationSeconds": 145.219,
-      "sha1": "fac52a04b8fc463352b5c60a180d4046e705974f",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by/3.0",
-      "deliveryCheckedAtUtc": "2026-10-02T23:50:20.8512776+02:00"
-    },
-    {
-      "id": "candidate-tano-niha-mbanua-somasido-instrumental",
-      "title": "Tanö Niha Mbanua Somasido - Instrumental",
-      "creator": "Slaia",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Tan%C3%B6_Niha_Mbanua_Somasido_-_Instrumental.ogg",
-      "instrumentation": [
-        "pan-flute"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "CC BY-SA 4.0",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Tan%C3%B6_Niha_Mbanua_Somasido_-_Instrumental.ogg",
-      "fileName": "candidate-tano-niha-mbanua-somasido-instrumental.ogg",
-      "durationSeconds": 175.842,
-      "sha1": "7420120674e58bc27a5afefb39f9957c40a0d601",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0",
-      "deliveryCheckedAtUtc": "2026-10-02T23:50:22.9990137+02:00"
     },
     {
       "id": "candidate-clair-de-lune-claude-debussy-suite-bergamasque",
@@ -756,25 +408,6 @@
       "sha1": null,
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0",
       "deliveryCheckedAtUtc": "2026-10-02T23:52:20.6538931+02:00"
-    },
-    {
-      "id": "candidate-grieg-sommeraften-op-71-no-2",
-      "title": "Grieg, Sommeraften, op 71 no 2",
-      "creator": "Constantin Stephan, piano",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Grieg,_Sommeraften,_op_71_no_2.ogg",
-      "instrumentation": [
-        "piano"
-      ],
-      "licenseReviewStatus": "unchecked",
-      "declaredLicense": "CC BY-SA 4.0",
-      "licenseEvidenceUri": null,
-      "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/b/be/Grieg%2C_Sommeraften%2C_op_71_no_2.ogg",
-      "fileName": "candidate-grieg-sommeraften-op-71-no-2.ogg",
-      "durationSeconds": 153.396,
-      "sha1": "fd1bb0511edd0cbe01ebeabd7e8be52d36b91cc8",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0",
-      "deliveryCheckedAtUtc": "2026-10-02T23:52:22.879171+02:00"
     },
     {
       "id": "candidate-grieg-folkevise-op-12-no-5",
@@ -941,29 +574,6 @@
       "sha1": null,
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
       "deliveryCheckedAtUtc": "2026-10-06T21:22:32.6461302+02:00"
-    },
-    {
-      "id": "candidate-tarrega-adelita-leon-egea",
-      "title": "Adelita (10-string guitar)",
-      "creator": "Francisco Tárrega; guitar: Ramón León Egea",
-      "sourcePageUri": "https://imslp.org/wiki/Adelita_(T%C3%A1rrega,_Francisco)",
-      "instrumentation": [
-        "guitar"
-      ],
-      "licenseReviewStatus": "verified",
-      "declaredLicense": "CC BY-SA 4.0",
-      "licenseEvidenceUri": "https://imslp.org/wiki/Adelita_(T%C3%A1rrega,_Francisco)",
-      "reviewNotes": "Recording-rights review 2026-10-06: IMSLP recording #965129 identifies the performer/uploader and a recording-specific CC BY-SA 4.0 grant, distinct from score/MIDI licenses. Audio delivery uses the stable HTTPS MP3 URL exposed by the public player; 128-byte MP3 signature checked. Duration is the recording-specific listing, not an average work duration. Warm plucked-guitar audition lead; full sleep-suitability review pending. Credit performer and composer, license and source, describe modifications; follow ShareAlike for redistributed adaptations where applicable. Retained in Preview.",
-      "approvedLicense": "CC BY-SA 4.0",
-      "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "intendedWorldId": "quiet-classics",
-      "selectionKind": "gentle-guitar",
-      "downloadUri": "https://s9.cn.imslp.org/files/imglnks/usimg/7/7e/IMSLP965129-PMLP95949-Adelita_de_Tárrega_en_Guitarra_de_10_Cuerdas_-_Ramón_León_Egea.mp3",
-      "fileName": "candidate-tarrega-adelita-leon-egea.mp3",
-      "durationSeconds": 113,
-      "sha1": null,
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "deliveryCheckedAtUtc": "2026-10-06T21:22:33.8263055+02:00"
     },
     {
       "id": "candidate-barrios-julia-florida-edson-lopes",
@@ -1195,88 +805,6 @@
       "durationSeconds": 113.837
     },
     {
-      "id": "candidate-carcassi-op-26-no-3-guitar",
-      "title": "Matteo Carcassi – Op. 26 No. 3",
-      "creator": "Matteo Carcassi; guitar and recording: Jujutacular",
-      "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Carcassi_Op_26_No._3.ogg",
-      "instrumentation": [
-        "guitar"
-      ],
-      "licenseReviewStatus": "verified",
-      "declaredLicense": "CC BY-SA 3.0",
-      "licenseEvidenceUri": "https://commons.wikimedia.org/wiki/File:Carcassi_Op_26_No._3.ogg",
-      "reviewNotes": "Recording-rights review 2026-10-06: authoritative Commons file-page revision identifies Own work by Jujutacular and the explicit self CC BY-SA 3.0 grant; alternative GFDL not selected. Recorded 2009-08-02. Warm solo guitar audition lead; tempo, dynamic changes, attack noise and suitability with quiet crickets remain unreviewed. Preserve composer, performer, source and license attribution. Original file, checksum and zero trim; retained in Preview. Listening adjustment 2026-10-07: maintainer requests 20 percent quieter and 33 percent slower. Apply volumeGain 0.8 and playbackSpeed 0.67 through playback metadata; the original duration, source download, upstream SHA-1 and zero trims are preserved. Listening duration becomes approximately 199.691 seconds; this is a playback adjustment, not a redistributed edited recording or production promotion.",
-      "approvedLicense": "CC BY-SA 3.0",
-      "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
-      "intendedWorldId": "quiet-classics",
-      "selectionKind": "gentle-guitar",
-      "startOffsetMilliseconds": 0,
-      "endOffsetMilliseconds": 0,
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Carcassi_Op_26_No._3.ogg",
-      "fileName": "candidate-carcassi-op-26-no-3-guitar.ogg",
-      "durationSeconds": 133.793,
-      "sha1": "4963fc28577d5b65dc9f1283296d55c64db090cb",
-      "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0",
-      "deliveryCheckedAtUtc": "2026-10-06T23:12:30.0617261+02:00",
-      "volumeGain": 0.8,
-      "playbackSpeed": 0.67
-    },
-    {
-      "id": "candidate-mountain-evening-cowbells-sardin-axeline",
-      "title": "Mountain, Evening #1 – Bergabend mit Kuhglocken",
-      "creator": "Joseph Sardin & Axeline T. / BigSoundBank",
-      "sourcePageUri": "https://bigsoundbank.com/mountain-evening-1-s3203.html",
-      "instrumentation": [
-        "nature",
-        "insects",
-        "cowbells",
-        "mountain",
-        "night"
-      ],
-      "licenseReviewStatus": "verified",
-      "declaredLicense": "CC0 1.0",
-      "licenseEvidenceUri": "https://bigsoundbank.com/mountain-evening-1-s3203.html",
-      "reviewNotes": "Recording-rights review 2026-10-07: the exact BigSoundBank item identifies Joseph Sardin and Axeline T. as authors, declares CC0 and links the explicit CC0 1.0 dedication at https://bigsoundbank.com/licenses.html. Mountain ambience at the beginning of a night in August, with cow, bells, insects, wind and river; source category Alpine. An audition lead for the requested alpine pasture/cowbell background. The source identifies insects, not specifically crickets, and does not establish a particular alpine pasture location. Full listening, bell prominence, cow calls, wind/river balance, guitar combination and repeat boundary remain pending. Stable original MP3 returned HTTP 200 with ID3 signature and decoded fully in memory to 164.688 seconds. No upstream SHA-1 provided; do not invent one. Original audio at normal speed, zero trims, Preview only.",
-      "approvedLicense": "CC0 1.0",
-      "approvedLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "intendedWorldId": "forest",
-      "selectionKind": "nature-alpine",
-      "startOffsetMilliseconds": 0,
-      "endOffsetMilliseconds": 0,
-      "downloadUri": "https://bigsoundbank.com/UPLOAD/mp3/3203.mp3",
-      "fileName": "candidate-mountain-evening-cowbells-sardin-axeline.mp3",
-      "durationSeconds": 164.688,
-      "sha1": null,
-      "declaredLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "deliveryCheckedAtUtc": "2026-10-07T21:14:37.0167476+02:00"
-    },
-    {
-      "id": "candidate-kolka-beach-waves-wolfgang-saus",
-      "title": "Waves on Kolka beach Latvia – Sanfte Strandwellen",
-      "creator": "Field recording: Wolfgang Saus",
-      "sourcePageUri": "https://www.oberton.org/en/sea-noise-public-domain-at-the-beach-of-kolka-latvia-my-contribution-to-the-world-listening-day-2019/",
-      "instrumentation": [
-        "nature",
-        "waves"
-      ],
-      "licenseReviewStatus": "verified",
-      "declaredLicense": "CC0 1.0",
-      "licenseEvidenceUri": "https://www.oberton.org/en/sea-noise-public-domain-at-the-beach-of-kolka-latvia-my-contribution-to-the-world-listening-day-2019/",
-      "reviewNotes": "Recording-rights review 2026-10-07: recordist Wolfgang Saus publishes his own recording of gentle waves in the Gulf of Riga, explicitly releases the specific audio file as public domain/CC0 and links the CC0 1.0 dedication. Recorded for World Listening Day 2019, published 2019-07-21. The page directly links the original token-free HTTPS MP3. Full decode in memory gives 761.109 seconds and an ID3 header; range probing with the installed app User-Agent returned HTTP 206 and ID3. The generic Python urllib User-Agent returned HTTP 403, so delivery was also checked with the actual app User-Agent. A natural-speed comparison candidate for the requested less frequent wave arrivals; gentle in the source description does not establish long wave intervals or a completed sleep-suitability review. Full listening, actual cadence, relative level with guitar and repeat boundary pending. No upstream SHA-1 provided. Original recording, zero trims, no time stretching, Preview only.",
-      "approvedLicense": "CC0 1.0",
-      "approvedLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "intendedWorldId": "waves",
-      "selectionKind": "nature-waves",
-      "startOffsetMilliseconds": 0,
-      "endOffsetMilliseconds": 0,
-      "downloadUri": "https://www.oberton.org/wp-content/uploads/190718-LV-Kolka-waves-night-CC0.mp3",
-      "fileName": "candidate-kolka-beach-waves-wolfgang-saus.mp3",
-      "durationSeconds": 761.109,
-      "sha1": null,
-      "declaredLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "deliveryCheckedAtUtc": "2026-10-07T21:14:37.0167476+02:00"
-    },
-    {
       "id": "candidate-slow-waves-stony-beach-kinoton",
       "title": "Slow Waves, Stony Beach – Langsame Wellen am Steinstrand",
       "creator": "Field recording: Kinoton",
@@ -1342,23 +870,6 @@
       "id": "candidate-lullabies-twinkle-alexander-blu",
       "intendedWorldId": "lullabies",
       "title": "Twinkle Twinkle Little Star (Klavier, Alexander Blu)"
-    },
-    {
-      "approvedLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "id": "candidate-lullabies-brahms-music-box-garuda1982",
-      "licenseEvidenceUri": "https://freesound.org/people/Garuda1982/sounds/416384/",
-      "title": "Brahms - Guten Abend, gut' Nacht (Spieluhr, Garuda1982)",
-      "instrumentation": [
-        "music-box"
-      ],
-      "sourcePageUri": "https://freesound.org/people/Garuda1982/sounds/416384/",
-      "declaredLicense": "CC0 1.0",
-      "licenseReviewStatus": "verified",
-      "selectionKind": "traditional-lullaby",
-      "reviewNotes": "Recording-rights review 2026-10-07: the recording-specific Freesound page declares Creative Commons 0 and credits Garuda1982 with a personal Zoom H2n field recording of a Brahms music box, providing plausible recording provenance. Alternative performance of the Wonderful Lullabies favorite, not its master. Page lists a stereo 96 kHz WAV, 101.709 seconds; mechanical/background noise and full sleep suitability still need audition. Original download requires a Freesound login, so no direct download URL or checked delivery is recorded. Keep this as an external Preview reference; do not extract preview streams or bypass login. No production promotion.",
-      "approvedLicense": "CC0 1.0",
-      "intendedWorldId": "lullabies",
-      "creator": "Johannes Brahms; Garuda1982 (recordist)"
     }
   ]
 }

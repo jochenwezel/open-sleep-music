@@ -5,7 +5,7 @@ priorities and the continuing history of attempted improvements are maintained
 centrally in [Catalog quality notes](catalog-quality-notes.md), keyed by stable
 catalog track ID. They are separate from recording-rights approval.
 
-The stable catalog contains 138 unique downloadable recordings in six sleep worlds, totaling about 18.39 hours. Three guitar recordings belong to both Quiet Classics and Lullabies for little ones: the resolved collections contain 93 and 7 titles respectively. Preview adds 50 downloadable audition candidates in Preselection and 12 external listening references in the separate Preview pre-qualify collection: 188 unique downloadable Preview tracks in total. Both collection lists are delivered through the runtime catalog. The exact per-file download URL, source page, creator, recording license, duration, instrumentation, ensemble type, file name, and SHA-1 (when supplied upstream) are stored in `src/OpenSleepMusic.Core/Catalog/media-catalog.json`.
+The stable catalog contains 138 unique downloadable recordings in six sleep worlds, totaling about 18.39 hours. Three guitar recordings belong to both Quiet Classics and Lullabies for little ones: the resolved collections contain 93 and 7 titles respectively. Preview adds 27 downloadable audition candidates in Preselection and 11 external listening references in the separate Preview pre-qualify collection: 165 unique downloadable Preview tracks in total. Both collection lists are delivered through the runtime catalog. The exact per-file download URL, source page, creator, recording license, duration, instrumentation, ensemble type, file name, and SHA-1 (when supplied upstream) are stored in `src/OpenSleepMusic.Core/Catalog/media-catalog.json`.
 
 A composition being in the public domain does **not** automatically make a modern recording public domain. Production currently uses recordings whose authoritative source pages declare compatible free recording licenses. Following the maintainer's policy change on 2026-10-15, a specifically reviewed CC BY-NC 4.0 recording may also be included for noncommercial app use; the first such entry was a Preview audition, subsequently retired after selection of the Aria/YDP Fauré recording. NC audio retains its separate restrictions, independently of the MIT-licensed application. Before monetizing an offering through app/store prices, advertising, paid features, subscriptions, commercial promotion or other commercial use, remove NC recordings from that offering and its associated download/catalog-update delivery, or document separate commercial permission. Free pricing alone is not proof of noncommercial use. This is a release/distribution requirement in `AGENTS.md`, not an implemented commercial-build filter. The catalog deliberately excludes tracks whose names indicate thunder or storms.
 
@@ -430,3 +430,45 @@ full MP3/MIDI and source/solo/string comparisons retain their exact bytes.
 link the complete machine-readable settings/probes/hashes. Per-work listening
 and recording-rights reviews remain pending. These are private Nextcloud
 auditions; the runtime catalog and published music are unchanged by this addition.
+
+## Confirmed Preview listening exclusions, 2026-10-30
+
+The maintainer confirms removal of 24 blocked specific recordings: 23 downloadable
+Preselection auditions and one Pre-Qualify music-box reference. Their ratings are
+unchanged from the earlier October review; the exclusions had not yet been added
+to the persistent blacklist. This is a listening/curation decision, not a change
+to the recordings' declared licenses or an exclusion of every performance of a work.
+
+The excluded recordings are:
+
+- Satie: Gnossienne 6.
+- Schumann: Kinderszenen op. 15 Nos. 4, 8, 12 and 13; Fantasie (Lento sostenuto);
+  Arabeske performed by Mario Andrea Valori.
+- Schubert: second movements of piano sonatas Nos. 8, 13, 14, 16 and 19,
+  performed by Paul Pitman.
+- Mozart: piano sonata No. 9, II; No. 11, I; No. 17, II.
+- Sonatina Harp (Antti Luode); Evening Fall (Harp), Kevin MacLeod;
+  Tanö Niha Mbanua Somasido (Slaia); Grieg's Sommeraften op. 71 No. 2.
+- Adelita (Ramón León Egea); Carcassi op. 26 No. 3 (Jujutacular).
+- Mountain, Evening #1 (Joseph Sardin and Axeline T.);
+  Waves on Kolka beach Latvia (Wolfgang Saus).
+- Pre-Qualify only: Brahms music-box recording by Garuda1982.
+
+All 24 stable IDs are added to `tools/media-catalog-blacklist.json` (54 to 78).
+The generator removes them from downloads, external references and the embedded
+candidate resource; source metadata and unchanged rights findings remain in
+`tools/preselection-candidates.json` with dated exclusion notes. Raw personal
+feedback and comments remain outside Git.
+
+Preselection decreases from 50 to 27 downloads, Pre-Qualify from 12 to 11 external
+references, and the generated candidate audit from 66 to 42 records (including
+four already promoted records). All 27 remaining Preselection recordings are
+maintainer favorites. Preview has 165 unique downloadable tracks instead of 188;
+production remains 138 with the existing memberships, persisted little-ones order,
+media bytes/URLs and playback settings. No excluded track is a background
+dependency; the two meadow-cricket assignments remain at 30% in Preview.
+Production catalog size/duration test floors are unchanged.
+
+The [favorite collection proposal](favorite-recording-review-2026-10-14.md) remains
+the recorded destination plan. This exclusion change does not promote favorites,
+create Natur bei Nacht or waive remaining rights/delivery/admission checks.

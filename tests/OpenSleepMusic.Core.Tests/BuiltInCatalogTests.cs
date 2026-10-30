@@ -52,10 +52,10 @@ public sealed class BuiltInCatalogTests
             Assert.Equal("pre-qualify", worlds[^1].Id);
             var preselection = Assert.Single(worlds, world => world.Id == "preselection");
             Assert.Equal("Vorauswahl", preselection.Name);
-            Assert.Equal(50, preselection.Tracks.Count);
+            Assert.Equal(27, preselection.Tracks.Count);
             var references = Assert.Single(worlds, world => world.Id == "pre-qualify");
             Assert.Empty(references.Tracks);
-            Assert.Equal(12, references.ExternalReferences!.Count);
+            Assert.Equal(11, references.ExternalReferences!.Count);
         }
         else
         {
