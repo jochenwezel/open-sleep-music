@@ -29,7 +29,7 @@
       "intendedWorldId": "lullabies",
       "declaredLicense": "CC BY 4.0",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
-      "licenseReviewStatus": "unchecked",
+      "licenseReviewStatus": "verified",
       "licenseEvidenceUri": "https://opengameart.org/content/little-lullaby",
       "sourceCheckedAtUtc": "2026-10-13T21:42:36.984174+00:00",
       "listeningReviewStatus": "favorite",
@@ -38,9 +38,9 @@
       "listeningChecks": "Confirm strings and whole-track dynamics.",
       "downloadUri": "https://opengameart.org/sites/default/files/little_lullaby_0.mp3",
       "archiveUri": null,
-      "sourceDurationSeconds": null,
+      "sourceDurationSeconds": 127.5,
       "sha1": null,
-      "deliveryReviewStatus": "header-verified",
+      "deliveryReviewStatus": "full-file-verified",
       "deliveryProbe": {
         "checkedAtUtc": "2026-10-13T21:42:36.984174+00:00",
         "httpStatus": 206,
@@ -53,6 +53,16 @@
         "date": "2026-10-14",
         "verdict": "favorite",
         "notes": "Maintainer describes Little Lullaby by Alex_089 as good. Retain as a listening favorite; complete recording-rights and admission checks before promotion."
+      },
+      "approvedLicense": "CC BY 4.0",
+      "approvedLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
+      "catalogAdmission": {
+        "date": "2026-10-30",
+        "worldIds": [
+          "lullabies"
+        ],
+        "evidencePath": "tools/favorite-promotions-2026-10-30.json",
+        "status": "promoted; retain remaining research leads outside runtime"
       }
     },
     {

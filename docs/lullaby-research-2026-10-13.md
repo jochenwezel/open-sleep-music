@@ -114,3 +114,13 @@ Across the original 50-recording research, including the four exclusions, the so
 | [MC Typical Lullaby](https://opengameart.org/content/mc-typical-lullaby) | The author tags it as horror and creepy. A lullaby title alone does not make it a suitable children's sleep recording. |
 
 The research does not change production totals, Preview membership, collection order, approved artwork or the existing 30% cricket backgrounds. Promotion still requires the established rights, delivery and listening checks.
+
+## Little Lullaby admission, 2026-10-30
+
+The maintainer-confirmed Little Lullaby by Alex_089 is now admitted to Lullabies
+for little ones with its recording-specific CC BY 4.0 grant, supplied MP3 and
+completely decoded 127.5-second duration. [Current admission evidence](../tools/favorite-promotions-2026-10-30.json)
+records source, credits and full-file checks; the stable research/catalog ID is
+unchanged. The other 45 active research leads remain outside the runtime catalog
+pending their own listening and admission reviews. The initial research summary
+above is historical and does not revoke this later one-recording admission.
