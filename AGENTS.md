@@ -8,6 +8,12 @@ Open Sleep Music is a privacy-friendly, advertising-free application that makes 
 
 The app targets .NET MAUI with Windows and Android as the primary platforms. Keep the solution usable from Visual Studio and retain the iOS and Mac Catalyst targets unless a task explicitly changes the platform strategy.
 
+## Artwork required for new collection entries
+
+Whenever a recording is newly admitted or added to any collection, create and assign a dedicated, title-related image as part of that addition. A collection fallback alone does not complete the work. Shared recordings may need collection-specific motifs when the collections use different visual languages; preserve shared audio and use `collectionArtwork`. Keep transparent ambient overlays, fallback motifs and title motifs as distinct files, and publish validated versioned PNGs with checksums through the artwork manifest. This requirement applies to future additions; it does not require replacing every existing catalog image at once. Follow `docs/visual-assets.md`.
+
+Every scene or fallback motif used in the fireplace/fire collection must visibly contain a recognizable fire, such as a lit fireplace, stove or campfire. Warm lighting, embers in an ambient overlay or an animal in a basket alone are insufficient. Keep flames gentle and restful; animals or other props may support the fire scene. Ambient overlays remain abstract particles and must not contain a fireplace or landscape.
+
 ## Artwork for little ones
 
 Every song motif used in Lullabies for little ones must place a small child, an animal (preferably young), a star or the moon at the visual center. This focal subject must dominate the composition, not be a minor detail added to a landscape. Stars and the moon may be gently personified. Connect the surrounding setting, objects or details clearly to the song title or documented work context. Keep scenes gentle and restful, with the existing soft watercolor style and phone-readable silhouettes. Follow the transparent-layer and delivery requirements in `docs/visual-assets.md`.

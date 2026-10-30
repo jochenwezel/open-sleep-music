@@ -292,6 +292,7 @@ $artworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/
 $backgroundArtworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3'
 $legacyArtworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1'
 $guitarArtworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v4'
+$supplementalArtwork = Get-Content -Encoding utf8 -Raw (Join-Path $PSScriptRoot 'song-motif-artwork.json') | ConvertFrom-Json
 $artwork = @{
     'quiet-classics' = @{ file = 'background_quiet_classics_v3.png'; sha256 = 'ed1779f6da6ce0a9b1de623d2b9174b10b54bc4bbbc6bf0e0259b31d062757bc' }
     rain = @{ file = 'background_rain_v3.png'; sha256 = '55a4ebcddb8ebf1fa7613356d9df6e0c58da782f19c24c466bb6d3568f4d35c5' }
@@ -339,7 +340,12 @@ foreach ($worldEntry in $worlds.GetEnumerator()) {
         $track['artworkFileName'] = $trackArtwork.file
         $track['artworkSha256'] = $trackArtwork.sha256
         $fallbackMotif = $fallbackArtwork[$artworkWorldId]
-        $track['fallbackMotifUri'] = "$artworkReleaseBase/$($fallbackMotif.file)"
+        $fallbackReleaseBase = $artworkReleaseBase
+        if ($artworkWorldId -eq 'fireplace') {
+            $fallbackMotif = $supplementalArtwork.fireplaceFallback
+            $fallbackReleaseBase = $supplementalArtwork.releaseBase
+        }
+        $track['fallbackMotifUri'] = "$fallbackReleaseBase/$($fallbackMotif.file)"
         $track['fallbackMotifFileName'] = $fallbackMotif.file
         $track['fallbackMotifSha256'] = $fallbackMotif.sha256
         if ($worldEntry.Key -eq 'forest' -and $forestArtwork.ContainsKey($track.id)) {
@@ -354,8 +360,7 @@ foreach ($worldEntry in $worlds.GetEnumerator()) {
             $track['songMotifFileName'] = $songMotif.file
             $track['songMotifSha256'] = $songMotif.sha256
         }
-        # Shared recordings use distinct child layers, with the existing sleeping
-        # young-animal fallback until a title-specific child motif is selected.
+        # Shared recordings use distinct child layers; title motifs are applied below.
         if ($track.additionalWorldIds -contains 'lullabies') {
             $track['collectionArtwork'] = [ordered]@{
                 lullabies = [ordered]@{
@@ -383,6 +388,20 @@ foreach ($worldEntry in $worlds.GetEnumerator()) {
                     fallbackMotifFileName = $fallbackArtwork.lullabies.file
                     fallbackMotifSha256 = $fallbackArtwork.lullabies.sha256
                 }
+            }
+        }
+        foreach ($motif in @($supplementalArtwork.songMotifs | Where-Object trackId -eq $track.id)) {
+            if ($worldEntry.Key -eq $motif.worldId) {
+                $track['songMotifUri'] = "$($supplementalArtwork.releaseBase)/$($motif.file)"
+                $track['songMotifFileName'] = $motif.file
+                $track['songMotifSha256'] = $motif.sha256
+            } elseif ($track.collectionArtwork -and $track.collectionArtwork.Contains($motif.worldId)) {
+                $layers = $track.collectionArtwork[$motif.worldId]
+                $layers['songMotifUri'] = "$($supplementalArtwork.releaseBase)/$($motif.file)"
+                $layers['songMotifFileName'] = $motif.file
+                $layers['songMotifSha256'] = $motif.sha256
+            } else {
+                throw "Artwork target '$($track.id)' is not assigned to '$($motif.worldId)'."
             }
         }
     }

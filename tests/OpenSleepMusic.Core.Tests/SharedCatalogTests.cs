@@ -65,6 +65,8 @@ public sealed class SharedCatalogTests
         var child = recording.CollectionArtwork!["lullabies"];
         Assert.Equal("background_lullabies_v3.png", child.ArtworkFileName);
         Assert.Equal("fallback_lullabies.png", child.FallbackMotifFileName);
+        Assert.NotNull(child.SongMotifUri);
+        Assert.Null(recording.SongMotifUri);
         Assert.NotEqual(recording.ArtworkFileName, child.ArtworkFileName);
         Assert.Equal("verified", recording.LicenseReviewStatus);
     }

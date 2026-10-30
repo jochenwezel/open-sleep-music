@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-30T08:59:28.8741871+00:00",
+  "generatedAtUtc": "2026-10-30T20:02:36.4592564+00:00",
   "sleepWorlds": [
     {
       "id": "lullabies",
@@ -59,7 +59,10 @@
           "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",
           "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_lullabies.png",
           "fallbackMotifFileName": "fallback_lullabies.png",
-          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67"
+          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v5/motif_lullaby_little_lullaby_v1.png",
+          "songMotifFileName": "motif_lullaby_little_lullaby_v1.png",
+          "songMotifSha256": "1635d9dc6745c0e80ff5e891a3b89f9a05e9fc82ab2b516718b1f1bcb139272c"
         },
         {
           "id": "burgmuller-berceuse-op-109-no-7",
@@ -116,7 +119,10 @@
           "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",
           "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_lullabies.png",
           "fallbackMotifFileName": "fallback_lullabies.png",
-          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67"
+          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v5/motif_lullaby_brahms_evening_v1.png",
+          "songMotifFileName": "motif_lullaby_brahms_evening_v1.png",
+          "songMotifSha256": "d3c0e64aee26e1822a5893a8840d1986ba9ea565be862d271f7de7bd2ca9279d"
         },
         {
           "id": "music-box-guten-abend-gute-nacht",
@@ -168,7 +174,10 @@
           "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",
           "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_lullabies.png",
           "fallbackMotifFileName": "fallback_lullabies.png",
-          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67"
+          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v5/motif_lullaby_el_noi_de_la_mare_v1.png",
+          "songMotifFileName": "motif_lullaby_el_noi_de_la_mare_v1.png",
+          "songMotifSha256": "d76e10403873fd7d3ffbd0d6d3fd43d52dad6baedd0eb469400f1c8fb226dcbf"
         },
         {
           "id": "candidate-lullabies-twinkle-alexander-blu",
@@ -194,7 +203,10 @@
           "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",
           "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_lullabies.png",
           "fallbackMotifFileName": "fallback_lullabies.png",
-          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67"
+          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v5/motif_lullaby_twinkle_star_v1.png",
+          "songMotifFileName": "motif_lullaby_twinkle_star_v1.png",
+          "songMotifSha256": "c18a2e18db8e5c1dcef5becdf68cfa71cfd3639ca9097c133009bfb2f4b66a43"
         },
         {
           "id": "faure-berceuse-op-56-no-1",
@@ -2564,7 +2576,10 @@
               "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",
               "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_lullabies.png",
               "fallbackMotifFileName": "fallback_lullabies.png",
-              "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67"
+              "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67",
+              "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v5/motif_lullaby_traeumerei_v1.png",
+              "songMotifFileName": "motif_lullaby_traeumerei_v1.png",
+              "songMotifSha256": "e3b47484e41e032507c76e306e05cc822f34f067bd778833670a59ba849afb10"
             }
           }
         },
@@ -2893,7 +2908,10 @@
               "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",
               "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_lullabies.png",
               "fallbackMotifFileName": "fallback_lullabies.png",
-              "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67"
+              "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67",
+              "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v5/motif_lullaby_lagrima_v1.png",
+              "songMotifFileName": "motif_lullaby_lagrima_v1.png",
+              "songMotifSha256": "ff3c9606512083ae6edce27882ac023b1a5ea9ff75aa710a8efcfe6cb14e6458"
             }
           }
         },
@@ -3890,9 +3908,12 @@
           "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_fireplace_v3.png",
           "artworkFileName": "background_fireplace_v3.png",
           "artworkSha256": "32abf8649eab1472b716ee637ab15e01a403a7723b4c9f3c5a27ca08e2037811",
-          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_fireplace.png",
-          "fallbackMotifFileName": "fallback_fireplace.png",
-          "fallbackMotifSha256": "5f61496b481ec977cb30999b98f4251af43193dbef011f5d41393eed06ae1271"
+          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v5/fallback_fireplace_hearth_v1.png",
+          "fallbackMotifFileName": "fallback_fireplace_hearth_v1.png",
+          "fallbackMotifSha256": "5f3c2b43764aefbabb35abbded0b17d8f704bf9e7519fa920443326e589f2748",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v5/motif_fire_favorite_hearth_v1.png",
+          "songMotifFileName": "motif_fire_favorite_hearth_v1.png",
+          "songMotifSha256": "0f709417cd9d6969a7ec55ac1386f60c88313453be22b1989a9aa0cae7dbc52c"
         }
       ]
     },

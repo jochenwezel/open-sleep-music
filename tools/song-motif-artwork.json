@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "releaseBase": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v5",
+  "songMotifs": [
+    {
+      "trackId": "research-lullaby-alex-089-little-lullaby",
+      "worldId": "lullabies",
+      "file": "motif_lullaby_little_lullaby_v1.png",
+      "sha256": "1635d9dc6745c0e80ff5e891a3b89f9a05e9fc82ab2b516718b1f1bcb139272c"
+    },
+    {
+      "trackId": "candidate-lullabies-brahms-alexander-blu",
+      "worldId": "lullabies",
+      "file": "motif_lullaby_brahms_evening_v1.png",
+      "sha256": "d3c0e64aee26e1822a5893a8840d1986ba9ea565be862d271f7de7bd2ca9279d"
+    },
+    {
+      "trackId": "candidate-el-noi-de-la-mare-guitar",
+      "worldId": "lullabies",
+      "file": "motif_lullaby_el_noi_de_la_mare_v1.png",
+      "sha256": "d76e10403873fd7d3ffbd0d6d3fd43d52dad6baedd0eb469400f1c8fb226dcbf"
+    },
+    {
+      "trackId": "candidate-lullabies-twinkle-alexander-blu",
+      "worldId": "lullabies",
+      "file": "motif_lullaby_twinkle_star_v1.png",
+      "sha256": "c18a2e18db8e5c1dcef5becdf68cfa71cfd3639ca9097c133009bfb2f4b66a43"
+    },
+    {
+      "trackId": "candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming",
+      "worldId": "lullabies",
+      "file": "motif_lullaby_traeumerei_v1.png",
+      "sha256": "e3b47484e41e032507c76e306e05cc822f34f067bd778833670a59ba849afb10"
+    },
+    {
+      "trackId": "candidate-tarrega-lagrima-leon-egea",
+      "worldId": "lullabies",
+      "file": "motif_lullaby_lagrima_v1.png",
+      "sha256": "ff3c9606512083ae6edce27882ac023b1a5ea9ff75aa710a8efcfe6cb14e6458"
+    },
+    {
+      "trackId": "firefavorite-fire-favorite-mp3",
+      "worldId": "fireplace",
+      "file": "motif_fire_favorite_hearth_v1.png",
+      "sha256": "0f709417cd9d6969a7ec55ac1386f60c88313453be22b1989a9aa0cae7dbc52c"
+    }
+  ],
+  "fireplaceFallback": {
+    "file": "fallback_fireplace_hearth_v1.png",
+    "sha256": "5f3c2b43764aefbabb35abbded0b17d8f704bf9e7519fa920443326e589f2748"
+  }
+}

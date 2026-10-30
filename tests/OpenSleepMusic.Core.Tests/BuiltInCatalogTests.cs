@@ -97,7 +97,9 @@ public sealed class BuiltInCatalogTests
             Assert.Matches("^[a-z0-9_-]+\\.png$", track.ArtworkFileName!);
             Assert.Matches("^[0-9a-f]{64}$", track.ArtworkSha256!);
             Assert.NotNull(track.FallbackMotifUri);
-            Assert.Contains("/releases/download/artwork-v2/", track.FallbackMotifUri!.AbsoluteUri, StringComparison.Ordinal);
+            Assert.Contains(track.FallbackMotifFileName == "fallback_fireplace_hearth_v1.png"
+                ? "/releases/download/artwork-v5/" : "/releases/download/artwork-v2/",
+                track.FallbackMotifUri!.AbsoluteUri, StringComparison.Ordinal);
             Assert.Matches("^fallback_[a-z0-9_-]+\\.png$", track.FallbackMotifFileName!);
             Assert.Matches("^[0-9a-f]{64}$", track.FallbackMotifSha256!);
             Assert.NotEqual(track.ArtworkFileName, track.FallbackMotifFileName);
@@ -162,6 +164,29 @@ public sealed class BuiltInCatalogTests
                 Assert.EndsWith(".mp3", track.FileName, StringComparison.OrdinalIgnoreCase);
                 Assert.Contains("/transcoded/", track.DownloadUri.AbsoluteUri, StringComparison.Ordinal);
             });
+    }
+
+    [Fact]
+    public void EveryLittleOnesMembershipHasItsOwnMotifAndFireHasDistinctFireLayers()
+    {
+        var children = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "lullabies");
+        var layers = children.Tracks.Select(track => CollectionArtwork.ForCollection(track, children.Id)).ToArray();
+        Assert.All(layers, track =>
+        {
+            Assert.NotNull(track.SongMotifUri);
+            Assert.NotEqual(track.FallbackMotifFileName, track.SongMotifFileName);
+            Assert.NotEqual(track.ArtworkFileName, track.SongMotifFileName);
+        });
+        Assert.Equal(layers.Length, layers.Select(track => track.SongMotifFileName).Distinct().Count());
+
+        var fire = BuiltInCatalog.SleepWorlds.Single(world => world.Id == "fireplace");
+        Assert.All(fire.Tracks, track =>
+        {
+            Assert.Equal("motif_fire_favorite_hearth_v1.png", track.SongMotifFileName);
+            Assert.Equal("fallback_fireplace_hearth_v1.png", track.FallbackMotifFileName);
+            Assert.NotEqual(track.SongMotifFileName, track.FallbackMotifFileName);
+            Assert.NotEqual(track.SongMotifFileName, track.ArtworkFileName);
+        });
     }
 
     [Fact]

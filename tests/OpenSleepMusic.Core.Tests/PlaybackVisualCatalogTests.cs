@@ -15,7 +15,7 @@ public sealed class PlaybackVisualCatalogTests
     {
         var theme = PlaybackVisualCatalog.For(worldId, null);
 
-        Assert.Equal("sleepy_lamb_star.png", theme.MotifAsset);
+        Assert.Equal(worldId == "fireplace" ? "fallback_fireplace_hearth_v1.png" : "sleepy_lamb_star.png", theme.MotifAsset);
     }
 
     [Fact]
