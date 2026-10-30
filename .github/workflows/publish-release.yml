@@ -13,7 +13,7 @@ env:
 
 jobs:
   publish-android:
-    if: github.event.release.prerelease
+    if: startsWith(github.event.release.tag_name, 'v') && github.event.release.prerelease
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v5
@@ -75,6 +75,7 @@ jobs:
         run: gh release upload "${{ github.event.release.tag_name }}" artifacts/android/* --clobber
 
   publish-windows:
+    if: startsWith(github.event.release.tag_name, 'v')
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v5
