@@ -42,7 +42,7 @@ marketing behavior is inferred from a general policy alone.
 | IMSLP downloads | [About](https://imslp.org/wiki/IMSLP:About), [privacy](https://imslp.org/wiki/IMSLP:Privacy_policy) | About names Project Petrucci LLC, USA. Privacy describes IP/request logging and an adult-intended website. Exact `ks15.imslp.org` delivery role, transfer basis and implications for the planned child audience remain unverified. |
 | Freesound downloads | [Privacy policy](https://freesound.org/help/privacy/) | Names Universitat Pompeu Fabra, Spain; describes request/download data. This does not establish the actual CDN's locations or a separately contracted processor relationship. |
 | OpenGameArt downloads | [Site](https://opengameart.org/) | Research fetch was denied and no authoritative current operator/privacy/transfer evidence was established. Do not infer these from a forum post or invent a privacy-policy URL. |
-| Operator email | Internal records 017/008 and maintainer confirmation | IONOS-hosted corporate email and authorized handling confirmed; this does not itself verify each mailbox contract, cloud-client route or international transfer mechanism. Do not claim EU-only mail processing. |
+| Operator email | Internal records 017/008 and maintainer confirmation; central-records chat's review on 30 October 2026 | An existing IONOS processing agreement and confirmation were found. The agreement provides for predominant EU/EEA processing but permits required third-country transfers. Mapping this particular address to Basic Mail, Exchange Mailboxes or a forwarding destination is still awaiting the maintainer's answer; do not infer the product, subprocessors or EU-only processing. |
 
 ## Remaining publication decision
 
@@ -54,6 +54,11 @@ establish a lawful transfer. No universal SCC/DPF coverage, blanket download
 consent or transfer exemption has been invented in the candidate. The website
 must remain a draft until the applicable classification and disclosures are
 settled; simply deleting the old placeholders does not resolve this evidence gap.
+
+The central-records chat has asked the maintainer specifically which IONOS
+product or forwarding route serves the support address. This is the concrete
+email-routing question, not a renewed request to confirm the already adopted
+support/deletion workflow.
 
 This is the remaining provider/transfer issue already identified in record 017,
 not a new request to audit unrelated company processes. The app's final build,
