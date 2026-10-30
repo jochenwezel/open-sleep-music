@@ -51,8 +51,10 @@ endpoints, not verified legal entities or contracted processors.
    whether to share is not evidence of verified adult action. Retained feedback
    received by CompuMaster also needs a retention/deletion policy. App support
    email and feedback addressed to the operator must be processed through
-   `appsupport@compumaster.de`; verify mailbox operation and actual handling
-   separately from this adopted routing rule. General company and data protection
+   `appsupport@compumaster.de`. On 30 October 2026 the maintainer confirmed mailbox
+   operation, authorized handling, deletion/depersonalization of unneeded working
+   copies and central email retention for original correspondence; no new blanket
+   period was adopted. General company and data protection
    contacts remain separate. Sharing remains explicitly user-initiated.
 4. Review `allowBackup`, the merged manifest and both audio-exclusion XML files,
    platform backups, cached report files and app preferences. Test cloud restore
@@ -66,3 +68,6 @@ Use Google's [Data safety definitions](https://support.google.com/googleplay/and
 and [User Data policy](https://support.google.com/googleplay/android-developer/answer/10144311?hl=en).
 Have the company's data protection contact review unresolved legal bases,
 provider relationships and international transfers before publication.
+See [privacy-publication-review.md](privacy-publication-review.md) for the
+specific source checks and the current publication status, rather than keeping
+editorial placeholders in the user-facing notice.

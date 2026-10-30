@@ -130,9 +130,12 @@ release authorization.
   redirects/certificate failures on supported platforms and the real operator
   process for deleting received feedback before publishing that promise.
 - [ ] Organization verification completed; public legal identity and contacts checked.
-- [ ] Verify `appsupport@compumaster.de` is provisioned, reachable and assigned to
-  the people handling app support/feedback; implement the actual deletion process.
+- [x] Maintainer confirmed on 30 October 2026 that `appsupport@compumaster.de`
+  is configured and handled by authorized people, with personal working-copy
+  deletion/depersonalization and original email retention under the central concept.
 - [ ] Final app privacy notice reviewed, published and accessible inside the app.
+  The Android [publication candidate and remaining provider evidence](privacy-publication-review.md)
+  separate public copy from internal release checks.
 - [ ] Provider roles, redirect destinations, retention and international transfers
   assessed; Data safety answers reconciled with the actual distributed bundle.
 - [ ] Mixed adult/child audience declared accurately. Select only age groups the

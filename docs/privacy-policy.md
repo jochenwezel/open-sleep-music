@@ -63,20 +63,21 @@ the support mailbox, with the report attached. The user decides whether to send
 it in the mail client; this is not automatic sending or proof of delivery. Later
 changes made by the user in that external client are outside the app's control.
 
-This project-level adoption does not confirm that the mailbox has been
-provisioned, is reachable or is being processed. Verify those operational facts
-and the deletion process before publishing corresponding assurances.
+On 30 October 2026, the maintainer explicitly confirmed that the support mailbox
+is configured and handled by the maintainer or authorized employees; unneeded
+personal working copies are deleted or depersonalized, while the original email
+follows the central email retention/deletion concept. The confirmation does not
+approve a new blanket retention period. Internal processing record 017 refers
+email correspondence to record 008; the latter's historical six-year figure is
+marked for review, not newly adopted for every support message.
 
-The website task proposed deleting personal feedback after processing once no
-further retention reason exists, with statutory obligations preserved. This is
-a suitable purpose-based drafting approach, but its operational adoption and
-implementation still require confirmation by CompuMaster. A repository edit
-does not delete reports in mailboxes, support tools or their backups.
-
-Before publishing that promise, establish who reviews received reports, what
-counts as completed processing, where raw reports and copies are stored, how
-deletion is performed and which actual exceptions apply. Do not invent a fixed
-duration or imply that a user-initiated share is automatically deleted everywhere.
+Describe retention by its actual purposes and criteria: case handling, necessary
+follow-up and documentation, applicable statutory retention and legal claims.
+Do not invent a fixed duration or promise immediate deletion from every mailbox,
+client, archive or backup. Additional working copies and depersonalized catalog
+findings are distinct from retention of the underlying correspondence. The
+user-initiated report file remains in the app cache; opening the mail composer
+does not establish that sending or deletion has occurred.
 Keep raw reports and personal comments out of Git. Retain useful catalog findings
 only in a form that no longer identifies the reporter; preserve the required
 track-quality improvement history without importing personal report contents.
@@ -115,7 +116,8 @@ Before launch or a relevant behavior change:
 2. Exercise successful HTTPS redirects, rejection of HTTPS-to-HTTP redirects and
    invalid certificates on supported platforms. Verify that failures retain
    resilient download and offline behavior. Record the platform and result.
-3. Confirm the actual operator deletion process before publishing its promise.
+3. Keep the confirmed operator process and any later changes aligned with the
+   public retention criteria; do not substitute a new blanket email period.
 4. Reconcile the app notice, each store's disclosures and the source/provider
    inventory. Keep website copy and the repository draft aligned.
 

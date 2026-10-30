@@ -1,8 +1,7 @@
 # Datenschutzhinweise für Open Sleep Music
 
-**Entwurf vom 29. Oktober 2026. Vor Veröffentlichung sind die markierten Angaben
-zu vervollständigen und die Anbieter-, Rechtsgrundlagen- und Speicherprüfung
-abzuschließen. Dieser Entwurf ist noch keine veröffentlichte Datenschutzerklärung.**
+Stand: 30. Oktober 2026. Diese Hinweise beschreiben die Android-Ausgabe von
+Open Sleep Music und ihre Bereitstellung über Google Play.
 
 ## Verantwortlicher und Kontakt
 
@@ -31,11 +30,6 @@ Beschreibungen von Webanalyse und Marketing in unseren
 [Unternehmens-Datenschutzhinweisen](https://www.compumaster.de/datenschutzhinweis/)
 bedeuten nicht, dass solche Funktionen in dieser App eingesetzt werden.
 
-Die Hinweise sollen unter einer gemeinsamen Adresse für diese App erreichbar
-sein. Unterschiede zwischen Android/Google Play und iOS/App Store werden in den
-folgenden Plattformabschnitten ausdrücklich erläutert. Die vorliegende technische
-Prüfung betrifft Android; die iOS-Angaben sind vor einer Apple-Veröffentlichung
-anhand der tatsächlich ausgelieferten Version zu vervollständigen.
 
 ## Speicherung auf Ihrem Gerät
 
@@ -44,6 +38,8 @@ sowie Einstellungen, Favoriten, blockierte Titel und den zuletzt gespeicherten
 Wiedergabestand auf Ihrem Gerät. Das ermöglicht Offline-Wiedergabe und das
 Fortsetzen der Bedienung. Diese Informationen werden nicht automatisch als
 Nutzungsbericht an CompuMaster gesendet.
+Technische Abruf- und Fehlerdaten können in lokalen Protokollen gespeichert
+werden; auch diese werden nicht automatisch an uns übermittelt.
 
 Sammlungen lassen sich über die Bibliotheksverwaltung entfernen. Neue Downloads
 liegen dauerhaft im eigenen Datenbereich der App. Dafür benötigt die App keinen
@@ -71,11 +67,13 @@ stattfinden. „Bibliothek aktualisieren“ löst ebenfalls einen Katalogabruf a
 Bei diesen HTTPS-Verbindungen erhält die ausliefernde Infrastruktur insbesondere
 Ihre IP-Adresse, die angeforderte Datei, den Zeitpunkt und technische
 Anfrageinformationen. Die App sendet dabei keine eigene dauerhafte
-Installationskennung. Für Kataloge und Bilder werden GitHub-Dienste genutzt.
-Die Aufnahmequellen im regulären Katalog umfassen außerdem Wikimedia,
-Internet Archive und einen IMSLP-Downloadserver. In den Titelinformationen finden Sie die konkrete
-Quelle der Aufnahme. Weiterleitungen können zusätzliche Auslieferungsdienste
-einbeziehen.
+Installationskennung. Empfänger sind Betreiber externer Musik-, Bild- und
+Katalogserver einschließlich ihrer CDN- und Auslieferungsdienste. Für Kataloge
+und App-Bilder werden GitHub-Dienste genutzt. Die Aufnahmequellen können sich mit
+dem Katalog ändern. In den Titelinformationen finden Sie die konkrete Quelle
+der Aufnahme und können deren Webseite öffnen. Weiterleitungen können zusätzliche
+Auslieferungsdienste einbeziehen. Die App sendet keine Favoritenlisten,
+Wiedergabehistorie oder Supportberichte an die Quellserver.
 
 Eigenverantwortliche Auslieferungsanbieter können Abrufe nach ihren eigenen Datenschutzregeln
 protokollieren. Auf diese Serverprotokolle haben wir keinen direkten Zugriff;
@@ -86,10 +84,15 @@ des jeweiligen Anbieters. Katalogquellen und Anbieterhinweise
 können sich ändern. Wir versprechen keine festen Speicherfristen oder
 Löschbestätigungen für fremde Serverprotokolle.
 
-**Vor Veröffentlichung ergänzen:** rechtliche Empfänger und ihre Rollen,
-Datenschutzhinweise, Verarbeitungszwecke und Rechtsgrundlagen, Speicherfristen
-sowie gegebenenfalls Drittlandübermittlungen und dafür geltende Garantien.
-Die technische Domainliste und der Prüfbedarf stehen in `data-safety.md`.
+Bei externen Abrufen können Daten auch außerhalb der EU beziehungsweise des EWR,
+insbesondere in den USA, verarbeitet werden. Dort können andere Datenschutzregeln
+und behördliche Zugriffsmöglichkeiten bestehen. Für GitHub beschreibt die
+[Datenschutzerklärung des Anbieters](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
+die Verarbeitung durch GitHub B.V. beziehungsweise GitHub, Inc., internationale
+Verarbeitungsorte sowie Standardvertragsklauseln und das EU-US Data Privacy
+Framework. Diese Angaben sind keine pauschale Zusicherung für andere
+Inhaltsanbieter. Die jeweilige Quelle und deren Hinweise sind für den einzelnen
+Abruf maßgeblich.
 
 ## Freiwilliges Feedback und Support
 
@@ -103,6 +106,11 @@ App-Version, Plattform, Katalogumfang, die bewusst als Favorit oder blockiert
 markierten Titel und einen optionalen Kommentar. Die App ergänzt keine
 Gerätekennung, Abspielhistorie oder lokalen Dateipfade.
 
+Für die Übergabe wird eine Berichtdatei im lokalen Cache abgelegt. Deren
+Bereinigung folgt der Cache-Verwaltung; eine sofortige Löschung nach dem Öffnen
+des Mailprogramms erfolgt nicht. Bereits übergebene Kopien unterliegen der
+Speicherung der jeweiligen Anwendung.
+
 Der Bericht wird nicht automatisch an uns gesendet. Ihr E-Mail-Anbieter und
 Ihre E-Mail-Anwendung können zusätzliche Daten verarbeiten und insbesondere
 Absenderdaten ergänzen. Nachträgliche Änderungen im Mailprogramm liegen bei Ihnen.
@@ -113,17 +121,43 @@ die dabei übermittelten Kontakt- und Inhaltsdaten zur Bearbeitung Ihrer Anfrage
 und gegebenenfalls zur Verbesserung der Titelauswahl. Bitte übermitteln Sie keine
 Gesundheitsdaten oder personenbezogenen Angaben über Kinder im Kommentar.
 
-**Vor Veröffentlichung ergänzen:** konkrete Rechtsgrundlagen und Löschfristen
-für eingegangene Anfragen und Feedback sowie die Behandlung lokaler Berichtdateien.
-Die Einrichtung und Erreichbarkeit der App-Support-Mailbox sowie die tatsächliche
-Bearbeitung sind vor Veröffentlichung organisatorisch zu bestätigen.
-Als Löschregel ist vorgeschlagen: „Personenbezogene Rückmeldungen löschen wir,
-sobald ihre Bearbeitung abgeschlossen ist und kein weiterer Aufbewahrungsgrund
-besteht. Gesetzliche Aufbewahrungspflichten bleiben unberührt.“ Dies darf erst
-als geltende Zusage veröffentlicht werden, wenn CompuMaster den tatsächlichen
-Löschprozess festgelegt und umgesetzt hat.
-Die endgültige Store-Version und diese Beschreibung müssen hinsichtlich der
-Zugänglichkeit dieser Funktion für Kinder übereinstimmen.
+Zugriff auf eingehende Anfragen erhalten die dafür berechtigten Beschäftigten
+und die Geschäftsführung. Die Unternehmens-E-Mail wird über gehostete Dienste
+von IONOS verarbeitet. Eingegangene persönliche Feedbackberichte werden nicht an
+Musikanbieter weitergegeben.
+
+Supportanfragen und Feedback werden so lange aufbewahrt, wie die Bearbeitung,
+erforderliche Nachfragen und die Dokumentation des Vorgangs es benötigen.
+Bestehen gesetzliche Aufbewahrungspflichten oder ist die Nachricht zur
+Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen erforderlich,
+richtet sich die weitere Aufbewahrung nach diesem Grund. Maßgeblich sind die
+Art der Unterlage und der jeweilige Fristbeginn; nicht jede Rückmeldung wird
+allein wegen ihres Eingangs als E-Mail gleich lange aufbewahrt. Nach Wegfall der
+Aufbewahrungsgründe werden personenbezogene Inhalte nach dem betrieblichen
+E-Mail-Löschkonzept gelöscht. Sicherungskopien laufen im zugehörigen
+Sicherungszyklus aus. Nicht mehr benötigte personenbezogene Arbeitskopien werden
+nach Auswertung gelöscht oder entpersonalisiert. Erkenntnisse zur Musikauswahl
+können ohne Bezug zum Absender erhalten bleiben.
+
+## Zwecke und Rechtsgrundlagen
+
+Die für eine angeforderte App- oder Supportleistung erforderliche Verarbeitung
+beruht auf Art. 6 Abs. 1 Buchst. b DSGVO, soweit ein Vertragsverhältnis mit Ihnen
+besteht oder eine entsprechende vorvertragliche Anfrage vorliegt. Die technische
+Bereitstellung, Aktualität und Sicherheit der Inhalte, die Beantwortung
+allgemeiner Anfragen und die Verbesserung der Titelauswahl beruhen im Übrigen
+auf Art. 6 Abs. 1 Buchst. f DSGVO. Unsere berechtigten Interessen sind eine
+funktionsfähige, sichere App, die Bearbeitung Ihrer Rückmeldung und ein
+geeigneter Musikkatalog. Gesetzlich erforderliche Aufbewahrung beruht auf
+Art. 6 Abs. 1 Buchst. c DSGVO.
+
+Kontakt- und Feedbackangaben sind freiwillig. Ohne die für Ihre Anfrage
+erforderlichen Angaben können wir sie gegebenenfalls nicht beantworten. Die
+Offline-Wiedergabe setzt keine Supportanfrage voraus. Technische
+Verbindungsdaten sind für Online-Abrufe erforderlich; ohne Verbindung können
+keine neuen Inhalte abgerufen werden. Wir treffen keine automatisierten
+Entscheidungen mit rechtlicher oder vergleichbar erheblicher Wirkung und
+betreiben kein entsprechendes Profiling.
 
 ## Kinder und Familien
 
@@ -132,26 +166,19 @@ Aufnahmen auswählen und die Wiedergabe für ihr Kind einrichten. Für die
 Wiedergabe benötigen wir weder den Namen noch ein Geburtsdatum des Kindes.
 Wir betreiben in der App keine personalisierte Werbung.
 
-**Vor Veröffentlichung bestätigen:** Schutz der Feedback-Funktion und externer
-Links im tatsächlichen Kinderbereich sowie die Eignung aller eingebundenen
-Dienste für diese Nutzung. Eine zukünftig erforderliche Einwilligung wird nicht
-durch diese Datenschutzhinweise ersetzt.
+Bitte übernehmen Sie als erwachsene Bezugsperson Downloads, externe
+Webseitenaufrufe und das Versenden von Feedback. Geben Sie im Kommentar keine
+Gesundheitsdaten oder personenbezogenen Angaben über Kinder an.
 
 ## Android und Google Play
 
 Google und der Geräteanbieter verarbeiten im Zusammenhang mit Google Play,
 Installationen und Betriebssystemfunktionen Daten nach ihren eigenen
-Bedingungen. Die Android-Konfiguration erlaubt Betriebssystem-Backups für dafür
-vorgesehene App-Daten; der Audio-Downloadbereich ist in den Sicherungsregeln
-ausgeschlossen. Die endgültige Konfiguration sowie tatsächliche Sicherungen und
-Geräteübertragungen müssen vor Store-Veröffentlichung geprüft werden.
-
-## iOS und Apple App Store
-
-**Vor einer iOS-Veröffentlichung ergänzen:** tatsächliche Datenverarbeitung,
-eingebundene Bibliotheken, Apple-Store-Verarbeitung, iCloud-/Gerätesicherungen
-und etwaige Unterschiede zur Android-Version. Die bloße Existenz eines
-iOS-Projektziels ist kein Nachweis gleicher Datenverarbeitung.
+Bedingungen. Weitere Informationen finden Sie in den
+[Google-Datenschutzhinweisen](https://policies.google.com/privacy?hl=de)
+und bei Ihrem Geräteanbieter. Die Android-Konfiguration erlaubt
+Betriebssystem-Backups für dafür vorgesehene App-Daten; der Audio-Downloadbereich
+ist in den Sicherungsregeln ausgeschlossen.
 
 ## Externe Webseiten
 
@@ -165,8 +192,11 @@ unterscheiden.
 Soweit die gesetzlichen Voraussetzungen vorliegen, haben Sie insbesondere Rechte
 auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und
 Datenübertragbarkeit. Sie können einer Verarbeitung auf Grundlage berechtigter
-Interessen widersprechen und eine erteilte Einwilligung für die Zukunft
-widerrufen. Sie haben außerdem das Recht, sich bei einer Datenschutzaufsichtsbehörde
+Interessen aus Gründen Ihrer besonderen Situation widersprechen und eine
+erteilte Einwilligung für die Zukunft widerrufen. Sie haben außerdem das Recht, sich bei einer Datenschutzaufsichtsbehörde
 zu beschweren. Für Anfragen können Sie die oben genannten Kontakte verwenden.
 Für ausschließlich lokal gespeicherte Einstellungen haben wir keinen zentralen
 Benutzerzugang, über den wir Ihre Installation zuordnen könnten.
+
+Zuständige Aufsicht für unser Unternehmen ist der
+[Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz](https://www.datenschutz.rlp.de/).
