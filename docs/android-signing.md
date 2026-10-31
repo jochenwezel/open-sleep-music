@@ -2,11 +2,14 @@
 
 ## Distribution channels
 
-Official Android Stable releases use Google Play. GitHub APKs are retained for
-development and Preview testing only, as directed by the maintainer on
-29 October 2026. The GitHub release workflow publishes APK assets only for
-prereleases; it does not publish Stable APK assets. Historical assets are
-unaffected. Google Play AAB publishing remains a separate preparation task.
+On 31 October 2026 the maintainer selected Google Play for Android Preview
+testing (internal/closed tracks) as well as Stable distribution, replacing the
+previous GitHub Preview channel. The GitHub release workflow no longer publishes
+Android APKs. Historical assets are retained. Google Play AAB publishing remains
+a separate preparation task; a Play track has not been activated by this change.
+Local developer builds remain possible, with the existing development key
+preserved for compatible local updates. Windows packaging and GitHub delivery of
+audio, artwork and catalogs continue independently.
 
 A Google-managed Play app-signing key is acceptable. There is no requirement
 for a Play installation to update an existing GitHub development APK in place.

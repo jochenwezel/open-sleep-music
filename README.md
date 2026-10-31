@@ -33,9 +33,12 @@ tracked in [docs/google-play/README.md](docs/google-play/README.md).
 
 ## Install the Android test app
 
-Download the APK from the latest GitHub prerelease on the Android phone. Android may ask for permission to install apps from the browser or file manager used for the download. Allow it for this installation, open the APK, choose **Installieren**, and disable that source permission again afterwards. Existing downloaded music remains in the app's music folder when updating the APK.
-
-The preview APK uses a development/test signature. Later store or production builds need a protected, durable signing key supplied through repository secrets; signing keys must never be committed.
+Android testing is moving to Google Play internal/closed tracks, which will also
+handle Stable distribution. Enrollment is still being prepared; the test link
+will be added when the track is ready. Existing GitHub APK releases remain as
+historical developer builds. New GitHub releases publish Windows packages only.
+Local Android development remains available through Visual Studio below; see
+[Android signing](docs/android-signing.md) before switching signing channels.
 
 ## Open in Visual Studio
 

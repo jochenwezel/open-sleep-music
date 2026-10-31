@@ -12,68 +12,6 @@ env:
   OpenSleepMusicReleaseDate: ${{ github.event.release.published_at }}
 
 jobs:
-  publish-android:
-    if: startsWith(github.event.release.tag_name, 'v') && github.event.release.prerelease
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-dotnet@v5
-        with:
-          global-json-file: global.json
-      - name: Install Android workload
-        run: dotnet workload install android maui --skip-manifest-update
-      - name: Restore Android signing key
-        shell: pwsh
-        env:
-          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
-          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
-          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
-        run: |
-          $required = @(
-            "ANDROID_KEYSTORE_BASE64",
-            "ANDROID_KEYSTORE_PASSWORD",
-            "ANDROID_KEY_ALIAS",
-            "ANDROID_KEY_PASSWORD"
-          )
-          foreach ($name in $required) {
-            if ([string]::IsNullOrWhiteSpace([Environment]::GetEnvironmentVariable($name))) {
-              throw "Required Android signing secret '$name' is not configured."
-            }
-          }
-          [IO.File]::WriteAllBytes(
-            "$env:RUNNER_TEMP/open-sleep-music-release.p12",
-            [Convert]::FromBase64String($env:ANDROID_KEYSTORE_BASE64))
-      - name: Publish installable test APK
-        env:
-          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
-          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
-        run: >-
-          dotnet publish src/OpenSleepMusic.App/OpenSleepMusic.App.csproj
-          --framework net10.0-android
-          --configuration Release
-          -p:OpenSleepMusicPreview=${{ github.event.release.prerelease }}
-          -p:AndroidPackageFormats=apk
-          -p:AndroidKeyStore=true
-          -p:AndroidSigningKeyStore="$env:RUNNER_TEMP/open-sleep-music-release.p12"
-          -p:AndroidSigningKeyAlias="$env:ANDROID_KEY_ALIAS"
-          -p:AndroidSigningKeyPass="$env:ANDROID_KEY_PASSWORD"
-          -p:AndroidSigningStorePass="$env:ANDROID_KEYSTORE_PASSWORD"
-      - name: Prepare Android release asset
-        shell: pwsh
-        run: |
-          New-Item -ItemType Directory -Path artifacts/android -Force | Out-Null
-          $apk = Get-ChildItem src/OpenSleepMusic.App/bin/Release/net10.0-android/publish/*-Signed.apk | Select-Object -First 1
-          if (-not $apk) { throw "No installable signed APK was produced." }
-          Copy-Item $apk.FullName "artifacts/android/open-sleep-music-${{ github.event.release.tag_name }}-test.apk"
-          (Get-FileHash "artifacts/android/open-sleep-music-${{ github.event.release.tag_name }}-test.apk" -Algorithm SHA256).Hash.ToLowerInvariant() |
-            Set-Content "artifacts/android/open-sleep-music-${{ github.event.release.tag_name }}-test.apk.sha256"
-      - name: Upload Android artifact to release
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh release upload "${{ github.event.release.tag_name }}" artifacts/android/* --clobber
-
   publish-windows:
     if: startsWith(github.event.release.tag_name, 'v')
     runs-on: windows-latest

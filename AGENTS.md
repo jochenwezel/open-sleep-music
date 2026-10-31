@@ -264,6 +264,17 @@ the packaged-Windows persistent-storage exception, and backup verification.
 - Keep workflows green for both the dedicated tests and Windows build-and-test jobs. Release workflow changes must preserve reproducible artifacts and must not bundle third-party audio into the application package unless the repository policy explicitly changes.
 - Preserve unrelated user changes in a dirty working tree and keep commits focused and reviewable.
 
+## Android distribution
+
+The maintainer decided on 31 October 2026 to move Android Preview testing as
+well as Stable distribution to Google Play. Do not publish new public GitHub
+Preview APK releases. Preserve the development signing key for local developer
+updates and keep existing historical assets unless removal is explicitly
+authorized. Google Play AAB preparation/submission is separate; a GitHub release
+must not imply a Play rollout. Windows release packaging continues independently.
+GitHub remains the required runtime delivery host for audio, artwork and catalogs;
+do not remove or change pinned content assets as part of this distribution change.
+
 ## Documentation language
 
 - Use English for all GitHub-facing communication and metadata. This includes issue and pull-request titles and descriptions, review comments, discussion and issue comments, commit messages, release titles, and release notes.

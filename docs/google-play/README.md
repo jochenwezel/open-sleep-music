@@ -15,12 +15,16 @@ Tracking issue: [Google Play publication under CompuMaster, issue 22](https://gi
 
 ## Android distribution decision
 
-As directed by the maintainer on 29 October 2026, official Android Stable
-releases are distributed through Google Play. GitHub APKs remain available for
-development and Preview testing, not as an official Stable distribution channel.
-The GitHub release workflow runs its APK publication job only for prereleases;
-Windows distribution is unaffected. Existing historical release assets remain
-unchanged.
+On 31 October 2026 the maintainer selected Google Play for Android Preview
+testing (internal/closed tracks) as well as Stable releases. This supersedes the
+earlier GitHub Preview APK distribution plan. Automatic Android APK publishing
+has been removed from the GitHub release workflow; Windows distribution and
+existing historical assets remain unchanged. The Play test track still requires
+its signed AAB and Console preparation before enrollment can begin.
+
+GitHub remains the runtime delivery provider for music, artwork and catalogs.
+Changing where the app is installed from does not remove those connections or
+their privacy disclosures.
 
 There is no requirement for Play releases to update GitHub development APKs in
 place. A Google-managed app-signing key is therefore acceptable; keep the
@@ -105,9 +109,8 @@ release authorization.
   catalog; Preview candidates and `PreselectionPage` are excluded from Stable.
 - The production manifest contains six collection definitions and 138 unique
   recordings. Counts are an inspection snapshot, not store-description promises.
-- `.github/workflows/publish-release.yml` publishes signed development APKs for
-  prereleases and Windows ZIPs,
-  but does not yet produce a Google Play Android App Bundle.
+- As of 31 October 2026, `.github/workflows/publish-release.yml` publishes Windows
+  ZIPs only. Signed Google Play Android App Bundle publishing is still pending.
 - The source Android manifest declares network access, media foreground service
   and wake-lock permissions. The playback service declares `mediaPlayback`.
 - No advertising or analytics SDK is configured in the inspected app startup
@@ -178,9 +181,9 @@ still appropriate. See [Google's app setup guide](https://support.google.com/goo
 
 ## Bundle preparation
 
-The existing release workflow explicitly selects APK output. A future focused
-change should add signed AAB output, checksums and verification while preserving
-`release.prerelease` as the channel source. Do not upload the existing Preview APK
+GitHub release automation no longer produces Android APKs. A focused Play build
+workflow should produce signed AAB output, checksums and verification with an
+explicit tested channel and pinned publication date. Do not upload the existing Preview APK
 as the public store version. Microsoft's [MAUI publishing guide](https://learn.microsoft.com/en-us/dotnet/maui/android/deployment/publish-cli?view=net-maui-10.0)
 documents the `AndroidPackageFormats=aab` publish option. Sign through protected
 credentials; package creation alone does not submit anything to Google Play.
