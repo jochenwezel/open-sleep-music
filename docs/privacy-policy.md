@@ -71,6 +71,11 @@ approve a new blanket retention period. Internal processing record 017 refers
 email correspondence to record 008; the latter's historical six-year figure is
 marked for review, not newly adopted for every support message.
 
+The maintainer subsequently confirmed that `appsupport@compumaster.de` is an
+IONOS Mail Basic mailbox. Use that product when mapping the applicable provider
+and subprocessor evidence; do not classify this address as Hosted Exchange or
+infer additional forwarding destinations.
+
 Describe retention by its actual purposes and criteria: case handling, necessary
 follow-up and documentation, applicable statutory retention and legal claims.
 Do not invent a fixed duration or promise immediate deletion from every mailbox,
