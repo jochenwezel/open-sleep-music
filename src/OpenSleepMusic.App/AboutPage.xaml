@@ -21,6 +21,7 @@
                 <Label x:Name="OfflineLabel" Text="{loc:Text AboutOffline}" TextColor="#B8B5C8" />
                 <Label x:Name="LicenseInfoLabel" Text="{loc:Text AboutLicenses}" TextColor="#B8B5C8" />
                 <Label x:Name="BackgroundInfoLabel" Text="{loc:Text AboutBackground}" TextColor="#B8B5C8" />
+                <Button Text="{loc:Text PrivacyNotice}" Clicked="OnPrivacyNoticeClicked" BackgroundColor="#252C45" TextColor="White" HorizontalOptions="Start" AutomationId="PrivacyNoticeButton" />
                 <Button x:Name="RepositoryButton" Text="{loc:Text Repository}" Clicked="OnRepositoryClicked" BackgroundColor="#7367F0" TextColor="White" HorizontalOptions="Start" />
             </VerticalStackLayout>
         </ScrollView>

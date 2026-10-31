@@ -95,8 +95,9 @@ need their own review before making an iOS declaration. Each store's disclosure
 form must match its distributed app even when both reference the same notice.
 Apple also requires the privacy-policy link in its listing and inside the app:
 [App Review Guideline 5.1.1](https://developer.apple.com/app-store/review/guidelines/#privacy).
-The app currently has no privacy-notice entry. Add the final reviewed notice or
-its published URL to the app before submission. Google requires a publicly
+Version 0.1.43 adds the published German notice under About, bundled for offline
+reading even in locked child mode. Its online link remains parent-gated. English
+publication remains separately pending. Google requires a publicly
 accessible privacy URL and in-app access, including for apps without sensitive
 data collection. See the [User Data policy](https://support.google.com/googleplay/android-developer/answer/10144311?hl=en).
 
@@ -141,7 +142,8 @@ release authorization.
 - [x] German Android app privacy notice reviewed and published on the company
   website, with the permanent sitemap/navigation exclusions preserved.
 - [ ] Publish the prepared English translation after its publication approval.
-- [ ] Add access to the published privacy notice inside the app and in Play Console.
+- [x] Add offline access to the published German notice inside the app (0.1.43).
+- [ ] Set the published privacy notice in Play Console.
   The Android [publication review](privacy-publication-review.md) separates the
   published notice from the remaining app and Store checks.
 - [ ] Provider roles, redirect destinations, retention and international transfers
@@ -158,7 +160,7 @@ release authorization.
   commercial/noncommercial use before including any NC recording.
 - [ ] Fix and physically validate [Android task-close cleanup, issue 19](https://github.com/jochenwezel/open-sleep-music/issues/19).
 - [ ] Build a signed Stable `.aab` and SHA-256 from a tested release commit.
-  Keep GitHub APKs for development/Preview only; no official Stable APK assets.
+  Use Google Play internal testing; public GitHub APK publishing is retired.
 - [ ] Configure Play App Signing deliberately. A new Google-managed app-signing
   identity is acceptable; migration from GitHub development APKs is not required.
   Separate upload and app-signing keys where appropriate; never put private keys
@@ -192,3 +194,20 @@ explicit tested channel and pinned publication date. Do not upload the existing 
 as the public store version. Microsoft's [MAUI publishing guide](https://learn.microsoft.com/en-us/dotnet/maui/android/deployment/publish-cli?view=net-maui-10.0)
 documents the `AndroidPackageFormats=aab` publish option. Sign through protected
 credentials; package creation alone does not submit anything to Google Play.
+
+`tools/Publish-PlayBundle.ps1` builds a signed AAB from committed app inputs,
+pins the publication date and runtime channel, and records source revision and
+SHA-256. Supply the protected upload keystore, alias and a temporary password
+file; passwords are passed through MSBuild's `file:` support, not command-line
+values. Build credentials and keystores must remain outside Git and public
+artifacts. Example parameters use placeholders, not actual secrets:
+
+```powershell
+./tools/Publish-PlayBundle.ps1 -KeyStorePath <protected-upload-keystore> `
+  -KeyAlias <upload-alias> -PasswordFile <temporary-password-file> `
+  -ReleaseDate 2026-11-01 -Channel stable -OutputDirectory artifacts/google-play/internal
+```
+
+The Google Play testing track and the app's catalog channel are independent:
+the first internal test uses the production catalog, keeping unchecked audition
+references out of the candidate for later production promotion.

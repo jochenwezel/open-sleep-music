@@ -18,6 +18,21 @@ public partial class AboutPage : ContentPage
     private async void OnCloseClicked(object? sender, EventArgs e) =>
         await Navigation.PopModalAsync();
 
+    private async void OnPrivacyNoticeClicked(object? sender, EventArgs e)
+    {
+        try
+        {
+            await using var stream = await FileSystem.OpenAppPackageFileAsync("privacy-notice.de.md");
+            using var reader = new StreamReader(stream, System.Text.Encoding.UTF8);
+            await Navigation.PushModalAsync(new PrivacyNoticePage(await reader.ReadToEndAsync()));
+        }
+        catch (Exception exception)
+        {
+            System.Diagnostics.Debug.WriteLine($"Privacy notice: {exception.GetType().Name}");
+            StatusLabel.Text = AppText.Get("PrivacyNoticeUnavailable");
+        }
+    }
+
     private async void OnRepositoryClicked(object? sender, EventArgs e)
     {
         if (!await ChildSafety.RequireParentAsync(this)) return;

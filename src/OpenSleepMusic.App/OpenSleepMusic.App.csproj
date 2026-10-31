@@ -34,7 +34,7 @@
 		<ApplicationId>org.opensleepmusic.app</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationVersion>42</ApplicationVersion>
+		<ApplicationVersion>43</ApplicationVersion>
 		<ApplicationDisplayVersion>0.1.$(ApplicationVersion)</ApplicationDisplayVersion>
 
 		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
@@ -65,6 +65,7 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+		<MauiAsset Include="..\..\docs\google-play\privacy-notice.de.md" LogicalName="privacy-notice.de.md" />
 	</ItemGroup>
 
 	<ItemGroup>

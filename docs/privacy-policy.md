@@ -51,6 +51,12 @@ collect a birthdate for this feature, or call this verified parental consent.
 Preserve the enabled flag across restarts and fail closed if the saved credential
 cannot be read. Store/OS networking is outside the gate's scope.
 
+The published German notice is bundled as app content and is readable from
+About without a network connection, including in locked child mode. Opening
+the separately published website remains an explicit external action guarded
+by the parent gate. Do not fetch the notice automatically or imply that an
+unpublished translation is already available to app users.
+
 Operating-system backups and device transfers are distinct from app-operated
 uploading. Audio uses persistent app-owned storage; 2026 releases migrate the old
 app-specific Music subfolder, and 2027+ releases compile out that access. Android
