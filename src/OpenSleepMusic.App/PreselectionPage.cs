@@ -55,6 +55,7 @@ internal sealed class PreselectionPage : ContentPage
                 row.BindingContextChanged += (_, _) => Refresh();
                 open.Clicked += async (_, _) =>
                 {
+                    if (!await ChildSafety.RequireParentAsync(this)) return;
                     if (row.BindingContext is not ReviewCandidate candidate) return;
                     try
                     {
@@ -62,6 +63,7 @@ internal sealed class PreselectionPage : ContentPage
                     }
                     catch (Exception exception) { System.Diagnostics.Debug.WriteLine(exception); }
 #if ANDROID
+                    if (!await ChildSafety.RequireParentAsync(this)) return;
                     // Dispatch directly when Android package visibility hides an installed URL handler.
                     try
                     {
@@ -77,7 +79,7 @@ internal sealed class PreselectionPage : ContentPage
                         AppText.Pick("Die Quellseite konnte nicht geöffnet werden. Link zum manuellen Öffnen kopieren?",
                             "The source page could not be opened. Copy the link to open it manually?"),
                         AppText.Pick("Link kopieren", "Copy link"), AppText.Get("Close"));
-                    if (copy) await Clipboard.Default.SetTextAsync(candidate.SourcePageUri.AbsoluteUri);
+                    if (copy && !ChildSafety.Control.IsLocked) await Clipboard.Default.SetTextAsync(candidate.SourcePageUri.AbsoluteUri);
                 };
                 favorite.Clicked += (_, _) =>
                 {

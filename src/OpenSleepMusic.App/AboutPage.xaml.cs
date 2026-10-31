@@ -20,6 +20,7 @@ public partial class AboutPage : ContentPage
 
     private async void OnRepositoryClicked(object? sender, EventArgs e)
     {
+        if (!await ChildSafety.RequireParentAsync(this)) return;
         try
         {
             if (!await Launcher.Default.OpenAsync(RepositoryUri))

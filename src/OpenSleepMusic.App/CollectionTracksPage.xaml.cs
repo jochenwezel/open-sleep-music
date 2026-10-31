@@ -19,6 +19,7 @@ public partial class CollectionTracksPage : ContentPage
     private readonly ModalPlaybackNavigation _playbackNavigation = new();
     private readonly IReadOnlyList<CollectionTrackListItem> _items;
     private readonly string? _worldId;
+    internal string? WorldId => _worldId;
     internal event EventHandler<LocalLibraryTrack>? PreferenceChanged;
     internal event EventHandler? PlaybackFilterChanged;
 

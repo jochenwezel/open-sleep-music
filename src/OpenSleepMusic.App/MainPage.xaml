@@ -10,6 +10,7 @@
             <VerticalStackLayout Spacing="4">
                 <Label x:Name="HeaderTitle" Text="open sleep music" FontSize="30" FontAttributes="Bold" TextColor="#F7F3FF" />
                 <Label x:Name="HeaderSubtitle" Text="{loc:Text Subtitle}" TextColor="#B8B5C8" />
+                <Label x:Name="ChildSafetyLabel" IsVisible="False" FontSize="12" TextColor="#D7D3FF" AutomationId="ChildSafetyStatus" />
             </VerticalStackLayout>
             <Button x:Name="MenuButton" Grid.Column="1" Text="☰" FontSize="22" WidthRequest="48" HeightRequest="44"
                     Clicked="OnMenuClicked" BackgroundColor="#252C45" TextColor="#F7F3FF"
@@ -19,6 +20,8 @@
         <Grid x:Name="ContentGrid" Grid.Row="1" RowDefinitions="*" ColumnDefinitions="3*,2*" ColumnSpacing="18">
             <Grid x:Name="WorldsPanel" RowDefinitions="Auto,*" RowSpacing="10">
                 <Label x:Name="WorldsTitleLabel" Text="{loc:Text Collections}" FontSize="19" FontAttributes="Bold" TextColor="#F7F3FF" />
+                <Label x:Name="ChildCollectionsEmptyLabel" Grid.Row="1" IsVisible="False" Text="{loc:Text ChildCollectionsEmpty}"
+                       TextColor="#B8B5C8" Margin="12" VerticalOptions="Center" HorizontalTextAlignment="Center" />
                 <CollectionView Grid.Row="1" x:Name="WorldsView" SelectionMode="None">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout x:Name="WorldsItemsLayout" Orientation="Vertical" Span="2" HorizontalItemSpacing="12" VerticalItemSpacing="12" />
@@ -49,7 +52,7 @@
                                                 SemanticProperties.Description="{Binding DisplayName}" />
                                     </Grid>
                                     <Grid Grid.Row="1" ColumnDefinitions="*,Auto" ColumnSpacing="8" IsVisible="{Binding HasTracks}">
-                                        <Button Text="{Binding ActionText}" IsEnabled="{Binding HasTracks}"
+                                        <Button Text="{Binding ActionText}" IsEnabled="{Binding CanUseAction}"
                                                 CommandParameter="{Binding .}" Clicked="OnWorldActionClicked"
                                                 BackgroundColor="#7367F0" TextColor="White" CornerRadius="10" />
                                         <Button Grid.Column="1" Text="⋯" WidthRequest="44" IsEnabled="{Binding HasDownloads}"
@@ -57,7 +60,7 @@
                                                 BackgroundColor="#252C45" TextColor="White" CornerRadius="10"
                                                 AutomationId="ManageWorldButton" />
                                     </Grid>
-                                    <Button Grid.Row="2" IsVisible="{Binding HasResearchReferences}" Text="{Binding ResearchReferencesText}"
+                                    <Button Grid.Row="2" IsVisible="{Binding CanShowResearchReferences}" Text="{Binding ResearchReferencesText}"
                                             CommandParameter="{Binding .}" Clicked="OnResearchReferencesClicked"
                                             BackgroundColor="#252C45" TextColor="White" CornerRadius="10" />
                                 </Grid>

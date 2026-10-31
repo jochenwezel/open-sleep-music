@@ -47,6 +47,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     public override void OnCreate()
     {
         base.OnCreate();
+        ChildSafety.Control.Changed += OnChildSafetyChanged;
         _audioManager = (AudioManager?)GetSystemService(AudioService);
         CreateNotificationChannel();
         _session = new MediaSession(this, "OpenSleepMusic");
@@ -105,6 +106,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     public override void OnDestroy()
     {
+        ChildSafety.Control.Changed -= OnChildSafetyChanged;
         CancelFade();
         CancelSleepFade();
         _timer?.Dispose();
@@ -212,9 +214,18 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         UpdateStateAndNotification();
     }
 
+    private bool IsCurrentCollectionAllowed() => _queue.Count == 0 || ChildSafety.Control.IsCollectionAllowed(
+        System.IO.Path.GetFileName(System.IO.Path.GetDirectoryName(_queue[_index].Path)) ?? "");
+
+    private void OnChildSafetyChanged(object? sender, EventArgs e) => MainThread.BeginInvokeOnMainThread(() =>
+    {
+        if (!IsCurrentCollectionAllowed()) StopPlayback();
+    });
+
     private void OpenCurrent(double positionSeconds = 0, bool autoPlay = true)
     {
         if (_queue.Count == 0) return;
+        if (!IsCurrentCollectionAllowed()) { StopPlayback(); return; }
         ReleasePlayer();
         _startSeekPending = false;
         _playWhenPrepared = autoPlay && !_sleepDeadline.HasElapsed;
@@ -292,6 +303,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private void Play(bool userInitiated = false)
     {
+        if (!IsCurrentCollectionAllowed()) { StopPlayback(); return; }
         if (userInitiated) PrepareUserPlayback();
         if (_sleepDeadline.HasElapsed) return;
         _playWhenPrepared = true;

@@ -236,6 +236,14 @@ the packaged-Windows persistent-storage exception, and backup verification.
   Raw personal feedback stays outside Git. Claims about retention/deletion of
   reports received by the operator require an actual adopted deletion process;
   do not invent retention periods for third-party servers.
+- Preserve optional child mode: default full access, persisted PIN-protected
+  activation, no app-managed network requests or external/feedback launches while
+  locked, and automatic relock on app deactivation/restart. Enforce the lock at
+  the shared transport and action boundaries, cancelling ongoing transfers too.
+  Show only allowed collections with local downloads; never treat an empty
+  allowlist as unrestricted. Parent sessions restore full access. Keep PIN
+  verification local and do not describe the gate as verified age/consent.
+  See `docs/child-mode.md` and test one-time startup behavior when changing it.
 - Route app-related support email and feedback addressed to CompuMaster through
   `appsupport@compumaster.de`. This is the project's adopted support-routing rule.
   Keep the general company contact and data protection officer contact separate.

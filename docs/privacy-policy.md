@@ -41,6 +41,16 @@ for publishing, manifest/cache guards and the actual child/offline workflow.
   ordinary offline listening. Assess child privacy and adult-action requirements
   before making free-text sharing available in the final Store child experience.
 
+The optional [child mode](child-mode.md) is disabled by default. Once enabled,
+the persisted gate blocks all app-managed content requests until parents unlock
+with their local PIN, and also guards links, feedback and collection management.
+Keep these restrictions at transport/action boundaries, not only in menu labels.
+Allowed collections and protection/cooldown state remain local preferences; a
+salted PIN verifier uses platform SecureStorage. Never upload the PIN or verifier,
+collect a birthdate for this feature, or call this verified parental consent.
+Preserve the enabled flag across restarts and fail closed if the saved credential
+cannot be read. Store/OS networking is outside the gate's scope.
+
 Operating-system backups and device transfers are distinct from app-operated
 uploading. Audio uses persistent app-owned storage; 2026 releases migrate the old
 app-specific Music subfolder, and 2027+ releases compile out that access. Android
@@ -98,7 +108,7 @@ any processing performed on our behalf remain subject to our actual duties;
 calling a service a third party does not change its role.
 
 Users choose audio downloads. Catalog checks and some artwork requests are
-automatic in the current app. Describe both; never claim that all off-device
+automatic outside locked child mode. Describe both; never claim that all off-device
 requests occur only after a download click or that a download click grants
 blanket permission for provider tracking.
 

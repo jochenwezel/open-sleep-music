@@ -1,7 +1,7 @@
 # Google Play data safety assessment
 
 This is the submission worksheet for the Stable Android app, based on source
-inspection through 30 October 2026. It contains provisional classifications, not a
+inspection through 31 October 2026. It contains provisional classifications, not a
 submitted Data safety declaration. Do not select "no data collected" solely
 because the project has no analytics SDK.
 
@@ -9,8 +9,8 @@ because the project has no analytics SDK.
 
 | Flow | Source evidence | Assessment and remaining work |
 | --- | --- | --- |
-| Player settings, favorites, blocks and saved position | `AppStateStore.cs`, `AndroidPlaybackService.cs` | Locally persisted; no automatic developer upload identified. Check Android backup and device-transfer behavior. |
-| Catalog update at initial page loading and manual library refresh | `MainPage.xaml.cs`, `CatalogUpdateClient.cs` | HTTPS GitHub release assets. Core validates every GitHub delivery redirect and rejects non-GitHub runtime content in remote/cached catalogs. |
+| Player settings, favorites, blocks and saved position; optional child-mode settings and parent PIN verifier | `AppStateStore.cs`, `AndroidPlaybackService.cs`, `ChildSafety.cs`, `ParentalControl.cs` | Locally persisted; no automatic developer upload identified. Parent PIN verifier uses SecureStorage; collection/lock/cooldown settings use preferences. Check Android backup and device-transfer behavior, including restored settings with an unreadable credential. |
+| Catalog update at initial page loading and manual library refresh | `MainPage.xaml.cs`, `CatalogUpdateClient.cs` | HTTPS GitHub release assets. Core validates every GitHub delivery redirect and rejects non-GitHub runtime content in remote/cached catalogs. Locked optional child mode prevents transport calls, including automatic artwork/audio requests; cached/embedded content remains usable. |
 | Artwork manifest and PNG downloads | `ArtworkManifestClient.cs`, `ArtworkCache.cs` | HTTPS GitHub requests; cache remains on the device. Check final catalog endpoints and provider handling. |
 | Selected audio and background dependencies | `SleepWorldDownloader.cs`, `GitHubContentDelivery.cs`, `AudioLibraryStorage.cs`, Android backup XML and production catalog | Byte-identical versioned GitHub assets; original sources remain provenance only, without automatic fallback. Persistent private `Audio/` storage with configured audio backup/transfer exclusions. Requests expose connection metadata to GitHub delivery, not microphone uploads. Verify final bundle and real restore behavior. |
 | Optional catalog feedback | `MainPage.ShareCatalogFeedbackAsync`, `AppSupport.cs`, `CatalogFeedbackReport.cs`, `docs/catalog-feedback.md` | User-triggered email draft to appsupport@compumaster.de with JSON attachment: timestamp, app version, platform, catalog count, favorite/blocked titles and optional free text. No automatic developer upload. Review user-initiated sharing exemptions and mail-provider behavior; free text and email sender details can contain personal data. |
@@ -50,7 +50,9 @@ transport policy, registry and channel checks.
 2. Map each actual off-device data use to Google's categories and collection/
    sharing exceptions. An IP address is not automatically a location declaration;
    using it to derive location would affect the classification.
-3. Decide feedback availability in the child experience. A confirmation asking
+3. Feedback and external links are blocked in locked optional child mode. Parent
+   PIN unlock restores them; child mode is explicitly opt-in, not universal age
+   detection. Check the exact Store child experience. A confirmation asking
    whether to share is not evidence of verified adult action. Retained feedback
    received by CompuMaster also needs a retention/deletion policy. App support
    email and feedback addressed to the operator must be processed through

@@ -9,6 +9,7 @@ public partial class TrackDetailsPage : ContentPage
     private readonly LocalLibraryTrack _localTrack;
     private readonly AppStateStore _stateStore;
     private readonly AudioTrack? _backgroundTrack;
+    internal string WorldId => _localTrack.SleepWorld.Id;
 
     public event EventHandler? PreferenceChanged;
 
@@ -131,6 +132,7 @@ public partial class TrackDetailsPage : ContentPage
 
     private async Task OpenUriAsync(Uri uri)
     {
+        if (!await ChildSafety.RequireParentAsync(this)) return;
         try
         {
             if (!await Launcher.Default.OpenAsync(uri))

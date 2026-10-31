@@ -65,17 +65,21 @@ blanket approval of direct online service use by children under 13.
 
 GitHub Terms A.11/B.3 set a minimum service-user age of 13. Catalog-selected
 files address content suitability; they do not establish an age exception in
-those terms. The app currently automatically refreshes the catalog on loading
-and fetches artwork as needed, without a persistent app-wide offline switch.
+those terms. In ordinary mode the app automatically refreshes the catalog on
+loading and fetches artwork as needed.
 
-Adult-managed online setup/downloads followed by playback with device networking
-disabled is technically possible with the existing app. Direct online service
-use by under-13s is not unconditionally approved. If child use on an online device
-must produce no automatic requests, an actual network gate/product change or
-provider clarification remains necessary; a parental sentence is not evidence
-of such a control. No birthdate collection or age gate was introduced by this
-transport migration. See [GitHub Terms](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service)
-and the delivery document's explicit offline-workflow limits.
+The updated app adds an optional PIN-protected child mode. After adult setup it
+blocks app-managed online requests even on a connected device and guards links,
+feedback and collection management. Only allowed collections with downloaded
+tracks appear. The parent session relocks on deactivation/restart. No birthdate
+collection or identity/age verification is introduced. Default operation remains
+full access by explicit maintainer choice. See [child mode](../child-mode.md).
+
+This closes the implementation gap for adult-managed downloads followed by
+locked offline child playback. It does not establish a GitHub age exception,
+unconditional under-13 online-service approval, verified parental consent or a
+completed Store Families assessment. Historical binaries retain their prior
+behavior until updated. See [GitHub Terms](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service).
 
 The website task should synchronize the reviewed candidate, perform its visual
 check and retain the existing sitemap exclusion. Public publication still needs

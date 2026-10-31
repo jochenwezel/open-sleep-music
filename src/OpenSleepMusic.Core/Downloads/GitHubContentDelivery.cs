@@ -1,5 +1,6 @@
 using System.Net;
 using OpenSleepMusic.Core.Catalog;
+using OpenSleepMusic.Core.Privacy;
 
 namespace OpenSleepMusic.Core.Downloads;
 
@@ -28,11 +29,11 @@ public static class GitHubContentDelivery
     private static bool IsSecure(Uri? uri) => uri is { IsAbsoluteUri: true, Scheme: "https", Port: 443 }
         && uri.UserInfo.Length == 0 && uri.Fragment.Length == 0;
 
-    public static HttpClient CreateHttpClient() => new(new HttpClientHandler
+    public static HttpClient CreateHttpClient(ParentalControl? parentalControl = null)
     {
-        AllowAutoRedirect = false,
-        UseCookies = false
-    });
+        var transport = new HttpClientHandler { AllowAutoRedirect = false, UseCookies = false };
+        return new HttpClient(parentalControl is null ? transport : new ParentalControlHandler(parentalControl, transport));
+    }
 
     public static async Task<HttpResponseMessage> GetAsync(
         HttpClient client, Uri uri, CancellationToken cancellationToken = default)

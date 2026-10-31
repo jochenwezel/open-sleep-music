@@ -18,4 +18,13 @@ Implemented:
 
 Release acceptance still requires real-device tests for Android standby, battery optimization, phone-call interruption, Bluetooth controls, wired headset controls, process recreation, and rotation during playback, downloads, and sleep-timer operation. Results should be recorded in the release notes or a follow-up issue; emulator/build success does not replace these checks.
 
+The 0.1.41 Preview also needs interactive child-mode acceptance on Android and
+Windows: PIN setup/unlock/change/disable, automatic relock, collection selection
+(including empty and partially downloaded libraries), offline behavior on an
+online device, and fresh-launch autoplay/back navigation for a single collection.
+Core tests cover the policies and cancellation/cleanup behavior; manual PIN and
+device-playback checks were blocked by the locked workstation. See
+[child mode](child-mode.md). This is a Preview limitation, not completed Store
+Families or production acceptance.
+
 Background playback must retain the project's privacy and offline guarantees. It must not introduce accounts, analytics, remote control services, or a permanent network requirement.

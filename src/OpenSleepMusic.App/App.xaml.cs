@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 
 using OpenSleepMusic.App.Localization;
 
@@ -15,8 +15,8 @@ public partial class App : Application
 	protected override Window CreateWindow(IActivationState? activationState)
 	{
 		var window = new Window(new AppShell());
-		window.Deactivated += (_, _) => CurrentMainPage()?.HandleAppDeactivated();
-		window.Stopped += (_, _) => CurrentMainPage()?.HandleAppDeactivated();
+		window.Deactivated += (_, _) => { ChildSafety.LeaveApp(); CurrentMainPage()?.HandleAppDeactivated(); };
+		window.Stopped += (_, _) => { ChildSafety.LeaveApp(); CurrentMainPage()?.HandleAppDeactivated(); };
 		window.Resumed += (_, _) => CurrentMainPage()?.HandleAppResumed();
 		return window;
 	}

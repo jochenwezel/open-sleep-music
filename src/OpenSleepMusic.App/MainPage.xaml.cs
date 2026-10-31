@@ -8,6 +8,7 @@ using OpenSleepMusic.Core.Catalog;
 using OpenSleepMusic.Core.Downloads;
 using OpenSleepMusic.Core.Library;
 using OpenSleepMusic.Core.Playback;
+using OpenSleepMusic.Core.Privacy;
 using OpenSleepMusic.App.Localization;
 using OpenSleepMusic.App.Playback;
 
@@ -93,7 +94,7 @@ public partial class MainPage : ContentPage
         RootGrid.Add(_backgroundPlayer.Element);
 #endif
 #endif
-        _httpClient = GitHubContentDelivery.CreateHttpClient();
+        _httpClient = GitHubContentDelivery.CreateHttpClient(ChildSafety.Control);
         _httpClient.Timeout = TimeSpan.FromMinutes(15);
         _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(
             "OpenSleepMusic/0.1 (+https://github.com/jochenwezel/open-sleep-music)");
@@ -112,6 +113,7 @@ public partial class MainPage : ContentPage
             downloadLog);
         _worldCards = _catalogWorlds.Select(world => new SleepWorldCard(world)).ToArray();
         WorldsView.ItemsSource = _worldCards;
+        ChildSafety.Control.Changed += OnChildSafetyChanged;
 
         _initialState = _stateStore.Load();
         _shuffleEnabled = _initialState.ShuffleEnabled;
@@ -143,14 +145,33 @@ public partial class MainPage : ContentPage
         SizeChanged += (_, _) => ApplyResponsiveLayout(Width, Height);
         Loaded += async (_, _) =>
         {
+            ChildSafety.Control.Changed -= OnChildSafetyChanged;
+            ChildSafety.Control.Changed += OnChildSafetyChanged;
+            UpdateChildSafety();
             await RefreshCatalogAsync();
             await RefreshLibraryAsync();
 #if ANDROID
             await OpenRequestedAndroidPlaybackAsync();
 #endif
+            var startWorldId = ChildSafety.Startup.TakeAutoStartCollection(ChildSafety.Control,
+                _worldCards.Select(card => new ChildCollectionAvailability(card.World.Id, card.HasDownloads,
+                    GetPlayableTracks(card.World.Id).Count > 0)));
+            if (startWorldId is not null && Navigation.ModalStack.Count == 0
+                && ChildSafety.Control.IsLocked && ChildSafety.Control.IsCollectionAllowed(startWorldId))
+            {
+                var card = _worldCards.First(card => card.World.Id == startWorldId);
+                SelectWorld(card);
+                if (_currentTrack?.SleepWorld.Id == startWorldId)
+                {
+                    if (!_shouldContinuePlayback) OnPlayPauseClicked(this, EventArgs.Empty);
+                }
+                else PlayInitialTrack();
+                await Navigation.PushModalAsync(new ImmersivePlayerPage(this, startWorldId));
+            }
         };
         Unloaded += (_, _) =>
         {
+            ChildSafety.Control.Changed -= OnChildSafetyChanged;
             AppVolumeBridge.Changed -= OnAppVolumeBridgeChanged;
 #if ANDROID
             AndroidPlaybackBridge.StateChanged -= OnAndroidPlaybackStateChanged;
@@ -160,6 +181,37 @@ public partial class MainPage : ContentPage
         var volumeOverlay = new VolumeOverlayView();
         Grid.SetRowSpan(volumeOverlay, 4);
         RootGrid.Add(volumeOverlay);
+        UpdateChildSafety();
+    }
+
+    private void OnChildSafetyChanged(object? sender, EventArgs e) => Dispatcher.Dispatch(UpdateChildSafety);
+
+    private void UpdateChildSafety()
+    {
+        ChildSafetyLabel.IsVisible = ChildSafety.Control.IsEnabled;
+        ChildSafetyLabel.Text = AppText.Get(ChildSafety.Control.IsLocked ? "ChildModeActive" : "ParentAreaUnlocked");
+        foreach (var card in _worldCards) card.RefreshChildSafety();
+        if (ChildSafety.Control.IsLocked)
+        {
+            foreach (var cancellation in _downloadCancellations.Values.ToArray()) cancellation.Cancel();
+            if (_currentTrack is not null && !ChildSafety.Control.IsCollectionAllowed(_currentTrack.SleepWorld.Id))
+                StopAndClearPlayback();
+        }
+        UpdateWorldVisibility();
+    }
+
+    private void UpdateWorldVisibility()
+    {
+        var visible = _worldCards.Where(card => ChildSafety.Control.IsCollectionVisible(card.World.Id, card.HasDownloads)).ToArray();
+        WorldsView.ItemsSource = visible;
+        ChildCollectionsEmptyLabel.IsVisible = ChildSafety.Control.IsLocked && visible.Length == 0;
+        if (_selectedWorldCard is not null && !visible.Contains(_selectedWorldCard))
+        {
+            _selectedWorldCard.SetSelected(false);
+            _selectedWorldCard = null;
+            if (visible.FirstOrDefault() is { } first) SelectWorld(first, persist: false);
+            else ApplyLibraryFilter();
+        }
     }
 
     private void ApplyResponsiveLayout(double width, double height)
@@ -257,10 +309,27 @@ public partial class MainPage : ContentPage
         }
     }
 
-    internal void HandleAppDeactivated() => PersistPlaybackSnapshot(force: true);
-
-    internal void HandleAppResumed()
+    internal void HandleAppDeactivated()
     {
+        // Modal navigation can unload the main visual tree; enforce playback
+        // restrictions here as well as through the active page's event subscription.
+        UpdateChildSafety();
+        PersistPlaybackSnapshot(force: true);
+    }
+
+    internal async void HandleAppResumed()
+    {
+        UpdateChildSafety();
+        if (ChildSafety.Control.IsLocked && Navigation.ModalStack.Any(page => page switch
+            {
+                ImmersivePlayerPage player => !ChildSafety.Control.IsCollectionAllowed(player.WorldId),
+                CollectionTracksPage tracks => tracks.WorldId is { } id && !ChildSafety.Control.IsCollectionAllowed(id),
+                TrackDetailsPage details => !ChildSafety.Control.IsCollectionAllowed(details.WorldId),
+                _ => false
+            }))
+        {
+            while (Navigation.ModalStack.Count > 0) await Navigation.PopModalAsync(false);
+        }
 #if ANDROID
         ApplyAndroidSnapshot(AndroidPlaybackBridge.Snapshot);
 #else
@@ -276,6 +345,7 @@ public partial class MainPage : ContentPage
     private async void OnResearchReferencesClicked(object? sender, EventArgs e)
     {
 #if OPEN_SLEEP_MUSIC_PREVIEW
+        if (!await ChildSafety.RequireParentAsync(this)) return;
         if (sender is Button { CommandParameter: SleepWorldCard { HasResearchReferences: true } card })
             await Navigation.PushModalAsync(new PreselectionPage(_stateStore, card.World));
 #else
@@ -303,7 +373,7 @@ public partial class MainPage : ContentPage
         }
 
         SelectWorld(card);
-        if (card.IsComplete)
+        if (card.IsComplete || ChildSafety.Control.IsLocked && card.HasDownloads)
         {
             if (_visibleLibrary.Count > 0)
             {
@@ -329,6 +399,11 @@ public partial class MainPage : ContentPage
         }
 
         SelectWorld(card);
+        if (ChildSafety.Control.IsLocked)
+        {
+            await OpenCollectionTracksAsync(card);
+            return;
+        }
         try
         {
             var action = await DisplayActionSheetAsync(
@@ -360,6 +435,7 @@ public partial class MainPage : ContentPage
 
     private async Task OpenCollectionTracksAsync(SleepWorldCard card)
     {
+        if (!ChildSafety.Control.IsCollectionAllowed(card.World.Id)) return;
         var tracks = _library.Where(track => track.SleepWorld.Id == card.World.Id).ToArray();
         if (tracks.Length == 0)
         {
@@ -384,6 +460,7 @@ public partial class MainPage : ContentPage
 
     private async Task DownloadWorldAsync(SleepWorldCard card, bool isRepair)
     {
+        if (!await ChildSafety.RequireParentAsync(this)) return;
         if (_downloadCancellations.ContainsKey(card.World.Id)) return;
         using var cancellation = new CancellationTokenSource();
         _downloadCancellations.Add(card.World.Id, cancellation);
@@ -467,12 +544,13 @@ public partial class MainPage : ContentPage
 
     private async Task DeleteWorldAsync(SleepWorldCard card)
     {
+        if (!await ChildSafety.RequireParentAsync(this)) return;
         var confirmed = await DisplayAlertAsync(
             AppText.Pick("Sammlung löschen", "Delete collection"),
             AppText.Pick($"Alle heruntergeladenen Dateien aus „{card.DisplayName}“ werden gelöscht. Andere Themensammlungen bleiben erhalten.", $"All downloaded files in “{card.DisplayName}” will be deleted. Other collections remain available."),
             AppText.Pick("Löschen", "Delete"),
             AppText.Get("Close"));
-        if (!confirmed)
+        if (!confirmed || !await ChildSafety.RequireParentAsync(this))
         {
             return;
         }
@@ -480,6 +558,7 @@ public partial class MainPage : ContentPage
         try
         {
             await _audioStorage.InitializeAsync();
+            if (ChildSafety.Control.IsLocked) return;
             if (_currentTrack?.SleepWorld.Id == card.World.Id)
             {
                 StopAndClearPlayback();
@@ -519,12 +598,14 @@ public partial class MainPage : ContentPage
 
     private async Task OpenWorldAsync(SleepWorldCard card)
     {
+        if (!ChildSafety.Control.IsCollectionVisible(card.World.Id, card.HasDownloads)) return;
         _isOpeningWorld = true;
         try
         {
 #if OPEN_SLEEP_MUSIC_PREVIEW
             if (card.HasResearchReferences)
             {
+                if (!await ChildSafety.RequireParentAsync(this)) return;
                 await Navigation.PushModalAsync(new PreselectionPage(_stateStore, card.World));
                 return;
             }
@@ -592,6 +673,7 @@ public partial class MainPage : ContentPage
                 ?? _worldCards.FirstOrDefault(card => card.HasDownloads)
                 ?? _worldCards[0];
             SelectWorld(cardToSelect, persist: _didRestorePlayback);
+            UpdateWorldVisibility();
             RestorePlaybackOnce();
 #if ANDROID
             ApplyAndroidSnapshot(AndroidPlaybackBridge.Snapshot);
@@ -620,16 +702,17 @@ public partial class MainPage : ContentPage
         _catalogWorlds = snapshot.SleepWorlds;
         _stateStore.MigratePreselectionRatings(_catalogWorlds);
         _worldCards = _catalogWorlds.Select(world => new SleepWorldCard(world)).ToArray();
-        WorldsView.ItemsSource = _worldCards;
         _selectedWorldCard = _worldCards.FirstOrDefault(card => card.World.Id == selectedWorldId);
+        UpdateWorldVisibility();
     }
 
     private LocalLibraryTrack? FindPlaybackTrack(string trackId, string? preferredWorldId = null)
     {
         var worldId = preferredWorldId ?? _playbackQueue.ActiveWorldId ?? _currentTrack?.SleepWorld.Id
             ?? _selectedWorldCard?.World.Id ?? _initialState.SelectedWorldId;
-        return _library.FirstOrDefault(track => track.Track.Id == trackId && track.SleepWorld.Id == worldId)
-            ?? _library.FirstOrDefault(track => track.Track.Id == trackId);
+        return _library.FirstOrDefault(track => track.Track.Id == trackId && track.SleepWorld.Id == worldId
+                && ChildSafety.Control.IsCollectionAllowed(track.SleepWorld.Id))
+            ?? _library.FirstOrDefault(track => track.Track.Id == trackId && ChildSafety.Control.IsCollectionAllowed(track.SleepWorld.Id));
     }
 
     private void RestorePlaybackOnce()
@@ -668,7 +751,8 @@ public partial class MainPage : ContentPage
     {
         _displayedLibrary = _selectedWorldCard is null
             ? []
-            : _library.Where(track => track.SleepWorld.Id == _selectedWorldCard.World.Id).ToArray();
+            : _library.Where(track => track.SleepWorld.Id == _selectedWorldCard.World.Id
+                && ChildSafety.Control.IsCollectionAllowed(track.SleepWorld.Id)).ToArray();
         var worldId = _selectedWorldCard?.World.Id;
         _playbackQueue.Select(worldId, worldId is null ? [] : GetPlayableTracks(worldId));
         LibraryView.ItemsSource = _displayedLibrary.Select(CreateTrackItem).ToArray();
@@ -680,7 +764,7 @@ public partial class MainPage : ContentPage
     }
 
     private IReadOnlyList<LocalLibraryTrack> GetPlayableTracks(string worldId) => TrackPreferenceFilter.Apply(
-        _library.Where(track => track.SleepWorld.Id == worldId).ToArray(),
+        _library.Where(track => track.SleepWorld.Id == worldId && ChildSafety.Control.IsCollectionAllowed(worldId)).ToArray(),
         trackId => _stateStore.IsFavorite(worldId, trackId),
         trackId => _stateStore.IsBlocked(worldId, trackId),
         _stateStore.IsFavoritesOnly(worldId));
@@ -803,6 +887,7 @@ public partial class MainPage : ContentPage
 
     private void PlayTrack(LocalLibraryTrack track, bool userInitiated = false, double startPositionSeconds = 0, bool autoPlay = true)
     {
+        if (!ChildSafety.Control.IsCollectionAllowed(track.SleepWorld.Id)) return;
         if (userInitiated)
         {
             _consecutivePlaybackFailures = 0;
@@ -1254,12 +1339,15 @@ public partial class MainPage : ContentPage
             var feedbackAction = AppText.IsGerman ? "Katalog-Feedback teilen" : "Share catalog feedback";
             var folderAction = AppText.IsGerman ? "Download-Ordner öffnen" : "Open download folder";
             var aboutAction = AppText.IsGerman ? "Über Open Sleep Music" : "About Open Sleep Music";
+            var childSafetyAction = ChildSafety.MenuTitle;
+            var actions = ChildSafety.Control.IsLocked
+                ? new[] { shuffleAction, settingsAction, childSafetyAction, aboutAction }
+                : new[] { shuffleAction, refreshAction, settingsAction, feedbackAction, folderAction, childSafetyAction, aboutAction };
             var action = await DisplayActionSheetAsync(
                 AppText.IsGerman ? "Menü" : "Menu",
                 AppText.Get("Close"),
                 null,
-                shuffleAction,
-                refreshAction, settingsAction, feedbackAction, folderAction, aboutAction);
+                actions);
 
             if (action == shuffleAction)
             {
@@ -1276,6 +1364,7 @@ public partial class MainPage : ContentPage
             }
             else if (action == refreshAction)
             {
+                if (!await ChildSafety.RequireParentAsync(this)) return;
                 await RefreshCatalogAsync();
                 await RefreshLibraryAsync();
             }
@@ -1294,6 +1383,11 @@ public partial class MainPage : ContentPage
             else if (action == aboutAction)
             {
                 await Navigation.PushModalAsync(new AboutPage());
+            }
+            else if (action == childSafetyAction)
+            {
+                await ChildSafety.OpenAsync(this, _worldCards.Where(card => card.HasTracks)
+                    .Select(card => new ChildCollectionOption(card.World.Id, card.DisplayName, card.DownloadedCount)).ToArray());
             }
         }
         catch (Exception exception)
@@ -1487,6 +1581,7 @@ public partial class MainPage : ContentPage
 
     private async Task ShareCatalogFeedbackAsync()
     {
+        if (!await ChildSafety.RequireParentAsync(this)) return;
         var comment = await DisplayPromptAsync(
             AppText.Get("FeedbackTitle"),
             AppText.Get("FeedbackHelp"),
@@ -1538,7 +1633,7 @@ public partial class MainPage : ContentPage
                 string.IsNullOrWhiteSpace(comment) ? "." : AppText.Get("WithComment")),
             AppText.Get("OpenEmail"),
             AppText.Get("Cancel"));
-        if (!confirmed)
+        if (!confirmed || !await ChildSafety.RequireParentAsync(this))
         {
             return;
         }
@@ -1575,6 +1670,7 @@ public partial class MainPage : ContentPage
                 BodyFormat = EmailBodyFormat.PlainText,
                 Attachments = [new EmailAttachment(path)]
             };
+            if (!await ChildSafety.RequireParentAsync(this)) return;
             await Email.Default.ComposeAsync(message);
             StatusLabel.Text = AppText.Get("EmailOpened");
         }
@@ -1638,6 +1734,7 @@ public partial class MainPage : ContentPage
 
     private async Task OpenDownloadFolderAsync()
     {
+        if (!await ChildSafety.RequireParentAsync(this)) return;
         try
         {
             Directory.CreateDirectory(_downloadRoot);
@@ -1935,6 +2032,15 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
 
     public bool HasResearchReferences => BuildChannel.IsPreview && World.ExternalReferences is { Count: > 0 };
 
+    public bool CanShowResearchReferences => HasResearchReferences && !ChildSafety.Control.IsLocked;
+    public bool CanUseAction => HasTracks && (!ChildSafety.Control.IsLocked || HasDownloads);
+    public void RefreshChildSafety()
+    {
+        OnPropertyChanged(nameof(CanShowResearchReferences));
+        OnPropertyChanged(nameof(CanUseAction));
+        OnPropertyChanged(nameof(ActionText));
+    }
+
     public string ResearchReferencesText => AppText.Pick("Quellen probehören ↗", "Audition sources ↗");
 
     private bool _backgroundsReady = true;
@@ -1959,7 +2065,7 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
         ? AppText.Pick("Download abbrechen", "Cancel download")
         : IsPlaying
         ? $"⏸ {AppText.Pick("Pausieren", "Pause")}"
-        : IsComplete
+        : IsComplete || ChildSafety.Control.IsLocked && HasDownloads
         ? $"▶ {AppText.Get("Play")}"
         : DownloadedCount == 0
             ? AppText.Get("Download")
@@ -2018,6 +2124,7 @@ internal sealed class SleepWorldCard(SleepWorld world) : INotifyPropertyChanged
     {
         OnPropertyChanged(propertyName);
         OnPropertyChanged(nameof(HasDownloads));
+        OnPropertyChanged(nameof(CanUseAction));
         OnPropertyChanged(nameof(IsComplete));
         OnPropertyChanged(nameof(ActionText));
         OnPropertyChanged(nameof(StatusText));

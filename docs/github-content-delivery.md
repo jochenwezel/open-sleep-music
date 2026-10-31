@@ -64,13 +64,21 @@ Old clients can receive the new catalog through the usual channel update.
 
 ## Actual child/offline workflow
 
-The main page currently refreshes the catalog on loading and fetches images as
-needed. Offline playback works without a connection, but there is no persisted
-app-wide switch preventing automatic requests while the device is online.
-Adult-managed downloads followed by child use without online requests therefore
-require device network/offline controls or a separate product change. A parental
-instruction is not an implemented child-mode gate; this migration does not claim
-otherwise. This is separate from recording suitability and the GitHub transport.
+Ordinary operation refreshes the catalog on loading and fetches images as needed.
+The optional [child mode](child-mode.md) adds a persisted parental gate: after
+parents enable it, app-managed requests are blocked before transport, including
+catalogs, artwork, audio and redirect hops. Locking cancels active requests and
+closes response streams. Cached/embedded resources and local playback remain
+available even when the device itself is connected. External links, feedback,
+folder launching and destructive collection management are guarded separately.
+
+Parents select the collections available to the child; only selected collections
+with local tracks appear. The parent area requires the local PIN and relocks
+when the app loses activation. By explicit product choice, child mode is opt-in;
+the default remains full functionality. This is a local usage restriction, not
+identity verification, a GitHub age exception, or control over OS/store traffic.
+These controls require the updated app binary; they are not delivered by a
+catalog update to historical installations.
 
 ## Verification on 31 October 2026
 

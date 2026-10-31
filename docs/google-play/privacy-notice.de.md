@@ -168,9 +168,20 @@ Wir betreiben in der App keine personalisierte Werbung.
 Bitte übernehmen Sie als erwachsene Bezugsperson Downloads, externe
 Webseitenaufrufe und das Versenden von Feedback. Geben Sie im Kommentar keine
 Gesundheitsdaten oder personenbezogenen Angaben über Kinder an.
-Für eine Wiedergabe ohne weitere Onlineabrufe muss das Gerät nach dem
-Herunterladen offline verwendet werden. Bei bestehender Internetverbindung
-können die oben beschriebenen automatischen Katalog- und Bildabrufe stattfinden.
+Optional können Sie im Menü einen Kinderschutz mit Eltern-PIN aktivieren und
+die verfügbaren Sammlungen auswählen. Im gesperrten Kinderschutz zeigt die App
+nur freigegebene Sammlungen mit heruntergeladenen Titeln und führt keine eigenen
+Internetabrufe aus – auch wenn das Gerät online ist. Externe Links, Feedback und
+die Sammlungsverwaltung sind gesperrt. Eltern können mit der PIN wieder alle
+Funktionen freigeben; beim Verlassen der App wird erneut gesperrt.
+
+Die Kinderschutzeinstellung, Sammlungsauswahl und Fehlversuchssperre werden
+lokal gespeichert. Ein gesalzener Prüfwert der PIN liegt im geschützten
+Speicher des Betriebssystems; die PIN wird nicht an uns übermittelt. Ohne
+aktivierten Kinderschutz beziehungsweise im entsperrten Elternbereich können
+die oben beschriebenen automatischen Katalog- und Bildabrufe stattfinden.
+Der Kinderschutz steuert nur diese App, nicht die eigenen Vorgänge des
+Betriebssystems, des Stores oder anderer Apps.
 
 ## Android und Google Play
 
