@@ -527,3 +527,17 @@ once from Preselection into newly promoted memberships without replacing existin
 choices or deleting the source state. Validated app-owned audio can be reused
 across moved solo collections, with the existing signature/checksum, partial-file,
 symlink and failure-continuation protections.
+
+## Maintainer-selected little-ones order, 2026-10-31
+
+The maintainer explicitly requests the six recently admitted little-ones
+memberships as a final block rather than interspersed with the seven earlier
+titles. Their existing relative order is retained: Träumerei, Little Lullaby,
+Brahms' Guten Abend, gut' Nacht (Alexander Blu), El Noi de la Mare, Twinkle
+Twinkle Little Star (Alexander Blu), and Lágrima. The earlier seven keep their
+relative order. This one-time curation is persisted in
+`tools/lullabies-track-order.json` and emitted as `trackOrder` in both catalogs;
+later rebuilds preserve it. Recording IDs, shared memberships, audio, artwork,
+licenses, playback levels and tempo settings are unchanged. Other collections
+keep their existing order. The default random insertion rule for future additions
+is not changed by this explicit batch-order request.

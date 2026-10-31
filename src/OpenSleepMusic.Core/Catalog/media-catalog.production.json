@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAtUtc": "2026-10-30T20:02:36.4592564+00:00",
+  "generatedAtUtc": "2026-10-31T19:28:23.1916344+00:00",
   "sleepWorlds": [
     {
       "id": "lullabies",
@@ -35,36 +35,6 @@
           "songMotifSha256": "12039a2dbc713d6281fb4bc6c171cc7821843aec587a2c16d5c948e513f0a455"
         },
         {
-          "id": "research-lullaby-alex-089-little-lullaby",
-          "title": "Little Lullaby – Alex_089",
-          "creator": "Composition/recording: Alex_089",
-          "downloadUri": "https://opengameart.org/sites/default/files/little_lullaby_0.mp3",
-          "sourcePageUri": "https://opengameart.org/content/little-lullaby",
-          "license": "CC BY 4.0",
-          "licenseUri": "https://creativecommons.org/licenses/by/4.0/",
-          "fileName": "research-lullaby-alex-089-little-lullaby.mp3",
-          "durationSeconds": 127.5,
-          "sha1": null,
-          "startOffsetMilliseconds": 0,
-          "endOffsetMilliseconds": 0,
-          "instrumentation": [
-            "piano",
-            "strings"
-          ],
-          "ensembleType": "piano-with-strings",
-          "licenseReviewStatus": "verified",
-          "additionalWorldIds": [],
-          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_lullabies_v3.png",
-          "artworkFileName": "background_lullabies_v3.png",
-          "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",
-          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_lullabies.png",
-          "fallbackMotifFileName": "fallback_lullabies.png",
-          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67",
-          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v5/motif_lullaby_little_lullaby_v1.png",
-          "songMotifFileName": "motif_lullaby_little_lullaby_v1.png",
-          "songMotifSha256": "1635d9dc6745c0e80ff5e891a3b89f9a05e9fc82ab2b516718b1f1bcb139272c"
-        },
-        {
           "id": "burgmuller-berceuse-op-109-no-7",
           "title": "Friedrich Burgmüller – Berceuse op. 109 Nr. 7",
           "creator": "Open Sleep Music contributors (MIDI-Klavier und Kammerstreicher); Klavier-Vorlage: BastienM. YDP: Zenph Studios, Dr. Mikhail Krishtal und Team; OLPC/Dr. Richard Boulanger; Roberto/FreePats (CC BY 3.0). Streicher: VSCO 2 CE, Sam Gossner, Simon Dalzell, Elan Hickler (CC0 1.0).",
@@ -96,6 +66,90 @@
           "songMotifSha256": "5daba8633f8e450ad70969a85fc969d70c9686686bcba4228f3b6d81a99cdc31"
         },
         {
+          "id": "music-box-guten-abend-gute-nacht",
+          "title": "Spieluhr – Guten Abend, gute Nacht",
+          "creator": "Recordist: stephan (PDSounds)",
+          "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/cf/Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg/Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg.mp3",
+          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg",
+          "license": "Public Domain",
+          "licenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
+          "fileName": "music-box-guten-abend-gute-nacht.mp3",
+          "durationSeconds": 46.446,
+          "sha1": null,
+          "instrumentation": [
+            "music-box"
+          ],
+          "ensembleType": "solo",
+          "playbackSpeed": 0.833333,
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_lullabies_v3.png",
+          "artworkFileName": "background_lullabies_v3.png",
+          "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",
+          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_lullabies.png",
+          "fallbackMotifFileName": "fallback_lullabies.png",
+          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/sleepy_lamb_star.png",
+          "songMotifFileName": "sleepy_lamb_star.png",
+          "songMotifSha256": "dda54da1b91f317ab83061af55ccf00e1b161c1fc367fe8e626181e563b41b06"
+        },
+        {
+          "id": "faure-berceuse-op-56-no-1",
+          "title": "Gabriel Fauré – Berceuse op. 56 Nr. 1",
+          "creator": "Open Sleep Music contributors (Aria-MIDI-Klavier, YDP); Klavier-Bearbeitung und Aufnahmevorlage: Brian M. Jones. YDP: Zenph Studios, Dr. Mikhail Krishtal und Team; OLPC/Dr. Richard Boulanger; Roberto/FreePats (CC BY 3.0).",
+          "downloadUri": "https://raw.githubusercontent.com/jochenwezel/open-sleep-music/a929a1419af6383a9340f7f3279ef15b3ca27f04/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-aria-ydp-sleep-v2.mp3",
+          "sourcePageUri": "https://github.com/jochenwezel/open-sleep-music/blob/main/music/faure-berceuse-op56-no1/README.md",
+          "license": "CC BY 3.0",
+          "licenseUri": "https://creativecommons.org/licenses/by/3.0/",
+          "fileName": "faure-berceuse-op56-no1-aria-ydp-sleep-v2.mp3",
+          "durationSeconds": 256.0261224489796,
+          "sha1": "aac570402e5867f5bb1c70841cb1eb18783c55fd",
+          "instrumentation": [
+            "piano"
+          ],
+          "ensembleType": "solo",
+          "licenseReviewStatus": "verified",
+          "playbackSpeed": 1.0,
+          "volumeGain": 1.0,
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_lullabies_v3.png",
+          "artworkFileName": "background_lullabies_v3.png",
+          "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",
+          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_lullabies.png",
+          "fallbackMotifFileName": "fallback_lullabies.png",
+          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_lullaby_sleepy_child.png",
+          "songMotifFileName": "motif_lullaby_sleepy_child.png",
+          "songMotifSha256": "19b304a437287e6ce4cfab313225237bd2623438777cf905f311a0c27cf5aa55"
+        },
+        {
+          "id": "research-lullaby-alex-089-little-lullaby",
+          "title": "Little Lullaby – Alex_089",
+          "creator": "Composition/recording: Alex_089",
+          "downloadUri": "https://opengameart.org/sites/default/files/little_lullaby_0.mp3",
+          "sourcePageUri": "https://opengameart.org/content/little-lullaby",
+          "license": "CC BY 4.0",
+          "licenseUri": "https://creativecommons.org/licenses/by/4.0/",
+          "fileName": "research-lullaby-alex-089-little-lullaby.mp3",
+          "durationSeconds": 127.5,
+          "sha1": null,
+          "startOffsetMilliseconds": 0,
+          "endOffsetMilliseconds": 0,
+          "instrumentation": [
+            "piano",
+            "strings"
+          ],
+          "ensembleType": "piano-with-strings",
+          "licenseReviewStatus": "verified",
+          "additionalWorldIds": [],
+          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_lullabies_v3.png",
+          "artworkFileName": "background_lullabies_v3.png",
+          "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",
+          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_lullabies.png",
+          "fallbackMotifFileName": "fallback_lullabies.png",
+          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67",
+          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v5/motif_lullaby_little_lullaby_v1.png",
+          "songMotifFileName": "motif_lullaby_little_lullaby_v1.png",
+          "songMotifSha256": "1635d9dc6745c0e80ff5e891a3b89f9a05e9fc82ab2b516718b1f1bcb139272c"
+        },
+        {
           "id": "candidate-lullabies-brahms-alexander-blu",
           "title": "Brahms - Guten Abend, gut' Nacht (Alexander Blu)",
           "creator": "Johannes Brahms; performance/production: Alexander Blu",
@@ -123,32 +177,6 @@
           "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v5/motif_lullaby_brahms_evening_v1.png",
           "songMotifFileName": "motif_lullaby_brahms_evening_v1.png",
           "songMotifSha256": "d3c0e64aee26e1822a5893a8840d1986ba9ea565be862d271f7de7bd2ca9279d"
-        },
-        {
-          "id": "music-box-guten-abend-gute-nacht",
-          "title": "Spieluhr – Guten Abend, gute Nacht",
-          "creator": "Recordist: stephan (PDSounds)",
-          "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/cf/Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg/Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg.mp3",
-          "sourcePageUri": "https://commons.wikimedia.org/wiki/File:Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg",
-          "license": "Public Domain",
-          "licenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
-          "fileName": "music-box-guten-abend-gute-nacht.mp3",
-          "durationSeconds": 46.446,
-          "sha1": null,
-          "instrumentation": [
-            "music-box"
-          ],
-          "ensembleType": "solo",
-          "playbackSpeed": 0.833333,
-          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_lullabies_v3.png",
-          "artworkFileName": "background_lullabies_v3.png",
-          "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",
-          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_lullabies.png",
-          "fallbackMotifFileName": "fallback_lullabies.png",
-          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67",
-          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/sleepy_lamb_star.png",
-          "songMotifFileName": "sleepy_lamb_star.png",
-          "songMotifSha256": "dda54da1b91f317ab83061af55ccf00e1b161c1fc367fe8e626181e563b41b06"
         },
         {
           "id": "candidate-el-noi-de-la-mare-guitar",
@@ -207,50 +235,22 @@
           "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v5/motif_lullaby_twinkle_star_v1.png",
           "songMotifFileName": "motif_lullaby_twinkle_star_v1.png",
           "songMotifSha256": "c18a2e18db8e5c1dcef5becdf68cfa71cfd3639ca9097c133009bfb2f4b66a43"
-        },
-        {
-          "id": "faure-berceuse-op-56-no-1",
-          "title": "Gabriel Fauré – Berceuse op. 56 Nr. 1",
-          "creator": "Open Sleep Music contributors (Aria-MIDI-Klavier, YDP); Klavier-Bearbeitung und Aufnahmevorlage: Brian M. Jones. YDP: Zenph Studios, Dr. Mikhail Krishtal und Team; OLPC/Dr. Richard Boulanger; Roberto/FreePats (CC BY 3.0).",
-          "downloadUri": "https://raw.githubusercontent.com/jochenwezel/open-sleep-music/a929a1419af6383a9340f7f3279ef15b3ca27f04/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-aria-ydp-sleep-v2.mp3",
-          "sourcePageUri": "https://github.com/jochenwezel/open-sleep-music/blob/main/music/faure-berceuse-op56-no1/README.md",
-          "license": "CC BY 3.0",
-          "licenseUri": "https://creativecommons.org/licenses/by/3.0/",
-          "fileName": "faure-berceuse-op56-no1-aria-ydp-sleep-v2.mp3",
-          "durationSeconds": 256.0261224489796,
-          "sha1": "aac570402e5867f5bb1c70841cb1eb18783c55fd",
-          "instrumentation": [
-            "piano"
-          ],
-          "ensembleType": "solo",
-          "licenseReviewStatus": "verified",
-          "playbackSpeed": 1.0,
-          "volumeGain": 1.0,
-          "artworkUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3/background_lullabies_v3.png",
-          "artworkFileName": "background_lullabies_v3.png",
-          "artworkSha256": "696fcd28699ffec2c03fa21ea9a67c567240208d384eefaa21a0e4674d5eca7e",
-          "fallbackMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2/fallback_lullabies.png",
-          "fallbackMotifFileName": "fallback_lullabies.png",
-          "fallbackMotifSha256": "24d629f9d802f91f76642f52557edd58c59a58ab65c3778fa7465d587283fd67",
-          "songMotifUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1/motif_lullaby_sleepy_child.png",
-          "songMotifFileName": "motif_lullaby_sleepy_child.png",
-          "songMotifSha256": "19b304a437287e6ce4cfab313225237bd2623438777cf905f311a0c27cf5aa55"
         }
       ],
       "trackOrder": [
         "music-box-schlafe-mein-prinzchen",
-        "candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming",
         "candidate-romanza-ten-string-leon-egea",
         "candidate-recuerdos-de-la-alhambra",
-        "research-lullaby-alex-089-little-lullaby",
         "burgmuller-berceuse-op-109-no-7",
-        "candidate-lullabies-brahms-alexander-blu",
         "candidate-barrios-julia-florida-edson-lopes",
         "music-box-guten-abend-gute-nacht",
+        "faure-berceuse-op-56-no-1",
+        "candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming",
+        "research-lullaby-alex-089-little-lullaby",
+        "candidate-lullabies-brahms-alexander-blu",
         "candidate-el-noi-de-la-mare-guitar",
         "candidate-lullabies-twinkle-alexander-blu",
-        "candidate-tarrega-lagrima-leon-egea",
-        "faure-berceuse-op-56-no-1"
+        "candidate-tarrega-lagrima-leon-egea"
       ]
     },
     {
