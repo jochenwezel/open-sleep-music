@@ -7,12 +7,12 @@ public static class ParentPin
 {
     private const int Iterations = 100_000;
 
-    public static bool IsValid(string pin) => pin.Length is >= 6 and <= 12
+    public static bool IsValid(string pin) => pin.Length is >= 4 and <= 12
         && pin.All(character => character is >= '0' and <= '9');
 
     public static string Create(string pin)
     {
-        if (!IsValid(pin)) throw new ArgumentException("Use 6 to 12 digits.", nameof(pin));
+        if (!IsValid(pin)) throw new ArgumentException("Use 4 to 12 digits.", nameof(pin));
         var salt = RandomNumberGenerator.GetBytes(16);
         var hash = Rfc2898DeriveBytes.Pbkdf2(pin, salt, Iterations, HashAlgorithmName.SHA256, 32);
         return $"1.{Convert.ToBase64String(salt)}.{Convert.ToBase64String(hash)}";

@@ -91,12 +91,31 @@ public sealed class ParentalControlTests
     }
 
     [Theory]
-    [InlineData("12345")]
+    [InlineData("")]
+    [InlineData("123")]
     [InlineData("1234567890123")]
     [InlineData("１２３４５６")]
     [InlineData("12a456")]
-    public void PinMustHaveSixToTwelveAsciiDigits(string pin) =>
+    public void PinMustHaveFourToTwelveAsciiDigits(string pin) =>
         Assert.Throws<ArgumentException>(() => ParentPin.Create(pin));
+
+    [Theory]
+    [InlineData("0000")]
+    [InlineData("1234")]
+    [InlineData("12345")]
+    [InlineData("123456")]
+    [InlineData("123456789012")]
+    public void SupportedPinLengthsAndLeadingZerosRoundTripAndUnlock(string pin)
+    {
+        var credential = ParentPin.Create(pin);
+        Assert.True(ParentPin.Verify(pin, credential));
+        var control = new ParentalControl(enabled: true);
+        Assert.True(control.TryUnlock(pin, credential));
+        control.Lock();
+        Assert.False(control.TryUnlock("9876", credential));
+        Assert.True(control.IsLocked);
+        Assert.True(control.TryUnlock(pin, credential));
+    }
 
     [Fact]
     public void CredentialUsesIndependentSaltsAndDoesNotContainThePin()

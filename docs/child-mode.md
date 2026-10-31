@@ -9,7 +9,7 @@ age, birthdate, account or biometric identifier.
 1. Adults download the desired collections, including artwork, in normal mode.
 2. In the hamburger menu, choose **Set up child mode**. The setup explains what
    stays available and what is blocked before activation. Select the collections
-   the child may use and set/confirm a 6–12 digit parent PIN.
+   the child may use and set/confirm a 4–12 digit parent PIN.
 3. Child mode shows only allowed collections containing downloaded tracks.
    Empty and non-allowed collections disappear without deleting their files.
    Playback, volume, timer, favorites and local track information remain usable.
