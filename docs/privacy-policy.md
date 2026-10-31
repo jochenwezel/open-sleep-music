@@ -21,10 +21,12 @@ that every redirect and platform handler has been tested.
 `BuiltInCatalogTests` checks HTTPS audio, source, license and artwork metadata;
 `CatalogUpdateClient` rejects insecure catalog entries and
 `ArtworkManifestClient` validates HTTPS image metadata. The current HTTP client
-does not override certificate validation. The standard .NET handler documents
-that HTTPS-to-HTTP redirects are not followed on modern .NET, but supported
-platform handlers must still be verified before treating all runtime paths as
-tested. See [Microsoft's redirect documentation](https://learn.microsoft.com/en-us/dotnet/api/system.net.http.httpclienthandler.allowautoredirect?view=net-10.0).
+does not override certificate validation. `GitHubContentDelivery` disables
+automatic redirects and validates every allowed GitHub asset hop before its
+request. Runtime audio, images and catalogs use project GitHub delivery; original
+recording/source/licence links remain provenance for deliberate browser visits,
+never automatic fetches or fallback routes. See [GitHub content delivery](github-content-delivery.md)
+for publishing, manifest/cache guards and the actual child/offline workflow.
 
 ## Local state and optional sharing
 
@@ -113,6 +115,9 @@ requested files without calling them anonymous. Do not assume every hosting
 provider is our processor, promise third-party deletion dates or reuse a website
 tracking description for this app. Identify the actual relationships, legal
 bases and transfer arrangements before finalizing those notice sections.
+Admission sources are not necessarily runtime serving providers: the GitHub-only
+delivery policy forbids automatic contact with original content hosts. Keep the
+recording-rights provenance separate from the actual GitHub/CDN request chain.
 
 Before launch or a relevant behavior change:
 

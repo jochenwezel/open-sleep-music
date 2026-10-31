@@ -5,6 +5,19 @@ namespace OpenSleepMusic.Core.Tests;
 public sealed class BuiltInCatalogTests
 {
     [Fact]
+    public void MirroredRecordingsRetainOriginalProvenanceAndCompleteChecksums()
+    {
+        Assert.All(BuiltInCatalog.SleepWorlds.SelectMany(world => world.Tracks), track =>
+        {
+            Assert.StartsWith("https://github.com/jochenwezel/open-sleep-music/releases/download/media-", track.DownloadUri.AbsoluteUri);
+            Assert.NotNull(track.OriginalDownloadUri);
+            Assert.Equal("https", track.OriginalDownloadUri!.Scheme);
+            Assert.Matches("^[a-f0-9]{40}$", track.Sha1!);
+            Assert.NotEqual(track.DownloadUri, track.OriginalDownloadUri);
+        });
+    }
+
+    [Fact]
     public void RemainingMazurkasUseOneAndAHalfTimesListeningDuration()
     {
         var world = Assert.Single(BuiltInCatalog.SleepWorlds, world => world.Id == "quiet-classics");
@@ -162,7 +175,7 @@ public sealed class BuiltInCatalogTests
             track =>
             {
                 Assert.EndsWith(".mp3", track.FileName, StringComparison.OrdinalIgnoreCase);
-                Assert.Contains("/transcoded/", track.DownloadUri.AbsoluteUri, StringComparison.Ordinal);
+                Assert.Contains("/transcoded/", track.OriginalDownloadUri!.AbsoluteUri, StringComparison.Ordinal);
             });
     }
 
@@ -202,7 +215,7 @@ public sealed class BuiltInCatalogTests
         Assert.InRange(track.PlaybackDurationSeconds, 99, 100);
         Assert.Equal(track.DurationSeconds, track.PlaybackDurationSeconds, 3);
         Assert.EndsWith("-piano-strings-sleep.mp3", track.FileName, StringComparison.Ordinal);
-        Assert.Matches("^https://raw\\.githubusercontent\\.com/jochenwezel/open-sleep-music/[0-9a-f]{40}/music/burgmuller-berceuse-op109-no7/audio/", track.DownloadUri.AbsoluteUri);
+        Assert.Matches("^https://raw\\.githubusercontent\\.com/jochenwezel/open-sleep-music/[0-9a-f]{40}/music/burgmuller-berceuse-op109-no7/audio/", track.OriginalDownloadUri!.AbsoluteUri);
         Assert.Equal("9989caaa9c006d20d10b662ec5faa7a59561b98d", track.Sha1);
         Assert.Equal("CC BY-SA 3.0", track.License);
         Assert.Equal("verified", track.LicenseReviewStatus);
@@ -223,7 +236,7 @@ public sealed class BuiltInCatalogTests
         Assert.InRange(track.PlaybackDurationSeconds, 256, 257);
         Assert.Equal(track.DurationSeconds, track.PlaybackDurationSeconds, 3);
         Assert.Equal("faure-berceuse-op56-no1-aria-ydp-sleep-v2.mp3", track.FileName);
-        Assert.Contains("/a929a1419af6383a9340f7f3279ef15b3ca27f04/music/faure-berceuse-op56-no1/audio/", track.DownloadUri.AbsoluteUri);
+        Assert.Contains("/a929a1419af6383a9340f7f3279ef15b3ca27f04/music/faure-berceuse-op56-no1/audio/", track.OriginalDownloadUri!.AbsoluteUri);
         Assert.Equal("aac570402e5867f5bb1c70841cb1eb18783c55fd", track.Sha1);
         Assert.Equal("CC BY 3.0", track.License);
         Assert.Equal("verified", track.LicenseReviewStatus);

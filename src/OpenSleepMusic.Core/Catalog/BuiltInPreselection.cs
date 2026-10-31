@@ -29,6 +29,9 @@ public static class BuiltInPreselection
             ?? throw new InvalidDataException("The preselection resource is invalid.");
         if (manifest.SchemaVersion != 1)
             throw new InvalidDataException("Unsupported preselection schema.");
+        if (manifest.Candidates.Any(candidate => candidate.DownloadUri is not null
+                && !Downloads.GitHubContentDelivery.IsContentUri(candidate.DownloadUri)))
+            throw new InvalidDataException("Preselection audio must use GitHub delivery.");
         return manifest.Candidates;
     }
 }

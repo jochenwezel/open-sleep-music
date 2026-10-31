@@ -26,7 +26,8 @@ public sealed record ReviewCandidate(
     double PlaybackSpeed = 1,
     IReadOnlyList<string>? IntendedWorldIds = null,
     IReadOnlyList<string>? PromotedWorldIds = null,
-    string? LicenseHoldReason = null)
+    string? LicenseHoldReason = null,
+    Uri? OriginalDownloadUri = null)
 {
     public bool CanPromote => LicenseReviewStatus == "verified"
         && string.IsNullOrWhiteSpace(LicenseHoldReason)

@@ -93,7 +93,8 @@ public partial class MainPage : ContentPage
         RootGrid.Add(_backgroundPlayer.Element);
 #endif
 #endif
-        _httpClient = new HttpClient { Timeout = TimeSpan.FromMinutes(15) };
+        _httpClient = GitHubContentDelivery.CreateHttpClient();
+        _httpClient.Timeout = TimeSpan.FromMinutes(15);
         _httpClient.DefaultRequestHeaders.UserAgent.ParseAdd(
             "OpenSleepMusic/0.1 (+https://github.com/jochenwezel/open-sleep-music)");
         var downloadLog = new FileDownloadLogSink(Path.Combine(FileSystem.AppDataDirectory, "logs", "downloads.jsonl"));

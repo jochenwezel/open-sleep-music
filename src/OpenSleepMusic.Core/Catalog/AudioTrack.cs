@@ -29,7 +29,8 @@ public sealed record AudioTrack(
     int EndOffsetMilliseconds = 0,
     IReadOnlyList<string>? AdditionalWorldIds = null,
     BackgroundAudio? BackgroundAudio = null,
-    IReadOnlyDictionary<string, CollectionArtwork>? CollectionArtwork = null)
+    IReadOnlyDictionary<string, CollectionArtwork>? CollectionArtwork = null,
+    Uri? OriginalDownloadUri = null)
 {
     public double PlaybackDurationSeconds => Playback.PlaybackTimeline.Duration(
         TimeSpan.FromSeconds(DurationSeconds), PlaybackSpeed, StartOffsetMilliseconds, EndOffsetMilliseconds).TotalSeconds;

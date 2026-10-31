@@ -1,5 +1,11 @@
 # Reviewed media catalog
 
+Runtime delivery uses byte-identical, versioned GitHub Release
+assets. Original pages, file URLs and exact licences remain provenance; they are
+not automatic download or fallback routes. See [GitHub content delivery](github-content-delivery.md)
+for publication, checksums, channel gates and implementation scope. This is a
+delivery change, not a new recording-rights approval or audio adaptation.
+
 Internal recording-quality assessments, retention decisions, replacement
 priorities and the continuing history of attempted improvements are maintained
 centrally in [Catalog quality notes](catalog-quality-notes.md), keyed by stable
@@ -541,3 +547,45 @@ later rebuilds preserve it. Recording IDs, shared memberships, audio, artwork,
 licenses, playback levels and tempo settings are unchanged. Other collections
 keep their existing order. The default random insertion rule for future additions
 is not changed by this explicit batch-order request.
+
+## Little-ones loudness listening trial, 2026-10-31
+
+The maintainer authorizes a catalog-only listening trial for all 13 little-ones
+recordings. [The measured trial settings](../tools/lullabies-loudness-trial-2026-10-31.json)
+retain exact source hashes, original trim/speed, previous and new gains, measured
+integrated loudness, true peak, loudness range and short-term maxima. The generator
+applies the frozen gains reproducibly; this is not automatic runtime normalization.
+The approved Burgmüller and Fauré renders and Julia Florida already meet the
+approximately -23 LUFS (+/-1 LU) reference and retain their existing gains.
+Other titles use constant gain toward -23 LUFS, constrained by a -3 dBTP ceiling
+with a small measurement margin. No compressor, limiter, new encoding, trim or
+musical change is introduced. FFmpeg 7.1 measurements include the complete playable
+interval and a pitch-preserving approximation for the two slowed music boxes;
+native device time stretching can differ. No new listening approval is inferred.
+
+Peak reserve takes priority over average loudness: the Guten Abend music box
+measures approximately -29.2 LUFS in this trial because its isolated peaks prevent
+raising it to the target with constant gain. El Noi de la Mare reaches about
+-24.1 LUFS for the same reason. These are explicit exceptions, not claims that
+every recording achieves the target. Follow their outcome in the central
+[quality notes](catalog-quality-notes.md).
+
+**For this audition keep the app volume at 40% or below**, then choose the desired
+listening level with the device's system volume. The current `PlaybackVolume`
+clamps `appVolume * trackGain` to 1; the largest trial gain is about 2.128, so
+normalization would saturate above approximately 47% app volume for Träumerei.
+The 40% suggestion leaves room and does not guarantee an acoustic level at the
+listener's ear. A fully slider-independent gain implementation is outside this
+catalog trial and has not been added to the app.
+
+Five recordings share their canonical identity with Quiet Classics, so their
+gains also apply there. Other recordings, memberships and the requested final
+six-title block are unchanged. For Romanza and Recuerdos, the Preview-only cricket
+background is attenuated by the same factor as its main recording, preserving
+the previously chosen background-to-music ratio. The standalone cricket audition
+remains unchanged. Preview mixtures are measured separately; Stable still has no
+dependency on the Preview background. Original audio bytes, checksums, rights, artwork and user ratings remain
+unchanged. The concurrent GitHub delivery migration changes runtime download
+URLs while preserving original file URLs as provenance; existing apps can obtain
+this change from the normal channel catalogs without reinstalling or downloading
+the same music again.

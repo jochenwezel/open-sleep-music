@@ -35,6 +35,9 @@ public static class BuiltInCatalog
         if (manifest.SleepWorlds.Any(world => BuildChannel.IsReferenceWorld(world.Id) && world.Tracks.Count != 0))
             throw new InvalidDataException("External reference lists cannot contain downloadable audio.");
 
+        foreach (var track in manifest.SleepWorlds.SelectMany(world => world.Tracks))
+            Downloads.GitHubContentDelivery.ValidateTrack(track);
+
         foreach (var track in manifest.SleepWorlds
                      .Where(world => !BuildChannel.IsPreview || world.Id != "preselection")
                      .SelectMany(world => world.Tracks))

@@ -47,9 +47,9 @@ public sealed class ArtworkCacheTests
     }
 
     private static AudioTrack Track(string sha256) => new(
-        "track", "Track", "Creator", new("https://example.test/audio.mp3"), new("https://example.test/source"),
+        "track", "Track", "Creator", new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/audio.mp3"), new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/source"),
         "CC0", new("https://creativecommons.org/publicdomain/zero/1.0/"), "track.mp3",
-        ArtworkUri: new("https://example.test/art.png"), ArtworkFileName: "art.png", ArtworkSha256: sha256);
+        ArtworkUri: new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/art.png"), ArtworkFileName: "art.png", ArtworkSha256: sha256);
 
     private static HttpResponseMessage Response(HttpStatusCode status, byte[] bytes, string contentType) =>
         new(status) { Content = new ByteArrayContent(bytes) { Headers = { ContentType = new(contentType) } } };

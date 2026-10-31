@@ -1,0 +1,388 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-31",
+  "worldId": "lullabies",
+  "status": "maintainer-authorized catalog listening trial",
+  "targetIntegratedLufs": -23.0,
+  "maximumTruePeakDbtp": -3.0,
+  "calculationTruePeakCeilingDbtp": -3.1,
+  "method": "Measure complete playable interval after original trim and pitch-preserving FFmpeg atempo approximation, then constant gain. Verify final decoded signal. Preserve dynamics and all original audio bytes. No compressor, limiter or automatic playback normalization. Native platform time stretching can differ.",
+  "maximumUnclampedAppVolume": 0.4699,
+  "recommendedMaximumAppVolumeForTrial": 0.4,
+  "tracks": [
+    {
+      "trackId": "music-box-schlafe-mein-prinzchen",
+      "title": "Spieluhr – Schlafe, mein Prinzchen",
+      "sourceSha256": "45f06068121b19c2a045d728502b80e977aa8e44a990ded31435c44e8b58c2c2",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e4/Lullaby_wound_up_clock.ogg/Lullaby_wound_up_clock.ogg.mp3",
+      "playbackSpeed": 0.833333,
+      "startOffsetMilliseconds": 0,
+      "endOffsetMilliseconds": 0,
+      "previousVolumeGain": 1,
+      "volumeGain": 0.496592,
+      "before": {
+        "integratedLufs": -16.92,
+        "truePeakDbtp": 0.07,
+        "loudnessRangeLu": 9.5
+      },
+      "after": {
+        "integratedLufs": -23.03,
+        "truePeakDbtp": -6.01,
+        "loudnessRangeLu": 9.2,
+        "maximumMomentaryLufs": -12.9,
+        "maximumShortTermLufs": -19.2
+      },
+      "peakLimited": false,
+      "sharedWorldIds": [],
+      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred"
+    },
+    {
+      "trackId": "candidate-romanza-ten-string-leon-egea",
+      "title": "Romanza española (10-string guitar)",
+      "sourceSha256": "3d3a941b801d02a4186c35110ba2d0765b6982ceaee7895a9c46fa8823c9943d",
+      "downloadUri": "https://ks15.imslp.org/files/imglnks/usimg/0/0f/IMSLP933760-PMLP81963-romance_anonimo.mp3",
+      "playbackSpeed": 1,
+      "startOffsetMilliseconds": 6400,
+      "endOffsetMilliseconds": 10000,
+      "previousVolumeGain": 1,
+      "volumeGain": 0.420727,
+      "before": {
+        "integratedLufs": -15.48,
+        "truePeakDbtp": -0.56,
+        "loudnessRangeLu": 7.0
+      },
+      "after": {
+        "integratedLufs": -23.0,
+        "truePeakDbtp": -8.08,
+        "loudnessRangeLu": 7.0,
+        "maximumMomentaryLufs": -16.0,
+        "maximumShortTermLufs": -19.1
+      },
+      "peakLimited": false,
+      "sharedWorldIds": [
+        "lullabies"
+      ],
+      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred",
+      "backgroundAdjustment": {
+        "trackId": "candidate-meadow-night-crickets-sardin",
+        "previousVolume": 0.3,
+        "volume": 0.126218,
+        "reason": "Preserve the prior background-to-primary amplitude ratio while normalizing the music."
+      },
+      "previewMixMeasurement": {
+        "integratedLufs": -22.89,
+        "truePeakDbtp": -7.97,
+        "loudnessRangeLu": 7.0,
+        "backgroundSourceSha256": "50e070dc217e3e49d3e18da62144aadc92996763fa52743f7888ce6e4ad5fe3e",
+        "mode": "Primary plus looping 100%-speed crickets, original relative balance preserved, final 600 ms background fade; user/focus fades excluded."
+      }
+    },
+    {
+      "trackId": "candidate-recuerdos-de-la-alhambra",
+      "title": "Recuerdos de la Alhambra",
+      "sourceSha256": "42d01af095f795a08b248445d439f2d97d7bbe378f70611e521e5039b5385e22",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a3/Recuerdos_de_la_Alhambra.ogg/Recuerdos_de_la_Alhambra.ogg.mp3",
+      "playbackSpeed": 1,
+      "startOffsetMilliseconds": 0,
+      "endOffsetMilliseconds": 0,
+      "previousVolumeGain": 1,
+      "volumeGain": 0.433012,
+      "before": {
+        "integratedLufs": -15.73,
+        "truePeakDbtp": -0.07,
+        "loudnessRangeLu": 7.0
+      },
+      "after": {
+        "integratedLufs": -23.0,
+        "truePeakDbtp": -7.34,
+        "loudnessRangeLu": 7.0,
+        "maximumMomentaryLufs": -17.7,
+        "maximumShortTermLufs": -18.7
+      },
+      "peakLimited": false,
+      "sharedWorldIds": [
+        "lullabies"
+      ],
+      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred",
+      "backgroundAdjustment": {
+        "trackId": "candidate-meadow-night-crickets-sardin",
+        "previousVolume": 0.3,
+        "volume": 0.129904,
+        "reason": "Preserve the prior background-to-primary amplitude ratio while normalizing the music."
+      },
+      "previewMixMeasurement": {
+        "integratedLufs": -22.91,
+        "truePeakDbtp": -7.35,
+        "loudnessRangeLu": 6.7,
+        "backgroundSourceSha256": "50e070dc217e3e49d3e18da62144aadc92996763fa52743f7888ce6e4ad5fe3e",
+        "mode": "Primary plus looping 100%-speed crickets, original relative balance preserved, final 600 ms background fade; user/focus fades excluded."
+      }
+    },
+    {
+      "trackId": "burgmuller-berceuse-op-109-no-7",
+      "title": "Friedrich Burgmüller – Berceuse op. 109 Nr. 7",
+      "sourceSha256": "00d58b905cd138c4651ad4b7c998012c314903f88f003b0f2a8fc28e9cd896a0",
+      "downloadUri": "https://raw.githubusercontent.com/jochenwezel/open-sleep-music/5edf1ebbff08dd82ab476cc4b7d8c23fcc30b967/music/burgmuller-berceuse-op109-no7/audio/burgmuller-berceuse-op109-no7-piano-strings-sleep.mp3",
+      "playbackSpeed": 1.0,
+      "startOffsetMilliseconds": 0,
+      "endOffsetMilliseconds": 0,
+      "previousVolumeGain": 1.0,
+      "volumeGain": 1.0,
+      "before": {
+        "integratedLufs": -23.21,
+        "truePeakDbtp": -7.38,
+        "loudnessRangeLu": 4.5
+      },
+      "after": {
+        "integratedLufs": -23.21,
+        "truePeakDbtp": -7.38,
+        "loudnessRangeLu": 4.5,
+        "maximumMomentaryLufs": -16.1,
+        "maximumShortTermLufs": -18.9
+      },
+      "peakLimited": false,
+      "sharedWorldIds": [],
+      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred"
+    },
+    {
+      "trackId": "candidate-barrios-julia-florida-edson-lopes",
+      "title": "Julia Florida",
+      "sourceSha256": "f8f0cbf0779c4c351eaaa1313aabd9751fa9ce44f6e96485c2e4e5e776539bc6",
+      "downloadUri": "https://ks15.imslp.org/files/imglnks/usimg/e/e4/IMSLP254546-PMLP411050-BARRIOS_-_Julia_Florida_(Barcarola).mp3",
+      "playbackSpeed": 1,
+      "startOffsetMilliseconds": 0,
+      "endOffsetMilliseconds": 0,
+      "previousVolumeGain": 1,
+      "volumeGain": 1,
+      "before": {
+        "integratedLufs": -22.89,
+        "truePeakDbtp": -6.59,
+        "loudnessRangeLu": 9.8
+      },
+      "after": {
+        "integratedLufs": -22.89,
+        "truePeakDbtp": -6.59,
+        "loudnessRangeLu": 9.8,
+        "maximumMomentaryLufs": -14.5,
+        "maximumShortTermLufs": -18.2
+      },
+      "peakLimited": false,
+      "sharedWorldIds": [
+        "lullabies"
+      ],
+      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred"
+    },
+    {
+      "trackId": "music-box-guten-abend-gute-nacht",
+      "title": "Spieluhr – Guten Abend, gute Nacht",
+      "sourceSha256": "da7779df6b8301ece19daac1402de448457af082aea0822a3df9065f4133a87e",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/cf/Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg/Lullaby_wound_up_clock_guten_abend_gute_nacht.ogg.mp3",
+      "playbackSpeed": 0.833333,
+      "startOffsetMilliseconds": 0,
+      "endOffsetMilliseconds": 0,
+      "previousVolumeGain": 1,
+      "volumeGain": 0.703882,
+      "before": {
+        "integratedLufs": -26.11,
+        "truePeakDbtp": -0.05,
+        "loudnessRangeLu": 8.0
+      },
+      "after": {
+        "integratedLufs": -29.15,
+        "truePeakDbtp": -3.26,
+        "loudnessRangeLu": 8.0,
+        "maximumMomentaryLufs": -21.5,
+        "maximumShortTermLufs": -25.8
+      },
+      "peakLimited": true,
+      "sharedWorldIds": [],
+      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred"
+    },
+    {
+      "trackId": "faure-berceuse-op-56-no-1",
+      "title": "Gabriel Fauré – Berceuse op. 56 Nr. 1",
+      "sourceSha256": "1b1d34cf60d945b62fbb3d9cd2a0ea4bc11f9dbc54479e57e94d4a7500b422a3",
+      "downloadUri": "https://raw.githubusercontent.com/jochenwezel/open-sleep-music/a929a1419af6383a9340f7f3279ef15b3ca27f04/music/faure-berceuse-op56-no1/audio/faure-berceuse-op56-no1-aria-ydp-sleep-v2.mp3",
+      "playbackSpeed": 1.0,
+      "startOffsetMilliseconds": 0,
+      "endOffsetMilliseconds": 0,
+      "previousVolumeGain": 1.0,
+      "volumeGain": 1.0,
+      "before": {
+        "integratedLufs": -23.21,
+        "truePeakDbtp": -6.41,
+        "loudnessRangeLu": 6.7
+      },
+      "after": {
+        "integratedLufs": -23.21,
+        "truePeakDbtp": -6.41,
+        "loudnessRangeLu": 6.7,
+        "maximumMomentaryLufs": -17.0,
+        "maximumShortTermLufs": -19.6
+      },
+      "peakLimited": false,
+      "sharedWorldIds": [],
+      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred"
+    },
+    {
+      "trackId": "candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming",
+      "title": "Robert Schumann - scenes from childhood, op. 15 - vii. dreaming",
+      "sourceSha256": "bf04d6906d50f399ec62b7cf8650fe0414d684446d6a0ae2053a416d6515deb5",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/06/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vii._dreaming.ogg",
+      "playbackSpeed": 1,
+      "startOffsetMilliseconds": 0,
+      "endOffsetMilliseconds": 0,
+      "previousVolumeGain": 0.9,
+      "volumeGain": 2.128139,
+      "before": {
+        "integratedLufs": -30.48,
+        "truePeakDbtp": -13.76,
+        "loudnessRangeLu": 10.3
+      },
+      "after": {
+        "integratedLufs": -23.01,
+        "truePeakDbtp": -6.28,
+        "loudnessRangeLu": 10.3,
+        "maximumMomentaryLufs": -15.0,
+        "maximumShortTermLufs": -18.3
+      },
+      "peakLimited": false,
+      "sharedWorldIds": [
+        "lullabies"
+      ],
+      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred"
+    },
+    {
+      "trackId": "research-lullaby-alex-089-little-lullaby",
+      "title": "Little Lullaby – Alex_089",
+      "sourceSha256": "257880dd24bc3416e6d4a00bcb438e1cbe00ddb865a6d5c7fb8c9d9ffd822eb7",
+      "downloadUri": "https://opengameart.org/sites/default/files/little_lullaby_0.mp3",
+      "playbackSpeed": 1,
+      "startOffsetMilliseconds": 0,
+      "endOffsetMilliseconds": 0,
+      "previousVolumeGain": 1,
+      "volumeGain": 1.158777,
+      "before": {
+        "integratedLufs": -24.28,
+        "truePeakDbtp": -9.08,
+        "loudnessRangeLu": 2.1
+      },
+      "after": {
+        "integratedLufs": -23.0,
+        "truePeakDbtp": -7.8,
+        "loudnessRangeLu": 2.1,
+        "maximumMomentaryLufs": -18.7,
+        "maximumShortTermLufs": -20.7
+      },
+      "peakLimited": false,
+      "sharedWorldIds": [],
+      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred"
+    },
+    {
+      "trackId": "candidate-lullabies-brahms-alexander-blu",
+      "title": "Brahms - Guten Abend, gut' Nacht (Alexander Blu)",
+      "sourceSha256": "2163f4b389a185f637207c3b31b7d6348712e2b705863a798fb7f14a1c151aea",
+      "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/02/Brahms-lullaby.mp3",
+      "playbackSpeed": 1,
+      "startOffsetMilliseconds": 0,
+      "endOffsetMilliseconds": 0,
+      "previousVolumeGain": 1,
+      "volumeGain": 0.570821,
+      "before": {
+        "integratedLufs": -18.13,
+        "truePeakDbtp": -2.49,
+        "loudnessRangeLu": 6.1
+      },
+      "after": {
+        "integratedLufs": -23.0,
+        "truePeakDbtp": -7.36,
+        "loudnessRangeLu": 6.1,
+        "maximumMomentaryLufs": -16.7,
+        "maximumShortTermLufs": -20.1
+      },
+      "peakLimited": false,
+      "sharedWorldIds": [],
+      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred"
+    },
+    {
+      "trackId": "candidate-el-noi-de-la-mare-guitar",
+      "title": "El Noi de la Mare (guitar)",
+      "sourceSha256": "71d69f132846a8470db88554b7a6e6665b8f53675911d0c5264e56cfc6a73b07",
+      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e0/El_Noi_de_la_Mare_%28guitar%29.ogg",
+      "playbackSpeed": 1,
+      "startOffsetMilliseconds": 0,
+      "endOffsetMilliseconds": 0,
+      "previousVolumeGain": 1,
+      "volumeGain": 0.737904,
+      "before": {
+        "integratedLufs": -21.44,
+        "truePeakDbtp": -0.46,
+        "loudnessRangeLu": 5.7
+      },
+      "after": {
+        "integratedLufs": -24.09,
+        "truePeakDbtp": -3.1,
+        "loudnessRangeLu": 5.7,
+        "maximumMomentaryLufs": -16.9,
+        "maximumShortTermLufs": -19.3
+      },
+      "peakLimited": true,
+      "sharedWorldIds": [],
+      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred"
+    },
+    {
+      "trackId": "candidate-lullabies-twinkle-alexander-blu",
+      "title": "Twinkle Twinkle Little Star (Klavier, Alexander Blu)",
+      "sourceSha256": "47ebba49be8b7bc776db49c7918b88f0dedfd52f8ccb21e35f6a16e7cb9cbfd6",
+      "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/10/Twinkle-twinkle-little-star-piano.mp3",
+      "playbackSpeed": 1,
+      "startOffsetMilliseconds": 0,
+      "endOffsetMilliseconds": 0,
+      "previousVolumeGain": 1,
+      "volumeGain": 0.507575,
+      "before": {
+        "integratedLufs": -17.11,
+        "truePeakDbtp": -2.24,
+        "loudnessRangeLu": 4.9
+      },
+      "after": {
+        "integratedLufs": -23.0,
+        "truePeakDbtp": -8.13,
+        "loudnessRangeLu": 4.9,
+        "maximumMomentaryLufs": -17.6,
+        "maximumShortTermLufs": -20.6
+      },
+      "peakLimited": false,
+      "sharedWorldIds": [],
+      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred"
+    },
+    {
+      "trackId": "candidate-tarrega-lagrima-leon-egea",
+      "title": "Lágrima (10-string guitar)",
+      "sourceSha256": "1600b9bbf8c1aa7e1d9f2d052d4b51694298e651c72923ea3c41af9fecdafa8f",
+      "downloadUri": "https://s9.imslp.org/files/imglnks/usimg/1/16/IMSLP964947-PMLP340750-Lágrima_de_Tárrega_en_Guitarra_de_10_Cuerdas_-_Ramón_León_Egea.mp3",
+      "playbackSpeed": 1,
+      "startOffsetMilliseconds": 0,
+      "endOffsetMilliseconds": 0,
+      "previousVolumeGain": 1,
+      "volumeGain": 0.44617,
+      "before": {
+        "integratedLufs": -15.99,
+        "truePeakDbtp": -0.24,
+        "loudnessRangeLu": 6.0
+      },
+      "after": {
+        "integratedLufs": -23.0,
+        "truePeakDbtp": -7.25,
+        "loudnessRangeLu": 6.1,
+        "maximumMomentaryLufs": -17.0,
+        "maximumShortTermLufs": -19.4
+      },
+      "peakLimited": false,
+      "sharedWorldIds": [
+        "lullabies"
+      ],
+      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred"
+    }
+  ]
+}

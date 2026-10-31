@@ -140,7 +140,7 @@ public sealed class PreselectionTests
         Assert.Equal("verified", alternative.LicenseReviewStatus);
         Assert.Equal("CC BY-SA 4.0", alternative.ApprovedLicense);
         Assert.Equal(6400, alternative.StartOffsetMilliseconds);
-        Assert.EndsWith("IMSLP933760-PMLP81963-romance_anonimo.mp3", alternative.DownloadUri!.AbsoluteUri);
+        Assert.EndsWith("IMSLP933760-PMLP81963-romance_anonimo.mp3", alternative.OriginalDownloadUri!.AbsoluteUri);
     }
 
     [Fact]

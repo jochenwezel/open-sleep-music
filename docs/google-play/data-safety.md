@@ -10,19 +10,21 @@ because the project has no analytics SDK.
 | Flow | Source evidence | Assessment and remaining work |
 | --- | --- | --- |
 | Player settings, favorites, blocks and saved position | `AppStateStore.cs`, `AndroidPlaybackService.cs` | Locally persisted; no automatic developer upload identified. Check Android backup and device-transfer behavior. |
-| Catalog update at initial page loading and manual library refresh | `MainPage.xaml.cs`, `CatalogUpdateClient.cs` | HTTPS request to GitHub release assets, including server-visible connection metadata. Review redirects, recipient roles and server processing. |
+| Catalog update at initial page loading and manual library refresh | `MainPage.xaml.cs`, `CatalogUpdateClient.cs` | HTTPS GitHub release assets. Core validates every GitHub delivery redirect and rejects non-GitHub runtime content in remote/cached catalogs. |
 | Artwork manifest and PNG downloads | `ArtworkManifestClient.cs`, `ArtworkCache.cs` | HTTPS GitHub requests; cache remains on the device. Check final catalog endpoints and provider handling. |
-| Selected audio and background dependencies | `SleepWorldDownloader.cs`, `AudioLibraryStorage.cs`, Android backup XML and production catalog | Persistent app-owned `Audio/` storage without music-library permissions. Audio is excluded from configured Android cloud backups/device transfers. Requests reveal IP address and requested file to serving infrastructure. Review recipients and exact purpose; audio content itself is downloaded, not microphone data uploaded. Verify final bundle and real backup/restore. |
+| Selected audio and background dependencies | `SleepWorldDownloader.cs`, `GitHubContentDelivery.cs`, `AudioLibraryStorage.cs`, Android backup XML and production catalog | Byte-identical versioned GitHub assets; original sources remain provenance only, without automatic fallback. Persistent private `Audio/` storage with configured audio backup/transfer exclusions. Requests expose connection metadata to GitHub delivery, not microphone uploads. Verify final bundle and real restore behavior. |
 | Optional catalog feedback | `MainPage.ShareCatalogFeedbackAsync`, `AppSupport.cs`, `CatalogFeedbackReport.cs`, `docs/catalog-feedback.md` | User-triggered email draft to appsupport@compumaster.de with JSON attachment: timestamp, app version, platform, catalog count, favorite/blocked titles and optional free text. No automatic developer upload. Review user-initiated sharing exemptions and mail-provider behavior; free text and email sender details can contain personal data. |
 | Source/license/project links | `TrackDetailsPage.xaml.cs`, `AboutPage.xaml.cs` | Opens an external browser. External website behavior is distinct from in-app behavior; review child-facing access. |
 | Installation and store operations | Google Play and the operating system | Do not misdescribe Google Play's own processing as an app analytics implementation. Explain platform processing separately. |
 
 The first-party HTTP client sends a generic application User-Agent; it is not an
-installation identifier. The inspected built-in production audio hosts are
-`archive.org`, `commons.wikimedia.org`, `upload.wikimedia.org`, `ks15.imslp.org`,
-`raw.githubusercontent.com`, `opengameart.org` and `cdn.freesound.org`. Catalog/artwork assets also use `github.com`.
-Redirects and later catalog updates can add serving hosts. This list describes
-endpoints, not verified legal entities or contracted processors.
+installation identifier. Runtime audio, images and catalogs now use this project's
+GitHub release URLs, with GitHub asset delivery hosts checked before each redirect.
+Pinned project raw URLs remain accepted for compatibility. Original source and
+licence links may identify other providers, but only deliberate browser visits
+contact them. They are not automatic app data recipients in the new delivery
+model. See [GitHub content delivery](../github-content-delivery.md) for the exact
+transport policy, registry and channel checks.
 
 ## Answers supported by the inspected source
 
@@ -40,10 +42,11 @@ endpoints, not verified legal entities or contracted processors.
 
 ## Required decisions before submission
 
-1. Identify the legal entities serving each download path and their actual
-   processing, including logs, cookies, onward use, retention and transfer basis.
-   Do not assume every public download host is our processor or that all requests
-   are anonymous, ephemeral, or exempt from disclosure.
+1. Use the GitHub delivery/controller classification and the independently
+   checked GitHub DPF participation recorded on 31 October 2026. The public-source
+   host inventory is provenance, not an automatic recipient list. Do not invent
+   universal SCC coverage or transfer exemptions for historical original-host
+   downloads. Keep future delivery changes within the enforced GitHub policy.
 2. Map each actual off-device data use to Google's categories and collection/
    sharing exceptions. An IP address is not automatically a location declaration;
    using it to derive location would affect the classification.

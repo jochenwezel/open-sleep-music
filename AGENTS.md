@@ -77,9 +77,10 @@ Maintain `docs/catalog-quality-notes.md` as the central, cross-song internal qua
 `Vorauswahl` is a separate Preview-only audition collection defined in
 `tools/preselection-candidates.json`. Candidates may have unreviewed recording
 rights and pending listening reviews; keep `licenseReviewStatus` explicit and
-retain broad instrument tags. Candidates with checked stable direct audio delivery
-may be downloaded and played offline in Preview, using the ordinary resilient
-download pipeline and explicit unchecked recording-rights metadata. Resolve
+retain broad instrument tags. Preview downloads require checked stable delivery,
+recording-specific redistribution clearance and a published GitHub mirror under
+the runtime delivery policy below. Otherwise keep the candidate as an explicit
+external source-page reference, rather than mirroring uncleared audio. Resolve
 delivery metadata with `tools/Resolve-PreselectionDownloads.ps1`; keep candidates
 without such delivery as external source-page references. Do not extract temporary
 streaming URLs or bypass purchase/access controls. Favoriting
@@ -180,6 +181,33 @@ A broken media source must never make an entire sleep-world download fail.
 Do not weaken these behaviors when refactoring networking, validation, logging, or UI progress reporting.
 
 ## Privacy commitments
+
+### GitHub-only runtime content delivery
+
+All app-initiated audio (including backgrounds and Preview auditions), image,
+motif, artwork-manifest and catalog requests must use project-controlled GitHub
+delivery. Publish new audio as byte-identical, versioned GitHub Release assets;
+do not add mirrored audio to Git history or application packages. Preserve
+existing recording-specific attribution, exact licenses and original source/file
+URLs as provenance. Source and license URLs may point elsewhere for deliberate
+external browser visits; never fetch them automatically or use them as fallback
+download routes. Existing project music publications remain immutable.
+
+Maintain `tools/github-media-delivery.json` through the media publisher and
+regenerate runtime catalogs with `tools/Update-MediaCatalog.ps1`. A missing or
+mismatched published mirror must stop generation rather than emitting upstream
+delivery. Unreviewed or license-held candidates cannot be publicly mirrored;
+retain them as explicit source-page audition references until cleared.
+
+Use the Core GitHub content transport with automatic redirects disabled, normal
+TLS/hostname validation and per-hop GitHub delivery validation. Reject foreign
+or downgraded redirects before contacting their destination. Apply the same URL
+policy to embedded, cached and remotely updated media/artwork manifests and to
+collection-specific visual layers. A failed resource remains unavailable; keep
+partial-file cleanup, collection continuation and offline fallbacks. Test both
+channel variants and run `tools/Test-GitHubDelivery.ps1` before publication.
+See `docs/github-content-delivery.md`. This policy does not assert that already
+installed historical app binaries have been updated.
 
 Maintain `docs/privacy-policy.md` as the engineering and operational reference
 for the app's published privacy promises. Review it together with

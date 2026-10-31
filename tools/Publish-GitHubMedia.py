@@ -25,6 +25,18 @@ def gh(*args):
     return subprocess.check_output(["gh", *args], cwd=ROOT, text=True, encoding="utf-8").strip()
 
 
+def find_release(tag):
+    # Draft releases are not returned by the public get-by-tag endpoint.
+    value = gh("api", f"repos/{REPO}/releases?per_page=100", "--paginate", "--jq",
+               f'.[] | select(.tag_name == "{tag}")')
+    return json.loads(value) if value else None
+
+
+def release_assets(release_id):
+    pages = json.loads(gh("api", f"repos/{REPO}/releases/{release_id}/assets?per_page=100", "--paginate", "--slurp"))
+    return [asset for page in pages for asset in page]
+
+
 def hashes(path):
     sha1, sha256 = hashlib.sha1(), hashlib.sha256()
     with path.open("rb") as stream:
@@ -172,15 +184,16 @@ def main():
     print(f"Prepared {len(entries)} files, {sum(e['bytes'] for e in entries)} bytes", flush=True)
     if not args.publish:
         return
-    try:
-        release = json.loads(gh("api", f"repos/{REPO}/releases/tags/{args.tag}"))
-    except subprocess.CalledProcessError:
+    release = find_release(args.tag)
+    if release is None:
         gh("release", "create", args.tag, "--repo", REPO, "--draft", "--latest=false",
            "--target", gh_commit(), "--title", f"Catalog media {args.tag}", "--notes-file", str(notes))
-        release = json.loads(gh("api", f"repos/{REPO}/releases/tags/{args.tag}"))
+        release = find_release(args.tag)
+        if release is None:
+            raise ValueError("Created media draft could not be recovered")
     expected = {e["fileName"]: "sha256:" + e["sha256"] for e in entries}
     expected.update({p.name: "sha256:" + hashes(p)[1] for p in [manifest_path, notes]})
-    existing = {a["name"]: a for a in release["assets"]}
+    existing = {a["name"]: a for a in release_assets(release["id"])}
     for name, digest in expected.items():
         if name in existing and existing[name].get("digest") != digest:
             raise ValueError(f"Never overwrite a versioned asset: {name}")
@@ -188,8 +201,8 @@ def main():
     for start in range(0, len(missing), 12):
         gh("release", "upload", args.tag, "--repo", REPO, *map(str, missing[start:start + 12]))
         print(f"Uploaded {min(start+12,len(missing))}/{len(missing)} missing assets", flush=True)
-    release = json.loads(gh("api", f"repos/{REPO}/releases/tags/{args.tag}"))
-    actual = {a["name"]: a.get("digest") for a in release["assets"]}
+    release = json.loads(gh("api", f"repos/{REPO}/releases/{release['id']}"))
+    actual = {a["name"]: a.get("digest") for a in release_assets(release["id"])}
     if actual != expected:
         raise ValueError("GitHub asset set/digests do not match staged bytes")
     if release["draft"]:

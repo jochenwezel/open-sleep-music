@@ -7,6 +7,9 @@ on:
     paths:
       - src/OpenSleepMusic.Core/Catalog/media-catalog.json
       - src/OpenSleepMusic.Core/Catalog/media-catalog.production.json
+      - tools/github-media-delivery.json
+      - tools/Test-GitHubDelivery.ps1
+      - tools/Export-ArtworkManifest.ps1
       - .github/workflows/publish-media-catalog.yml
 
 permissions:
@@ -27,13 +30,15 @@ jobs:
       - name: Prepare catalog channel assets
         shell: pwsh
         run: |
+          ./tools/Test-GitHubDelivery.ps1
           New-Item -ItemType Directory -Path artifacts/catalog-channel -Force | Out-Null
           $production = 'src/OpenSleepMusic.Core/Catalog/media-catalog.production.json'
           $preview = 'src/OpenSleepMusic.Core/Catalog/media-catalog.json'
           $stable = if (Test-Path $production) { $production } else { $preview }
           Copy-Item $stable artifacts/catalog-channel/media-catalog.json
           Copy-Item $preview artifacts/catalog-channel/media-catalog.preview.json
+          ./tools/Export-ArtworkManifest.ps1 -OutputPath artifacts/catalog-channel/artwork-catalog.json
       - name: Upload catalog channel assets
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload artwork-catalog artifacts/catalog-channel/media-catalog.json artifacts/catalog-channel/media-catalog.preview.json --clobber
+        run: gh release upload artwork-catalog artifacts/catalog-channel/media-catalog.json artifacts/catalog-channel/media-catalog.preview.json artifacts/catalog-channel/artwork-catalog.json --clobber

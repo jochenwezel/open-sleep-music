@@ -1,7 +1,8 @@
 # Datenschutzhinweise für Open Sleep Music
 
-Stand: 30. Oktober 2026. Diese Hinweise beschreiben die Android-Ausgabe von
-Open Sleep Music und ihre Bereitstellung über Google Play.
+Stand: 31. Oktober 2026. Diese Hinweise beschreiben die Android-Ausgabe von
+Open Sleep Music mit ausschließlicher GitHub-Inhaltsauslieferung und ihre
+Bereitstellung über Google Play.
 
 ## Verantwortlicher und Kontakt
 
@@ -64,35 +65,32 @@ prüft die App den Katalog jedoch automatisch auf Aktualisierungen; Bilder werde
 bei Bedarf nachgeladen. Diese Abrufe können auch ohne einen neuen Musikdownload
 stattfinden. „Bibliothek aktualisieren“ löst ebenfalls einen Katalogabruf aus.
 
-Bei diesen HTTPS-Verbindungen erhält die ausliefernde Infrastruktur insbesondere
-Ihre IP-Adresse, die angeforderte Datei, den Zeitpunkt und technische
-Anfrageinformationen. Die App sendet dabei keine eigene dauerhafte
-Installationskennung. Empfänger sind Betreiber externer Musik-, Bild- und
-Katalogserver einschließlich ihrer CDN- und Auslieferungsdienste. Für Kataloge
-und App-Bilder werden GitHub-Dienste genutzt. Die Aufnahmequellen können sich mit
-dem Katalog ändern. In den Titelinformationen finden Sie die konkrete Quelle
-der Aufnahme und können deren Webseite öffnen. Weiterleitungen können zusätzliche
-Auslieferungsdienste einbeziehen. Die App sendet keine Favoritenlisten,
-Wiedergabehistorie oder Supportberichte an die Quellserver.
+Bei diesen HTTPS-Verbindungen erhält GitHub als Auslieferungsanbieter
+insbesondere Ihre IP-Adresse, die angeforderte Datei, den Zeitpunkt und technische
+Anfrageinformationen. Audioaufnahmen, Bilder und Kataloge werden über GitHub
+bereitgestellt; Weiterleitungen innerhalb der zugehörigen Auslieferungsinfrastruktur
+können weitere technische Dienste einbeziehen. Die App sendet keine eigene
+dauerhafte Installationskennung, Favoritenlisten, Wiedergabehistorie oder
+Supportberichte mit diesen Abrufen.
 
-Eigenverantwortliche Auslieferungsanbieter können Abrufe nach ihren eigenen Datenschutzregeln
-protokollieren. Auf diese Serverprotokolle haben wir keinen direkten Zugriff;
-wir können sie weder einsehen noch selbst löschen. Für ihre Aufbewahrung und
-Löschung gelten die Regeln des jeweiligen Anbieters. Angaben zur aktuellen
-Quelle finden Sie in den Titelinformationen. Maßgeblich sind die Datenschutzhinweise
-des jeweiligen Anbieters. Katalogquellen und Anbieterhinweise
-können sich ändern. Wir versprechen keine festen Speicherfristen oder
-Löschbestätigungen für fremde Serverprotokolle.
+Die in den Titelinformationen genannten ursprünglichen Aufnahmequellen dienen
+als Herkunfts- und Lizenznachweis. Die App lädt die Inhalte nicht von diesen
+Quellseiten. Erst wenn Sie einen Quellen- oder Lizenzlink ausdrücklich öffnen,
+wird die betreffende Webseite im Browser aufgerufen.
 
-Bei externen Abrufen können Daten auch außerhalb der EU beziehungsweise des EWR,
-insbesondere in den USA, verarbeitet werden. Dort können andere Datenschutzregeln
-und behördliche Zugriffsmöglichkeiten bestehen. Für GitHub beschreibt die
-[Datenschutzerklärung des Anbieters](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
-die Verarbeitung durch GitHub B.V. beziehungsweise GitHub, Inc., internationale
-Verarbeitungsorte sowie Standardvertragsklauseln und das EU-US Data Privacy
-Framework. Diese Angaben sind keine pauschale Zusicherung für andere
-Inhaltsanbieter. Die jeweilige Quelle und deren Hinweise sind für den einzelnen
-Abruf maßgeblich.
+GitHub verarbeitet technische Abrufdaten nach seinen eigenen
+[Datenschutzhinweisen](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+Auf die dortigen personenbezogenen Serverprotokolle haben wir keinen direkten
+Zugriff und können sie nicht selbst löschen. Ihre Aufbewahrung richtet sich nach
+den Zwecken und Regeln von GitHub.
+
+Dabei können Daten außerhalb der EU beziehungsweise des EWR, insbesondere in
+den USA, verarbeitet werden. Für die vom EU-US Data Privacy Framework erfassten
+Übermittlungen an GitHub, Inc. stützen wir uns auf den Angemessenheitsbeschluss
+nach Art. 45 DSGVO. GitHub ist nach dem am 31. Oktober 2026 geprüften amtlichen
+Register aktiver Teilnehmer für Nicht-Personaldaten. Informationen zum Anbieter
+und zur Zertifizierung finden Sie in den verlinkten Datenschutzhinweisen und im
+[amtlichen DPF-Register](https://www.dataprivacyframework.gov/list).
 
 ## Freiwilliges Feedback und Support
 
@@ -143,12 +141,13 @@ können ohne Bezug zum Absender erhalten bleiben.
 
 Die für eine angeforderte App- oder Supportleistung erforderliche Verarbeitung
 beruht auf Art. 6 Abs. 1 Buchst. b DSGVO, soweit ein Vertragsverhältnis mit Ihnen
-besteht oder eine entsprechende vorvertragliche Anfrage vorliegt. Die technische
-Bereitstellung, Aktualität und Sicherheit der Inhalte, die Beantwortung
-allgemeiner Anfragen und die Verbesserung der Titelauswahl beruhen im Übrigen
-auf Art. 6 Abs. 1 Buchst. f DSGVO. Unsere berechtigten Interessen sind eine
-funktionsfähige, sichere App, die Bearbeitung Ihrer Rückmeldung und ein
-geeigneter Musikkatalog. Gesetzlich erforderliche Aufbewahrung beruht auf
+besteht oder eine entsprechende vorvertragliche Anfrage vorliegt. Die für die Auslieferung und Aktualisierung von Katalogen, Bildern und
+gewählten Aufnahmen erforderlichen technischen Abrufe stützen wir auf
+Art. 6 Abs. 1 Buchst. f DSGVO. Unser berechtigtes Interesse ist eine
+funktionsfähige, aktuelle und sichere Bereitstellung der App-Inhalte.
+Die Beantwortung allgemeiner Anfragen und die Verbesserung der Titelauswahl
+beruhen ebenfalls auf Art. 6 Abs. 1 Buchst. f DSGVO; unsere Interessen sind die
+Bearbeitung Ihrer Rückmeldung und ein geeigneter Musikkatalog. Gesetzlich erforderliche Aufbewahrung beruht auf
 Art. 6 Abs. 1 Buchst. c DSGVO.
 
 Kontakt- und Feedbackangaben sind freiwillig. Ohne die für Ihre Anfrage
@@ -169,6 +168,9 @@ Wir betreiben in der App keine personalisierte Werbung.
 Bitte übernehmen Sie als erwachsene Bezugsperson Downloads, externe
 Webseitenaufrufe und das Versenden von Feedback. Geben Sie im Kommentar keine
 Gesundheitsdaten oder personenbezogenen Angaben über Kinder an.
+Für eine Wiedergabe ohne weitere Onlineabrufe muss das Gerät nach dem
+Herunterladen offline verwendet werden. Bei bestehender Internetverbindung
+können die oben beschriebenen automatischen Katalog- und Bildabrufe stattfinden.
 
 ## Android und Google Play
 

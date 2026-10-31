@@ -1,15 +1,49 @@
 param(
-    [string]$OutputPath = (Join-Path $PSScriptRoot '..\src\OpenSleepMusic.Core\Catalog\media-catalog.json')
+    [string]$OutputPath = (Join-Path $PSScriptRoot '..\src\OpenSleepMusic.Core\Catalog\media-catalog.json'),
+    [switch]$DeliveryOnly
 )
 
 $ErrorActionPreference = 'Stop'
 . (Join-Path $PSScriptRoot 'CatalogOrdering.ps1')
+. (Join-Path $PSScriptRoot 'GitHubDelivery.ps1')
+if ($DeliveryOnly) {
+    # Reproducible one-time migration without changing curation, playback or
+    # source metadata. Useful while independent curation work is in progress.
+    $directory = Split-Path -Parent $OutputPath
+    $timestamp = [DateTimeOffset]::UtcNow.ToString('O')
+    foreach ($name in @('media-catalog.json','media-catalog.production.json','preselection-candidates.json')) {
+        $path = Join-Path $directory $name
+        $document = Get-Content -LiteralPath $path -Raw -Encoding utf8 | ConvertFrom-Json -AsHashtable -DateKind String
+        if ($name -eq 'preselection-candidates.json') {
+            foreach ($candidate in $document.candidates) {
+                if (!$candidate.downloadUri) { continue }
+                $entry = (Get-GitHubDeliveryRegistry)[$candidate.id]
+                $original = if ($candidate.originalDownloadUri) { $candidate.originalDownloadUri } else { $candidate.downloadUri }
+                if (!$entry -or $entry.originalDownloadUri -cne $original -or $entry.fileName -cne $candidate.fileName) {
+                    throw "Missing GitHub delivery for candidate '$($candidate.id)'."
+                }
+                $candidate.originalDownloadUri = $original
+                $candidate.downloadUri = $entry.downloadUri
+                $candidate.sha1 = $entry.sha1
+            }
+        } else {
+            foreach ($world in $document.sleepWorlds) {
+                foreach ($track in $world.tracks) { Set-GitHubTrackDelivery $track }
+            }
+            $document.generatedAtUtc = $timestamp
+        }
+        [IO.File]::WriteAllText($path, ($document | ConvertTo-Json -Depth 12) + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))
+    }
+    Write-Host 'Migrated both catalog channels and candidate metadata to verified GitHub delivery without curation changes.'
+    return
+}
 $headers = @{ 'User-Agent' = 'OpenSleepMusicCatalog/0.1 (+https://github.com/jochenwezel/open-sleep-music)' }
 $cc0 = 'CC0 1.0'
 $cc0Url = 'https://creativecommons.org/publicdomain/zero/1.0/'
 
 function Get-ArchiveMetadata([string]$Identifier) {
-    Invoke-RestMethod -Uri "https://archive.org/metadata/$Identifier" -Headers $headers
+    Write-Host "Reading source metadata: $Identifier"
+    Invoke-RestMethod -Uri "https://archive.org/metadata/$Identifier" -Headers $headers -TimeoutSec 45 -MaximumRetryCount 3 -RetryIntervalSec 3
 }
 
 function Convert-ToSlug([string]$Value) {
@@ -288,6 +322,22 @@ foreach ($candidate in $candidateManifest.candidates) {
     }
 }
 
+# Maintainer-authorized 2026-10-31 listening trial: per-recording constant gains.
+# Shared recordings retain one identity, so their other membership uses the same gain.
+$lullabyLoudnessTrial = Get-Content -Encoding utf8 -Raw (Join-Path $PSScriptRoot 'lullabies-loudness-trial-2026-10-31.json') | ConvertFrom-Json
+foreach ($setting in $lullabyLoudnessTrial.tracks) {
+    $matches = @($worlds.GetEnumerator() | ForEach-Object { $_.Value.tracks } | Where-Object id -eq $setting.trackId)
+    if ($matches.Count -ne 1 -or ![double]::IsFinite([double]$setting.volumeGain) -or
+        $setting.volumeGain -le 0 -or $setting.volumeGain -gt 8) {
+        throw "Invalid little-ones loudness trial target or gain: $($setting.trackId)"
+    }
+    $target = $matches[0]
+    if ($target.id -notin @($worlds.lullabies.tracks.id) -and 'lullabies' -notin $target.additionalWorldIds) {
+        throw "Loudness trial target is outside little ones: $($setting.trackId)"
+    }
+    $target['volumeGain'] = [double]$setting.volumeGain
+}
+
 $artworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2'
 $backgroundArtworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v3'
 $legacyArtworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v1'
@@ -415,6 +465,7 @@ foreach ($entry in $worlds.GetEnumerator()) {
 
 $manifestWorlds = foreach ($entry in $worlds.GetEnumerator()) {
     foreach ($track in $entry.Value.tracks) {
+        Set-GitHubTrackDelivery $track
         if (($null -ne $track.startOffsetMilliseconds -and
                 ($track.startOffsetMilliseconds -isnot [long] -and $track.startOffsetMilliseconds -isnot [int])) -or
             [long]$track.startOffsetMilliseconds -lt 0 -or
@@ -539,6 +590,16 @@ if (($existingLullabyOrder -join "`n") -cne ($lullabyOrder -join "`n")) {
 }
 
 $candidateOutputPath = Join-Path (Split-Path $OutputPath) 'preselection-candidates.json'
+foreach ($candidate in $candidateManifest.candidates) {
+    if (!$candidate.downloadUri) { continue }
+    $delivery = (Get-GitHubDeliveryRegistry)[$candidate.id]
+    if (!$delivery -or $delivery.originalDownloadUri -cne [string]$candidate.downloadUri) {
+        throw "Missing GitHub delivery for candidate '$($candidate.id)'."
+    }
+    $candidate | Add-Member -NotePropertyName originalDownloadUri -NotePropertyValue $candidate.downloadUri -Force
+    $candidate.downloadUri = $delivery.downloadUri
+    $candidate.sha1 = $delivery.sha1
+}
 [IO.File]::WriteAllText($candidateOutputPath, ($candidateManifest | ConvertTo-Json -Depth 8) + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))
 
 $manifestWorlds = @($manifestWorlds) + @([ordered]@{

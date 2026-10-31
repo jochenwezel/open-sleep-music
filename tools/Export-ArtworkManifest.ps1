@@ -4,6 +4,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+& (Join-Path $PSScriptRoot 'Test-GitHubDelivery.ps1') -ManifestPaths @($CatalogPath)
 $catalog = Get-Content -Raw -LiteralPath $CatalogPath | ConvertFrom-Json
 $tracks = @($catalog.sleepWorlds.tracks | ForEach-Object {
     [ordered]@{

@@ -131,10 +131,7 @@ public sealed class SleepWorldDownloader(HttpClient httpClient, IDownloadLogSink
 
         try
         {
-            using var response = await httpClient.GetAsync(
-                track.DownloadUri,
-                HttpCompletionOption.ResponseHeadersRead,
-                trackToken);
+            using var response = await GitHubContentDelivery.GetAsync(httpClient, track.DownloadUri, trackToken);
 
             if (response.StatusCode != HttpStatusCode.OK)
             {

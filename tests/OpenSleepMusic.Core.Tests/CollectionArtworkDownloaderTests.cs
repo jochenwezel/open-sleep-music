@@ -18,7 +18,7 @@ public sealed class CollectionArtworkDownloaderTests
         var manifest = $$"""{"schemaVersion":1,"tracks":[]}""";
         using var client = new HttpClient(new StubHandler(request =>
         {
-            if (request.RequestUri!.AbsolutePath.EndsWith("catalog.json", StringComparison.Ordinal))
+            if (request.RequestUri!.AbsolutePath.Replace("/jochenwezel/open-sleep-music/releases/download/test", "", StringComparison.Ordinal).EndsWith("catalog.json", StringComparison.Ordinal))
                 return Json(manifest);
             artworkRequests++;
             return Bytes(HttpStatusCode.OK, Png, "image/png");
@@ -26,7 +26,7 @@ public sealed class CollectionArtworkDownloaderTests
         var root = Path.Combine(Path.GetTempPath(), $"open-sleep-collection-art-{Guid.NewGuid():N}");
         try
         {
-            var manifestClient = new ArtworkManifestClient(client, new("https://example.test/catalog.json"));
+            var manifestClient = new ArtworkManifestClient(client, new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/catalog.json"));
             var downloader = new CollectionArtworkDownloader(manifestClient, new ArtworkCache(client));
             var tracks = new[] { Track("one", sha), Track("two", sha) };
 
@@ -47,16 +47,16 @@ public sealed class CollectionArtworkDownloaderTests
         var manifest = $$"""{"schemaVersion":1,"tracks":[]}""";
         using var client = new HttpClient(new StubHandler(request =>
         {
-            if (request.RequestUri!.AbsolutePath.EndsWith("catalog.json", StringComparison.Ordinal))
+            if (request.RequestUri!.AbsolutePath.Replace("/jochenwezel/open-sleep-music/releases/download/test", "", StringComparison.Ordinal).EndsWith("catalog.json", StringComparison.Ordinal))
                 return Json(manifest);
-            return request.RequestUri.AbsolutePath.Contains("missing", StringComparison.Ordinal)
+            return request.RequestUri.AbsolutePath.Replace("/jochenwezel/open-sleep-music/releases/download/test", "", StringComparison.Ordinal).Contains("missing", StringComparison.Ordinal)
                 ? Bytes(HttpStatusCode.NotFound, "missing"u8.ToArray(), "text/plain")
                 : Bytes(HttpStatusCode.OK, Png, "image/png");
         }));
         var root = Path.Combine(Path.GetTempPath(), $"open-sleep-collection-art-{Guid.NewGuid():N}");
         try
         {
-            var manifestClient = new ArtworkManifestClient(client, new("https://example.test/catalog.json"));
+            var manifestClient = new ArtworkManifestClient(client, new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/catalog.json"));
             var downloader = new CollectionArtworkDownloader(manifestClient, new ArtworkCache(client));
             var tracks = new[] { Track("missing", sha, "missing.png"), Track("available", sha, "available.png") };
 
@@ -76,9 +76,9 @@ public sealed class CollectionArtworkDownloaderTests
         var sha = Convert.ToHexStringLower(SHA256.HashData(Png));
         using var client = new HttpClient(new StubHandler(request =>
         {
-            if (request.RequestUri!.AbsolutePath.EndsWith("catalog.json", StringComparison.Ordinal))
+            if (request.RequestUri!.AbsolutePath.Replace("/jochenwezel/open-sleep-music/releases/download/test", "", StringComparison.Ordinal).EndsWith("catalog.json", StringComparison.Ordinal))
                 return Json("""{"schemaVersion":1,"tracks":[]}""");
-            requests.Add(request.RequestUri.AbsolutePath);
+            requests.Add(request.RequestUri.AbsolutePath.Replace("/jochenwezel/open-sleep-music/releases/download/test", "", StringComparison.Ordinal));
             return Bytes(HttpStatusCode.OK, Png, "image/png");
         }));
         var root = Path.Combine(Path.GetTempPath(), $"open-sleep-collection-art-{Guid.NewGuid():N}");
@@ -86,12 +86,12 @@ public sealed class CollectionArtworkDownloaderTests
         {
             var track = Track("one", sha) with
             {
-                SongMotifUri = new("https://example.test/song.png"),
+                SongMotifUri = new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/song.png"),
                 SongMotifFileName = "song.png",
                 SongMotifSha256 = sha
             };
             var downloader = new CollectionArtworkDownloader(
-                new ArtworkManifestClient(client, new("https://example.test/catalog.json")),
+                new ArtworkManifestClient(client, new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/catalog.json")),
                 new ArtworkCache(client));
 
             var result = await downloader.DownloadAsync([track], root);
@@ -112,9 +112,9 @@ public sealed class CollectionArtworkDownloaderTests
         var sha = Convert.ToHexStringLower(SHA256.HashData(Png));
         using var client = new HttpClient(new StubHandler(request =>
         {
-            if (request.RequestUri!.AbsolutePath.EndsWith("catalog.json", StringComparison.Ordinal))
+            if (request.RequestUri!.AbsolutePath.Replace("/jochenwezel/open-sleep-music/releases/download/test", "", StringComparison.Ordinal).EndsWith("catalog.json", StringComparison.Ordinal))
                 return Json("""{"schemaVersion":1,"tracks":[]}""");
-            return request.RequestUri.AbsolutePath.EndsWith("song.png", StringComparison.Ordinal)
+            return request.RequestUri.AbsolutePath.Replace("/jochenwezel/open-sleep-music/releases/download/test", "", StringComparison.Ordinal).EndsWith("song.png", StringComparison.Ordinal)
                 ? Bytes(HttpStatusCode.NotFound, "missing"u8.ToArray(), "text/plain")
                 : Bytes(HttpStatusCode.OK, Png, "image/png");
         }));
@@ -123,15 +123,15 @@ public sealed class CollectionArtworkDownloaderTests
         {
             var track = Track("one", sha) with
             {
-                SongMotifUri = new("https://example.test/song.png"),
+                SongMotifUri = new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/song.png"),
                 SongMotifFileName = "song.png",
                 SongMotifSha256 = sha,
-                FallbackMotifUri = new("https://example.test/fallback.png"),
+                FallbackMotifUri = new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/fallback.png"),
                 FallbackMotifFileName = "fallback.png",
                 FallbackMotifSha256 = sha
             };
             var downloader = new CollectionArtworkDownloader(
-                new ArtworkManifestClient(client, new("https://example.test/catalog.json")),
+                new ArtworkManifestClient(client, new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/catalog.json")),
                 new ArtworkCache(client));
 
             var result = await downloader.DownloadAsync([track], root);
@@ -145,9 +145,9 @@ public sealed class CollectionArtworkDownloaderTests
     }
 
     private static AudioTrack Track(string id, string sha, string fileName = "shared.png") => new(
-        id, id, "Creator", new($"https://example.test/{id}.mp3"), new($"https://example.test/{id}"),
+        id, id, "Creator", new($"https://github.com/jochenwezel/open-sleep-music/releases/download/test/{id}.mp3"), new($"https://github.com/jochenwezel/open-sleep-music/releases/download/test/{id}"),
         "CC0", new("https://creativecommons.org/publicdomain/zero/1.0/"), $"{id}.mp3",
-        ArtworkUri: new($"https://example.test/{fileName}"), ArtworkFileName: fileName, ArtworkSha256: sha);
+        ArtworkUri: new($"https://github.com/jochenwezel/open-sleep-music/releases/download/test/{fileName}"), ArtworkFileName: fileName, ArtworkSha256: sha);
 
     private static HttpResponseMessage Json(string content) =>
         new(HttpStatusCode.OK) { Content = new StringContent(content, Encoding.UTF8, "application/json") };

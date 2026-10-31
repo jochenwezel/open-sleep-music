@@ -45,7 +45,7 @@ public sealed partial class ArtworkManifestClient(HttpClient httpClient, Uri man
         var temporaryPath = cachedPath + ".part";
         try
         {
-            using var response = await httpClient.GetAsync(manifestUri, HttpCompletionOption.ResponseHeadersRead);
+            using var response = await GitHubContentDelivery.GetAsync(httpClient, manifestUri);
             response.EnsureSuccessStatusCode();
             await using (var source = await response.Content.ReadAsStreamAsync())
             await using (var target = File.Create(temporaryPath))
@@ -78,6 +78,12 @@ public sealed partial class ArtworkManifestClient(HttpClient httpClient, Uri man
         foreach (var entry in manifest.Tracks)
         {
             CollectionArtwork.Validate(entry.CollectionArtwork, entry.TrackId);
+            if (!GitHubContentDelivery.IsContentUri(entry.ArtworkUri)
+                || new[] { entry.SongMotifUri, entry.FallbackMotifUri }.Any(uri => uri is not null && !GitHubContentDelivery.IsContentUri(uri))
+                || entry.CollectionArtwork?.Values.Any(layer =>
+                    new[] { layer.ArtworkUri, layer.SongMotifUri, layer.FallbackMotifUri }
+                        .Any(uri => uri is not null && !GitHubContentDelivery.IsContentUri(uri))) == true)
+                throw new InvalidDataException($"Artwork '{entry.TrackId}' is outside GitHub delivery.");
             if (string.IsNullOrWhiteSpace(entry.TrackId) || entry.ArtworkUri.Scheme != Uri.UriSchemeHttps
                 || !PortablePngName().IsMatch(entry.ArtworkFileName)
                 || !Sha256().IsMatch(entry.ArtworkSha256)

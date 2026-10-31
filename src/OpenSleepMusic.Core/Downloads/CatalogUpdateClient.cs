@@ -39,10 +39,7 @@ public sealed partial class CatalogUpdateClient(
             Directory.CreateDirectory(cacheRoot);
             using var timeoutCancellation = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
             timeoutCancellation.CancelAfter(_timeout);
-            using var response = await httpClient.GetAsync(
-                catalogUri,
-                HttpCompletionOption.ResponseHeadersRead,
-                timeoutCancellation.Token);
+            using var response = await GitHubContentDelivery.GetAsync(httpClient, catalogUri, timeoutCancellation.Token);
             response.EnsureSuccessStatusCode();
             if (response.Content.Headers.ContentLength is > MaximumCatalogBytes)
                 throw new InvalidDataException("Media catalog exceeds the size limit.");
@@ -158,6 +155,7 @@ public sealed partial class CatalogUpdateClient(
                 ValidateArtworkLayer(track.SongMotifUri, track.SongMotifFileName, track.SongMotifSha256, track.Id);
                 ValidateArtworkLayer(track.FallbackMotifUri, track.FallbackMotifFileName, track.FallbackMotifSha256, track.Id);
                 CollectionArtwork.Validate(track.CollectionArtwork, track.Id);
+                GitHubContentDelivery.ValidateTrack(track);
                 if (world.Id != "preselection")
                     BuiltInPreselection.EnsureProductionTrackAllowed(track);
             }

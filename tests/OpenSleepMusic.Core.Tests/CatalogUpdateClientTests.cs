@@ -8,6 +8,43 @@ namespace OpenSleepMusic.Core.Tests;
 public sealed class CatalogUpdateClientTests
 {
     [Theory]
+    [InlineData("downloadUri")]
+    [InlineData("artworkUri")]
+    [InlineData("songMotifUri")]
+    [InlineData("fallbackMotifUri")]
+    public async Task ForeignRuntimeContentCannotReplaceAValidCachedCatalog(string field)
+    {
+        var root = TemporaryRoot();
+        try
+        {
+            var cachedJson = CatalogJson("cached");
+            await File.WriteAllTextAsync(Path.Combine(root, "media-catalog.json"), cachedJson);
+            var json = System.Text.Json.Nodes.JsonNode.Parse(CatalogJson("remote"))!;
+            var track = json["sleepWorlds"]![0]!["tracks"]![0]!;
+            if (field != "downloadUri")
+            {
+                var prefix = field[..^3];
+                track[prefix + "FileName"] = "foreign.png";
+                track[prefix + "Sha256"] = new string('0', 64);
+            }
+            track[field] = "https://archive.org/foreign.mp3";
+            var requests = 0;
+            using var client = new HttpClient(new StubHandler(_ =>
+            {
+                requests++;
+                return Response(HttpStatusCode.OK, json.ToJsonString());
+            }));
+            var embedded = Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero));
+            var result = await new CatalogUpdateClient(client, CatalogUri).ResolveAsync(embedded, root);
+            Assert.Equal("cached", Assert.Single(result.SleepWorlds).Id);
+            Assert.Equal(cachedJson, await File.ReadAllTextAsync(Path.Combine(root, "media-catalog.json")));
+            Assert.False(File.Exists(Path.Combine(root, "media-catalog.json.part")));
+            Assert.Equal(1, requests);
+        }
+        finally { Directory.Delete(root, true); }
+    }
+
+    [Theory]
     [InlineData("other", true)]
     [InlineData("remote", true)]
     [InlineData("missing", false)]
@@ -19,10 +56,10 @@ public sealed class CatalogUpdateClientTests
             var json = System.Text.Json.Nodes.JsonNode.Parse(SharedCatalogJson("other"))!;
             var layers = new System.Text.Json.Nodes.JsonObject
             {
-                ["artworkUri"] = "https://example.test/background.png",
+                ["artworkUri"] = "https://github.com/jochenwezel/open-sleep-music/releases/download/test/background.png",
                 ["artworkFileName"] = "background.png",
                 ["artworkSha256"] = new string('0', 64),
-                ["songMotifUri"] = "https://example.test/motif.png",
+                ["songMotifUri"] = "https://github.com/jochenwezel/open-sleep-music/releases/download/test/motif.png",
                 ["songMotifFileName"] = "motif.png",
                 ["songMotifSha256"] = new string('1', 64)
             };
@@ -122,12 +159,12 @@ public sealed class CatalogUpdateClientTests
     }
 
     [Theory]
-    [InlineData("pre-qualify", "https://example.test/source", null, true)]
+    [InlineData("pre-qualify", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/source", null, true)]
     [InlineData("pre-qualify", "http://example.test/source", null, false)]
-    [InlineData("pre-qualify-licenses", "https://example.test/source", "Missing recording permission", true)]
+    [InlineData("pre-qualify-licenses", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/source", "Missing recording permission", true)]
     [InlineData("pre-qualify-licenses", "http://example.test/source", "Missing recording permission", false)]
-    [InlineData("pre-qualify-licenses", "https://example.test/source", null, false)]
-    [InlineData("pre-qualify", "https://example.test/source", "Missing recording permission", false)]
+    [InlineData("pre-qualify-licenses", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/source", null, false)]
+    [InlineData("pre-qualify", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/source", "Missing recording permission", false)]
     public async Task ExternalReferencesLoadOnlyInPreviewWithSecureSource(string worldId, string source, string? holdReason, bool valid)
     {
         var root = TemporaryRoot();
@@ -212,7 +249,7 @@ public sealed class CatalogUpdateClientTests
         var root = TemporaryRoot();
         try
         {
-            var invalid = CatalogJson("remote").Replace("https://example.test/audio.mp3", "http://example.test/audio.mp3");
+            var invalid = CatalogJson("remote").Replace("https://github.com/jochenwezel/open-sleep-music/releases/download/test/audio.mp3", "http://example.test/audio.mp3");
             using var client = new HttpClient(new StubHandler(_ => Response(HttpStatusCode.OK, invalid)));
             var embedded = Snapshot("embedded", new DateTimeOffset(2025, 1, 1, 0, 0, 0, TimeSpan.Zero));
             var result = await new CatalogUpdateClient(client, CatalogUri).ResolveAsync(embedded, root);
@@ -378,7 +415,7 @@ public sealed class CatalogUpdateClientTests
         var local = json["sleepWorlds"]![0]!["tracks"]![0]!.DeepClone();
         local["id"] = "local-track";
         local["fileName"] = "local-track.mp3";
-        local["downloadUri"] = "https://example.test/local.mp3";
+        local["downloadUri"] = "https://github.com/jochenwezel/open-sleep-music/releases/download/test/local.mp3";
         local.AsObject().Remove("additionalWorldIds");
         var target = json["sleepWorlds"]![1]!;
         target["tracks"]!.AsArray().Add(local);
@@ -400,7 +437,7 @@ public sealed class CatalogUpdateClientTests
         return json.ToJsonString();
     }
 
-    private static readonly Uri CatalogUri = new("https://example.test/media-catalog.json");
+    private static readonly Uri CatalogUri = new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/media-catalog.json");
 
     private static string TemporaryRoot()
     {
@@ -425,8 +462,8 @@ public sealed class CatalogUpdateClientTests
               "id": "remote-track",
               "title": "Remote track",
               "creator": "Test creator",
-              "downloadUri": "https://example.test/audio.mp3",
-              "sourcePageUri": "https://example.test/source",
+              "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/test/audio.mp3",
+              "sourcePageUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/test/source",
               "license": "CC0",
               "licenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
               "fileName": "remote-track.mp3",

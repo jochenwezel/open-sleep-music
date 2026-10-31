@@ -13,7 +13,7 @@
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:El_Noi_de_la_Mare_(guitar).ogg&oldid=1152313400",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e0/El_Noi_de_la_Mare_%28guitar%29.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-el-noi-de-la-mare-guitar.ogg",
       "fileName": "candidate-el-noi-de-la-mare-guitar.ogg",
       "durationSeconds": 132.655601,
       "sha1": "331640f4330cca46aa482ac7fd5d8bde17ee3102",
@@ -28,7 +28,8 @@
         "lullabies"
       ],
       "intendedWorldId": "lullabies",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e0/El_Noi_de_la_Mare_%28guitar%29.ogg"
     },
     {
       "id": "candidate-pachelbel-canon-in-d-major-p-37-guitar",
@@ -42,7 +43,7 @@
       "declaredLicense": "CC BY-SA 4.0",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Pachelbel_-_Canon_in_D_major,_P._37_(Guitar).ogg&oldid=710319077",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests 20 percent slower playback. Apply playbackSpeed 0.8 through playback metadata, resulting in 251.330 seconds listening duration from the 201.064-second original. Preserve source download, upstream SHA-1, normal gain and zero trims. Rights review remains unchecked; retain in Preview for audition, without production promotion or an edited audio file. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pachelbel_-_Canon_in_D_major%2C_P._37_%28Guitar%29.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-pachelbel-canon-in-d-major-p-37-guitar.ogg",
       "fileName": "candidate-pachelbel-canon-in-d-major-p-37-guitar.ogg",
       "durationSeconds": 201.06449,
       "sha1": "0e460d2fff2daf2c434200b589bee292d7c2eabe",
@@ -58,7 +59,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pachelbel_-_Canon_in_D_major%2C_P._37_%28Guitar%29.ogg"
     },
     {
       "id": "candidate-schubert-s-daphne-am-bach-d-411-guitar-bert-alink",
@@ -72,7 +74,7 @@
       "declaredLicense": "CC BY 4.0",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Schubert%27s_Daphne_am_Bach,_D.411_(guitar)_-_Bert_Alink.ogg&oldid=723444584",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests 15 percent slower playback. Apply playbackSpeed 0.85 through playback metadata, resulting in approximately 114.098 seconds listening duration from the 96.983-second original. Preserve original download, upstream SHA-1, normal gain and zero trims. Recording-rights review remains unchecked; retain in Preview for audition without production promotion or an edited audio file. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Schubert%27s_Daphne_am_Bach%2C_D.411_%28guitar%29_-_Bert_Alink.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-schubert-s-daphne-am-bach-d-411-guitar-bert-alink.ogg",
       "fileName": "candidate-schubert-s-daphne-am-bach-d-411-guitar-bert-alink.ogg",
       "durationSeconds": 96.983356,
       "sha1": "df3439838aa9d72a9361709b18f7b0bbf466437f",
@@ -88,7 +90,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Schubert%27s_Daphne_am_Bach%2C_D.411_%28guitar%29_-_Bert_Alink.ogg"
     },
     {
       "id": "candidate-pachelbel-suite-in-f-sharp-minor-p-439-iv-sarabande-guitar",
@@ -102,7 +105,7 @@
       "declaredLicense": "CC BY 4.0",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Pachelbel_-_Suite_in_F-sharp_minor,_P._439_-_IV._Sarabande_(Guitar).ogg&oldid=710319159",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pachelbel_-_Suite_in_F-sharp_minor%2C_P._439_-_IV._Sarabande_%28Guitar%29.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-pachelbel-suite-in-f-sharp-minor-p-439-iv-sarabande-guitar.ogg",
       "fileName": "candidate-pachelbel-suite-in-f-sharp-minor-p-439-iv-sarabande-guitar.ogg",
       "durationSeconds": 74.589524,
       "sha1": "d18e8a3d86f000533904e700ab455ee83866da8e",
@@ -117,7 +120,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pachelbel_-_Suite_in_F-sharp_minor%2C_P._439_-_IV._Sarabande_%28Guitar%29.ogg"
     },
     {
       "id": "candidate-recuerdos-de-la-alhambra",
@@ -130,10 +134,10 @@
       "licenseReviewStatus": "verified",
       "declaredLicense": "CC BY-SA 3.0",
       "reviewNotes": "Recording-rights review 2026-10-06: exact Commons file identifies Carlo Alberto Boni as performer/author, source Own work, uploaded by the same linked author account Outonomia on 2011-09-29, with an explicit copyright-holder CC BY-SA 3.0 Unported grant. Composition: Francisco Tárrega. Retain performer/composer/source/license attribution and identify edits; redistributed adaptations must comply with ShareAlike. This is a documented source-grant review, not an independent guarantee of copyright ownership. User positively auditioned the performance alone and with quiet cricket ambience. Remaining production audio/suitability checks are separate; retained in Preview. Delivery compatibility update 2026-10-07: maintainer reports correct audio playback but zero duration and a stationary position slider on Android with the original Ogg. Use the existing Wikimedia-hosted MP3 transcode of the same Carlo Alberto Boni performance, retaining the exact source page and CC BY-SA 3.0 attribution. The source file page confirms its completed MP3 transcode. Original Ogg upstream SHA-1 be8bb6a5c5f6b1968529fe5b8981393eb40679b9 is retained here for provenance only; it cannot validate MP3 bytes, and no MP3 upstream checksum is provided, so delivery sha1 is null. HTTPS MP3 returned HTTP 200, ID3 signature and decoded fully to 239.884 seconds. A local Windows MediaPlayer probe read positive duration and successfully sought to 30 seconds for both encodings; the reported Android behavior was not reproduced on an Android device. No on-device conversion, project-edited media or rehosting. A catalog refresh followed by downloading the new MP3 is required on existing installations. Production promotion 2026-10-07: after audition feedback the maintainer selected this instrumental performance for both Quiet Classics and Lullabies for little ones. This supersedes earlier pending suitability/destination notes. The accepted recording grant and performer attribution are retained. Stable HTTPS MP3 delivery returned actual ID3 audio and decoded completely; duration metadata is the original decoded interval. Playback gain, speed and trim settings are retained; no audio bytes are edited. Canonical ID and filename remain unique, with additionalWorldIds expressing shared membership. Remove the active audition entry while retaining this review record as the promotion audit. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a3/Recuerdos_de_la_Alhambra.ogg/Recuerdos_de_la_Alhambra.ogg.mp3",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-recuerdos-de-la-alhambra.mp3",
       "fileName": "candidate-recuerdos-de-la-alhambra.mp3",
       "durationSeconds": 239.884,
-      "sha1": null,
+      "sha1": "9588daa15a7c85f9ee90be0bb028a2e97b8f90b0",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0",
       "deliveryCheckedAtUtc": "2026-10-07T22:06:46.1900131+02:00",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Recuerdos_de_la_Alhambra.ogg&oldid=1059400139",
@@ -142,7 +146,8 @@
       "promotedWorldIds": [
         "quiet-classics",
         "lullabies"
-      ]
+      ],
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a3/Recuerdos_de_la_Alhambra.ogg/Recuerdos_de_la_Alhambra.ogg.mp3"
     },
     {
       "id": "candidate-satie-gymnopedie-no-1-performed-by-michael-laucke",
@@ -156,7 +161,7 @@
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac&oldid=1084734447",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-satie-gymnopedie-no-1-performed-by-michael-laucke.flac",
       "fileName": "candidate-satie-gymnopedie-no-1-performed-by-michael-laucke.flac",
       "durationSeconds": 171.911837,
       "sha1": "090f87e4f5eea9491188eecf003b62ea2a93a36e",
@@ -171,7 +176,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac"
     },
     {
       "id": "candidate-satie-gymnopedie-no-2-performed-by-michael-laucke",
@@ -185,7 +191,7 @@
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac&oldid=775026689",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-satie-gymnopedie-no-2-performed-by-michael-laucke.flac",
       "fileName": "candidate-satie-gymnopedie-no-2-performed-by-michael-laucke.flac",
       "durationSeconds": 147.226122,
       "sha1": "6a03288f061dda2e76fe348c71756558fba5cffd",
@@ -200,7 +206,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac"
     },
     {
       "id": "candidate-satie-gymnopedie-no-3-performed-by-michael-laucke",
@@ -214,7 +221,7 @@
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Satie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac&oldid=921691578",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/db/Satie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-satie-gymnopedie-no-3-performed-by-michael-laucke.flac",
       "fileName": "candidate-satie-gymnopedie-no-3-performed-by-michael-laucke.flac",
       "durationSeconds": 123.115102,
       "sha1": "8c2b9edde40215a62cd798e621aacd9f27437052",
@@ -229,7 +236,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/db/Satie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac"
     },
     {
       "id": "candidate-gnossienne-5-satie",
@@ -243,7 +251,7 @@
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Gnossienne_5_(Satie).ogg&oldid=1257374498",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Gnossienne performances to play 30 percent quieter. Apply volumeGain 0.7 as playback metadata; original recording, duration and checksum are preserved. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/07/Gnossienne_5_%28Satie%29.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-gnossienne-5-satie.ogg",
       "fileName": "candidate-gnossienne-5-satie.ogg",
       "durationSeconds": 172.272789,
       "sha1": "9eecd78bb5a2781f2caf874101c202c07c210d61",
@@ -259,7 +267,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/07/Gnossienne_5_%28Satie%29.ogg"
     },
     {
       "id": "candidate-robert-schumann-scenes-from-childhood-op-15-i-of-foreign-lands-and-peoples",
@@ -273,7 +282,7 @@
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_i._of_foreign_lands_and_peoples.ogg&oldid=1227004629",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Scenes from Childhood performances to play 10 percent quieter. Apply volumeGain 0.9 as playback metadata; original recording, duration and checksum are preserved. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_i._of_foreign_lands_and_peoples.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-robert-schumann-scenes-from-childhood-op-15-i-of-foreign-lands-and-peoples.ogg",
       "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-i-of-foreign-lands-and-peoples.ogg",
       "durationSeconds": 111.882449,
       "sha1": "dec46d15e86ae0214eb67e28241d8b7cdbd9d045",
@@ -289,7 +298,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_i._of_foreign_lands_and_peoples.ogg"
     },
     {
       "id": "candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming",
@@ -303,7 +313,7 @@
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_vii._dreaming.ogg&oldid=1227004716",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Listening adjustment 2026-10-07: maintainer requests all selected Scenes from Childhood performances to play 10 percent quieter. Apply volumeGain 0.9 as playback metadata; original recording, duration and checksum are preserved. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/06/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vii._dreaming.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming.ogg",
       "fileName": "candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming.ogg",
       "durationSeconds": 202.997551,
       "sha1": "435250ff46d4632eb5d6c5f4af9e3b26154406fc",
@@ -321,7 +331,8 @@
         "lullabies"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/06/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vii._dreaming.ogg"
     },
     {
       "id": "candidate-mozart-piano-sonata-no-10-c-major-ii-andante-cantabile",
@@ -335,7 +346,7 @@
       "declaredLicense": "CC BY-SA 3.0 de",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Mozart_-_Piano_Sonata_No._10_C_major_-_II._Andante_cantabile.ogg&oldid=1032258751",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Mozart_-_Piano_Sonata_No._10_C_major_-_II._Andante_cantabile.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-mozart-piano-sonata-no-10-c-major-ii-andante-cantabile.ogg",
       "fileName": "candidate-mozart-piano-sonata-no-10-c-major-ii-andante-cantabile.ogg",
       "durationSeconds": 395.807347,
       "sha1": "2481042d97a629193c5379836737eec445346c16",
@@ -350,7 +361,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Mozart_-_Piano_Sonata_No._10_C_major_-_II._Andante_cantabile.ogg"
     },
     {
       "id": "candidate-mozart-piano-sonata-no-13-in-b-flat-major-ii-andante-cantabile",
@@ -364,7 +376,7 @@
       "declaredLicense": "CC BY-SA 3.0 de",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Mozart_-_Piano_Sonata_No._13_in_B-flat_major_-_II._Andante_cantabile.ogg&oldid=1139237784",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Mozart_-_Piano_Sonata_No._13_in_B-flat_major_-_II._Andante_cantabile.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-mozart-piano-sonata-no-13-in-b-flat-major-ii-andante-cantabile.ogg",
       "fileName": "candidate-mozart-piano-sonata-no-13-in-b-flat-major-ii-andante-cantabile.ogg",
       "durationSeconds": 524.724535,
       "sha1": "6340d119c013593190e6de50dca633ba37238fa0",
@@ -379,7 +391,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Mozart_-_Piano_Sonata_No._13_in_B-flat_major_-_II._Andante_cantabile.ogg"
     },
     {
       "id": "candidate-mozart-piano-sonata-no-16-in-c-major-ii-andante",
@@ -393,7 +406,7 @@
       "declaredLicense": "CC BY-SA 3.0 de",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Mozart_-_Piano_Sonata_No._16_in_C_major_-_II._Andante.ogg&oldid=1032258806",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Mozart_-_Piano_Sonata_No._16_in_C_major_-_II._Andante.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-mozart-piano-sonata-no-16-in-c-major-ii-andante.ogg",
       "fileName": "candidate-mozart-piano-sonata-no-16-in-c-major-ii-andante.ogg",
       "durationSeconds": 346.302404,
       "sha1": "8da001d8f135d32bbfcacad731232b3cc0a1b0a5",
@@ -408,7 +421,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Mozart_-_Piano_Sonata_No._16_in_C_major_-_II._Andante.ogg"
     },
     {
       "id": "candidate-mozart-piano-sonata-no-12-in-f-major-ii-adagio",
@@ -422,7 +436,7 @@
       "declaredLicense": "CC BY-SA 3.0 de",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Mozart_-_Piano_Sonata_No._12_in_F_major_-_II._Adagio.ogg&oldid=1207326702",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mozart_-_Piano_Sonata_No._12_in_F_major_-_II._Adagio.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-mozart-piano-sonata-no-12-in-f-major-ii-adagio.ogg",
       "fileName": "candidate-mozart-piano-sonata-no-12-in-f-major-ii-adagio.ogg",
       "durationSeconds": 266.890159,
       "sha1": "a32db13e34a7b7b5fe5104f8dedce353bfc3abbe",
@@ -437,7 +451,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mozart_-_Piano_Sonata_No._12_in_F_major_-_II._Adagio.ogg"
     },
     {
       "id": "candidate-mozart-concerto-for-flute-and-harp-2-andantino",
@@ -453,7 +468,7 @@
       "declaredLicense": "CC BY-SA 2.0",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Mozart_-_Concerto_for_Flute_and_Harp_-_2._Andantino.ogg&oldid=1093645504",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Mozart_-_Concerto_for_Flute_and_Harp_-_2._Andantino.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-mozart-concerto-for-flute-and-harp-2-andantino.ogg",
       "fileName": "candidate-mozart-concerto-for-flute-and-harp-2-andantino.ogg",
       "durationSeconds": 579.253333,
       "sha1": "8a0d941ead626d54ace85b644cb0e0696c8c691d",
@@ -468,7 +483,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "chamber-orchestra"
+      "ensembleType": "chamber-orchestra",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Mozart_-_Concerto_for_Flute_and_Harp_-_2._Andantino.ogg"
     },
     {
       "id": "candidate-clair-de-lune-claude-debussy-suite-bergamasque",
@@ -482,10 +498,10 @@
       "declaredLicense": "CC BY 3.0",
       "licenseEvidenceUri": "https://web.archive.org/web/20120210054738/http://soundcloud.com/laurensgoedhart/claude-debussys-clair-de-lune",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-rights review 2026-10-07: authoritative Commons revision 1264119050 identifies pianist/recordist Laurens Goedhart and a recording-specific CC BY 3.0 grant, distinct from the composition public-domain label. The linked 2012-02-10 archive of the performer SoundCloud page describes his own Yamaha C3 piano recording, credits him as uploader and links CC BY 3.0; the current performer page still identifies his own recording and License cc-by. Preserve composer, pianist, source page, original SoundCloud and archived grant attribution, and upstream conversion credit Akaniji. A listener comment reports a later automated copyright claim; this does not supersede the documented performer grant. The maintainer proposes this audition for both Quiet Classics and For Little Ones. Final destination, full listening suitability, relative levels and transitions remain pending; rights approval alone is not production promotion. Delivery review 2026-10-07: use the stable Commons MP3 transcode of the same Laurens Goedhart performance under the existing CC BY 3.0 grant. Original Ogg upstream SHA-1 50d152ad99294c8dd3783b6ddde30b1dfaef19c3 is provenance only, not an MP3 checksum. No upstream MP3 checksum is provided. Preserve conversion credit Akaniji; no project editing or rehosting. Production promotion 2026-10-07: after audition feedback the maintainer selected this instrumental performance for both Quiet Classics and Lullabies for little ones. This supersedes earlier pending suitability/destination notes. The accepted recording grant and performer attribution are retained. Stable HTTPS MP3 delivery returned actual ID3 audio and decoded completely; duration metadata is the original decoded interval. Playback gain, speed and trim settings are retained; no audio bytes are edited. Canonical ID and filename remain unique, with additionalWorldIds expressing shared membership. Remove the active audition entry while retaining this review record as the promotion audit. Audition feedback 2026-10-07 (open-sleep-music-feedback-20261007-200231.json, Android 0.1.34): maintainer marked this recording as a favorite. Retain as positive listening feedback for curation; this is not recording-rights approval or additional production promotion. Collection feedback 2026-10-08: the maintainer removes Clair de lune from Lullabies for little ones only. Retain this approved recording in Quiet Classics with its existing rights, delivery, credits and playback metadata. This supersedes the earlier shared-membership choice; no recording blacklist or global removal.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/be/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg.mp3",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-clair-de-lune-claude-debussy-suite-bergamasque.mp3",
       "fileName": "candidate-clair-de-lune-claude-debussy-suite-bergamasque.mp3",
       "durationSeconds": 304.089,
-      "sha1": null,
+      "sha1": "7044558c873aa9011ba200a9d52c39ca3d9e2d87",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
       "deliveryCheckedAtUtc": "2026-10-07T22:06:46.1949026+02:00",
       "approvedLicense": "CC BY 3.0",
@@ -495,7 +511,8 @@
       ],
       "promotedWorldIds": [
         "quiet-classics"
-      ]
+      ],
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/be/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg.mp3"
     },
     {
       "id": "candidate-debussy-preludes-book-2-v-bruyeres-giorgi-latsabidze",
@@ -509,7 +526,7 @@
       "declaredLicense": "Free Art License 1.3",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Debussy-_Preludes,_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga&oldid=1030346924",
       "reviewNotes": "Recording-rights review 2026-10-14: the exact Commons file identifies Giorgi Latsabidze as pianist/recordist, source Own work, and an explicit Free Art License 1.3 grant, with public VRT permission confirmation 2009122110015996. The private correspondence was not accessed. The maintainer accepts FAL 1.3 for the project. Retain composer, performer, original source and exact license links; identify modifications, preserve copyleft for redistributed adaptations and keep the audio independently accessible. Maintainer favorite retained as listening feedback; full dynamics, endings, transitions and current audio delivery still require admission checks. Proposed destination is Quiet Classics; no production promotion. Preserve original URL, filename, duration, upstream SHA-1, speed and trims. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/25/Debussy-_Preludes%2C_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-debussy-preludes-book-2-v-bruyeres-giorgi-latsabidze.ogg",
       "fileName": "candidate-debussy-preludes-book-2-v-bruyeres-giorgi-latsabidze.ogg",
       "durationSeconds": 139.672381,
       "sha1": "9115928d266825aeb00bb613f454b43645184fcb",
@@ -524,7 +541,8 @@
       "intendedWorldIds": [
         "quiet-classics"
       ],
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/25/Debussy-_Preludes%2C_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga"
     },
     {
       "id": "candidate-debussy-preludes-book-2-x-canope",
@@ -538,7 +556,7 @@
       "declaredLicense": "Free Art License 1.3",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Debussy-_Preludes,_Book_2-_X._Canope.oga&oldid=910040686",
       "reviewNotes": "Recording-rights review 2026-10-14: the exact Commons file identifies Giorgi Latsabidze as pianist/recordist, source Own work, and an explicit Free Art License 1.3 grant, with public VRT permission confirmation 2009122110015996. The private correspondence was not accessed. The maintainer accepts FAL 1.3 for the project. Retain composer, performer, original source and exact license links; identify modifications, preserve copyleft for redistributed adaptations and keep the audio independently accessible. Maintainer favorite retained as listening feedback; full dynamics, endings, transitions and current audio delivery still require admission checks. Proposed destination is Quiet Classics; no production promotion. Preserve original URL, filename, duration, upstream SHA-1, speed and trims. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Debussy-_Preludes%2C_Book_2-_X._Canope.oga",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-debussy-preludes-book-2-x-canope.ogg",
       "fileName": "candidate-debussy-preludes-book-2-x-canope.ogg",
       "durationSeconds": 166.81941,
       "sha1": "e4e2cafe476274ad31b74764c603b4a233f689f1",
@@ -553,7 +571,8 @@
       "intendedWorldIds": [
         "quiet-classics"
       ],
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Debussy-_Preludes%2C_Book_2-_X._Canope.oga"
     },
     {
       "id": "candidate-claude-debussy-reverie-arr-for-soprano-saxophone-and-piano-david-hernando-vitores",
@@ -568,10 +587,10 @@
       "declaredLicense": "CC BY-SA 4.0",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg&oldid=1044296766",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg.mp3",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-claude-debussy-reverie-arr-for-soprano-saxophone-and-piano-david-hernando-vitores.mp3",
       "fileName": "candidate-claude-debussy-reverie-arr-for-soprano-saxophone-and-piano-david-hernando-vitores.mp3",
       "durationSeconds": 280.791293,
-      "sha1": null,
+      "sha1": "542fb8210154a98ead2b318a2925a759f7660ad3",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0",
       "deliveryCheckedAtUtc": "2026-10-30T09:52:36.983559+01:00",
       "approvedLicense": "CC BY-SA 4.0",
@@ -583,7 +602,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "duo"
+      "ensembleType": "duo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg.mp3"
     },
     {
       "id": "candidate-grieg-folkevise-op-12-no-5",
@@ -597,7 +617,7 @@
       "declaredLicense": "CC BY-SA 4.0",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Grieg,_Folkevise_Op_12_No_5.ogg&oldid=1285264394",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Grieg%2C_Folkevise_Op_12_No_5.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-grieg-folkevise-op-12-no-5.ogg",
       "fileName": "candidate-grieg-folkevise-op-12-no-5.ogg",
       "durationSeconds": 117.733878,
       "sha1": "ed4f3404bbd3cedbf8ebc01aa2e539f008169ff7",
@@ -612,7 +632,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Grieg%2C_Folkevise_Op_12_No_5.ogg"
     },
     {
       "id": "candidate-mozart-string-quartet-no-19-in-c-major-k465-dissonance-ii-andante-cantabile-musopen-string-quartet",
@@ -628,7 +649,7 @@
       "declaredLicense": "Public domain",
       "licenseEvidenceUri": "https://commons.wikimedia.org/w/index.php?title=File:Mozart_-_String_Quartet_No._19_in_C_major,_K465_%27Dissonance%27_-_II._Andante_cantabile_(Musopen_String_Quartet).flac&oldid=956864894",
       "reviewNotes": "Source file page located; recording rights and full listening suitability have not been reviewed. Instrument tags are provisional and should be corrected after listening. Recording-specific grant reviewed on 2026-10-14 and authoritative page rechecked 2026-10-30. Maintainer approves this destination on 2026-10-30; full file decode, exact bytes/checksum where supplied, duration, dynamics and endpoint measurements documented in tools/favorite-promotions-2026-10-30.json. Existing speed, gain and trim choices retained; no newly invented independent listening approval.",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Mozart_-_String_Quartet_No._19_in_C_major%2C_K465_%27Dissonance%27_-_II._Andante_cantabile_%28Musopen_String_Quartet%29.flac",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-mozart-string-quartet-no-19-in-c-major-k465-dissonance-ii-andante-cantabile-musopen-string-quartet.flac",
       "fileName": "candidate-mozart-string-quartet-no-19-in-c-major-k465-dissonance-ii-andante-cantabile-musopen-string-quartet.flac",
       "durationSeconds": 461.291338,
       "sha1": "ea1dc5c099c861c869244c31847f2d073c5333c4",
@@ -643,7 +664,8 @@
         "quiet-classics"
       ],
       "intendedWorldId": "quiet-classics",
-      "ensembleType": "quartet"
+      "ensembleType": "quartet",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Mozart_-_String_Quartet_No._19_in_C_major%2C_K465_%27Dissonance%27_-_II._Andante_cantabile_%28Musopen_String_Quartet%29.flac"
     },
     {
       "id": "candidate-lullabies-wonderful-guter-mond",
@@ -773,10 +795,10 @@
       "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
       "intendedWorldId": "quiet-classics",
       "selectionKind": "gentle-guitar",
-      "downloadUri": "https://s9.imslp.org/files/imglnks/usimg/1/16/IMSLP964947-PMLP340750-Lágrima_de_Tárrega_en_Guitarra_de_10_Cuerdas_-_Ramón_León_Egea.mp3",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-tarrega-lagrima-leon-egea.mp3",
       "fileName": "candidate-tarrega-lagrima-leon-egea.mp3",
       "durationSeconds": 125.52,
-      "sha1": null,
+      "sha1": "02f2e81737692bf6f3daed91ab0c903cb8c2003e",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
       "deliveryCheckedAtUtc": "2026-10-30T09:52:36.983559+01:00",
       "promotedWorldIds": [
@@ -787,7 +809,8 @@
         "quiet-classics",
         "lullabies"
       ],
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://s9.imslp.org/files/imglnks/usimg/1/16/IMSLP964947-PMLP340750-Lágrima_de_Tárrega_en_Guitarra_de_10_Cuerdas_-_Ramón_León_Egea.mp3"
     },
     {
       "id": "candidate-barrios-julia-florida-edson-lopes",
@@ -805,16 +828,17 @@
       "approvedLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
       "intendedWorldId": "quiet-classics",
       "selectionKind": "gentle-guitar",
-      "downloadUri": "https://ks15.imslp.org/files/imglnks/usimg/e/e4/IMSLP254546-PMLP411050-BARRIOS_-_Julia_Florida_(Barcarola).mp3",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-barrios-julia-florida-edson-lopes.mp3",
       "fileName": "candidate-barrios-julia-florida-edson-lopes.mp3",
       "durationSeconds": 267.52,
-      "sha1": null,
+      "sha1": "2ecc20a0afe5b54733e8d345878173b7e61c0954",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by/3.0/",
       "deliveryCheckedAtUtc": "2026-10-07T22:06:46.1987469+02:00",
       "promotedWorldIds": [
         "quiet-classics",
         "lullabies"
-      ]
+      ],
+      "originalDownloadUri": "https://ks15.imslp.org/files/imglnks/usimg/e/e4/IMSLP254546-PMLP411050-BARRIOS_-_Julia_Florida_(Barcarola).mp3"
     },
     {
       "id": "candidate-sor-op-35-no-17-guitar",
@@ -832,7 +856,7 @@
       "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
       "intendedWorldId": "quiet-classics",
       "selectionKind": "gentle-guitar",
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Sor_Op_35_No._17.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-sor-op-35-no-17-guitar.ogg",
       "fileName": "candidate-sor-op-35-no-17-guitar.ogg",
       "durationSeconds": 126.316553,
       "sha1": "503af163129c43d46e03d36ff012f819fee8e7f2",
@@ -844,7 +868,8 @@
       "intendedWorldIds": [
         "quiet-classics"
       ],
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Sor_Op_35_No._17.ogg"
     },
     {
       "id": "candidate-romanza-ten-string-leon-egea",
@@ -862,10 +887,10 @@
       "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
       "intendedWorldId": "quiet-classics",
       "selectionKind": "gentle-guitar",
-      "downloadUri": "https://ks15.imslp.org/files/imglnks/usimg/0/0f/IMSLP933760-PMLP81963-romance_anonimo.mp3",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-romanza-ten-string-leon-egea.mp3",
       "fileName": "candidate-romanza-ten-string-leon-egea.mp3",
       "durationSeconds": 171.312,
-      "sha1": null,
+      "sha1": "601b94dc9970b71ec0e68b36d9311868f68db4cb",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by-sa/4.0/",
       "deliveryCheckedAtUtc": "2026-10-07T22:06:46.1991643+02:00",
       "startOffsetMilliseconds": 6400,
@@ -873,7 +898,8 @@
         "quiet-classics",
         "lullabies"
       ],
-      "endOffsetMilliseconds": 10000
+      "endOffsetMilliseconds": 10000,
+      "originalDownloadUri": "https://ks15.imslp.org/files/imglnks/usimg/0/0f/IMSLP933760-PMLP81963-romance_anonimo.mp3"
     },
     {
       "id": "candidate-meadow-night-crickets-sardin",
@@ -895,13 +921,14 @@
       "selectionKind": "nature-night",
       "startOffsetMilliseconds": 0,
       "endOffsetMilliseconds": 0,
-      "downloadUri": "https://bigsoundbank.com/UPLOAD/mp3/1880.mp3",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-meadow-night-crickets-sardin.mp3",
       "durationSeconds": 299.102,
       "fileName": "candidate-meadow-night-crickets-sardin.mp3",
-      "sha1": null,
+      "sha1": "f487e02ef05cee584303da7fc043bcdf4a9527e1",
       "declaredLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
       "deliveryCheckedAtUtc": "2026-10-06T23:13:22.3525175+02:00",
-      "volumeGain": 0.5
+      "volumeGain": 0.5,
+      "originalDownloadUri": "https://bigsoundbank.com/UPLOAD/mp3/1880.mp3"
     },
     {
       "id": "candidate-small-waves-beach-sardin",
@@ -922,10 +949,10 @@
       "selectionKind": "nature-waves",
       "startOffsetMilliseconds": 0,
       "endOffsetMilliseconds": 0,
-      "downloadUri": "https://bigsoundbank.com/UPLOAD/mp3/1448.mp3",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-small-waves-beach-sardin.mp3",
       "durationSeconds": 373.634739,
       "fileName": "candidate-small-waves-beach-sardin.mp3",
-      "sha1": null,
+      "sha1": "60393acc8c929ccebaeb84553ff3c0b9f3cff8d9",
       "declaredLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
       "deliveryCheckedAtUtc": "2026-10-30T09:52:36.983559+01:00",
       "volumeGain": 0.5,
@@ -935,7 +962,8 @@
       "intendedWorldIds": [
         "waves"
       ],
-      "ensembleType": "field-recording"
+      "ensembleType": "field-recording",
+      "originalDownloadUri": "https://bigsoundbank.com/UPLOAD/mp3/1448.mp3"
     },
     {
       "id": "candidate-nightingale-wind-crickets-childed",
@@ -958,7 +986,7 @@
       "selectionKind": "nature-night",
       "startOffsetMilliseconds": 0,
       "endOffsetMilliseconds": 0,
-      "downloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Nightingale_wind_crickets_-_cut.ogg",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-nightingale-wind-crickets-childed.ogg",
       "fileName": "candidate-nightingale-wind-crickets-childed.ogg",
       "durationSeconds": 627.240635,
       "sha1": "a3f012a7bdaa48d690a621218cf0f2d89229a016",
@@ -970,7 +998,8 @@
       "intendedWorldIds": [
         "forest"
       ],
-      "ensembleType": "field-recording"
+      "ensembleType": "field-recording",
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Nightingale_wind_crickets_-_cut.ogg"
     },
     {
       "id": "candidate-night-crickets-owlstorm",
@@ -1021,11 +1050,12 @@
       "intendedWorldIds": [
         "forest"
       ],
-      "downloadUri": "https://cdn.freesound.org/previews/424/424763_3158178-hq.mp3",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-jungle-choco-jaime-enrique.mp3",
       "fileName": "candidate-jungle-choco-jaime-enrique.mp3",
-      "sha1": null,
+      "sha1": "994e80fb440e5592a59f1518ef3b517c281fa62a",
       "deliveryCheckedAtUtc": "2026-10-30T09:52:36.983559+01:00",
-      "ensembleType": "field-recording"
+      "ensembleType": "field-recording",
+      "originalDownloadUri": "https://cdn.freesound.org/previews/424/424763_3158178-hq.mp3"
     },
     {
       "id": "candidate-savanna-night-august-sandberg",
@@ -1078,11 +1108,11 @@
       "durationSeconds": 135.758367,
       "creator": "Johannes Brahms; performance/production: Alexander Blu",
       "licenseEvidenceUri": "https://orangefreesounds.com/brahms-lullaby/",
-      "sha1": null,
+      "sha1": "7fb51063c6bdd78e2e6ec92c4540907cba300d2d",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
       "deliveryCheckedAtUtc": "2026-10-30T09:52:36.983559+01:00",
       "declaredLicense": "CC BY 4.0",
-      "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/02/Brahms-lullaby.mp3",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-lullabies-brahms-alexander-blu.mp3",
       "instrumentation": [
         "instrumental"
       ],
@@ -1098,7 +1128,8 @@
       "intendedWorldIds": [
         "lullabies"
       ],
-      "ensembleType": "instrumental-arrangement"
+      "ensembleType": "instrumental-arrangement",
+      "originalDownloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/02/Brahms-lullaby.mp3"
     },
     {
       "approvedLicense": "CC BY 4.0",
@@ -1108,11 +1139,11 @@
       "durationSeconds": 103.366531,
       "creator": "Traditional melody, Ah! vous dirai-je, maman; performance/production: Alexander Blu",
       "licenseEvidenceUri": "https://orangefreesounds.com/twinkle-twinkle-little-star-song/",
-      "sha1": null,
+      "sha1": "8e83f13cd11428908a024ce5ddd386eea3d75e41",
       "declaredLicenseUri": "https://creativecommons.org/licenses/by/4.0/",
       "deliveryCheckedAtUtc": "2026-10-30T09:52:36.983559+01:00",
       "declaredLicense": "CC BY 4.0",
-      "downloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/10/Twinkle-twinkle-little-star-piano.mp3",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/candidate-lullabies-twinkle-alexander-blu.mp3",
       "instrumentation": [
         "piano"
       ],
@@ -1128,7 +1159,8 @@
       "intendedWorldIds": [
         "lullabies"
       ],
-      "ensembleType": "solo"
+      "ensembleType": "solo",
+      "originalDownloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/10/Twinkle-twinkle-little-star-piano.mp3"
     },
     {
       "id": "research-lullaby-alex-089-little-lullaby",
@@ -1154,12 +1186,13 @@
       "intendedWorldIds": [
         "lullabies"
       ],
-      "downloadUri": "https://opengameart.org/sites/default/files/little_lullaby_0.mp3",
+      "downloadUri": "https://github.com/jochenwezel/open-sleep-music/releases/download/media-v1/research-lullaby-alex-089-little-lullaby.mp3",
       "fileName": "research-lullaby-alex-089-little-lullaby.mp3",
       "durationSeconds": 127.5,
-      "sha1": null,
+      "sha1": "f723c5910cde235ed3eee3d0c808a82260ec762a",
       "deliveryCheckedAtUtc": "2026-10-30T09:52:36.983559+01:00",
-      "ensembleType": "piano-with-strings"
+      "ensembleType": "piano-with-strings",
+      "originalDownloadUri": "https://opengameart.org/sites/default/files/little_lullaby_0.mp3"
     }
   ]
 }

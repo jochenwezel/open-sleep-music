@@ -24,7 +24,7 @@ public sealed class ArtworkCache(HttpClient httpClient, IDownloadLogSink? logSin
         timeoutSource.CancelAfter(_timeout);
         try
         {
-            using var response = await httpClient.GetAsync(track.ArtworkUri, HttpCompletionOption.ResponseHeadersRead, timeoutSource.Token);
+            using var response = await GitHubContentDelivery.GetAsync(httpClient, track.ArtworkUri, timeoutSource.Token);
             if (response.StatusCode != HttpStatusCode.OK)
             {
                 await LogAsync(track, $"Artwork HTTP {(int)response.StatusCode} ({response.ReasonPhrase})", cancellationToken);

@@ -1,5 +1,9 @@
 # Visual assets
 
+Runtime images, motifs and artwork manifests use only project GitHub delivery.
+Keep versioned payload URLs and checksums, including collection-specific layers;
+do not add upstream-image fallbacks. See [GitHub content delivery](github-content-delivery.md).
+
 The immersive player renders transparent ambient overlays and transparent song motifs as separate layers above the animated collection color. Every collection also owns a distinct transparent fallback motif that is used only when a track-specific motif is absent or unavailable. Ambient overlays may contain only sparse abstract particles such as star points, rain dashes, bubbles, fireflies, or embers; they must not contain a scene, landscape, room, animal, instrument, or other principal motif. Background overlays, fallback motifs, and track motifs must be different files; neither collection-level image may be assigned as a track motif. `PlaybackVisualCatalog` owns the animated collection colors and packaged emergency fallback. The catalog and remotely updateable artwork manifest provide independently validated PNG references for all three remote layers.
 
 `sleepy_bear_moon.png` and `sleepy_lamb_star.png` were generated for this project with OpenAI image generation on 2026-09-09. The collection-specific assets and the later lullaby motifs were generated for this project with OpenAI image generation in September 2026. They contain no third-party source artwork or embedded text and are distributed under the repository's MIT license.

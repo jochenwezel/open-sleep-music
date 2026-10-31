@@ -11,7 +11,7 @@ public sealed class CollectionArtworkTests
 {
     private static readonly byte[] Png = [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, .. new byte[32]];
     private static readonly string Sha = Convert.ToHexStringLower(SHA256.HashData(Png));
-    private static readonly Uri ManifestUri = new("https://example.test/catalog.json");
+    private static readonly Uri ManifestUri = new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/catalog.json");
     private static readonly JsonSerializerOptions JsonOptions = new() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
 
     [Theory]
@@ -43,7 +43,7 @@ public sealed class CollectionArtworkTests
         var root = TemporaryRoot();
         try
         {
-            var old = Track() with { SongMotifUri = new("https://example.test/old-child.png"),
+            var old = Track() with { SongMotifUri = new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/old-child.png"),
                 SongMotifFileName = "old-child.png", SongMotifSha256 = Sha };
             using var online = Client(_ => Json(Manifest(Assignments())));
             var resolver = new ArtworkManifestClient(online, ManifestUri);
@@ -112,7 +112,7 @@ public sealed class CollectionArtworkTests
             using var client = Client(request =>
             {
                 if (request.RequestUri == ManifestUri) return Json(Manifest(Assignments()));
-                requests.Add(request.RequestUri!.AbsolutePath);
+                requests.Add(request.RequestUri!.AbsolutePath.Replace("/jochenwezel/open-sleep-music/releases/download/test", "", StringComparison.Ordinal));
                 return new(HttpStatusCode.OK) { Content = new ByteArrayContent(Png) };
             });
             var downloader = new CollectionArtworkDownloader(new(client, ManifestUri), new(client));
@@ -135,23 +135,23 @@ public sealed class CollectionArtworkTests
     };
 
     private static CollectionArtwork Layers(string prefix) => new(
-        new($"https://example.test/{prefix}-background.png"), $"{prefix}-background.png", Sha,
-        new($"https://example.test/{prefix}-song.png"), $"{prefix}-song.png", Sha,
-        new($"https://example.test/{prefix}-fallback.png"), $"{prefix}-fallback.png", Sha);
+        new($"https://github.com/jochenwezel/open-sleep-music/releases/download/test/{prefix}-background.png"), $"{prefix}-background.png", Sha,
+        new($"https://github.com/jochenwezel/open-sleep-music/releases/download/test/{prefix}-song.png"), $"{prefix}-song.png", Sha,
+        new($"https://github.com/jochenwezel/open-sleep-music/releases/download/test/{prefix}-fallback.png"), $"{prefix}-fallback.png", Sha);
 
-    private static AudioTrack Track() => new("track", "Track", "Creator", new("https://example.test/audio.mp3"),
-        new("https://example.test/source"), "CC0", new("https://creativecommons.org/publicdomain/zero/1.0/"),
-        "track.mp3", 60, ArtworkUri: new("https://example.test/default.png"), ArtworkFileName: "default.png",
-        ArtworkSha256: Sha, FallbackMotifUri: new("https://example.test/default-fallback.png"),
+    private static AudioTrack Track() => new("track", "Track", "Creator", new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/audio.mp3"),
+        new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/source"), "CC0", new("https://creativecommons.org/publicdomain/zero/1.0/"),
+        "track.mp3", 60, ArtworkUri: new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/default.png"), ArtworkFileName: "default.png",
+        ArtworkSha256: Sha, FallbackMotifUri: new("https://github.com/jochenwezel/open-sleep-music/releases/download/test/default-fallback.png"),
         FallbackMotifFileName: "default-fallback.png", FallbackMotifSha256: Sha);
 
     private static string Manifest(Dictionary<string, CollectionArtwork>? assignments, bool globalChild = false) =>
         JsonSerializer.Serialize(new { schemaVersion = 1, tracks = new[] { new
         {
-            trackId = "track", artworkUri = "https://example.test/default.png", artworkFileName = "default.png",
-            artworkSha256 = Sha, fallbackMotifUri = "https://example.test/default-fallback.png",
+            trackId = "track", artworkUri = "https://github.com/jochenwezel/open-sleep-music/releases/download/test/default.png", artworkFileName = "default.png",
+            artworkSha256 = Sha, fallbackMotifUri = "https://github.com/jochenwezel/open-sleep-music/releases/download/test/default-fallback.png",
             fallbackMotifFileName = "default-fallback.png", fallbackMotifSha256 = Sha,
-            songMotifUri = globalChild ? "https://example.test/legacy-child.png" : null,
+            songMotifUri = globalChild ? "https://github.com/jochenwezel/open-sleep-music/releases/download/test/legacy-child.png" : null,
             songMotifFileName = globalChild ? "legacy-child.png" : null, songMotifSha256 = globalChild ? Sha : null,
             collectionArtwork = assignments
         } } }, JsonOptions);

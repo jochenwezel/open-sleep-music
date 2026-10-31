@@ -10,11 +10,11 @@ public sealed class SleepWorldDownloaderTests
     [Fact]
     public async Task MissingBackgroundDoesNotPreventPrimaryDownloadOrAppearInSongList()
     {
-        var main = Track("main", "main.ogg", "https://example.test/main") with { BackgroundAudio = new("ambient") };
-        var ambient = Track("ambient", "ambient.ogg", "https://example.test/ambient");
+        var main = Track("main", "main.ogg", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/main") with { BackgroundAudio = new("ambient") };
+        var ambient = Track("ambient", "ambient.ogg", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/ambient");
         var world = new SleepWorld("test", "Test", "", "", [main]);
         var catalog = new[] { world, new SleepWorld("ambient", "Ambient", "", "", [ambient]) };
-        using var client = new HttpClient(new StubHandler(request => request.RequestUri!.AbsolutePath == "/ambient"
+        using var client = new HttpClient(new StubHandler(request => request.RequestUri!.AbsolutePath.Replace("/jochenwezel/open-sleep-music/releases/download/test", "", StringComparison.Ordinal) == "/ambient"
             ? Response(HttpStatusCode.NotFound, [], "text/html")
             : Response(HttpStatusCode.OK, [.. "OggS"u8, .. new byte[256]], "audio/ogg")));
         var log = new RecordingLogSink();
@@ -37,10 +37,10 @@ public sealed class SleepWorldDownloaderTests
     public async Task StalledBodyTimesOutCleansPartialFileAndContinuesWithNextTrack()
     {
         var world = new SleepWorld("test", "Test", "Test", "T",
-            [Track("stalled", "stalled.ogg", "https://example.test/stalled"),
-             Track("next", "next.ogg", "https://example.test/next")]);
+            [Track("stalled", "stalled.ogg", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/stalled"),
+             Track("next", "next.ogg", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/next")]);
         using var body = new StalledStream();
-        using var client = new HttpClient(new StubHandler(request => request.RequestUri!.AbsolutePath == "/stalled"
+        using var client = new HttpClient(new StubHandler(request => request.RequestUri!.AbsolutePath.Replace("/jochenwezel/open-sleep-music/releases/download/test", "", StringComparison.Ordinal) == "/stalled"
             ? new HttpResponseMessage(HttpStatusCode.OK) { Content = new StreamContent(body) }
             : Response(HttpStatusCode.OK, [.. "OggS"u8, .. new byte[256]], "audio/ogg")));
         var log = new RecordingLogSink();
@@ -65,8 +65,8 @@ public sealed class SleepWorldDownloaderTests
     public async Task UserCancellationStopsBatchAndRemovesPartialFile()
     {
         var world = new SleepWorld("test", "Test", "Test", "T",
-            [Track("stalled", "stalled.ogg", "https://example.test/stalled"),
-             Track("next", "next.ogg", "https://example.test/next")]);
+            [Track("stalled", "stalled.ogg", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/stalled"),
+             Track("next", "next.ogg", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/next")]);
         using var body = new StalledStream();
         var requests = 0;
         using var client = new HttpClient(new StubHandler(_ =>
@@ -126,13 +126,13 @@ public sealed class SleepWorldDownloaderTests
     {
         var tracks = new[]
         {
-            Track("valid", "valid.ogg", "https://example.test/valid"),
-            Track("missing", "missing.mp3", "https://example.test/missing"),
-            Track("html", "html.mp3", "https://example.test/html")
+            Track("valid", "valid.ogg", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/valid"),
+            Track("missing", "missing.mp3", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/missing"),
+            Track("html", "html.mp3", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/html")
         };
         var world = new SleepWorld("test", "Test", "Test", "T", tracks);
         var log = new RecordingLogSink();
-        using var client = new HttpClient(new StubHandler(request => request.RequestUri!.AbsolutePath switch
+        using var client = new HttpClient(new StubHandler(request => request.RequestUri!.AbsolutePath.Replace("/jochenwezel/open-sleep-music/releases/download/test", "", StringComparison.Ordinal) switch
         {
             "/valid" => Response(HttpStatusCode.OK, [.. "OggS"u8, .. new byte[256]], "audio/ogg"),
             "/missing" => Response(HttpStatusCode.NotFound, [], "text/plain"),
@@ -163,7 +163,7 @@ public sealed class SleepWorldDownloaderTests
     [Fact]
     public async Task RemovesInvalidExistingFileWhenReplacementIsUnavailable()
     {
-        var track = Track("changed", "changed.mp3", "https://example.test/missing") with
+        var track = Track("changed", "changed.mp3", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/missing") with
         {
             Sha1 = new string('0', 40)
         };
@@ -199,7 +199,7 @@ public sealed class SleepWorldDownloaderTests
     [InlineData("preselection", "second")]
     public async Task SharedRecordingDownloadsOnceAndCollectionsCanBeRemovedIndependently(string firstId, string secondId)
     {
-        var track = Track("shared", "shared.mp3", "https://example.test/audio") with { AdditionalWorldIds = ["second"] };
+        var track = Track("shared", "shared.mp3", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/audio") with { AdditionalWorldIds = ["second"] };
         var first = new SleepWorld(firstId, "First", "Description", "T", [track]);
         var second = new SleepWorld(secondId, "Second", "Description", "T", [track]);
         var requests = 0;
@@ -234,7 +234,7 @@ public sealed class SleepWorldDownloaderTests
     public async Task InvalidLocalSharedCopyFallsBackToDownloadWithoutTrustingItsName(bool wrongChecksum, bool shared)
     {
         byte[] audio = [.. "ID3"u8, .. new byte[256]];
-        var track = Track("shared", "shared.mp3", "https://example.test/audio") with
+        var track = Track("shared", "shared.mp3", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/audio") with
         {
             AdditionalWorldIds = shared ? ["second"] : null,
             Sha1 = Convert.ToHexString(System.Security.Cryptography.SHA1.HashData(audio)).ToLowerInvariant()
@@ -264,7 +264,7 @@ public sealed class SleepWorldDownloaderTests
     public async Task PromotedSoloCanReuseItsValidatedPreviewFileWhileOffline()
     {
         byte[] audio = [.. "ID3"u8, .. new byte[256]];
-        var track = Track("promoted", "promoted.mp3", "https://example.test/audio") with
+        var track = Track("promoted", "promoted.mp3", "https://github.com/jochenwezel/open-sleep-music/releases/download/test/audio") with
         {
             Sha1 = Convert.ToHexString(System.Security.Cryptography.SHA1.HashData(audio)).ToLowerInvariant(),
             LicenseReviewStatus = "verified"
@@ -289,7 +289,7 @@ public sealed class SleepWorldDownloaderTests
     }
 
     private static AudioTrack Track(string id, string fileName, string uri) => new(
-        id, id, "Tester", new Uri(uri), new Uri("https://example.test/source"),
+        id, id, "Tester", new Uri(uri), new Uri("https://github.com/jochenwezel/open-sleep-music/releases/download/test/source"),
         "CC0", new Uri("https://creativecommons.org/publicdomain/zero/1.0/"), fileName);
 
     private static HttpResponseMessage Response(HttpStatusCode status, byte[] content, string contentType) =>
