@@ -4,7 +4,8 @@ Open Sleep Music is being prepared for publication by **CompuMaster** using an
 organization account. Account verification is pending, as reported by the
 maintainer on 29 October 2026. The app record was created in Play Console on
 29 October 2026 after the maintainer explicitly authorized the three creation
-declarations. It remains a draft; no release or review submission was made.
+declarations. The first internal test was activated on 1 November 2026 with
+version 0.1.43 (version code 43). No production release was submitted.
 English (United States, `en-US`) is the default store language, with German
 (`de-DE`) as an additional translation. Both text drafts are saved in the
 Console. The app itself supports English and German; the default store language
@@ -19,8 +20,8 @@ On 31 October 2026 the maintainer selected Google Play for Android Preview
 testing (internal/closed tracks) as well as Stable releases. This supersedes the
 earlier GitHub Preview APK distribution plan. Automatic Android APK publishing
 has been removed from the GitHub release workflow; Windows distribution and
-existing historical assets remain unchanged. The Play test track still requires
-its signed AAB and Console preparation before enrollment can begin.
+existing historical assets remain unchanged. The internal Play test is active;
+enrollment is restricted to the selected tester list in Console.
 
 GitHub remains the runtime delivery provider for music, artwork and catalogs.
 Changing where the app is installed from does not remove those connections or
@@ -113,7 +114,8 @@ release authorization.
 - The production manifest contains six collection definitions and 138 unique
   recordings. Counts are an inspection snapshot, not store-description promises.
 - As of 31 October 2026, `.github/workflows/publish-release.yml` publishes Windows
-  ZIPs only. Signed Google Play Android App Bundle publishing is still pending.
+  ZIPs only. The first signed Google Play AAB was published to the internal track
+  on 1 November 2026; see the internal-test record below.
 - The source Android manifest declares network access, media foreground service
   and wake-lock permissions. The playback service declares `mediaPlayback`.
 - No advertising or analytics SDK is configured in the inspected app startup
@@ -143,7 +145,7 @@ release authorization.
   website, with the permanent sitemap/navigation exclusions preserved.
 - [ ] Publish the prepared English translation after its publication approval.
 - [x] Add offline access to the published German notice inside the app (0.1.43).
-- [ ] Set the published privacy notice in Play Console.
+- [x] Save the published German privacy notice URL in Play Console.
   The Android [publication review](privacy-publication-review.md) separates the
   published notice from the remaining app and Store checks.
 - [ ] Provider roles, redirect destinations, retention and international transfers
@@ -159,9 +161,9 @@ release authorization.
   reviewed. Apply `AGENTS.md` recording-rights requirements and assess the actual
   commercial/noncommercial use before including any NC recording.
 - [ ] Fix and physically validate [Android task-close cleanup, issue 19](https://github.com/jochenwezel/open-sleep-music/issues/19).
-- [ ] Build a signed Stable `.aab` and SHA-256 from a tested release commit.
+- [x] Build a signed Stable `.aab` and SHA-256 from a tested release commit.
   Use Google Play internal testing; public GitHub APK publishing is retired.
-- [ ] Configure Play App Signing deliberately. A new Google-managed app-signing
+- [x] Configure Play App Signing deliberately. A new Google-managed app-signing
   identity is acceptable; migration from GitHub development APKs is not required.
   Separate upload and app-signing keys where appropriate; never put private keys
   in issues, repository files or public artifacts. See [Android signing](https://developer.android.com/studio/publish/app-signing)
@@ -211,3 +213,37 @@ artifacts. Example parameters use placeholders, not actual secrets:
 The Google Play testing track and the app's catalog channel are independent:
 the first internal test uses the production catalog, keeping unchecked audition
 references out of the candidate for later production promotion.
+
+## First internal test: 1 November 2026
+
+Google Play shows the track as **Active** and **0.1.43 Internal** as available
+to internal testers. The existing tester list is selected; personal tester
+addresses and enrollment links are maintained in Console, outside this public
+repository. Until the app configuration and review are complete, Google displays
+the temporary name `org.opensleepmusic.app (unreviewed)`.
+
+- Application source: `a9860c7cbcf26af2af8047518669e1a99c8d8d58`.
+- Bundle: `open-sleep-music-v0.1.43-play.aab`, 42,819,171 bytes.
+- SHA-256: `944596de7df289fad38c49084d73dc65b3332519ae2475adab8bb4ed707be1ac`.
+- Production catalog channel; pinned publication date `2026-11-01`.
+- Package `org.opensleepmusic.app`, version code 43, minimum API 26, target API 36;
+  ARM64 and x86-64.
+- 309 Core tests passed in each catalog channel, both Windows Release builds
+  passed, and the signed Android publish succeeded. The source commit's
+  [Tests](https://github.com/jochenwezel/open-sleep-music/actions/runs/41252874206)
+  and [Build and test](https://github.com/jochenwezel/open-sleep-music/actions/runs/41252874235)
+  workflows passed.
+- Bundletool validation and JAR signature verification passed. All 232 native
+  libraries' ELF load-segment alignments are at least 16 KB. No catalog audio
+  files are bundled; the German privacy asset matches the published source.
+- Google accepted the bundle with two advisory warnings: no R8/ProGuard mapping
+  file and no native debug symbols uploaded. These do not block the internal test;
+  improve crash diagnostics before broader distribution where applicable.
+- Automatic installation protection remains enabled as selected by the
+  maintainer. No Play Integrity API integration was added.
+
+This records distribution availability, not completed tester acceptance. Install
+the Play-delivered build and perform the physical-device playback, child-mode,
+offline and storage/backup checks before a wider release. The production launch
+checklist above remains applicable. English notice publication is still pending
+its separate approval; this build includes the approved German notice only.
