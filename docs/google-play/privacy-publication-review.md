@@ -1,10 +1,14 @@
 # Android privacy notice publication review
 
-Status on 31 October 2026: GitHub-only delivery implemented and the Android
-notice reconciled with the concrete assessment supplied by the central privacy
-records task. Public copy remains a publication candidate in
-[privacy-notice.de.md](privacy-notice.de.md); this is not a new app release or a
-blanket approval of direct online service use by children under 13.
+Status on 1 November 2026: the German Android notice is published with the
+maintainer's explicit approval at the
+[app privacy URL](https://www.compumaster.de/datenschutzhinweis/apps/open-sleep-music/#de).
+Its source remains [privacy-notice.de.md](privacy-notice.de.md), matching the
+0.1.42 implementation and the concrete assessment supplied by the central
+privacy-records task. An equivalent English translation has been prepared and
+layout-checked; its publication approval is still pending. Publishing this
+notice is separate from a Google Play rollout or approval of direct online
+service use by children under 13.
 
 ## Resolved drafting and operational points
 
@@ -81,11 +85,16 @@ unconditional under-13 online-service approval, verified parental consent or a
 completed Store Families assessment. Historical binaries retain their prior
 behavior until updated. See [GitHub Terms](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service).
 
-The website task should synchronize the reviewed candidate, perform its visual
-check and retain the existing sitemap exclusion. Public publication still needs
-its concrete authorization. Final app builds, child-facing Store declarations
-and the remaining release checks are tracked separately, without a general
-waiting loop for unspecified provider/DSB work.
+The website task completed the rendered-layout check with the actual WordPress
+theme at desktop and phone widths through a restricted loopback HTTP preview.
+The German page is published and returns HTTP 200; every source paragraph was
+checked, and the permanent XML-sitemap and general-site navigation exclusions
+remain active. English and German language sections have also been checked in
+the bilingual draft, including their jump links and absence of mobile overflow.
+The English section remains unpublished pending its separate publication approval.
+These results do not mark in-app/Console linking, English publication, the Store
+rollout or manual child-mode/device acceptance as complete. Those remain separate
+launch checks, without a new blanket provider/DSB waiting loop.
 
 ## Legal and store references
 

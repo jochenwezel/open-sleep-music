@@ -51,8 +51,10 @@ not publish a fixed maximum offline interval:
 - [English store listing](store-listing.en.json): default-language text draft.
 - [German store listing](store-listing.de.json): translation, without fixed
   catalog totals or promises of medical benefits.
-- [German app privacy notice draft](privacy-notice.de.md): app-specific text for
-  review and publication on the company website.
+- [German app privacy notice source](privacy-notice.de.md): published on the
+  [company website](https://www.compumaster.de/datenschutzhinweis/apps/open-sleep-music/#de).
+  An equivalent English translation is prepared and layout-checked; publication
+  approval is pending.
 - [Data safety assessment](data-safety.md): source evidence and unresolved answers.
 - [Store assets and reviewer instructions](store-assets.md): screenshot plan,
   graphics requirements and background-playback declaration.
@@ -83,7 +85,7 @@ Shared text for future apps must still describe each app accurately. Do not
 imply that website analytics operate inside
 the app, or that clicking a website link inherits the app's lack of tracking.
 
-Proposed destination, not yet published:
+German notice published on 1 November 2026:
 `https://www.compumaster.de/datenschutzhinweis/apps/open-sleep-music/`.
 Use one stable URL for this app, with clearly labeled Android/Google Play and
 iOS/App Store sections when platform processing differs. Separate URLs are an
@@ -136,9 +138,12 @@ release authorization.
 - [x] Maintainer confirmed on 30 October 2026 that `appsupport@compumaster.de`
   is configured and handled by authorized people, with personal working-copy
   deletion/depersonalization and original email retention under the central concept.
-- [ ] Final app privacy notice reviewed, published and accessible inside the app.
-  The Android [publication candidate and remaining provider evidence](privacy-publication-review.md)
-  separate public copy from internal release checks.
+- [x] German Android app privacy notice reviewed and published on the company
+  website, with the permanent sitemap/navigation exclusions preserved.
+- [ ] Publish the prepared English translation after its publication approval.
+- [ ] Add access to the published privacy notice inside the app and in Play Console.
+  The Android [publication review](privacy-publication-review.md) separates the
+  published notice from the remaining app and Store checks.
 - [ ] Provider roles, redirect destinations, retention and international transfers
   assessed; Data safety answers reconciled with the actual distributed bundle.
 - [ ] Mixed adult/child audience declared accurately. Select only age groups the
