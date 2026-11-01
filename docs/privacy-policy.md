@@ -51,11 +51,16 @@ collect a birthdate for this feature, or call this verified parental consent.
 Preserve the enabled flag across restarts and fail closed if the saved credential
 cannot be read. Store/OS networking is outside the gate's scope.
 
-The published German notice is bundled as app content and is readable from
+The published German notice is bundled in 0.1.43 as app content and is readable from
 About without a network connection, including in locked child mode. Opening
 the separately published website remains an explicit external action guarded
-by the parent gate. Do not fetch the notice automatically or imply that an
-unpublished translation is already available to app users.
+by the parent gate. The website's German and English sections were published
+with explicit approval on 1 November 2026. Their sources are
+[German](google-play/privacy-notice.de.md) and
+[English](google-play/privacy-notice.en.md). English offline reading remains
+pending a subsequent app update; website publication does not alter an installed
+bundle. Do not fetch the notice automatically or imply that a translation is
+bundled before it is actually included.
 
 Operating-system backups and device transfers are distinct from app-operated
 uploading. Audio uses persistent app-owned storage; 2026 releases migrate the old

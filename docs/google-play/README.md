@@ -54,8 +54,9 @@ not publish a fixed maximum offline interval:
   catalog totals or promises of medical benefits.
 - [German app privacy notice source](privacy-notice.de.md): published on the
   [company website](https://www.compumaster.de/datenschutzhinweis/apps/open-sleep-music/#de).
-  An equivalent English translation is prepared and layout-checked; publication
-  approval is pending.
+- [English app privacy notice source](privacy-notice.en.md): published on the
+  [same company page](https://www.compumaster.de/datenschutzhinweis/apps/open-sleep-music/#en)
+  after the maintainer's explicit publication approval on 1 November 2026.
 - [Data safety assessment](data-safety.md): source evidence and unresolved answers.
 - [Store assets and reviewer instructions](store-assets.md): screenshot plan,
   graphics requirements and background-playback declaration.
@@ -86,7 +87,7 @@ Shared text for future apps must still describe each app accurately. Do not
 imply that website analytics operate inside
 the app, or that clicking a website link inherits the app's lack of tracking.
 
-German notice published on 1 November 2026:
+German and English notices published on 1 November 2026:
 `https://www.compumaster.de/datenschutzhinweis/apps/open-sleep-music/`.
 Use one stable URL for this app, with clearly labeled Android/Google Play and
 iOS/App Store sections when platform processing differs. Separate URLs are an
@@ -97,8 +98,9 @@ form must match its distributed app even when both reference the same notice.
 Apple also requires the privacy-policy link in its listing and inside the app:
 [App Review Guideline 5.1.1](https://developer.apple.com/app-store/review/guidelines/#privacy).
 Version 0.1.43 adds the published German notice under About, bundled for offline
-reading even in locked child mode. Its online link remains parent-gated. English
-publication remains separately pending. Google requires a publicly
+reading even in locked child mode. Its online link remains parent-gated. The
+website now offers both languages through `#de` and `#en`; the existing 0.1.43
+bundle still contains only the German offline text. Google requires a publicly
 accessible privacy URL and in-app access, including for apps without sensitive
 data collection. See the [User Data policy](https://support.google.com/googleplay/android-developer/answer/10144311?hl=en).
 
@@ -143,7 +145,9 @@ release authorization.
   deletion/depersonalization and original email retention under the central concept.
 - [x] German Android app privacy notice reviewed and published on the company
   website, with the permanent sitemap/navigation exclusions preserved.
-- [ ] Publish the prepared English translation after its publication approval.
+- [x] Publish the English translation after explicit publication approval.
+- [ ] Include the published English notice in a subsequent app update for
+  English offline reading; the current 0.1.43 bundle contains German only.
 - [x] Add offline access to the published German notice inside the app (0.1.43).
 - [x] Save the published German privacy notice URL in Play Console.
   The Android [publication review](privacy-publication-review.md) separates the
@@ -245,5 +249,6 @@ the temporary name `org.opensleepmusic.app (unreviewed)`.
 This records distribution availability, not completed tester acceptance. Install
 the Play-delivered build and perform the physical-device playback, child-mode,
 offline and storage/backup checks before a wider release. The production launch
-checklist above remains applicable. English notice publication is still pending
-its separate approval; this build includes the approved German notice only.
+checklist above remains applicable. The English website notice was subsequently
+published with explicit approval on 1 November 2026; the immutable 0.1.43 build
+includes the approved German offline notice only.

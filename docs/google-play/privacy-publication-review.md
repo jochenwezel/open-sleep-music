@@ -1,12 +1,13 @@
 # Android privacy notice publication review
 
-Status on 1 November 2026: the German Android notice is published with the
+Status on 1 November 2026: the German and English Android notices are published with the
 maintainer's explicit approval at the
 [app privacy URL](https://www.compumaster.de/datenschutzhinweis/apps/open-sleep-music/#de).
 Its source remains [privacy-notice.de.md](privacy-notice.de.md), matching the
 0.1.42 implementation and the concrete assessment supplied by the central
-privacy-records task. An equivalent English translation has been prepared and
-layout-checked; its publication approval is still pending. Publishing this
+privacy-records task. The equivalent [English source](privacy-notice.en.md) is
+published at [#en](https://www.compumaster.de/datenschutzhinweis/apps/open-sleep-music/#en)
+after the maintainer's separate explicit publication approval. Publishing this
 notice is separate from a Google Play rollout or approval of direct online
 service use by children under 13.
 
@@ -87,14 +88,16 @@ behavior until updated. See [GitHub Terms](https://docs.github.com/en/site-polic
 
 The website task completed the rendered-layout check with the actual WordPress
 theme at desktop and phone widths through a restricted loopback HTTP preview.
-The German page is published and returns HTTP 200; every source paragraph was
+The bilingual page is published and returns HTTP 200; every source paragraph was
 checked, and the permanent XML-sitemap and general-site navigation exclusions
-remain active. English and German language sections have also been checked in
-the bilingual draft, including their jump links and absence of mobile overflow.
-The English section remains unpublished pending its separate publication approval.
-These results do not mark in-app/Console linking, English publication, the Store
-rollout or manual child-mode/device acceptance as complete. Those remain separate
-launch checks, without a new blanket provider/DSB waiting loop.
+remain active. English and German language sections have been checked live,
+including their jump links and desktop/mobile layout. An independent comparison
+matched all 28 source paragraphs in each language to the public page.
+Version 0.1.43 bundles the German notice for offline reading, the German URL is
+saved in Play Console, and the internal Play test is active. English offline
+reading requires a subsequent app update. Production rollout and manual
+child-mode/device acceptance remain separate launch checks, without a new
+blanket provider/DSB waiting loop.
 
 ## Legal and store references
 
