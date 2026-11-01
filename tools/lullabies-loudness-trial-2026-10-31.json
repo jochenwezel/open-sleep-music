@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "date": "2026-10-31",
   "worldId": "lullabies",
-  "status": "maintainer-authorized catalog listening trial",
+  "status": "maintainer-approved 2026-11-01",
   "targetIntegratedLufs": -23.0,
   "maximumTruePeakDbtp": -3.0,
   "calculationTruePeakCeilingDbtp": -3.1,
@@ -384,5 +384,10 @@
       ],
       "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred"
     }
-  ]
+  ],
+  "approval": {
+    "date": "2026-11-01",
+    "scope": "All 13 exact audible catalog gains and the documented two peak-limited exceptions; preserve during rollout to other collections",
+    "feedback": "The maintainer grants approval for the new loudness levels and requests the same approach in every collection."
+  }
 }

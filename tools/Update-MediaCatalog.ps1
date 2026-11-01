@@ -322,20 +322,29 @@ foreach ($candidate in $candidateManifest.candidates) {
     }
 }
 
-# Maintainer-authorized 2026-10-31 listening trial: per-recording constant gains.
-# Shared recordings retain one identity, so their other membership uses the same gain.
+# The 2026-11-01 rollout preserves all explicitly approved little-ones gains.
+# Every other downloadable recording requires a measured, source-bound setting.
 $lullabyLoudnessTrial = Get-Content -Encoding utf8 -Raw (Join-Path $PSScriptRoot 'lullabies-loudness-trial-2026-10-31.json') | ConvertFrom-Json
-foreach ($setting in $lullabyLoudnessTrial.tracks) {
-    $matches = @($worlds.GetEnumerator() | ForEach-Object { $_.Value.tracks } | Where-Object id -eq $setting.trackId)
-    if ($matches.Count -ne 1 -or ![double]::IsFinite([double]$setting.volumeGain) -or
-        $setting.volumeGain -le 0 -or $setting.volumeGain -gt 8) {
-        throw "Invalid little-ones loudness trial target or gain: $($setting.trackId)"
+$catalogLoudness = Get-Content -Encoding utf8 -Raw (Join-Path $PSScriptRoot 'catalog-loudness-2026-11-01.json') | ConvertFrom-Json
+$catalogLoudnessById = @{}
+if ($catalogLoudness.schemaVersion -ne 1) { throw 'Unsupported catalog loudness profile.' }
+foreach ($setting in $catalogLoudness.tracks) {
+    if (!$setting.trackId -or $catalogLoudnessById.ContainsKey($setting.trackId) -or
+        ![double]::IsFinite([double]$setting.volumeGain) -or $setting.volumeGain -le 0 -or $setting.volumeGain -gt 8 -or
+        $setting.sourceSha256 -notmatch '^[a-f0-9]{64}$' -or
+        $null -eq $setting.after.integratedLufs -or $null -eq $setting.after.truePeakDbtp -or
+        ![double]::IsFinite([double]$setting.after.integratedLufs) -or
+        ![double]::IsFinite([double]$setting.after.truePeakDbtp) -or $setting.after.truePeakDbtp -gt -3) {
+        throw "Invalid catalog loudness setting: $($setting.trackId)"
     }
-    $target = $matches[0]
-    if ($target.id -notin @($worlds.lullabies.tracks.id) -and 'lullabies' -notin $target.additionalWorldIds) {
-        throw "Loudness trial target is outside little ones: $($setting.trackId)"
+    $catalogLoudnessById[$setting.trackId] = $setting
+}
+foreach ($approved in $lullabyLoudnessTrial.tracks) {
+    $setting = $catalogLoudnessById[$approved.trackId]
+    if (!$setting -or [double]$setting.volumeGain -ne [double]$approved.volumeGain -or
+        $setting.sourceSha256 -cne $approved.sourceSha256) {
+        throw "Approved little-ones setting changed: $($approved.trackId)"
     }
-    $target['volumeGain'] = [double]$setting.volumeGain
 }
 
 $artworkReleaseBase = 'https://github.com/jochenwezel/open-sleep-music/releases/download/artwork-v2'
@@ -466,6 +475,17 @@ foreach ($entry in $worlds.GetEnumerator()) {
 $manifestWorlds = foreach ($entry in $worlds.GetEnumerator()) {
     foreach ($track in $entry.Value.tracks) {
         Set-GitHubTrackDelivery $track
+        $loudness = $catalogLoudnessById[$track.id]
+        $delivery = (Get-GitHubDeliveryRegistry)[$track.id]
+        $effectiveSpeed = if ($null -eq $track.playbackSpeed) { 1.0 } else { [double]$track.playbackSpeed }
+        if (!$loudness -or $loudness.sourceSha256 -cne $delivery.sha256 -or
+            [double]$loudness.playbackSpeed -ne $effectiveSpeed -or
+            [long]$loudness.startOffsetMilliseconds -ne [long]$track.startOffsetMilliseconds -or
+            [long]$loudness.endOffsetMilliseconds -ne [long]$track.endOffsetMilliseconds -or
+            [Math]::Abs([double]$loudness.durationSeconds - [double]$track.durationSeconds) -gt 0.001) {
+            throw "Missing or stale measured loudness for '$($track.id)'. Measure the published recording before catalog admission."
+        }
+        $track['volumeGain'] = [double]$loudness.volumeGain
         if (($null -ne $track.startOffsetMilliseconds -and
                 ($track.startOffsetMilliseconds -isnot [long] -and $track.startOffsetMilliseconds -isnot [int])) -or
             [long]$track.startOffsetMilliseconds -lt 0 -or
@@ -599,6 +619,9 @@ foreach ($candidate in $candidateManifest.candidates) {
     $candidate | Add-Member -NotePropertyName originalDownloadUri -NotePropertyValue $candidate.downloadUri -Force
     $candidate.downloadUri = $delivery.downloadUri
     $candidate.sha1 = $delivery.sha1
+    if ($catalogLoudnessById.ContainsKey($candidate.id)) {
+        $candidate | Add-Member -NotePropertyName volumeGain -NotePropertyValue ([double]$catalogLoudnessById[$candidate.id].volumeGain) -Force
+    }
 }
 [IO.File]::WriteAllText($candidateOutputPath, ($candidateManifest | ConvertTo-Json -Depth 8) + [Environment]::NewLine, [Text.UTF8Encoding]::new($false))
 

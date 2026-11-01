@@ -97,7 +97,7 @@ public sealed class BuiltInCatalogTests
             Assert.True(track.StartOffsetMilliseconds >= 0 && track.EndOffsetMilliseconds >= 0
                 && (long)track.StartOffsetMilliseconds + track.EndOffsetMilliseconds < track.DurationSeconds * 1000,
                 $"{track.Id} has an invalid start offset.");
-            Assert.True(track.VolumeGain > 0, $"{track.Id} has an invalid volume gain.");
+            Assert.InRange(track.VolumeGain, double.Epsilon, 8d);
             Assert.InRange(track.PlaybackSpeed, .5, 2);
             Assert.False(string.IsNullOrWhiteSpace(track.Creator));
             Assert.False(string.IsNullOrWhiteSpace(track.License));

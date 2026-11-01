@@ -29,7 +29,8 @@
       ],
       "intendedWorldId": "lullabies",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e0/El_Noi_de_la_Mare_%28guitar%29.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/e/e0/El_Noi_de_la_Mare_%28guitar%29.ogg",
+      "volumeGain": 0.737904
     },
     {
       "id": "candidate-pachelbel-canon-in-d-major-p-37-guitar",
@@ -60,7 +61,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pachelbel_-_Canon_in_D_major%2C_P._37_%28Guitar%29.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Pachelbel_-_Canon_in_D_major%2C_P._37_%28Guitar%29.ogg",
+      "volumeGain": 0.484172
     },
     {
       "id": "candidate-schubert-s-daphne-am-bach-d-411-guitar-bert-alink",
@@ -91,7 +93,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Schubert%27s_Daphne_am_Bach%2C_D.411_%28guitar%29_-_Bert_Alink.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Schubert%27s_Daphne_am_Bach%2C_D.411_%28guitar%29_-_Bert_Alink.ogg",
+      "volumeGain": 0.323594
     },
     {
       "id": "candidate-pachelbel-suite-in-f-sharp-minor-p-439-iv-sarabande-guitar",
@@ -121,7 +124,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pachelbel_-_Suite_in_F-sharp_minor%2C_P._439_-_IV._Sarabande_%28Guitar%29.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Pachelbel_-_Suite_in_F-sharp_minor%2C_P._439_-_IV._Sarabande_%28Guitar%29.ogg",
+      "volumeGain": 0.683912
     },
     {
       "id": "candidate-recuerdos-de-la-alhambra",
@@ -147,7 +151,8 @@
         "quiet-classics",
         "lullabies"
       ],
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a3/Recuerdos_de_la_Alhambra.ogg/Recuerdos_de_la_Alhambra.ogg.mp3"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a3/Recuerdos_de_la_Alhambra.ogg/Recuerdos_de_la_Alhambra.ogg.mp3",
+      "volumeGain": 0.433012
     },
     {
       "id": "candidate-satie-gymnopedie-no-1-performed-by-michael-laucke",
@@ -177,7 +182,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Satie_Gymnopedie_No_1_performed_by_Michael_Laucke.flac",
+      "volumeGain": 0.749894
     },
     {
       "id": "candidate-satie-gymnopedie-no-2-performed-by-michael-laucke",
@@ -207,7 +213,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Satie_Gymnopedie_No_2_performed_by_Michael_Laucke.flac",
+      "volumeGain": 0.831764
     },
     {
       "id": "candidate-satie-gymnopedie-no-3-performed-by-michael-laucke",
@@ -237,7 +244,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/db/Satie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/db/Satie_Gymnopedie_No_3_performed_by_Michael_Laucke.flac",
+      "volumeGain": 0.860994
     },
     {
       "id": "candidate-gnossienne-5-satie",
@@ -257,7 +265,6 @@
       "sha1": "9eecd78bb5a2781f2caf874101c202c07c210d61",
       "declaredLicenseUri": null,
       "deliveryCheckedAtUtc": "2026-10-30T09:52:36.983559+01:00",
-      "volumeGain": 0.7,
       "approvedLicense": "CC BY-SA 3.0",
       "approvedLicenseUri": "https://creativecommons.org/licenses/by-sa/3.0/",
       "promotedWorldIds": [
@@ -268,7 +275,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/07/Gnossienne_5_%28Satie%29.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/07/Gnossienne_5_%28Satie%29.ogg",
+      "volumeGain": 0.683912
     },
     {
       "id": "candidate-robert-schumann-scenes-from-childhood-op-15-i-of-foreign-lands-and-peoples",
@@ -288,7 +296,6 @@
       "sha1": "dec46d15e86ae0214eb67e28241d8b7cdbd9d045",
       "declaredLicenseUri": null,
       "deliveryCheckedAtUtc": "2026-10-30T09:52:36.983559+01:00",
-      "volumeGain": 0.9,
       "approvedLicense": "Public Domain Dedication",
       "approvedLicenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
       "promotedWorldIds": [
@@ -299,7 +306,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_i._of_foreign_lands_and_peoples.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_i._of_foreign_lands_and_peoples.ogg",
+      "volumeGain": 1.303167
     },
     {
       "id": "candidate-robert-schumann-scenes-from-childhood-op-15-vii-dreaming",
@@ -319,7 +327,6 @@
       "sha1": "435250ff46d4632eb5d6c5f4af9e3b26154406fc",
       "declaredLicenseUri": null,
       "deliveryCheckedAtUtc": "2026-10-30T09:52:36.983559+01:00",
-      "volumeGain": 0.9,
       "approvedLicense": "Public Domain Dedication",
       "approvedLicenseUri": "https://creativecommons.org/publicdomain/mark/1.0/",
       "promotedWorldIds": [
@@ -332,7 +339,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/06/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vii._dreaming.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/0/06/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vii._dreaming.ogg",
+      "volumeGain": 2.128139
     },
     {
       "id": "candidate-mozart-piano-sonata-no-10-c-major-ii-andante-cantabile",
@@ -362,7 +370,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Mozart_-_Piano_Sonata_No._10_C_major_-_II._Andante_cantabile.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Mozart_-_Piano_Sonata_No._10_C_major_-_II._Andante_cantabile.ogg",
+      "volumeGain": 0.870964
     },
     {
       "id": "candidate-mozart-piano-sonata-no-13-in-b-flat-major-ii-andante-cantabile",
@@ -392,7 +401,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Mozart_-_Piano_Sonata_No._13_in_B-flat_major_-_II._Andante_cantabile.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Mozart_-_Piano_Sonata_No._13_in_B-flat_major_-_II._Andante_cantabile.ogg",
+      "volumeGain": 0.732825
     },
     {
       "id": "candidate-mozart-piano-sonata-no-16-in-c-major-ii-andante",
@@ -422,7 +432,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Mozart_-_Piano_Sonata_No._16_in_C_major_-_II._Andante.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Mozart_-_Piano_Sonata_No._16_in_C_major_-_II._Andante.ogg",
+      "volumeGain": 0.860994
     },
     {
       "id": "candidate-mozart-piano-sonata-no-12-in-f-major-ii-adagio",
@@ -452,7 +463,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mozart_-_Piano_Sonata_No._12_in_F_major_-_II._Adagio.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/9/90/Mozart_-_Piano_Sonata_No._12_in_F_major_-_II._Adagio.ogg",
+      "volumeGain": 0.870964
     },
     {
       "id": "candidate-mozart-concerto-for-flute-and-harp-2-andantino",
@@ -484,7 +496,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "chamber-orchestra",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Mozart_-_Concerto_for_Flute_and_Harp_-_2._Andantino.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Mozart_-_Concerto_for_Flute_and_Harp_-_2._Andantino.ogg",
+      "volumeGain": 0.812831
     },
     {
       "id": "candidate-clair-de-lune-claude-debussy-suite-bergamasque",
@@ -512,7 +525,8 @@
       "promotedWorldIds": [
         "quiet-classics"
       ],
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/be/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg.mp3"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/be/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg/Clair_de_lune_%28Claude_Debussy%29_Suite_bergamasque.ogg.mp3",
+      "volumeGain": 0.767361
     },
     {
       "id": "candidate-debussy-preludes-book-2-v-bruyeres-giorgi-latsabidze",
@@ -542,7 +556,8 @@
         "quiet-classics"
       ],
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/25/Debussy-_Preludes%2C_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/2/25/Debussy-_Preludes%2C_Book_2-_V._Bruyeres._Giorgi_Latsabidze.oga",
+      "volumeGain": 1.737801
     },
     {
       "id": "candidate-debussy-preludes-book-2-x-canope",
@@ -572,7 +587,8 @@
         "quiet-classics"
       ],
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Debussy-_Preludes%2C_Book_2-_X._Canope.oga"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Debussy-_Preludes%2C_Book_2-_X._Canope.oga",
+      "volumeGain": 4.677351
     },
     {
       "id": "candidate-claude-debussy-reverie-arr-for-soprano-saxophone-and-piano-david-hernando-vitores",
@@ -603,7 +619,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "duo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg.mp3"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg/Claude_Debussy_-_R%C3%AAverie_-_Arr_for_Soprano_saxophone_and_piano_-_David_Hernando_Vitores.ogg.mp3",
+      "volumeGain": 3.273407
     },
     {
       "id": "candidate-grieg-folkevise-op-12-no-5",
@@ -633,7 +650,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Grieg%2C_Folkevise_Op_12_No_5.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Grieg%2C_Folkevise_Op_12_No_5.ogg",
+      "volumeGain": 1.0
     },
     {
       "id": "candidate-mozart-string-quartet-no-19-in-c-major-k465-dissonance-ii-andante-cantabile-musopen-string-quartet",
@@ -665,7 +683,8 @@
       ],
       "intendedWorldId": "quiet-classics",
       "ensembleType": "quartet",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Mozart_-_String_Quartet_No._19_in_C_major%2C_K465_%27Dissonance%27_-_II._Andante_cantabile_%28Musopen_String_Quartet%29.flac"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Mozart_-_String_Quartet_No._19_in_C_major%2C_K465_%27Dissonance%27_-_II._Andante_cantabile_%28Musopen_String_Quartet%29.flac",
+      "volumeGain": 0.803526
     },
     {
       "id": "candidate-lullabies-wonderful-guter-mond",
@@ -810,7 +829,8 @@
         "lullabies"
       ],
       "ensembleType": "solo",
-      "originalDownloadUri": "https://s9.imslp.org/files/imglnks/usimg/1/16/IMSLP964947-PMLP340750-Lágrima_de_Tárrega_en_Guitarra_de_10_Cuerdas_-_Ramón_León_Egea.mp3"
+      "originalDownloadUri": "https://s9.imslp.org/files/imglnks/usimg/1/16/IMSLP964947-PMLP340750-Lágrima_de_Tárrega_en_Guitarra_de_10_Cuerdas_-_Ramón_León_Egea.mp3",
+      "volumeGain": 0.44617
     },
     {
       "id": "candidate-barrios-julia-florida-edson-lopes",
@@ -838,7 +858,8 @@
         "quiet-classics",
         "lullabies"
       ],
-      "originalDownloadUri": "https://ks15.imslp.org/files/imglnks/usimg/e/e4/IMSLP254546-PMLP411050-BARRIOS_-_Julia_Florida_(Barcarola).mp3"
+      "originalDownloadUri": "https://ks15.imslp.org/files/imglnks/usimg/e/e4/IMSLP254546-PMLP411050-BARRIOS_-_Julia_Florida_(Barcarola).mp3",
+      "volumeGain": 1.0
     },
     {
       "id": "candidate-sor-op-35-no-17-guitar",
@@ -869,7 +890,8 @@
         "quiet-classics"
       ],
       "ensembleType": "solo",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Sor_Op_35_No._17.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Sor_Op_35_No._17.ogg",
+      "volumeGain": 0.676083
     },
     {
       "id": "candidate-romanza-ten-string-leon-egea",
@@ -899,7 +921,8 @@
         "lullabies"
       ],
       "endOffsetMilliseconds": 10000,
-      "originalDownloadUri": "https://ks15.imslp.org/files/imglnks/usimg/0/0f/IMSLP933760-PMLP81963-romance_anonimo.mp3"
+      "originalDownloadUri": "https://ks15.imslp.org/files/imglnks/usimg/0/0f/IMSLP933760-PMLP81963-romance_anonimo.mp3",
+      "volumeGain": 0.420727
     },
     {
       "id": "candidate-meadow-night-crickets-sardin",
@@ -927,8 +950,8 @@
       "sha1": "f487e02ef05cee584303da7fc043bcdf4a9527e1",
       "declaredLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
       "deliveryCheckedAtUtc": "2026-10-06T23:13:22.3525175+02:00",
-      "volumeGain": 0.5,
-      "originalDownloadUri": "https://bigsoundbank.com/UPLOAD/mp3/1880.mp3"
+      "originalDownloadUri": "https://bigsoundbank.com/UPLOAD/mp3/1880.mp3",
+      "volumeGain": 0.691831
     },
     {
       "id": "candidate-small-waves-beach-sardin",
@@ -955,7 +978,6 @@
       "sha1": "60393acc8c929ccebaeb84553ff3c0b9f3cff8d9",
       "declaredLicenseUri": "https://creativecommons.org/publicdomain/zero/1.0/",
       "deliveryCheckedAtUtc": "2026-10-30T09:52:36.983559+01:00",
-      "volumeGain": 0.5,
       "promotedWorldIds": [
         "waves"
       ],
@@ -963,7 +985,8 @@
         "waves"
       ],
       "ensembleType": "field-recording",
-      "originalDownloadUri": "https://bigsoundbank.com/UPLOAD/mp3/1448.mp3"
+      "originalDownloadUri": "https://bigsoundbank.com/UPLOAD/mp3/1448.mp3",
+      "volumeGain": 0.5
     },
     {
       "id": "candidate-nightingale-wind-crickets-childed",
@@ -999,7 +1022,8 @@
         "forest"
       ],
       "ensembleType": "field-recording",
-      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Nightingale_wind_crickets_-_cut.ogg"
+      "originalDownloadUri": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Nightingale_wind_crickets_-_cut.ogg",
+      "volumeGain": 6.606934
     },
     {
       "id": "candidate-night-crickets-owlstorm",
@@ -1055,7 +1079,8 @@
       "sha1": "994e80fb440e5592a59f1518ef3b517c281fa62a",
       "deliveryCheckedAtUtc": "2026-10-30T09:52:36.983559+01:00",
       "ensembleType": "field-recording",
-      "originalDownloadUri": "https://cdn.freesound.org/previews/424/424763_3158178-hq.mp3"
+      "originalDownloadUri": "https://cdn.freesound.org/previews/424/424763_3158178-hq.mp3",
+      "volumeGain": 1.230269
     },
     {
       "id": "candidate-savanna-night-august-sandberg",
@@ -1129,7 +1154,8 @@
         "lullabies"
       ],
       "ensembleType": "instrumental-arrangement",
-      "originalDownloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/02/Brahms-lullaby.mp3"
+      "originalDownloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/02/Brahms-lullaby.mp3",
+      "volumeGain": 0.570821
     },
     {
       "approvedLicense": "CC BY 4.0",
@@ -1160,7 +1186,8 @@
         "lullabies"
       ],
       "ensembleType": "solo",
-      "originalDownloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/10/Twinkle-twinkle-little-star-piano.mp3"
+      "originalDownloadUri": "https://www.orangefreesounds.com/wp-content/uploads/2016/10/Twinkle-twinkle-little-star-piano.mp3",
+      "volumeGain": 0.507575
     },
     {
       "id": "research-lullaby-alex-089-little-lullaby",
@@ -1192,7 +1219,8 @@
       "sha1": "f723c5910cde235ed3eee3d0c808a82260ec762a",
       "deliveryCheckedAtUtc": "2026-10-30T09:52:36.983559+01:00",
       "ensembleType": "piano-with-strings",
-      "originalDownloadUri": "https://opengameart.org/sites/default/files/little_lullaby_0.mp3"
+      "originalDownloadUri": "https://opengameart.org/sites/default/files/little_lullaby_0.mp3",
+      "volumeGain": 1.158777
     }
   ]
 }

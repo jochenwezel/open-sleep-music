@@ -589,3 +589,47 @@ unchanged. The concurrent GitHub delivery migration changes runtime download
 URLs while preserving original file URLs as provenance; existing apps can obtain
 this change from the normal channel catalogs without reinstalling or downloading
 the same music again.
+
+## Approved little-ones levels and catalog-wide rollout, 2026-11-01
+
+The maintainer explicitly approves the 13 little-ones levels and requests the same
+constant-gain approach in every collection. Their exact gains and the two existing
+Preview cricket mixtures are frozen; this approval is recorded in the original
+[little-ones profile](../tools/lullabies-loudness-trial-2026-10-31.json). The new
+[catalog-wide profile](../tools/catalog-loudness-2026-11-01.json) covers all 167
+unique downloadable recordings: 166 Stable recordings and one Preview audition.
+External audition references and license-held source lists have no audio to adjust.
+
+All additional 154 recordings are fully analyzed from the byte-verified `media-v1`
+cache using FFmpeg 7.1: original-recording trims, chosen playback speed through
+pitch-preserving `atempo` where necessary, constant gain and full final verification.
+The EBU R128 summaries have 0.1 LU/dB measurement resolution; new calculations use
+a -3.2 dBTP margin below the -3 dBTP ceiling. The historical little-ones measurements
+retain their original settings and precision. No audio is transcoded, re-encoded
+or dynamically compressed. Exact source SHA-256 values bind every setting to the
+published recording; the generator rejects missing/stale measurements or changes
+to the approved little-ones gains. Preview candidate gain metadata matches its
+runtime audition. Standalone cricket gain changes independently from its explicitly
+assigned mixed-background volume, so both approved mixtures remain unchanged.
+
+132 gains change; 138 of 167 recordings finish within -23 LUFS +/-1 LU. The other
+29 remain quieter because of peak reserve. The maximum gain is 8, the existing
+catalog/parser limit; one very quiet stream reaches that limit and still lies
+within the target band. Some highly transient field recordings remain substantially
+quieter, including Fire Favorite and Rain background. These are documented
+exceptions, not claims of identical perceived loudness or new listening approval.
+Short-term maxima and loudness range are retained for further listening review;
+constant gain intentionally preserves the source's internal dynamics.
+
+**For one common volume setting across all collections, use app volume at 10% or
+below and choose the desired listening level through system volume.** The current
+app clamps `appVolume * trackGain` to 1, and the largest gain (8) reaches that clamp
+above 12.5%. For the little-ones collection alone, its previously documented 40%
+setting remains valid because those 13 gains are unchanged. Neither percentage
+defines the acoustic sound level at the ear. A slider-independent preamplifier has
+not been implemented or implied by this catalog change. No new application build
+is required to receive the measured gains.
+
+Memberships, title order, delivery URLs, audio checksums/bytes, recording rights,
+attribution, imagery and assigned background mixes are unchanged. New recordings
+must provide measured, source-bound settings as part of catalog preparation.

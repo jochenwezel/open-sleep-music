@@ -130,7 +130,7 @@ public sealed class BackgroundAudioTests
         var source = worlds.Single(world => world.Id == "preselection").Tracks
             .Single(track => track.Id == "candidate-meadow-night-crickets-sardin");
         var background = Assert.IsType<AudioTrack>(BackgroundAudioCatalog.Resolve(primary, worlds));
-        Assert.Equal(.5, source.VolumeGain);
+        Assert.Equal(.691831, source.VolumeGain);
         Assert.Equal(.3 * primary.VolumeGain, background.VolumeGain, 6);
         Assert.Equal(1, background.PlaybackSpeed);
         Assert.Equal(0, background.StartOffsetMilliseconds);

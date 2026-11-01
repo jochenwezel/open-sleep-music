@@ -70,6 +70,14 @@ The machine-readable source of truth is `src/OpenSleepMusic.Core/Catalog/media-c
 
 Also update `docs/music-sources.md` when adding or removing a source collection, changing licenses, or materially changing catalog totals. Do not claim that the project has independently guaranteed copyright status; document the source's declared license and the provenance checks performed.
 
+### 5. Apply the approved loudness approach
+
+Use measured constant per-recording gain toward approximately -23 LUFS (+/-1 LU), keeping true peaks at or below -3 dBTP. Preserve natural dynamics; do not add compression, limiting, automatic gain riding or ordinary download transcoding. Peak reserve and the existing gain range take priority over exact target loudness; document quieter exceptions instead of claiming all tracks reach the target. Existing acceptable gains may be retained. The maintainer-approved 13 little-ones gains in `tools/lullabies-loudness-trial-2026-10-31.json` are fixed unless new feedback explicitly changes them.
+
+Maintain source-SHA-256-bound measurements and playback settings in `tools/catalog-loudness-2026-11-01.json`, and apply them through the generator. Measure the complete playable interval after original-recording trims and at the chosen speed, then verify the final gain; identify offline time-stretch approximations. Check any background mixture separately and preserve its approved balance. A standalone background track's listening gain is independent of its explicit mixed-background gain. New or replaced recordings require corresponding measurements before generation; reference-only Preview lists have no audio to normalize. Keep recording bytes, rights, source provenance and ordering unchanged for gain-only adjustments.
+
+The current app clamps `appVolume * trackGain` to 1. Record the maximum unclamped app-volume setting for the resulting profile, and tell listeners the appropriate app-regulator limit when gains above 1 are used. Do not claim this catalog metadata implements a slider-independent preamplifier or a fixed acoustic sound level.
+
 ## Catalog maintenance workflow
 
 Maintain `docs/catalog-quality-notes.md` as the central, cross-song internal quality and improvement register, keyed by stable catalog track ID. Record current quality, whether to retain the work, replacement priority, alternative-source findings and the append-only history of actual improvement attempts with `YYYY-MM`, the AI engine/session label and effort, actual transcription/render tools and outcome. Continue updating this register as new feedback and attempts occur; preserve failed attempts after later success, distinguish maintainer listening judgments from measurements, and never invent an engine label or approval. Link existing detailed evidence instead of creating separate per-song quality registers. Internal notes do not themselves alter runtime catalog admission, playback or licensing.

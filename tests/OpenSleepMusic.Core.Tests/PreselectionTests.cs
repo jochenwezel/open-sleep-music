@@ -178,15 +178,15 @@ public sealed class PreselectionTests
     }
 
     [Theory]
-    [InlineData("candidate-small-waves-beach-sardin", 373.635)]
-    [InlineData("candidate-meadow-night-crickets-sardin", 299.102)]
-    public void SelectedBackgroundSoundsUseHalfGainAndUnchangedDelivery(string id, double originalDuration)
+    [InlineData("candidate-small-waves-beach-sardin", 373.635, .5)]
+    [InlineData("candidate-meadow-night-crickets-sardin", 299.102, .691831)]
+    public void SelectedBackgroundSoundsUseMeasuredGainAndUnchangedDelivery(string id, double originalDuration, double expectedGain)
     {
         if (!BuildChannel.IsPreview) return;
         var track = Assert.Single(BuiltInCatalog.SleepWorlds.SelectMany(world => world.Tracks).DistinctBy(track => track.Id), track => track.Id == id);
         var candidate = Assert.Single(BuiltInPreselection.Candidates, candidate => candidate.Id == id);
-        Assert.Equal(.5, track.VolumeGain);
-        Assert.Equal(.5, candidate.VolumeGain);
+        Assert.Equal(expectedGain, track.VolumeGain);
+        Assert.Equal(expectedGain, candidate.VolumeGain);
         Assert.Equal(originalDuration, track.DurationSeconds, 3);
         Assert.Equal(1d, track.PlaybackSpeed);
         Assert.Equal(0, track.StartOffsetMilliseconds);
