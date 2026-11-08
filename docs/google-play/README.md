@@ -49,6 +49,20 @@ not publish a fixed maximum offline interval:
 
 ## Publication materials
 
+The maintainer's positioning decision of 8 November 2026 is that the entire app
+is free to use, without advertising, in-app purchases or subscriptions. Highlight
+uninterrupted listening, including for families with little ones: no ad before
+playback, no ad breaks or purchase prompts while listening. The German and
+English full descriptions state this near the beginning. Initial audio downloads
+are still required; do not promise immediate playback before content is present.
+Keep price promotion out of the title and short description, and avoid
+unsupported comparisons with competing apps. This positioning also informs
+future Apple copy, subject to Apple's metadata rules and actual Apple validation.
+Both localized texts were saved in the Play Console store-listing draft on
+8 November 2026. This copy update does not complete production publication.
+References: [Google listing guidance](https://support.google.com/googleplay/android-developer/answer/13393723?hl=en),
+[Apple product-page guidance](https://developer.apple.com/app-store/product-page/).
+
 - [English store listing](store-listing.en.json): default-language text draft.
 - [German store listing](store-listing.de.json): translation, without fixed
   catalog totals or promises of medical benefits.
