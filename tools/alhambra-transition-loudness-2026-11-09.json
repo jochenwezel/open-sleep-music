@@ -1,0 +1,217 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-09",
+  "trackId": "candidate-recuerdos-de-la-alhambra",
+  "followingReferenceTrackIds": [
+    "burgmuller-berceuse-op-109-no-7",
+    "candidate-barrios-julia-florida-edson-lopes"
+  ],
+  "revision": {
+    "date": "2026-11-09",
+    "trackId": "candidate-recuerdos-de-la-alhambra",
+    "previousVolumeGain": 0.433012,
+    "volumeGain": 0.54513,
+    "gainChangeDb": 2.0,
+    "feedback": "The maintainer reports a distinct upward jump from Recuerdos to Burgmuller, then clarifies that Julia Florida is comparable to Burgmuller and asks whether Alhambra is too quiet. Keep the latter two as references.",
+    "reason": "Conservative +2 dB constant-gain listening adjustment to Alhambra. The measured final 19.884 seconds rise from -26.7 to -24.7 LUFS, versus -23.3 LUFS for the first 30 seconds of Burgmuller. Whole-track LUFS alone does not resolve perceived timbre or this transition.",
+    "reviewStatus": "Feedback-driven measured listening adjustment; exact revised level awaits maintainer listening review.",
+    "evidence": "alhambra-transition-loudness-2026-11-09.json"
+  },
+  "method": "FFmpeg 7.1 EBU R128/oversampled true-peak analysis of exact SHA-256-verified mirror bytes, original trims then playback speed and constant gain. Full-piece before/after decoding and separate Preview cricket mixture verification. Measurements are at app reference volume, not a phone acoustic measurement. No source edit, re-encoding, compression, limiting or automatic gain envelope.",
+  "limitations": "Whole-track averages of all three references were already close; the final-to-initial measurement supports a transition difference, not a claim that Alhambra is objectively quieter throughout. The +2 dB proposal deliberately exceeds the normal -23 +/-1 LUFS band and awaits maintainer listening review. Natural timbre/dynamics and phone reproduction affect perception. No human audition of the revised mix is claimed.",
+  "preserved": "Burgmuller and Julia Florida remain at gain 1. All other recording gains, ordering, files, URLs, source hashes, rights, speed, trims and artwork remain unchanged. Shared Alhambra gain also applies in Quiet Classics. Preview crickets retain the existing 30% relative balance; their standalone gain remains independent.",
+  "measurements": [
+    {
+      "trackId": "candidate-recuerdos-de-la-alhambra",
+      "sourceSha256": "42d01af095f795a08b248445d439f2d97d7bbe378f70611e521e5039b5385e22",
+      "volumeGain": 0.433012,
+      "segment": null,
+      "integratedLufs": -22.9,
+      "truePeakDbtp": -7.3,
+      "loudnessRangeLu": 7.1,
+      "maximumMomentaryLufs": -17.7,
+      "maximumShortTermLufs": -18.7
+    },
+    {
+      "trackId": "burgmuller-berceuse-op-109-no-7",
+      "sourceSha256": "00d58b905cd138c4651ad4b7c998012c314903f88f003b0f2a8fc28e9cd896a0",
+      "volumeGain": 1.0,
+      "segment": null,
+      "integratedLufs": -23.2,
+      "truePeakDbtp": -7.4,
+      "loudnessRangeLu": 4.8,
+      "maximumMomentaryLufs": -16.1,
+      "maximumShortTermLufs": -18.9
+    },
+    {
+      "trackId": "candidate-barrios-julia-florida-edson-lopes",
+      "sourceSha256": "f8f0cbf0779c4c351eaaa1313aabd9751fa9ce44f6e96485c2e4e5e776539bc6",
+      "volumeGain": 1.0,
+      "segment": null,
+      "integratedLufs": -22.9,
+      "truePeakDbtp": -6.6,
+      "loudnessRangeLu": 9.9,
+      "maximumMomentaryLufs": -14.5,
+      "maximumShortTermLufs": -18.2
+    },
+    {
+      "trackId": "candidate-barrios-julia-florida-edson-lopes",
+      "sourceSha256": "f8f0cbf0779c4c351eaaa1313aabd9751fa9ce44f6e96485c2e4e5e776539bc6",
+      "volumeGain": 1.0,
+      "segment": [
+        0,
+        30
+      ],
+      "integratedLufs": -24.2,
+      "truePeakDbtp": -10.1,
+      "loudnessRangeLu": 9.5,
+      "maximumMomentaryLufs": -18.3,
+      "maximumShortTermLufs": -20.5
+    },
+    {
+      "trackId": "candidate-recuerdos-de-la-alhambra",
+      "sourceSha256": "42d01af095f795a08b248445d439f2d97d7bbe378f70611e521e5039b5385e22",
+      "volumeGain": 0.433012,
+      "segment": [
+        0,
+        30
+      ],
+      "integratedLufs": -23.8,
+      "truePeakDbtp": -10.0,
+      "loudnessRangeLu": 4.0,
+      "maximumMomentaryLufs": -19.8,
+      "maximumShortTermLufs": -21.3
+    },
+    {
+      "trackId": "candidate-recuerdos-de-la-alhambra",
+      "sourceSha256": "42d01af095f795a08b248445d439f2d97d7bbe378f70611e521e5039b5385e22",
+      "volumeGain": 0.433012,
+      "segment": [
+        220,
+        239.884
+      ],
+      "integratedLufs": -26.7,
+      "truePeakDbtp": -10.1,
+      "loudnessRangeLu": 7.4,
+      "maximumMomentaryLufs": -19.4,
+      "maximumShortTermLufs": -24.9
+    },
+    {
+      "trackId": "burgmuller-berceuse-op-109-no-7",
+      "sourceSha256": "00d58b905cd138c4651ad4b7c998012c314903f88f003b0f2a8fc28e9cd896a0",
+      "volumeGain": 1.0,
+      "segment": [
+        0,
+        30
+      ],
+      "integratedLufs": -23.3,
+      "truePeakDbtp": -10.7,
+      "loudnessRangeLu": 2.5,
+      "maximumMomentaryLufs": -19.3,
+      "maximumShortTermLufs": -22.2
+    },
+    {
+      "trackId": "candidate-romanza-ten-string-leon-egea",
+      "sourceSha256": "3d3a941b801d02a4186c35110ba2d0765b6982ceaee7895a9c46fa8823c9943d",
+      "volumeGain": 0.420727,
+      "segment": null,
+      "integratedLufs": -23.0,
+      "truePeakDbtp": -8.1,
+      "loudnessRangeLu": 7.0,
+      "maximumMomentaryLufs": -16.0,
+      "maximumShortTermLufs": -19.1
+    },
+    {
+      "trackId": "candidate-romanza-ten-string-leon-egea",
+      "sourceSha256": "3d3a941b801d02a4186c35110ba2d0765b6982ceaee7895a9c46fa8823c9943d",
+      "volumeGain": 0.420727,
+      "segment": [
+        124.912,
+        154.912
+      ],
+      "integratedLufs": -23.0,
+      "truePeakDbtp": -10.2,
+      "loudnessRangeLu": 8.5,
+      "maximumMomentaryLufs": -16.5,
+      "maximumShortTermLufs": -19.8
+    },
+    {
+      "trackId": "candidate-recuerdos-de-la-alhambra",
+      "sourceSha256": "42d01af095f795a08b248445d439f2d97d7bbe378f70611e521e5039b5385e22",
+      "volumeGain": 0.54513,
+      "segment": null,
+      "integratedLufs": -20.9,
+      "truePeakDbtp": -5.3,
+      "loudnessRangeLu": 7.1,
+      "maximumMomentaryLufs": -15.7,
+      "maximumShortTermLufs": -16.7
+    },
+    {
+      "trackId": "candidate-recuerdos-de-la-alhambra",
+      "sourceSha256": "42d01af095f795a08b248445d439f2d97d7bbe378f70611e521e5039b5385e22",
+      "volumeGain": 0.54513,
+      "segment": [
+        0,
+        30
+      ],
+      "integratedLufs": -21.8,
+      "truePeakDbtp": -8.0,
+      "loudnessRangeLu": 4.0,
+      "maximumMomentaryLufs": -17.8,
+      "maximumShortTermLufs": -19.3
+    },
+    {
+      "trackId": "candidate-recuerdos-de-la-alhambra",
+      "sourceSha256": "42d01af095f795a08b248445d439f2d97d7bbe378f70611e521e5039b5385e22",
+      "volumeGain": 0.54513,
+      "segment": [
+        220,
+        239.884
+      ],
+      "integratedLufs": -24.7,
+      "truePeakDbtp": -8.1,
+      "loudnessRangeLu": 7.4,
+      "maximumMomentaryLufs": -17.4,
+      "maximumShortTermLufs": -22.9
+    }
+  ],
+  "previewMixtures": [
+    {
+      "volumeGain": 0.433012,
+      "backgroundVolume": 0.129904,
+      "integratedLufs": -22.8,
+      "truePeakDbtp": -7.3,
+      "loudnessRangeLu": 6.8,
+      "backgroundSourceSha256": "50e070dc217e3e49d3e18da62144aadc92996763fa52743f7888ce6e4ad5fe3e",
+      "mode": "Looping 100%-speed crickets, original relative balance preserved, final 600 ms background fade; user/focus fades excluded."
+    },
+    {
+      "volumeGain": 0.54513,
+      "backgroundVolume": 0.163539,
+      "integratedLufs": -20.8,
+      "truePeakDbtp": -5.3,
+      "loudnessRangeLu": 6.8,
+      "backgroundSourceSha256": "50e070dc217e3e49d3e18da62144aadc92996763fa52743f7888ce6e4ad5fe3e",
+      "mode": "Looping 100%-speed crickets, original relative balance preserved, final 600 ms background fade; user/focus fades excluded."
+    }
+  ],
+  "previousReferenceTrackId": "candidate-romanza-ten-string-leon-egea",
+  "boundaryWindowComparison": [
+    {
+      "from": "candidate-romanza-ten-string-leon-egea",
+      "to": "candidate-recuerdos-de-la-alhambra",
+      "fromFinal30SecondsLufs": -23.0,
+      "toFirst30SecondsBeforeLufs": -23.8,
+      "toFirst30SecondsAfterLufs": -21.8,
+      "afterMinusBeforeDirection": "Higher LUFS means louder; new window difference is +1.2 LU. This is a review signal, not a listening guarantee."
+    },
+    {
+      "from": "candidate-recuerdos-de-la-alhambra",
+      "to": "burgmuller-berceuse-op-109-no-7",
+      "fromFinal19Point884SecondsBeforeLufs": -26.7,
+      "fromFinal19Point884SecondsAfterLufs": -24.7,
+      "toFirst30SecondsLufs": -23.3,
+      "afterWindowDifferenceLu": 1.4
+    }
+  ]
+}

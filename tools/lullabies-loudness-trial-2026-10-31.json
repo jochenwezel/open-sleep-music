@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "date": "2026-10-31",
   "worldId": "lullabies",
-  "status": "maintainer-approved 2026-11-01",
+  "status": "maintainer-approved 2026-11-01 baseline; Alhambra feedback revision 2026-11-09 awaiting listening review",
   "targetIntegratedLufs": -23.0,
   "maximumTruePeakDbtp": -3.0,
   "calculationTruePeakCeilingDbtp": -3.1,
@@ -86,37 +86,64 @@
       "startOffsetMilliseconds": 0,
       "endOffsetMilliseconds": 0,
       "previousVolumeGain": 1,
-      "volumeGain": 0.433012,
+      "volumeGain": 0.54513,
       "before": {
         "integratedLufs": -15.73,
         "truePeakDbtp": -0.07,
         "loudnessRangeLu": 7.0
       },
       "after": {
-        "integratedLufs": -23.0,
-        "truePeakDbtp": -7.34,
-        "loudnessRangeLu": 7.0,
-        "maximumMomentaryLufs": -17.7,
-        "maximumShortTermLufs": -18.7
+        "integratedLufs": -20.9,
+        "truePeakDbtp": -5.3,
+        "loudnessRangeLu": 7.1,
+        "maximumMomentaryLufs": -15.7,
+        "maximumShortTermLufs": -16.7
       },
       "peakLimited": false,
       "sharedWorldIds": [
         "lullabies"
       ],
-      "reviewStatus": "maintainer-requested listening trial; full technical measurement, no new listening approval inferred",
+      "reviewStatus": "Feedback-driven measured listening adjustment; exact revised level awaits maintainer listening review.",
       "backgroundAdjustment": {
         "trackId": "candidate-meadow-night-crickets-sardin",
-        "previousVolume": 0.3,
-        "volume": 0.129904,
-        "reason": "Preserve the prior background-to-primary amplitude ratio while normalizing the music."
+        "previousVolume": 0.129904,
+        "volume": 0.163539,
+        "reason": "Retain the approved 30% cricket-to-primary amplitude ratio after the +2 dB listening adjustment, rounded to six decimals."
       },
       "previewMixMeasurement": {
-        "integratedLufs": -22.91,
-        "truePeakDbtp": -7.35,
-        "loudnessRangeLu": 6.7,
+        "integratedLufs": -20.8,
+        "truePeakDbtp": -5.3,
+        "loudnessRangeLu": 6.8,
         "backgroundSourceSha256": "50e070dc217e3e49d3e18da62144aadc92996763fa52743f7888ce6e4ad5fe3e",
-        "mode": "Primary plus looping 100%-speed crickets, original relative balance preserved, final 600 ms background fade; user/focus fades excluded."
-      }
+        "mode": "Looping 100%-speed crickets, original relative balance preserved, final 600 ms background fade; user/focus fades excluded."
+      },
+      "priorApprovedSetting": {
+        "date": "2026-11-01",
+        "volumeGain": 0.433012,
+        "after": {
+          "integratedLufs": -23.0,
+          "truePeakDbtp": -7.34,
+          "loudnessRangeLu": 7.0,
+          "maximumMomentaryLufs": -17.7,
+          "maximumShortTermLufs": -18.7
+        },
+        "backgroundAdjustment": {
+          "trackId": "candidate-meadow-night-crickets-sardin",
+          "previousVolume": 0.3,
+          "volume": 0.129904,
+          "reason": "Preserve the prior background-to-primary amplitude ratio while normalizing the music."
+        },
+        "previewMixMeasurement": {
+          "integratedLufs": -22.91,
+          "truePeakDbtp": -7.35,
+          "loudnessRangeLu": 6.7,
+          "backgroundSourceSha256": "50e070dc217e3e49d3e18da62144aadc92996763fa52743f7888ce6e4ad5fe3e",
+          "mode": "Primary plus looping 100%-speed crickets, original relative balance preserved, final 600 ms background fade; user/focus fades excluded."
+        }
+      },
+      "listeningRevisionDate": "2026-11-09",
+      "targetExceptionReason": "Intentional above-target listening-feedback adjustment; previous whole-recording LUFS matched the reference but the maintainer reports Alhambra as quieter. No compression or limiting.",
+      "transitionEvidence": "alhambra-transition-loudness-2026-11-09.json"
     },
     {
       "trackId": "burgmuller-berceuse-op-109-no-7",
@@ -389,5 +416,18 @@
     "date": "2026-11-01",
     "scope": "All 13 exact audible catalog gains and the documented two peak-limited exceptions; preserve during rollout to other collections",
     "feedback": "The maintainer grants approval for the new loudness levels and requests the same approach in every collection."
-  }
+  },
+  "listeningRevisions": [
+    {
+      "date": "2026-11-09",
+      "trackId": "candidate-recuerdos-de-la-alhambra",
+      "previousVolumeGain": 0.433012,
+      "volumeGain": 0.54513,
+      "gainChangeDb": 2.0,
+      "feedback": "The maintainer reports a distinct upward jump from Recuerdos to Burgmuller, then clarifies that Julia Florida is comparable to Burgmuller and asks whether Alhambra is too quiet. Keep the latter two as references.",
+      "reason": "Conservative +2 dB constant-gain listening adjustment to Alhambra. The measured final 19.884 seconds rise from -26.7 to -24.7 LUFS, versus -23.3 LUFS for the first 30 seconds of Burgmuller. Whole-track LUFS alone does not resolve perceived timbre or this transition.",
+      "reviewStatus": "Feedback-driven measured listening adjustment; exact revised level awaits maintainer listening review.",
+      "evidence": "alhambra-transition-loudness-2026-11-09.json"
+    }
+  ]
 }

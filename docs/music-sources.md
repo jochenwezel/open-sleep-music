@@ -630,6 +630,46 @@ defines the acoustic sound level at the ear. A slider-independent preamplifier h
 not been implemented or implied by this catalog change. No new application build
 is required to receive the measured gains.
 
+## Alhambra transition listening adjustment, 2026-11-09
+
+The maintainer reports that Burgmuller's Berceuse op. 109 no. 7 sounds distinctly
+louder immediately after Recuerdos de la Alhambra, then clarifies that Julia
+Florida sounds comparable to Burgmuller. Keep both reference recordings at gain
+1 and raise Alhambra by 2 dB, from 0.433012 to 0.54513. The shared recording also
+uses this setting in Quiet Classics. This is a listening adjustment awaiting
+review, rather than a claim that whole-track LUFS had been unequal: the three
+previous full-piece levels were approximately -22.9, -23.2 and -22.9 LUFS.
+
+[Source-bound full-piece, segment and mixture measurements](../tools/alhambra-transition-loudness-2026-11-09.json)
+show that Alhambra's final 19.884 seconds rise from -26.7 to -24.7 LUFS, versus
+-23.3 LUFS for Burgmuller's first 30 seconds. Final Alhambra reaches -20.9 LUFS
+and -5.3 dBTP, an explicit above-target listening exception. This retains ample
+peak reserve while preserving the original musical dynamics. It does not prove
+that all passages or timbres now sound equally loud on the listener's phone.
+The preceding boundary is also checked: Romanza's last 30 playable seconds
+(after its existing original-recording trims) measure -23.0 LUFS; Alhambra's
+first 30 seconds move from -23.8 to -21.8 LUFS. The new window differences are
+therefore +1.2 LU into Alhambra and +1.4 LU into Burgmuller. These contextual
+measurements support a listening trial, not an assertion of an exact perceptual
+match or a new universal numerical threshold.
+
+The Preview cricket assignment rises proportionally from 0.129904 to 0.163539,
+retaining the approved 30% relative balance to six decimals. Its separate full
+mixture measures -20.8 LUFS/-5.3 dBTP. Standalone cricket gain, Romanza's mixture,
+all other gains, source files/checksums, licenses, timings, collection order and
+artwork remain unchanged. The two existing loudness profiles retain the exact
+2026-11-01 approval as history and identify this later feedback revision and its
+pending listening outcome. No app update or audio download is required; refresh
+the catalog and restart the collection to rebuild playback settings.
+
+This case adds a transition-review requirement to AGENTS.md: retain whole-piece
+loudness as the baseline, compare approximately 20-30 seconds of ending/opening
+music with both neighbors at final playback settings, inspect short-term peaks
+and timbre/background changes, and validate adjustments through listening and
+complete-recording peak checks. Natural decays remain musical choices, not errors
+to flatten. The rest of the catalog has not yet received this additional boundary
+audit; the documented Alhambra adjustment is not a blanket equal-loudness claim.
+
 Memberships, title order, delivery URLs, audio checksums/bytes, recording rights,
 attribution, imagery and assigned background mixes are unchanged. New recordings
 must provide measured, source-bound settings as part of catalog preparation.

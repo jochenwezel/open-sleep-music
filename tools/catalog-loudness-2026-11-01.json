@@ -8,7 +8,7 @@
   "calculationTruePeakCeilingDbtp": -3.2,
   "maximumCatalogGain": 8,
   "approvedLittleOnesProfile": "lullabies-loudness-trial-2026-10-31.json",
-  "method": "FFmpeg 7.1 full playable-interval EBU R128/oversampled true-peak measurements, including original-recording trim then pitch-preserving atempo approximation and constant gain. Final full analysis verifies gains. Preserve already conforming existing gains. No dynamics processing, transcoding, source modification or playback-code changes. Native platform time stretch can differ. Exact approved little-ones settings are retained.",
+  "method": "FFmpeg 7.1 full playable-interval EBU R128/oversampled true-peak measurements, including original-recording trim then pitch-preserving atempo approximation and constant gain. Final full analysis verifies gains. Preserve already conforming existing gains. No dynamics processing, transcoding, source modification or playback-code changes. Native platform time stretch can differ. Approved little-ones baseline settings are retained except for documented subsequent maintainer listening-feedback revisions.",
   "maximumUnclampedAppVolume": 0.125,
   "tracks": [
     {
@@ -3155,23 +3155,37 @@
       ],
       "sourceSha256": "42d01af095f795a08b248445d439f2d97d7bbe378f70611e521e5039b5385e22",
       "previousVolumeGain": 0.433012,
-      "volumeGain": 0.433012,
+      "volumeGain": 0.54513,
       "after": {
-        "integratedLufs": -23.0,
-        "truePeakDbtp": -7.34,
-        "loudnessRangeLu": 7.0,
-        "maximumMomentaryLufs": -17.7,
-        "maximumShortTermLufs": -18.7
+        "integratedLufs": -20.9,
+        "truePeakDbtp": -5.3,
+        "loudnessRangeLu": 7.1,
+        "maximumMomentaryLufs": -15.7,
+        "maximumShortTermLufs": -16.7
       },
-      "retainedApprovedLittleOnes": true,
-      "reviewStatus": "maintainer-approved 2026-11-01; exact previously auditioned gain retained",
+      "retainedApprovedLittleOnes": false,
+      "reviewStatus": "Feedback-driven measured listening adjustment; exact revised level awaits maintainer listening review.",
       "peakLimited": false,
       "gainLimited": false,
-      "measurementDate": "2026-10-31",
+      "measurementDate": "2026-11-09",
       "playbackSpeed": 1,
       "startOffsetMilliseconds": 0,
       "endOffsetMilliseconds": 0,
-      "durationSeconds": 239.884
+      "durationSeconds": 239.884,
+      "priorApprovedSetting": {
+        "date": "2026-11-01",
+        "volumeGain": 0.433012,
+        "after": {
+          "integratedLufs": -23.0,
+          "truePeakDbtp": -7.34,
+          "loudnessRangeLu": 7.0,
+          "maximumMomentaryLufs": -17.7,
+          "maximumShortTermLufs": -18.7
+        }
+      },
+      "listeningRevisionDate": "2026-11-09",
+      "targetExceptionReason": "Intentional above-target listening-feedback adjustment; previous whole-recording LUFS matched the reference but the maintainer reports Alhambra as quieter. No compression or limiting.",
+      "transitionEvidence": "alhambra-transition-loudness-2026-11-09.json"
     },
     {
       "trackId": "candidate-satie-gymnopedie-no-1-performed-by-michael-laucke",
@@ -5262,5 +5276,18 @@
       "durationSeconds": 299.102
     }
   ],
-  "recommendedCommonAppVolumeMaximum": 0.1
+  "recommendedCommonAppVolumeMaximum": 0.1,
+  "listeningRevisions": [
+    {
+      "date": "2026-11-09",
+      "trackId": "candidate-recuerdos-de-la-alhambra",
+      "previousVolumeGain": 0.433012,
+      "volumeGain": 0.54513,
+      "gainChangeDb": 2.0,
+      "feedback": "The maintainer reports a distinct upward jump from Recuerdos to Burgmuller, then clarifies that Julia Florida is comparable to Burgmuller and asks whether Alhambra is too quiet. Keep the latter two as references.",
+      "reason": "Conservative +2 dB constant-gain listening adjustment to Alhambra. The measured final 19.884 seconds rise from -26.7 to -24.7 LUFS, versus -23.3 LUFS for the first 30 seconds of Burgmuller. Whole-track LUFS alone does not resolve perceived timbre or this transition.",
+      "reviewStatus": "Feedback-driven measured listening adjustment; exact revised level awaits maintainer listening review.",
+      "evidence": "alhambra-transition-loudness-2026-11-09.json"
+    }
+  ]
 }
