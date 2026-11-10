@@ -15,8 +15,15 @@ An optional secondary recording can loop underneath a primary song. Assign it in
 ```
 
 Run `tools/Update-MediaCatalog.ps1` afterwards. Romanza española and Recuerdos de
-la Alhambra currently use the meadow crickets at 0.3 volume for Preview audition,
-in both Quiet Classics and Lullabies for little ones.
+la Alhambra use the meadow crickets for Preview audition in both Quiet Classics
+and Lullabies for little ones. The approved balance is approximately 30% of the
+primary recording's amplitude factor, not an absolute background value of 0.3.
+As of 2026-11-09, the explicit background values are 0.126218 for Romanza
+(primary gain 0.420727) and 0.163539 for Alhambra (primary gain 0.54513), rounded
+to six decimals. The current configuration and generated catalog are authoritative;
+these values are already adjusted for the primary gains and must not be scaled
+by those gains again. The background recording's standalone listening gain is
+independent of these explicit mixture settings.
 
 The referenced recording must already satisfy the catalog's recording-rights and
 delivery policy. Nested backgrounds and self-references are rejected. Set the
