@@ -6,4 +6,5 @@ internal sealed record PlaybackSnapshot(
     TimeSpan Position,
     TimeSpan Duration,
     string? Error = null,
-    string? WorldId = null);
+    string? WorldId = null,
+    bool IsPreparing = false);

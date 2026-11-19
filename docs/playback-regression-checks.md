@@ -34,6 +34,49 @@ These device checks complement the automated Core tests. Run them on Windows and
 
 ## Android sleep deadline and service restart
 
+### Screen timeout and track transitions
+
+With the app visible, Android's normal screen timeout is inhibited during
+playback and automatic track preparation. Pause, Stop and the sleep timer's
+completed fade release that inhibition. Leaving the app or pressing the power
+button still permits screen-off/background listening. Native MediaPlayer holds
+the CPU awake while playing; a separate, at-most-30-second partial wake lock
+covers release/prepare/seek between tracks and is released on playback start,
+pause, stop or service destruction. No battery-optimization exemption is requested.
+See [Android screen-on guidance](https://developer.android.com/develop/background-work/background-tasks/awake/screen-on).
+
+1. Use a short Android screen timeout. With sleep timer Off, play across several
+   track endings without touching the device: the visible app must stay awake.
+2. Repeat with a sleep timer. The screen must stay awake through the final fade,
+   then follow the normal system timeout; no subsequent track may start.
+3. Pause and Stop, including from the notification. Check the screen-on flag is
+   cleared and no transition wake lock remains. Resume: the flag returns.
+4. Turn the screen off manually and separately send the app to the background.
+   Test several natural completions, repeat, a trimmed ending and a failed next
+   track. Playback must advance and the deadline must still stop it.
+5. Reopen the app, navigate to collection/track/detail/settings pages, and rotate:
+   screen behavior must follow playback, without a stale Activity subscription.
+6. Deny audio focus, exhaust an invalid local queue and destroy the service.
+   The app must permit screen timeout again. A hung native prepare must release
+   the transition CPU lock within 30 seconds; inspect `dumpsys power`.
+7. Interrupt playback with transient audio-focus loss, let it resume, then let
+   the current track finish. The queue must continue to the following track.
+
+These are required device checks, not a claim that they have all been completed.
+
+Verification on 19 November 2026: 309 Core tests and Windows/Android Release
+builds passed. A separate emulator-only Debug installation with two generated
+silent audio fixtures passed native checks for idle, playing, automatic advance,
+pause, resume, background advance, returning to the app, timer running/elapsed,
+an exhausted invalid queue and Stop. Actual Activity flags were checked;
+`dumpsys power` showed no active transition lock after Pause or Stop. The test
+installation was removed afterward. These checks do not establish behavior
+under a particular phone vendor's long-term battery management; manual screen
+lock, long Doze intervals, orientation and focus interruptions remain physical
+device acceptance checks.
+
+### Deadline restoration
+
 1. Set a sleep timer. Near expiry, seek close enough to the end of a track that its
    completion occurs during the three-second fade-out. Repeat in collection and
    single-track repeat modes. Playback must remain stopped after the deadline.

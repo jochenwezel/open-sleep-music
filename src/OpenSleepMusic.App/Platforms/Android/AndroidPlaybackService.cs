@@ -17,6 +17,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private const string ChannelId = "open-sleep-music-playback";
     private readonly List<QueueItem> _queue = [];
     private MediaPlayer? _player;
+    private PowerManager.WakeLock? _transitionWakeLock;
     private readonly AndroidBackgroundPlayer _backgroundPlayer = new();
     private MediaPlayer? _finishingPlayer;
     private double _fadeVolumeFactor = 1;
@@ -47,6 +48,9 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     public override void OnCreate()
     {
         base.OnCreate();
+        _transitionWakeLock = ((PowerManager?)GetSystemService(PowerService))?
+            .NewWakeLock(WakeLockFlags.Partial, "OpenSleepMusic:TrackTransition");
+        _transitionWakeLock?.SetReferenceCounted(false);
         ChildSafety.Control.Changed += OnChildSafetyChanged;
         _audioManager = (AudioManager?)GetSystemService(AudioService);
         CreateNotificationChannel();
@@ -111,7 +115,14 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         CancelSleepFade();
         _timer?.Dispose();
         _positionTimer?.Dispose();
+        _timer = null;
+        _positionTimer = null;
+        _playWhenPrepared = false;
+        ReleaseTransitionWakeLock();
+        _transitionWakeLock?.Dispose();
+        _transitionWakeLock = null;
         ReleasePlayer();
+        AndroidPlaybackBridge.Publish(AndroidPlaybackBridge.Snapshot with { IsPlaying = false, IsPreparing = false });
         AbandonAudioFocus();
         if (_session is not null)
         {
@@ -226,9 +237,11 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     {
         if (_queue.Count == 0) return;
         if (!IsCurrentCollectionAllowed()) { StopPlayback(); return; }
+        var playWhenPrepared = autoPlay && !_sleepDeadline.HasElapsed;
+        if (playWhenPrepared) AcquireTransitionWakeLock(); else ReleaseTransitionWakeLock();
         ReleasePlayer();
         _startSeekPending = false;
-        _playWhenPrepared = autoPlay && !_sleepDeadline.HasElapsed;
+        _playWhenPrepared = playWhenPrepared;
         var item = _queue[_index];
         try
         {
@@ -279,6 +292,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             StartForeground(NotificationId, BuildNotification(false));
             _player.PrepareAsync();
             UpdateSessionMetadata();
+            PublishState(save: false);
         }
         catch (Exception exception)
         {
@@ -307,25 +321,45 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         if (userInitiated) PrepareUserPlayback();
         if (_sleepDeadline.HasElapsed) return;
         _playWhenPrepared = true;
-        if (!_playerPrepared || _startSeekPending) return;
+        if (!_playerPrepared || _startSeekPending)
+        {
+            AcquireTransitionWakeLock();
+            PublishState(save: false);
+            return;
+        }
         CancelFade();
-        if (_player is null || !RequestAudioFocus()) return;
+        if (_player is null || !RequestAudioFocus())
+        {
+            _playWhenPrepared = false;
+            ReleaseTransitionWakeLock();
+            UpdateStateAndNotification();
+            return;
+        }
         try
         {
             _player.PlaybackParams = new PlaybackParams()!.SetSpeed((float)CurrentSpeed())!.SetPitch(1)!;
             _player.Start();
+            // MediaPlayer now owns its playback wake lock; only preparation needs ours.
+            ReleaseTransitionWakeLock();
             _backgroundPlayer.SetPlaying(true);
             RegisterNoisyReceiver();
             StartPositionUpdates();
             UpdateStateAndNotification();
         }
-        catch (Exception exception) { Android.Util.Log.Warn("OpenSleepMusic", exception.Message); }
+        catch (Exception exception)
+        {
+            _playWhenPrepared = false;
+            ReleaseTransitionWakeLock();
+            UpdateStateAndNotification();
+            Android.Util.Log.Warn("OpenSleepMusic", exception.Message);
+        }
     }
 
     private void Pause()
     {
         _backgroundPlayer.SetPlaying(false);
         _playWhenPrepared = false;
+        ReleaseTransitionWakeLock();
         try { if (IsPlaying()) _player!.Pause(); }
         catch (Exception exception) { Android.Util.Log.Warn("OpenSleepMusic", exception.Message); }
         UnregisterNoisyReceiver();
@@ -367,6 +401,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private void StopPlayback()
     {
+        ReleaseTransitionWakeLock();
         CancelFade();
         CancelSleepFade();
         ReleasePlayer();
@@ -425,6 +460,18 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         _player.Release();
         _player.Dispose();
         _player = null;
+    }
+
+    private void AcquireTransitionWakeLock()
+    {
+        // Cover release/prepare/seek between tracks, including with the screen locked.
+        // A hung native prepare must never leave an unbounded application wake lock.
+        if (_transitionWakeLock?.IsHeld == false) _transitionWakeLock.Acquire(30_000);
+    }
+
+    private void ReleaseTransitionWakeLock()
+    {
+        if (_transitionWakeLock?.IsHeld == true) _transitionWakeLock.Release();
     }
 
     private void RegisterNoisyReceiver()
@@ -561,6 +608,8 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         {
             SetFadeVolume(0);
             _player.Start();
+            _playWhenPrepared = true;
+            ReleaseTransitionWakeLock();
             _backgroundPlayer.SetPlaying(true);
             RegisterNoisyReceiver();
             StartPositionUpdates();
@@ -628,7 +677,8 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         if (item is not null)
         {
             AndroidPlaybackBridge.Publish(new(item.Id, playing, TimeSpan.FromMilliseconds(position), TimeSpan.FromMilliseconds(duration),
-                WorldId: System.IO.Path.GetFileName(System.IO.Path.GetDirectoryName(item.Path))));
+                WorldId: System.IO.Path.GetFileName(System.IO.Path.GetDirectoryName(item.Path)),
+                IsPreparing: _playWhenPrepared && (!_playerPrepared || _startSeekPending) && !_sleepDeadline.HasElapsed));
             _session?.SetPlaybackState(new PlaybackState.Builder()!
                 .SetActions(PlaybackState.ActionPlay | PlaybackState.ActionPause | PlaybackState.ActionPlayPause |
                             PlaybackState.ActionSkipToNext | PlaybackState.ActionSkipToPrevious | PlaybackState.ActionSeekTo)!
@@ -671,6 +721,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private void CompleteCurrentTrack(MediaPlayer player)
     {
         if (!ReferenceEquals(_player, player) || _finishingPlayer == player) return;
+        if (_playWhenPrepared && !_sleepDeadline.HasElapsed) AcquireTransitionWakeLock();
         _finishingPlayer = player;
         if (player.IsPlaying) player.Pause();
         _backgroundEndFadeFactor = 0;
