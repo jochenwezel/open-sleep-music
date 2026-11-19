@@ -36,6 +36,28 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Android App Bundle publishing failed.' }
     $taskSigned = @(Get-ChildItem -LiteralPath $taskOutput -Filter '*-Signed.aab' -File)
     if ($taskSigned.Count -ne 1) { throw 'Expected exactly one signed Android App Bundle.' }
+    # Validate the delivered native libraries, rather than inferring compatibility
+    # from the build properties. ARM32 must remain available beside both 64-bit ABIs.
+    Add-Type -AssemblyName System.IO.Compression.FileSystem
+    $taskArchive = [IO.Compression.ZipFile]::OpenRead($taskSigned[0].FullName)
+    try {
+        $taskAbis = @($taskArchive.Entries | ForEach-Object {
+            if ($_.FullName -match '^base/lib/([^/]+)/[^/]+\.so$') { $Matches[1] }
+        } | Sort-Object -Unique)
+        $taskExpectedAbis = @('arm64-v8a', 'armeabi-v7a', 'x86_64')
+        if (Compare-Object $taskExpectedAbis $taskAbis) {
+            throw "Unexpected Play bundle ABIs: $($taskAbis -join ', '). Expected ARM32, ARM64 and x86-64."
+        }
+        foreach ($taskAbi in $taskExpectedAbis) {
+            foreach ($taskRuntimeLibrary in @('libmonodroid.so', 'libmonosgen-2.0.so')) {
+                if (-not $taskArchive.GetEntry("base/lib/$taskAbi/$taskRuntimeLibrary")) {
+                    throw "Play bundle is missing $taskRuntimeLibrary for $taskAbi."
+                }
+            }
+        }
+    } finally {
+        $taskArchive.Dispose()
+    }
     Copy-Item -LiteralPath $taskSigned[0].FullName -Destination $taskPackage
     $taskDigest = (Get-FileHash -LiteralPath $taskPackage -Algorithm SHA256).Hash.ToLowerInvariant()
     [IO.File]::WriteAllText("$taskPackage.sha256", "$taskDigest`n", [Text.UTF8Encoding]::new($false))
@@ -48,6 +70,7 @@ try {
         fileName = [IO.Path]::GetFileName($taskPackage)
         bytes = (Get-Item -LiteralPath $taskPackage).Length
         sha256 = $taskDigest
+        supportedAbis = $taskAbis
         note = 'Package creation only; no Play Console upload or rollout.'
     }
     $taskManifest | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $taskOutput 'build-info.json') -Encoding utf8

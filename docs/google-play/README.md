@@ -266,3 +266,18 @@ offline and storage/backup checks before a wider release. The production launch
 checklist above remains applicable. The English website notice was subsequently
 published with explicit approval on 1 November 2026; the immutable 0.1.43 build
 includes the approved German offline notice only.
+
+## ARM32 compatibility update: 0.1.44
+
+The Android project explicitly targets `android-arm`, `android-arm64` and
+`android-x64`. This adds `armeabi-v7a` for devices with a 32-bit Android userspace
+while retaining `arm64-v8a` and `x86_64`. A 64-bit CPU alone does not mean that a
+device can install 64-bit Android applications. The minimum stays at API 26
+(Android 8.0).
+
+`tools/Publish-PlayBundle.ps1` checks the actual signed bundle for all three ABI
+directories and the Mono runtime libraries before naming a distributable package.
+The generated `build-info.json` records the ABIs alongside the source commit and
+SHA-256. Validate device-targeted APK generation for a 32-bit-only ARM device as
+well as an emulator startup before rollout. Package creation does not itself
+upload or publish a release.
