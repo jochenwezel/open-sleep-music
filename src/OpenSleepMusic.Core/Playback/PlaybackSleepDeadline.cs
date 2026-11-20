@@ -9,6 +9,9 @@ public sealed class PlaybackSleepDeadline(TimeProvider? timeProvider = null)
     public DateTimeOffset? EndsAt { get; private set; }
     public bool HasElapsed => _elapsed || EndsAt is { } end && end <= _clock.GetUtcNow();
 
+    public static DateTimeOffset? ForUserStart(int minutes, DateTimeOffset? currentEnd, DateTimeOffset now) =>
+        minutes <= 0 ? null : currentEnd is { } end && end > now ? end : now.AddMinutes(minutes);
+
     public void Update(DateTimeOffset? endsAt)
     {
         // UI settings may clear a consumed timer. That is not permission to resume playback.

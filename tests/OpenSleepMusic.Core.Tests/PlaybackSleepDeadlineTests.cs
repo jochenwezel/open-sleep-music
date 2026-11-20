@@ -4,6 +4,34 @@ namespace OpenSleepMusic.Core.Tests;
 
 public sealed class PlaybackSleepDeadlineTests
 {
+    [Theory]
+    [InlineData(-1, false, false)]
+    [InlineData(0, false, false)]
+    [InlineData(60, true, false)]
+    [InlineData(60, false, false)]
+    [InlineData(60, false, true)]
+    public void UserStartKeepsAFutureDeadlineOrStartsAFreshTimerAfterLongPause(int minutes, bool future, bool missing)
+    {
+        var now = new DateTimeOffset(2026, 11, 20, 20, 0, 0, TimeSpan.Zero);
+        DateTimeOffset? previous = missing ? null : now.AddHours(future ? 1 : -24);
+        var result = PlaybackSleepDeadline.ForUserStart(minutes, previous, now);
+        Assert.Equal(minutes <= 0 ? null : future ? previous : now.AddMinutes(minutes), result);
+    }
+
+    [Fact]
+    public void UserStartAtTheExactDeadlineRestartsWithoutChangingTheAutomaticLatch()
+    {
+        var clock = new TestClock();
+        var deadline = new PlaybackSleepDeadline(clock);
+        deadline.Restart(clock.GetUtcNow());
+        Assert.True(deadline.HasElapsed);
+        var next = PlaybackSleepDeadline.ForUserStart(30, deadline.EndsAt, clock.GetUtcNow());
+        Assert.Equal(clock.GetUtcNow().AddMinutes(30), next);
+        Assert.True(deadline.HasElapsed);
+        deadline.Restart(next);
+        Assert.False(deadline.HasElapsed);
+    }
+
     [Fact]
     public void AutomaticTrackTransitionsRemainBlockedAfterDeadlineAndSettingsUpdate()
     {

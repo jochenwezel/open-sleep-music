@@ -27,6 +27,7 @@
     <Compile Include="..\..\src\OpenSleepMusic.App\Navigation\ModalPlaybackNavigation.cs" Link="AppNavigation\ModalPlaybackNavigation.cs" />
     <Compile Include="..\..\src\OpenSleepMusic.App\Localization\AppLanguage.cs" Link="AppLocalization\AppLanguage.cs" />
     <Compile Include="..\..\src\OpenSleepMusic.App\AppStateStore.cs" Link="AppState\AppStateStore.cs" />
+    <Compile Include="..\..\src\OpenSleepMusic.App\Playback\PlaybackSnapshot.cs" Link="AppPlayback\PlaybackSnapshot.cs" />
   </ItemGroup>
 
   <ItemGroup>

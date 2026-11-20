@@ -131,6 +131,40 @@ speed/trims, independent persisted overrides and legacy choices. On 20 November
 5. Change a favorite/block preference while paused. Updating the queue must preserve
    the paused state, including while Android prepares a replacement player.
 
+## Resuming a retained Android player
+
+1. Open the immersive player, let the native queue advance to another title,
+   pause, and keep that dialog open. Recreate the playback service without
+   recreating the activity or page. Press Play in the same dialog: it must
+   rebuild the local queue at the current title and retained listening position.
+2. Repeat with a configured sleep deadline from the previous day. An explicit
+   Play starts a fresh configured timer; a future deadline remains unchanged.
+   Automatic transitions/settings updates must still respect the elapsed latch.
+3. Recreate the service while paused and send an explicit Android media Play
+   command: restore the saved queue/position. A sticky service restart alone
+   must not start a saved user pause.
+4. Let another audio-focus client take permanent focus, release it, and press
+   Play in the retained dialog. Repeat with transient focus loss, explicitly
+   pause before focus returns, and confirm that focus gain leaves it paused.
+5. Clear the native queue, retaining the page and its last valid snapshot.
+   Play must recover from local files rather than waiting on an empty player.
+
+`PlaybackResumeTests` covers matching track/world snapshots and the retained
+position fallback during preparation or missing native state.
+`PlaybackSleepDeadlineTests` covers explicit-start renewal and the independent
+automatic-expiry latch. Physical overnight/YouTube testing remains a separate
+device acceptance check.
+
+On 20 November 2026, all 333 Core tests and both Windows/Android Release builds
+passed (Android ARM32, ARM64 and x64). A separate local Debug package on
+`emulator-5556` exercised the real dialog callback, native service and a second
+Android audio-focus client. The checks above passed for service loss, changed
+title behind the dialog, a simulated previous-day deadline, explicit media Play,
+permanent/transient focus loss, manual pause before focus gain, and cleared
+native queue. Track/position were retained with the same activity process and
+MainPage instance throughout. The temporary receiver and silent fixture files
+were excluded from the normal application build.
+
 ## Immersive player lifetime
 
 1. Open and close a collection's immersive player at least 20 times.

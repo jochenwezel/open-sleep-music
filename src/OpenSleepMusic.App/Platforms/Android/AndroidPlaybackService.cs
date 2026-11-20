@@ -64,8 +64,15 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     {
         if (intent is null)
         {
-            RestorePlayingSession();
+            RestoreSession();
             return StartCommandResult.Sticky;
+        }
+        if (_queue.Count == 0 && intent.Action is AndroidPlaybackBridge.ActionPlay or AndroidPlaybackBridge.ActionToggle
+            or AndroidPlaybackBridge.ActionNext or AndroidPlaybackBridge.ActionPrevious)
+        {
+            // An explicit media command may restore a paused session too. A sticky
+            // restart alone must never turn a saved pause into automatic playback.
+            RestoreSession(explicitPlay: true);
         }
         switch (intent?.Action)
         {
@@ -73,13 +80,13 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
                 Load(intent);
                 break;
             case AndroidPlaybackBridge.ActionToggle:
-                if (IsPlaying()) Pause(); else Play(userInitiated: true);
+                if (IsPlaying()) Pause(userInitiated: true); else Play(userInitiated: true);
                 break;
             case AndroidPlaybackBridge.ActionPlay:
                 Play(userInitiated: true);
                 break;
             case AndroidPlaybackBridge.ActionPause:
-                Pause();
+                Pause(userInitiated: true);
                 break;
             case AndroidPlaybackBridge.ActionNext:
                 Move(1, forceSequential: !_shuffle, userInitiated: true);
@@ -207,8 +214,10 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
             return;
         }
         _index = Math.Clamp(intent.GetIntExtra("index", 0), 0, _queue.Count - 1);
+        var userInitiated = intent.GetBooleanExtra("userInitiated", false);
+        if (userInitiated) ResetFocusRecovery(); else CancelFade();
         CancelSleepFade();
-        if (intent.GetBooleanExtra("userInitiated", false)) _sleepDeadline.Restart(null);
+        if (userInitiated) _sleepDeadline.Restart(null);
         ApplySettings(intent);
         OpenCurrent(intent.GetDoubleExtra("position", 0), autoPlay: intent.GetBooleanExtra("autoPlay", true));
     }
@@ -317,6 +326,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private void Play(bool userInitiated = false)
     {
+        if (_queue.Count == 0) { StopPlayback(); return; }
         if (!IsCurrentCollectionAllowed()) { StopPlayback(); return; }
         if (userInitiated) PrepareUserPlayback();
         if (_sleepDeadline.HasElapsed) return;
@@ -355,8 +365,13 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         }
     }
 
-    private void Pause()
+    private void Pause(bool userInitiated = false)
     {
+        if (userInitiated)
+        {
+            ResetFocusRecovery();
+            CancelSleepFade();
+        }
         _backgroundPlayer.SetPlaying(false);
         _playWhenPrepared = false;
         ReleaseTransitionWakeLock();
@@ -760,12 +775,12 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         _lastSessionSaveUtc = DateTimeOffset.UtcNow;
     }
 
-    private void RestorePlayingSession()
+    private bool RestoreSession(bool explicitPlay = false)
     {
         var preferences = GetSharedPreferences("playback-session", FileCreationMode.Private);
-        if (preferences?.GetBoolean("playing", false) != true) return;
+        if (preferences is null || !explicitPlay && !preferences.GetBoolean("playing", false)) return false;
         var serializedQueue = preferences.GetString("queue", null);
-        if (string.IsNullOrWhiteSpace(serializedQueue)) return;
+        if (string.IsNullOrWhiteSpace(serializedQueue)) return false;
         _queue.Clear();
         foreach (var line in serializedQueue.Split('\n', StringSplitOptions.RemoveEmptyEntries))
         {
@@ -793,7 +808,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
                 _queue.Add(new QueueItem(id, Decode(fields[1]), Decode(fields[2]), Decode(fields[3]), gain, speed, startOffset, endOffset, duration, background));
             }
         }
-        if (_queue.Count == 0) return;
+        if (_queue.Count == 0) return false;
         _index = Math.Clamp(preferences.GetInt("index", 0), 0, _queue.Count - 1);
         _shuffle = preferences.GetBoolean("shuffle", false);
         _repeatTrack = preferences.GetBoolean("repeat", false);
@@ -805,7 +820,8 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         // Retain an elapsed deadline across a process restart. Preparing the saved
         // track is safe, but only a later explicit user action may start it again.
         if (!_sleepDeadline.HasElapsed) ArmTimer();
-        OpenCurrent(preferences.GetInt("position", 0) / 1000d, autoPlay: !_sleepDeadline.HasElapsed);
+        OpenCurrent(preferences.GetInt("position", 0) / 1000d, autoPlay: !explicitPlay && !_sleepDeadline.HasElapsed);
+        return true;
     }
 
     private void ClearSavedSession() =>
@@ -913,8 +929,18 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
 
     private void PrepareUserPlayback()
     {
+        ResetFocusRecovery();
         if (_sleepDeadline.HasElapsed) _sleepDeadline.Restart(null);
         CancelSleepFade();
+    }
+
+    private void ResetFocusRecovery()
+    {
+        _resumeAfterFocusGain = false;
+        _duckedForFocusLoss = false;
+        CancelFade();
+        _duckVolumeFactor = 1;
+        SetPlayerVolume();
     }
 
     private void CancelSleepFade()
@@ -946,8 +972,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
         {
             if (intent?.Action == AudioManager.ActionAudioBecomingNoisy)
             {
-                owner._resumeAfterFocusGain = false;
-                owner.Pause();
+                owner.Pause(userInitiated: true);
             }
         }
     }
@@ -955,7 +980,7 @@ internal sealed class AndroidPlaybackService : Service, AudioManager.IOnAudioFoc
     private sealed class SessionCallback(AndroidPlaybackService owner) : MediaSession.Callback
     {
         public override void OnPlay() => owner.Play(userInitiated: true);
-        public override void OnPause() => owner.Pause();
+        public override void OnPause() => owner.Pause(userInitiated: true);
         public override void OnSkipToNext() => owner.Move(1, forceSequential: !owner._shuffle, userInitiated: true);
         public override void OnSkipToPrevious() => owner.Move(-1, forceSequential: true, userInitiated: true);
         public override void OnSeekTo(long pos) => owner.Seek(pos / 1000d);

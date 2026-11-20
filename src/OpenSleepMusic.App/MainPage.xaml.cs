@@ -914,7 +914,7 @@ public partial class MainPage : ContentPage
         }
 
         _currentTrack = track;
-        _resumePositionSeconds = 0;
+        _resumePositionSeconds = Math.Max(0, startPositionSeconds);
         _shouldContinuePlayback = autoPlay;
         _isTrackTransitioning = true;
         _pendingSeekSeconds = Math.Max(0, startPositionSeconds);
@@ -1010,6 +1010,10 @@ public partial class MainPage : ContentPage
 
     private void OnPlayPauseClicked(object? sender, EventArgs e)
     {
+#if ANDROID
+        // Modal playback can outlive the page's event subscription and track changes.
+        ApplyAndroidSnapshot(AndroidPlaybackBridge.Snapshot);
+#endif
         if (_currentTrack is null)
         {
             if (_visibleLibrary.Count > 0)
@@ -1033,9 +1037,11 @@ public partial class MainPage : ContentPage
         }
         else
         {
-            _shouldContinuePlayback = true;
-            AndroidPlaybackBridge.Play();
-            PlayPauseButton.Text = "⏸";
+            // A retained page is not proof that the native service/player survived.
+            // Rebuild the queue and player while preserving this collection's position.
+            var snapshot = AndroidPlaybackBridge.Snapshot;
+            var position = snapshot.ResumePositionFor(_currentTrack.Track.Id, _currentTrack.SleepWorld.Id, _resumePositionSeconds);
+            PlayTrack(_currentTrack, userInitiated: true, startPositionSeconds: position);
         }
 #else
         else if (Player.CurrentState == MediaElementState.Playing)
@@ -1578,12 +1584,13 @@ public partial class MainPage : ContentPage
 
     private void StartConfiguredSleepTimerIfNeeded()
     {
-        if (_sleepTimerMinutes <= 0 || _sleepTimerEndUtc is not null)
+        var end = PlaybackSleepDeadline.ForUserStart(_sleepTimerMinutes, _sleepTimerEndUtc, DateTimeOffset.UtcNow);
+        if (end is null || end == _sleepTimerEndUtc)
         {
             return;
         }
         _sleepTimer.Start(TimeSpan.FromMinutes(_sleepTimerMinutes));
-        _sleepTimerEndUtc = DateTimeOffset.UtcNow.AddMinutes(_sleepTimerMinutes);
+        _sleepTimerEndUtc = end;
         SleepTimerLabel.Text = AppText.Format("MinutesRemaining", _sleepTimerMinutes);
         _stateStore.SaveSleepTimer(_sleepTimerMinutes, _sleepTimerEndUtc);
     }
@@ -1785,6 +1792,8 @@ public partial class MainPage : ContentPage
         var androidState = AndroidPlaybackBridge.Snapshot;
         if (!_isSeeking && androidState.TrackId is not null && androidState.Duration > TimeSpan.Zero)
         {
+            if (_currentTrack is { } current)
+                _resumePositionSeconds = androidState.ResumePositionFor(current.Track.Id, current.SleepWorld.Id, _resumePositionSeconds);
             PositionSlider.Maximum = androidState.Duration.TotalSeconds;
             PositionSlider.Value = androidState.Position.TotalSeconds;
             TimeLabel.Text = $"{FormatTime(androidState.Position)} / {FormatTime(androidState.Duration)}";
@@ -1857,7 +1866,7 @@ public partial class MainPage : ContentPage
         var position = _loadedTrackId is null
             ? _resumePositionSeconds
 #if ANDROID
-            : AndroidPlaybackBridge.Snapshot.Position.TotalSeconds;
+            : AndroidPlaybackBridge.Snapshot.ResumePositionFor(currentTrack.Track.Id, currentTrack.SleepWorld.Id, _resumePositionSeconds);
 #else
             : PlaybackTimeline.ToPlaybackTime(Player.Position, currentTrack.Track.PlaybackSpeed, currentTrack.Track.StartOffsetMilliseconds).TotalSeconds;
 #endif
@@ -1989,6 +1998,8 @@ public partial class MainPage : ContentPage
             UpdateNextTrack();
         }
         _shouldContinuePlayback = snapshot.IsPlaying;
+        if (_currentTrack is { } current)
+            _resumePositionSeconds = snapshot.ResumePositionFor(current.Track.Id, current.SleepWorld.Id, _resumePositionSeconds);
         PlayPauseButton.Text = snapshot.IsPlaying ? "⏸" : "▶";
         UpdateWorldPlaybackState(snapshot.IsPlaying);
         if (snapshot.Error is not null)
