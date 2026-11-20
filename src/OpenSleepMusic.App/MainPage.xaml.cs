@@ -624,6 +624,8 @@ public partial class MainPage : ContentPage
 
     private void SelectWorld(SleepWorldCard card, bool persist = true)
     {
+        // Browsing another collection must not change the active player's order.
+        if (_playbackQueue.ActiveWorldId is null) _shuffleEnabled = _stateStore.LoadShuffle(card.World);
         _selectedWorldCard = card;
         foreach (var worldCard in _worldCards)
         {
@@ -736,6 +738,7 @@ public partial class MainPage : ContentPage
         if (!playable.Contains(track)) return;
         _currentTrack = track;
         _playbackQueue.Activate(track.SleepWorld.Id, playable);
+        _shuffleEnabled = _stateStore.LoadShuffle(track.SleepWorld);
         _resumePositionSeconds = Math.Min(saved.PositionSeconds, Math.Max(0, track.Track.PlaybackDurationSeconds - 1));
         PositionSlider.Maximum = Math.Max(1, track.Track.PlaybackDurationSeconds);
         PositionSlider.Value = _resumePositionSeconds;
@@ -888,6 +891,7 @@ public partial class MainPage : ContentPage
     private void PlayTrack(LocalLibraryTrack track, bool userInitiated = false, double startPositionSeconds = 0, bool autoPlay = true)
     {
         if (!ChildSafety.Control.IsCollectionAllowed(track.SleepWorld.Id)) return;
+        _shuffleEnabled = _stateStore.LoadShuffle(track.SleepWorld);
         if (userInitiated)
         {
             _consecutivePlaybackFailures = 0;
@@ -1104,6 +1108,8 @@ public partial class MainPage : ContentPage
         {
             return;
         }
+        // Resolve before choosing the first track, even while a different world plays.
+        _shuffleEnabled = _stateStore.LoadShuffle(tracks[0].SleepWorld);
         var index = _shuffleEnabled && tracks.Count > 1
             ? Random.Shared.Next(tracks.Count)
             : 0;
@@ -1331,6 +1337,8 @@ public partial class MainPage : ContentPage
     {
         try
         {
+            var shuffleWorld = _currentTrack?.SleepWorld ?? _selectedWorldCard?.World;
+            if (shuffleWorld is not null) _shuffleEnabled = _stateStore.LoadShuffle(shuffleWorld);
             var shuffleAction = _shuffleEnabled
                 ? (AppText.IsGerman ? "✓ Zufallswiedergabe ausschalten" : "✓ Disable shuffle")
                 : (AppText.IsGerman ? "Zufallswiedergabe einschalten" : "Enable shuffle");
@@ -1343,16 +1351,17 @@ public partial class MainPage : ContentPage
             var actions = ChildSafety.Control.IsLocked
                 ? new[] { shuffleAction, settingsAction, childSafetyAction, aboutAction }
                 : new[] { shuffleAction, refreshAction, settingsAction, feedbackAction, folderAction, childSafetyAction, aboutAction };
+            if (shuffleWorld is null) actions = actions.Where(item => item != shuffleAction).ToArray();
             var action = await DisplayActionSheetAsync(
                 AppText.IsGerman ? "Menü" : "Menu",
                 AppText.Get("Close"),
                 null,
                 actions);
 
-            if (action == shuffleAction)
+            if (action == shuffleAction && shuffleWorld is not null)
             {
                 _shuffleEnabled = !_shuffleEnabled;
-                _stateStore.SaveShuffle(_shuffleEnabled);
+                _stateStore.SaveShuffle(shuffleWorld.Id, _shuffleEnabled);
 #if ANDROID
                 UpdateAndroidSettings();
 #endif
@@ -1970,6 +1979,7 @@ public partial class MainPage : ContentPage
         if (track is not null && (_currentTrack?.Track.Id != snapshot.TrackId
             || _currentTrack?.SleepWorld.Id != track.SleepWorld.Id))
         {
+            _shuffleEnabled = _stateStore.LoadShuffle(track.SleepWorld);
             if (_playbackQueue.ActiveWorldId != track.SleepWorld.Id)
                 _playbackQueue.Activate(track.SleepWorld.Id, GetPlayableTracks(track.SleepWorld.Id));
             _currentTrack = track;

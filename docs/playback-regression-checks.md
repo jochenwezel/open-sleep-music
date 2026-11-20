@@ -95,6 +95,32 @@ native `MediaPlayer`, service lifecycle, audio focus, or device timer scheduling
 
 ## Collection browsing and navigation
 
+### Collection shuffle defaults
+
+Collections whose complete catalog listening duration exceeds two hours default
+to shuffle. Exactly two hours or less defaults to list order. Include playback
+speed and trim offsets in that duration; downloading only part of a collection,
+favorites-only filtering or blocking a track does not change its default.
+The menu toggle saves an explicit choice for the active collection, or the
+selected collection if no queue is active. Preserve explicit legacy global
+choices until overridden for an individual collection; merely reading an
+automatic default must not save it as a user choice. Catalog ordering is unchanged.
+
+`CollectionShufflePreferenceTests` covers the exact boundary, combined duration,
+speed/trims, independent persisted overrides and legacy choices. On 20 November
+2026, all 320 Core tests and both Windows/Android Release builds passed.
+
+1. Without a saved choice, start a long collection and check random selection of
+   the first and subsequent tracks. Turn shuffle off, restart and revisit it:
+   list order must remain selected. Other long collections keep their own defaults.
+2. Start a shorter collection: list order is the default and can be overridden.
+3. Browse collection B while A plays: A's order must remain active. Starting B
+   must use B's own choice/default, including its initial-track selection.
+4. Repeat with partial downloads, favorite/block filters, child-mode single-world
+   startup, restored playback and Android notification/service restoration.
+
+### Browsing and queue ownership
+
 1. Play collection A, return to the collection list, and inspect collection B without
    pressing Play. Let A's current track end: its next track must still belong to A.
 2. Repeat with an empty collection B. A must remain controllable and playing.

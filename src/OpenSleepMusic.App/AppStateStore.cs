@@ -1,6 +1,7 @@
 using Microsoft.Maui.Storage;
 using OpenSleepMusic.App.Localization;
 using OpenSleepMusic.Core.Catalog;
+using OpenSleepMusic.Core.Playback;
 
 namespace OpenSleepMusic.App;
 
@@ -24,6 +25,7 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
 {
     private const string VolumeKey = "player.volume";
     private const string ShuffleKey = "player.shuffle";
+    private const string CollectionShufflePrefix = "collection.shuffle.";
     private const string RepeatModeKey = "player.repeat-mode";
     private const string SelectedWorldKey = "library.selected-world";
     private const string TimerMinutesKey = "sleep-timer.minutes";
@@ -86,7 +88,18 @@ internal sealed class AppStateStore(IPreferences? preferences = null)
     public bool LoadReducedMotion() => _preferences.Get(ReducedMotionKey, false);
     public void SaveReducedMotion(bool value) => _preferences.Set(ReducedMotionKey, value);
 
-    public void SaveShuffle(bool enabled) => _preferences.Set(ShuffleKey, enabled);
+    public bool LoadShuffle(SleepWorld world)
+    {
+        var key = CollectionShufflePrefix + world.Id;
+        if (_preferences.ContainsKey(key)) return _preferences.Get(key, false);
+        // Old versions only saved this key after an explicit user action.
+        // Preserve that choice, including false, until overridden per collection.
+        if (_preferences.ContainsKey(ShuffleKey)) return _preferences.Get(ShuffleKey, false);
+        return PlaybackOrderDefaults.ShuffleByDefault(world);
+    }
+
+    public void SaveShuffle(string worldId, bool enabled) =>
+        _preferences.Set(CollectionShufflePrefix + worldId, enabled);
 
     public void SaveRepeatMode(PlaybackRepeatMode mode) =>
         _preferences.Set(RepeatModeKey, mode.ToString());
